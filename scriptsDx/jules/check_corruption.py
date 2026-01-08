@@ -4,10 +4,10 @@ import json
 import time
 import sys
 
-# Default target, can be overridden by command line argument
+# Default target - scriptsDx/jules -> scriptsDx -> Dev-Vault -> Doxs
 TARGET_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "Doxs", "Dev Vault (ETERNAL MANUAL)")
 MAX_LINE_LENGTH = 1000
-REPORT_FILE = os.path.join(os.path.dirname(__file__), "..", "reports", "vault_health.json")
+REPORT_FILE = os.path.join(os.path.dirname(__file__), "vault_health.json")
 
 def analyze_file(filepath):
     report = {
@@ -36,7 +36,6 @@ def analyze_file(filepath):
         report["status"] = "corrupted"
         detection = chardet.detect(raw_data)
         report["issues"].append(f"Invalid UTF-8 encoding. Detected: {detection['encoding']}")
-        # Try decoding with latin-1 for further analysis
         try:
             content = raw_data.decode('latin-1', errors='replace')
         except:
@@ -45,7 +44,6 @@ def analyze_file(filepath):
     lines = content.splitlines()
     for i, line in enumerate(lines):
         if len(line) > MAX_LINE_LENGTH:
-            # Only mark as warning, not corruption, unless very severe
             if report["status"] == "clean": 
                 report["status"] = "warning"
             report["issues"].append(f"Line {i+1} length: {len(line)}")
@@ -76,11 +74,9 @@ def main():
                 health_data["files"].append(file_report)
                 health_data["summary"][file_report["status"]] += 1
 
-    # Write JSON report
     with open(REPORT_FILE, 'w', encoding='utf-8') as f:
         json.dump(health_data, f, indent=2)
 
-    # Print summary to console
     print(f"\n--- SCAN COMPLETE ---")
     print(f"Report saved to: {REPORT_FILE}")
     print(f"Clean: {health_data['summary']['clean']}")

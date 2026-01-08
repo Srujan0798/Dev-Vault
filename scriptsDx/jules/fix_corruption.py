@@ -1,7 +1,7 @@
 import os
 from ftfy import fix_text
 
-# Default target - Doxs folder
+# Default target - scriptsDx/jules -> scriptsDx -> Dev-Vault -> Doxs
 TARGET_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "Doxs", "Dev Vault (ETERNAL MANUAL)")
 
 def fix_file(filepath):
@@ -36,6 +36,8 @@ def main():
     count_fixed = 0
     count_error = 0
     count_clean = 0
+    
+    print(f"Scanning {TARGET_DIR}...")
     
     for root, dirs, files in os.walk(TARGET_DIR):
         for file in files:

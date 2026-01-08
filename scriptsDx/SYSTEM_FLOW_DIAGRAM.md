@@ -261,10 +261,8 @@ Rest-iN-U/
     │   ├── sentinel_structure.py
     │   └── sentinel_integrity.py
     │
-    ├── corruption_detection/  ◄─── CORRUPTION CHECKS (7 scripts)
+    ├── corruption_detection/  ◄─── CORRUPTION CHECKS (4 scripts)
     │   ├── check_dev_vault_corruption.py
-    │   ├── check_corruption.py (Jules - encoding check)
-    │   ├── fix_corruption.py (Jules - encoding fixer)
     │   ├── jules_check_corruption.py
     │   ├── jules_fix_corruption.py
     │   └── requirements.txt
@@ -273,9 +271,18 @@ Rest-iN-U/
     │   ├── deep_audit.py
     │   └── quality_audit.py
     │
+    ├── jules/  ◄─── HIGH-END VERIFICATION (Post-AI-Expansion)
+    │   ├── README.md (Usage guide)
+    │   ├── AGENTS_GUIDE.md (AI agent protocol)
+    │   ├── check_corruption.py (Deep encoding check)
+    │   ├── fix_corruption.py (Encoding fixer with ftfy)
+    │   ├── generate_manifest.py (File checksums)
+    │   ├── vault_health.json (Last health report)
+    │   └── vault_manifest.json (File manifest)
+    │
     └── reports/  ◄─── REPORTS (Auto-generated & cleaned)
         ├── MASTER_SUMMARY.json  (Kept)
-        └── (58 .txt files - auto-deleted after analysis)
+        └── (.txt files - auto-deleted after analysis)
 ```
 
 ---

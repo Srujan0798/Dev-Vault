@@ -1,55 +1,56 @@
 # SYSTEM DESIGN
 ## Table of Contents
 
-- [TABLE OF CONTENTS](#table-of-contents)
+- [Table of Contents](#table-of-contents)
+- [08_SYSTEM_DESIGN.MD: THE TITAN GUIDE (50K TARGET)](#08systemdesignmd-the-titan-guide-50k-target)
 - [Production-Grade Distributed Systems, Consistency, and Scalability](#production-grade-distributed-systems-consistency-and-scalability)
-  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
 - [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
-  - [1. THE "THUNDERING HERD"](#1-the-thundering-herd)
-    - [How Facebook Crashed Itself](#how-facebook-crashed-itself)
-  - [2. THE "SPLIT BRAIN"](#2-the-split-brain)
-    - [GitHub's Data Inconsistency](#githubs-data-inconsistency)
+- [1. THE "THUNDERING HERD"](#1-the-thundering-herd)
+  - [How Facebook Crashed Itself](#how-facebook-crashed-itself)
+- [2. THE "SPLIT BRAIN"](#2-the-split-brain)
+  - [GitHub's Data Inconsistency](#githubs-data-inconsistency)
 - [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
-  - [7. CONSISTENT HASHING](#7-consistent-hashing)
-    - [Ring Architecture](#ring-architecture)
+- [7. CONSISTENT HASHING](#7-consistent-hashing)
+  - [Ring Architecture](#ring-architecture)
 - [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
-  - [9. GOSSIP PROTOCOLS](#9-gossip-protocols)
-    - [Epidemic Algorithms](#epidemic-algorithms)
-  - [10. BLOOM FILTERS](#10-bloom-filters)
-    - [Probabilistic Data Structures](#probabilistic-data-structures)
-  - [11. CRDTS (CONFLICT-FREE REPLICATED DATA TYPES)](#11-crdts-conflict-free-replicated-data-types)
-    - [Collaborative Editing (Google Docs / Figma)](#collaborative-editing-google-docs-figma)
-  - [12. HYPERLOGLOG](#12-hyperloglog)
-    - [Cardinality Estimation](#cardinality-estimation)
+- [9. GOSSIP PROTOCOLS](#9-gossip-protocols)
+  - [Epidemic Algorithms](#epidemic-algorithms)
+- [10. BLOOM FILTERS](#10-bloom-filters)
+  - [Probabilistic Data Structures](#probabilistic-data-structures)
+- [11. CRDTS (CONFLICT-FREE REPLICATED DATA TYPES)](#11-crdts-conflict-free-replicated-data-types)
+  - [Collaborative Editing (Google Docs / Figma)](#collaborative-editing-google-docs--figma)
+- [12. HYPERLOGLOG](#12-hyperloglog)
+  - [Cardinality Estimation](#cardinality-estimation)
 - [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
-  - [13. RAFT CONSENSUS ALGORITHM](#13-raft-consensus-algorithm)
-    - [Leader Election](#leader-election)
-  - [14. GEO-REPLICATION](#14-geo-replication)
-    - [Active-Active vs Active-Passive](#active-active-vs-active-passive)
-  - [15. BACKPRESSURE HANDLING](#15-backpressure-handling)
-    - [Don't Drown the Consumer](#dont-drown-the-consumer)
+- [13. RAFT CONSENSUS ALGORITHM](#13-raft-consensus-algorithm)
+  - [Leader Election](#leader-election)
+- [14. GEO-REPLICATION](#14-geo-replication)
+  - [Active-Active vs Active-Passive](#active-active-vs-active-passive)
+- [15. BACKPRESSURE HANDLING](#15-backpressure-handling)
+  - [Don't Drown the Consumer](#dont-drown-the-consumer)
 - [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
-  - [17. LMAX DISRUPTOR](#17-lmax-disruptor)
-    - [Ring Buffer & Mechanical Sympathy](#ring-buffer-mechanical-sympathy)
-  - [18. KERNEL BYPASS NETWORKING (DPDK)](#18-kernel-bypass-networking-dpdk)
-    - [Data Plane Development Kit](#data-plane-development-kit)
-  - [20. MECHANICAL SYMPATHY](#20-mechanical-sympathy)
-    - [Understanding the Hardware](#understanding-the-hardware)
+- [17. LMAX DISRUPTOR](#17-lmax-disruptor)
+  - [Ring Buffer & Mechanical Sympathy](#ring-buffer--mechanical-sympathy)
+- [18. KERNEL BYPASS NETWORKING (DPDK)](#18-kernel-bypass-networking-dpdk)
+  - [Data Plane Development Kit](#data-plane-development-kit)
+- [20. MECHANICAL SYMPATHY](#20-mechanical-sympathy)
+  - [Understanding the Hardware](#understanding-the-hardware)
 - [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
-  - [21. QUANTUM NETWORKING](#21-quantum-networking)
-    - [Entanglement & QKD](#entanglement-qkd)
-  - [22. DNA STORAGE SYSTEMS](#22-dna-storage-systems)
-    - [The Ultimate Archive](#the-ultimate-archive)
+- [21. QUANTUM NETWORKING](#21-quantum-networking)
+  - [Entanglement & QKD](#entanglement--qkd)
+- [22. DNA STORAGE SYSTEMS](#22-dna-storage-systems)
+  - [The Ultimate Archive](#the-ultimate-archive)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-  - [A. THE ULTIMATE SYSTEM DESIGN CHECKLIST](#a-the-ultimate-system-design-checklist)
-  - [B. THE ULTIMATE CAPACITY PLANNING SHEET](#b-the-ultimate-capacity-planning-sheet)
+- [A. THE ULTIMATE SYSTEM DESIGN CHECKLIST](#a-the-ultimate-system-design-checklist)
+- [B. THE ULTIMATE CAPACITY PLANNING SHEET](#b-the-ultimate-capacity-planning-sheet)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+- [Each line = 100x LLM expansion potential](#each-line--100x-llm-expansion-potential)
 - [FUNDAMENTAL THEOREMS](#fundamental-theorems)
 - [CONSENSUS ALGORITHMS](#consensus-algorithms)
 - [DATA STRUCTURES (DISTRIBUTED)](#data-structures-distributed)
@@ -63,158 +64,159 @@
 - [SCALABILITY PATTERNS](#scalability-patterns)
 - [WORLD SYSTEM DESIGNS](#world-system-designs)
 - [ADVANCED CONCEPTS](#advanced-concepts)
-  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
-    - [EXPANSION QUEUE](#expansion-queue)
+- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+  - [EXPANSION QUEUE](#expansion-queue)
 - [GOOGLE SPANNER DEEP ATLAS](#google-spanner-deep-atlas)
-  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
-  - [TrueTime](#truetime)
-  - [Architecture](#architecture)
-  - [Use Cases](#use-cases)
+- [Each keyword = expandable implementation](#each-keyword--expandable-implementation)
+- [TrueTime](#truetime)
+- [Architecture](#architecture)
+- [Use Cases](#use-cases)
 - [AMAZON DYNAMO DEEP ATLAS](#amazon-dynamo-deep-atlas)
-  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern)
-  - [Design Principles](#design-principles)
-  - [Consistency](#consistency)
-  - [Partitioning](#partitioning)
-  - [Quorum](#quorum)
+- [Each keyword = expandable pattern](#each-keyword--expandable-pattern)
+- [Design Principles](#design-principles)
+- [Consistency](#consistency)
+- [Partitioning](#partitioning)
+- [Quorum](#quorum)
 - [CASSANDRA DEEP ATLAS](#cassandra-deep-atlas)
-  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration)
-  - [Data Model](#data-model)
-  - [Architecture](#architecture-1)
-  - [Consistency](#consistency-1)
-  - [Performance](#performance)
+- [Each keyword = expandable configuration](#each-keyword--expandable-configuration)
+- [Data Model](#data-model)
+- [Architecture](#architecture-1)
+- [Consistency](#consistency-1)
+- [Performance](#performance)
 - [MONGODB DEEP ATLAS](#mongodb-deep-atlas)
-  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern-1)
-  - [Document Model](#document-model)
-  - [Replica Sets](#replica-sets)
-  - [Sharding](#sharding)
-  - [Indexes](#indexes)
+- [Each keyword = expandable pattern](#each-keyword--expandable-pattern-1)
+- [Document Model](#document-model)
+- [Replica Sets](#replica-sets)
+- [Sharding](#sharding)
+- [Indexes](#indexes)
 - [REDIS DEEP ATLAS](#redis-deep-atlas)
-  - [Each keyword = expandable internals](#each-keyword-expandable-internals)
-  - [Data Structures](#data-structures)
-  - [Persistence](#persistence)
-  - [Cluster](#cluster)
-  - [Performance](#performance-1)
+- [Each keyword = expandable internals](#each-keyword--expandable-internals)
+- [Data Structures](#data-structures)
+- [Persistence](#persistence)
+- [Cluster](#cluster)
+- [Performance](#performance-1)
 - [ELASTICSEARCH DEEP ATLAS](#elasticsearch-deep-atlas)
-  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration-1)
-  - [Indexing](#indexing)
-  - [Search](#search)
-  - [Scaling](#scaling)
-  - [Performance](#performance-2)
+- [Each keyword = expandable configuration](#each-keyword--expandable-configuration-1)
+- [Indexing](#indexing)
+- [Search](#search)
+- [Scaling](#scaling)
+- [Performance](#performance-2)
 - [CLICKHOUSE DEEP ATLAS](#clickhouse-deep-atlas)
-  - [Each keyword = expandable optimization](#each-keyword-expandable-optimization)
-  - [Architecture](#architecture-2)
-  - [Data Types](#data-types)
-  - [Query Patterns](#query-patterns)
-  - [Performance](#performance-3)
+- [Each keyword = expandable optimization](#each-keyword--expandable-optimization)
+- [Architecture](#architecture-2)
+- [Data Types](#data-types)
+- [Query Patterns](#query-patterns)
+- [Performance](#performance-3)
 - [SERIES DEEP ATLAS](#series-deep-atlas)
-  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern-2)
-  - [InfluxDB](#influxdb)
-  - [TimescaleDB](#timescaledb)
-  - [Use Cases](#use-cases-1)
+- [Each keyword = expandable pattern](#each-keyword--expandable-pattern-2)
+- [InfluxDB](#influxdb)
+- [TimescaleDB](#timescaledb)
+- [Use Cases](#use-cases-1)
 - [GRAPH DATABASE DEEP ATLAS](#graph-database-deep-atlas)
-  - [Each keyword = expandable algorithm](#each-keyword-expandable-algorithm)
-  - [Neo4j](#neo4j)
-  - [Cypher Queries](#cypher-queries)
-  - [Algorithms](#algorithms)
-  - [Use Cases](#use-cases-2)
+- [Each keyword = expandable algorithm](#each-keyword--expandable-algorithm)
+- [Neo4j](#neo4j)
+- [Cypher Queries](#cypher-queries)
+- [Algorithms](#algorithms)
+- [Use Cases](#use-cases-2)
 - [VECTOR DATABASE DEEP ATLAS](#vector-database-deep-atlas)
-  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation-1)
-  - [Pinecone](#pinecone)
-  - [Weaviate](#weaviate)
-  - [pgvector](#pgvector)
-  - [Similarity](#similarity)
-    - [END OF MEGA SYSTEM DESIGN EXPANSION](#end-of-mega-system-design-expansion)
+- [Each keyword = expandable implementation](#each-keyword--expandable-implementation-1)
+- [Pinecone](#pinecone)
+- [Weaviate](#weaviate)
+- [pgvector](#pgvector)
+- [Similarity](#similarity)
+  - [END OF MEGA SYSTEM DESIGN EXPANSION](#end-of-mega-system-design-expansion)
 - [LOAD BALANCING DEEP ATLAS](#load-balancing-deep-atlas)
-  - [Each keyword = expandable algorithm](#each-keyword-expandable-algorithm-1)
-  - [Algorithms](#algorithms-1)
-  - [Layer 4 vs Layer 7](#layer-4-vs-layer-7)
-  - [Technologies](#technologies)
-  - [Patterns](#patterns)
+- [Each keyword = expandable algorithm](#each-keyword--expandable-algorithm-1)
+- [Algorithms](#algorithms-1)
+- [Layer 4 vs Layer 7](#layer-4-vs-layer-7)
+- [Technologies](#technologies)
+- [Patterns](#patterns)
 - [CACHING STRATEGIES DEEP ATLAS](#caching-strategies-deep-atlas)
-  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern-3)
-  - [Cache Patterns](#cache-patterns)
-  - [Cache Invalidation](#cache-invalidation)
-  - [Distributed Cache](#distributed-cache)
-  - [Cache Issues](#cache-issues)
+- [Each keyword = expandable pattern](#each-keyword--expandable-pattern-3)
+- [Cache Patterns](#cache-patterns)
+- [Cache Invalidation](#cache-invalidation)
+- [Distributed Cache](#distributed-cache)
+- [Cache Issues](#cache-issues)
 - [MESSAGE QUEUES DEEP ATLAS](#message-queues-deep-atlas)
-  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern-4)
-  - [Queue Types](#queue-types)
-  - [Message Patterns](#message-patterns)
-  - [Technologies](#technologies-1)
-  - [Guarantees](#guarantees)
+- [Each keyword = expandable pattern](#each-keyword--expandable-pattern-4)
+- [Queue Types](#queue-types)
+- [Message Patterns](#message-patterns)
+- [Technologies](#technologies-1)
+- [Guarantees](#guarantees)
 - [API GATEWAY DEEP ATLAS](#api-gateway-deep-atlas)
-  - [Each keyword = expandable feature](#each-keyword-expandable-feature)
-  - [Core Features](#core-features)
-  - [Technologies](#technologies-2)
-  - [Patterns](#patterns-1)
-  - [Security](#security)
+- [Each keyword = expandable feature](#each-keyword--expandable-feature)
+- [Core Features](#core-features)
+- [Technologies](#technologies-2)
+- [Patterns](#patterns-1)
+- [Security](#security)
 - [RATE LIMITING DEEP ATLAS](#rate-limiting-deep-atlas)
-  - [Each keyword = expandable algorithm](#each-keyword-expandable-algorithm-2)
-  - [Algorithms](#algorithms-2)
-  - [Implementation](#implementation)
-  - [Strategies](#strategies)
-  - [Responses](#responses)
+- [Each keyword = expandable algorithm](#each-keyword--expandable-algorithm-2)
+- [Algorithms](#algorithms-2)
+- [Implementation](#implementation)
+- [Strategies](#strategies)
+- [Responses](#responses)
 - [CONSISTENCY PATTERNS DEEP ATLAS](#consistency-patterns-deep-atlas)
-  - [Each keyword = expandable tradeoff](#each-keyword-expandable-tradeoff)
-  - [Consistency Models](#consistency-models-1)
-  - [Consensus Algorithms](#consensus-algorithms-1)
-  - [Conflict Resolution](#conflict-resolution)
-  - [Patterns](#patterns-2)
+- [Each keyword = expandable tradeoff](#each-keyword--expandable-tradeoff)
+- [Consistency Models](#consistency-models-1)
+- [Consensus Algorithms](#consensus-algorithms-1)
+- [Conflict Resolution](#conflict-resolution)
+- [Patterns](#patterns-2)
 - [OBSERVABILITY DESIGN DEEP ATLAS](#observability-design-deep-atlas)
-  - [Each keyword = expandable practice](#each-keyword-expandable-practice)
-  - [Three Pillars](#three-pillars)
-  - [Instrumentation](#instrumentation)
-  - [Correlation](#correlation)
-  - [Dashboards](#dashboards)
-    - [END OF ULTRA SYSTEM DESIGN EXPANSION](#end-of-ultra-system-design-expansion)
-    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+- [Each keyword = expandable practice](#each-keyword--expandable-practice)
+- [Three Pillars](#three-pillars)
+- [Instrumentation](#instrumentation)
+- [Correlation](#correlation)
+- [Dashboards](#dashboards)
+  - [END OF ULTRA SYSTEM DESIGN EXPANSION](#end-of-ultra-system-design-expansion)
+  - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
 - [SYSTEM DESIGN CODE EXAMPLES](#system-design-code-examples)
 - [DISTRIBUTED PATTERNS](#distributed-patterns)
-  - [Circuit Breaker Implementation](#circuit-breaker-implementation)
-  - [Retry with Exponential Backoff](#retry-with-exponential-backoff)
+- [Circuit Breaker Implementation](#circuit-breaker-implementation)
+- [Retry with Exponential Backoff](#retry-with-exponential-backoff)
 - [DATABASE SHARDING](#database-sharding)
-  - [Consistent Hashing](#consistent-hashing)
+- [Consistent Hashing](#consistent-hashing)
 - [EVENT SOURCING](#event-sourcing)
-  - [Event Store Implementation](#event-store-implementation)
+- [Event Store Implementation](#event-store-implementation)
 - [RATE LIMITER](#rate-limiter)
-  - [Token Bucket Algorithm](#token-bucket-algorithm)
-    - [CONTINUED: MORE DESIGN PATTERNS](#continued-more-design-patterns)
+- [Token Bucket Algorithm](#token-bucket-algorithm)
+  - [CONTINUED: MORE DESIGN PATTERNS](#continued-more-design-patterns)
 - [CACHING STRATEGIES](#caching-strategies)
-  - [Multi-Layer Cache](#multi-layer-cache)
-  - [Cache-Aside Pattern](#cache-aside-pattern)
+- [Multi-Layer Cache](#multi-layer-cache)
+- [Cache-Aside Pattern](#cache-aside-pattern)
 - [LOAD BALANCING](#load-balancing)
-  - [Connection Pooling](#connection-pooling)
+- [Connection Pooling](#connection-pooling)
 - [DATABASE PATTERNS](#database-patterns)
-  - [Repository Pattern](#repository-pattern)
+- [Repository Pattern](#repository-pattern)
 - [SAGA PATTERN](#saga-pattern)
-  - [Distributed Transaction](#distributed-transaction)
-    - [CONTINUED: MORE SYSTEM DESIGN](#continued-more-system-design)
+- [Distributed Transaction](#distributed-transaction)
+  - [CONTINUED: MORE SYSTEM DESIGN](#continued-more-system-design)
 - [DISTRIBUTED SYSTEMS DEEP DIVE](#distributed-systems-deep-dive)
 - [WORLD EDGE CASES](#world-edge-cases)
-  - [The Partition Decision](#the-partition-decision)
+- [The Partition Decision](#the-partition-decision)
 - [NETFLIX ARCHITECTURE PATTERNS](#netflix-architecture-patterns)
-  - [Chaos Engineering Implementation](#chaos-engineering-implementation)
+- [Chaos Engineering Implementation](#chaos-engineering-implementation)
 - [TIME AT SCALE](#time-at-scale)
-  - [Ringpop: Consistent Hashing with Gossip](#ringpop-consistent-hashing-with-gossip)
-    - [[PRINCIPAL ENGINEER LEVEL] CONTINUED: MORE ARCHITECTURE PATTERNS](#principal-engineer-level-continued-more-architecture-patterns)
-    - [Density: Netflix/Uber/Google engineering paper quality](#density-netflixubergoogle-engineering-paper-quality)
+- [Ringpop: Consistent Hashing with Gossip](#ringpop-consistent-hashing-with-gossip)
+  - [[PRINCIPAL ENGINEER LEVEL] CONTINUED: MORE ARCHITECTURE PATTERNS](#principal-engineer-level-continued-more-architecture-patterns)
+  - [Density: Netflix/Uber/Google engineering paper quality](#density-netflixubergoogle-engineering-paper-quality)
 - [MICROSERVICES ARCHITECTURE](#microservices-architecture)
 - [Service Decomposition Patterns](#service-decomposition-patterns)
-  - [Strangler Fig Pattern](#strangler-fig-pattern)
-  - [Domain-Driven Design Boundaries](#domain-driven-design-boundaries)
+- [Strangler Fig Pattern](#strangler-fig-pattern)
+- [Domain-Driven Design Boundaries](#domain-driven-design-boundaries)
 - [Service Communication Patterns](#service-communication-patterns)
-  - [Synchronous Communication](#synchronous-communication)
-  - [Asynchronous Communication](#asynchronous-communication)
+- [Synchronous Communication](#synchronous-communication)
+- [Asynchronous Communication](#asynchronous-communication)
 - [Saga Pattern](#saga-pattern-1)
-  - [Orchestration Saga](#orchestration-saga)
+- [Orchestration Saga](#orchestration-saga)
 - [Service Mesh](#service-mesh)
 - [DISTRIBUTED TRACING](#distributed-tracing)
 - [OpenTelemetry Integration](#opentelemetry-integration)
 - [SCALING STRATEGIES](#scaling-strategies)
 - [Horizontal Scaling Patterns](#horizontal-scaling-patterns)
 - [Auto-Scaling Configuration](#auto-scaling-configuration)
+- [Kubernetes HPA (Horizontal Pod Autoscaler)](#kubernetes-hpa-horizontal-pod-autoscaler)
 - [[STAFF ENGINEER LEVEL] CONTINUED: MORE DISTRIBUTED PATTERNS](#staff-engineer-level-continued-more-distributed-patterns)
-  - [Coverage: Microservices, Service Mesh, Tracing, Scaling, Saga, DDD](#coverage-microservices-service-mesh-tracing-scaling-saga-ddd)
+- [Coverage: Microservices, Service Mesh, Tracing, Scaling, Saga, DDD](#coverage-microservices-service-mesh-tracing-scaling-saga-ddd)
 - [SYSTEM DESIGN PATTERNS](#system-design-patterns)
 - [Rate Limiter Design](#rate-limiter-design)
 - [URL Shortener Design](#url-shortener-design)
@@ -238,165 +240,411 @@
 - [LOAD BALANCING PATTERNS](#load-balancing-patterns)
 - [Strategies](#strategies-1)
 - [AWS ALB Configuration](#aws-alb-configuration)
+- [terraform](#terraform)
 - [Health Checks](#health-checks)
 - [EVENT SOURCING BASICS](#event-sourcing-basics)
 - [Concept](#concept)
 - [Event Store](#event-store)
 - [Aggregate Reconstruction](#aggregate-reconstruction)
 - [VOLUME 7: SYSTEM DESIGN INCIDENTS (Real Company Stories)](#volume-7-system-design-incidents-real-company-stories)
-  - [1. TWITTER FAIL WHALE - 10M USERS](#1-twitter-fail-whale---10m-users)
-    - [Production Incident from Twitter (LEGENDARY)](#production-incident-from-twitter-legendary)
-  - [2. REDDIT - HUGGED TO DEATH](#2-reddit---hugged-to-death)
-    - [Production Incident from Reddit (12,400+ upvotes)](#production-incident-from-reddit-12400-upvotes)
+- [1. TWITTER FAIL WHALE - 10M USERS](#1-twitter-fail-whale---10m-users)
+  - [Production Incident from Twitter (LEGENDARY)](#production-incident-from-twitter-legendary)
+- [2. REDDIT - HUGGED TO DEATH](#2-reddit---hugged-to-death)
+  - [Production Incident from Reddit (12,400+ upvotes)](#production-incident-from-reddit-12400-upvotes)
+- [1000 requests 1 DB hit every 5 min](#1000-requests-1-db-hit-every-5-min)
 - [3. SLACK - SHARDING FAILURE](#3-slack---sharding-failure)
-  - [Production Incident from Slack (8,900+ upvotes)](#production-incident-from-slack-8900-upvotes)
-  - [4. PINTEREST - CASCADE FAILURE](#4-pinterest---cascade-failure)
-    - [Production Incident from Pinterest (7,600+ upvotes)](#production-incident-from-pinterest-7600-upvotes)
-    - [END OF VOLUME 7: SYSTEM DESIGN INCIDENTS](#end-of-volume-7-system-design-incidents)
+- [Production Incident from Slack (8,900+ upvotes)](#production-incident-from-slack-8900-upvotes)
+- [4. PINTEREST - CASCADE FAILURE](#4-pinterest---cascade-failure)
+  - [Production Incident from Pinterest (7,600+ upvotes)](#production-incident-from-pinterest-7600-upvotes)
+  - [END OF VOLUME 7: SYSTEM DESIGN INCIDENTS](#end-of-volume-7-system-design-incidents)
 - [VOLUME 4.1: ADVANCED SYSTEM DESIGN PATTERNS (FAANG-Level)](#volume-41-advanced-system-design-patterns-faang-level)
-  - [5. CAP THEOREM (YOU CAN'T HAVE IT ALL)](#5-cap-theorem-you-cant-have-it-all)
-    - [Production Reality from Amazon DynamoDB Engineers](#production-reality-from-amazon-dynamodb-engineers)
+- [5. CAP THEOREM (YOU CAN'T HAVE IT ALL)](#5-cap-theorem-you-cant-have-it-all)
+  - [Production Reality from Amazon DynamoDB Engineers](#production-reality-from-amazon-dynamodb-engineers)
+- [CP Systems (Consistency + Partition Tolerance)](#cp-systems-consistency--partition-tolerance)
+- [Use when: Correctness > Availability](#use-when-correctness--availability)
+- [Examples: Banking, HBase, ZooKeeper](#examples-banking-hbase-zookeeper)
+- [Bank transfer - MUST be consistent](#bank-transfer---must-be-consistent)
+- [Use ACID transaction](#use-acid-transaction)
+- [If can't guarantee consistency Reject](#if-cant-guarantee-consistency-reject)
+- [AP Systems (Availability + Partition Tolerance)](#ap-systems-availability--partition-tolerance)
+- [Use when: Availability > Consistency](#use-when-availability--consistency)
+- [Examples: Instagram likes, Cassandra, DynamoDB](#examples-instagram-likes-cassandra-dynamodb)
+- [Social likes - OK if eventually consistent](#social-likes---ok-if-eventually-consistent)
+- [Fire and forget - user can continue](#fire-and-forget---user-can-continue)
 - [6. HORIZONTAL VS VERTICAL SCALING](#6-horizontal-vs-vertical-scaling)
-  - [Production Incident from Reddit (11,400+ upvotes)](#production-incident-from-reddit-11400-upvotes)
+- [Production Incident from Reddit (11,400+ upvotes)](#production-incident-from-reddit-11400-upvotes)
+- [NOT SCALABLE - State in memory](#not-scalable---state-in-memory)
+- [SCALABLE - State externalized](#scalable---state-externalized)
+- [Works with 1 server or 1000 servers!](#works-with-1-server-or-1000-servers)
 - [7. DATABASE SHARDING](#7-database-sharding)
-  - [Production Implementation from Instagram (14,800+ upvotes)](#production-implementation-from-instagram-14800-upvotes)
+- [Production Implementation from Instagram (14,800+ upvotes)](#production-implementation-from-instagram-14800-upvotes)
+- [Consistent Hashing (best for dynamic sharding)](#consistent-hashing-best-for-dynamic-sharding)
+- [Adding/removing shards only moves ~1/N data!](#addingremoving-shards-only-moves-1n-data)
 - [8. MICROSERVICES VS MONOLITH](#8-microservices-vs-monolith)
-  - [Production Experience from Amazon (18,200+ upvotes)](#production-experience-from-amazon-18200-upvotes)
+- [Production Experience from Amazon (18,200+ upvotes)](#production-experience-from-amazon-18200-upvotes)
+- [Async Events (loose coupling)](#async-events-loose-coupling)
+- [Fire and forget - don't wait](#fire-and-forget---dont-wait)
+- [EmailService, AnalyticsService listen independently](#emailservice-analyticsservice-listen-independently)
+- [If email fails user still created!](#if-email-fails-user-still-created)
 - [9. DISTRIBUTED LOCKS](#9-distributed-locks)
-  - [Production Pattern from Redis](#production-pattern-from-redis)
+- [Production Pattern from Redis](#production-pattern-from-redis)
+- [Redis Distributed Lock](#redis-distributed-lock)
+- [Usage](#usage)
 - [10. RATE LIMITING ALGORITHMS](#10-rate-limiting-algorithms)
-  - [Production Pattern from Stripe](#production-pattern-from-stripe)
+- [Production Pattern from Stripe](#production-pattern-from-stripe)
+- [TOKEN BUCKET (most common)](#token-bucket-most-common)
+- [SLIDING WINDOW LOG](#sliding-window-log)
 - [11. SAGA PATTERN (Distributed Transactions)](#11-saga-pattern-distributed-transactions)
-  - [Production Pattern from Netflix](#production-pattern-from-netflix)
+- [Production Pattern from Netflix](#production-pattern-from-netflix)
+- [Saga with Compensating Transactions](#saga-with-compensating-transactions)
 - [12. BLOOM FILTERS](#12-bloom-filters)
-  - [Production Pattern from Google](#production-pattern-from-google)
+- [Production Pattern from Google](#production-pattern-from-google)
+- [Space-efficient set membership check](#space-efficient-set-membership-check)
+- [Check if user exists - fast!](#check-if-user-exists---fast)
 - [13. CONSENSUS (RAFT)](#13-consensus-raft)
-  - [Production Pattern for Distributed Systems](#production-pattern-for-distributed-systems)
+- [Production Pattern for Distributed Systems](#production-pattern-for-distributed-systems)
+- [Raft Leader Election](#raft-leader-election)
 - [END OF VOLUME 8: ADVANCED SYSTEM DESIGN PATTERNS](#end-of-volume-8-advanced-system-design-patterns)
 - [VOLUME 1.2: SYSTEM DESIGN CRITICAL PATTERNS (FAANG) (FAANG Interviews)](#volume-12-system-design-critical-patterns-faang-faang-interviews)
-  - [1. CAP THEOREM (Amazon DynamoDB Engineers)](#1-cap-theorem-amazon-dynamodb-engineers)
-  - [2. HORIZONTAL SCALING (Reddit 11,400+ upvotes)](#2-horizontal-scaling-reddit-11400-upvotes)
-  - [3. DATABASE SHARDING (Instagram 14,800+ upvotes)](#3-database-sharding-instagram-14800-upvotes)
-  - [4. MICROSERVICES VS MONOLITH (Amazon 18,200+ upvotes)](#4-microservices-vs-monolith-amazon-18200-upvotes)
-  - [5. LOAD BALANCING ALGORITHMS](#5-load-balancing-algorithms)
-  - [6. CACHING (Multi-Level)](#6-caching-multi-level)
-  - [7. DISTRIBUTED LOCKS (Redis)](#7-distributed-locks-redis)
-  - [8. SAGA PATTERN](#8-saga-pattern)
-    - [END OF VOLUME 9: SYSTEM DESIGN PATTERNS](#end-of-volume-9-system-design-patterns)
+- [1. CAP THEOREM (Amazon DynamoDB Engineers)](#1-cap-theorem-amazon-dynamodb-engineers)
+- [2. HORIZONTAL SCALING (Reddit 11,400+ upvotes)](#2-horizontal-scaling-reddit-11400-upvotes)
+- [3. DATABASE SHARDING (Instagram 14,800+ upvotes)](#3-database-sharding-instagram-14800-upvotes)
+- [4. MICROSERVICES VS MONOLITH (Amazon 18,200+ upvotes)](#4-microservices-vs-monolith-amazon-18200-upvotes)
+- [5. LOAD BALANCING ALGORITHMS](#5-load-balancing-algorithms)
+- [6. CACHING (Multi-Level)](#6-caching-multi-level)
+- [7. DISTRIBUTED LOCKS (Redis)](#7-distributed-locks-redis)
+- [8. SAGA PATTERN](#8-saga-pattern)
+  - [END OF VOLUME 9: SYSTEM DESIGN PATTERNS](#end-of-volume-9-system-design-patterns)
 - [VOLUME 1.3: TITAN PROTOCOL - SYSTEM DESIGN CAP](#volume-13-titan-protocol---system-design-cap)
-  - [RAFT SPLIT-BRAIN & LEADER ELECTION STORMS](#raft-split-brain-leader-election-storms)
-    - [etcd Cluster Scar](#etcd-cluster-scar)
+- [RAFT SPLIT-BRAIN & LEADER ELECTION STORMS](#raft-split-brain--leader-election-storms)
+  - [etcd Cluster Scar](#etcd-cluster-scar)
+- [? TITAN Config: etcd tuning](#-titan-config-etcd-tuning)
 - [END OF VOLUME 1.3: TITAN SYSTEM DESIGN CAP](#end-of-volume-13-titan-system-design-cap)
 - [VOLUME 4.2: TITAN PROTOCOL - DISTRIBUTED CONSENSUS DEEP DIVE](#volume-42-titan-protocol---distributed-consensus-deep-dive)
-  - [RAFT SPLIT-BRAIN RECOVERY](#raft-split-brain-recovery)
-    - [Elasticsearch Production Scar](#elasticsearch-production-scar)
-    - [etcd Leader Election Storm](#etcd-leader-election-storm)
-  - [CRDTs: THE GARBAGE COLLECTION PROBLEM](#crdts-the-garbage-collection-problem)
-    - [Collaborative Apps Scar (Figma-style)](#collaborative-apps-scar-figma-style)
-  - [HNSW INDEX CORRUPTION](#hnsw-index-corruption)
-    - [Vector Database Scar](#vector-database-scar)
-    - [END OF VOLUME 4.2: TITAN DISTRIBUTED CONSENSUS](#end-of-volume-42-titan-distributed-consensus)
-- [VOLUME 4.3: TITAN VAULT - CACHE STAMPEDE & PRE-VOTE](#volume-43-titan-vault---cache-stampede-pre-vote)
-  - [CACHE STAMPEDE (THUNDERING HERD)](#cache-stampede-thundering-herd)
-    - [Cache Expiration Scar](#cache-expiration-scar)
-    - [Titan Mitigation](#titan-mitigation)
-  - [RAFT PRE-VOTE PHASE](#raft-pre-vote-phase)
-    - [Network Partition Recovery Scar](#network-partition-recovery-scar)
-    - [Titan Fix](#titan-fix)
-    - [END OF VOLUME 4.3: TITAN DISTRIBUTED SYSTEMS DEEP](#end-of-volume-43-titan-distributed-systems-deep)
+- [RAFT SPLIT-BRAIN RECOVERY](#raft-split-brain-recovery)
+  - [Elasticsearch Production Scar](#elasticsearch-production-scar)
+  - [etcd Leader Election Storm](#etcd-leader-election-storm)
+- [CRDTs: THE GARBAGE COLLECTION PROBLEM](#crdts-the-garbage-collection-problem)
+  - [Collaborative Apps Scar (Figma-style)](#collaborative-apps-scar-figma-style)
+- [HNSW INDEX CORRUPTION](#hnsw-index-corruption)
+  - [Vector Database Scar](#vector-database-scar)
+  - [END OF VOLUME 4.2: TITAN DISTRIBUTED CONSENSUS](#end-of-volume-42-titan-distributed-consensus)
+- [VOLUME 4.3: TITAN VAULT - CACHE STAMPEDE & PRE-VOTE](#volume-43-titan-vault---cache-stampede--pre-vote)
+- [CACHE STAMPEDE (THUNDERING HERD)](#cache-stampede-thundering-herd)
+  - [Cache Expiration Scar](#cache-expiration-scar)
+  - [Titan Mitigation](#titan-mitigation)
+- [RAFT PRE-VOTE PHASE](#raft-pre-vote-phase)
+  - [Network Partition Recovery Scar](#network-partition-recovery-scar)
+  - [Titan Fix](#titan-fix)
+  - [END OF VOLUME 4.3: TITAN DISTRIBUTED SYSTEMS DEEP](#end-of-volume-43-titan-distributed-systems-deep)
 - [VOLUME 4.4: TITAN VAULT - DISTRIBUTED MESSAGING DEEP](#volume-44-titan-vault---distributed-messaging-deep)
-  - [RABBITMQ PAUSE_MINORITY STRATEGY](#rabbitmq-pause_minority-strategy)
-    - [Network Partition Scar](#network-partition-scar)
-  - [KAFKA ZERO-COPY & ASSIGNMENT](#kafka-zero-copy-assignment)
-    - [Straggler Broker Scar](#straggler-broker-scar)
-    - [Titan Fixes](#titan-fixes)
-  - [ELASTICSEARCH SPLIT-BRAIN](#elasticsearch-split-brain)
-    - [Cluster Fracture Scar](#cluster-fracture-scar)
-    - [Titan Architecture](#titan-architecture)
-    - [END OF VOLUME 4.4: TITAN DISTRIBUTED MESSAGING](#end-of-volume-44-titan-distributed-messaging)
+- [RABBITMQ PAUSE_MINORITY STRATEGY](#rabbitmq-pauseminority-strategy)
+  - [Network Partition Scar](#network-partition-scar)
+- [KAFKA ZERO-COPY & ASSIGNMENT](#kafka-zero-copy--assignment)
+  - [Straggler Broker Scar](#straggler-broker-scar)
+  - [Titan Fixes](#titan-fixes)
+- [ELASTICSEARCH SPLIT-BRAIN](#elasticsearch-split-brain)
+  - [Cluster Fracture Scar](#cluster-fracture-scar)
+  - [Titan Architecture](#titan-architecture)
+  - [END OF VOLUME 4.4: TITAN DISTRIBUTED MESSAGING](#end-of-volume-44-titan-distributed-messaging)
 - [VOLUME 4.5: TITAN CATALOG - 30 SYSTEM DESIGN FAILURES](#volume-45-titan-catalog---30-system-design-failures)
-  - [END OF VOLUME 4.5: TITAN SYSTEM DESIGN CATALOG](#end-of-volume-45-titan-system-design-catalog)
+- [END OF VOLUME 4.5: TITAN SYSTEM DESIGN CATALOG](#end-of-volume-45-titan-system-design-catalog)
 - [VOLUME 6.1: TITAN VAULT - SPECIALIZED DOMAINS](#volume-61-titan-vault---specialized-domains)
-  - [IoT: MQTT BROADCAST STORMS](#iot-mqtt-broadcast-storms)
-    - [100k Device Reconnection Scar](#100k-device-reconnection-scar)
-  - [VR/AR: DRAW CALL BOTTLENECK](#vrar-draw-call-bottleneck)
-    - [90 FPS / 11ms CPU Budget](#90-fps-11ms-cpu-budget)
-    - [Titan Fix](#titan-fix-1)
-  - [CLIMATE: CARBON ACCOUNTING DOUBLE COUNTING](#climate-carbon-accounting-double-counting)
-    - [ESG Reporting Scar](#esg-reporting-scar)
-  - [CLIMATE: SATELLITE GRID MISALIGNMENT](#climate-satellite-grid-misalignment)
-    - [Deforestation Measurement Scar](#deforestation-measurement-scar)
-  - [LEGAL: OCR HALLUCINATIONS](#legal-ocr-hallucinations)
-    - [Contract Parsing Scar](#contract-parsing-scar)
-  - [LEGAL: DIGITAL SIGNATURE CHAIN FAILURE](#legal-digital-signature-chain-failure)
-    - [eIDAS Validation Scar](#eidas-validation-scar)
-  - [TIME: ANCIENT CALENDAR OFF-BY-ONE](#time-ancient-calendar-off-by-one)
-    - [Proleptic Gregorian Trap](#proleptic-gregorian-trap)
-  - [TIME: FLOATING POINT GEOMETRY DRIFT](#time-floating-point-geometry-drift)
-    - [Sacred Geometry Rendering](#sacred-geometry-rendering)
-    - [END OF VOLUME 6.1: TITAN SPECIALIZED DOMAINS](#end-of-volume-61-titan-specialized-domains)
-- [VOLUME 2.2: TITAN VAULT - HFT & VIDEO SPECIALIZED](#volume-22-titan-vault---hft-video-specialized)
-  - [PTP (PRECISION TIME PROTOCOL)](#ptp-precision-time-protocol)
-    - [Clock Sync for HFT](#clock-sync-for-hft)
-  - [AV1 REAL-TIME ENCODING](#av1-real-time-encoding)
-    - [Motion-to-Photon Latency](#motion-to-photon-latency)
-  - [VR LATE LATCHING](#vr-late-latching)
-    - [Sub-20ms Motion-to-Photon](#sub-20ms-motion-to-photon)
-  - [FIRMWARE A/B PARTITIONING](#firmware-ab-partitioning)
-    - [OTA Brick Prevention](#ota-brick-prevention)
-    - [END OF VOLUME 2.2: TITAN HFT & VIDEO](#end-of-volume-22-titan-hft-video)
-- [VOLUME 3.3: TITAN VAULT - WEBSOCKET & ML SHAP](#volume-33-titan-vault---websocket-ml-shap)
-  - [WEBSOCKET ZOMBIE CONNECTION](#websocket-zombie-connection)
-    - [Silent Connection Death](#silent-connection-death)
-  - [SHAP VALUE PERFORMANCE](#shap-value-performance)
-    - [ML Explainability Latency](#ml-explainability-latency)
-    - [Titan Fix](#titan-fix-2)
-  - [ISO 20022 XML SAX PARSING](#iso-20022-xml-sax-parsing)
-    - [Financial Messaging OOM](#financial-messaging-oom)
-    - [END OF VOLUME 3.3: TITAN MISC](#end-of-volume-33-titan-misc)
-- [VOLUME 6.2: TITAN PROTOCOL - FORMAL VERIFICATION & INFRASTRUCTURE](#volume-62-titan-protocol---formal-verification-infrastructure)
-  - [TLA+ FORMAL VERIFICATION (PROVE BEFORE DEPLOY)](#tla-formal-verification-prove-before-deploy)
-    - [Distributed Logic Scar](#distributed-logic-scar)
-    - [Titan Workflow](#titan-workflow)
-  - [WEBRTC SFU CASCADING (GLOBAL SCALE VIDEO)](#webrtc-sfu-cascading-global-scale-video)
-    - [Multi-Region Media Scar](#multi-region-media-scar)
-    - [Production Pattern](#production-pattern)
-  - [EVENT SOURCING SCHEMA EVOLUTION](#event-sourcing-schema-evolution)
-    - [Event Versioning Scar](#event-versioning-scar)
-    - [Titan Rule](#titan-rule)
-  - [BGP HIJACKING DETECTION](#bgp-hijacking-detection)
-    - [Internet Routing Scar](#internet-routing-scar)
+- [IoT: MQTT BROADCAST STORMS](#iot-mqtt-broadcast-storms)
+  - [100k Device Reconnection Scar](#100k-device-reconnection-scar)
+- [VR/AR: DRAW CALL BOTTLENECK](#vrar-draw-call-bottleneck)
+  - [90 FPS / 11ms CPU Budget](#90-fps--11ms-cpu-budget)
+  - [Titan Fix](#titan-fix-1)
+- [CLIMATE: CARBON ACCOUNTING DOUBLE COUNTING](#climate-carbon-accounting-double-counting)
+  - [ESG Reporting Scar](#esg-reporting-scar)
+- [CLIMATE: SATELLITE GRID MISALIGNMENT](#climate-satellite-grid-misalignment)
+  - [Deforestation Measurement Scar](#deforestation-measurement-scar)
+- [LEGAL: OCR HALLUCINATIONS](#legal-ocr-hallucinations)
+  - [Contract Parsing Scar](#contract-parsing-scar)
+- [LEGAL: DIGITAL SIGNATURE CHAIN FAILURE](#legal-digital-signature-chain-failure)
+  - [eIDAS Validation Scar](#eidas-validation-scar)
+- [TIME: ANCIENT CALENDAR OFF-BY-ONE](#time-ancient-calendar-off-by-one)
+  - [Proleptic Gregorian Trap](#proleptic-gregorian-trap)
+- [TIME: FLOATING POINT GEOMETRY DRIFT](#time-floating-point-geometry-drift)
+  - [Sacred Geometry Rendering](#sacred-geometry-rendering)
+  - [END OF VOLUME 6.1: TITAN SPECIALIZED DOMAINS](#end-of-volume-61-titan-specialized-domains)
+- [VOLUME 2.2: TITAN VAULT - HFT & VIDEO SPECIALIZED](#volume-22-titan-vault---hft--video-specialized)
+- [PTP (PRECISION TIME PROTOCOL)](#ptp-precision-time-protocol)
+  - [Clock Sync for HFT](#clock-sync-for-hft)
+- [AV1 REAL-TIME ENCODING](#av1-real-time-encoding)
+  - [Motion-to-Photon Latency](#motion-to-photon-latency)
+- [VR LATE LATCHING](#vr-late-latching)
+  - [Sub-20ms Motion-to-Photon](#sub-20ms-motion-to-photon)
+- [FIRMWARE A/B PARTITIONING](#firmware-ab-partitioning)
+  - [OTA Brick Prevention](#ota-brick-prevention)
+  - [END OF VOLUME 2.2: TITAN HFT & VIDEO](#end-of-volume-22-titan-hft--video)
+- [VOLUME 3.3: TITAN VAULT - WEBSOCKET & ML SHAP](#volume-33-titan-vault---websocket--ml-shap)
+- [WEBSOCKET ZOMBIE CONNECTION](#websocket-zombie-connection)
+  - [Silent Connection Death](#silent-connection-death)
+- [SHAP VALUE PERFORMANCE](#shap-value-performance)
+  - [ML Explainability Latency](#ml-explainability-latency)
+  - [Titan Fix](#titan-fix-2)
+- [ISO 20022 XML SAX PARSING](#iso-20022-xml-sax-parsing)
+  - [Financial Messaging OOM](#financial-messaging-oom)
+  - [END OF VOLUME 3.3: TITAN MISC](#end-of-volume-33-titan-misc)
+- [VOLUME 6.2: TITAN PROTOCOL - FORMAL VERIFICATION & INFRASTRUCTURE](#volume-62-titan-protocol---formal-verification--infrastructure)
+- [TLA+ FORMAL VERIFICATION (PROVE BEFORE DEPLOY)](#tla-formal-verification-prove-before-deploy)
+  - [Distributed Logic Scar](#distributed-logic-scar)
+  - [Titan Workflow](#titan-workflow)
+- [WEBRTC SFU CASCADING (GLOBAL SCALE VIDEO)](#webrtc-sfu-cascading-global-scale-video)
+  - [Multi-Region Media Scar](#multi-region-media-scar)
+  - [Production Pattern](#production-pattern)
+- [EVENT SOURCING SCHEMA EVOLUTION](#event-sourcing-schema-evolution)
+  - [Event Versioning Scar](#event-versioning-scar)
+  - [Titan Rule](#titan-rule)
+- [BGP HIJACKING DETECTION](#bgp-hijacking-detection)
+  - [Internet Routing Scar](#internet-routing-scar)
+- [? TITAN: BGP Monitoring with RIPE RIS](#-titan-bgp-monitoring-with-ripe-ris)
+- [ALERT: Our prefix not announced by our AS!](#alert-our-prefix-not-announced-by-our-as)
+- [Possible hijack or misconfiguration](#possible-hijack-or-misconfiguration)
+- [Cross-check: Is anyone ELSE announcing our prefix?](#cross-check-is-anyone-else-announcing-our-prefix)
+- [Multiple origins = MOAS conflict, potential hijack](#multiple-origins--moas-conflict-potential-hijack)
 - [Titan Defense](#titan-defense)
-  - [ZERO TRUST IMPLEMENTATION PITFALLS](#zero-trust-implementation-pitfalls)
-    - [ZTA Failure Scar](#zta-failure-scar)
-- [END OF VOLUME 6.2: TITAN FORMAL VERIFICATION & INFRASTRUCTURE](#end-of-volume-62-titan-formal-verification-infrastructure)
+- [ZERO TRUST IMPLEMENTATION PITFALLS](#zero-trust-implementation-pitfalls)
+  - [ZTA Failure Scar](#zta-failure-scar)
+- [? TITAN: Zero Trust with Fallback](#-titan-zero-trust-with-fallback)
+- [Istio AuthorizationPolicy with local cache](#istio-authorizationpolicy-with-local-cache)
+- [CRITICAL: JWT validation cache survives IdP outage](#critical-jwt-validation-cache-survives-idp-outage)
+- [END OF VOLUME 6.2: TITAN FORMAL VERIFICATION & INFRASTRUCTURE](#end-of-volume-62-titan-formal-verification--infrastructure)
 - [VOLUME 6.3: TITAN DEEP INTERNALS - DISTRIBUTED SYSTEMS MECHANICS](#volume-63-titan-deep-internals---distributed-systems-mechanics)
-  - [LOGICAL CLOCKS: LAMPORT VS VECTOR](#logical-clocks-lamport-vs-vector)
-    - [Causality Tracking Scar](#causality-tracking-scar)
+- [LOGICAL CLOCKS: LAMPORT VS VECTOR](#logical-clocks-lamport-vs-vector)
+  - [Causality Tracking Scar](#causality-tracking-scar)
+- [TITAN: Vector Clock Implementation](#titan-vector-clock-implementation)
+- [Also check nodes only in other](#also-check-nodes-only-in-other)
+- [Usage in distributed system](#usage-in-distributed-system)
+- [A does work](#a-does-work)
+- [A sends message to B](#a-sends-message-to-b)
+- [Concurrent: A does more work without seeing B's update](#concurrent-a-does-more-work-without-seeing-bs-update)
+- [ts3 and ts2 are CONCURRENT - neither happened before the other](#ts3-and-ts2-are-concurrent---neither-happened-before-the-other)
 - [HYBRID LOGICAL CLOCKS (HLC)](#hybrid-logical-clocks-hlc)
-  - [Physical Time Correlation Scar](#physical-time-correlation-scar)
+- [Physical Time Correlation Scar](#physical-time-correlation-scar)
+- [TITAN: Hybrid Logical Clock](#titan-hybrid-logical-clock)
+- [48 bits physical + 16 bits logical](#48-bits-physical--16-bits-logical)
 - [CRDT DEEP INTERNALS: OPERATION-BASED](#crdt-deep-internals-operation-based)
-  - [Convergence Mechanics](#convergence-mechanics)
+- [Convergence Mechanics](#convergence-mechanics)
+- [TITAN: G-Counter (Grow-only Counter) CRDT](#titan-g-counter-grow-only-counter-crdt)
+- [Max per node = convergent](#max-per-node--convergent)
+- [TITAN: OR-Set (Observed-Remove Set) CRDT](#titan-or-set-observed-remove-set-crdt)
+- [Remove all tags for this element](#remove-all-tags-for-this-element)
+- [Union: Any tag present = element is there](#union-any-tag-present--element-is-there)
 - [LEADER ELECTION: FENCE TOKENS](#leader-election-fence-tokens)
-  - [Split-Brain Prevention](#split-brain-prevention)
+- [Split-Brain Prevention](#split-brain-prevention)
+- [TITAN: Fence Token Usage](#titan-fence-token-usage)
+- [Lock service returns monotonically increasing fence token](#lock-service-returns-monotonically-increasing-fence-token)
+- [Storage will reject if we're stale](#storage-will-reject-if-were-stale)
 - [DISTRIBUTED TRACING: CONTEXT PROPAGATION](#distributed-tracing-context-propagation)
-  - [Trace Correlation Deep Pattern](#trace-correlation-deep-pattern)
+- [Trace Correlation Deep Pattern](#trace-correlation-deep-pattern)
+- [TITAN: Full Distributed Tracing Implementation](#titan-full-distributed-tracing-implementation)
+- [Thread-local storage for current span](#thread-local-storage-for-current-span)
+- [Export to collector (Jaeger, Zipkin, OTLP)](#export-to-collector-jaeger-zipkin-otlp)
+- [W3C Trace Context propagation](#w3c-trace-context-propagation)
+- [traceparent: version-traceid-spanid-flags](#traceparent-version-traceid-spanid-flags)
+- [Usage in HTTP middleware](#usage-in-http-middleware)
 - [BACKPRESSURE: ADMISSION CONTROL](#backpressure-admission-control)
-  - [Overload Protection](#overload-protection)
+- [Overload Protection](#overload-protection)
+- [TITAN: Adaptive Load Shedding](#titan-adaptive-load-shedding)
+- [AIMD parameters](#aimd-parameters)
+- [Doing well, admit more](#doing-well-admit-more)
+- [Overloaded, back off](#overloaded-back-off)
+- [Usage](#usage-1)
 - [END OF VOLUME 6.3: TITAN DEEP INTERNALS - DISTRIBUTED SYSTEMS MECHANICS](#end-of-volume-63-titan-deep-internals---distributed-systems-mechanics)
-- [VOLUME 6.4: TITAN GEMINI RESEARCH - IOT, REALTIME & PAYMENTS](#volume-64-titan-gemini-research---iot-realtime-payments)
-  - [MQTT BROADCAST STORM PREVENTION](#mqtt-broadcast-storm-prevention)
-    - [The Scar](#the-scar)
-  - [ELASTICSEARCH CIRCUIT BREAKER TUNING](#elasticsearch-circuit-breaker-tuning)
-    - [The Scar](#the-scar-1)
-- [HNSW VECTOR SEARCH TUNING](#hnsw-vector-search-tuning)
-  - [The Scar](#the-scar-2)
-- [CIRCUIT BREAKER PATTERN](#circuit-breaker-pattern)
+- [VOLUME 6.4: TITAN GEMINI RESEARCH - IOT, REALTIME & PAYMENTS](#volume-64-titan-gemini-research---iot-realtime--payments)
+- [MQTT BROADCAST STORM PREVENTION](#mqtt-broadcast-storm-prevention)
+  - [The Scar](#the-scar)
+- [? VIBE: Wildcard subscription = broadcast storm](#-vibe-wildcard-subscription--broadcast-storm)
+- [? VIBE: Using QoS 2 for high-frequency data](#-vibe-using-qos-2-for-high-frequency-data)
+- [? TITAN: Hierarchical topic design with ACLs](#-titan-hierarchical-topic-design-with-acls)
+- [Topic structure: {org}/{facility}/{device_type}/{device_id}/{metric}](#topic-structure-orgfacilitydevicetypedeviceidmetric)
+- [Example: acme/plant-1/temperature/sensor-42/current](#example-acmeplant-1temperaturesensor-42current)
+- [Broker ACL (Mosquitto example)](#broker-acl-mosquitto-example)
+- [Device can ONLY write to its own topics](#device-can-only-write-to-its-own-topics)
+- [? TITAN: Use appropriate QoS levels](#-titan-use-appropriate-qos-levels)
+- [QoS 0: Fire and forget - for high-frequency telemetry (temp every 1s)](#qos-0-fire-and-forget---for-high-frequency-telemetry-temp-every-1s)
+- [QoS 1: At least once - for important events (door opened)](#qos-1-at-least-once---for-important-events-door-opened)
+- [QoS 2: Exactly once - for critical commands (ONLY when needed)](#qos-2-exactly-once---for-critical-commands-only-when-needed)
+- [Persistent session for QoS 1/2 messages](#persistent-session-for-qos-12-messages)
+- [Subscribe to commands for THIS device only](#subscribe-to-commands-for-this-device-only)
+- [High-frequency telemetry: QoS 0 (no overhead)](#high-frequency-telemetry-qos-0-no-overhead)
+- [Important alerts: QoS 1 (guaranteed delivery)](#important-alerts-qos-1-guaranteed-delivery)
+- [WEBRTC SFU CASCADING](#webrtc-sfu-cascading)
+- [The Scar](#the-scar-1)
+- [Region configuration for cascading](#region-configuration-for-cascading)
+- [? TITAN: Kubernetes autoscaling for SFU pods](#-titan-kubernetes-autoscaling-for-sfu-pods)
+- [PAYMENT IDEMPOTENCY (STRIPE PATTERN)](#payment-idempotency-stripe-pattern)
+- [The Scar](#the-scar-2)
+- [ELASTICSEARCH CIRCUIT BREAKER TUNING](#elasticsearch-circuit-breaker-tuning)
   - [The Scar](#the-scar-3)
+- [Diagnose circuit breaker status](#diagnose-circuit-breaker-status)
+- [Output shows](#output-shows)
+- ["parent": {](#parent-)
+- ["limit_size_in_bytes": 7635092070,](#limitsizeinbytes-7635092070)
+- ["estimated_size_in_bytes": 7635092070,  # AT LIMIT!](#estimatedsizeinbytes-7635092070--at-limit)
+- ["overhead": 1.0,](#overhead-10)
+- ["tripped": 42  # Tripped 42 times](#tripped-42--tripped-42-times)
+- [}](#)
+- [HNSW VECTOR SEARCH TUNING](#hnsw-vector-search-tuning)
+- [The Scar](#the-scar-4)
+- [? VIBE: Default HNSW parameters = poor recall at scale](#-vibe-default-hnsw-parameters--poor-recall-at-scale)
+- [? TITAN: Proper HNSW parameter tuning](#-titan-proper-hnsw-parameter-tuning)
+- [Parameters explained](#parameters-explained)
+- [M: Number of connections per node (higher = better recall, more memory)](#m-number-of-connections-per-node-higher--better-recall-more-memory)
+- [ef_construction: Search width during index build (higher = better graph)](#efconstruction-search-width-during-index-build-higher--better-graph)
+- [ef_search: Search width at query time (higher = better recall, slower)](#efsearch-search-width-at-query-time-higher--better-recall-slower)
+- [Initialize index with proper parameters](#initialize-index-with-proper-parameters)
+- [Add items](#add-items)
+- [Query with high ef for production](#query-with-high-ef-for-production)
+- [? TITAN: Memory estimation formula](#-titan-memory-estimation-formula)
+- [Memory (bytes) 4 *dim* num_elements + 8 *M* num_elements](#memory-bytes-4-dim-numelements--8-m-numelements)
+- [For 1M vectors, dim=768, M=16](#for-1m-vectors-dim768-m16)
+- [= 4 *768* 1M + 8 *16* 1M = 3GB + 128MB 3.1GB](#-4-768-1m--8-16-1m--3gb--128mb-31gb)
+- [? TITAN: Pinecone/Weaviate production config](#-titan-pineconeweaviate-production-config)
+- [Pinecone index creation](#pinecone-index-creation)
+- [Weaviate schema](#weaviate-schema)
+- [END OF VOLUME 6.4: TITAN GEMINI RESEARCH - IOT, REALTIME & PAYMENTS](#end-of-volume-64-titan-gemini-research---iot-realtime--payments)
+- [VOLUME 7: TITAN GEMINI RESEARCH - RESILIENCE PATTERNS](#volume-7-titan-gemini-research---resilience-patterns)
+- [RATE LIMITING WITH SLIDING WINDOW](#rate-limiting-with-sliding-window)
+  - [The Scar](#the-scar-5)
+- [? VIBE: Fixed window rate limiting](#-vibe-fixed-window-rate-limiting)
+- [At 59.9s: 100 requests. At 60.1s: 100 more. 200 in 0.2s](#at-599s-100-requests-at-601s-100-more-200-in-02s)
+- [? TITAN: Sliding window rate limiting](#-titan-sliding-window-rate-limiting)
+- [Remove old entries outside window](#remove-old-entries-outside-window)
+- [Count requests in current window](#count-requests-in-current-window)
+- [Add current request (optimistically)](#add-current-request-optimistically)
+- [Set expiry for cleanup](#set-expiry-for-cleanup)
+- [Remove the optimistic add](#remove-the-optimistic-add)
+- [Find when oldest request will expire](#find-when-oldest-request-will-expire)
+- [? TITAN: Token bucket for smoothed rate limiting](#-titan-token-bucket-for-smoothed-rate-limiting)
+- [Lua script for atomic token bucket](#lua-script-for-atomic-token-bucket)
+- [CIRCUIT BREAKER PATTERN](#circuit-breaker-pattern)
+- [The Scar](#the-scar-6)
+- [? VIBE: No circuit breaker](#-vibe-no-circuit-breaker)
+- [Retry forever, blocking everything](#retry-forever-blocking-everything)
+- [? TITAN: Circuit breaker with state machine](#-titan-circuit-breaker-with-state-machine)
+- [Reset failure count on success](#reset-failure-count-on-success)
+- [Any failure in half-open goes back to open](#any-failure-in-half-open-goes-back-to-open)
+- [Usage with fallback](#usage-with-fallback)
+- [Queue for later processing](#queue-for-later-processing)
+- [RETRY WITH EXPONENTIAL BACKOFF](#retry-with-exponential-backoff-1)
+- [The Scar](#the-scar-7)
+- [? VIBE: Immediate retry](#-vibe-immediate-retry)
+- [? TITAN: Exponential backoff with jitter](#-titan-exponential-backoff-with-jitter)
+- [Calculate delay with exponential backoff](#calculate-delay-with-exponential-backoff)
+- [Add jitter to prevent thundering herd](#add-jitter-to-prevent-thundering-herd)
+- [Usage](#usage-2)
 - [END OF VOLUME 7: TITAN GEMINI RESEARCH - RESILIENCE PATTERNS](#end-of-volume-7-titan-gemini-research---resilience-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - EVENT SOURCING AND CQRS](#volume-8-titan-gemini-research---event-sourcing-and-cqrs)
-  - [EVENT SOURCING FUNDAMENTALS](#event-sourcing-fundamentals)
-    - [The Scar](#the-scar-4)
+- [EVENT SOURCING FUNDAMENTALS](#event-sourcing-fundamentals)
+  - [The Scar](#the-scar-8)
+- [? VIBE: State-based (mutable) storage](#-vibe-state-based-mutable-storage)
+- [? TITAN: Event-sourced order aggregate](#-titan-event-sourced-order-aggregate)
+- [Current state (derived from events)](#current-state-derived-from-events)
+- [CQRS PATTERN](#cqrs-pattern-1)
+- [The Scar](#the-scar-9)
+- [? TITAN: Complete CQRS implementation](#-titan-complete-cqrs-implementation)
+- [Get current version](#get-current-version)
+- [Append events](#append-events)
+- [Publish to event bus for projections](#publish-to-event-bus-for-projections)
+- [Get latest snapshot](#get-latest-snapshot)
+- [Load events after snapshot](#load-events-after-snapshot)
+- [No snapshot, load all events](#no-snapshot-load-all-events)
+- [Denormalized customer data for fast reads](#denormalized-customer-data-for-fast-reads)
+- [Update dashboard stats](#update-dashboard-stats)
+- [END OF VOLUME 8: TITAN GEMINI RESEARCH - EVENT SOURCING AND CQRS](#end-of-volume-8-titan-gemini-research---event-sourcing-and-cqrs)
+- [VOLUME 4: DEEP SYSTEM DESIGN PATTERNS](#volume-4-deep-system-design-patterns)
+- [RATE LIMITING AT SCALE](#rate-limiting-at-scale)
+  - [Token Bucket Implementation with Redis](#token-bucket-implementation-with-redis)
+- [DISTRIBUTED LOCKING](#distributed-locking)
+  - [Redlock for Distributed Systems](#redlock-for-distributed-systems)
+- [CIRCUIT BREAKER PATTERN](#circuit-breaker-pattern-1)
+  - [Hystrix-Style Circuit Breaker](#hystrix-style-circuit-breaker)
+  - [END OF SYSTEM DESIGN VOLUME 4](#end-of-system-design-volume-4)
+  - [Lines: ~300+ added](#lines-300-added)
+- [VOLUME 5: TIER 3 REAL ENGINEERING PATTERNS](#volume-5-tier-3-real-engineering-patterns)
+- [Source: Netflix Engineering, Uber Engineering, Real Production Systems](#source-netflix-engineering-uber-engineering-real-production-systems)
+- [NETFLIX PRODUCTION PATTERNS (700+ Microservices)](#netflix-production-patterns-700-microservices)
+  - [The Numbers That Matter](#the-numbers-that-matter)
+  - [Why This Matters for You](#why-this-matters-for-you)
+  - [Chaos Engineering: The Simian Army](#chaos-engineering-the-simian-army)
+  - [The Tools](#the-tools)
+  - [Implementation Pattern](#implementation-pattern)
+- [Chaos Engineering implementation principles](#chaos-engineering-implementation-principles)
+- [Step 1: Hypothesis](#step-1-hypothesis)
+- [Step 2: Small-scale test](#step-2-small-scale-test)
+- [Step 3: Observe impact](#step-3-observe-impact)
+- [Step 4: Automated fix or rollback](#step-4-automated-fix-or-rollback)
+- [Production Lesson](#production-lesson)
+- [Netflix Buffer Concept (Load Management)](#netflix-buffer-concept-load-management)
+  - [The Problem](#the-problem)
+  - [The Solution: Success Buffer + Failure Buffer](#the-solution-success-buffer--failure-buffer)
+- [Scale UP before the event](#scale-up-before-the-event)
+- [Also prepare REACTIVE scaling](#also-prepare-reactive-scaling)
+- [Production metrics thresholds (Netflix-style)](#production-metrics-thresholds-netflix-style)
+- [Prioritized Load Shedding](#prioritized-load-shedding)
+- [When overwhelmed, drop requests strategically](#when-overwhelmed-drop-requests-strategically)
+- [Calculate how much to shed](#calculate-how-much-to-shed)
+- [Shed from lowest priority first](#shed-from-lowest-priority-first)
+- [UBER PRODUCTION PATTERNS (Millions of Trips)](#uber-production-patterns-millions-of-trips)
+- [Schemaless: Custom MySQL Datastore](#schemaless-custom-mysql-datastore)
+  - [The Problem (2014)](#the-problem-2014)
+  - [The Solution](#the-solution)
+- [Uber's Schemaless design principles](#ubers-schemaless-design-principles)
+- [Store as JSON - no ALTER TABLE needed](#store-as-json---no-alter-table-needed)
+- [Why this works](#why-this-works)
+- [1. Linear scaling: Add servers = add capacity](#1-linear-scaling-add-servers--add-capacity)
+- [2. No schema migrations: JSON is flexible](#2-no-schema-migrations-json-is-flexible)
+- [3. Operational simplicity: Just MySQL, which ops knows](#3-operational-simplicity-just-mysql-which-ops-knows)
+- [CacheFront: 95% Cost Reduction Pattern](#cachefront-95-cost-reduction-pattern)
+- [The Problem](#the-problem-1)
+  - [The Solution](#the-solution-1)
+- [1. Try cache first (99% of reads)](#1-try-cache-first-99-of-reads)
+- [2. Cache miss - read from database](#2-cache-miss---read-from-database)
+- [3. Populate cache for next time](#3-populate-cache-for-next-time)
+- [1. Write to database (source of truth)](#1-write-to-database-source-of-truth)
+- [2. Write-through to cache](#2-write-through-to-cache)
+- [3. CDC will also update cache (defense in depth)](#3-cdc-will-also-update-cache-defense-in-depth)
+- [The numbers (Uber's real results)](#the-numbers-ubers-real-results)
+- [- Before: 60,000 CPU cores for reads](#--before-60000-cpu-cores-for-reads)
+- [- After: 3,000 CPU cores (95% reduction)](#--after-3000-cpu-cores-95-reduction)
+- [- Latency: 75% reduction](#--latency-75-reduction)
+- [Hot Shard Problem (and Solution)](#hot-shard-problem-and-solution)
+- [The Problem](#the-problem-2)
+  - [The Solution](#the-solution-2)
+- [Each physical node has 100 virtual positions on ring](#each-physical-node-has-100-virtual-positions-on-ring)
+- [Find first node >= hash_key](#find-first-node--hashkey)
+- [Wrap around to first node](#wrap-around-to-first-node)
+- [Add suffix to distribute celebrity's data across multiple shards](#add-suffix-to-distribute-celebritys-data-across-multiple-shards)
+- [Each sub_key hashes to different shard](#each-subkey-hashes-to-different-shard)
+- [UBER SECURITY INCIDENT (2022): MFA Fatigue Attack](#uber-security-incident-2022-mfa-fatigue-attack)
+- [The Scar](#the-scar-10)
+  - [Prevention Pattern](#prevention-pattern)
+- [Step 1: Check attempt count](#step-1-check-attempt-count)
+- [BLOCK further attempts - this is the attack pattern](#block-further-attempts---this-is-the-attack-pattern)
+- [Step 2: Require NUMBER MATCHING (not just approve/deny)](#step-2-require-number-matching-not-just-approvedeny)
+- [User must type this code into their phone](#user-must-type-this-code-into-their-phone)
+- [Attacker can't spam "approve" - they need the code](#attacker-cant-spam-approve---they-need-the-code)
+- [Key defenses](#key-defenses)
+- [1. Rate limit MFA attempts (max 5 per hour)](#1-rate-limit-mfa-attempts-max-5-per-hour)
+- [2. Number matching (user types code, not just clicks)](#2-number-matching-user-types-code-not-just-clicks)
+- [3. Location/device anomaly detection](#3-locationdevice-anomaly-detection)
+- [4. Alert security on suspicious patterns](#4-alert-security-on-suspicious-patterns)
+- [CROSS-COMPANY PATTERNS](#cross-company-patterns)
+- [Pattern: Predictive Scaling Before Events](#pattern-predictive-scaling-before-events)
+  - [Pattern: Circuit Breakers Everywhere](#pattern-circuit-breakers-everywhere)
+  - [Pattern: Graceful Degradation Hierarchy](#pattern-graceful-degradation-hierarchy)
+  - [END OF TIER 3 REAL ENGINEERING PATTERNS](#end-of-tier-3-real-engineering-patterns)
+  - [Source: Netflix Tech Blog, Uber Engineering, System Design Interviews](#source-netflix-tech-blog-uber-engineering-system-design-interviews)
+- [REAL MICROSERVICES PATTERNS 2024](#real-microservices-patterns-2024)
+- [Service Communication Patterns](#service-communication-patterns-1)
+- [Circuit Breaker Pattern](#circuit-breaker-pattern-2)
+- [Saga Pattern for Distributed Transactions](#saga-pattern-for-distributed-transactions)
+- [API Gateway Pattern](#api-gateway-pattern)
+- [CQRS Pattern](#cqrs-pattern-2)
+  - [END OF SYSTEM DESIGN PATTERNS](#end-of-system-design-patterns)
 
 ## 08_SYSTEM_DESIGN.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -415,50 +663,56 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
+
 1. The "Thundering Herd" - How Facebook Crashed Itself
-2. The "Split Brain" - GitHub's Data Inconsistency
-3. The "Cascading Failure" - AWS US-East-1 Outage
-4. The "Clock Drift" - Google Spanner's TrueTime
+1. The "Split Brain" - GitHub's Data Inconsistency
+1. The "Cascading Failure" - AWS US-East-1 Outage
+1. The "Clock Drift" - Google Spanner's TrueTime
 
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-5. CAP Theorem (The Real Tradeoffs)
-6. ACID vs BASE (Transaction Models)
-7. Consistent Hashing (Ring Architecture)
-8. Load Balancing Algorithms (Round Robin vs Least Conn)
+
+1. CAP Theorem (The Real Tradeoffs)
+1. ACID vs BASE (Transaction Models)
+1. Consistent Hashing (Ring Architecture)
+1. Load Balancing Algorithms (Round Robin vs Least Conn)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-9. Gossip Protocols (Epidemic Algorithms)
-10. Bloom Filters (Probabilistic Data Structures)
-11. CRDTs (Conflict-Free Replicated Data Types)
-12. HyperLogLog (Cardinality Estimation)
+
+1. Gossip Protocols (Epidemic Algorithms)
+1. Bloom Filters (Probabilistic Data Structures)
+1. CRDTs (Conflict-Free Replicated Data Types)
+1. HyperLogLog (Cardinality Estimation)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-13. Raft Consensus Algorithm (Leader Election)
-14. Geo-Replication (Active-Active)
-15. Backpressure Handling (TCP Window)
-16. Service Discovery (Consul/Etcd)
+
+1. Raft Consensus Algorithm (Leader Election)
+1. Geo-Replication (Active-Active)
+1. Backpressure Handling (TCP Window)
+1. Service Discovery (Consul/Etcd)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-17. LMAX Disruptor (Ring Buffer)
-18. Kernel Bypass Networking (DPDK)
-19. Zero-Copy Serialization (Cap'n Proto)
-20. Mechanical Sympathy (CPU Cache Lines)
+
+1. LMAX Disruptor (Ring Buffer)
+1. Kernel Bypass Networking (DPDK)
+1. Zero-Copy Serialization (Cap'n Proto)
+1. Mechanical Sympathy (CPU Cache Lines)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-21. Quantum Networking (Entanglement)
-22. DNA Storage Systems
-23. Interplanetary Internet (DTN)
-24. Neural System Design (AI-Architects)
+
+1. Quantum Networking (Entanglement)
+1. DNA Storage Systems
+1. Interplanetary Internet (DTN)
+1. Neural System Design (AI-Architects)
 
 ---
 ## VOLUME 1: THE SCARS (THE "WHY")
@@ -527,11 +781,12 @@ Node B tells random Node C.
 Information spreads like a virus (exponentially).
 
 **SWIM Protocol (Scalable Weakly-consistent Infection-style Process Group Membership)**:
+
 1. **Ping**: A pings B.
-2. **Ack**: B replies.
-3. **Indirect Ping**: If B doesn't reply, A asks C and D to ping B.
-4. **Suspect**: If still no reply, mark B as "Suspect".
-5. **Confirm**: If B doesn't refute suspicion, mark as "Dead".
+1. **Ack**: B replies.
+1. **Indirect Ping**: If B doesn't reply, A asks C and D to ping B.
+1. **Suspect**: If still no reply, mark B as "Suspect".
+1. **Confirm**: If B doesn't refute suspicion, mark as "Dead".
 
 **Implementation (Hashicorp Memberlist)**:
 Used in Consul and Nomad.
@@ -550,10 +805,11 @@ Does this element exist in the set?
 - **No**: Definitely.
 
 **Mechanism**:
+
 1. Bit array of size M (all zeros).
-2. K hash functions.
-3. **Add**: Hash element K times. Set bits at those indices to 1.
-4. **Check**: Hash element K times. If ALL bits are 1, it *might* be there. If ANY bit is 0, it is *definitely not* there.
+1. K hash functions.
+1. **Add**: Hash element K times. Set bits at those indices to 1.
+1. **Check**: Hash element K times. If ALL bits are 1, it *might*be there. If ANY bit is 0, it is*definitely not* there.
 
 **Use Case**:
 
@@ -582,7 +838,7 @@ User A types "Hello" offline. User B types "World" offline. They sync.
 
 - **RGA (Replicated Growable Array)**: For text editing.
 
-**Library**: `Yjs` or `Automerge`.
+**Library**: `Yjs`or`Automerge`.
 
 ---
 
@@ -617,9 +873,10 @@ Count unique visitors (IPs) for a website with 1 billion hits.
 
 **Concept**:
 Replicated Log.
+
 1. **Leader Election**: Nodes vote. Majority wins.
-2. **Log Replication**: Leader accepts write, sends to followers.
-3. **Commit**: Once majority acknowledge, Leader commits and replies to client.
+1. **Log Replication**: Leader accepts write, sends to followers.
+1. **Commit**: Once majority acknowledge, Leader commits and replies to client.
 
 **State Machine**:
 
@@ -670,15 +927,16 @@ Replicated Log.
 Producer is faster than Consumer. Queue fills up. Memory explodes. Crash.
 
 **Mechanisms**:
+
 1. **TCP Window**: Receiver tells Sender "My buffer is full, stop sending".
-2. **Application Level**:
+1. **Application Level**:
 - **Drop**: Drop new requests (Load Shedding).
 - **Block**: Block the producer (Synchronous).
 - **Buffer**: Buffer (Risk of OOM).
 
 **Reactive Streams**:
 Standard for async stream processing with non-blocking backpressure.
-`Subscriber.request(n)` -> Producer sends `n` items.
+`Subscriber.request(n)`-> Producer sends`n` items.
 
 ---
 
@@ -782,13 +1040,13 @@ Encode binary data (01) into DNA base pairs (ATCG).
 ## A. THE ULTIMATE SYSTEM DESIGN CHECKLIST
 
 1. **Requirements**: Functional (What), Non-Functional (Scale, Latency).
-2. **Back of Envelope**: QPS, Storage, Bandwidth.
-3. **API Design**: REST vs RPC vs GraphQL.
-4. **Database**: SQL vs NoSQL. Read vs Write heavy?
-5. **Cache**: Redis. Eviction policy?
-6. **Async**: Message Queue?
-7. **Security**: HTTPS, Auth, Rate Limiting.
-8. **Observability**: Metrics, Logs, Traces.
+1. **Back of Envelope**: QPS, Storage, Bandwidth.
+1. **API Design**: REST vs RPC vs GraphQL.
+1. **Database**: SQL vs NoSQL. Read vs Write heavy?
+1. **Cache**: Redis. Eviction policy?
+1. **Async**: Message Queue?
+1. **Security**: HTTPS, Auth, Rate Limiting.
+1. **Observability**: Metrics, Logs, Traces.
 
 ## B. THE ULTIMATE CAPACITY PLANNING SHEET
 
@@ -800,7 +1058,7 @@ Encode binary data (01) into DNA base pairs (ATCG).
 
 - **Traffic**: 10M * 100 / 86400 = ~12k QPS.
 
-- **Storage**: 10M * 1KB * 365 = 3.65 TB/year.
+- **Storage**: 10M *1KB* 365 = 3.65 TB/year.
 
 ---
 
@@ -1117,15 +1375,15 @@ Encode binary data (01) into DNA base pairs (ATCG).
 ### EXPANSION QUEUE
 
 1. Spanner: TrueTime, global consistency, GPS/atomic clocks
-2. Dynamo: eventual consistency, vector clocks, sloppy quorum
-3. Cassandra: wide-column, gossip, tunable consistency
-4. MongoDB: document model, replica sets, sharded clusters
-5. Redis internals: event loop, persistence, cluster mode
-6. Elasticsearch: inverted index, shards, near real-time
-7. ClickHouse: columnar, MergeTree, materialized views
-8. Time-series: InfluxDB, TimescaleDB, retention policies
-9. Graph databases: Neo4j, Cypher, traversal algorithms
-10. Vector databases: Pinecone, Weaviate, similarity search
+1. Dynamo: eventual consistency, vector clocks, sloppy quorum
+1. Cassandra: wide-column, gossip, tunable consistency
+1. MongoDB: document model, replica sets, sharded clusters
+1. Redis internals: event loop, persistence, cluster mode
+1. Elasticsearch: inverted index, shards, near real-time
+1. ClickHouse: columnar, MergeTree, materialized views
+1. Time-series: InfluxDB, TimescaleDB, retention policies
+1. Graph databases: Neo4j, Cypher, traversal algorithms
+1. Vector databases: Pinecone, Weaviate, similarity search
 
 ---
 
@@ -2039,130 +2297,126 @@ Encode binary data (01) into DNA base pairs (ATCG).
 
 **Why it exists:** Prevent cascade failures
 
-```typescript
-// lib/circuitBreaker.ts
-| type State = 'CLOSED' | 'OPEN' | 'HALF_OPEN'; |
-
-interface CircuitBreakerOptions {
-failureThreshold: number;
-resetTimeout: number;
-halfOpenRequests: number;
-}
-
-export class CircuitBreaker {
-private state: State = 'CLOSED';
-private failures = 0;
-private successes = 0;
-private lastFailure = 0;
-private halfOpenAllowed = 0;
-
-constructor(private options: CircuitBreakerOptions) {}
-
-async execute<T>(action: () => Promise<T>): Promise<T> {
-if (this.state === 'OPEN') {
-if (Date.now() - this.lastFailure > this.options.resetTimeout) {
-this.state = 'HALF_OPEN';
-this.halfOpenAllowed = this.options.halfOpenRequests;
-} else {
-throw new Error('Circuit breaker is OPEN');
+    // lib/circuitBreaker.ts
+    | type State = 'CLOSED' | 'OPEN' | 'HALF_OPEN'; |
+    
+    interface CircuitBreakerOptions {
+    failureThreshold: number;
+    resetTimeout: number;
+    halfOpenRequests: number;
+    }
+    
+    export class CircuitBreaker {
+    private state: State = 'CLOSED';
+    private failures = 0;
+    private successes = 0;
+    private lastFailure = 0;
+    private halfOpenAllowed = 0;
+    
+    constructor(private options: CircuitBreakerOptions) {}
+    
+    async execute<T>(action: () => Promise<T>): Promise<T> {
+    if (this.state === 'OPEN') {
+    if (Date.now() - this.lastFailure > this.options.resetTimeout) {
+    this.state = 'HALF_OPEN';
+    this.halfOpenAllowed = this.options.halfOpenRequests;
+    } else {
+    throw new Error('Circuit breaker is OPEN');
+          }
+        }
+    
+    if (this.state === 'HALF_OPEN' && this.halfOpenAllowed <= 0) {
+    throw new Error('Half-open limit reached');
+        }
+    
+    try {
+    const result = await action();
+          this.onSuccess();
+    return result;
+    } catch (error) {
+          this.onFailure();
+    throw error;
+        }
       }
-    }
-
-if (this.state === 'HALF_OPEN' && this.halfOpenAllowed <= 0) {
-throw new Error('Half-open limit reached');
-    }
-
-try {
-const result = await action();
-      this.onSuccess();
-return result;
-} catch (error) {
-      this.onFailure();
-throw error;
-    }
-  }
-
-private onSuccess() {
-if (this.state === 'HALF_OPEN') {
-      this.successes++;
-      this.halfOpenAllowed--;
-if (this.successes >= this.options.halfOpenRequests) {
-this.state = 'CLOSED';
-this.failures = 0;
-this.successes = 0;
+    
+    private onSuccess() {
+    if (this.state === 'HALF_OPEN') {
+          this.successes++;
+          this.halfOpenAllowed--;
+    if (this.successes >= this.options.halfOpenRequests) {
+    this.state = 'CLOSED';
+    this.failures = 0;
+    this.successes = 0;
+          }
+    } else {
+    this.failures = 0;
+        }
       }
-} else {
-this.failures = 0;
+    
+    private onFailure() {
+        this.failures++;
+    this.lastFailure = Date.now();
+    | if (this.state === 'HALF_OPEN' |  | this.failures >= this.options.failureThreshold) { |
+    this.state = 'OPEN';
+        }
+      }
+    
+    getState(): State { return this.state; }
     }
-  }
-
-private onFailure() {
-    this.failures++;
-this.lastFailure = Date.now();
-| if (this.state === 'HALF_OPEN' |  | this.failures >= this.options.failureThreshold) { |
-this.state = 'OPEN';
-    }
-  }
-
-getState(): State { return this.state; }
-}
-
-// Usage
-const breaker = new CircuitBreaker({ failureThreshold: 5, resetTimeout: 30000, halfOpenRequests: 3 });
-const result = await breaker.execute(() => fetch('/api/external'));
-
-```text
+    
+    // Usage
+    const breaker = new CircuitBreaker({ failureThreshold: 5, resetTimeout: 30000, halfOpenRequests: 3 });
+    const result = await breaker.execute(() => fetch('/api/external'));
+    
 
 ## Retry with Exponential Backoff
 
 **Why it exists:** Handle transient failures gracefully
 
-```typescript
-// lib/retry.ts
-interface RetryOptions {
-maxRetries: number;
-baseDelay: number;
-maxDelay: number;
-jitter: boolean;
-}
-
-export async function retry<T>(
-fn: () => Promise<T>,
-options: RetryOptions
-): Promise<T> {
-let lastError: Error;
-
-for (let attempt = 0; attempt <= options.maxRetries; attempt++) {
-try {
-return await fn();
-} catch (error) {
-lastError = error as Error;
-
-if (attempt === options.maxRetries) break;
-
-let delay = Math.min(
-options.baseDelay * Math.pow(2, attempt),
-        options.maxDelay
-      );
-
-if (options.jitter) {
-delay = delay * (0.5 + Math.random());
-      }
-
-await new Promise(r => setTimeout(r, delay));
+    // lib/retry.ts
+    interface RetryOptions {
+    maxRetries: number;
+    baseDelay: number;
+    maxDelay: number;
+    jitter: boolean;
     }
-  }
-
-throw lastError!;
-}
-
-// Usage
-const data = await retry(
-() => fetchExternalAPI(),
-{ maxRetries: 3, baseDelay: 1000, maxDelay: 10000, jitter: true }
-);
-
-```text
+    
+    export async function retry<T>(
+    fn: () => Promise<T>,
+    options: RetryOptions
+    ): Promise<T> {
+    let lastError: Error;
+    
+    for (let attempt = 0; attempt <= options.maxRetries; attempt++) {
+    try {
+    return await fn();
+    } catch (error) {
+    lastError = error as Error;
+    
+    if (attempt === options.maxRetries) break;
+    
+    let delay = Math.min(
+    options.baseDelay * Math.pow(2, attempt),
+            options.maxDelay
+          );
+    
+    if (options.jitter) {
+    delay = delay * (0.5 + Math.random());
+          }
+    
+    await new Promise(r => setTimeout(r, delay));
+        }
+      }
+    
+    throw lastError!;
+    }
+    
+    // Usage
+    const data = await retry(
+    () => fetchExternalAPI(),
+    { maxRetries: 3, baseDelay: 1000, maxDelay: 10000, jitter: true }
+    );
+    
 ---
 
 ## DATABASE SHARDING
@@ -2171,55 +2425,53 @@ const data = await retry(
 
 **Why it exists:** Distribute data with minimal reshuffling
 
-```typescript
-// lib/consistentHash.ts
-import crypto from 'crypto';
-
-export class ConsistentHash {
-private ring: Map<number, string> = new Map();
-private sortedKeys: number[] = [];
-private virtualNodes: number;
-
-constructor(nodes: string[], virtualNodes = 100) {
-this.virtualNodes = virtualNodes;
-nodes.forEach(node => this.addNode(node));
-  }
-
-private hash(key: string): number {
-return parseInt(crypto.createHash('md5').update(key).digest('hex').slice(0, 8), 16);
-  }
-
-addNode(node: string): void {
-for (let i = 0; i < this.virtualNodes; i++) {
-const hash = this.hash(`${node}:${i}`);
-this.ring.set(hash, node);
-      this.sortedKeys.push(hash);
+    // lib/consistentHash.ts
+    import crypto from 'crypto';
+    
+    export class ConsistentHash {
+    private ring: Map<number, string> = new Map();
+    private sortedKeys: number[] = [];
+    private virtualNodes: number;
+    
+    constructor(nodes: string[], virtualNodes = 100) {
+    this.virtualNodes = virtualNodes;
+    nodes.forEach(node => this.addNode(node));
+      }
+    
+    private hash(key: string): number {
+    return parseInt(crypto.createHash('md5').update(key).digest('hex').slice(0, 8), 16);
+      }
+    
+    addNode(node: string): void {
+    for (let i = 0; i < this.virtualNodes; i++) {
+    const hash = this.hash(`${node}:${i}`);
+    this.ring.set(hash, node);
+          this.sortedKeys.push(hash);
+        }
+    this.sortedKeys.sort((a, b) => a - b);
+      }
+    
+    removeNode(node: string): void {
+    for (let i = 0; i < this.virtualNodes; i++) {
+    const hash = this.hash(`${node}:${i}`);
+          this.ring.delete(hash);
+    this.sortedKeys = this.sortedKeys.filter(k => k !== hash);
+        }
+      }
+    
+    getNode(key: string): string {
+    const hash = this.hash(key);
+    for (const nodeHash of this.sortedKeys) {
+    if (hash <= nodeHash) return this.ring.get(nodeHash)!;
+        }
+    return this.ring.get(this.sortedKeys[0])!;
+      }
     }
-this.sortedKeys.sort((a, b) => a - b);
-  }
-
-removeNode(node: string): void {
-for (let i = 0; i < this.virtualNodes; i++) {
-const hash = this.hash(`${node}:${i}`);
-      this.ring.delete(hash);
-this.sortedKeys = this.sortedKeys.filter(k => k !== hash);
-    }
-  }
-
-getNode(key: string): string {
-const hash = this.hash(key);
-for (const nodeHash of this.sortedKeys) {
-if (hash <= nodeHash) return this.ring.get(nodeHash)!;
-    }
-return this.ring.get(this.sortedKeys[0])!;
-  }
-}
-
-// Usage
-const hash = new ConsistentHash(['db-1', 'db-2', 'db-3']);
-const shard = hash.getNode(userId); // Consistently routes to same shard
-
-```text
+    
+    // Usage
+    const hash = new ConsistentHash(['db-1', 'db-2', 'db-3']);
+    const shard = hash.getNode(userId); // Consistently routes to same shard
+    
 ---
 
 ## EVENT SOURCING
@@ -2228,61 +2480,59 @@ const shard = hash.getNode(userId); // Consistently routes to same shard
 
 **Why it exists:** Audit trail, event replay, CQRS
 
-```typescript
-// lib/eventStore.ts
-interface Event {
-id: string;
-aggregateId: string;
-type: string;
-data: any;
-timestamp: Date;
-version: number;
-}
-
-export class EventStore {
-private events: Event[] = [];
-
-async append(aggregateId: string, type: string, data: any): Promise<Event> {
-const currentVersion = this.getVersion(aggregateId);
-const event: Event = {
-id: crypto.randomUUID(),
-      aggregateId,
-      type,
-      data,
-timestamp: new Date(),
-version: currentVersion + 1,
+    // lib/eventStore.ts
+    interface Event {
+    id: string;
+    aggregateId: string;
+    type: string;
+    data: any;
+    timestamp: Date;
+    version: number;
+    }
+    
+    export class EventStore {
+    private events: Event[] = [];
+    
+    async append(aggregateId: string, type: string, data: any): Promise<Event> {
+    const currentVersion = this.getVersion(aggregateId);
+    const event: Event = {
+    id: crypto.randomUUID(),
+          aggregateId,
+          type,
+          data,
+    timestamp: new Date(),
+    version: currentVersion + 1,
+        };
+        this.events.push(event);
+    return event;
+      }
+    
+    getEvents(aggregateId: string): Event[] {
+    return this.events.filter(e => e.aggregateId === aggregateId);
+      }
+    
+    getVersion(aggregateId: string): number {
+    const events = this.getEvents(aggregateId);
+    return events.length > 0 ? events[events.length - 1].version : 0;
+      }
+    
+    replay<T>(aggregateId: string, reducer: (state: T, event: Event) => T, initial: T): T {
+    return this.getEvents(aggregateId).reduce(reducer, initial);
+      }
+    }
+    
+    // Order aggregate example
+    const orderReducer = (state, event) => {
+    switch (event.type) {
+    case 'OrderCreated': return { ...state, status: 'pending', items: event.data.items };
+    case 'OrderPaid': return { ...state, status: 'paid' };
+    case 'OrderShipped': return { ...state, status: 'shipped', trackingId: event.data.trackingId };
+    default: return state;
+      }
     };
-    this.events.push(event);
-return event;
-  }
-
-getEvents(aggregateId: string): Event[] {
-return this.events.filter(e => e.aggregateId === aggregateId);
-  }
-
-getVersion(aggregateId: string): number {
-const events = this.getEvents(aggregateId);
-return events.length > 0 ? events[events.length - 1].version : 0;
-  }
-
-replay<T>(aggregateId: string, reducer: (state: T, event: Event) => T, initial: T): T {
-return this.getEvents(aggregateId).reduce(reducer, initial);
-  }
-}
-
-// Order aggregate example
-const orderReducer = (state, event) => {
-switch (event.type) {
-case 'OrderCreated': return { ...state, status: 'pending', items: event.data.items };
-case 'OrderPaid': return { ...state, status: 'paid' };
-case 'OrderShipped': return { ...state, status: 'shipped', trackingId: event.data.trackingId };
-default: return state;
-  }
-};
-
-const orderState = store.replay(orderId, orderReducer, {});
-
-```text
+    
+    const orderState = store.replay(orderId, orderReducer, {});
+    
 ---
 
 ## RATE LIMITER
@@ -2291,45 +2541,43 @@ const orderState = store.replay(orderId, orderReducer, {});
 
 **Why it exists:** Smooth rate limiting with burst support
 
-```typescript
-// lib/rateLimiter.ts
-export class TokenBucket {
-private tokens: number;
-private lastRefill: number;
-
-  constructor(
-private capacity: number,
-private refillRate: number // tokens per second
-) {
-this.tokens = capacity;
-this.lastRefill = Date.now();
-  }
-
-tryConsume(tokens = 1): boolean {
-    this.refill();
-if (this.tokens >= tokens) {
-this.tokens -= tokens;
-return true;
+    // lib/rateLimiter.ts
+    export class TokenBucket {
+    private tokens: number;
+    private lastRefill: number;
+    
+      constructor(
+    private capacity: number,
+    private refillRate: number // tokens per second
+    ) {
+    this.tokens = capacity;
+    this.lastRefill = Date.now();
+      }
+    
+    tryConsume(tokens = 1): boolean {
+        this.refill();
+    if (this.tokens >= tokens) {
+    this.tokens -= tokens;
+    return true;
+        }
+    return false;
+      }
+    
+    private refill(): void {
+    const now = Date.now();
+    const elapsed = (now - this.lastRefill) / 1000;
+    this.tokens = Math.min(this.capacity, this.tokens + elapsed * this.refillRate);
+    this.lastRefill = now;
+      }
     }
-return false;
-  }
-
-private refill(): void {
-const now = Date.now();
-const elapsed = (now - this.lastRefill) / 1000;
-this.tokens = Math.min(this.capacity, this.tokens + elapsed * this.refillRate);
-this.lastRefill = now;
-  }
-}
-
-// Redis-based distributed rate limiter
-export async function checkRateLimit(key: string, limit: number, window: number): Promise<boolean> {
-const current = await redis.incr(key);
-if (current === 1) await redis.expire(key, window);
-return current <= limit;
-}
-
-```text
+    
+    // Redis-based distributed rate limiter
+    export async function checkRateLimit(key: string, limit: number, window: number): Promise<boolean> {
+    const current = await redis.incr(key);
+    if (current === 1) await redis.expire(key, window);
+    return current <= limit;
+    }
+    
 ---
 
 ### CONTINUED: MORE DESIGN PATTERNS
@@ -2344,104 +2592,100 @@ return current <= limit;
 
 **Why it exists:** Reduce latency at every tier
 
-```typescript
-// lib/cache.ts
-interface CacheOptions {
-l1Ttl?: number; // In-memory TTL
-l2Ttl?: number; // Redis TTL
-l3Ttl?: number; // CDN TTL
-}
-
-class MultiLayerCache {
-private l1Cache: Map<string, { value: any; expires: number }> = new Map();
-private redis: Redis;
-
-constructor(redis: Redis) {
-this.redis = redis;
-  }
-
-| async get<T>(key: string): Promise<T | null> { |
-// L1: In-memory check
-const l1 = this.l1Cache.get(key);
-if (l1 && l1.expires > Date.now()) {
-return l1.value;
+    // lib/cache.ts
+    interface CacheOptions {
+    l1Ttl?: number; // In-memory TTL
+    l2Ttl?: number; // Redis TTL
+    l3Ttl?: number; // CDN TTL
     }
-
-// L2: Redis check
-const l2 = await this.redis.get(key);
-if (l2) {
-const value = JSON.parse(l2);
-this.l1Cache.set(key, { value, expires: Date.now() + 60000 });
-return value;
+    
+    class MultiLayerCache {
+    private l1Cache: Map<string, { value: any; expires: number }> = new Map();
+    private redis: Redis;
+    
+    constructor(redis: Redis) {
+    this.redis = redis;
+      }
+    
+    | async get<T>(key: string): Promise<T | null> { |
+    // L1: In-memory check
+    const l1 = this.l1Cache.get(key);
+    if (l1 && l1.expires > Date.now()) {
+    return l1.value;
+        }
+    
+    // L2: Redis check
+    const l2 = await this.redis.get(key);
+    if (l2) {
+    const value = JSON.parse(l2);
+    this.l1Cache.set(key, { value, expires: Date.now() + 60000 });
+    return value;
+        }
+    
+    return null;
+      }
+    
+    async set<T>(key: string, value: T, options: CacheOptions = {}): Promise<void> {
+    const { l1Ttl = 60, l2Ttl = 300 } = options;
+    
+    // L1: In-memory
+    this.l1Cache.set(key, { value, expires: Date.now() + l1Ttl * 1000 });
+    
+    // L2: Redis
+    await this.redis.setex(key, l2Ttl, JSON.stringify(value));
+      }
+    
+    async invalidate(pattern: string): Promise<void> {
+    // Clear L1
+    for (const key of this.l1Cache.keys()) {
+    if (key.match(pattern)) this.l1Cache.delete(key);
+        }
+    
+    // Clear L2
+    const keys = await this.redis.keys(pattern);
+    if (keys.length) await this.redis.del(...keys);
+      }
     }
-
-return null;
-  }
-
-async set<T>(key: string, value: T, options: CacheOptions = {}): Promise<void> {
-const { l1Ttl = 60, l2Ttl = 300 } = options;
-
-// L1: In-memory
-this.l1Cache.set(key, { value, expires: Date.now() + l1Ttl * 1000 });
-
-// L2: Redis
-await this.redis.setex(key, l2Ttl, JSON.stringify(value));
-  }
-
-async invalidate(pattern: string): Promise<void> {
-// Clear L1
-for (const key of this.l1Cache.keys()) {
-if (key.match(pattern)) this.l1Cache.delete(key);
-    }
-
-// Clear L2
-const keys = await this.redis.keys(pattern);
-if (keys.length) await this.redis.del(...keys);
-  }
-}
-
-```text
+    
 
 ## Cache-Aside Pattern
 
 **Why it exists:** Lazy populate cache on demand
 
-```typescript
-// services/productService.ts
-async function getProduct(id: string): Promise<Product> {
-const cacheKey = `product:${id}`;
-
-// Try cache first
-const cached = await cache.get<Product>(cacheKey);
-if (cached) return cached;
-
-// Cache miss - load from DB
-const product = await prisma.product.findUnique({ where: { id } });
-if (!product) throw new NotFoundError('Product not found');
-
-// Populate cache
-await cache.set(cacheKey, product, { l2Ttl: 3600 });
-
-return product;
-}
-
-// Write-through on update
-async function updateProduct(id: string, data: UpdateProductInput): Promise<Product> {
-const product = await prisma.product.update({
-where: { id },
-    data,
-  });
-
-// Update cache immediately
-await cache.set(`product:${id}`, product);
-
-// Invalidate list caches
-await cache.invalidate('products:*');
-
-return product;
-}
-
-```text
+    // services/productService.ts
+    async function getProduct(id: string): Promise<Product> {
+    const cacheKey = `product:${id}`;
+    
+    // Try cache first
+    const cached = await cache.get<Product>(cacheKey);
+    if (cached) return cached;
+    
+    // Cache miss - load from DB
+    const product = await prisma.product.findUnique({ where: { id } });
+    if (!product) throw new NotFoundError('Product not found');
+    
+    // Populate cache
+    await cache.set(cacheKey, product, { l2Ttl: 3600 });
+    
+    return product;
+    }
+    
+    // Write-through on update
+    async function updateProduct(id: string, data: UpdateProductInput): Promise<Product> {
+    const product = await prisma.product.update({
+    where: { id },
+        data,
+      });
+    
+    // Update cache immediately
+    await cache.set(`product:${id}`, product);
+    
+    // Invalidate list caches
+    await cache.invalidate('products:*');
+    
+    return product;
+    }
+    
 ---
 
 ## LOAD BALANCING
@@ -2450,52 +2694,50 @@ return product;
 
 **Why it exists:** Efficient resource utilization
 
-```typescript
-// lib/pool.ts
-import { Pool } from 'pg';
-
-const pool = new Pool({
-host: process.env.DB_HOST,
-port: 5432,
-database: process.env.DB_NAME,
-user: process.env.DB_USER,
-password: process.env.DB_PASSWORD,
-
-// Pool settings
-min: 2,  // Minimum connections
-max: 20,  // Maximum connections
-idleTimeoutMillis: 30000,
-connectionTimeoutMillis: 2000,
-
-// Statement timeout for long queries
-statement_timeout: 10000,
-});
-
-// Health check
-pool.on('error', (err) => {
-console.error('Unexpected pool error', err);
-});
-
-// Connection wrapper with retry
-export async function withConnection<T>(
-fn: (client: PoolClient) => Promise<T>,
-retries = 3
-): Promise<T> {
-for (let attempt = 0; attempt < retries; attempt++) {
-const client = await pool.connect();
-try {
-return await fn(client);
-} catch (error) {
-if (attempt === retries - 1) throw error;
-await new Promise(r => setTimeout(r, 100 * Math.pow(2, attempt)));
-} finally {
-      client.release();
+    // lib/pool.ts
+    import { Pool } from 'pg';
+    
+    const pool = new Pool({
+    host: process.env.DB_HOST,
+    port: 5432,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    
+    // Pool settings
+    min: 2,  // Minimum connections
+    max: 20,  // Maximum connections
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 2000,
+    
+    // Statement timeout for long queries
+    statement_timeout: 10000,
+    });
+    
+    // Health check
+    pool.on('error', (err) => {
+    console.error('Unexpected pool error', err);
+    });
+    
+    // Connection wrapper with retry
+    export async function withConnection<T>(
+    fn: (client: PoolClient) => Promise<T>,
+    retries = 3
+    ): Promise<T> {
+    for (let attempt = 0; attempt < retries; attempt++) {
+    const client = await pool.connect();
+    try {
+    return await fn(client);
+    } catch (error) {
+    if (attempt === retries - 1) throw error;
+    await new Promise(r => setTimeout(r, 100 * Math.pow(2, attempt)));
+    } finally {
+          client.release();
+        }
+      }
+    throw new Error('Max retries exceeded');
     }
-  }
-throw new Error('Max retries exceeded');
-}
-
-```text
+    
 ---
 
 ## DATABASE PATTERNS
@@ -2504,63 +2746,61 @@ throw new Error('Max retries exceeded');
 
 **Why it exists:** Abstract data access
 
-```typescript
-// repositories/base.ts
-export interface Repository<T, CreateInput, UpdateInput> {
-| findById(id: string): Promise<T | null>; |
-findMany(query: QueryParams): Promise<PaginatedResult<T>>;
-create(data: CreateInput): Promise<T>;
-update(id: string, data: UpdateInput): Promise<T>;
-delete(id: string): Promise<void>;
-}
-
-// repositories/productRepository.ts
-export class ProductRepository implements Repository<Product, CreateProductInput, UpdateProductInput> {
-constructor(private prisma: PrismaClient) {}
-
-| async findById(id: string): Promise<Product | null> { |
-return this.prisma.product.findUnique({
-where: { id },
-include: { category: true, reviews: true },
-    });
-  }
-
-async findMany(query: QueryParams): Promise<PaginatedResult<Product>> {
-const { page = 1, limit = 20, sort, filter } = query;
-
-const [items, total] = await Promise.all([
-      this.prisma.product.findMany({
-where: this.buildWhere(filter),
-orderBy: this.buildOrderBy(sort),
-skip: (page - 1) * limit,
-take: limit,
-      }),
-this.prisma.product.count({ where: this.buildWhere(filter) }),
-    ]);
-
-return {
-      items,
-      total,
-      page,
-totalPages: Math.ceil(total / limit),
-hasMore: page * limit < total,
-    };
-  }
-
-async create(data: CreateProductInput): Promise<Product> {
-return this.prisma.product.create({ data });
-  }
-
-async update(id: string, data: UpdateProductInput): Promise<Product> {
-return this.prisma.product.update({ where: { id }, data });
-  }
-
-async delete(id: string): Promise<void> {
-await this.prisma.product.delete({ where: { id } });
-  }
-}
-
-```text
+    // repositories/base.ts
+    export interface Repository<T, CreateInput, UpdateInput> {
+    | findById(id: string): Promise<T | null>; |
+    findMany(query: QueryParams): Promise<PaginatedResult<T>>;
+    create(data: CreateInput): Promise<T>;
+    update(id: string, data: UpdateInput): Promise<T>;
+    delete(id: string): Promise<void>;
+    }
+    
+    // repositories/productRepository.ts
+    export class ProductRepository implements Repository<Product, CreateProductInput, UpdateProductInput> {
+    constructor(private prisma: PrismaClient) {}
+    
+    | async findById(id: string): Promise<Product | null> { |
+    return this.prisma.product.findUnique({
+    where: { id },
+    include: { category: true, reviews: true },
+        });
+      }
+    
+    async findMany(query: QueryParams): Promise<PaginatedResult<Product>> {
+    const { page = 1, limit = 20, sort, filter } = query;
+    
+    const [items, total] = await Promise.all([
+          this.prisma.product.findMany({
+    where: this.buildWhere(filter),
+    orderBy: this.buildOrderBy(sort),
+    skip: (page - 1) * limit,
+    take: limit,
+          }),
+    this.prisma.product.count({ where: this.buildWhere(filter) }),
+        ]);
+    
+    return {
+          items,
+          total,
+          page,
+    totalPages: Math.ceil(total / limit),
+    hasMore: page * limit < total,
+        };
+      }
+    
+    async create(data: CreateProductInput): Promise<Product> {
+    return this.prisma.product.create({ data });
+      }
+    
+    async update(id: string, data: UpdateProductInput): Promise<Product> {
+    return this.prisma.product.update({ where: { id }, data });
+      }
+    
+    async delete(id: string): Promise<void> {
+    await this.prisma.product.delete({ where: { id } });
+      }
+    }
+    
 ---
 
 ## SAGA PATTERN
@@ -2569,67 +2809,65 @@ await this.prisma.product.delete({ where: { id } });
 
 **Why it exists:** Cross-service consistency
 
-```typescript
-// sagas/orderSaga.ts
-interface SagaStep<T> {
-name: string;
-execute: (context: T) => Promise<void>;
-compensate: (context: T) => Promise<void>;
-}
-
-class SagaOrchestrator<T> {
-private steps: SagaStep<T>[] = [];
-private executedSteps: SagaStep<T>[] = [];
-
-addStep(step: SagaStep<T>): this {
-    this.steps.push(step);
-return this;
-  }
-
-async execute(context: T): Promise<void> {
-for (const step of this.steps) {
-try {
-await step.execute(context);
-        this.executedSteps.push(step);
-} catch (error) {
-await this.rollback(context);
-throw error;
+    // sagas/orderSaga.ts
+    interface SagaStep<T> {
+    name: string;
+    execute: (context: T) => Promise<void>;
+    compensate: (context: T) => Promise<void>;
+    }
+    
+    class SagaOrchestrator<T> {
+    private steps: SagaStep<T>[] = [];
+    private executedSteps: SagaStep<T>[] = [];
+    
+    addStep(step: SagaStep<T>): this {
+        this.steps.push(step);
+    return this;
+      }
+    
+    async execute(context: T): Promise<void> {
+    for (const step of this.steps) {
+    try {
+    await step.execute(context);
+            this.executedSteps.push(step);
+    } catch (error) {
+    await this.rollback(context);
+    throw error;
+          }
+        }
+      }
+    
+    private async rollback(context: T): Promise<void> {
+    for (const step of this.executedSteps.reverse()) {
+    try {
+    await step.compensate(context);
+    } catch (e) {
+    console.error(`Compensation failed for ${step.name}`, e);
+          }
+        }
       }
     }
-  }
-
-private async rollback(context: T): Promise<void> {
-for (const step of this.executedSteps.reverse()) {
-try {
-await step.compensate(context);
-} catch (e) {
-console.error(`Compensation failed for ${step.name}`, e);
-      }
-    }
-  }
-}
-
-// Usage
-const orderSaga = new SagaOrchestrator<OrderContext>()
-  .addStep({
-name: 'reserveInventory',
-execute: async (ctx) => { await inventoryService.reserve(ctx.items); },
-compensate: async (ctx) => { await inventoryService.release(ctx.items); },
-  })
-  .addStep({
-name: 'processPayment',
-execute: async (ctx) => { ctx.paymentId = await paymentService.charge(ctx.amount); },
-compensate: async (ctx) => { await paymentService.refund(ctx.paymentId); },
-  })
-  .addStep({
-name: 'createOrder',
-execute: async (ctx) => { ctx.orderId = await orderService.create(ctx); },
-compensate: async (ctx) => { await orderService.cancel(ctx.orderId); },
-  });
-
-await orderSaga.execute(orderContext);
-
-```text
+    
+    // Usage
+    const orderSaga = new SagaOrchestrator<OrderContext>()
+      .addStep({
+    name: 'reserveInventory',
+    execute: async (ctx) => { await inventoryService.reserve(ctx.items); },
+    compensate: async (ctx) => { await inventoryService.release(ctx.items); },
+      })
+      .addStep({
+    name: 'processPayment',
+    execute: async (ctx) => { ctx.paymentId = await paymentService.charge(ctx.amount); },
+    compensate: async (ctx) => { await paymentService.refund(ctx.paymentId); },
+      })
+      .addStep({
+    name: 'createOrder',
+    execute: async (ctx) => { ctx.orderId = await orderService.create(ctx); },
+    compensate: async (ctx) => { await orderService.cancel(ctx.orderId); },
+      });
+    
+    await orderSaga.execute(orderContext);
+    
 ---
 
 ### CONTINUED: MORE SYSTEM DESIGN
@@ -2644,484 +2882,479 @@ await orderSaga.execute(orderContext);
 
 ## The Partition Decision
 
-**Source:** Jepsen analyses, Amazon DynamoDB paper, Google Spanner paper
-**Why this is hard:** Requires understanding of failure modes normal engineers never see
+**Source:**Jepsen analyses, Amazon DynamoDB paper, Google Spanner paper**Why this is hard:** Requires understanding of failure modes normal engineers never see
 
-```typescript
-/**
-- CAP THEOREM DEEP DIVE
-- * THE REALITY: You DON'T choose "2 of 3". You choose:
-- - What happens DURING a partition (which is rare but happens)
-- - What consistency/availability tradeoff you make NORMALLY
-- * AMAZON'S LESSON (2004 outage that led to DynamoDB):
-- "Customers should be able to view and add to their cart
-- even if network partitions occur. We sacrifice consistency
-- for availability in this case."
-- * GOOGLE SPANNER'S APPROACH:
-- "We use atomic clocks (TrueTime) to achieve external consistency
-- even across data centers. We sacrifice availability during partitions
-- but partitions are rare in our network."
- */
+    /**
 
-// CONSISTENCY MODELS IN PRACTICE
-
-interface ConsistencyLevel {
-name: string;
-description: string;
-useCases: string[];
-tradeoffs: string[];
-}
-
-const consistencyModels: ConsistencyLevel[] = [
-  {
-name: 'Linearizability (Strong)',
-description: `
-Every read sees the most recent write. Operations appear instantaneous.
-The system behaves as if there's only one copy of data.
-    `,
-useCases: [
-'Bank account balance',
-'Inventory count (prevent overselling)',
-'Leader election',
-'Distributed locks',
-    ],
-tradeoffs: [
-'Highest latency (must coordinate)',
-'Lowest availability (fails during partitions)',
-'Expensive at scale (every write waits for quorum)',
-    ],
-  },
-  {
-name: 'Sequential Consistency',
-description: `
-All processes see operations in the same order, but that order
-may not match real-time. Good for single-writer scenarios.
-    `,
-useCases: [
-'Event logs',
-'Message queues',
-'Version control systems',
-    ],
-tradeoffs: [
-'Still requires coordination',
-'Reads might be stale',
-    ],
-  },
-  {
-name: 'Causal Consistency',
-description: `
-Operations that are causally related are seen in order.
-Concurrent operations may be seen in different orders.
-    `,
-useCases: [
-'Social media feeds',
-'Collaborative editing',
-'Comment threads (reply after parent)',
-    ],
-tradeoffs: [
-'Must track causality (vector clocks, version vectors)',
-'Complex conflict resolution',
-    ],
-  },
-  {
-name: 'Eventual Consistency',
-description: `
-If no new updates, all replicas will eventually converge.
-No guarantees about when or what order.
-    `,
-useCases: [
-'CDN caching',
-      'DNS',
-'Shopping cart (Amazon)',
-'Like counts (approximate OK)',
-    ],
-tradeoffs: [
-'Conflicting writes require resolution',
-'Users may see stale data',
-'Debugging is hard (non-deterministic)',
-    ],
-  },
-];
-
-/**
-- CONFLICT RESOLUTION STRATEGIES
-- * When eventual consistency leads to conflicts, you must resolve them.
-- These are real strategies used by major systems:
- */
-
-// Last-Write-Wins (LWW) - Used by Cassandra
-interface LWWValue<T> {
-value: T;
-timestamp: number; // Logical or physical timestamp
-}
-
-function resolveLWW<T>(values: LWWValue<T>[]): T {
-// Highest timestamp wins
-// WARNING: Relies on synchronized clocks (problematic!)
-const sorted = values.sort((a, b) => b.timestamp - a.timestamp);
-return sorted[0].value;
-}
-
-// Version Vectors - Used by Dynamo, Riak
-interface VersionVector {
-[nodeId: string]: number;
-}
-
-function mergeVersionVectors(
-local: VersionVector,
-remote: VersionVector
-): { merged: VersionVector; conflict: boolean } {
-const merged: VersionVector = { ...local };
-let conflict = false;
-
-// Check for concurrent updates (neither dominates)
-const localDominates = Object.keys(remote).every(
-| k => (local[k] |  | 0) >= remote[k] |
-  );
-const remoteDominates = Object.keys(local).every(
-| k => (remote[k] |  | 0) >= local[k] |
-  );
-
-if (!localDominates && !remoteDominates) {
-conflict = true; // Concurrent updates - application must resolve
-  }
-
-// Merge: take max of each component
-for (const [node, version] of Object.entries(remote)) {
-| merged[node] = Math.max(merged[node] |  | 0, version); |
-  }
-
-return { merged, conflict };
-}
-
-// CRDTs (Conflict-free Replicated Data Types) - Used by Redis, Figma
-// Mathematically guaranteed to converge without coordination
-
-// G-Counter: Grow-only counter
-class GCounter {
-private counts: Map<string, number> = new Map();
-
-constructor(private nodeId: string) {}
-
-increment(): void {
-| const current = this.counts.get(this.nodeId) |  | 0; |
-this.counts.set(this.nodeId, current + 1);
-  }
-
-value(): number {
-let sum = 0;
-for (const count of this.counts.values()) {
-sum += count;
+    - CAP THEOREM DEEP DIVE
+    - * THE REALITY: You DON'T choose "2 of 3". You choose:
+    - - What happens DURING a partition (which is rare but happens)
+    - - What consistency/availability tradeoff you make NORMALLY
+    - * AMAZON'S LESSON (2004 outage that led to DynamoDB):
+    - "Customers should be able to view and add to their cart
+    - even if network partitions occur. We sacrifice consistency
+    - for availability in this case."
+    - * GOOGLE SPANNER'S APPROACH:
+    - "We use atomic clocks (TrueTime) to achieve external consistency
+    - even across data centers. We sacrifice availability during partitions
+    - but partitions are rare in our network."
+     */
+    
+    // CONSISTENCY MODELS IN PRACTICE
+    
+    interface ConsistencyLevel {
+    name: string;
+    description: string;
+    useCases: string[];
+    tradeoffs: string[];
     }
-return sum;
-  }
+    
+    const consistencyModels: ConsistencyLevel[] = [
+      {
+    name: 'Linearizability (Strong)',
+    description: `
+    Every read sees the most recent write. Operations appear instantaneous.
+    The system behaves as if there's only one copy of data.
+        `,
+    useCases: [
+    'Bank account balance',
+    'Inventory count (prevent overselling)',
+    'Leader election',
+    'Distributed locks',
+        ],
+    tradeoffs: [
+    'Highest latency (must coordinate)',
+    'Lowest availability (fails during partitions)',
+    'Expensive at scale (every write waits for quorum)',
+        ],
+      },
+      {
+    name: 'Sequential Consistency',
+    description: `
+    All processes see operations in the same order, but that order
+    may not match real-time. Good for single-writer scenarios.
+        `,
+    useCases: [
+    'Event logs',
+    'Message queues',
+    'Version control systems',
+        ],
+    tradeoffs: [
+    'Still requires coordination',
+    'Reads might be stale',
+        ],
+      },
+      {
+    name: 'Causal Consistency',
+    description: `
+    Operations that are causally related are seen in order.
+    Concurrent operations may be seen in different orders.
+        `,
+    useCases: [
+    'Social media feeds',
+    'Collaborative editing',
+    'Comment threads (reply after parent)',
+        ],
+    tradeoffs: [
+    'Must track causality (vector clocks, version vectors)',
+    'Complex conflict resolution',
+        ],
+      },
+      {
+    name: 'Eventual Consistency',
+    description: `
+    If no new updates, all replicas will eventually converge.
+    No guarantees about when or what order.
+        `,
+    useCases: [
+    'CDN caching',
+          'DNS',
+    'Shopping cart (Amazon)',
+    'Like counts (approximate OK)',
+        ],
+    tradeoffs: [
+    'Conflicting writes require resolution',
+    'Users may see stale data',
+    'Debugging is hard (non-deterministic)',
+        ],
+      },
+    ];
+    
+    /**
 
-merge(other: GCounter): void {
-for (const [nodeId, count] of other.counts) {
-| const current = this.counts.get(nodeId) |  | 0; |
-this.counts.set(nodeId, Math.max(current, count));
+    - CONFLICT RESOLUTION STRATEGIES
+    - * When eventual consistency leads to conflicts, you must resolve them.
+    - These are real strategies used by major systems:
+     */
+    
+    // Last-Write-Wins (LWW) - Used by Cassandra
+    interface LWWValue<T> {
+    value: T;
+    timestamp: number; // Logical or physical timestamp
     }
-  }
-}
-
-// PN-Counter: Can increment AND decrement
-class PNCounter {
-private positive = new GCounter(this.nodeId);
-private negative = new GCounter(this.nodeId);
-
-constructor(private nodeId: string) {}
-
-increment(): void { this.positive.increment(); }
-decrement(): void { this.negative.increment(); }
-value(): number { return this.positive.value() - this.negative.value(); }
-
-merge(other: PNCounter): void {
-    this.positive.merge(other.positive);
-    this.negative.merge(other.negative);
-  }
-}
-
-```text
+    
+    function resolveLWW<T>(values: LWWValue<T>[]): T {
+    // Highest timestamp wins
+    // WARNING: Relies on synchronized clocks (problematic!)
+    const sorted = values.sort((a, b) => b.timestamp - a.timestamp);
+    return sorted[0].value;
+    }
+    
+    // Version Vectors - Used by Dynamo, Riak
+    interface VersionVector {
+    [nodeId: string]: number;
+    }
+    
+    function mergeVersionVectors(
+    local: VersionVector,
+    remote: VersionVector
+    ): { merged: VersionVector; conflict: boolean } {
+    const merged: VersionVector = { ...local };
+    let conflict = false;
+    
+    // Check for concurrent updates (neither dominates)
+    const localDominates = Object.keys(remote).every(
+    | k => (local[k] |  | 0) >= remote[k] |
+      );
+    const remoteDominates = Object.keys(local).every(
+    | k => (remote[k] |  | 0) >= local[k] |
+      );
+    
+    if (!localDominates && !remoteDominates) {
+    conflict = true; // Concurrent updates - application must resolve
+      }
+    
+    // Merge: take max of each component
+    for (const [node, version] of Object.entries(remote)) {
+    | merged[node] = Math.max(merged[node] |  | 0, version); |
+      }
+    
+    return { merged, conflict };
+    }
+    
+    // CRDTs (Conflict-free Replicated Data Types) - Used by Redis, Figma
+    // Mathematically guaranteed to converge without coordination
+    
+    // G-Counter: Grow-only counter
+    class GCounter {
+    private counts: Map<string, number> = new Map();
+    
+    constructor(private nodeId: string) {}
+    
+    increment(): void {
+    | const current = this.counts.get(this.nodeId) |  | 0; |
+    this.counts.set(this.nodeId, current + 1);
+      }
+    
+    value(): number {
+    let sum = 0;
+    for (const count of this.counts.values()) {
+    sum += count;
+        }
+    return sum;
+      }
+    
+    merge(other: GCounter): void {
+    for (const [nodeId, count] of other.counts) {
+    | const current = this.counts.get(nodeId) |  | 0; |
+    this.counts.set(nodeId, Math.max(current, count));
+        }
+      }
+    }
+    
+    // PN-Counter: Can increment AND decrement
+    class PNCounter {
+    private positive = new GCounter(this.nodeId);
+    private negative = new GCounter(this.nodeId);
+    
+    constructor(private nodeId: string) {}
+    
+    increment(): void { this.positive.increment(); }
+    decrement(): void { this.negative.increment(); }
+    value(): number { return this.positive.value() - this.negative.value(); }
+    
+    merge(other: PNCounter): void {
+        this.positive.merge(other.positive);
+        this.negative.merge(other.negative);
+      }
+    }
+    
 ---
 
 ## NETFLIX ARCHITECTURE PATTERNS
 
 ## Chaos Engineering Implementation
 
-**Source:** Netflix Tech Blog, "Chaos Monkey" paper
-**Why it matters:** 99.99% uptime requires testing failures BEFORE they happen
+**Source:**Netflix Tech Blog, "Chaos Monkey" paper**Why it matters:** 99.99% uptime requires testing failures BEFORE they happen
 
-```typescript
-/**
-- CHAOS ENGINEERING PRINCIPLES (Netflix Simian Army)
-- * 1. Build hypothesis about steady state
-- 2. Vary real-world events (failure, latency, resource exhaustion)
-- 3. Run experiments in production (safely, with blast radius limits)
-- 4. Disprove hypothesis = found weakness
-- * NETFLIX TOOLS:
-- - Chaos Monkey: Random instance termination
-- - Latency Monkey: Artificial delays
-- - Chaos Kong: Simulates entire AWS region failure
- */
+    /**
 
-class ChaosExperiment {
-private blastRadius: {
-maxInstances: number;
-allowedRegions: string[];
-excludeServices: string[];
-  };
-
-constructor(config: ChaosConfig) {
-this.blastRadius = {
-| maxInstances: config.maxInstances |  | 1, |
-| allowedRegions: config.regions |  | ['us-east-1'], |
-| excludeServices: config.exclude |  | ['auth', 'payments'], |
-    };
-  }
-
-async runInstanceTermination(): Promise<ExperimentResult> {
-// 1. Select target within blast radius
-const target = await this.selectTarget();
-
-if (!target) {
-return { success: true, action: 'no_target', message: 'No valid targets' };
+    - CHAOS ENGINEERING PRINCIPLES (Netflix Simian Army)
+    - * 1. Build hypothesis about steady state
+    - 2. Vary real-world events (failure, latency, resource exhaustion)
+    - 3. Run experiments in production (safely, with blast radius limits)
+    - 4. Disprove hypothesis = found weakness
+    - * NETFLIX TOOLS:
+    - - Chaos Monkey: Random instance termination
+    - - Latency Monkey: Artificial delays
+    - - Chaos Kong: Simulates entire AWS region failure
+     */
+    
+    class ChaosExperiment {
+    private blastRadius: {
+    maxInstances: number;
+    allowedRegions: string[];
+    excludeServices: string[];
+      };
+    
+    constructor(config: ChaosConfig) {
+    this.blastRadius = {
+    | maxInstances: config.maxInstances |  | 1, |
+    | allowedRegions: config.regions |  | ['us-east-1'], |
+    | excludeServices: config.exclude |  | ['auth', 'payments'], |
+        };
+      }
+    
+    async runInstanceTermination(): Promise<ExperimentResult> {
+    // 1. Select target within blast radius
+    const target = await this.selectTarget();
+    
+    if (!target) {
+    return { success: true, action: 'no_target', message: 'No valid targets' };
+        }
+    
+    // 2. Record steady-state metrics before
+    const before = await this.captureMetrics();
+    
+    // 3. Execute failure
+    Chaos Monkey terminating instance: ${target.instanceId}`);
+    await this.terminateInstance(target.instanceId);
+    
+    // 4. Wait for system response
+    await this.waitForRecovery(30000); // 30 second max
+    
+    // 5. Record metrics after
+    const after = await this.captureMetrics();
+    
+    // 6. Compare and report
+    return this.analyzeResults(before, after, target);
+      }
+    
+    async runLatencyInjection(
+    service: string,
+    latencyMs: number,
+    durationMs: number
+    ): Promise<ExperimentResult> {
+    // Inject artificial latency using service mesh (Envoy/Istio)
+    await this.injectFault({
+    type: 'delay',
+          service,
+    delay: `${latencyMs}ms`,
+    percentage: 50, // Only affect 50% of requests
+        });
+    
+    await new Promise(r => setTimeout(r, durationMs));
+    
+    await this.removeFault(service);
+    
+    return { success: true, action: 'latency_injection', service, latencyMs };
+      }
+    
+    | private async selectTarget(): Promise<TargetInstance | null> { |
+    const instances = await this.discoverInstances();
+    
+    const eligible = instances.filter(i =>
+    this.blastRadius.allowedRegions.includes(i.region) &&
+    !this.blastRadius.excludeServices.includes(i.service) &&
+    i.healthy // Only kill healthy instances (more realistic)
+        );
+    
+    if (eligible.length === 0) return null;
+    
+    // Random selection
+    return eligible[Math.floor(Math.random() * eligible.length)];
+      }
     }
+    
+    /**
 
-// 2. Record steady-state metrics before
-const before = await this.captureMetrics();
-
-// 3. Execute failure
-Chaos Monkey terminating instance: ${target.instanceId}`);
-await this.terminateInstance(target.instanceId);
-
-// 4. Wait for system response
-await this.waitForRecovery(30000); // 30 second max
-
-// 5. Record metrics after
-const after = await this.captureMetrics();
-
-// 6. Compare and report
-return this.analyzeResults(before, after, target);
-  }
-
-async runLatencyInjection(
-service: string,
-latencyMs: number,
-durationMs: number
-): Promise<ExperimentResult> {
-// Inject artificial latency using service mesh (Envoy/Istio)
-await this.injectFault({
-type: 'delay',
-      service,
-delay: `${latencyMs}ms`,
-percentage: 50, // Only affect 50% of requests
-    });
-
-await new Promise(r => setTimeout(r, durationMs));
-
-await this.removeFault(service);
-
-return { success: true, action: 'latency_injection', service, latencyMs };
-  }
-
-| private async selectTarget(): Promise<TargetInstance | null> { |
-const instances = await this.discoverInstances();
-
-const eligible = instances.filter(i =>
-this.blastRadius.allowedRegions.includes(i.region) &&
-!this.blastRadius.excludeServices.includes(i.service) &&
-i.healthy // Only kill healthy instances (more realistic)
-    );
-
-if (eligible.length === 0) return null;
-
-// Random selection
-return eligible[Math.floor(Math.random() * eligible.length)];
-  }
-}
-
-/**
-- BULKHEAD PATTERN (Hystrix-style)
-- * Isolate failures to prevent cascade. Each external dependency
-- gets its own thread pool / connection limit.
-- * PRODUCTION LESSON: Netflix's 2012 outage spread because one slow
-- dependency consumed all threads, blocking everything.
- */
-
-class Bulkhead<T> {
-private semaphore: number;
-private queue: Array<{
-resolve: (value: T) => void;
-reject: (error: Error) => void;
-fn: () => Promise<T>;
-}> = [];
-
-  constructor(
-private name: string,
-private maxConcurrent: number,
-private maxQueue: number = 100
-) {
-this.semaphore = maxConcurrent;
-  }
-
-async execute(fn: () => Promise<T>): Promise<T> {
-if (this.semaphore > 0) {
-// Slot available, execute immediately
-return this.run(fn);
+    - BULKHEAD PATTERN (Hystrix-style)
+    - * Isolate failures to prevent cascade. Each external dependency
+    - gets its own thread pool / connection limit.
+    - * PRODUCTION LESSON: Netflix's 2012 outage spread because one slow
+    - dependency consumed all threads, blocking everything.
+     */
+    
+    class Bulkhead<T> {
+    private semaphore: number;
+    private queue: Array<{
+    resolve: (value: T) => void;
+    reject: (error: Error) => void;
+    fn: () => Promise<T>;
+    }> = [];
+    
+      constructor(
+    private name: string,
+    private maxConcurrent: number,
+    private maxQueue: number = 100
+    ) {
+    this.semaphore = maxConcurrent;
+      }
+    
+    async execute(fn: () => Promise<T>): Promise<T> {
+    if (this.semaphore > 0) {
+    // Slot available, execute immediately
+    return this.run(fn);
+        }
+    
+    if (this.queue.length >= this.maxQueue) {
+    // Queue full, reject immediately (fail fast)
+    throw new BulkheadFullError(`Bulkhead ${this.name} is full`);
+        }
+    
+    // Queue the request
+    return new Promise((resolve, reject) => {
+    this.queue.push({ resolve, reject, fn });
+        });
+      }
+    
+    private async run(fn: () => Promise<T>): Promise<T> {
+        this.semaphore--;
+    
+    try {
+    return await fn();
+    } finally {
+          this.semaphore++;
+          this.processQueue();
+        }
+      }
+    
+    private processQueue(): void {
+    if (this.queue.length > 0 && this.semaphore > 0) {
+    const { resolve, reject, fn } = this.queue.shift()!;
+          this.run(fn).then(resolve).catch(reject);
+        }
+      }
+    
+    getStats(): BulkheadStats {
+    return {
+    name: this.name,
+    available: this.semaphore,
+    queued: this.queue.length,
+    utilization: (this.maxConcurrent - this.semaphore) / this.maxConcurrent,
+        };
+      }
     }
-
-if (this.queue.length >= this.maxQueue) {
-// Queue full, reject immediately (fail fast)
-throw new BulkheadFullError(`Bulkhead ${this.name} is full`);
+    
+    // Usage: Isolate each external service
+    const paymentBulkhead = new Bulkhead<PaymentResult>('payments', 10, 50);
+    const inventoryBulkhead = new Bulkhead<InventoryResult>('inventory', 20, 100);
+    
+    async function processOrder(order: Order): Promise<void> {
+    // Each call is isolated - if payments is slow, inventory still works
+    const [payment, inventory] = await Promise.all([
+    paymentBulkhead.execute(() => chargePayment(order)),
+    inventoryBulkhead.execute(() => reserveInventory(order)),
+      ]);
     }
-
-// Queue the request
-return new Promise((resolve, reject) => {
-this.queue.push({ resolve, reject, fn });
-    });
-  }
-
-private async run(fn: () => Promise<T>): Promise<T> {
-    this.semaphore--;
-
-try {
-return await fn();
-} finally {
-      this.semaphore++;
-      this.processQueue();
-    }
-  }
-
-private processQueue(): void {
-if (this.queue.length > 0 && this.semaphore > 0) {
-const { resolve, reject, fn } = this.queue.shift()!;
-      this.run(fn).then(resolve).catch(reject);
-    }
-  }
-
-getStats(): BulkheadStats {
-return {
-name: this.name,
-available: this.semaphore,
-queued: this.queue.length,
-utilization: (this.maxConcurrent - this.semaphore) / this.maxConcurrent,
-    };
-  }
-}
-
-// Usage: Isolate each external service
-const paymentBulkhead = new Bulkhead<PaymentResult>('payments', 10, 50);
-const inventoryBulkhead = new Bulkhead<InventoryResult>('inventory', 20, 100);
-
-async function processOrder(order: Order): Promise<void> {
-// Each call is isolated - if payments is slow, inventory still works
-const [payment, inventory] = await Promise.all([
-paymentBulkhead.execute(() => chargePayment(order)),
-inventoryBulkhead.execute(() => reserveInventory(order)),
-  ]);
-}
-
-```text
+    
 ---
 
 ## TIME AT SCALE
 
 ## Ringpop: Consistent Hashing with Gossip
 
-**Source:** Uber Engineering Blog
-**Why it's unique:** Combines membership protocol with sharding
+**Source:**Uber Engineering Blog**Why it's unique:** Combines membership protocol with sharding
 
-```typescript
-/**
-- RINGPOP-STYLE DISTRIBUTED HASH RING
-- * UBER'S PROBLEM: Millions of concurrent trips need to be
-- assigned to specific servers for state management.
-- * SOLUTION: Consistent hash ring with SWIM gossip protocol
-- for membership discovery and failure detection.
-- * KEY INSIGHT: Virtual nodes spread load more evenly
- */
+    /**
 
-class HashRing {
-private ring: Map<number, string> = new Map(); // hash -> nodeId
-private sortedHashes: number[] = [];
-private virtualNodes: number;
-
-constructor(virtualNodes = 150) {
-this.virtualNodes = virtualNodes;
-  }
-
-addNode(nodeId: string): void {
-for (let i = 0; i < this.virtualNodes; i++) {
-const virtualKey = `${nodeId}:${i}`;
-const hash = this.hash(virtualKey);
-this.ring.set(hash, nodeId);
-    }
-this.sortedHashes = Array.from(this.ring.keys()).sort((a, b) => a - b);
-  }
-
-removeNode(nodeId: string): void {
-for (let i = 0; i < this.virtualNodes; i++) {
-const virtualKey = `${nodeId}:${i}`;
-const hash = this.hash(virtualKey);
-      this.ring.delete(hash);
-    }
-this.sortedHashes = Array.from(this.ring.keys()).sort((a, b) => a - b);
-  }
-
-| getNode(key: string): string | null { |
-if (this.ring.size === 0) return null;
-
-const hash = this.hash(key);
-
-// Binary search for first hash >= key hash
-let left = 0;
-let right = this.sortedHashes.length;
-
-while (left < right) {
-const mid = Math.floor((left + right) / 2);
-if (this.sortedHashes[mid] < hash) {
-left = mid + 1;
-} else {
-right = mid;
+    - RINGPOP-STYLE DISTRIBUTED HASH RING
+    - * UBER'S PROBLEM: Millions of concurrent trips need to be
+    - assigned to specific servers for state management.
+    - * SOLUTION: Consistent hash ring with SWIM gossip protocol
+    - for membership discovery and failure detection.
+    - *KEY INSIGHT: Virtual nodes spread load more evenly*/
+    
+    class HashRing {
+    private ring: Map<number, string> = new Map(); // hash -> nodeId
+    private sortedHashes: number[] = [];
+    private virtualNodes: number;
+    
+    constructor(virtualNodes = 150) {
+    this.virtualNodes = virtualNodes;
+      }
+    
+    addNode(nodeId: string): void {
+    for (let i = 0; i < this.virtualNodes; i++) {
+    const virtualKey = `${nodeId}:${i}`;
+    const hash = this.hash(virtualKey);
+    this.ring.set(hash, nodeId);
+        }
+    this.sortedHashes = Array.from(this.ring.keys()).sort((a, b) => a - b);
+      }
+    
+    removeNode(nodeId: string): void {
+    for (let i = 0; i < this.virtualNodes; i++) {
+    const virtualKey = `${nodeId}:${i}`;
+    const hash = this.hash(virtualKey);
+          this.ring.delete(hash);
+        }
+    this.sortedHashes = Array.from(this.ring.keys()).sort((a, b) => a - b);
+      }
+    
+    | getNode(key: string): string | null { |
+    if (this.ring.size === 0) return null;
+    
+    const hash = this.hash(key);
+    
+    // Binary search for first hash >= key hash
+    let left = 0;
+    let right = this.sortedHashes.length;
+    
+    while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+    if (this.sortedHashes[mid] < hash) {
+    left = mid + 1;
+    } else {
+    right = mid;
+          }
+        }
+    
+    // Wrap around if past the end
+    const index = left === this.sortedHashes.length ? 0 : left;
+    return this.ring.get(this.sortedHashes[index])!;
+      }
+    
+    // Get N replicas for redundancy
+    getNodes(key: string, count: number): string[] {
+    const nodes: Set<string> = new Set();
+    const hash = this.hash(key);
+    
+    // Find starting position
+    let idx = this.sortedHashes.findIndex(h => h >= hash);
+    if (idx === -1) idx = 0;
+    
+    // Walk ring until we have enough unique nodes
+    while (nodes.size < count && nodes.size < this.ring.size) {
+    const node = this.ring.get(this.sortedHashes[idx])!;
+          nodes.add(node);
+    idx = (idx + 1) % this.sortedHashes.length;
+        }
+    
+    return Array.from(nodes);
+      }
+    
+    private hash(key: string): number {
+    // Use consistent hash function (e.g., xxHash, MurmurHash)
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+    hash = ((hash << 5) - hash) + key.charCodeAt(i);
+    hash = hash & hash; // Convert to 32-bit integer
+        }
+    return Math.abs(hash);
       }
     }
-
-// Wrap around if past the end
-const index = left === this.sortedHashes.length ? 0 : left;
-return this.ring.get(this.sortedHashes[index])!;
-  }
-
-// Get N replicas for redundancy
-getNodes(key: string, count: number): string[] {
-const nodes: Set<string> = new Set();
-const hash = this.hash(key);
-
-// Find starting position
-let idx = this.sortedHashes.findIndex(h => h >= hash);
-if (idx === -1) idx = 0;
-
-// Walk ring until we have enough unique nodes
-while (nodes.size < count && nodes.size < this.ring.size) {
-const node = this.ring.get(this.sortedHashes[idx])!;
-      nodes.add(node);
-idx = (idx + 1) % this.sortedHashes.length;
-    }
-
-return Array.from(nodes);
-  }
-
-private hash(key: string): number {
-// Use consistent hash function (e.g., xxHash, MurmurHash)
-let hash = 0;
-for (let i = 0; i < key.length; i++) {
-hash = ((hash << 5) - hash) + key.charCodeAt(i);
-hash = hash & hash; // Convert to 32-bit integer
-    }
-return Math.abs(hash);
-  }
-}
-
-```text
+    
 ---
 
 ### [PRINCIPAL ENGINEER LEVEL] CONTINUED: MORE ARCHITECTURE PATTERNS
@@ -3142,310 +3375,307 @@ return Math.abs(hash);
 
 **Why it exists:** Incremental migration from monolith
 
-```typescript
-/**
-- STRANGLER FIG MIGRATION PATTERN
-- * NETFLIX'S APPROACH:
-- "We migrated from a monolithic to microservices over 2 years
-- without a single production incident. The key was the strangler fig."
-- * HOW IT WORKS:
-- 1. New functionality = new microservice
-- 2. Old functionality = gradually extracted
-- 3. Facade routes traffic (old or new)
-- 4. Eventually monolith is empty shell
- */
+    /**
 
-// Gateway routing during migration
-// middleware/router.ts
-const routeConfig: RouteConfig[] = [
-// New services (extracted from monolith)
-{ path: '/api/users', target: 'user-service:3001', migrated: true },
-{ path: '/api/orders', target: 'order-service:3002', migrated: true },
-
-// Still in monolith (not yet migrated)
-{ path: '/api/reports', target: 'monolith:3000', migrated: false },
-{ path: '/api/legacy/*', target: 'monolith:3000', migrated: false },
-];
-
-async function routeRequest(req: Request): Promise<Response> {
-const route = findRoute(req.path);
-
-// Log migration progress
-metrics.increment('requests', {
-migrated: route.migrated,
-service: route.target.split(':')[0]
-  });
-
-return proxyToService(req, route.target);
-}
-
-```text
+    - STRANGLER FIG MIGRATION PATTERN
+    - * NETFLIX'S APPROACH:
+    - "We migrated from a monolithic to microservices over 2 years
+    - without a single production incident. The key was the strangler fig."
+    - * HOW IT WORKS:
+    - 1. New functionality = new microservice
+    - 2. Old functionality = gradually extracted
+    - 3. Facade routes traffic (old or new)
+    - 4. Eventually monolith is empty shell
+     */
+    
+    // Gateway routing during migration
+    // middleware/router.ts
+    const routeConfig: RouteConfig[] = [
+    // New services (extracted from monolith)
+    { path: '/api/users', target: 'user-service:3001', migrated: true },
+    { path: '/api/orders', target: 'order-service:3002', migrated: true },
+    
+    // Still in monolith (not yet migrated)
+    { path: '/api/reports', target: 'monolith:3000', migrated: false },
+    { path: '/api/legacy/*', target: 'monolith:3000', migrated: false },
+    ];
+    
+    async function routeRequest(req: Request): Promise<Response> {
+    const route = findRoute(req.path);
+    
+    // Log migration progress
+    metrics.increment('requests', {
+    migrated: route.migrated,
+    service: route.target.split(':')[0]
+      });
+    
+    return proxyToService(req, route.target);
+    }
+    
 ---
 
 ## Domain-Driven Design Boundaries
 
-```typescript
-/**
-- BOUNDED CONTEXTS IN MICROSERVICES
-- * Each microservice = one bounded context
-- Each context has its own:
-- - Database (no shared DB!)
-- - Domain model
-- - Ubiquitous language
- */
+    /**
 
-// Order Service - its own model
-interface Order {
-id: string;
-customerId: string;  // Just the ID, not the full customer
-items: OrderItem[];
-status: OrderStatus;
-total: number;
-}
-
-// Customer Service - different model
-interface Customer {
-id: string;
-email: string;
-name: string;
-addresses: Address[];
-}
-
-// When Order needs customer data:
-// Option 1: API call (synchronous)
-async function getOrderWithCustomer(orderId: string) {
-const order = await orderService.getOrder(orderId);
-const customer = await customerService.getCustomer(order.customerId);
-return { ...order, customer };
-}
-
-// Option 2: Event-driven sync (asynchronous)
-// Order service subscribes to CustomerUpdated events
-// Keeps minimal customer data locally
-
-```text
+    - BOUNDED CONTEXTS IN MICROSERVICES
+    - * Each microservice = one bounded context
+    - Each context has its own:
+    - - Database (no shared DB!)
+    - - Domain model
+    - - Ubiquitous language
+     */
+    
+    // Order Service - its own model
+    interface Order {
+    id: string;
+    customerId: string;  // Just the ID, not the full customer
+    items: OrderItem[];
+    status: OrderStatus;
+    total: number;
+    }
+    
+    // Customer Service - different model
+    interface Customer {
+    id: string;
+    email: string;
+    name: string;
+    addresses: Address[];
+    }
+    
+    // When Order needs customer data:
+    // Option 1: API call (synchronous)
+    async function getOrderWithCustomer(orderId: string) {
+    const order = await orderService.getOrder(orderId);
+    const customer = await customerService.getCustomer(order.customerId);
+    return { ...order, customer };
+    }
+    
+    // Option 2: Event-driven sync (asynchronous)
+    // Order service subscribes to CustomerUpdated events
+    // Keeps minimal customer data locally
+    
 ---
 
 ## Service Communication Patterns
 
 ## Synchronous Communication
 
-```typescript
-// REST with exponential backoff
-async function callService<T>(
-url: string,
-options: RequestInit
-): Promise<T> {
-const breaker = getCircuitBreaker(url);
-
-return breaker.execute(async () => {
-return retry(
-async () => {
-const response = await fetch(url, {
-        ...options,
-headers: {
-        ...options.headers,
-'X-Correlation-ID': getCorrelationId(),
-'X-Caller-Service': SERVICE_NAME,
-        },
-        });
-
-if (!response.ok) {
-throw new ServiceError(response.status, await response.text());
-        }
-
-return response.json();
-      },
-{ maxRetries: 3, baseDelay: 1000 }
-    );
-  });
-}
-
-// gRPC for internal service communication
-// proto/order.proto
-syntax = "proto3";
-
-service OrderService {
-rpc GetOrder(GetOrderRequest) returns (Order);
-rpc CreateOrder(CreateOrderRequest) returns (Order);
-rpc ListOrders(ListOrdersRequest) returns (stream Order);
-}
-
-message Order {
-string id = 1;
-string customer_id = 2;
-repeated OrderItem items = 3;
-OrderStatus status = 4;
-double total = 5;
-}
-
-```text
+    // REST with exponential backoff
+    async function callService<T>(
+    url: string,
+    options: RequestInit
+    ): Promise<T> {
+    const breaker = getCircuitBreaker(url);
+    
+    return breaker.execute(async () => {
+    return retry(
+    async () => {
+    const response = await fetch(url, {
+            ...options,
+    headers: {
+            ...options.headers,
+    'X-Correlation-ID': getCorrelationId(),
+    'X-Caller-Service': SERVICE_NAME,
+            },
+            });
+    
+    if (!response.ok) {
+    throw new ServiceError(response.status, await response.text());
+            }
+    
+    return response.json();
+          },
+    { maxRetries: 3, baseDelay: 1000 }
+        );
+      });
+    }
+    
+    // gRPC for internal service communication
+    // proto/order.proto
+    syntax = "proto3";
+    
+    service OrderService {
+    rpc GetOrder(GetOrderRequest) returns (Order);
+    rpc CreateOrder(CreateOrderRequest) returns (Order);
+    rpc ListOrders(ListOrdersRequest) returns (stream Order);
+    }
+    
+    message Order {
+    string id = 1;
+    string customer_id = 2;
+    repeated OrderItem items = 3;
+    OrderStatus status = 4;
+    double total = 5;
+    }
+    
 
 ## Asynchronous Communication
 
-```typescript
-// Event-driven with message queues
-// services/orderService.ts
-
-class OrderService {
-  constructor(
-private db: OrderRepository,
-private eventBus: EventBus
-) {}
-
-async createOrder(input: CreateOrderInput): Promise<Order> {
-const order = await this.db.create(input);
-
-// Publish event for other services
-await this.eventBus.publish('orders', {
-type: 'OrderCreated',
-payload: {
-orderId: order.id,
-customerId: order.customerId,
-total: order.total,
-items: order.items,
-      },
-metadata: {
-correlationId: getCorrelationId(),
-timestamp: new Date().toISOString(),
-source: 'order-service',
+    // Event-driven with message queues
+    // services/orderService.ts
+    
+    class OrderService {
+      constructor(
+    private db: OrderRepository,
+    private eventBus: EventBus
+    ) {}
+    
+    async createOrder(input: CreateOrderInput): Promise<Order> {
+    const order = await this.db.create(input);
+    
+    // Publish event for other services
+    await this.eventBus.publish('orders', {
+    type: 'OrderCreated',
+    payload: {
+    orderId: order.id,
+    customerId: order.customerId,
+    total: order.total,
+    items: order.items,
+          },
+    metadata: {
+    correlationId: getCorrelationId(),
+    timestamp: new Date().toISOString(),
+    source: 'order-service',
+          }
+        });
+    
+    return order;
       }
-    });
-
-return order;
-  }
-}
-
-// Consumer in inventory service
-class InventoryEventHandler {
-@Subscribe('orders', 'OrderCreated')
-async handleOrderCreated(event: OrderCreatedEvent) {
-for (const item of event.payload.items) {
-await this.reserveStock(item.productId, item.quantity);
     }
-  }
-}
-
-```text
+    
+    // Consumer in inventory service
+    class InventoryEventHandler {
+    @Subscribe('orders', 'OrderCreated')
+    async handleOrderCreated(event: OrderCreatedEvent) {
+    for (const item of event.payload.items) {
+    await this.reserveStock(item.productId, item.quantity);
+        }
+      }
+    }
+    
 ---
 
 ## Saga Pattern
 
 ## Orchestration Saga
 
-```typescript
-/**
-- SAGA PATTERN FOR DISTRIBUTED TRANSACTIONS
-- * Problem: No ACID transactions across services
-- Solution: Saga = sequence of local transactions with compensations
- */
+    /**
 
-class OrderSagaOrchestrator {
-async executeOrderSaga(order: Order): Promise<void> {
-const saga = new Saga('create-order');
-
-try {
-// Step 1: Reserve inventory
-      saga.addStep({
-name: 'reserve-inventory',
-execute: () => inventoryService.reserve(order.items),
-compensate: () => inventoryService.release(order.items),
-      });
-await saga.execute('reserve-inventory');
-
-// Step 2: Charge payment
-      saga.addStep({
-name: 'charge-payment',
-execute: () => paymentService.charge(order.customerId, order.total),
-compensate: () => paymentService.refund(order.paymentId),
-      });
-await saga.execute('charge-payment');
-
-// Step 3: Create shipment
-      saga.addStep({
-name: 'create-shipment',
-execute: () => shippingService.createShipment(order),
-compensate: () => shippingService.cancelShipment(order.shipmentId),
-      });
-await saga.execute('create-shipment');
-
-// All successful
-await orderService.updateStatus(order.id, 'confirmed');
-
-} catch (error) {
-// Rollback all completed steps
-await saga.compensateAll();
-await orderService.updateStatus(order.id, 'failed');
-throw error;
+    - SAGA PATTERN FOR DISTRIBUTED TRANSACTIONS
+    - * Problem: No ACID transactions across services
+    - Solution: Saga = sequence of local transactions with compensations
+     */
+    
+    class OrderSagaOrchestrator {
+    async executeOrderSaga(order: Order): Promise<void> {
+    const saga = new Saga('create-order');
+    
+    try {
+    // Step 1: Reserve inventory
+          saga.addStep({
+    name: 'reserve-inventory',
+    execute: () => inventoryService.reserve(order.items),
+    compensate: () => inventoryService.release(order.items),
+          });
+    await saga.execute('reserve-inventory');
+    
+    // Step 2: Charge payment
+          saga.addStep({
+    name: 'charge-payment',
+    execute: () => paymentService.charge(order.customerId, order.total),
+    compensate: () => paymentService.refund(order.paymentId),
+          });
+    await saga.execute('charge-payment');
+    
+    // Step 3: Create shipment
+          saga.addStep({
+    name: 'create-shipment',
+    execute: () => shippingService.createShipment(order),
+    compensate: () => shippingService.cancelShipment(order.shipmentId),
+          });
+    await saga.execute('create-shipment');
+    
+    // All successful
+    await orderService.updateStatus(order.id, 'confirmed');
+    
+    } catch (error) {
+    // Rollback all completed steps
+    await saga.compensateAll();
+    await orderService.updateStatus(order.id, 'failed');
+    throw error;
+        }
+      }
     }
-  }
-}
-
-```text
+    
 ---
 
 ## Service Mesh
 
-```typescript
-/**
-- SERVICE MESH (Istio/Linkerd)
-- * WHAT IT PROVIDES:
-- 1. Traffic management (routing, retries, circuit breaking)
-- 2. Security (mTLS, authorization policies)
-- 3. Observability (metrics, traces, logs)
-- * HOW IT WORKS:
-- - Sidecar proxy (Envoy) deployed with each service
-- - All traffic goes through proxy
-- - Configuration applied without code changes
- */
+    /**
 
-// Istio VirtualService for traffic routing
-// kubernetes/order-service-routing.yaml
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-name: order-service
-spec:
-  hosts:
-- order-service
-  http:
-- match:
-- headers:
-        x-canary:
-exact: "true"
-      route:
-- destination:
-host: order-service
-subset: v2
-- route:
-- destination:
-host: order-service
-subset: v1
-weight: 90
-- destination:
-host: order-service
-subset: v2
-weight: 10  # Canary 10% traffic
+    - SERVICE MESH (Istio/Linkerd)
+    - * WHAT IT PROVIDES:
+    - 1. Traffic management (routing, retries, circuit breaking)
+    - 2. Security (mTLS, authorization policies)
+    - 3. Observability (metrics, traces, logs)
+    - * HOW IT WORKS:
+    - - Sidecar proxy (Envoy) deployed with each service
+    - - All traffic goes through proxy
+    - - Configuration applied without code changes
+     */
+    
+    // Istio VirtualService for traffic routing
+    // kubernetes/order-service-routing.yaml
+    apiVersion: networking.istio.io/v1alpha3
+    kind: VirtualService
+    metadata:
+    name: order-service
+    spec:
+      hosts:
 
-// DestinationRule for circuit breaking
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-name: order-service
-spec:
-host: order-service
-  trafficPolicy:
-    connectionPool:
-      tcp:
-maxConnections: 100
+    - order-service
       http:
-h2UpgradePolicy: UPGRADE
-    outlierDetection:
-consecutive5xxErrors: 5
-interval: 30s
-baseEjectionTime: 30s
 
-```text
+    - match:
+    - headers:
+            x-canary:
+    exact: "true"
+          route:
+
+    - destination:
+    host: order-service
+    subset: v2
+
+    - route:
+    - destination:
+    host: order-service
+    subset: v1
+    weight: 90
+
+    - destination:
+    host: order-service
+    subset: v2
+    weight: 10  # Canary 10% traffic
+    
+    // DestinationRule for circuit breaking
+    apiVersion: networking.istio.io/v1alpha3
+    kind: DestinationRule
+    metadata:
+    name: order-service
+    spec:
+    host: order-service
+      trafficPolicy:
+        connectionPool:
+          tcp:
+    maxConnections: 100
+          http:
+    h2UpgradePolicy: UPGRADE
+        outlierDetection:
+    consecutive5xxErrors: 5
+    interval: 30s
+    baseEjectionTime: 30s
+    
 ---
 
 ## DISTRIBUTED TRACING
@@ -3454,95 +3684,93 @@ baseEjectionTime: 30s
 
 ## OpenTelemetry Integration
 
-```typescript
-// lib/tracing.ts
-import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
-import { Resource } from '@opentelemetry/resources';
-import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
-import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
-import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
-import { trace, context, SpanKind, SpanStatusCode } from '@opentelemetry/api';
-
-// Initialize tracing
-export function initTracing(serviceName: string) {
-const provider = new NodeTracerProvider({
-resource: Resource.default().merge(
-new Resource({
-[SemanticResourceAttributes.SERVICE_NAME]: serviceName,
-[SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: process.env.NODE_ENV,
-      })
-    ),
-  });
-
-const exporter = new OTLPTraceExporter({
-url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
-  });
-
-provider.addSpanProcessor(new BatchSpanProcessor(exporter));
-  provider.register();
-
-return trace.getTracer(serviceName);
-}
-
-// Tracing middleware
-export function tracingMiddleware(tracer: Tracer) {
-return async (req: Request, res: Response, next: NextFunction) => {
-| const span = tracer.startSpan(`HTTP ${req.method} ${req.route?.path |  | req.path}`, { |
-kind: SpanKind.SERVER,
-attributes: {
-'http.method': req.method,
-'http.url': req.url,
-'http.route': req.route?.path,
-'http.user_agent': req.headers['user-agent'],
-      },
-    });
-
-// Propagate context
-const ctx = trace.setSpan(context.active(), span);
-
-res.on('finish', () => {
-span.setAttribute('http.status_code', res.statusCode);
-if (res.statusCode >= 400) {
-span.setStatus({ code: SpanStatusCode.ERROR });
-      }
-      span.end();
-    });
-
-await context.with(ctx, async () => {
-      next();
-    });
-  };
-}
-
-// Span wrapper for database operations
-export async function traceDbQuery<T>(
-operation: string,
-query: () => Promise<T>
-): Promise<T> {
-const tracer = trace.getTracer('db');
-
-return tracer.startActiveSpan(operation, {
-kind: SpanKind.CLIENT,
-attributes: {
-'db.system': 'postgresql',
-'db.operation': operation,
-    },
-}, async (span) => {
-try {
-const result = await query();
-span.setStatus({ code: SpanStatusCode.OK });
-return result;
-} catch (error) {
-span.setStatus({ code: SpanStatusCode.ERROR, message: error.message });
-      span.recordException(error);
-throw error;
-} finally {
-      span.end();
+    // lib/tracing.ts
+    import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
+    import { Resource } from '@opentelemetry/resources';
+    import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+    import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
+    import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
+    import { trace, context, SpanKind, SpanStatusCode } from '@opentelemetry/api';
+    
+    // Initialize tracing
+    export function initTracing(serviceName: string) {
+    const provider = new NodeTracerProvider({
+    resource: Resource.default().merge(
+    new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: serviceName,
+    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: process.env.NODE_ENV,
+          })
+        ),
+      });
+    
+    const exporter = new OTLPTraceExporter({
+    url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
+      });
+    
+    provider.addSpanProcessor(new BatchSpanProcessor(exporter));
+      provider.register();
+    
+    return trace.getTracer(serviceName);
     }
-  });
-}
-
-```text
+    
+    // Tracing middleware
+    export function tracingMiddleware(tracer: Tracer) {
+    return async (req: Request, res: Response, next: NextFunction) => {
+    | const span = tracer.startSpan(`HTTP ${req.method} ${req.route?.path |  | req.path}`, { |
+    kind: SpanKind.SERVER,
+    attributes: {
+    'http.method': req.method,
+    'http.url': req.url,
+    'http.route': req.route?.path,
+    'http.user_agent': req.headers['user-agent'],
+          },
+        });
+    
+    // Propagate context
+    const ctx = trace.setSpan(context.active(), span);
+    
+    res.on('finish', () => {
+    span.setAttribute('http.status_code', res.statusCode);
+    if (res.statusCode >= 400) {
+    span.setStatus({ code: SpanStatusCode.ERROR });
+          }
+          span.end();
+        });
+    
+    await context.with(ctx, async () => {
+          next();
+        });
+      };
+    }
+    
+    // Span wrapper for database operations
+    export async function traceDbQuery<T>(
+    operation: string,
+    query: () => Promise<T>
+    ): Promise<T> {
+    const tracer = trace.getTracer('db');
+    
+    return tracer.startActiveSpan(operation, {
+    kind: SpanKind.CLIENT,
+    attributes: {
+    'db.system': 'postgresql',
+    'db.operation': operation,
+        },
+    }, async (span) => {
+    try {
+    const result = await query();
+    span.setStatus({ code: SpanStatusCode.OK });
+    return result;
+    } catch (error) {
+    span.setStatus({ code: SpanStatusCode.ERROR, message: error.message });
+          span.recordException(error);
+    throw error;
+    } finally {
+          span.end();
+        }
+      });
+    }
+    
 ---
 
 ## SCALING STRATEGIES
@@ -3551,107 +3779,109 @@ throw error;
 
 ## Horizontal Scaling Patterns
 
-```typescript
-/**
-- HORIZONTAL SCALING CHECKLIST
-- * Stateless services (no local state)
-- External session storage (Redis)
-- Database connection pooling
-- Load balancer configured
-- Health checks enabled
-- Graceful shutdown
- */
+    /**
 
-// Graceful shutdown for Node.js
-function setupGracefulShutdown(server: Server) {
-const connections = new Set<Socket>();
-
-server.on('connection', (conn) => {
-    connections.add(conn);
-conn.on('close', () => connections.delete(conn));
-  });
-
-async function shutdown(signal: string) {
-console.log(`${signal} received, starting graceful shutdown`);
-
-// Stop accepting new connections
-server.close(() => {
-console.log('HTTP server closed');
-    });
-
-// Close existing connections after timeout
-setTimeout(() => {
-connections.forEach(conn => conn.destroy());
-}, 10000);
-
-// Close database connections
-await prisma.$disconnect();
-
-// Close Redis
-await redis.quit();
-
-    process.exit(0);
-  }
-
-process.on('SIGTERM', () => shutdown('SIGTERM'));
-process.on('SIGINT', () => shutdown('SIGINT'));
-}
-
-```text
+    - HORIZONTAL SCALING CHECKLIST
+    - * Stateless services (no local state)
+    - External session storage (Redis)
+    - Database connection pooling
+    - Load balancer configured
+    - Health checks enabled
+    - Graceful shutdown
+     */
+    
+    // Graceful shutdown for Node.js
+    function setupGracefulShutdown(server: Server) {
+    const connections = new Set<Socket>();
+    
+    server.on('connection', (conn) => {
+        connections.add(conn);
+    conn.on('close', () => connections.delete(conn));
+      });
+    
+    async function shutdown(signal: string) {
+    console.log(`${signal} received, starting graceful shutdown`);
+    
+    // Stop accepting new connections
+    server.close(() => {
+    console.log('HTTP server closed');
+        });
+    
+    // Close existing connections after timeout
+    setTimeout(() => {
+    connections.forEach(conn => conn.destroy());
+    }, 10000);
+    
+    // Close database connections
+    await prisma.$disconnect();
+    
+    // Close Redis
+    await redis.quit();
+    
+        process.exit(0);
+      }
+    
+    process.on('SIGTERM', () => shutdown('SIGTERM'));
+    process.on('SIGINT', () => shutdown('SIGINT'));
+    }
+    
 ---
 
 ## Auto-Scaling Configuration
 
-```yaml
+    
+    ## Kubernetes HPA (Horizontal Pod Autoscaler)
+    
+    apiVersion: autoscaling/v2
+    kind: HorizontalPodAutoscaler
+    metadata:
+    name: order-service
+    spec:
+      scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: order-service
+    minReplicas: 2
+    maxReplicas: 20
+      metrics:
 
-## Kubernetes HPA (Horizontal Pod Autoscaler)
+    - type: Resource
+          resource:
+    name: cpu
+            target:
+    type: Utilization
+    averageUtilization: 70
 
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-name: order-service
-spec:
-  scaleTargetRef:
-apiVersion: apps/v1
-kind: Deployment
-name: order-service
-minReplicas: 2
-maxReplicas: 20
-  metrics:
-- type: Resource
-      resource:
-name: cpu
-        target:
-type: Utilization
-averageUtilization: 70
-- type: Resource
-      resource:
-name: memory
-        target:
-type: Utilization
-averageUtilization: 80
-- type: Pods
-      pods:
-        metric:
-name: http_requests_per_second
-        target:
-type: AverageValue
-averageValue: 1000
-  behavior:
-    scaleUp:
-stabilizationWindowSeconds: 60
-      policies:
-- type: Percent
-value: 100
-periodSeconds: 60
-    scaleDown:
-stabilizationWindowSeconds: 300
-      policies:
-- type: Percent
-value: 10
-periodSeconds: 60
+    - type: Resource
+          resource:
+    name: memory
+            target:
+    type: Utilization
+    averageUtilization: 80
 
-```text
+    - type: Pods
+          pods:
+            metric:
+    name: http_requests_per_second
+            target:
+    type: AverageValue
+    averageValue: 1000
+      behavior:
+        scaleUp:
+    stabilizationWindowSeconds: 60
+          policies:
+
+    - type: Percent
+    value: 100
+    periodSeconds: 60
+        scaleDown:
+    stabilizationWindowSeconds: 300
+          policies:
+
+    - type: Percent
+    value: 10
+    periodSeconds: 60
+    
 ---
 
 ## [STAFF ENGINEER LEVEL] CONTINUED: MORE DISTRIBUTED PATTERNS
@@ -3670,76 +3900,72 @@ periodSeconds: 60
 
 ## Rate Limiter Design
 
-```yaml
-REQUIREMENTS:
-
-- Allow N requests per time window
-
-- Distributed (multiple servers)
-
-- Low latency
-
-APPROACHES:
-
-1. FIXED WINDOW:
-Count requests in time bucket
-Simple but bursty at boundaries
-
-2. SLIDING WINDOW LOG:
-Store timestamp of each request
-Accurate but memory intensive
-
-3. SLIDING WINDOW COUNTER:
-Weighted average of current + previous window
-Balance of accuracy and efficiency
-
-4. TOKEN BUCKET:
-Tokens added at fixed rate
-Requests consume tokens
-Allows bursts up to bucket size
-
-```text
+    REQUIREMENTS:
+    
+    - Allow N requests per time window
+    
+    - Distributed (multiple servers)
+    
+    - Low latency
+    
+    APPROACHES:
+    
+    1. FIXED WINDOW:
+    Count requests in time bucket
+    Simple but bursty at boundaries
+    
+    1. SLIDING WINDOW LOG:
+    Store timestamp of each request
+    Accurate but memory intensive
+    
+    1. SLIDING WINDOW COUNTER:
+    Weighted average of current + previous window
+    Balance of accuracy and efficiency
+    
+    1. TOKEN BUCKET:
+    Tokens added at fixed rate
+    Requests consume tokens
+    Allows bursts up to bucket size
+    
 ---
 
 ## URL Shortener Design
 
-```yaml
-COMPONENTS:
-1. API: Create short URL, redirect
-2. Database: Store mappings
-3. Cache: Popular URLs in memory
+    COMPONENTS:
 
-KEY DECISIONS:
-
-- ID generation: Counter vs Random
-
-- Base62 encoding: [a-zA-Z0-9]
-
-- 7 characters = 62^7 = 3.5 trillion URLs
-
-FLOW:
-Create: Long URL -> Generate ID -> Encode -> Store
-Redirect: Short code -> Decode/Lookup -> 301 Redirect
-
-```text
+    1. API: Create short URL, redirect
+    1. Database: Store mappings
+    1. Cache: Popular URLs in memory
+    
+    KEY DECISIONS:
+    
+    - ID generation: Counter vs Random
+    
+    - Base62 encoding: [a-zA-Z0-9]
+    
+    - 7 characters = 62^7 = 3.5 trillion URLs
+    
+    FLOW:
+    Create: Long URL -> Generate ID -> Encode -> Store
+    Redirect: Short code -> Decode/Lookup -> 301 Redirect
+    
 ---
 
 ## Notification System Design
 
-```yaml
-COMPONENTS:
-1. API Gateway
-2. User Preferences Service
-3. Template Service
-4. Channel Handlers (Email, SMS, Push)
-5. Queue for async processing
-6. Rate limiter per user
+    COMPONENTS:
 
-FLOW:
-Event -> Check preferences -> Render template
--> Queue by channel -> Send -> Log delivery
-
-```text
+    1. API Gateway
+    1. User Preferences Service
+    1. Template Service
+    1. Channel Handlers (Email, SMS, Push)
+    1. Queue for async processing
+    1. Rate limiter per user
+    
+    FLOW:
+    Event -> Check preferences -> Render template
+    -> Queue by channel -> Send -> Log delivery
+    
 ---
 ## CQRS PATTERN
 
@@ -3749,76 +3975,70 @@ Event -> Check preferences -> Render template
 
 ## Core Concept
 
-```yaml
-TRADITIONAL:
-Same model for reads and writes
-
-CQRS:
-WRITE side: Commands modify state
-READ side: Queries return data
-
-Different models optimized for each
-
-```text
+    TRADITIONAL:
+    Same model for reads and writes
+    
+    CQRS:
+    WRITE side: Commands modify state
+    READ side: Queries return data
+    
+    Different models optimized for each
+    
 ---
 
 ## Implementation
 
-```typescript
-// COMMAND SIDE
-interface CreateOrderCommand {
-userId: string;
-items: { productId: string; quantity: number }[];
-}
-
-class OrderCommandHandler {
-async handle(command: CreateOrderCommand) {
-// Business logic
-// Emit domain events
-await this.eventStore.save(new OrderCreated(command));
-  }
-}
-
-// QUERY SIDE
-interface OrderSummary {
-id: string;
-total: number;
-itemCount: number;
-status: string;
-}
-
-class OrderQueryHandler {
-async getOrderSummary(orderId: string): Promise<OrderSummary> {
-// Read from denormalized read model
-return await this.readDb.orders.findById(orderId);
-  }
-}
-
-```text
+    // COMMAND SIDE
+    interface CreateOrderCommand {
+    userId: string;
+    items: { productId: string; quantity: number }[];
+    }
+    
+    class OrderCommandHandler {
+    async handle(command: CreateOrderCommand) {
+    // Business logic
+    // Emit domain events
+    await this.eventStore.save(new OrderCreated(command));
+      }
+    }
+    
+    // QUERY SIDE
+    interface OrderSummary {
+    id: string;
+    total: number;
+    itemCount: number;
+    status: string;
+    }
+    
+    class OrderQueryHandler {
+    async getOrderSummary(orderId: string): Promise<OrderSummary> {
+    // Read from denormalized read model
+    return await this.readDb.orders.findById(orderId);
+      }
+    }
+    
 ---
 
 ## When to Use
 
-```text
-GOOD FIT:
-
-- High read/write ratio difference
-
-- Complex domain logic
-
-- Need for separate scaling
-
-- Event sourcing already used
-
-OVERKILL:
-
-- Simple CRUD apps
-
-- Small team
-
-- Low traffic
-
-```text
+    GOOD FIT:
+    
+    - High read/write ratio difference
+    
+    - Complex domain logic
+    
+    - Need for separate scaling
+    
+    - Event sourcing already used
+    
+    OVERKILL:
+    
+    - Simple CRUD apps
+    
+    - Small team
+    
+    - Low traffic
+    
 ---
 ## CACHING STRATEGIES
 
@@ -3828,77 +4048,72 @@ OVERKILL:
 
 ## Cache Invalidation Strategies
 
-```text
-TIME-BASED (TTL):
-
-- Set expiry on write
-
-- Simple, but data can be stale
-
-- Good for: config, user preferences
-
-EVENT-BASED:
-
-- Invalidate on data change
-
-- More complex, always fresh
-
-- Good for: user profiles, inventory
-
-HYBRID:
-
-- Short TTL + event invalidation
-
-- Best of both worlds
-
-```text
+    TIME-BASED (TTL):
+    
+    - Set expiry on write
+    
+    - Simple, but data can be stale
+    
+    - Good for: config, user preferences
+    
+    EVENT-BASED:
+    
+    - Invalidate on data change
+    
+    - More complex, always fresh
+    
+    - Good for: user profiles, inventory
+    
+    HYBRID:
+    
+    - Short TTL + event invalidation
+    
+    - Best of both worlds
+    
 ---
 
 ## Cache Stampede Prevention
 
-```typescript
-// Problem: Cache expires, 1000 requests hit DB at once
-
-// Solution: Singleflight pattern
-const inflightRequests = new Map<string, Promise<any>>();
-
-async function getWithCache(key: string, fetcher: () => Promise<any>) {
-// Check cache
-const cached = await cache.get(key);
-if (cached) return JSON.parse(cached);
-
-// Check if request already in-flight
-if (inflightRequests.has(key)) {
-return inflightRequests.get(key);
-  }
-
-// Start new request
-const promise = fetcher().then(async (data) => {
-await cache.set(key, JSON.stringify(data), 'EX', 3600);
-    inflightRequests.delete(key);
-return data;
-  });
-
-inflightRequests.set(key, promise);
-return promise;
-}
-
-```text
+    // Problem: Cache expires, 1000 requests hit DB at once
+    
+    // Solution: Singleflight pattern
+    const inflightRequests = new Map<string, Promise<any>>();
+    
+    async function getWithCache(key: string, fetcher: () => Promise<any>) {
+    // Check cache
+    const cached = await cache.get(key);
+    if (cached) return JSON.parse(cached);
+    
+    // Check if request already in-flight
+    if (inflightRequests.has(key)) {
+    return inflightRequests.get(key);
+      }
+    
+    // Start new request
+    const promise = fetcher().then(async (data) => {
+    await cache.set(key, JSON.stringify(data), 'EX', 3600);
+        inflightRequests.delete(key);
+    return data;
+      });
+    
+    inflightRequests.set(key, promise);
+    return promise;
+    }
+    
 ---
 
 ## Multi-Level Cache
 
-```text
-L1: In-Memory (fastest, limited size)
-L2: Redis (fast, shared across pods)
-L3: Database (slowest, persistent)
+    L1: In-Memory (fastest, limited size)
+    L2: Redis (fast, shared across pods)
+    L3: Database (slowest, persistent)
+    
+    FLOW:
 
-FLOW:
-1. Check L1 Hit? Return
-2. Check L2 Hit? Store in L1, Return
-3. Fetch L3 Store in L2 & L1, Return
-
-```text
+    1. Check L1 Hit? Return
+    1. Check L2 Hit? Store in L1, Return
+    1. Fetch L3 Store in L2 & L1, Return
+    
 ---
 ## MICROSERVICES COMMUNICATION
 
@@ -3908,78 +4123,72 @@ FLOW:
 
 ## Sync vs Async
 
-```text
-SYNCHRONOUS (REST/gRPC):
-Simple request-response
-Immediate consistency
-Tight coupling
-Cascading failures
-
-ASYNCHRONOUS (Events/Messages):
-Loose coupling
-Resilient to failures
-Better scalability
-Eventual consistency
-More complex debugging
-
-```text
+    SYNCHRONOUS (REST/gRPC):
+    Simple request-response
+    Immediate consistency
+    Tight coupling
+    Cascading failures
+    
+    ASYNCHRONOUS (Events/Messages):
+    Loose coupling
+    Resilient to failures
+    Better scalability
+    Eventual consistency
+    More complex debugging
+    
 ---
 
 ## Circuit Breaker
 
-```typescript
-import CircuitBreaker from 'opossum';
-
-// Wrap external call
-const breaker = new CircuitBreaker(async (userId) => {
-return fetch(`http://user-service/users/${userId}`);
-}, {
-timeout: 3000,  // Request timeout
-errorThresholdPercentage: 50,  // Error % to open
-resetTimeout: 30000   // Time before retry
-});
-
-// Fallback when circuit is open
-breaker.fallback((userId) => {
-return { id: userId, name: 'Unknown' };  // Cached/default
-});
-
-// Use it
-const user = await breaker.fire(userId);
-
-```text
+    import CircuitBreaker from 'opossum';
+    
+    // Wrap external call
+    const breaker = new CircuitBreaker(async (userId) => {
+    return fetch(`<http://user-service/users/${userId}>`);
+    }, {
+    timeout: 3000,  // Request timeout
+    errorThresholdPercentage: 50,  // Error % to open
+    resetTimeout: 30000   // Time before retry
+    });
+    
+    // Fallback when circuit is open
+    breaker.fallback((userId) => {
+    return { id: userId, name: 'Unknown' };  // Cached/default
+    });
+    
+    // Use it
+    const user = await breaker.fire(userId);
+    
 ---
 
 ## Service Discovery
 
-```text
-OPTION 1: DNS-based (Simple)
-
-- Service registers with DNS
-
-- Client resolves DNS to get IPs
-
-- Works: Kubernetes Services
-
-OPTION 2: Registry-based (Advanced)
-
-- Consul, Etcd, Eureka
-
-- Services register on startup
-
-- Health checks
-
-- Key-value config
-
-OPTION 3: Service Mesh (Full)
-
-- Istio, Linkerd
-
-- Automatic sidecar proxy
-
-- mTLS, observability, traffic control
-
-```text
+    OPTION 1: DNS-based (Simple)
+    
+    - Service registers with DNS
+    
+    - Client resolves DNS to get IPs
+    
+    - Works: Kubernetes Services
+    
+    OPTION 2: Registry-based (Advanced)
+    
+    - Consul, Etcd, Eureka
+    
+    - Services register on startup
+    
+    - Health checks
+    
+    - Key-value config
+    
+    OPTION 3: Service Mesh (Full)
+    
+    - Istio, Linkerd
+    
+    - Automatic sidecar proxy
+    
+    - mTLS, observability, traffic control
+    
 ---
 ## TENANT PATTERNS
 
@@ -3989,84 +4198,78 @@ OPTION 3: Service Mesh (Full)
 
 ## Tenant Isolation Strategies
 
-```text
-SHARED DATABASE (Row-Level):
-
-- All tenants in same DB
-
-- tenant_id column on every table
-
-- RLS policies filter data
-Simple, cost-effective
-Risk of data leaks
-
-SEPARATE SCHEMAS:
-
-- Each tenant gets a schema
-
-- CREATE SCHEMA tenant_123
-Better isolation
-More complex queries
-
-SEPARATE DATABASES:
-
-- Each tenant gets a database
-Complete isolation
-Expensive, complex management
-
-```text
+    SHARED DATABASE (Row-Level):
+    
+    - All tenants in same DB
+    
+    - tenant_id column on every table
+    
+    - RLS policies filter data
+    Simple, cost-effective
+    Risk of data leaks
+    
+    SEPARATE SCHEMAS:
+    
+    - Each tenant gets a schema
+    
+    - CREATE SCHEMA tenant_123
+    Better isolation
+    More complex queries
+    
+    SEPARATE DATABASES:
+    
+    - Each tenant gets a database
+    Complete isolation
+    Expensive, complex management
+    
 ---
 
 ## Row-Level Implementation
 
-```typescript
-// Middleware: Extract tenant from subdomain
-app.use((req, res, next) => {
-const host = req.headers.host;
-const subdomain = host.split('.')[0];
-req.tenantId = subdomain;
-  next();
-});
-
-// Prisma Client Extension
-const prisma = new PrismaClient().$extends({
-query: {
-$allModels: {
-async $allOperations({ args, query }) {
-args.where = { ...args.where, tenantId: req.tenantId };
-return query(args);
+    // Middleware: Extract tenant from subdomain
+    app.use((req, res, next) => {
+    const host = req.headers.host;
+    const subdomain = host.split('.')[0];
+    req.tenantId = subdomain;
+      next();
+    });
+    
+    // Prisma Client Extension
+    const prisma = new PrismaClient().$extends({
+    query: {
+    $allModels: {
+    async $allOperations({ args, query }) {
+    args.where = { ...args.where, tenantId: req.tenantId };
+    return query(args);
+          }
+        }
       }
-    }
-  }
-});
-
-```text
+    });
+    
 ---
 
 ## Tenant Context
 
-```typescript
-import { AsyncLocalStorage } from 'async_hooks';
-
-const tenantContext = new AsyncLocalStorage<{ tenantId: string }>();
-
-// Middleware
-app.use((req, res, next) => {
-tenantContext.run({ tenantId: req.tenantId }, () => next());
-});
-
-// Access anywhere
-function getCurrentTenant() {
-return tenantContext.getStore()?.tenantId;
-}
-
-// In repository
-async function getUsers() {
-const tenantId = getCurrentTenant();
-return prisma.user.findMany({ where: { tenantId } });
-}
-
-```text
+    import { AsyncLocalStorage } from 'async_hooks';
+    
+    const tenantContext = new AsyncLocalStorage<{ tenantId: string }>();
+    
+    // Middleware
+    app.use((req, res, next) => {
+    tenantContext.run({ tenantId: req.tenantId }, () => next());
+    });
+    
+    // Access anywhere
+    function getCurrentTenant() {
+    return tenantContext.getStore()?.tenantId;
+    }
+    
+    // In repository
+    async function getUsers() {
+    const tenantId = getCurrentTenant();
+    return prisma.user.findMany({ where: { tenantId } });
+    }
+    
 ---
 ## LOAD BALANCING PATTERNS
 
@@ -4076,96 +4279,90 @@ return prisma.user.findMany({ where: { tenantId } });
 
 ## Strategies
 
-```text
-ROUND ROBIN:
-
-- Requests go to servers in order
-
-- Simple, default choice
-
-- Works when servers are equal
-
-LEAST CONNECTIONS:
-
-- Route to server with fewest active connections
-
-- Good for long-running requests
-
-- Better for variable load
-
-IP HASH:
-
-- Same client IP Same server
-
-- Session affinity
-
-- Useful for stateful apps (avoid if possible)
-
-WEIGHTED:
-
-- Bigger servers get more traffic
-
-- 70/30 split between new/old servers
-
-- Useful for gradual rollouts
-
-```text
+    ROUND ROBIN:
+    
+    - Requests go to servers in order
+    
+    - Simple, default choice
+    
+    - Works when servers are equal
+    
+    LEAST CONNECTIONS:
+    
+    - Route to server with fewest active connections
+    
+    - Good for long-running requests
+    
+    - Better for variable load
+    
+    IP HASH:
+    
+    - Same client IP Same server
+    
+    - Session affinity
+    
+    - Useful for stateful apps (avoid if possible)
+    
+    WEIGHTED:
+    
+    - Bigger servers get more traffic
+    
+    - 70/30 split between new/old servers
+    
+    - Useful for gradual rollouts
+    
 ---
 
 ## AWS ALB Configuration
 
-```yaml
-
-## terraform
-
-resource "aws_lb" "main" {
-name = "app-lb"
-internal = false
-load_balancer_type = "application"
-security_groups = [aws_security_group.lb.id]
-subnets = var.public_subnets
-}
-
-resource "aws_lb_target_group" "app" {
-name = "app-targets"
-port = 3000
-protocol = "HTTP"
-vpc_id = var.vpc_id
-
-health_check {
-path = "/health"
-healthy_threshold = 2
-unhealthy_threshold = 10
-timeout = 5
-interval = 30
-  }
-}
-
-```text
+    
+    ## terraform
+    
+    resource "aws_lb" "main" {
+    name = "app-lb"
+    internal = false
+    load_balancer_type = "application"
+    security_groups = [aws_security_group.lb.id]
+    subnets = var.public_subnets
+    }
+    
+    resource "aws_lb_target_group" "app" {
+    name = "app-targets"
+    port = 3000
+    protocol = "HTTP"
+    vpc_id = var.vpc_id
+    
+    health_check {
+    path = "/health"
+    healthy_threshold = 2
+    unhealthy_threshold = 10
+    timeout = 5
+    interval = 30
+      }
+    }
+    
 ---
 
 ## Health Checks
 
-```typescript
-// app.ts
-app.get('/health', async (req, res) => {
-try {
-// Check database
-await db.$queryRaw`SELECT 1`;
-
-// Check cache
-await redis.ping();
-
-res.json({ status: 'healthy' });
-} catch (error) {
-res.status(503).json({ status: 'unhealthy', error: error.message });
-  }
-});
-
-// Only return 200 if truly healthy
-// LB will remove unhealthy instances
-
-```text
+    // app.ts
+    app.get('/health', async (req, res) => {
+    try {
+    // Check database
+    await db.$queryRaw`SELECT 1`;
+    
+    // Check cache
+    await redis.ping();
+    
+    res.json({ status: 'healthy' });
+    } catch (error) {
+    res.status(503).json({ status: 'unhealthy', error: error.message });
+      }
+    });
+    
+    // Only return 200 if truly healthy
+    // LB will remove unhealthy instances
+    
 ---
 ## EVENT SOURCING BASICS
 
@@ -4175,85 +4372,79 @@ res.status(503).json({ status: 'unhealthy', error: error.message });
 
 ## Concept
 
-```text
-TRADITIONAL (State):
-User { name: "John", email: "john@example.com" }
-// Update: just change the value
-// History: lost
-
-EVENT SOURCING:
-Events: [
-{ type: "UserCreated", data: { name: "John" } },
-{ type: "EmailChanged", data: { email: "john@example.com" } }
-]
-// Current state: replay events
-// History: complete
-
-```text
+    TRADITIONAL (State):
+    User { name: "John", email: "john@example.com" }
+    // Update: just change the value
+    // History: lost
+    
+    EVENT SOURCING:
+    Events: [
+    { type: "UserCreated", data: { name: "John" } },
+    { type: "EmailChanged", data: { email: "john@example.com" } }
+    ]
+    // Current state: replay events
+    // History: complete
+    
 ---
 
 ## Event Store
 
-```typescript
-interface Event {
-id: string;
-aggregateId: string;
-type: string;
-data: any;
-timestamp: Date;
-version: number;
-}
-
-class EventStore {
-async append(aggregateId: string, events: Event[]) {
-await db.events.createMany({
-data: events.map(e => ({
-        ...e,
-        aggregateId,
-timestamp: new Date()
-      }))
-    });
-  }
-
-async getEvents(aggregateId: string): Promise<Event[]> {
-return db.events.findMany({
-where: { aggregateId },
-orderBy: { version: 'asc' }
-    });
-  }
-}
-
-```text
+    interface Event {
+    id: string;
+    aggregateId: string;
+    type: string;
+    data: any;
+    timestamp: Date;
+    version: number;
+    }
+    
+    class EventStore {
+    async append(aggregateId: string, events: Event[]) {
+    await db.events.createMany({
+    data: events.map(e => ({
+            ...e,
+            aggregateId,
+    timestamp: new Date()
+          }))
+        });
+      }
+    
+    async getEvents(aggregateId: string): Promise<Event[]> {
+    return db.events.findMany({
+    where: { aggregateId },
+    orderBy: { version: 'asc' }
+        });
+      }
+    }
+    
 ---
 
 ## Aggregate Reconstruction
 
-```typescript
-class User {
-id: string;
-name: string;
-email: string;
-
-apply(event: Event) {
-switch (event.type) {
-case 'UserCreated':
-this.id = event.aggregateId;
-this.name = event.data.name;
-        break;
-case 'EmailChanged':
-this.email = event.data.email;
-        break;
+    class User {
+    id: string;
+    name: string;
+    email: string;
+    
+    apply(event: Event) {
+    switch (event.type) {
+    case 'UserCreated':
+    this.id = event.aggregateId;
+    this.name = event.data.name;
+            break;
+    case 'EmailChanged':
+    this.email = event.data.email;
+            break;
+        }
+      }
+    
+    static fromEvents(events: Event[]): User {
+    const user = new User();
+    events.forEach(e => user.apply(e));
+    return user;
+      }
     }
-  }
-
-static fromEvents(events: Event[]): User {
-const user = new User();
-events.forEach(e => user.apply(e));
-return user;
-  }
-}
-
-```text
+    
 ---
 
 ## VOLUME 7: SYSTEM DESIGN INCIDENTS (Real Company Stories)
@@ -4270,15 +4461,13 @@ return user;
 >
 > **Root cause**: Monolith can't scale. Single MySQL."
 
-```text
-PRE-FIX:
-User Monolith MySQL (single)
-
-POST-FIX (Twitter):
-User API Gateway Tweet/Timeline/User Services
-Kafka Fan-out Redis (per-user timeline cache)
-
-```text
+    PRE-FIX:
+    User Monolith MySQL (single)
+    
+    POST-FIX (Twitter):
+    User API Gateway Tweet/Timeline/User Services
+    Kafka Fan-out Redis (per-user timeline cache)
+    
 ---
 
 ## 2. REDDIT - HUGGED TO DEATH
@@ -4289,20 +4478,18 @@ Kafka Fan-out Redis (per-user timeline cache)
 >
 > **Fix**: Aggressive caching + singleflight."
 
-```python
-
-## 1000 requests 1 DB hit every 5 min
-
-async def get_front_page():
-cached = await redis.get("front_page")
-if cached: return cached
-
-async with singleflight("front_page"):
-posts = calculate_front_page()
-await redis.setex("front_page", 300, posts)
-return posts
-
-```text
+    
+    ## 1000 requests 1 DB hit every 5 min
+    
+    async def get_front_page():
+    cached = await redis.get("front_page")
+    if cached: return cached
+    
+    async with singleflight("front_page"):
+    posts = calculate_front_page()
+    await redis.setex("front_page", 300, posts)
+    return posts
+    
 ---
 
 ## 3. SLACK - SHARDING FAILURE
@@ -4323,12 +4510,10 @@ return posts
 >
 > **Fix**: Circuit breaker + exponential backoff + bulkheads."
 
-```javascript
-// Prevent cascade: if order DB fails, user service still works!
-const userPool = createPool({ max: 10 });
-const orderPool = createPool({ max: 10 });
-
-```text
+    // Prevent cascade: if order DB fails, user service still works!
+    const userPool = createPool({ max: 10 });
+    const orderPool = createPool({ max: 10 });
+    
 ---
 
 ### END OF VOLUME 7: SYSTEM DESIGN INCIDENTS
@@ -4352,40 +4537,38 @@ const orderPool = createPool({ max: 10 });
 > In distributed systems, network failures WILL happen. So you MUST have Partition Tolerance.
 > Therefore: Choose between Consistency OR Availability."
 
-```python
-
-## CP Systems (Consistency + Partition Tolerance)
-
-## Use when: Correctness > Availability
-
-## Examples: Banking, HBase, ZooKeeper
-
-## Bank transfer - MUST be consistent
-
-def transfer_money(from_user, to_user, amount):
-
-## Use ACID transaction
-with db.transaction():
-debit(from_user, amount)
-credit(to_user, amount)
-
-## If can't guarantee consistency Reject
-
-## AP Systems (Availability + Partition Tolerance)
-
-## Use when: Availability > Consistency
-
-## Examples: Instagram likes, Cassandra, DynamoDB
-
-## Social likes - OK if eventually consistent
-
-def like_post(user_id, post_id):
-
-## Fire and forget - user can continue
-queue.publish('like', {'user': user_id, 'post': post_id})
-return {"status": "liked"}  # May not be consistent yet
-
-```text
+    
+    ## CP Systems (Consistency + Partition Tolerance)
+    
+    ## Use when: Correctness > Availability
+    
+    ## Examples: Banking, HBase, ZooKeeper
+    
+    ## Bank transfer - MUST be consistent
+    
+    def transfer_money(from_user, to_user, amount):
+    
+    ## Use ACID transaction
+    with db.transaction():
+    debit(from_user, amount)
+    credit(to_user, amount)
+    
+    ## If can't guarantee consistency Reject
+    
+    ## AP Systems (Availability + Partition Tolerance)
+    
+    ## Use when: Availability > Consistency
+    
+    ## Examples: Instagram likes, Cassandra, DynamoDB
+    
+    ## Social likes - OK if eventually consistent
+    
+    def like_post(user_id, post_id):
+    
+    ## Fire and forget - user can continue
+    queue.publish('like', {'user': user_id, 'post': post_id})
+    return {"status": "liked"}  # May not be consistent yet
+    
 ---
 
 ## 6. HORIZONTAL VS VERTICAL SCALING
@@ -4397,30 +4580,28 @@ return {"status": "liked"}  # May not be consistent yet
 >
 > **Fix**: 10 small servers instead of 1 giant. Cost: $20K $2K. Capacity: 10x!"
 
-```python
-
-## NOT SCALABLE - State in memory
-
-user_sessions = {}  # Only on THIS server
-
-@app.post("/login")
-async def login(username: str, password: str):
-session_id = generate_session()
-user_sessions[session_id] = username  # Lost if load balancer routes elsewhere
-
-## SCALABLE - State externalized
-
-redis_client = redis.Redis(host='redis-cluster')
-
-@app.post("/login")
-async def login(username: str, password: str):
-session_id = generate_session()
-redis_client.setex(session_id, 3600, username)  # Shared by all servers
-return {"session_id": session_id}
-
-## Works with 1 server or 1000 servers!
-
-```text
+    
+    ## NOT SCALABLE - State in memory
+    
+    user_sessions = {}  # Only on THIS server
+    
+    @app.post("/login")
+    async def login(username: str, password: str):
+    session_id = generate_session()
+    user_sessions[session_id] = username  # Lost if load balancer routes elsewhere
+    
+    ## SCALABLE - State externalized
+    
+    redis_client = redis.Redis(host='redis-cluster')
+    
+    @app.post("/login")
+    async def login(username: str, password: str):
+    session_id = generate_session()
+    redis_client.setex(session_id, 3600, username)  # Shared by all servers
+    return {"session_id": session_id}
+    
+    ## Works with 1 server or 1000 servers!
+    
 ---
 
 ## 7. DATABASE SHARDING
@@ -4432,33 +4613,31 @@ return {"session_id": session_id}
 > **Fix**: Split 1 database 100 shards. Each shard: 10GB.
 > **Result**: 10s 0.1s query time."
 
-```python
-
-## Consistent Hashing (best for dynamic sharding)
-
-import hashlib
-
-class ConsistentHash:
-def __init__(self, num_virtual_nodes=150):
-self.ring = {}
-self.sorted_keys = []
-
-def add_node(self, node):
-for i in range(150):
-hash_val = int(hashlib.md5(f"{node}:{i}".encode()).hexdigest(), 16)
-self.ring[hash_val] = node
-self.sorted_keys = sorted(self.ring.keys())
-
-def get_node(self, key):
-hash_val = int(hashlib.md5(str(key).encode()).hexdigest(), 16)
-for ring_key in self.sorted_keys:
-if ring_key >= hash_val:
-return self.ring[ring_key]
-return self.ring[self.sorted_keys[0]]
-
-## Adding/removing shards only moves ~1/N data!
-
-```text
+    
+    ## Consistent Hashing (best for dynamic sharding)
+    
+    import hashlib
+    
+    class ConsistentHash:
+    def **init**(self, num_virtual_nodes=150):
+    self.ring = {}
+    self.sorted_keys = []
+    
+    def add_node(self, node):
+    for i in range(150):
+    hash_val = int(hashlib.md5(f"{node}:{i}".encode()).hexdigest(), 16)
+    self.ring[hash_val] = node
+    self.sorted_keys = sorted(self.ring.keys())
+    
+    def get_node(self, key):
+    hash_val = int(hashlib.md5(str(key).encode()).hexdigest(), 16)
+    for ring_key in self.sorted_keys:
+    if ring_key >= hash_val:
+    return self.ring[ring_key]
+    return self.ring[self.sorted_keys[0]]
+    
+    ## Adding/removing shards only moves ~1/N data!
+    
 ---
 
 ## 8. MICROSERVICES VS MONOLITH
@@ -4470,208 +4649,196 @@ return self.ring[self.sorted_keys[0]]
 > **Recommendation**: Start with monolith until 10+ engineers.
 > Split when pain points appear."
 
-```python
-
-## Async Events (loose coupling)
-
-class UserService:
-async def create_user(self, user_data):
-user = db.create_user(user_data)
-
-## Fire and forget - don't wait
-await message_queue.publish('user.created', {
-'user_id': user.id, 'email': user.email
-        })
-return user
-
-## EmailService, AnalyticsService listen independently
-
-## If email fails user still created!
-
-```text
+    
+    ## Async Events (loose coupling)
+    
+    class UserService:
+    async def create_user(self, user_data):
+    user = db.create_user(user_data)
+    
+    ## Fire and forget - don't wait
+    await message_queue.publish('user.created', {
+    'user_id': user.id, 'email': user.email
+            })
+    return user
+    
+    ## EmailService, AnalyticsService listen independently
+    
+    ## If email fails user still created!
+    
 ---
 
 ## 9. DISTRIBUTED LOCKS
 
 ## Production Pattern from Redis
 
-```python
-
-## Redis Distributed Lock
-
-class DistributedLock:
-def __init__(self, redis_client, key, timeout=10):
-self.redis = redis_client
-self.key = f"lock:{key}"
-self.identifier = str(uuid.uuid4())
-self.timeout = timeout
-
-def acquire(self):
-return self.redis.set(self.key, self.identifier, nx=True, ex=self.timeout)
-
-def release(self):
-lua_script = """
-if redis.call("get", KEYS[1]) == ARGV[1] then
-return redis.call("del", KEYS[1])
-        end
-        """
-self.redis.eval(lua_script, 1, self.key, self.identifier)
-
-## Usage
-
-lock = DistributedLock(redis, "order_123")
-if lock.acquire():
-    try:
-        process_order(123)
-    finally:
-        lock.release()
-
-```text
+    
+    ## Redis Distributed Lock
+    
+    class DistributedLock:
+    def **init**(self, redis_client, key, timeout=10):
+    self.redis = redis_client
+    self.key = f"lock:{key}"
+    self.identifier = str(uuid.uuid4())
+    self.timeout = timeout
+    
+    def acquire(self):
+    return self.redis.set(self.key, self.identifier, nx=True, ex=self.timeout)
+    
+    def release(self):
+    lua_script = """
+    if redis.call("get", KEYS[1]) == ARGV[1] then
+    return redis.call("del", KEYS[1])
+            end
+            """
+    self.redis.eval(lua_script, 1, self.key, self.identifier)
+    
+    ## Usage
+    
+    lock = DistributedLock(redis, "order_123")
+    if lock.acquire():
+        try:
+            process_order(123)
+        finally:
+            lock.release()
+    
 ---
 
 ## 10. RATE LIMITING ALGORITHMS
 
 ## Production Pattern from Stripe
 
-```python
-
-## TOKEN BUCKET (most common)
-
-class TokenBucket:
-def __init__(self, capacity, refill_rate):
-self.capacity = capacity
-self.tokens = capacity
-self.refill_rate = refill_rate
-self.last_refill = time.time()
-
-def allow_request(self):
-        self.refill()
-if self.tokens >= 1:
-self.tokens -= 1
-return True
-return False
-
-def refill(self):
-now = time.time()
-elapsed = now - self.last_refill
-self.tokens = min(self.capacity, self.tokens + elapsed * self.refill_rate)
-self.last_refill = now
-
-## SLIDING WINDOW LOG
-
-class SlidingWindowLog:
-def __init__(self, max_requests, window_seconds):
-self.max_requests = max_requests
-self.window = window_seconds
-self.requests = []
-
-def allow_request(self):
-now = time.time()
-self.requests = [r for r in self.requests if r > now - self.window]
-if len(self.requests) < self.max_requests:
-        self.requests.append(now)
-return True
-return False
-
-```text
+    
+    ## TOKEN BUCKET (most common)
+    
+    class TokenBucket:
+    def **init**(self, capacity, refill_rate):
+    self.capacity = capacity
+    self.tokens = capacity
+    self.refill_rate = refill_rate
+    self.last_refill = time.time()
+    
+    def allow_request(self):
+            self.refill()
+    if self.tokens >= 1:
+    self.tokens -= 1
+    return True
+    return False
+    
+    def refill(self):
+    now = time.time()
+    elapsed = now - self.last_refill
+    self.tokens = min(self.capacity, self.tokens + elapsed * self.refill_rate)
+    self.last_refill = now
+    
+    ## SLIDING WINDOW LOG
+    
+    class SlidingWindowLog:
+    def **init**(self, max_requests, window_seconds):
+    self.max_requests = max_requests
+    self.window = window_seconds
+    self.requests = []
+    
+    def allow_request(self):
+    now = time.time()
+    self.requests = [r for r in self.requests if r > now - self.window]
+    if len(self.requests) < self.max_requests:
+            self.requests.append(now)
+    return True
+    return False
+    
 ---
 
 ## 11. SAGA PATTERN (Distributed Transactions)
 
 ## Production Pattern from Netflix
 
-```python
-
-## Saga with Compensating Transactions
-
-class BookingSaga:
-async def execute(self, order_data):
-        try:
-reservation = await property_service.reserve(order_data)
-        try:
-payment = await payment_service.charge(order_data)
-        try:
-booking = await booking_service.create(reservation, payment)
-return booking
-        except:
-await payment_service.refund(payment.id)  # Compensate
-        raise
-        except:
-await property_service.cancel(reservation.id)  # Compensate
-        raise
-        except:
-raise Exception("Booking saga failed")
-
-```text
+    
+    ## Saga with Compensating Transactions
+    
+    class BookingSaga:
+    async def execute(self, order_data):
+            try:
+    reservation = await property_service.reserve(order_data)
+            try:
+    payment = await payment_service.charge(order_data)
+            try:
+    booking = await booking_service.create(reservation, payment)
+    return booking
+            except:
+    await payment_service.refund(payment.id)  # Compensate
+            raise
+            except:
+    await property_service.cancel(reservation.id)  # Compensate
+            raise
+            except:
+    raise Exception("Booking saga failed")
+    
 ---
 
 ## 12. BLOOM FILTERS
 
 ## Production Pattern from Google
 
-```python
-
-## Space-efficient set membership check
-
-import mmh3
-from bitarray import bitarray
-
-class BloomFilter:
-def __init__(self, size=1000000, hash_count=3):
-self.size = size
-self.hash_count = hash_count
-self.bit_array = bitarray(size)
-        self.bit_array.setall(0)
-
-def add(self, item):
-for i in range(self.hash_count):
-index = mmh3.hash(item, i) % self.size
-self.bit_array[index] = 1
-
-def contains(self, item):
-for i in range(self.hash_count):
-index = mmh3.hash(item, i) % self.size
-if self.bit_array[index] == 0:
-return False
-return True  # Might be false positive
-
-## Check if user exists - fast!
-
-if bloom.contains(user_id):
-user = db.get(user_id)  # Might exist
-else:
-return 404  # Definitely doesn't exist
-
-```text
+    
+    ## Space-efficient set membership check
+    
+    import mmh3
+    from bitarray import bitarray
+    
+    class BloomFilter:
+    def **init**(self, size=1000000, hash_count=3):
+    self.size = size
+    self.hash_count = hash_count
+    self.bit_array = bitarray(size)
+            self.bit_array.setall(0)
+    
+    def add(self, item):
+    for i in range(self.hash_count):
+    index = mmh3.hash(item, i) % self.size
+    self.bit_array[index] = 1
+    
+    def contains(self, item):
+    for i in range(self.hash_count):
+    index = mmh3.hash(item, i) % self.size
+    if self.bit_array[index] == 0:
+    return False
+    return True  # Might be false positive
+    
+    ## Check if user exists - fast!
+    
+    if bloom.contains(user_id):
+    user = db.get(user_id)  # Might exist
+    else:
+    return 404  # Definitely doesn't exist
+    
 ---
 
 ## 13. CONSENSUS (RAFT)
 
 ## Production Pattern for Distributed Systems
 
-```python
-
-## Raft Leader Election
-
-class RaftNode:
-def __init__(self, node_id, cluster):
-self.state = 'follower'
-self.term = 0
-self.voted_for = None
-
-def start_election(self):
-self.state = 'candidate'
-self.term += 1
-votes = 1  # Vote for self
-
-for node in self.cluster:
-if self.request_vote(node):
-votes += 1
-
-if votes > len(self.cluster) / 2:
-        self.become_leader()
-
-```text
+    
+    ## Raft Leader Election
+    
+    class RaftNode:
+    def **init**(self, node_id, cluster):
+    self.state = 'follower'
+    self.term = 0
+    self.voted_for = None
+    
+    def start_election(self):
+    self.state = 'candidate'
+    self.term += 1
+    votes = 1  # Vote for self
+    
+    for node in self.cluster:
+    if self.request_vote(node):
+    votes += 1
+    
+    if votes > len(self.cluster) / 2:
+            self.become_leader()
+    
 ---
 
 ## END OF VOLUME 8: ADVANCED SYSTEM DESIGN PATTERNS
@@ -4733,17 +4900,15 @@ if votes > len(self.cluster) / 2:
 > Root Cause: High disk I/O latency causes heartbeat timeouts.
 > Fix: Separate WAL/Data disks. election_timeout = 10x disk latency"
 
-```yaml
-
-## ? TITAN Config: etcd tuning
-
-tick-ms: 500
-election-timeout: 5000  # > 10x tick
-wal-dir: /var/lib/etcd/wal  # Dedicated NVMe SSD
-data-dir: /var/lib/etcd/data
-quota-backend-bytes: 8589934592  # 8GB
-
-```text
+    
+    ## ? TITAN Config: etcd tuning
+    
+    tick-ms: 500
+    election-timeout: 5000  # > 10x tick
+    wal-dir: /var/lib/etcd/wal  # Dedicated NVMe SSD
+    data-dir: /var/lib/etcd/data
+    quota-backend-bytes: 8589934592  # 8GB
+    
 
 ## END OF VOLUME 1.3: TITAN SYSTEM DESIGN CAP
 
@@ -5060,38 +5225,36 @@ quota-backend-bytes: 8589934592  # 8GB
 > TLA+ models system as state machine. Exhaustively checks ALL states.
 > Amazon S3, Azure: Bugs found in days of TLA+ that evaded years of testing."
 
-```tla
----- MODULE DistributedLock ----
-EXTENDS Integers, Sequences
-
-VARIABLES lock_holder, requests
-
-TypeInvariant ==
-/\ lock_holder \in {"none"} \cup Clients
-/\ requests \subseteq Clients
-
-Safety ==
-\* At most one client holds the lock
-Cardinality({c \in Clients : lock_holder = c}) <= 1
-
-Liveness ==
-\* If a client requests, it eventually gets the lock
-\A c \in Clients :
-c \in requests ~> lock_holder = c
-
-RequestLock(c) ==
-/\ c \notin requests
-/\ requests' = requests \cup {c}
-/\ UNCHANGED lock_holder
-
-AcquireLock(c) ==
-/\ c \in requests
-/\ lock_holder = "none"
-/\ lock_holder' = c
-/\ requests' = requests \ {c}
-====
-
-```text
+    ---- MODULE DistributedLock ----
+    EXTENDS Integers, Sequences
+    
+    VARIABLES lock_holder, requests
+    
+    TypeInvariant ==
+    /\ lock_holder \in {"none"} \cup Clients
+    /\ requests \subseteq Clients
+    
+    Safety ==
+    \* At most one client holds the lock
+    Cardinality({c \in Clients : lock_holder = c}) <= 1
+    
+    Liveness ==
+    \* If a client requests, it eventually gets the lock
+    \A c \in Clients :
+    c \in requests ~> lock_holder = c
+    
+    RequestLock(c) ==
+    /\ c \notin requests
+    /\ requests' = requests \cup {c}
+    /\ UNCHANGED lock_holder
+    
+    AcquireLock(c) ==
+    /\ c \in requests
+    /\ lock_holder = "none"
+    /\ lock_holder' = c
+    /\ requests' = requests \ {c}
+    ====
+    
 
 ### Titan Workflow
 
@@ -5107,31 +5270,29 @@ AcquireLock(c) ==
 > Regional SFUs cascade: subscribe to each other.
 > ICE restart enables live migration between SFUs during node failure."
 
-```typescript
-// ? TITAN: SFU Mesh with ICE Restart Migration
-interface SFUNode {
-region: string;
-upstreams: SFUNode[];  // SFUs we pull from
-downstreams: SFUNode[];   // SFUs pulling from us
-}
-
-async function migrateParticipant(
-participant: Participant,
-from: SFUNode,
-to: SFUNode
-): Promise<void> {
-// 1. Establish on new node FIRST
-const newConnection = await to.createOffer(participant);
-
-// 2. ICE restart - renegotiate without tearing down media
-await participant.setRemoteDescription(newConnection);
-await participant.createAnswer({ iceRestart: true });
-
-// 3. Old connection dies naturally via ICE timeout
-// Result: Sub-second migration, no user-visible drop
-}
-
-```text
+    // ? TITAN: SFU Mesh with ICE Restart Migration
+    interface SFUNode {
+    region: string;
+    upstreams: SFUNode[];  // SFUs we pull from
+    downstreams: SFUNode[];   // SFUs pulling from us
+    }
+    
+    async function migrateParticipant(
+    participant: Participant,
+    from: SFUNode,
+    to: SFUNode
+    ): Promise<void> {
+    // 1. Establish on new node FIRST
+    const newConnection = await to.createOffer(participant);
+    
+    // 2. ICE restart - renegotiate without tearing down media
+    await participant.setRemoteDescription(newConnection);
+    await participant.createAnswer({ iceRestart: true });
+    
+    // 3. Old connection dies naturally via ICE timeout
+    // Result: Sub-second migration, no user-visible drop
+    }
+    
 
 ### Production Pattern
 
@@ -5146,39 +5307,37 @@ await participant.createAnswer({ iceRestart: true });
 > "Event schema changes. Old events in store can't deserialize.
 > Upcasting: Transform old event shape to new at read time."
 
-```java
-// ? TITAN: Event Upcasting
-public interface EventUpcaster {
-boolean canUpcast(String eventType, int fromVersion);
-JsonNode upcast(JsonNode oldPayload, int fromVersion);
-}
-
-public class OrderPlacedUpcaster implements EventUpcaster {
-    @Override
-public boolean canUpcast(String type, int v) {
-return "OrderPlaced".equals(type) && v < 3;
+    // ? TITAN: Event Upcasting
+    public interface EventUpcaster {
+    boolean canUpcast(String eventType, int fromVersion);
+    JsonNode upcast(JsonNode oldPayload, int fromVersion);
     }
-
-    @Override
-public JsonNode upcast(JsonNode old, int fromVersion) {
-ObjectNode node = old.deepCopy();
-
-// v1 -> v2: Add currency field
-if (fromVersion < 2) {
-node.put("currency", "USD");
+    
+    public class OrderPlacedUpcaster implements EventUpcaster {
+        @Override
+    public boolean canUpcast(String type, int v) {
+    return "OrderPlaced".equals(type) && v < 3;
         }
-
-// v2 -> v3: Rename 'items' to 'lineItems'
-if (fromVersion < 3) {
-node.set("lineItems", node.get("items"));
-        node.remove("items");
+    
+        @Override
+    public JsonNode upcast(JsonNode old, int fromVersion) {
+    ObjectNode node = old.deepCopy();
+    
+    // v1 -> v2: Add currency field
+    if (fromVersion < 2) {
+    node.put("currency", "USD");
+            }
+    
+    // v2 -> v3: Rename 'items' to 'lineItems'
+    if (fromVersion < 3) {
+    node.set("lineItems", node.get("items"));
+            node.remove("items");
+            }
+    
+    return node;
         }
-
-return node;
     }
-}
-
-```text
+    
 
 ### Titan Rule
 
@@ -5194,46 +5353,44 @@ return node;
 > Traffic routed to attacker for interception, then forwarded.
 > 2018: Attackers hijacked AWS Route 53 BGP, stole $150k crypto."
 
-```python
-
-## ? TITAN: BGP Monitoring with RIPE RIS
-
-import requests
-
-def check_prefix_origin(prefix: str, expected_asn: int) -> bool:
-    """
-Query RIPE RIS for BGP announcements.
-Alert if unexpected AS is announcing our prefix.
-    """
-resp = requests.get(
-        f"https://stat.ripe.net/data/announced-prefixes/data.json",
-params={"resource": f"AS{expected_asn}"}
-    )
-
-announced = {p["prefix"] for p in resp.json()["data"]["prefixes"]}
-
-if prefix not in announced:
-
-## ALERT: Our prefix not announced by our AS!
-
-## Possible hijack or misconfiguration
-return False
-
-## Cross-check: Is anyone ELSE announcing our prefix?
-origin_resp = requests.get(
-        f"https://stat.ripe.net/data/prefix-overview/data.json",
-params={"resource": prefix}
-    )
-origins = origin_resp.json()["data"]["asns"]
-
-if len(origins) > 1:
-
-## Multiple origins = MOAS conflict, potential hijack
-alert_security_team(prefix, origins)
-
-return True
-
-```text
+    
+    ## ? TITAN: BGP Monitoring with RIPE RIS
+    
+    import requests
+    
+    def check_prefix_origin(prefix: str, expected_asn: int) -> bool:
+        """
+    Query RIPE RIS for BGP announcements.
+    Alert if unexpected AS is announcing our prefix.
+        """
+    resp = requests.get(
+            f"<https://stat.ripe.net/data/announced-prefixes/data.json",>
+    params={"resource": f"AS{expected_asn}"}
+        )
+    
+    announced = {p["prefix"] for p in resp.json()["data"]["prefixes"]}
+    
+    if prefix not in announced:
+    
+    ## ALERT: Our prefix not announced by our AS!
+    
+    ## Possible hijack or misconfiguration
+    return False
+    
+    ## Cross-check: Is anyone ELSE announcing our prefix?
+    origin_resp = requests.get(
+            f"<https://stat.ripe.net/data/prefix-overview/data.json",>
+    params={"resource": prefix}
+        )
+    origins = origin_resp.json()["data"]["asns"]
+    
+    if len(origins) > 1:
+    
+    ## Multiple origins = MOAS conflict, potential hijack
+    alert_security_team(prefix, origins)
+    
+    return True
+    
 
 ## Titan Defense
 
@@ -5248,37 +5405,37 @@ return True
 > IdP down = entire org locked out of all systems.
 > Zero Trust without offline fallback = worse than legacy."
 
-```yaml
+    
+    ## ? TITAN: Zero Trust with Fallback
+    
+    ## Istio AuthorizationPolicy with local cache
+    
+    apiVersion: security.istio.io/v1beta1
+    kind: AuthorizationPolicy
+    metadata:
+    name: require-jwt
+    spec:
+      rules:
 
-## ? TITAN: Zero Trust with Fallback
+    - from:
+    - source:
+    requestPrincipals: ["*"]
+        when:
 
-## Istio AuthorizationPolicy with local cache
-
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-name: require-jwt
-spec:
-  rules:
-- from:
-- source:
-requestPrincipals: ["*"]
-    when:
-- key: request.auth.claims[iss]
-values: ["https://idp.company.com"]
----
-
-## CRITICAL: JWT validation cache survives IdP outage
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-name: jwt-cache-config
-data:
-cache_duration: "3600s"    # Accept cached JWKS for 1 hour
-stale_grace_period: "86400s"  # Allow stale cache for 24h if refresh fails
-
-```text
+    - key: request.auth.claims[iss]
+    values: ["<https://idp.company.com">]
+    ---
+    
+    ## CRITICAL: JWT validation cache survives IdP outage
+    
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+    name: jwt-cache-config
+    data:
+    cache_duration: "3600s"    # Accept cached JWKS for 1 hour
+    stale_grace_period: "86400s"  # Allow stale cache for 24h if refresh fails
+    
 
 ## END OF VOLUME 6.2: TITAN FORMAL VERIFICATION & INFRASTRUCTURE
 
@@ -5295,73 +5452,71 @@ stale_grace_period: "86400s"  # Allow stale cache for 24h if refresh fails
 > Lamport: a?b and b?c implies a?c.
 > Vector: Can tell if a happened before b, or if concurrent."
 
-```python
-
-## TITAN: Vector Clock Implementation
-
-from collections import defaultdict
-
-class VectorClock:
-def __init__(self, node_id):
-self.node_id = node_id
-self.clock = defaultdict(int)
-
-def increment(self):
-"""Local event occurred"""
-self.clock[self.node_id] += 1
-return self.snapshot()
-
-def snapshot(self):
-return dict(self.clock)
-
-def merge(self, other_clock):
-"""Merge with received clock"""
-for node, time in other_clock.items():
-self.clock[node] = max(self.clock[node], time)
-self.increment() # Receiving is an event
-
-def happens_before(self, other_clock):
-"""Check if self ? other (causally precedes)"""
-at_least_one_less = False
-for node, my_time in self.clock.items():
-other_time = other_clock.get(node, 0)
-if my_time > other_time:
-return False  # Can't be before
-if my_time < other_time:
-at_least_one_less = True
-
-## Also check nodes only in other
-for node in other_clock:
-if node not in self.clock and other_clock[node] > 0:
-at_least_one_less = True
-
-return at_least_one_less
-
-def concurrent_with(self, other_clock):
-"""Check if events are concurrent (incomparable)"""
-return not self.happens_before(other_clock) and not other_clock.happens_before(self.snapshot())
-
-## Usage in distributed system
-
-node_a = VectorClock('A')
-node_b = VectorClock('B')
-
-## A does work
-
-ts1 = node_a.increment()  # {'A': 1}
-
-## A sends message to B
-
-node_b.merge(ts1) # {'A': 1, 'B': 1}
-ts2 = node_b.snapshot()
-
-## Concurrent: A does more work without seeing B's update
-
-ts3 = node_a.increment()  # {'A': 2}
-
-## ts3 and ts2 are CONCURRENT - neither happened before the other
-
-```text
+    
+    ## TITAN: Vector Clock Implementation
+    
+    from collections import defaultdict
+    
+    class VectorClock:
+    def **init**(self, node_id):
+    self.node_id = node_id
+    self.clock = defaultdict(int)
+    
+    def increment(self):
+    """Local event occurred"""
+    self.clock[self.node_id] += 1
+    return self.snapshot()
+    
+    def snapshot(self):
+    return dict(self.clock)
+    
+    def merge(self, other_clock):
+    """Merge with received clock"""
+    for node, time in other_clock.items():
+    self.clock[node] = max(self.clock[node], time)
+    self.increment() # Receiving is an event
+    
+    def happens_before(self, other_clock):
+    """Check if self ? other (causally precedes)"""
+    at_least_one_less = False
+    for node, my_time in self.clock.items():
+    other_time = other_clock.get(node, 0)
+    if my_time > other_time:
+    return False  # Can't be before
+    if my_time < other_time:
+    at_least_one_less = True
+    
+    ## Also check nodes only in other
+    for node in other_clock:
+    if node not in self.clock and other_clock[node] > 0:
+    at_least_one_less = True
+    
+    return at_least_one_less
+    
+    def concurrent_with(self, other_clock):
+    """Check if events are concurrent (incomparable)"""
+    return not self.happens_before(other_clock) and not other_clock.happens_before(self.snapshot())
+    
+    ## Usage in distributed system
+    
+    node_a = VectorClock('A')
+    node_b = VectorClock('B')
+    
+    ## A does work
+    
+    ts1 = node_a.increment()  # {'A': 1}
+    
+    ## A sends message to B
+    
+    node_b.merge(ts1) # {'A': 1, 'B': 1}
+    ts2 = node_b.snapshot()
+    
+    ## Concurrent: A does more work without seeing B's update
+    
+    ts3 = node_a.increment()  # {'A': 2}
+    
+    ## ts3 and ts2 are CONCURRENT - neither happened before the other
+    
 
 ## HYBRID LOGICAL CLOCKS (HLC)
 
@@ -5371,50 +5526,48 @@ ts3 = node_a.increment()  # {'A': 2}
 > Hybrid Logical Clocks: Bounded skew from physical time.
 > Used by CockroachDB, Spanner. Enables 'snapshot at time T' reads."
 
-```python
-
-## TITAN: Hybrid Logical Clock
-
-import time
-
-class HybridLogicalClock:
-def __init__(self):
-self.physical_time = 0
-self.logical_counter = 0
-
-def now(self):
-"""Generate new timestamp"""
-pt = int(time.time() * 1000)  # Milliseconds
-
-if pt > self.physical_time:
-self.physical_time = pt
-self.logical_counter = 0
-        else:
-self.logical_counter += 1
-
-## 48 bits physical + 16 bits logical
-| return (self.physical_time << 16) | self.logical_counter |
-
-def receive(self, remote_ts):
-"""Update clock on receiving message"""
-remote_pt = remote_ts >> 16
-remote_lc = remote_ts & 0xFFFF
-local_pt = int(time.time() * 1000)
-
-if local_pt > self.physical_time and local_pt > remote_pt:
-self.physical_time = local_pt
-self.logical_counter = 0
-elif self.physical_time > remote_pt:
-self.logical_counter += 1
-elif remote_pt > self.physical_time:
-self.physical_time = remote_pt
-self.logical_counter = remote_lc + 1
-else: # Equal physical times
-self.logical_counter = max(self.logical_counter, remote_lc) + 1
-
-return self.now()
-
-```text
+    
+    ## TITAN: Hybrid Logical Clock
+    
+    import time
+    
+    class HybridLogicalClock:
+    def **init**(self):
+    self.physical_time = 0
+    self.logical_counter = 0
+    
+    def now(self):
+    """Generate new timestamp"""
+    pt = int(time.time() * 1000)  # Milliseconds
+    
+    if pt > self.physical_time:
+    self.physical_time = pt
+    self.logical_counter = 0
+            else:
+    self.logical_counter += 1
+    
+    ## 48 bits physical + 16 bits logical
+    | return (self.physical_time << 16) | self.logical_counter |
+    
+    def receive(self, remote_ts):
+    """Update clock on receiving message"""
+    remote_pt = remote_ts >> 16
+    remote_lc = remote_ts & 0xFFFF
+    local_pt = int(time.time() * 1000)
+    
+    if local_pt > self.physical_time and local_pt > remote_pt:
+    self.physical_time = local_pt
+    self.logical_counter = 0
+    elif self.physical_time > remote_pt:
+    self.logical_counter += 1
+    elif remote_pt > self.physical_time:
+    self.physical_time = remote_pt
+    self.logical_counter = remote_lc + 1
+    else: # Equal physical times
+    self.logical_counter = max(self.logical_counter, remote_lc) + 1
+    
+    return self.now()
+    
 
 ## CRDT DEEP INTERNALS: OPERATION-BASED
 
@@ -5424,64 +5577,62 @@ return self.now()
 > Op-based CRDTs: Send operations. Smaller messages. Requires reliable delivery.
 > Key insight: Commutative, Associative, Idempotent operations."
 
-```python
-
-## TITAN: G-Counter (Grow-only Counter) CRDT
-
-class GCounter:
-"""Each node has its own counter. Sum = global count."""
-
-def __init__(self, node_id):
-self.node_id = node_id
-self.counts = {}
-
-def increment(self, n=1):
-self.counts[self.node_id] = self.counts.get(self.node_id, 0) + n
-
-def value(self):
-return sum(self.counts.values())
-
-def merge(self, other):
-
-## Max per node = convergent
-for node, count in other.counts.items():
-self.counts[node] = max(self.counts.get(node, 0), count)
-
-## TITAN: OR-Set (Observed-Remove Set) CRDT
-
-import uuid
-
-class ORSet:
-"""Add-wins set. Can add and remove same element."""
-
-def __init__(self):
-self.elements = {}  # element -> set of (unique_tag, active)
-
-def add(self, element):
-tag = str(uuid.uuid4())
-if element not in self.elements:
-self.elements[element] = set()
-        self.elements[element].add(tag)
-
-def remove(self, element):
-
-## Remove all tags for this element
-if element in self.elements:
-        self.elements[element].clear()
-
-def contains(self, element):
-return element in self.elements and len(self.elements[element]) > 0
-
-def merge(self, other):
-| all_elements = set(self.elements.keys()) | set(other.elements.keys()) |
-for elem in all_elements:
-my_tags = self.elements.get(elem, set())
-their_tags = other.elements.get(elem, set())
-
-## Union: Any tag present = element is there
-| self.elements[elem] = my_tags | their_tags |
-
-```text
+    
+    ## TITAN: G-Counter (Grow-only Counter) CRDT
+    
+    class GCounter:
+    """Each node has its own counter. Sum = global count."""
+    
+    def **init**(self, node_id):
+    self.node_id = node_id
+    self.counts = {}
+    
+    def increment(self, n=1):
+    self.counts[self.node_id] = self.counts.get(self.node_id, 0) + n
+    
+    def value(self):
+    return sum(self.counts.values())
+    
+    def merge(self, other):
+    
+    ## Max per node = convergent
+    for node, count in other.counts.items():
+    self.counts[node] = max(self.counts.get(node, 0), count)
+    
+    ## TITAN: OR-Set (Observed-Remove Set) CRDT
+    
+    import uuid
+    
+    class ORSet:
+    """Add-wins set. Can add and remove same element."""
+    
+    def **init**(self):
+    self.elements = {}  # element -> set of (unique_tag, active)
+    
+    def add(self, element):
+    tag = str(uuid.uuid4())
+    if element not in self.elements:
+    self.elements[element] = set()
+            self.elements[element].add(tag)
+    
+    def remove(self, element):
+    
+    ## Remove all tags for this element
+    if element in self.elements:
+            self.elements[element].clear()
+    
+    def contains(self, element):
+    return element in self.elements and len(self.elements[element]) > 0
+    
+    def merge(self, other):
+    | all_elements = set(self.elements.keys()) | set(other.elements.keys()) |
+    for elem in all_elements:
+    my_tags = self.elements.get(elem, set())
+    their_tags = other.elements.get(elem, set())
+    
+    ## Union: Any tag present = element is there
+    | self.elements[elem] = my_tags | their_tags |
+    
 
 ## LEADER ELECTION: FENCE TOKENS
 
@@ -5492,43 +5643,41 @@ their_tags = other.elements.get(elem, set())
 > Fence Tokens: Monotonically increasing ID with each leadership claim.
 > Resources reject operations from old leaders."
 
-```python
-
-## TITAN: Fence Token Usage
-
-class FencedStorage:
-def __init__(self):
-self.data = {}
-self.current_fence = 0
-
-def write(self, key, value, fence_token):
-if fence_token < self.current_fence:
-raise FencedOutError(
-f"Fence token {fence_token} is stale, current is {self.current_fence}"
-        )
-
-self.current_fence = max(self.current_fence, fence_token)
-self.data[key] = value
-
-class LeaderElector:
-def __init__(self, lock_service):
-self.lock_service = lock_service
-self.fence_token = None
-
-def acquire_leadership(self):
-
-## Lock service returns monotonically increasing fence token
-self.fence_token = self.lock_service.acquire()
-return self.fence_token
-
-def do_leader_work(self, storage, key, value):
-if self.fence_token is None:
-raise NotLeaderError()
-
-## Storage will reject if we're stale
-storage.write(key, value, self.fence_token)
-
-```text
+    
+    ## TITAN: Fence Token Usage
+    
+    class FencedStorage:
+    def **init**(self):
+    self.data = {}
+    self.current_fence = 0
+    
+    def write(self, key, value, fence_token):
+    if fence_token < self.current_fence:
+    raise FencedOutError(
+    f"Fence token {fence_token} is stale, current is {self.current_fence}"
+            )
+    
+    self.current_fence = max(self.current_fence, fence_token)
+    self.data[key] = value
+    
+    class LeaderElector:
+    def **init**(self, lock_service):
+    self.lock_service = lock_service
+    self.fence_token = None
+    
+    def acquire_leadership(self):
+    
+    ## Lock service returns monotonically increasing fence token
+    self.fence_token = self.lock_service.acquire()
+    return self.fence_token
+    
+    def do_leader_work(self, storage, key, value):
+    if self.fence_token is None:
+    raise NotLeaderError()
+    
+    ## Storage will reject if we're stale
+    storage.write(key, value, self.fence_token)
+    
 
 ## DISTRIBUTED TRACING: CONTEXT PROPAGATION
 
@@ -5539,96 +5688,94 @@ storage.write(key, value, self.fence_token)
 > ParentSpanID: Links spans into tree.
 > W3C Trace Context: Standard header format."
 
-```python
-
-## TITAN: Full Distributed Tracing Implementation
-
-import uuid
-import time
-from contextvars import ContextVar
-
-## Thread-local storage for current span
-
-current_span: ContextVar['Span'] = ContextVar('current_span')
-
-class Span:
-def __init__(self, name, trace_id=None, parent_id=None):
-self.name = name
-self.trace_id = trace_id or uuid.uuid4().hex
-self.span_id = uuid.uuid4().hex[:16]
-self.parent_id = parent_id
-self.start_time = time.time_ns()
-self.end_time = None
-self.tags = {}
-self.events = []
-
-def set_tag(self, key, value):
-self.tags[key] = value
-
-def add_event(self, name, attributes=None):
-        self.events.append({
-'name': name,
-'timestamp': time.time_ns(),
-'attributes': attributes or {}
-        })
-
-def finish(self):
-self.end_time = time.time_ns()
-
-## Export to collector (Jaeger, Zipkin, OTLP)
-        export_span(self)
-
-def start_span(name):
-parent = current_span.get(None)
-if parent:
-span = Span(name, trace_id=parent.trace_id, parent_id=parent.span_id)
-    else:
-span = Span(name)
-
-token = current_span.set(span)
-return span, token
-
-## W3C Trace Context propagation
-
-def inject_trace_context(headers):
-span = current_span.get(None)
-if span:
-
-## traceparent: version-traceid-spanid-flags
-headers['traceparent'] = f"00-{span.trace_id}-{span.span_id}-01"
-
-def extract_trace_context(headers):
-traceparent = headers.get('traceparent')
-if traceparent:
-parts = traceparent.split('-')
-if len(parts) == 4:
-return parts[1], parts[2]  # trace_id, parent_span_id
-return None, None
-
-## Usage in HTTP middleware
-
-async def tracing_middleware(request, call_next):
-trace_id, parent_id = extract_trace_context(request.headers)
-
-span = Span(
-name=f"{request.method} {request.url.path}",
-        trace_id=trace_id,
-        parent_id=parent_id
-    )
-    current_span.set(span)
-
-    try:
-response = await call_next(request)
-span.set_tag('http.status_code', response.status_code)
-return response
-except Exception as e:
-span.set_tag('error', True)
-span.set_tag('error.message', str(e))
-        raise
-    finally:
-        span.finish()
-
-```text
+    
+    ## TITAN: Full Distributed Tracing Implementation
+    
+    import uuid
+    import time
+    from contextvars import ContextVar
+    
+    ## Thread-local storage for current span
+    
+    current_span: ContextVar['Span'] = ContextVar('current_span')
+    
+    class Span:
+    def **init**(self, name, trace_id=None, parent_id=None):
+    self.name = name
+    self.trace_id = trace_id or uuid.uuid4().hex
+    self.span_id = uuid.uuid4().hex[:16]
+    self.parent_id = parent_id
+    self.start_time = time.time_ns()
+    self.end_time = None
+    self.tags = {}
+    self.events = []
+    
+    def set_tag(self, key, value):
+    self.tags[key] = value
+    
+    def add_event(self, name, attributes=None):
+            self.events.append({
+    'name': name,
+    'timestamp': time.time_ns(),
+    'attributes': attributes or {}
+            })
+    
+    def finish(self):
+    self.end_time = time.time_ns()
+    
+    ## Export to collector (Jaeger, Zipkin, OTLP)
+            export_span(self)
+    
+    def start_span(name):
+    parent = current_span.get(None)
+    if parent:
+    span = Span(name, trace_id=parent.trace_id, parent_id=parent.span_id)
+        else:
+    span = Span(name)
+    
+    token = current_span.set(span)
+    return span, token
+    
+    ## W3C Trace Context propagation
+    
+    def inject_trace_context(headers):
+    span = current_span.get(None)
+    if span:
+    
+    ## traceparent: version-traceid-spanid-flags
+    headers['traceparent'] = f"00-{span.trace_id}-{span.span_id}-01"
+    
+    def extract_trace_context(headers):
+    traceparent = headers.get('traceparent')
+    if traceparent:
+    parts = traceparent.split('-')
+    if len(parts) == 4:
+    return parts[1], parts[2]  # trace_id, parent_span_id
+    return None, None
+    
+    ## Usage in HTTP middleware
+    
+    async def tracing_middleware(request, call_next):
+    trace_id, parent_id = extract_trace_context(request.headers)
+    
+    span = Span(
+    name=f"{request.method} {request.url.path}",
+            trace_id=trace_id,
+            parent_id=parent_id
+        )
+        current_span.set(span)
+    
+        try:
+    response = await call_next(request)
+    span.set_tag('http.status_code', response.status_code)
+    return response
+    except Exception as e:
+    span.set_tag('error', True)
+    span.set_tag('error.message', str(e))
+            raise
+        finally:
+            span.finish()
+    
 
 ## BACKPRESSURE: ADMISSION CONTROL
 
@@ -5639,65 +5786,63 @@ span.set_tag('error.message', str(e))
 > AIMD: Additive Increase, Multiplicative Decrease.
 > Like TCP congestion control, but for request admission."
 
-```python
-
-## TITAN: Adaptive Load Shedding
-
-import time
-from collections import deque
-
-class AdaptiveLoadShedder:
-def __init__(self, target_latency_ms=100, window_size=100):
-self.target_latency = target_latency_ms / 1000.0
-self.latencies = deque(maxlen=window_size)
-self.inflight = 0
-self.inflight_limit = 50  # Initial guess
-
-## AIMD parameters
-self.additive_increase = 1
-self.multiplicative_decrease = 0.9
-
-def should_admit(self):
-return self.inflight < self.inflight_limit
-
-def request_started(self):
-self.inflight += 1
-
-def request_finished(self, latency_seconds):
-self.inflight -= 1
-        self.latencies.append(latency_seconds)
-
-if len(self.latencies) >= 10:
-p99 = sorted(self.latencies)[int(len(self.latencies) * 0.99)]
-
-if p99 < self.target_latency:
-
-## Doing well, admit more
-self.inflight_limit += self.additive_increase
-        else:
-
-## Overloaded, back off
-self.inflight_limit = max(
-        1,
-int(self.inflight_limit * self.multiplicative_decrease)
-        )
-
-## Usage
-
-shedder = AdaptiveLoadShedder(target_latency_ms=100)
-
-async def handle_request(request):
-if not shedder.should_admit():
-raise HTTPException(503, "Service overloaded")
-
-    shedder.request_started()
-start = time.time()
-    try:
-return await process_request(request)
-    finally:
-shedder.request_finished(time.time() - start)
-
-```text
+    
+    ## TITAN: Adaptive Load Shedding
+    
+    import time
+    from collections import deque
+    
+    class AdaptiveLoadShedder:
+    def **init**(self, target_latency_ms=100, window_size=100):
+    self.target_latency = target_latency_ms / 1000.0
+    self.latencies = deque(maxlen=window_size)
+    self.inflight = 0
+    self.inflight_limit = 50  # Initial guess
+    
+    ## AIMD parameters
+    self.additive_increase = 1
+    self.multiplicative_decrease = 0.9
+    
+    def should_admit(self):
+    return self.inflight < self.inflight_limit
+    
+    def request_started(self):
+    self.inflight += 1
+    
+    def request_finished(self, latency_seconds):
+    self.inflight -= 1
+            self.latencies.append(latency_seconds)
+    
+    if len(self.latencies) >= 10:
+    p99 = sorted(self.latencies)[int(len(self.latencies) * 0.99)]
+    
+    if p99 < self.target_latency:
+    
+    ## Doing well, admit more
+    self.inflight_limit += self.additive_increase
+            else:
+    
+    ## Overloaded, back off
+    self.inflight_limit = max(
+            1,
+    int(self.inflight_limit * self.multiplicative_decrease)
+            )
+    
+    ## Usage
+    
+    shedder = AdaptiveLoadShedder(target_latency_ms=100)
+    
+    async def handle_request(request):
+    if not shedder.should_admit():
+    raise HTTPException(503, "Service overloaded")
+    
+        shedder.request_started()
+    start = time.time()
+        try:
+    return await process_request(request)
+        finally:
+    shedder.request_finished(time.time() - start)
+    
 
 ## END OF VOLUME 6.3: TITAN DEEP INTERNALS - DISTRIBUTED SYSTEMS MECHANICS
 
@@ -5713,17 +5858,15 @@ shedder.request_finished(time.time() - start)
 > One device publishes status update. Broker fans out to 10,000 clients.
 > Network saturated. Broker CPU 100%. Devices disconnected."
 
-```python
-
-## ? VIBE: Wildcard subscription = broadcast storm
-
-client.subscribe("#") # Receives EVERYTHING!
-
-## ? VIBE: Using QoS 2 for high-frequency data
-
-client.publish("sensors/temp", payload, qos=2)  # Overhead for EACH message
-
-```python
+    
+    ## ? VIBE: Wildcard subscription = broadcast storm
+    
+    client.subscribe("#") # Receives EVERYTHING!
+    
+    ## ? VIBE: Using QoS 2 for high-frequency data
+    
+    client.publish("sensors/temp", payload, qos=2)  # Overhead for EACH message
+    
 
 ## ? TITAN: Hierarchical topic design with ACLs
 
@@ -5782,17 +5925,15 @@ def publish_alert(client, alert):
         qos=1
     )
 
-```text
-
-## WEBRTC SFU CASCADING
-
-## The Scar
-
-> "Video call with 100 participants. Single SFU server overwhelmed.
-> CPU 100%, latency spikes to 500ms. Participants dropped.
-> Need to cascade SFUs across regions."
-
-```javascript
+    
+    ## WEBRTC SFU CASCADING
+    
+    ## The Scar
+    
+    > "Video call with 100 participants. Single SFU server overwhelmed.
+    > CPU 100%, latency spikes to 500ms. Participants dropped.
+    > Need to cascade SFUs across regions."
+    
 // ? VIBE: Single SFU = scaling bottleneck
 const sfu = new MediasoupWorker();  // One worker, one server
 
@@ -5810,37 +5951,37 @@ port_range_end: 60000
 
 region: us-west
 region_config:
+
 - region: eu-west
 url: livekit.eu-west.example.com:7880
+
 - region: ap-south
 url: livekit.ap-south.example.com:7880
 
-```typescript
-// ? TITAN: Jitter buffer tuning
-// WebRTC jitterBufferTarget for smooth playback
-
-const receiver = peerConnection.getReceivers()[0];
-if (receiver) {
-// Increase jitter buffer for unstable connections
-receiver.jitterBufferTarget = 150;  // 150ms buffer (default ~50ms)
-}
-
-// Monitor jitter buffer stats
-setInterval(async () => {
-const stats = await peerConnection.getStats();
-stats.forEach(report => {
-if (report.type === 'inbound-rtp' && report.kind === 'video') {
-        console.log({
-jitterBufferDelay: report.jitterBufferDelay,
-jitterBufferEmittedCount: report.jitterBufferEmittedCount,
-packetsLost: report.packetsLost,
-framesDecoded: report.framesDecoded
+    // ? TITAN: Jitter buffer tuning
+    // WebRTC jitterBufferTarget for smooth playback
+    
+    const receiver = peerConnection.getReceivers()[0];
+    if (receiver) {
+    // Increase jitter buffer for unstable connections
+    receiver.jitterBufferTarget = 150;  // 150ms buffer (default ~50ms)
+    }
+    
+    // Monitor jitter buffer stats
+    setInterval(async () => {
+    const stats = await peerConnection.getStats();
+    stats.forEach(report => {
+    if (report.type === 'inbound-rtp' && report.kind === 'video') {
+            console.log({
+    jitterBufferDelay: report.jitterBufferDelay,
+    jitterBufferEmittedCount: report.jitterBufferEmittedCount,
+    packetsLost: report.packetsLost,
+    framesDecoded: report.framesDecoded
+            });
+            }
         });
-        }
-    });
-}, 1000);
-
-```yaml
+    }, 1000);
+    
 
 ## ? TITAN: Kubernetes autoscaling for SFU pods
 
@@ -5856,12 +5997,14 @@ name: sfu-deployment
 minReplicas: 2
 maxReplicas: 50
   metrics:
+
 - type: Resource
     resource:
 name: cpu
       target:
 type: Utilization
 averageUtilization: 60  # Scale before saturation
+
 - type: Pods
     pods:
       metric:
@@ -5870,17 +6013,15 @@ name: sfu_active_tracks
 type: AverageValue
 averageValue: 100  # Max 100 tracks per pod
 
-```text
-
-## PAYMENT IDEMPOTENCY (STRIPE PATTERN)
-
-## The Scar
-
-> "Network timeout during payment. Client retries.
-> Two charges created. Customer charged $200 for $100 order.
-> Idempotency-Key header missing."
-
-```typescript
+    
+    ## PAYMENT IDEMPOTENCY (STRIPE PATTERN)
+    
+    ## The Scar
+    
+    > "Network timeout during payment. Client retries.
+    > Two charges created. Customer charged $200 for $100 order.
+    > Idempotency-Key header missing."
+    
 // ? VIBE: No idempotency = double charges on retry
 async function chargeCustomer(customerId, amount) {
 const charge = await stripe.charges.create({
@@ -5891,91 +6032,89 @@ currency: 'usd'
 return charge;
 }
 
-```typescript
-// ? TITAN: Idempotency key for exactly-once payments
-import { v4 as uuidv4 } from 'uuid';
-import Stripe from 'stripe';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-async function chargeCustomer(orderId: string, customerId: string, amount: number) {
-// Generate idempotency key from order ID (same order = same key)
-const idempotencyKey = `charge_${orderId}`;
-
-try {
-const paymentIntent = await stripe.paymentIntents.create(
-        {
-customer: customerId,
-amount: amount,
-currency: 'usd',
-metadata: { orderId }
-        },
-        {
-idempotencyKey // Same key = same result (no duplicate charge)
-        }
-        );
-
-return paymentIntent;
-} catch (error) {
-if (error.type === 'StripeIdempotencyError') {
-// Different params with same key - programming error
-throw new Error('Idempotency conflict: different request body');
-        }
-throw error;
-    }
-}
-
-// ? TITAN: Database-backed idempotency for non-Stripe operations
-async function processPayment(orderId: string, request: PaymentRequest) {
-const idempotencyKey = `payment_${orderId}`;
-
-// Check if already processed
-const existing = await db.idempotencyKeys.findUnique({
-where: { key: idempotencyKey }
-    });
-
-if (existing) {
-if (existing.status === 'completed') {
-return existing.response;  // Return cached response
-        }
-if (existing.status === 'processing') {
-throw new Error('Payment already in progress');
+    // ? TITAN: Idempotency key for exactly-once payments
+    import { v4 as uuidv4 } from 'uuid';
+    import Stripe from 'stripe';
+    
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    
+    async function chargeCustomer(orderId: string, customerId: string, amount: number) {
+    // Generate idempotency key from order ID (same order = same key)
+    const idempotencyKey = `charge_${orderId}`;
+    
+    try {
+    const paymentIntent = await stripe.paymentIntents.create(
+            {
+    customer: customerId,
+    amount: amount,
+    currency: 'usd',
+    metadata: { orderId }
+            },
+            {
+    idempotencyKey // Same key = same result (no duplicate charge)
+            }
+            );
+    
+    return paymentIntent;
+    } catch (error) {
+    if (error.type === 'StripeIdempotencyError') {
+    // Different params with same key - programming error
+    throw new Error('Idempotency conflict: different request body');
+            }
+    throw error;
         }
     }
-
-// Create idempotency record (atomic)
-await db.idempotencyKeys.create({
-data: {
-key: idempotencyKey,
-status: 'processing',
-requestHash: hashRequest(request),
-createdAt: new Date()
-        }
-    });
-
-try {
-const result = await executePayment(request);
-
-// Update with result
-await db.idempotencyKeys.update({
-where: { key: idempotencyKey },
-data: {
-status: 'completed',
-response: result
-        }
+    
+    // ? TITAN: Database-backed idempotency for non-Stripe operations
+    async function processPayment(orderId: string, request: PaymentRequest) {
+    const idempotencyKey = `payment_${orderId}`;
+    
+    // Check if already processed
+    const existing = await db.idempotencyKeys.findUnique({
+    where: { key: idempotencyKey }
         });
-
-return result;
-} catch (error) {
-await db.idempotencyKeys.update({
-where: { key: idempotencyKey },
-data: { status: 'failed', error: error.message }
+    
+    if (existing) {
+    if (existing.status === 'completed') {
+    return existing.response;  // Return cached response
+            }
+    if (existing.status === 'processing') {
+    throw new Error('Payment already in progress');
+            }
+        }
+    
+    // Create idempotency record (atomic)
+    await db.idempotencyKeys.create({
+    data: {
+    key: idempotencyKey,
+    status: 'processing',
+    requestHash: hashRequest(request),
+    createdAt: new Date()
+            }
         });
-throw error;
+    
+    try {
+    const result = await executePayment(request);
+    
+    // Update with result
+    await db.idempotencyKeys.update({
+    where: { key: idempotencyKey },
+    data: {
+    status: 'completed',
+    response: result
+            }
+            });
+    
+    return result;
+    } catch (error) {
+    await db.idempotencyKeys.update({
+    where: { key: idempotencyKey },
+    data: { status: 'failed', error: error.message }
+            });
+    throw error;
+        }
     }
-}
-
-```text
+    
 
 ## ELASTICSEARCH CIRCUIT BREAKER TUNING
 
@@ -5985,27 +6124,25 @@ throw error;
 > Field data cache exploded. JVM heap exhausted.
 > Cluster unresponsive. Queries timeout."
 
-```bash
-
-## Diagnose circuit breaker status
-
-curl -X GET "localhost:9200/_nodes/stats/breaker?pretty"
-
-## Output shows
-
-## "parent": {
-
-## "limit_size_in_bytes": 7635092070,
-
-## "estimated_size_in_bytes": 7635092070,  # AT LIMIT!
-
-## "overhead": 1.0,
-
-## "tripped": 42  # Tripped 42 times
-
-## }
-
-```json
+    
+    ## Diagnose circuit breaker status
+    
+    curl -X GET "localhost:9200/_nodes/stats/breaker?pretty"
+    
+    ## Output shows
+    
+    ## "parent": {
+    
+    ## "limit_size_in_bytes": 7635092070,
+    
+    ## "estimated_size_in_bytes": 7635092070,  # AT LIMIT!
+    
+    ## "overhead": 1.0,
+    
+    ## "tripped": 42  # Tripped 42 times
+    
+    ## }
+    
 // ? VIBE: Text field with fielddata enabled = memory explosion
 {
 "mappings": {
@@ -6018,44 +6155,42 @@ curl -X GET "localhost:9200/_nodes/stats/breaker?pretty"
   }
 }
 
-```json
-// ? TITAN: Use keyword subfield for aggregations
-{
-"mappings": {
-"properties": {
-"description": {
-"type": "text",
-"fields": {
-"keyword": {
-"type": "keyword",
-"ignore_above": 256  // For aggregations, uses doc values (disk)
-        }
+    // ? TITAN: Use keyword subfield for aggregations
+    {
+    "mappings": {
+    "properties": {
+    "description": {
+    "type": "text",
+    "fields": {
+    "keyword": {
+    "type": "keyword",
+    "ignore_above": 256  // For aggregations, uses doc values (disk)
+            }
+            }
+          }
         }
       }
     }
-  }
-}
-
-// ? TITAN: Circuit breaker settings (elasticsearch.yml)
-indices.breaker.total.limit: 70%  // Total heap limit
-indices.breaker.fielddata.limit: 40%  // Fielddata cache
-indices.breaker.request.limit: 60%  // Per-request limit
-indices.fielddata.cache.size: 20%  // Max fielddata cache
-
-// ? TITAN: Cardinality aggregation limits
-// Use approximate count for high-cardinality fields
-{
-"aggs": {
-"unique_users": {
-"cardinality": {
-"field": "user_id",
-"precision_threshold": 1000  // Trade accuracy for memory
+    
+    // ? TITAN: Circuit breaker settings (elasticsearch.yml)
+    indices.breaker.total.limit: 70%  // Total heap limit
+    indices.breaker.fielddata.limit: 40%  // Fielddata cache
+    indices.breaker.request.limit: 60%  // Per-request limit
+    indices.fielddata.cache.size: 20%  // Max fielddata cache
+    
+    // ? TITAN: Cardinality aggregation limits
+    // Use approximate count for high-cardinality fields
+    {
+    "aggs": {
+    "unique_users": {
+    "cardinality": {
+    "field": "user_id",
+    "precision_threshold": 1000  // Trade accuracy for memory
+          }
+        }
       }
     }
-  }
-}
-
-```text
+    
 
 ## HNSW VECTOR SEARCH TUNING
 
@@ -6065,55 +6200,53 @@ indices.fielddata.cache.size: 20%  // Max fielddata cache
 > ef_construction too low. Graph not connected.
 > Recall drops from 99% to 60% as index grows."
 
-```python
-
-## ? VIBE: Default HNSW parameters = poor recall at scale
-
-index.add_items(vectors) # Uses defaults
-
-## ? TITAN: Proper HNSW parameter tuning
-
-import hnswlib
-
-## Parameters explained
-
-## M: Number of connections per node (higher = better recall, more memory)
-
-## ef_construction: Search width during index build (higher = better graph)
-
-## ef_search: Search width at query time (higher = better recall, slower)
-
-dim = 768  # Embedding dimension
-num_elements = 1_000_000
-
-## Initialize index with proper parameters
-
-index = hnswlib.Index(space='cosine', dim=dim)
-index.init_index(
-    max_elements=num_elements,
-M=16, # Default 16, increase to 32 for high recall
-ef_construction=200, # Default 200, increase for better graph connectivity
-    random_seed=42
-)
-
-## Add items
-
-index.add_items(vectors, ids)
-
-## Query with high ef for production
-
-index.set_ef(100) # Must be >= k (number of results)
-labels, distances = index.knn_query(query_vector, k=10)
-
-## ? TITAN: Memory estimation formula
-
-## Memory (bytes) 4 * dim * num_elements + 8 * M * num_elements
-
-## For 1M vectors, dim=768, M=16
-
-## = 4 * 768 * 1M + 8 * 16 * 1M = 3GB + 128MB 3.1GB
-
-```yaml
+    
+    ## ? VIBE: Default HNSW parameters = poor recall at scale
+    
+    index.add_items(vectors) # Uses defaults
+    
+    ## ? TITAN: Proper HNSW parameter tuning
+    
+    import hnswlib
+    
+    ## Parameters explained
+    
+    ## M: Number of connections per node (higher = better recall, more memory)
+    
+    ## ef_construction: Search width during index build (higher = better graph)
+    
+    ## ef_search: Search width at query time (higher = better recall, slower)
+    
+    dim = 768  # Embedding dimension
+    num_elements = 1_000_000
+    
+    ## Initialize index with proper parameters
+    
+    index = hnswlib.Index(space='cosine', dim=dim)
+    index.init_index(
+        max_elements=num_elements,
+    M=16, # Default 16, increase to 32 for high recall
+    ef_construction=200, # Default 200, increase for better graph connectivity
+        random_seed=42
+    )
+    
+    ## Add items
+    
+    index.add_items(vectors, ids)
+    
+    ## Query with high ef for production
+    
+    index.set_ef(100) # Must be >= k (number of results)
+    labels, distances = index.knn_query(query_vector, k=10)
+    
+    ## ? TITAN: Memory estimation formula
+    
+    ## Memory (bytes) 4 *dim* num_elements + 8 *M* num_elements
+    
+    ## For 1M vectors, dim=768, M=16
+    
+    ## = 4 *768* 1M + 8 *16* 1M = 3GB + 128MB 3.1GB
+    
 
 ## ? TITAN: Pinecone/Weaviate production config
 
@@ -6144,24 +6277,22 @@ labels, distances = index.knn_query(query_vector, k=10)
   }
 }
 
-```text
-
-## END OF VOLUME 6.4: TITAN GEMINI RESEARCH - IOT, REALTIME & PAYMENTS
-
----
-
-## VOLUME 7: TITAN GEMINI RESEARCH - RESILIENCE PATTERNS
-
-## RATE LIMITING WITH SLIDING WINDOW
-
-### The Scar
-
-> "Fixed window rate limiting: 100 requests per minute.
-> User sends 100 at 0:59, 100 at 1:01. 200 in 2 seconds.
-> API overwhelmed. Fixed window doesn't see the burst.
-> Downstream services crashed from the load spike."
-
-```python
+    
+    ## END OF VOLUME 6.4: TITAN GEMINI RESEARCH - IOT, REALTIME & PAYMENTS
+    
+    ---
+    
+    ## VOLUME 7: TITAN GEMINI RESEARCH - RESILIENCE PATTERNS
+    
+    ## RATE LIMITING WITH SLIDING WINDOW
+    
+    ### The Scar
+    
+    > "Fixed window rate limiting: 100 requests per minute.
+    > User sends 100 at 0:59, 100 at 1:01. 200 in 2 seconds.
+    > API overwhelmed. Fixed window doesn't see the burst.
+    > Downstream services crashed from the load spike."
+    
 
 ## ? VIBE: Fixed window rate limiting
 
@@ -6171,152 +6302,150 @@ count = redis.incr(key)
 redis.expire(key, 60)
 return count <= 100
 
-## At 59.9s: 100 requests. At 60.1s: 100 more. 200 in 0.2s!
+## At 59.9s: 100 requests. At 60.1s: 100 more. 200 in 0.2s
 
-```python
-
-## ? TITAN: Sliding window rate limiting
-
-import time
-from redis import Redis
-from dataclasses import dataclass
-
-@dataclass
-class RateLimitResult:
-allowed: bool
-remaining: int
-reset_at: float
-| retry_after: float | None |
-
-class SlidingWindowRateLimiter:
-    """
-Sliding window log algorithm.
-
-More accurate than fixed window, prevents burst at window edges.
-Uses sorted set to track individual request timestamps.
-    """
-
-def __init__(self, redis: Redis, limit: int, window_seconds: int):
-self.redis = redis
-self.limit = limit
-self.window_seconds = window_seconds
-
-def check(self, identifier: str) -> RateLimitResult:
-now = time.time()
-window_start = now - self.window_seconds
-key = f"ratelimit:sliding:{identifier}"
-
-pipe = self.redis.pipeline()
-
-## Remove old entries outside window
-pipe.zremrangebyscore(key, 0, window_start)
-
-## Count requests in current window
-        pipe.zcard(key)
-
-## Add current request (optimistically)
-pipe.zadd(key, {str(now): now})
-
-## Set expiry for cleanup
-pipe.expire(key, self.window_seconds + 1)
-
-results = pipe.execute()
-request_count = results[1]
-
-if request_count >= self.limit:
-
-## Remove the optimistic add
-self.redis.zrem(key, str(now))
-
-## Find when oldest request will expire
-oldest = self.redis.zrange(key, 0, 0, withscores=True)
-retry_after = oldest[0][1] + self.window_seconds - now if oldest else 0
-
-return RateLimitResult(
-        allowed=False,
-        remaining=0,
-reset_at=now + retry_after,
-        retry_after=retry_after
-        )
-
-return RateLimitResult(
-        allowed=True,
-remaining=self.limit - request_count - 1,
-reset_at=now + self.window_seconds,
-        retry_after=None
-        )
-
-## ? TITAN: Token bucket for smoothed rate limiting
-
-class TokenBucketLimiter:
-    """
-Token bucket algorithm.
-
-Allows bursts up to bucket capacity, then smoothed rate.
-Better for APIs that can handle short bursts.
-    """
-
-def __init__(
-        self,
-redis: Redis,
-rate: float,  # Tokens per second
-capacity: int,  # Max burst size
-    ):
-self.redis = redis
-self.rate = rate
-self.capacity = capacity
-
-def check(self, identifier: str, tokens_needed: int = 1) -> RateLimitResult:
-now = time.time()
-key = f"ratelimit:bucket:{identifier}"
-
-## Lua script for atomic token bucket
-lua_script = """
-local key = KEYS[1]
-local rate = tonumber(ARGV[1])
-local capacity = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local tokens_needed = tonumber(ARGV[4])
-
-local bucket = redis.call('HMGET', key, 'tokens', 'last_update')
-local tokens = tonumber(bucket[1]) or capacity
-local last_update = tonumber(bucket[2]) or now
-
--- Add tokens based on time elapsed
-local elapsed = now - last_update
-tokens = math.min(capacity, tokens + (elapsed * rate))
-
-if tokens >= tokens_needed then
-tokens = tokens - tokens_needed
-redis.call('HMSET', key, 'tokens', tokens, 'last_update', now)
-redis.call('EXPIRE', key, math.ceil(capacity / rate) + 1)
-return {1, tokens, 0}
-        else
-local wait_time = (tokens_needed - tokens) / rate
-return {0, tokens, wait_time}
-        end
+    
+    ## ? TITAN: Sliding window rate limiting
+    
+    import time
+    from redis import Redis
+    from dataclasses import dataclass
+    
+    @dataclass
+    class RateLimitResult:
+    allowed: bool
+    remaining: int
+    reset_at: float
+    | retry_after: float | None |
+    
+    class SlidingWindowRateLimiter:
         """
-
-result = self.redis.eval(
-        lua_script,
-        1,
-        key,
-        self.rate,
-        self.capacity,
-        now,
-        tokens_needed
-        )
-
-allowed, remaining, wait_time = result
-
-return RateLimitResult(
-        allowed=bool(allowed),
-        remaining=int(remaining),
-reset_at=now + (self.capacity / self.rate),
-retry_after=wait_time if not allowed else None
-        )
-
-```text
+    Sliding window log algorithm.
+    
+    More accurate than fixed window, prevents burst at window edges.
+    Uses sorted set to track individual request timestamps.
+        """
+    
+    def **init**(self, redis: Redis, limit: int, window_seconds: int):
+    self.redis = redis
+    self.limit = limit
+    self.window_seconds = window_seconds
+    
+    def check(self, identifier: str) -> RateLimitResult:
+    now = time.time()
+    window_start = now - self.window_seconds
+    key = f"ratelimit:sliding:{identifier}"
+    
+    pipe = self.redis.pipeline()
+    
+    ## Remove old entries outside window
+    pipe.zremrangebyscore(key, 0, window_start)
+    
+    ## Count requests in current window
+            pipe.zcard(key)
+    
+    ## Add current request (optimistically)
+    pipe.zadd(key, {str(now): now})
+    
+    ## Set expiry for cleanup
+    pipe.expire(key, self.window_seconds + 1)
+    
+    results = pipe.execute()
+    request_count = results[1]
+    
+    if request_count >= self.limit:
+    
+    ## Remove the optimistic add
+    self.redis.zrem(key, str(now))
+    
+    ## Find when oldest request will expire
+    oldest = self.redis.zrange(key, 0, 0, withscores=True)
+    retry_after = oldest[0][1] + self.window_seconds - now if oldest else 0
+    
+    return RateLimitResult(
+            allowed=False,
+            remaining=0,
+    reset_at=now + retry_after,
+            retry_after=retry_after
+            )
+    
+    return RateLimitResult(
+            allowed=True,
+    remaining=self.limit - request_count - 1,
+    reset_at=now + self.window_seconds,
+            retry_after=None
+            )
+    
+    ## ? TITAN: Token bucket for smoothed rate limiting
+    
+    class TokenBucketLimiter:
+        """
+    Token bucket algorithm.
+    
+    Allows bursts up to bucket capacity, then smoothed rate.
+    Better for APIs that can handle short bursts.
+        """
+    
+    def **init**(
+            self,
+    redis: Redis,
+    rate: float,  # Tokens per second
+    capacity: int,  # Max burst size
+        ):
+    self.redis = redis
+    self.rate = rate
+    self.capacity = capacity
+    
+    def check(self, identifier: str, tokens_needed: int = 1) -> RateLimitResult:
+    now = time.time()
+    key = f"ratelimit:bucket:{identifier}"
+    
+    ## Lua script for atomic token bucket
+    lua_script = """
+    local key = KEYS[1]
+    local rate = tonumber(ARGV[1])
+    local capacity = tonumber(ARGV[2])
+    local now = tonumber(ARGV[3])
+    local tokens_needed = tonumber(ARGV[4])
+    
+    local bucket = redis.call('HMGET', key, 'tokens', 'last_update')
+    local tokens = tonumber(bucket[1]) or capacity
+    local last_update = tonumber(bucket[2]) or now
+    
+    -- Add tokens based on time elapsed
+    local elapsed = now - last_update
+    tokens = math.min(capacity, tokens + (elapsed * rate))
+    
+    if tokens >= tokens_needed then
+    tokens = tokens - tokens_needed
+    redis.call('HMSET', key, 'tokens', tokens, 'last_update', now)
+    redis.call('EXPIRE', key, math.ceil(capacity / rate) + 1)
+    return {1, tokens, 0}
+            else
+    local wait_time = (tokens_needed - tokens) / rate
+    return {0, tokens, wait_time}
+            end
+            """
+    
+    result = self.redis.eval(
+            lua_script,
+            1,
+            key,
+            self.rate,
+            self.capacity,
+            now,
+            tokens_needed
+            )
+    
+    allowed, remaining, wait_time = result
+    
+    return RateLimitResult(
+            allowed=bool(allowed),
+            remaining=int(remaining),
+    reset_at=now + (self.capacity / self.rate),
+    retry_after=wait_time if not allowed else None
+            )
+    
 
 ## CIRCUIT BREAKER PATTERN
 
@@ -6327,20 +6456,18 @@ retry_after=wait_time if not allowed else None
 > Timeout cascade. All threads blocked waiting.
 > Entire system unresponsive. Should have failed fast."
 
-```python
-
-## ? VIBE: No circuit breaker
-
-async def process_payment(order: Order):
-    try:
-result = await payment_service.charge(order.total)  # May hang
-return result
-except Exception:
-
-## Retry forever, blocking everything
-return await process_payment(order)
-
-```python
+    
+    ## ? VIBE: No circuit breaker
+    
+    async def process_payment(order: Order):
+        try:
+    result = await payment_service.charge(order.total)  # May hang
+    return result
+    except Exception:
+    
+    ## Retry forever, blocking everything
+    return await process_payment(order)
+    
 
 ## ? TITAN: Circuit breaker with state machine
 
@@ -6377,12 +6504,13 @@ class CircuitBreaker(Generic[T]):
 Circuit breaker pattern implementation.
 
     States:
+
 - CLOSED: Normal operation, count failures
 - OPEN: All calls fail immediately, wait for timeout
 - HALF_OPEN: Allow limited calls to test recovery
     """
 
-def __init__(
+def **init**(
         self,
 name: str,
 config: CircuitBreakerConfig = CircuitBreakerConfig()
@@ -6491,18 +6619,16 @@ return PaymentResult(status="pending", queued=True)
 
 return await payment_circuit.call(charge, fallback=fallback)
 
-```text
-
-## RETRY WITH EXPONENTIAL BACKOFF
-
-## The Scar
-
-> "Service hiccup. All 1000 concurrent requests retry immediately.
-> Thundering herd crashes the recovering service.
-> Retries cause longer outage than original problem.
-> No jitter, no backoff, no max retries."
-
-```python
+    
+    ## RETRY WITH EXPONENTIAL BACKOFF
+    
+    ## The Scar
+    
+    > "Service hiccup. All 1000 concurrent requests retry immediately.
+    > Thundering herd crashes the recovering service.
+    > Retries cause longer outage than original problem.
+    > No jitter, no backoff, no max retries."
+    
 
 ## ? VIBE: Immediate retry
 
@@ -6513,84 +6639,82 @@ return await service.call(data)
         except:
 pass # Retry immediately, forever
 
-```python
-
-## ? TITAN: Exponential backoff with jitter
-
-import random
-import asyncio
-from functools import wraps
-from typing import Type
-
-class RetryConfig:
-def __init__(
-        self,
-max_retries: int = 3,
-base_delay: float = 1.0,
-max_delay: float = 60.0,
-exponential_base: float = 2.0,
-jitter: bool = True,
-retryable_exceptions: tuple[Type[Exception], ...] = (Exception,)
-    ):
-self.max_retries = max_retries
-self.base_delay = base_delay
-self.max_delay = max_delay
-self.exponential_base = exponential_base
-self.jitter = jitter
-self.retryable_exceptions = retryable_exceptions
-
-def retry_with_backoff(config: RetryConfig = RetryConfig()):
-"""Decorator for retry with exponential backoff."""
-
-def decorator(func):
-        @wraps(func)
-async def wrapper(*args, **kwargs):
-last_exception = None
-
-for attempt in range(config.max_retries + 1):
-        try:
-return await func(*args, **kwargs)
-except config.retryable_exceptions as e:
-last_exception = e
-
-if attempt == config.max_retries:
-        break
-
-## Calculate delay with exponential backoff
-delay = min(
-config.base_delay * (config.exponential_base ** attempt),
-        config.max_delay
-        )
-
-## Add jitter to prevent thundering herd
-if config.jitter:
-delay = delay * (0.5 + random.random())
-
-print(f"Retry {attempt + 1}/{config.max_retries} "
-f"after {delay:.2f}s: {e}")
-
-await asyncio.sleep(delay)
-
-raise last_exception
-
-return wrapper
-return decorator
-
-## Usage
-
-@retry_with_backoff(RetryConfig(
-    max_retries=5,
-    base_delay=0.5,
-    max_delay=30,
-retryable_exceptions=(TimeoutError, ConnectionError)
-))
-async def call_external_api(data):
-async with httpx.AsyncClient(timeout=10) as client:
-response = await client.post("https://api.example.com/data", json=data)
-        response.raise_for_status()
-return response.json()
-
-```text
+    
+    ## ? TITAN: Exponential backoff with jitter
+    
+    import random
+    import asyncio
+    from functools import wraps
+    from typing import Type
+    
+    class RetryConfig:
+    def **init**(
+            self,
+    max_retries: int = 3,
+    base_delay: float = 1.0,
+    max_delay: float = 60.0,
+    exponential_base: float = 2.0,
+    jitter: bool = True,
+    retryable_exceptions: tuple[Type[Exception], ...] = (Exception,)
+        ):
+    self.max_retries = max_retries
+    self.base_delay = base_delay
+    self.max_delay = max_delay
+    self.exponential_base = exponential_base
+    self.jitter = jitter
+    self.retryable_exceptions = retryable_exceptions
+    
+    def retry_with_backoff(config: RetryConfig = RetryConfig()):
+    """Decorator for retry with exponential backoff."""
+    
+    def decorator(func):
+            @wraps(func)
+    async def wrapper(*args, **kwargs):
+    last_exception = None
+    
+    for attempt in range(config.max_retries + 1):
+            try:
+    return await func(*args, **kwargs)
+    except config.retryable_exceptions as e:
+    last_exception = e
+    
+    if attempt == config.max_retries:
+            break
+    
+    ## Calculate delay with exponential backoff
+    delay = min(
+    config.base_delay * (config.exponential_base ** attempt),
+            config.max_delay
+            )
+    
+    ## Add jitter to prevent thundering herd
+    if config.jitter:
+    delay = delay * (0.5 + random.random())
+    
+    print(f"Retry {attempt + 1}/{config.max_retries} "
+    f"after {delay:.2f}s: {e}")
+    
+    await asyncio.sleep(delay)
+    
+    raise last_exception
+    
+    return wrapper
+    return decorator
+    
+    ## Usage
+    
+    @retry_with_backoff(RetryConfig(
+        max_retries=5,
+        base_delay=0.5,
+        max_delay=30,
+    retryable_exceptions=(TimeoutError, ConnectionError)
+    ))
+    async def call_external_api(data):
+    async with httpx.AsyncClient(timeout=10) as client:
+    response = await client.post("<https://api.example.com/data",> json=data)
+            response.raise_for_status()
+    return response.json()
+    
 
 ## END OF VOLUME 7: TITAN GEMINI RESEARCH - RESILIENCE PATTERNS
 
@@ -6607,20 +6731,18 @@ return response.json()
 > No history of how it got there. No audit trail.
 > Support can't investigate. Legal implications."
 
-```python
-
-## ? VIBE: State-based (mutable) storage
-
-class Order:
-def __init__(self, id):
-self.id = id
-self.status = 'pending'
-
-def ship(self):
-self.status = 'shipped'  # Previous state lost forever
-        db.save(self)
-
-```python
+    
+    ## ? VIBE: State-based (mutable) storage
+    
+    class Order:
+    def **init**(self, id):
+    self.id = id
+    self.status = 'pending'
+    
+    def ship(self):
+    self.status = 'shipped'  # Previous state lost forever
+            db.save(self)
+    
 
 ## ? TITAN: Event-sourced order aggregate
 
@@ -6704,7 +6826,7 @@ return {
 class Order:
 """Event-sourced aggregate root."""
 
-def __init__(self, order_id: str):
+def **init**(self, order_id: str):
 self.id = order_id
 self.version = 0
 self._uncommitted_events: List[Event] = []
@@ -6795,18 +6917,16 @@ for event in events:
 order.version = event.version
 return order
 
-```text
-
-## CQRS PATTERN
-
-## The Scar
-
-> "Event sourcing working. Queries slow.
-> Rebuilding order from 500 events for each API call.
-> Read operations taking seconds.
-> Write and read models fighting for same resources."
-
-```python
+    
+    ## CQRS PATTERN
+    
+    ## The Scar
+    
+    > "Event sourcing working. Queries slow.
+    > Rebuilding order from 500 events for each API call.
+    > Read operations taking seconds.
+    > Write and read models fighting for same resources."
+    
 
 ## ? TITAN: Complete CQRS implementation
 
@@ -6818,7 +6938,7 @@ T = TypeVar('T')
 class EventStore:
 """Append-only event store."""
 
-def __init__(self, db):
+def **init**(self, db):
 self.db = db
 
 async def append(self, aggregate_id: str, events: List[Event],
@@ -6886,7 +7006,7 @@ return None, events
 class ReadModelProjector:
 """Project events to read-optimized views."""
 
-def __init__(self, db, event_bus):
+def **init**(self, db, event_bus):
 self.db = db
 event_bus.subscribe('OrderCreated', self.on_order_created)
 event_bus.subscribe('OrderShipped', self.on_order_shipped)
@@ -6952,7 +7072,7 @@ await self.db.order_views.update_one(
 class OrderQueryService:
 """Read-optimized query service."""
 
-def __init__(self, db):
+def **init**(self, db):
 self.db = db
 
 async def get_order(self, order_id: str) -> dict:
@@ -6988,19 +7108,17 @@ pipeline = [
         ]
 return await self.db.order_views.aggregate(pipeline).to_list(None)
 
-```text
-
-## END OF VOLUME 8: TITAN GEMINI RESEARCH - EVENT SOURCING AND CQRS
-
----
-
-## VOLUME 4: DEEP SYSTEM DESIGN PATTERNS
-
-## RATE LIMITING AT SCALE
-
-### Token Bucket Implementation with Redis
-
-```typescript
+    
+    ## END OF VOLUME 8: TITAN GEMINI RESEARCH - EVENT SOURCING AND CQRS
+    
+    ---
+    
+    ## VOLUME 4: DEEP SYSTEM DESIGN PATTERNS
+    
+    ## RATE LIMITING AT SCALE
+    
+    ### Token Bucket Implementation with Redis
+    
 // ? TITAN: Production rate limiter with sliding window
 import Redis from 'ioredis';
 
@@ -7108,14 +7226,12 @@ retryAfter: result.retryAfter
   next();
 }
 
-```text
----
-
-## DISTRIBUTED LOCKING
-
-### Redlock for Distributed Systems
-
-```typescript
+    ---
+    
+    ## DISTRIBUTED LOCKING
+    
+    ### Redlock for Distributed Systems
+    
 // ? TITAN: Production distributed lock
 import Redlock from 'redlock';
 import Redis from 'ioredis';
@@ -7194,14 +7310,12 @@ data: { status: 'completed' }
   });
 }
 
-```text
----
-
-## CIRCUIT BREAKER PATTERN
-
-### Hystrix-Style Circuit Breaker
-
-```typescript
+    ---
+    
+    ## CIRCUIT BREAKER PATTERN
+    
+    ### Hystrix-Style Circuit Breaker
+    
 // ? TITAN: Production circuit breaker
 enum CircuitState {
 CLOSED = 'CLOSED',
@@ -7317,49 +7431,45 @@ throw error;
   }
 }
 
-```text
----
-
-### END OF SYSTEM DESIGN VOLUME 4
-
-### Lines: ~300+ added
-
----
-
-## VOLUME 5: TIER 3 REAL ENGINEERING PATTERNS
-
-## Source: Netflix Engineering, Uber Engineering, Real Production Systems
-
-> ?? **This is 27K+ GOLD. AI cannot generate this. This comes from REAL production at scale.**
-
----
-
-## NETFLIX PRODUCTION PATTERNS (700+ Microservices)
-
-### The Numbers That Matter
-
-```text
+    ---
+    
+    ### END OF SYSTEM DESIGN VOLUME 4
+    
+    ### Lines: ~300+ added
+    
+    ---
+    
+    ## VOLUME 5: TIER 3 REAL ENGINEERING PATTERNS
+    
+    ## Source: Netflix Engineering, Uber Engineering, Real Production Systems
+    
+    > ?? **This is 27K+ GOLD. AI cannot generate this. This comes from REAL production at scale.**
+    
+    ---
+    
+    ## NETFLIX PRODUCTION PATTERNS (700+ Microservices)
+    
+    ### The Numbers That Matter
+    
 Netflix Production Scale (2024):
 +-- 700+ microservices in production
 +-- 15 BILLION API calls per day
 +-- 1 MILLION container deployments per week
 +-- 270 million paid subscribers worldwide
 
-```text
-
-### Why This Matters for You
-
-If Netflix patterns work at 15B calls/day, they'll work for your app.
-
----
-
-### Chaos Engineering: The Simian Army
-
-**The Philosophy**: Intentionally break production to build resilience.
-
-### The Tools
-
-```text
+    
+    ### Why This Matters for You
+    
+    If Netflix patterns work at 15B calls/day, they'll work for your app.
+    
+    ---
+    
+    ### Chaos Engineering: The Simian Army
+    
+    **The Philosophy**: Intentionally break production to build resilience.
+    
+    ### The Tools
+    
 Simian Army:
 +-- Chaos Monkey  ? Randomly kills server instances
 +-- Latency Monkey    ? Introduces artificial network delays
@@ -7367,16 +7477,14 @@ Simian Army:
 +-- Security Monkey   ? Finds security vulnerabilities
 +-- Chaos Kong  ? Simulates entire data center failures
 
-```text
-
-### Implementation Pattern
-
-```python
+    
+    ### Implementation Pattern
+    
 
 ## Chaos Engineering implementation principles
 
 class ChaosExperiment:
-def __init__(self, service: str, failure_type: str):
+def **init**(self, service: str, failure_type: str):
 self.service = service
 self.failure_type = failure_type
 self.blast_radius = "single_instance"  # Start SMALL
@@ -7402,11 +7510,9 @@ if impact > THRESHOLD:
         self.document_success()
 self.increase_blast_radius() # Next time, test bigger
 
-```text
-
-## Production Lesson
-
-```text
+    
+    ## Production Lesson
+    
 WITHOUT Chaos Engineering:
 +-- 3am pager: "Everything is down"
 +-- No one knows what depends on what
@@ -7417,18 +7523,16 @@ WITH Chaos Engineering:
 +-- Fallbacks tested in production
 +-- Automatic recovery, minor blip
 
-```text
----
-
-## Netflix Buffer Concept (Load Management)
-
-### The Problem
-
-When new content drops (Stranger Things S5), traffic spikes 500%.
-
-### The Solution: Success Buffer + Failure Buffer
-
-```python
+    ---
+    
+    ## Netflix Buffer Concept (Load Management)
+    
+    ### The Problem
+    
+    When new content drops (Stranger Things S5), traffic spikes 500%.
+    
+    ### The Solution: Success Buffer + Failure Buffer
+    
 class NetflixBufferConcept:
     """
 Netflix internal: 'Buffer' = ability to handle load spikes
@@ -7474,14 +7578,12 @@ BUFFER_THRESHOLDS = {
     }
 }
 
-```text
----
-
-## Prioritized Load Shedding
-
-## When overwhelmed, drop requests strategically
-
-```python
+    ---
+    
+    ## Prioritized Load Shedding
+    
+    ## When overwhelmed, drop requests strategically
+    
 class LoadSheddingStrategy:
     """
 Netflix approach: When at capacity, shed load intelligently
@@ -7515,24 +7617,22 @@ self.reject_gracefully(request, reason="capacity")
 
 shed_percentage -= shed_count / required_capacity
 
-```text
----
-
-## UBER PRODUCTION PATTERNS (Millions of Trips)
-
-## Schemaless: Custom MySQL Datastore
-
-### The Problem (2014)
-
-- Single PostgreSQL database for trip data
-
-- Near infrastructure failure
-
-- Couldn't scale writes
-
-### The Solution
-
-```python
+    ---
+    
+    ## UBER PRODUCTION PATTERNS (Millions of Trips)
+    
+    ## Schemaless: Custom MySQL Datastore
+    
+    ### The Problem (2014)
+    
+    - Single PostgreSQL database for trip data
+    
+    - Near infrastructure failure
+    
+    - Couldn't scale writes
+    
+    ### The Solution
+    
 
 ## Uber's Schemaless design principles
 
@@ -7542,7 +7642,7 @@ Uber built this when they outgrew PostgreSQL.
 Key insight: Store JSON, not rigid schemas.
     """
 
-def __init__(self):
+def **init**(self):
 self.shards = []  # MySQL instances
 self.cell_index = {}  # row_key -> shard_id
 
@@ -7583,22 +7683,20 @@ return shard.query(
 
 ## 3. Operational simplicity: Just MySQL, which ops knows
 
-```text
----
-
-## CacheFront: 95% Cost Reduction Pattern
-
-## The Problem
-
-- Millions of reads per second
-
-- 60,000 CPU cores needed
-
-- Massive infrastructure cost
-
-### The Solution
-
-```python
+    ---
+    
+    ## CacheFront: 95% Cost Reduction Pattern
+    
+    ## The Problem
+    
+    - Millions of reads per second
+    
+    - 60,000 CPU cores needed
+    
+    - Massive infrastructure cost
+    
+    ### The Solution
+    
 class CacheFrontArchitecture:
     """
 Uber's CacheFront: 95% cost reduction, 75% latency reduction
@@ -7606,7 +7704,7 @@ Uber's CacheFront: 95% cost reduction, 75% latency reduction
 Key insight: Not all reads need to hit disk.
     """
 
-def __init__(self):
+def **init**(self):
 self.cache = DistributedCache()  # Redis/Memcached
 self.database = Database()
 self.cdc_consumer = None  # Change Data Capture
@@ -7657,22 +7755,20 @@ self.cdc_consumer = CDCConsumer(callback=on_database_change)
 
 ## - Latency: 75% reduction
 
-```text
----
-
-## Hot Shard Problem (and Solution)
-
-## The Problem
-
-- Sharding by user_id
-
-- Celebrities have millions of followers
-
-- Celebrity shard gets 1000x more traffic than other shards
-
-### The Solution
-
-```python
+    ---
+    
+    ## Hot Shard Problem (and Solution)
+    
+    ## The Problem
+    
+    - Sharding by user_id
+    
+    - Celebrities have millions of followers
+    
+    - Celebrity shard gets 1000x more traffic than other shards
+    
+    ### The Solution
+    
 class ConsistentHashingWithVirtualNodes:
     """
 Uber's solution to hot shards.
@@ -7680,7 +7776,7 @@ Uber's solution to hot shards.
 Key insight: Virtual nodes distribute load more evenly
     """
 
-def __init__(self, nodes: List[str], virtual_nodes_per_node: int = 100):
+def **init**(self, nodes: List[str], virtual_nodes_per_node: int = 100):
 self.ring = SortedDict()
 
 for node in nodes:
@@ -7716,32 +7812,28 @@ sub_keys = [f"{hot_key}:part_{i}" for i in range(10)]
 ## Each sub_key hashes to different shard
 return sub_keys
 
-```text
----
-
-## UBER SECURITY INCIDENT (2022): MFA Fatigue Attack
-
-## The Scar
-
-```text
+    ---
+    
+    ## UBER SECURITY INCIDENT (2022): MFA Fatigue Attack
+    
+    ## The Scar
+    
 1. Hacker bought stolen Uber employee credentials on dark web
-2. Used credentials to attempt login
-3. MFA prompt sent to employee's phone
-4. Hacker SPAMMED MFA requests (100+ in a row)
-5. Eventually employee clicked "Approve" to make it stop
-6. Hacker had full internal access (Slack, AWS, Google Workspace)
+1. Used credentials to attempt login
+1. MFA prompt sent to employee's phone
+1. Hacker SPAMMED MFA requests (100+ in a row)
+1. Eventually employee clicked "Approve" to make it stop
+1. Hacker had full internal access (Slack, AWS, Google Workspace)
 
-```text
-
-### Prevention Pattern
-
-```python
+    
+    ### Prevention Pattern
+    
 class MFAFatigueProtection:
     """
 Defense against the attack that compromised Uber
     """
 
-def __init__(self):
+def **init**(self):
 self.attempt_window = 3600  # 1 hour
 self.max_attempts = 5
 self.lockout_duration = 86400  # 24 hours
@@ -7791,29 +7883,26 @@ return True
 
 ## 4. Alert security on suspicious patterns
 
-```text
----
-
-## CROSS-COMPANY PATTERNS
-
-## Pattern: Predictive Scaling Before Events
-
-```yaml
+    ---
+    
+    ## CROSS-COMPANY PATTERNS
+    
+    ## Pattern: Predictive Scaling Before Events
+    
 Netflix: Pre-scale before new show release
 Uber: Pre-scale before New Year's Eve surge
 Twitter: Pre-scale before Super Bowl
 
 IMPLEMENTATION:
+
 1. Calendar of known events
-2. Historical data: how much does traffic increase?
-3. Pre-scale by that factor + 30% margin
-4. Have reactive scaling as backup
+1. Historical data: how much does traffic increase?
+1. Pre-scale by that factor + 30% margin
+1. Have reactive scaling as backup
 
-```text
-
-### Pattern: Circuit Breakers Everywhere
-
-```yaml
+    
+    ### Pattern: Circuit Breakers Everywhere
+    
 Netflix: Circuit breaker on every microservice call
 Uber: Circuit breaker on every database call
 Stripe: Circuit breaker on every payment provider
@@ -7826,36 +7915,33 @@ IMPLEMENTATION:
 
 - Closed: If half-open succeeds
 
-```text
-
-### Pattern: Graceful Degradation Hierarchy
-
-```text
+    
+    ### Pattern: Graceful Degradation Hierarchy
+    
 Level 1: Full feature (recommendations, personalization)
 Level 2: Basic feature (no personalization)
 Level 3: Static fallback (cached content)
 Level 4: Error page with retry
 
 IMPLEMENTATION:
+
 1. Each level has a fallback to the next
-2. Monitor which level you're on
-3. Auto-recover when possible
-4. Alert when degraded for > 5 minutes
+1. Monitor which level you're on
+1. Auto-recover when possible
+1. Alert when degraded for > 5 minutes
 
-```text
----
-
-### END OF TIER 3 REAL ENGINEERING PATTERNS
-
-### Source: Netflix Tech Blog, Uber Engineering, System Design Interviews
-
----
-
-## REAL MICROSERVICES PATTERNS 2024
-
-## Service Communication Patterns
-
-```typescript
+    ---
+    
+    ### END OF TIER 3 REAL ENGINEERING PATTERNS
+    
+    ### Source: Netflix Tech Blog, Uber Engineering, System Design Interviews
+    
+    ---
+    
+    ## REAL MICROSERVICES PATTERNS 2024
+    
+    ## Service Communication Patterns
+    
 // Synchronous: REST/gRPC
 // Use for: Request-response, real-time data needs
 async function getUser(userId: string) {
@@ -7882,12 +7968,10 @@ timestamp: new Date().toISOString(),
   });
 }
 
-```text
----
-
-## Circuit Breaker Pattern
-
-```typescript
+    ---
+    
+    ## Circuit Breaker Pattern
+    
 enum CircuitState {
   CLOSED,
   OPEN,
@@ -7945,12 +8029,10 @@ this.state = CircuitState.OPEN;
   }
 }
 
-```text
----
-
-## Saga Pattern for Distributed Transactions
-
-```typescript
+    ---
+    
+    ## Saga Pattern for Distributed Transactions
+    
 interface SagaStep<T> {
 execute: (context: T) => Promise<void>;
 compensate: (context: T) => Promise<void>;
@@ -8001,12 +8083,10 @@ execute: async (ctx) => { await createShipment(ctx.order); },
 compensate: async (ctx) => { await cancelShipment(ctx.order); },
   });
 
-```text
----
-
-## API Gateway Pattern
-
-```typescript
+    ---
+    
+    ## API Gateway Pattern
+    
 // Rate limiting per route/user
 const rateLimits = {
 '/api/auth/*': { limit: 10, window: 60 },
@@ -8016,9 +8096,9 @@ const rateLimits = {
 
 // Request routing
 const routes = {
-'/api/users': 'http://user-service:3001',
-'/api/orders': 'http://order-service:3002',
-'/api/products': 'http://product-service:3003',
+'/api/users': '<http://user-service:3001',>
+'/api/orders': '<http://order-service:3002',>
+'/api/products': '<http://product-service:3003',>
 };
 
 // Gateway middleware
@@ -8052,12 +8132,10 @@ body: req.method !== 'GET' ? JSON.stringify(req.body) : undefined,
 res.status(response.status).json(await response.json());
 }
 
-```text
----
-
-## CQRS Pattern
-
-```typescript
+    ---
+    
+    ## CQRS Pattern
+    
 // Command side - writes
 class OrderCommandHandler {
 async createOrder(command: CreateOrderCommand): Promise<string> {
@@ -8090,9 +8168,7 @@ createdAt: event.timestamp,
   }
 }
 
-```text
----
-
-### END OF SYSTEM DESIGN PATTERNS
-
-```text
+    ---
+    
+    ### END OF SYSTEM DESIGN PATTERNS
+    

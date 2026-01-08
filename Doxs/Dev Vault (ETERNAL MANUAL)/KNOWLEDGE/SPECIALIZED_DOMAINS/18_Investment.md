@@ -1,42 +1,43 @@
 # INVESTMENT
 ## Table of Contents
 
-- [TABLE OF CONTENTS](#table-of-contents)
+- [Table of Contents](#table-of-contents)
+- [18_INVESTMENT.MD: THE TITAN GUIDE (50K TARGET)](#18investmentmd-the-titan-guide-50k-target)
 - [Production-Grade Financial Modeling, Tax Optimization, and Portfolio Analytics](#production-grade-financial-modeling-tax-optimization-and-portfolio-analytics)
-  - [VOLUME 1: THE SCARS (The "Why")](#volume-1-the-scars-the-why)
-  - [VOLUME 2: THE FOUNDATION (The "What")](#volume-2-the-foundation-the-what)
-  - [VOLUME 3: THE DEEP DIVE (The "How")](#volume-3-the-deep-dive-the-how)
-  - [VOLUME 4: THE EXPERT (The "Scale")](#volume-4-the-expert-the-scale)
-  - [VOLUME 5: THE TITAN (The "Kernel")](#volume-5-the-titan-the-kernel)
-  - [VOLUME 6: THE INFINITE (The "Future")](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (The "Why")](#volume-1-the-scars-the-why)
+- [VOLUME 2: THE FOUNDATION (The "What")](#volume-2-the-foundation-the-what)
+- [VOLUME 3: THE DEEP DIVE (The "How")](#volume-3-the-deep-dive-the-how)
+- [VOLUME 4: THE EXPERT (The "Scale")](#volume-4-the-expert-the-scale)
+- [VOLUME 5: THE TITAN (The "Kernel")](#volume-5-the-titan-the-kernel)
+- [VOLUME 6: THE INFINITE (The "Future")](#volume-6-the-infinite-the-future)
 - [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
-  - [1. THE "TURNKEY" SCAM](#1-the-turnkey-scam)
-    - [The Pro Forma Lie](#the-pro-forma-lie)
-  - [4. THE "INTEREST RATE SHOCK"](#4-the-interest-rate-shock)
-    - [DSCR Failure](#dscr-failure)
+- [1. THE "TURNKEY" SCAM](#1-the-turnkey-scam)
+  - [The Pro Forma Lie](#the-pro-forma-lie)
+- [4. THE "INTEREST RATE SHOCK"](#4-the-interest-rate-shock)
+  - [DSCR Failure](#dscr-failure)
 - [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
-  - [5. CAP RATE CALCULATOR](#5-cap-rate-calculator)
-    - [Real vs Marketing](#real-vs-marketing)
+- [5. CAP RATE CALCULATOR](#5-cap-rate-calculator)
+  - [Real vs Marketing](#real-vs-marketing)
 - [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
-  - [9. IRR & NPV](#9-irr-npv)
-    - [Time Value of Money](#time-value-of-money)
-  - [10. TAX OPTIMIZATION](#10-tax-optimization)
-    - [Cost Segregation & Depreciation](#cost-segregation-depreciation)
+- [9. IRR & NPV](#9-irr--npv)
+  - [Time Value of Money](#time-value-of-money)
+- [10. TAX OPTIMIZATION](#10-tax-optimization)
+  - [Cost Segregation & Depreciation](#cost-segregation--depreciation)
 - [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
-  - [13. PORTFOLIO ANALYSIS](#13-portfolio-analysis)
-    - [Modern Portfolio Theory (MPT)](#modern-portfolio-theory-mpt)
+- [13. PORTFOLIO ANALYSIS](#13-portfolio-analysis)
+  - [Modern Portfolio Theory (MPT)](#modern-portfolio-theory-mpt)
 - [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
-  - [16. MONTE CARLO SIMULATIONS](#16-monte-carlo-simulations)
-    - [Probabilistic ROI](#probabilistic-roi)
-  - [17. ALGORITHMIC TRADING STRATEGIES](#17-algorithmic-trading-strategies)
-    - [Mean Reversion](#mean-reversion)
+- [16. MONTE CARLO SIMULATIONS](#16-monte-carlo-simulations)
+  - [Probabilistic ROI](#probabilistic-roi)
+- [17. ALGORITHMIC TRADING STRATEGIES](#17-algorithmic-trading-strategies)
+  - [Mean Reversion](#mean-reversion)
 - [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
-  - [19. TOKENIZED REAL ESTATE](#19-tokenized-real-estate)
-    - [Fractional Ownership](#fractional-ownership)
+- [19. TOKENIZED REAL ESTATE](#19-tokenized-real-estate)
+  - [Fractional Ownership](#fractional-ownership)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-  - [A. THE ULTIMATE PRO FORMA SHEET](#a-the-ultimate-pro-forma-sheet)
+- [A. THE ULTIMATE PRO FORMA SHEET](#a-the-ultimate-pro-forma-sheet)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+- [Each line = 100x LLM expansion potential](#each-line--100x-llm-expansion-potential)
 - [VALUATION METHODS](#valuation-methods)
 - [REAL ESTATE METRICS](#real-estate-metrics)
 - [PORTFOLIO THEORY](#portfolio-theory)
@@ -44,52 +45,106 @@
 - [ALTERNATIVE INVESTMENTS](#alternative-investments)
 - [DUE DILIGENCE](#due-diligence)
 - [RISK MANAGEMENT](#risk-management)
-  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [QUANTITATIVE FINANCE DEEP ATLAS](#quantitative-finance-deep-atlas)
-  - [Overview](#overview)
-  - [Models](#models)
-  - [Time Series](#time-series)
-  - [Risk Metrics](#risk-metrics)
+- [Overview](#overview)
+- [Models](#models)
+- [Time Series](#time-series)
+- [Risk Metrics](#risk-metrics)
 - [ALGORITHMIC TRADING DEEP ATLAS](#algorithmic-trading-deep-atlas)
-  - [Overview](#overview-1)
-  - [Strategies](#strategies)
-  - [Execution](#execution)
-  - [Infrastructure](#infrastructure)
+- [Overview](#overview-1)
+- [Strategies](#strategies)
+- [Execution](#execution)
+- [Infrastructure](#infrastructure)
 - [REAL ESTATE INVESTING DEEP ATLAS](#real-estate-investing-deep-atlas)
-  - [Overview](#overview-2)
-  - [Metrics](#metrics)
-  - [Property Types](#property-types)
-  - [Financing](#financing)
+- [Overview](#overview-2)
+- [Metrics](#metrics)
+- [Property Types](#property-types)
+- [Financing](#financing)
 - [ALTERNATIVE INVESTMENTS DEEP ATLAS](#alternative-investments-deep-atlas)
-  - [Overview](#overview-3)
-  - [Private Equity](#private-equity)
-  - [Hedge Funds](#hedge-funds)
-  - [Real Assets](#real-assets)
-  - [END OF MEGA INVESTMENT EXPANSION](#end-of-mega-investment-expansion)
+- [Overview](#overview-3)
+- [Private Equity](#private-equity)
+- [Hedge Funds](#hedge-funds)
+- [Real Assets](#real-assets)
+- [END OF MEGA INVESTMENT EXPANSION](#end-of-mega-investment-expansion)
 - [INVESTMENT CODE EXAMPLES](#investment-code-examples)
 - [PORTFOLIO CALCULATIONS](#portfolio-calculations)
-  - [Risk Metrics](#risk-metrics-1)
+- [Risk Metrics](#risk-metrics-1)
 - [FINANCIAL APIS](#financial-apis)
-  - [Stock Data Fetching](#stock-data-fetching)
+- [Stock Data Fetching](#stock-data-fetching)
 - [PORTFOLIO OPTIMIZATION](#portfolio-optimization)
-  - [Mean-Variance Optimization](#mean-variance-optimization)
-    - [Why it exists](#why-it-exists)
+- [Mean-Variance Optimization](#mean-variance-optimization)
+  - [Why it exists](#why-it-exists)
+- [portfolio_optimizer.py](#portfoliooptimizerpy)
 - [CONTINUED: MORE INVESTMENT PATTERNS](#continued-more-investment-patterns)
-- [VOLUME 8: TITAN GEMINI RESEARCH - HFT & TRADING FAILURES](#volume-8-titan-gemini-research---hft-trading-failures)
-  - [NANOSECOND LATENCY OPTIMIZATION](#nanosecond-latency-optimization)
-    - [The Scar](#the-scar)
+- [VOLUME 8: TITAN GEMINI RESEARCH - HFT & TRADING FAILURES](#volume-8-titan-gemini-research---hft--trading-failures)
+- [NANOSECOND LATENCY OPTIMIZATION](#nanosecond-latency-optimization)
+  - [The Scar](#the-scar)
+- [VIBE: Python trading system with GC pauses](#vibe-python-trading-system-with-gc-pauses)
+- [GC pause: 10-50ms = catastrophic in HFT](#gc-pause-10-50ms--catastrophic-in-hft)
+- [include <array>](#include-array)
+- [include <cstdint>](#include-cstdint)
+- [FIX PROTOCOL MESSAGE PARSING](#fix-protocol-message-parsing)
+- [The Scar](#the-scar-1)
+- [VIBE: Naive FIX parsing](#vibe-naive-fix-parsing)
+- [~50 microseconds per message](#50-microseconds-per-message)
+- [include <string_view>](#include-stringview)
 - [ORDER BOOK DATA STRUCTURE](#order-book-data-structure)
-  - [The Scar](#the-scar-1)
+- [The Scar](#the-scar-2)
+- [BACKTESTING SURVIVORSHIP BIAS](#backtesting-survivorship-bias)
+  - [The Scar](#the-scar-3)
+- [VIBE: Backtest on current stock universe](#vibe-backtest-on-current-stock-universe)
+- [WRONG: Uses today's S&P 500 constituents](#wrong-uses-todays-sp-500-constituents)
+- [These stocks "survived" to today](#these-stocks-survived-to-today)
+- [Missing all the bankruptcies and delistings](#missing-all-the-bankruptcies-and-delistings)
+- [TITAN: Point-in-time data with delistings](#titan-point-in-time-data-with-delistings)
+- [Database with historical index membership](#database-with-historical-index-membership)
+- [Columns: date, symbol, is_member, delist_date, delist_reason](#columns-date-symbol-ismember-delistdate-delistreason)
+- [Only include stocks that:](#only-include-stocks-that)
+- [1. Were in the index on this date](#1-were-in-the-index-on-this-date)
+- [2. Had not yet been delisted](#2-had-not-yet-been-delisted)
+- [Get universe AS OF this date (includes future bankruptcies!)](#get-universe-as-of-this-date-includes-future-bankruptcies)
+- [Price data up to this date only (no lookahead)](#price-data-up-to-this-date-only-no-lookahead)
+- [Handle delistings](#handle-delistings)
+- [Stock was delisted - apply delisting price](#stock-was-delisted---apply-delisting-price)
+- [TITAN: Walk-forward validation to prevent overfitting](#titan-walk-forward-validation-to-prevent-overfitting)
+- [Train period](#train-period)
+- [Optimize strategy parameters on training data](#optimize-strategy-parameters-on-training-data)
+- [Test on OUT-OF-SAMPLE data](#test-on-out-of-sample-data)
+- [VIBE: Inconsistent price handling](#vibe-inconsistent-price-handling)
+- [Missing handling for new exchange = bug](#missing-handling-for-new-exchange--bug)
+- [TITAN: Normalized market data types](#titan-normalized-market-data-types)
+- [Use Decimal for ALL prices - no floating point errors](#use-decimal-for-all-prices---no-floating-point-errors)
+- [NASDAQ sends price in 1/10000ths](#nasdaq-sends-price-in-110000ths)
+- [Add new exchanges here](#add-new-exchanges-here)
+- [Type-safe order submission](#type-safe-order-submission)
+- [Tick size validation](#tick-size-validation)
 - [END OF VOLUME 8 - TITAN GEMINI RESEARCH HFT AND TRADING FAILURES](#end-of-volume-8---titan-gemini-research-hft-and-trading-failures)
 - [VOLUME 2: PRODUCTION FINANCIAL PATTERNS](#volume-2-production-financial-patterns)
-  - [PORTFOLIO OPTIMIZATION ALGORITHMS](#portfolio-optimization-algorithms)
-    - [Modern Portfolio Theory (Markowitz Implementation)](#modern-portfolio-theory-markowitz-implementation)
+- [PORTFOLIO OPTIMIZATION ALGORITHMS](#portfolio-optimization-algorithms)
+  - [Modern Portfolio Theory (Markowitz Implementation)](#modern-portfolio-theory-markowitz-implementation)
+- [? TITAN: Production-grade portfolio optimization](#-titan-production-grade-portfolio-optimization)
+- [Calculate expected returns and covariance](#calculate-expected-returns-and-covariance)
+- [Usage](#usage)
 - [RISK METRICS IMPLEMENTATION](#risk-metrics-implementation)
-  - [Value at Risk (VaR) and Conditional VaR](#value-at-risk-var-and-conditional-var)
+- [Value at Risk (VaR) and Conditional VaR](#value-at-risk-var-and-conditional-var)
+- [? TITAN: Production risk metrics](#-titan-production-risk-metrics)
 - [BACKTESTING FRAMEWORK](#backtesting-framework)
-  - [Vectorized Backtesting (Production Performance)](#vectorized-backtesting-production-performance)
+- [Vectorized Backtesting (Production Performance)](#vectorized-backtesting-production-performance)
+- [? TITAN: Fast vectorized backtesting](#-titan-fast-vectorized-backtesting)
+- [Generate signals: 1 = long, -1 = short, 0 = flat](#generate-signals-1--long--1--short-0--flat)
+- [Calculate returns](#calculate-returns)
+- [Strategy returns = signal * next day's return (shifted for lookahead bias)](#strategy-returns--signal-next-days-return-shifted-for-lookahead-bias)
+- [Cumulative returns](#cumulative-returns)
+- [Metrics](#metrics-1)
+- [Drawdown](#drawdown)
+- [Win rate](#win-rate)
+- [Profit factor](#profit-factor)
+- [Example: Simple Moving Average Crossover](#example-simple-moving-average-crossover)
+- [Run backtest](#run-backtest)
 - [END OF INVESTMENT VOLUME 2](#end-of-investment-volume-2)
-  - [Lines: ~200+ added](#lines-200-added)
+- [Lines: ~200+ added](#lines-200-added)
+- [VOLUME 2: TITAN UPGRADE (APPENDED)](#volume-2-titan-upgrade-appended)
 - [1. THE SCARS](#1-the-scars)
 - [2. THE FOUNDATION](#2-the-foundation)
 - [3. TITAN PATTERNS](#3-titan-patterns)
@@ -221,7 +276,7 @@ Bank called the loan. Foreclosure.
 **Formula**: `NOI / Price`.
 **NOI (Net Operating Income)**: `Income - Operating Expenses`.
 **Operating Expenses**: Taxes, Insurance, Utilities, Maintenance, Management, Vacancy.
-**NOT Included**: Mortgage Payments (Debt Service). Cap Rate measures the *asset's* performance, not the *loan's*.
+**NOT Included**: Mortgage Payments (Debt Service). Cap Rate measures the *asset's*performance, not the*loan's*.
 
 ---
 
@@ -294,19 +349,17 @@ Run 10,000 scenarios.
 **Output**:
 "There is a 90% chance your return will be between 4% and 12%."
 
-```python
-import numpy as np
-
-def monte_carlo_roi(iterations=10000):
-returns = []
-for _ in range(iterations):
-vacancy = np.random.uniform(0.05, 0.15) # 5% to 15%
-appreciation = np.random.normal(0.04, 0.02) # Mean 4%, StdDev 2%
-roi = calculate_roi(vacancy, appreciation)
-        returns.append(roi)
-return np.percentile(returns, [10, 50, 90])
-
-```text
+    import numpy as np
+    
+    def monte_carlo_roi(iterations=10000):
+    returns = []
+    for _ in range(iterations):
+    vacancy = np.random.uniform(0.05, 0.15) # 5% to 15%
+    appreciation = np.random.normal(0.04, 0.02) # Mean 4%, StdDev 2%
+    roi = calculate_roi(vacancy, appreciation)
+            returns.append(roi)
+    return np.percentile(returns, [10, 50, 90])
+    
 ---
 
 ## 17. ALGORITHMIC TRADING STRATEGIES
@@ -318,9 +371,9 @@ Prices fluctuate but tend to return to the average.
 **Strategy**:
 
 1. Calculate 20-day Moving Average (MA).
-2. Calculate Standard Deviation (Bollinger Bands).
-3. **Buy**: Price < (MA - 2*StdDev). (Oversold).
-4. **Sell**: Price > (MA + 2*StdDev). (Overbought).
+1. Calculate Standard Deviation (Bollinger Bands).
+1. **Buy**: Price < (MA - 2*StdDev). (Oversold).
+1. **Sell**: Price > (MA + 2*StdDev). (Overbought).
 **Risk**:
 "The market can remain irrational longer than you can remain solvent."
 
@@ -351,12 +404,12 @@ Requires LLC wrapper and SEC compliance (Security Token).
 Rows:
 
 1. **Gross Potential Rent**: 100% Occupancy.
-2. **- Vacancy Loss**: (5-8%).
-3. **= Effective Gross Income**.
-4. **- Operating Expenses**: (Tax, Ins, Maint, Mgmt, Util).
-5. **= Net Operating Income (NOI)**.
-6. **- Debt Service**: (Mortgage P&I).
-7. **= Cash Flow Before Tax**.
+1. **- Vacancy Loss**: (5-8%).
+1. **= Effective Gross Income**.
+1. **- Operating Expenses**: (Tax, Ins, Maint, Mgmt, Util).
+1. **= Net Operating Income (NOI)**.
+1. **- Debt Service**: (Mortgage P&I).
+1. **= Cash Flow Before Tax**.
 
 ---
 
@@ -662,48 +715,46 @@ Each keyword = expandable asset
 
 **Why it exists:** Portfolio analysis
 
-```typescript
-// lib/portfolio.ts
-export function calculateReturns(prices: number[]): number[] {
-return prices.slice(1).map((price, i) => (price - prices[i]) / prices[i]);
-}
-
-export function calculateVolatility(returns: number[]): number {
-const mean = returns.reduce((a, b) => a + b, 0) / returns.length;
-const squaredDiffs = returns.map(r => Math.pow(r - mean, 2));
-const variance = squaredDiffs.reduce((a, b) => a + b, 0) / returns.length;
-return Math.sqrt(variance) * Math.sqrt(252); // Annualized
-}
-
-export function calculateSharpeRatio(
-returns: number[],
-riskFreeRate: number = 0.02
-): number {
-const annualReturn = returns.reduce((a, b) => a + b, 0) * 252 / returns.length;
-const volatility = calculateVolatility(returns);
-return (annualReturn - riskFreeRate) / volatility;
-}
-
-export function calculateBeta(
-assetReturns: number[],
-marketReturns: number[]
-): number {
-const n = assetReturns.length;
-const meanAsset = assetReturns.reduce((a, b) => a + b, 0) / n;
-const meanMarket = marketReturns.reduce((a, b) => a + b, 0) / n;
-
-let covariance = 0;
-let marketVariance = 0;
-
-for (let i = 0; i < n; i++) {
-covariance += (assetReturns[i] - meanAsset) * (marketReturns[i] - meanMarket);
-marketVariance += Math.pow(marketReturns[i] - meanMarket, 2);
-  }
-
-return covariance / marketVariance;
-}
-
-```text
+    // lib/portfolio.ts
+    export function calculateReturns(prices: number[]): number[] {
+    return prices.slice(1).map((price, i) => (price - prices[i]) / prices[i]);
+    }
+    
+    export function calculateVolatility(returns: number[]): number {
+    const mean = returns.reduce((a, b) => a + b, 0) / returns.length;
+    const squaredDiffs = returns.map(r => Math.pow(r - mean, 2));
+    const variance = squaredDiffs.reduce((a, b) => a + b, 0) / returns.length;
+    return Math.sqrt(variance) * Math.sqrt(252); // Annualized
+    }
+    
+    export function calculateSharpeRatio(
+    returns: number[],
+    riskFreeRate: number = 0.02
+    ): number {
+    const annualReturn = returns.reduce((a, b) => a + b, 0) * 252 / returns.length;
+    const volatility = calculateVolatility(returns);
+    return (annualReturn - riskFreeRate) / volatility;
+    }
+    
+    export function calculateBeta(
+    assetReturns: number[],
+    marketReturns: number[]
+    ): number {
+    const n = assetReturns.length;
+    const meanAsset = assetReturns.reduce((a, b) => a + b, 0) / n;
+    const meanMarket = marketReturns.reduce((a, b) => a + b, 0) / n;
+    
+    let covariance = 0;
+    let marketVariance = 0;
+    
+    for (let i = 0; i < n; i++) {
+    covariance += (assetReturns[i] - meanAsset) * (marketReturns[i] - meanMarket);
+    marketVariance += Math.pow(marketReturns[i] - meanMarket, 2);
+      }
+    
+    return covariance / marketVariance;
+    }
+    
 ---
 
 ## FINANCIAL APIS
@@ -712,43 +763,41 @@ return covariance / marketVariance;
 
 **Why it exists:** Real-time market data
 
-```typescript
-// services/marketData.ts
-export async function getStockQuote(symbol: string) {
-const response = await fetch(
-    `https://api.polygon.io/v2/aggs/ticker/${symbol}/prev?apiKey=${process.env.POLYGON_API_KEY}`
-  );
-const data = await response.json();
-return {
-    symbol,
-open: data.results[0].o,
-high: data.results[0].h,
-low: data.results[0].l,
-close: data.results[0].c,
-volume: data.results[0].v,
-  };
-}
-
-export async function getHistoricalPrices(
-symbol: string,
-from: string,
-to: string
-) {
-const response = await fetch(
-    `https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/${from}/${to}?apiKey=${process.env.POLYGON_API_KEY}`
-  );
-const data = await response.json();
-return data.results.map((r: any) => ({
-date: new Date(r.t),
-open: r.o,
-high: r.h,
-low: r.l,
-close: r.c,
-volume: r.v,
-  }));
-}
-
-```text
+    // services/marketData.ts
+    export async function getStockQuote(symbol: string) {
+    const response = await fetch(
+        `<https://api.polygon.io/v2/aggs/ticker/${symbol}/prev?apiKey=${process.env.POLYGON_API_KEY}`>
+      );
+    const data = await response.json();
+    return {
+        symbol,
+    open: data.results[0].o,
+    high: data.results[0].h,
+    low: data.results[0].l,
+    close: data.results[0].c,
+    volume: data.results[0].v,
+      };
+    }
+    
+    export async function getHistoricalPrices(
+    symbol: string,
+    from: string,
+    to: string
+    ) {
+    const response = await fetch(
+        `<https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/day/${from}/${to}?apiKey=${process.env.POLYGON_API_KEY}`>
+      );
+    const data = await response.json();
+    return data.results.map((r: any) => ({
+    date: new Date(r.t),
+    open: r.o,
+    high: r.h,
+    low: r.l,
+    close: r.c,
+    volume: r.v,
+      }));
+    }
+    
 ---
 
 ## PORTFOLIO OPTIMIZATION
@@ -759,42 +808,40 @@ volume: r.v,
 
 Optimal allocation
 
-```python
-
-## portfolio_optimizer.py
-
-import numpy as np
-from scipy.optimize import minimize
-
-def calculate_portfolio_performance(weights, returns, cov_matrix):
-portfolio_return = np.sum(returns.mean() * weights) * 252
-portfolio_volatility = np.sqrt(np.dot(weights.T, np.dot(cov_matrix * 252, weights)))
-return portfolio_return, portfolio_volatility
-
-def optimize_portfolio(returns, target_return=None):
-num_assets = len(returns.columns)
-cov_matrix = returns.cov()
-
-def neg_sharpe(weights):
-ret, vol = calculate_portfolio_performance(weights, returns, cov_matrix)
-return -ret / vol
-
-constraints = [{'type': 'eq', 'fun': lambda x: np.sum(x) - 1}]
-if target_return:
-        constraints.append({
-'type': 'eq',
-'fun': lambda x: np.sum(returns.mean() * x) * 252 - target_return
-        })
-
-bounds = tuple((0, 1) for _ in range(num_assets))
-initial = np.array([1/num_assets] * num_assets)
-
-result = minimize(neg_sharpe, initial, method='SLSQP',
-bounds=bounds, constraints=constraints)
-
-return dict(zip(returns.columns, result.x))
-
-```text
+    
+    ## portfolio_optimizer.py
+    
+    import numpy as np
+    from scipy.optimize import minimize
+    
+    def calculate_portfolio_performance(weights, returns, cov_matrix):
+    portfolio_return = np.sum(returns.mean() *weights)* 252
+    portfolio_volatility = np.sqrt(np.dot(weights.T, np.dot(cov_matrix * 252, weights)))
+    return portfolio_return, portfolio_volatility
+    
+    def optimize_portfolio(returns, target_return=None):
+    num_assets = len(returns.columns)
+    cov_matrix = returns.cov()
+    
+    def neg_sharpe(weights):
+    ret, vol = calculate_portfolio_performance(weights, returns, cov_matrix)
+    return -ret / vol
+    
+    constraints = [{'type': 'eq', 'fun': lambda x: np.sum(x) - 1}]
+    if target_return:
+            constraints.append({
+    'type': 'eq',
+    'fun': lambda x: np.sum(returns.mean() *x)* 252 - target_return
+            })
+    
+    bounds = tuple((0, 1) for _ in range(num_assets))
+    initial = np.array([1/num_assets] * num_assets)
+    
+    result = minimize(neg_sharpe, initial, method='SLSQP',
+    bounds=bounds, constraints=constraints)
+    
+    return dict(zip(returns.columns, result.x))
+    
 ---
 
 ## CONTINUED: MORE INVESTMENT PATTERNS
@@ -815,20 +862,18 @@ return dict(zip(returns.columns, result.x))
 > They front-run every order. We lose $1M/day.
 > By the time our order arrives, price already moved."
 
-```python
-
-## VIBE: Python trading system with GC pauses
-
-import json
-
-def process_market_data(data: str):
-parsed = json.loads(data)  # Allocates memory, triggers GC
-price = parsed['price']
-quantity = parsed['quantity']
-
-## GC pause: 10-50ms = catastrophic in HFT
-
-```cpp
+    
+    ## VIBE: Python trading system with GC pauses
+    
+    import json
+    
+    def process_market_data(data: str):
+    parsed = json.loads(data)  # Allocates memory, triggers GC
+    price = parsed['price']
+    quantity = parsed['quantity']
+    
+    ## GC pause: 10-50ms = catastrophic in HFT
+    
 // TITAN: Zero-allocation hot path in C++
 
 ## include <array>
@@ -842,7 +887,7 @@ uint32_t symbol_id;
 int64_t price;  // Fixed-point, not float
 uint32_t quantity;
 uint8_t side;  // 0 = bid, 1 = ask
-} __attribute__((packed));
+} **attribute**((packed));
 
 // Lock-free queue for order submission
 template<typename T, size_t N>
@@ -881,6 +926,7 @@ return true;
 
 // TITAN: Kernel bypass networking with DPDK
 /*
+
 - Normal path: NIC -> Kernel -> User space = 50+ microseconds
 - DPDK path:   NIC -> User space (poll mode) = 1-5 microseconds
 - * Key optimizations:
@@ -890,19 +936,17 @@ return true;
 - 4. Memory pools (no malloc in hot path)
  */
 
-```text
-
-## FIX PROTOCOL MESSAGE PARSING
-
-## The Scar
-
->
-> "FIX message parsing: 100 microseconds average.
-> String splitting and map lookups on every message.
-> 10,000 messages/second = can't keep up.
-> Parsing became the bottleneck, not network."
-
-```python
+    
+    ## FIX PROTOCOL MESSAGE PARSING
+    
+    ## The Scar
+    
+    >
+    > "FIX message parsing: 100 microseconds average.
+    > String splitting and map lookups on every message.
+    > 10,000 messages/second = can't keep up.
+    > Parsing became the bottleneck, not network."
+    
 
 ## VIBE: Naive FIX parsing
 
@@ -916,53 +960,51 @@ return result
 
 ## ~50 microseconds per message
 
-```cpp
-// TITAN: Zero-copy FIX parser
-
-## include <string_view>
-
-struct FIXMessage {
-std::string_view raw;
-
-// Tag positions cached in flat array
-// Tags 1-500 common in FIX 4.2
-std::array<std::string_view, 500> tags{};
-
-void parse(const char* data, size_t len) {
-raw = std::string_view(data, len);
-
-size_t pos = 0;
-while (pos < len) {
-// Find tag number
-size_t eq_pos = raw.find('=', pos);
-if (eq_pos == std::string_view::npos) break;
-
-int tag = 0;
-for (size_t i = pos; i < eq_pos; ++i) {
-tag = tag * 10 + (data[i] - '0');
+    // TITAN: Zero-copy FIX parser
+    
+    ## include <string_view>
+    
+    struct FIXMessage {
+    std::string_view raw;
+    
+    // Tag positions cached in flat array
+    // Tags 1-500 common in FIX 4.2
+    std::array<std::string_view, 500> tags{};
+    
+    void parse(const char* data, size_t len) {
+    raw = std::string_view(data, len);
+    
+    size_t pos = 0;
+    while (pos < len) {
+    // Find tag number
+    size_t eq_pos = raw.find('=', pos);
+    if (eq_pos == std::string_view::npos) break;
+    
+    int tag = 0;
+    for (size_t i = pos; i < eq_pos; ++i) {
+    tag = tag * 10 + (data[i] - '0');
+            }
+    
+    // Find value end (SOH = 0x01)
+    size_t soh_pos = raw.find('\x01', eq_pos + 1);
+    if (soh_pos == std::string_view::npos) soh_pos = len;
+    
+    // Store as string_view (no allocation!)
+    if (tag < 500) {
+    tags[tag] = raw.substr(eq_pos + 1, soh_pos - eq_pos - 1);
+            }
+    
+    pos = soh_pos + 1;
+            }
         }
-
-// Find value end (SOH = 0x01)
-size_t soh_pos = raw.find('\x01', eq_pos + 1);
-if (soh_pos == std::string_view::npos) soh_pos = len;
-
-// Store as string_view (no allocation!)
-if (tag < 500) {
-tags[tag] = raw.substr(eq_pos + 1, soh_pos - eq_pos - 1);
+    
+    // O(1) tag lookup
+    std::string_view get_tag(int tag) const {
+    return tags[tag];
         }
-
-pos = soh_pos + 1;
-        }
-    }
-
-// O(1) tag lookup
-std::string_view get_tag(int tag) const {
-return tags[tag];
-    }
-};
-// ~500 nanoseconds per message
-
-```text
+    };
+    // ~500 nanoseconds per message
+    
 
 ## ORDER BOOK DATA STRUCTURE
 
@@ -974,20 +1016,18 @@ return tags[tag];
 > Competitor uses specialized structure.
 > We're always 10ms behind on price updates."
 
-```cpp
-// VIBE: std::map order book
-std::map<int64_t, int64_t> bid_book;  // price -> quantity
-std::map<int64_t, int64_t> ask_book;
-
-void add_order(int64_t price, int64_t qty, bool is_bid) {
-if (is_bid) {
-bid_book[price] += qty;  // O(log n) tree traversal
-} else {
-ask_book[price] += qty;
+    // VIBE: std::map order book
+    std::map<int64_t, int64_t> bid_book;  // price -> quantity
+    std::map<int64_t, int64_t> ask_book;
+    
+    void add_order(int64_t price, int64_t qty, bool is_bid) {
+    if (is_bid) {
+    bid_book[price] += qty;  // O(log n) tree traversal
+    } else {
+    ask_book[price] += qty;
+        }
     }
-}
-
-```cpp
+    
 // TITAN: Array-based order book for fixed price range
 class OrderBook {
 private:
@@ -1042,19 +1082,17 @@ while (best_bid_idx > 0 && bids[best_bid_idx] <= 0) {
     }
 };
 
-```text
-
-## BACKTESTING SURVIVORSHIP BIAS
-
-### The Scar
-
->
-> "Backtest showed 30% annual returns.
-> Strategy went live. Actual returns: -5%.
-> Backtested on S&P 500 stocks... current constituents only.
-> Didn't include delisted bankruptcies. Survivorship bias."
-
-```python
+    
+    ## BACKTESTING SURVIVORSHIP BIAS
+    
+    ### The Scar
+    
+    >
+    > "Backtest showed 30% annual returns.
+    > Strategy went live. Actual returns: -5%.
+    > Backtested on S&P 500 stocks... current constituents only.
+    > Didn't include delisted bankruptcies. Survivorship bias."
+    
 
 ## VIBE: Backtest on current stock universe
 
@@ -1071,96 +1109,94 @@ for stock in stocks:
 prices = get_historical_prices(stock, start_date, end_date)
 signals = strategy.generate_signals(prices)
 
-```python
-
-## TITAN: Point-in-time data with delistings
-
-import pandas as pd
-from datetime import datetime
-
-class PointInTimeBacktester:
-def __init__(self, universe_db: str):
-
-## Database with historical index membership
-self.universe = pd.read_parquet(universe_db)
-
-## Columns: date, symbol, is_member, delist_date, delist_reason
-
-def get_tradeable_universe(self, as_of_date: datetime) -> list[str]:
-"""Get stocks that were tradeable on this date."""
-
-## Only include stocks that:
-
-## 1. Were in the index on this date
-
-## 2. Had not yet been delisted
-mask = (
-(self.universe['date'] <= as_of_date) &
-(self.universe['is_member'] == True) &
-        (
-| (self.universe['delist_date'].isna()) |
-(self.universe['delist_date'] > as_of_date)
-        )
-        )
-return self.universe[mask]['symbol'].unique().tolist()
-
-def backtest(self, strategy, start_date, end_date):
-results = []
-
-for date in pd.date_range(start_date, end_date, freq='D'):
-
-## Get universe AS OF this date (includes future bankruptcies!)
-stocks = self.get_tradeable_universe(date)
-
-for stock in stocks:
-
-## Price data up to this date only (no lookahead)
-prices = self.get_prices_before(stock, date)
-
-## Handle delistings
-delist_info = self.get_delist_info(stock)
-if delist_info and delist_info['date'] <= date:
-
-## Stock was delisted - apply delisting price
-final_price = delist_info.get('price', 0)
-results.append(self.close_position(stock, final_price))
-        continue
-
-signal = strategy.generate_signal(prices)
-results.append(self.execute(stock, signal, date))
-
-return self.analyze_results(results)
-
-## TITAN: Walk-forward validation to prevent overfitting
-
-def walk_forward_validation(strategy, data, train_window=252, test_window=63):
-    """
-Train on 1 year, test on next quarter, slide forward.
-Prevents curve-fitting to historical data.
-    """
-results = []
-
-for i in range(train_window, len(data) - test_window, test_window):
-
-## Train period
-train_data = data[i - train_window:i]
-
-## Optimize strategy parameters on training data
-optimized_params = strategy.optimize(train_data)
-
-## Test on OUT-OF-SAMPLE data
-test_data = data[i:i + test_window]
-test_result = strategy.run(test_data, optimized_params)
-
-        results.append({
-'train_start': data.index[i - train_window],
-'test_start': data.index[i],
-'test_end': data.index[min(i + test_window, len(data) - 1)],
-'sharpe': test_result.sharpe,
-'return': test_result.total_return,
-'max_drawdown': test_result.max_drawdown
-
-```python
+    
+    ## TITAN: Point-in-time data with delistings
+    
+    import pandas as pd
+    from datetime import datetime
+    
+    class PointInTimeBacktester:
+    def **init**(self, universe_db: str):
+    
+    ## Database with historical index membership
+    self.universe = pd.read_parquet(universe_db)
+    
+    ## Columns: date, symbol, is_member, delist_date, delist_reason
+    
+    def get_tradeable_universe(self, as_of_date: datetime) -> list[str]:
+    """Get stocks that were tradeable on this date."""
+    
+    ## Only include stocks that:
+    
+    ## 1. Were in the index on this date
+    
+    ## 2. Had not yet been delisted
+    mask = (
+    (self.universe['date'] <= as_of_date) &
+    (self.universe['is_member'] == True) &
+            (
+    | (self.universe['delist_date'].isna()) |
+    (self.universe['delist_date'] > as_of_date)
+            )
+            )
+    return self.universe[mask]['symbol'].unique().tolist()
+    
+    def backtest(self, strategy, start_date, end_date):
+    results = []
+    
+    for date in pd.date_range(start_date, end_date, freq='D'):
+    
+    ## Get universe AS OF this date (includes future bankruptcies!)
+    stocks = self.get_tradeable_universe(date)
+    
+    for stock in stocks:
+    
+    ## Price data up to this date only (no lookahead)
+    prices = self.get_prices_before(stock, date)
+    
+    ## Handle delistings
+    delist_info = self.get_delist_info(stock)
+    if delist_info and delist_info['date'] <= date:
+    
+    ## Stock was delisted - apply delisting price
+    final_price = delist_info.get('price', 0)
+    results.append(self.close_position(stock, final_price))
+            continue
+    
+    signal = strategy.generate_signal(prices)
+    results.append(self.execute(stock, signal, date))
+    
+    return self.analyze_results(results)
+    
+    ## TITAN: Walk-forward validation to prevent overfitting
+    
+    def walk_forward_validation(strategy, data, train_window=252, test_window=63):
+        """
+    Train on 1 year, test on next quarter, slide forward.
+    Prevents curve-fitting to historical data.
+        """
+    results = []
+    
+    for i in range(train_window, len(data) - test_window, test_window):
+    
+    ## Train period
+    train_data = data[i - train_window:i]
+    
+    ## Optimize strategy parameters on training data
+    optimized_params = strategy.optimize(train_data)
+    
+    ## Test on OUT-OF-SAMPLE data
+    test_data = data[i:i + test_window]
+    test_result = strategy.run(test_data, optimized_params)
+    
+            results.append({
+    'train_start': data.index[i - train_window],
+    'test_start': data.index[i],
+    'test_end': data.index[min(i + test_window, len(data) - 1)],
+    'sharpe': test_result.sharpe,
+    'return': test_result.total_return,
+    'max_drawdown': test_result.max_drawdown
+    
 
 ## VIBE: Inconsistent price handling
 
@@ -1172,91 +1208,89 @@ return int(raw_price) / 10000  # Fixed point
 
 ## Missing handling for new exchange = bug
 
-```python
-
-## TITAN: Normalized market data types
-
-from dataclasses import dataclass
-from decimal import Decimal
-from enum import Enum
-from typing import TypeAlias
-
-## Use Decimal for ALL prices - no floating point errors
-
-Price: TypeAlias = Decimal
-Quantity: TypeAlias = int  # Always whole shares/contracts
-
-@dataclass(frozen=True)
-class NormalizedQuote:
-symbol: str
-bid: Price
-ask: Price
-bid_size: Quantity
-ask_size: Quantity
-exchange: str
-timestamp_ns: int  # Nanoseconds since epoch
-
-    @classmethod
-def from_nyse(cls, raw: dict) -> 'NormalizedQuote':
-return cls(
-        symbol=raw['symbol'],
-bid=Decimal(raw['bid_price']), # Already in dollars
-        ask=Decimal(raw['ask_price']),
-        bid_size=int(raw['bid_size']),
-        ask_size=int(raw['ask_size']),
-        exchange='NYSE',
-timestamp_ns=raw['timestamp'] * 1_000_000  # ms to ns
-        )
-
-    @classmethod
-def from_nasdaq(cls, raw: dict) -> 'NormalizedQuote':
-
-## NASDAQ sends price in 1/10000ths
-return cls(
-        symbol=raw['sym'],
-bid=Decimal(raw['bp']) / Decimal('10000'),
-ask=Decimal(raw['ap']) / Decimal('10000'),
-        bid_size=int(raw['bs']),
-        ask_size=int(raw['as']),
-        exchange='NASDAQ',
-timestamp_ns=raw['ts'] # Already in ns
-        )
-
-    @classmethod
-def from_exchange(cls, exchange: str, raw: dict) -> 'NormalizedQuote':
-parsers = {
-'NYSE': cls.from_nyse,
-'NASDAQ': cls.from_nasdaq,
-
-## Add new exchanges here
-        }
-
-parser = parsers.get(exchange)
-if not parser:
-raise ValueError(f"Unknown exchange: {exchange}")
-
-return parser(raw)
-
-## Type-safe order submission
-
-@dataclass
-class Order:
-symbol: str
-side: Literal['BUY', 'SELL']
-price: Price  # Type system enforces Decimal
-quantity: Quantity
-
-def validate(self):
-if self.quantity <= 0:
-raise ValueError("Quantity must be positive")
-if self.price <= 0:
-raise ValueError("Price must be positive")
-
-## Tick size validation
-if self.price % Decimal('0.01') != 0:
-raise ValueError("Price must be in penny increments")
-
-```text
+    
+    ## TITAN: Normalized market data types
+    
+    from dataclasses import dataclass
+    from decimal import Decimal
+    from enum import Enum
+    from typing import TypeAlias
+    
+    ## Use Decimal for ALL prices - no floating point errors
+    
+    Price: TypeAlias = Decimal
+    Quantity: TypeAlias = int  # Always whole shares/contracts
+    
+    @dataclass(frozen=True)
+    class NormalizedQuote:
+    symbol: str
+    bid: Price
+    ask: Price
+    bid_size: Quantity
+    ask_size: Quantity
+    exchange: str
+    timestamp_ns: int  # Nanoseconds since epoch
+    
+        @classmethod
+    def from_nyse(cls, raw: dict) -> 'NormalizedQuote':
+    return cls(
+            symbol=raw['symbol'],
+    bid=Decimal(raw['bid_price']), # Already in dollars
+            ask=Decimal(raw['ask_price']),
+            bid_size=int(raw['bid_size']),
+            ask_size=int(raw['ask_size']),
+            exchange='NYSE',
+    timestamp_ns=raw['timestamp'] * 1_000_000  # ms to ns
+            )
+    
+        @classmethod
+    def from_nasdaq(cls, raw: dict) -> 'NormalizedQuote':
+    
+    ## NASDAQ sends price in 1/10000ths
+    return cls(
+            symbol=raw['sym'],
+    bid=Decimal(raw['bp']) / Decimal('10000'),
+    ask=Decimal(raw['ap']) / Decimal('10000'),
+            bid_size=int(raw['bs']),
+            ask_size=int(raw['as']),
+            exchange='NASDAQ',
+    timestamp_ns=raw['ts'] # Already in ns
+            )
+    
+        @classmethod
+    def from_exchange(cls, exchange: str, raw: dict) -> 'NormalizedQuote':
+    parsers = {
+    'NYSE': cls.from_nyse,
+    'NASDAQ': cls.from_nasdaq,
+    
+    ## Add new exchanges here
+            }
+    
+    parser = parsers.get(exchange)
+    if not parser:
+    raise ValueError(f"Unknown exchange: {exchange}")
+    
+    return parser(raw)
+    
+    ## Type-safe order submission
+    
+    @dataclass
+    class Order:
+    symbol: str
+    side: Literal['BUY', 'SELL']
+    price: Price  # Type system enforces Decimal
+    quantity: Quantity
+    
+    def validate(self):
+    if self.quantity <= 0:
+    raise ValueError("Quantity must be positive")
+    if self.price <= 0:
+    raise ValueError("Price must be positive")
+    
+    ## Tick size validation
+    if self.price % Decimal('0.01') != 0:
+    raise ValueError("Price must be in penny increments")
+    
 
 ## END OF VOLUME 8 - TITAN GEMINI RESEARCH HFT AND TRADING FAILURES
 
@@ -1268,243 +1302,237 @@ raise ValueError("Price must be in penny increments")
 
 ### Modern Portfolio Theory (Markowitz Implementation)
 
-```python
-
-## ? TITAN: Production-grade portfolio optimization
-
-import numpy as np
-import pandas as pd
-from scipy.optimize import minimize
-from typing import Tuple, Dict
-
-class MarkowitzOptimizer:
-def __init__(self, returns: pd.DataFrame, risk_free_rate: float = 0.02):
-self.returns = returns
-self.rf = risk_free_rate
-self.n_assets = len(returns.columns)
-
-## Calculate expected returns and covariance
-self.expected_returns = returns.mean() * 252  # Annualize
-self.cov_matrix = returns.cov() * 252  # Annualize
-
-def portfolio_stats(self, weights: np.ndarray) -> Tuple[float, float, float]:
-portfolio_return = np.dot(weights, self.expected_returns)
-portfolio_volatility = np.sqrt(np.dot(weights.T, np.dot(self.cov_matrix, weights)))
-sharpe_ratio = (portfolio_return - self.rf) / portfolio_volatility
-return portfolio_return, portfolio_volatility, sharpe_ratio
-
-def minimize_volatility(self, target_return: float) -> Dict:
-constraints = [
-{'type': 'eq', 'fun': lambda w: np.sum(w) - 1},  # Weights sum to 1
-{'type': 'eq', 'fun': lambda w: np.dot(w, self.expected_returns) - target_return}
-        ]
-bounds = tuple((0, 1) for _ in range(self.n_assets))  # No shorting
-
-result = minimize(
-fun=lambda w: np.sqrt(np.dot(w.T, np.dot(self.cov_matrix, w))),
-x0=np.ones(self.n_assets) / self.n_assets,
-        method='SLSQP',
-        bounds=bounds,
-        constraints=constraints
-        )
-
-ret, vol, sharpe = self.portfolio_stats(result.x)
-return {
-'weights': dict(zip(self.returns.columns, result.x)),
-'return': ret,
-'volatility': vol,
-'sharpe': sharpe
-        }
-
-def maximize_sharpe(self) -> Dict:
-def neg_sharpe(weights):
-ret, vol, _ = self.portfolio_stats(weights)
-return -(ret - self.rf) / vol
-
-constraints = {'type': 'eq', 'fun': lambda w: np.sum(w) - 1}
-bounds = tuple((0, 1) for _ in range(self.n_assets))
-
-result = minimize(
-        fun=neg_sharpe,
-x0=np.ones(self.n_assets) / self.n_assets,
-        method='SLSQP',
-        bounds=bounds,
-        constraints=constraints
-        )
-
-ret, vol, sharpe = self.portfolio_stats(result.x)
-return {
-'weights': dict(zip(self.returns.columns, result.x)),
-'return': ret,
-'volatility': vol,
-'sharpe': sharpe
-        }
-
-def efficient_frontier(self, n_points: int = 50) -> pd.DataFrame:
-returns_range = np.linspace(
-        self.expected_returns.min(),
-        self.expected_returns.max(),
-        n_points
-        )
-
-frontier = []
-for target in returns_range:
-        try:
-result = self.minimize_volatility(target)
-        frontier.append(result)
-        except:
-pass # Infeasible point
-
-return pd.DataFrame(frontier)
-
-## Usage
-
-optimizer = MarkowitzOptimizer(returns_df, risk_free_rate=0.04)
-optimal = optimizer.maximize_sharpe()
-print(f"Optimal allocation: {optimal['weights']}")
-print(f"Expected return: {optimal['return']:.2%}")
-print(f"Expected volatility: {optimal['volatility']:.2%}")
-print(f"Sharpe ratio: {optimal['sharpe']:.2f}")
-
-```text
+    
+    ## ? TITAN: Production-grade portfolio optimization
+    
+    import numpy as np
+    import pandas as pd
+    from scipy.optimize import minimize
+    from typing import Tuple, Dict
+    
+    class MarkowitzOptimizer:
+    def **init**(self, returns: pd.DataFrame, risk_free_rate: float = 0.02):
+    self.returns = returns
+    self.rf = risk_free_rate
+    self.n_assets = len(returns.columns)
+    
+    ## Calculate expected returns and covariance
+    self.expected_returns = returns.mean() * 252  # Annualize
+    self.cov_matrix = returns.cov() * 252  # Annualize
+    
+    def portfolio_stats(self, weights: np.ndarray) -> Tuple[float, float, float]:
+    portfolio_return = np.dot(weights, self.expected_returns)
+    portfolio_volatility = np.sqrt(np.dot(weights.T, np.dot(self.cov_matrix, weights)))
+    sharpe_ratio = (portfolio_return - self.rf) / portfolio_volatility
+    return portfolio_return, portfolio_volatility, sharpe_ratio
+    
+    def minimize_volatility(self, target_return: float) -> Dict:
+    constraints = [
+    {'type': 'eq', 'fun': lambda w: np.sum(w) - 1},  # Weights sum to 1
+    {'type': 'eq', 'fun': lambda w: np.dot(w, self.expected_returns) - target_return}
+            ]
+    bounds = tuple((0, 1) for _ in range(self.n_assets))  # No shorting
+    
+    result = minimize(
+    fun=lambda w: np.sqrt(np.dot(w.T, np.dot(self.cov_matrix, w))),
+    x0=np.ones(self.n_assets) / self.n_assets,
+            method='SLSQP',
+            bounds=bounds,
+            constraints=constraints
+            )
+    
+    ret, vol, sharpe = self.portfolio_stats(result.x)
+    return {
+    'weights': dict(zip(self.returns.columns, result.x)),
+    'return': ret,
+    'volatility': vol,
+    'sharpe': sharpe
+            }
+    
+    def maximize_sharpe(self) -> Dict:
+    def neg_sharpe(weights):
+    ret, vol, _ = self.portfolio_stats(weights)
+    return -(ret - self.rf) / vol
+    
+    constraints = {'type': 'eq', 'fun': lambda w: np.sum(w) - 1}
+    bounds = tuple((0, 1) for _ in range(self.n_assets))
+    
+    result = minimize(
+            fun=neg_sharpe,
+    x0=np.ones(self.n_assets) / self.n_assets,
+            method='SLSQP',
+            bounds=bounds,
+            constraints=constraints
+            )
+    
+    ret, vol, sharpe = self.portfolio_stats(result.x)
+    return {
+    'weights': dict(zip(self.returns.columns, result.x)),
+    'return': ret,
+    'volatility': vol,
+    'sharpe': sharpe
+            }
+    
+    def efficient_frontier(self, n_points: int = 50) -> pd.DataFrame:
+    returns_range = np.linspace(
+            self.expected_returns.min(),
+            self.expected_returns.max(),
+            n_points
+            )
+    
+    frontier = []
+    for target in returns_range:
+            try:
+    result = self.minimize_volatility(target)
+            frontier.append(result)
+            except:
+    pass # Infeasible point
+    
+    return pd.DataFrame(frontier)
+    
+    ## Usage
+    
+    optimizer = MarkowitzOptimizer(returns_df, risk_free_rate=0.04)
+    optimal = optimizer.maximize_sharpe()
+    print(f"Optimal allocation: {optimal['weights']}")
+    print(f"Expected return: {optimal['return']:.2%}")
+    print(f"Expected volatility: {optimal['volatility']:.2%}")
+    print(f"Sharpe ratio: {optimal['sharpe']:.2f}")
+    
 ---
 
 ## RISK METRICS IMPLEMENTATION
 
 ## Value at Risk (VaR) and Conditional VaR
 
-```python
-
-## ? TITAN: Production risk metrics
-
-import numpy as np
-from scipy import stats
-
-class RiskMetrics:
-def __init__(self, returns: np.ndarray):
-self.returns = returns
-
-def var_historical(self, confidence: float = 0.95) -> float:
-return np.percentile(self.returns, (1 - confidence) * 100)
-
-def var_parametric(self, confidence: float = 0.95) -> float:
-mu = np.mean(self.returns)
-sigma = np.std(self.returns)
-return mu + sigma * stats.norm.ppf(1 - confidence)
-
-def cvar(self, confidence: float = 0.95) -> float:
-var = self.var_historical(confidence)
-return self.returns[self.returns <= var].mean()
-
-def max_drawdown(self, prices: np.ndarray) -> float:
-cumulative = np.maximum.accumulate(prices)
-drawdowns = (prices - cumulative) / cumulative
-return drawdowns.min()
-
-def sortino_ratio(self, risk_free: float = 0.02) -> float:
-excess_return = np.mean(self.returns) - risk_free / 252
-downside_returns = self.returns[self.returns < 0]
-downside_std = np.std(downside_returns)
-return excess_return / downside_std * np.sqrt(252) if downside_std > 0 else 0
-
-```text
+    
+    ## ? TITAN: Production risk metrics
+    
+    import numpy as np
+    from scipy import stats
+    
+    class RiskMetrics:
+    def **init**(self, returns: np.ndarray):
+    self.returns = returns
+    
+    def var_historical(self, confidence: float = 0.95) -> float:
+    return np.percentile(self.returns, (1 - confidence) * 100)
+    
+    def var_parametric(self, confidence: float = 0.95) -> float:
+    mu = np.mean(self.returns)
+    sigma = np.std(self.returns)
+    return mu + sigma * stats.norm.ppf(1 - confidence)
+    
+    def cvar(self, confidence: float = 0.95) -> float:
+    var = self.var_historical(confidence)
+    return self.returns[self.returns <= var].mean()
+    
+    def max_drawdown(self, prices: np.ndarray) -> float:
+    cumulative = np.maximum.accumulate(prices)
+    drawdowns = (prices - cumulative) / cumulative
+    return drawdowns.min()
+    
+    def sortino_ratio(self, risk_free: float = 0.02) -> float:
+    excess_return = np.mean(self.returns) - risk_free / 252
+    downside_returns = self.returns[self.returns < 0]
+    downside_std = np.std(downside_returns)
+    return excess_return / downside_std * np.sqrt(252) if downside_std > 0 else 0
+    
 ---
 
 ## BACKTESTING FRAMEWORK
 
 ## Vectorized Backtesting (Production Performance)
 
-```python
-
-## ? TITAN: Fast vectorized backtesting
-
-import pandas as pd
-import numpy as np
-from dataclasses import dataclass
-from typing import Callable
-
-@dataclass
-class BacktestResult:
-total_return: float
-annual_return: float
-volatility: float
-sharpe_ratio: float
-max_drawdown: float
-win_rate: float
-profit_factor: float
-trades: pd.DataFrame
-
-class VectorizedBacktester:
-def __init__(self, prices: pd.DataFrame, initial_capital: float = 100000):
-self.prices = prices
-self.initial_capital = initial_capital
-
-def run(self, signal_generator: Callable[[pd.DataFrame], pd.Series]) -> BacktestResult:
-
-## Generate signals: 1 = long, -1 = short, 0 = flat
-signals = signal_generator(self.prices)
-
-## Calculate returns
-returns = self.prices.pct_change()
-
-## Strategy returns = signal * next day's return (shifted for lookahead bias)
-strategy_returns = signals.shift(1) * returns
-
-## Cumulative returns
-cumulative = (1 + strategy_returns).cumprod()
-
-## Metrics
-total_return = cumulative.iloc[-1] - 1
-annual_return = (1 + total_return) ** (252 / len(returns)) - 1
-volatility = strategy_returns.std() * np.sqrt(252)
-sharpe = annual_return / volatility if volatility > 0 else 0
-
-## Drawdown
-rolling_max = cumulative.cummax()
-drawdown = (cumulative - rolling_max) / rolling_max
-max_dd = drawdown.min()
-
-## Win rate
-winning = strategy_returns[strategy_returns > 0]
-losing = strategy_returns[strategy_returns < 0]
-win_rate = len(winning) / (len(winning) + len(losing)) if len(losing) > 0 else 0
-
-## Profit factor
-gross_profit = winning.sum()
-gross_loss = abs(losing.sum())
-profit_factor = gross_profit / gross_loss if gross_loss > 0 else float('inf')
-
-return BacktestResult(
-        total_return=total_return,
-        annual_return=annual_return,
-        volatility=volatility,
-        sharpe_ratio=sharpe,
-        max_drawdown=max_dd,
-        win_rate=win_rate,
-        profit_factor=profit_factor,
-trades=pd.DataFrame() # Would contain trade details
-        )
-
-## Example: Simple Moving Average Crossover
-
-def sma_crossover_signal(prices: pd.DataFrame, short: int = 10, long: int = 50) -> pd.Series:
-close = prices['close']
-sma_short = close.rolling(short).mean()
-sma_long = close.rolling(long).mean()
-
-signal = pd.Series(0, index=prices.index)
-signal[sma_short > sma_long] = 1
-signal[sma_short < sma_long] = -1
-return signal
-
-## Run backtest
-
-backtester = VectorizedBacktester(price_data)
-result = backtester.run(sma_crossover_signal)
-print(f"Sharpe Ratio: {result.sharpe_ratio:.2f}")
-print(f"Max Drawdown: {result.max_drawdown:.2%}")
-
-```text
+    
+    ## ? TITAN: Fast vectorized backtesting
+    
+    import pandas as pd
+    import numpy as np
+    from dataclasses import dataclass
+    from typing import Callable
+    
+    @dataclass
+    class BacktestResult:
+    total_return: float
+    annual_return: float
+    volatility: float
+    sharpe_ratio: float
+    max_drawdown: float
+    win_rate: float
+    profit_factor: float
+    trades: pd.DataFrame
+    
+    class VectorizedBacktester:
+    def **init**(self, prices: pd.DataFrame, initial_capital: float = 100000):
+    self.prices = prices
+    self.initial_capital = initial_capital
+    
+    def run(self, signal_generator: Callable[[pd.DataFrame], pd.Series]) -> BacktestResult:
+    
+    ## Generate signals: 1 = long, -1 = short, 0 = flat
+    signals = signal_generator(self.prices)
+    
+    ## Calculate returns
+    returns = self.prices.pct_change()
+    
+    ## Strategy returns = signal * next day's return (shifted for lookahead bias)
+    strategy_returns = signals.shift(1) * returns
+    
+    ## Cumulative returns
+    cumulative = (1 + strategy_returns).cumprod()
+    
+    ## Metrics
+    total_return = cumulative.iloc[-1] - 1
+    annual_return = (1 + total_return) ** (252 / len(returns)) - 1
+    volatility = strategy_returns.std() * np.sqrt(252)
+    sharpe = annual_return / volatility if volatility > 0 else 0
+    
+    ## Drawdown
+    rolling_max = cumulative.cummax()
+    drawdown = (cumulative - rolling_max) / rolling_max
+    max_dd = drawdown.min()
+    
+    ## Win rate
+    winning = strategy_returns[strategy_returns > 0]
+    losing = strategy_returns[strategy_returns < 0]
+    win_rate = len(winning) / (len(winning) + len(losing)) if len(losing) > 0 else 0
+    
+    ## Profit factor
+    gross_profit = winning.sum()
+    gross_loss = abs(losing.sum())
+    profit_factor = gross_profit / gross_loss if gross_loss > 0 else float('inf')
+    
+    return BacktestResult(
+            total_return=total_return,
+            annual_return=annual_return,
+            volatility=volatility,
+            sharpe_ratio=sharpe,
+            max_drawdown=max_dd,
+            win_rate=win_rate,
+            profit_factor=profit_factor,
+    trades=pd.DataFrame() # Would contain trade details
+            )
+    
+    ## Example: Simple Moving Average Crossover
+    
+    def sma_crossover_signal(prices: pd.DataFrame, short: int = 10, long: int = 50) -> pd.Series:
+    close = prices['close']
+    sma_short = close.rolling(short).mean()
+    sma_long = close.rolling(long).mean()
+    
+    signal = pd.Series(0, index=prices.index)
+    signal[sma_short > sma_long] = 1
+    signal[sma_short < sma_long] = -1
+    return signal
+    
+    ## Run backtest
+    
+    backtester = VectorizedBacktester(price_data)
+    result = backtester.run(sma_crossover_signal)
+    print(f"Sharpe Ratio: {result.sharpe_ratio:.2f}")
+    print(f"Max Drawdown: {result.max_drawdown:.2%}")
+    
 ---
 
 ## END OF INVESTMENT VOLUME 2
@@ -1514,13 +1542,16 @@ print(f"Max Drawdown: {result.max_drawdown:.2%}")
 ## VOLUME 2: TITAN UPGRADE (APPENDED)
 
 ## 1. THE SCARS
+
 - **The 'Fat Finger'**: $100M loss due to wrong decimal. Lesson: UI confirmation & backend limits.
 - **The 'Race Condition'**: Double spend on withdrawal. Lesson: Database locks / Serialized isolation.
 
 ## 2. THE FOUNDATION
+
 - **FIX Protocol**: The standard for financial information exchange.
 - **Order Book**: Matching engine logic (FIFO, Pro-Rata).
 
 ## 3. TITAN PATTERNS
+
 - **Event Sourcing**: Replay every transaction to rebuild state. Audit trail is free.
 - **Decimal Handling**: NEVER use floats. Use `Decimal` or integer cents.

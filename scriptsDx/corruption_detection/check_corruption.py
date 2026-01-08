@@ -2,10 +2,12 @@ import os
 import chardet
 import json
 import time
+import sys
 
-TARGET_DIR = "DevVault"
+# Default target, can be overridden by command line argument
+TARGET_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "Doxs", "Dev Vault (ETERNAL MANUAL)")
 MAX_LINE_LENGTH = 1000
-REPORT_FILE = "vault_health.json"
+REPORT_FILE = os.path.join(os.path.dirname(__file__), "..", "reports", "vault_health.json")
 
 def analyze_file(filepath):
     report = {

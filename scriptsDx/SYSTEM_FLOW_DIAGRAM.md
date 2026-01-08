@@ -261,10 +261,13 @@ Rest-iN-U/
     │   ├── sentinel_structure.py
     │   └── sentinel_integrity.py
     │
-    ├── corruption_detection/  ◄─── CORRUPTION CHECKS (3 scripts)
+    ├── corruption_detection/  ◄─── CORRUPTION CHECKS (7 scripts)
     │   ├── check_dev_vault_corruption.py
+    │   ├── check_corruption.py (Jules - encoding check)
+    │   ├── fix_corruption.py (Jules - encoding fixer)
     │   ├── jules_check_corruption.py
-    │   └── jules_fix_corruption.py
+    │   ├── jules_fix_corruption.py
+    │   └── requirements.txt
     │
     ├── audit/  ◄─── AUDIT TOOLS (2 scripts)
     │   ├── deep_audit.py
@@ -535,11 +538,11 @@ Time: 26s
 
 **Entry Point**: `scriptsDx\01_MAIN_ENTRY_POINT.py`
 
-**Target**: `Doxs\Dev Vault (ETERNAL MANUAL)\` (48 files)
+**Target**: `Doxs\Dev Vault (ETERNAL MANUAL)\` (45 files)
 
-**Total Scripts**: 58 scripts (dynamically counted)
+**Total Scripts**: 53 scripts (dynamically counted)
 
-**Total Operations**: 2,784 (58 scripts × 48 files)
+**Total Operations**: 2,385 (53 scripts × 45 files)
 
 **Intelligence**: `02_INTELLIGENT_AUTO_FIX.py` (analyzes, not executes blindly)
 

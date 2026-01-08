@@ -1,43 +1,44 @@
 # LEGAL DOCS
 ## Table of Contents
 
-- [TABLE OF CONTENTS](#table-of-contents)
+- [Table of Contents](#table-of-contents)
+- [20_LEGAL_DOCS.MD: THE TITAN GUIDE (50K TARGET)](#20legaldocsmd-the-titan-guide-50k-target)
 - [Production-Grade E-Signature, Audit Trails, and Compliance](#production-grade-e-signature-audit-trails-and-compliance)
-  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
 - [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
-  - [1. THE "VOIDED" CONTRACT](#1-the-voided-contract)
-    - [The Dynamic PDF Disaster](#the-dynamic-pdf-disaster)
-  - [2. THE "MISSING" AUDIT TRAIL](#2-the-missing-audit-trail)
-    - [Database Delete](#database-delete)
+- [1. THE "VOIDED" CONTRACT](#1-the-voided-contract)
+  - [The Dynamic PDF Disaster](#the-dynamic-pdf-disaster)
+- [2. THE "MISSING" AUDIT TRAIL](#2-the-missing-audit-trail)
+  - [Database Delete](#database-delete)
 - [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
-  - [5. DOCUSIGN API INTEGRATION](#5-docusign-api-integration)
-    - [Embedded Signing](#embedded-signing)
+- [5. DOCUSIGN API INTEGRATION](#5-docusign-api-integration)
+  - [Embedded Signing](#embedded-signing)
 - [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
-  - [9. WEBHOOK HANDLING](#9-webhook-handling)
-    - [Security & Race Conditions](#security-race-conditions)
-  - [10. TEMPLATE MANAGEMENT](#10-template-management)
-    - [Variable Substitution](#variable-substitution)
+- [9. WEBHOOK HANDLING](#9-webhook-handling)
+  - [Security & Race Conditions](#security--race-conditions)
+- [10. TEMPLATE MANAGEMENT](#10-template-management)
+  - [Variable Substitution](#variable-substitution)
 - [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
-  - [13. IMMUTABLE AUDIT LOGS](#13-immutable-audit-logs)
-    - [Amazon QLDB](#amazon-qldb)
+- [13. IMMUTABLE AUDIT LOGS](#13-immutable-audit-logs)
+  - [Amazon QLDB](#amazon-qldb)
 - [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
-  - [16. BLOCKCHAIN NOTARIZATION](#16-blockchain-notarization)
-    - [Proof of Existence](#proof-of-existence)
-  - [17. SMART CONTRACT INTEGRATION](#17-smart-contract-integration)
-    - [Self-Executing Leases](#self-executing-leases)
+- [16. BLOCKCHAIN NOTARIZATION](#16-blockchain-notarization)
+  - [Proof of Existence](#proof-of-existence)
+- [17. SMART CONTRACT INTEGRATION](#17-smart-contract-integration)
+  - [Self-Executing Leases](#self-executing-leases)
 - [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
-  - [19. AI CONTRACT REVIEW](#19-ai-contract-review)
-    - [NLP Risk Analysis](#nlp-risk-analysis)
+- [19. AI CONTRACT REVIEW](#19-ai-contract-review)
+  - [NLP Risk Analysis](#nlp-risk-analysis)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-  - [A. THE ULTIMATE S3 SECURITY POLICY](#a-the-ultimate-s3-security-policy)
-  - [B. THE AUDIT LOG SCHEMA](#b-the-audit-log-schema)
+- [A. THE ULTIMATE S3 SECURITY POLICY](#a-the-ultimate-s3-security-policy)
+- [B. THE AUDIT LOG SCHEMA](#b-the-audit-log-schema)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+- [Each line = 100x LLM expansion potential](#each-line--100x-llm-expansion-potential)
 - [DOCUMENT FORMATS](#document-formats)
 - [SIGNATURES](#signatures)
 - [CONTRACT MANAGEMENT](#contract-management)
@@ -45,35 +46,85 @@
 - [COMPLIANCE](#compliance)
 - [REAL ESTATE LEGAL](#real-estate-legal)
 - [DOCUMENT AUTOMATION](#document-automation)
-  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [CONTRACT AUTOMATION DEEP ATLAS](#contract-automation-deep-atlas)
-  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
-  - [Templates](#templates)
-  - [Assembly](#assembly)
-  - [Signature](#signature)
+- [Each keyword = expandable implementation](#each-keyword--expandable-implementation)
+- [Templates](#templates)
+- [Assembly](#assembly)
+- [Signature](#signature)
 - [LEGAL ANALYTICS DEEP ATLAS](#legal-analytics-deep-atlas)
-  - [Each keyword = expandable capability](#each-keyword-expandable-capability)
-  - [Contract Analysis](#contract-analysis)
-  - [Due Diligence](#due-diligence)
-  - [Litigation](#litigation)
+- [Each keyword = expandable capability](#each-keyword--expandable-capability)
+- [Contract Analysis](#contract-analysis)
+- [Due Diligence](#due-diligence)
+- [Litigation](#litigation)
 - [REGULATORY COMPLIANCE DEEP ATLAS](#regulatory-compliance-deep-atlas)
-  - [Each keyword = expandable framework](#each-keyword-expandable-framework)
-  - [GDPR](#gdpr)
-  - [SOX](#sox)
-  - [Industry-Specific](#industry-specific)
-    - [END OF MEGA LEGAL DOCS EXPANSION](#end-of-mega-legal-docs-expansion)
+- [Each keyword = expandable framework](#each-keyword--expandable-framework)
+- [GDPR](#gdpr)
+- [SOX](#sox)
+- [Industry-Specific](#industry-specific)
+  - [END OF MEGA LEGAL DOCS EXPANSION](#end-of-mega-legal-docs-expansion)
+- [LEGAL DOCS CODE EXAMPLES](#legal-docs-code-examples)
 - [CONTRACT GENERATION](#contract-generation)
-  - [Template Engine](#template-engine)
+- [Template Engine](#template-engine)
 - [COMPLIANCE CHECKING](#compliance-checking)
-  - [GDPR Validator](#gdpr-validator)
+- [GDPR Validator](#gdpr-validator)
 - [SIGNATURE](#signature-1)
-  - [DocuSign Integration](#docusign-integration)
-    - [CONTINUED: MORE LEGAL PATTERNS](#continued-more-legal-patterns)
+- [DocuSign Integration](#docusign-integration)
+  - [CONTINUED: MORE LEGAL PATTERNS](#continued-more-legal-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - LEGAL TECH PRODUCTION](#volume-8-titan-gemini-research---legal-tech-production)
-  - [CONTRACT NLP EXTRACTION](#contract-nlp-extraction)
-    - [The Scar](#the-scar)
+- [CONTRACT NLP EXTRACTION](#contract-nlp-extraction)
+  - [The Scar](#the-scar)
+- [VIBE: Keyword search for contract review](#vibe-keyword-search-for-contract-review)
+- [Misses "Seller shall be responsible for all claims arising from..."](#misses-seller-shall-be-responsible-for-all-claims-arising-from)
+- [TITAN: NLP-based contract analysis](#titan-nlp-based-contract-analysis)
+- [Load legal-specific NLP model](#load-legal-specific-nlp-model)
+- [Zero-shot classifier for clause types](#zero-shot-classifier-for-clause-types)
+- [Named Entity Recognition for parties, dates, amounts](#named-entity-recognition-for-parties-dates-amounts)
+- [1. Segment into clauses](#1-segment-into-clauses)
+- [2. Classify each clause](#2-classify-each-clause)
+- [3. Extract key entities](#3-extract-key-entities)
+- [4. Calculate risk score](#4-calculate-risk-score)
+- [5. Generate summary](#5-generate-summary)
+- [Check if this starts a new clause](#check-if-this-starts-a-new-clause)
+- [Don't forget the last clause](#dont-forget-the-last-clause)
+- [Cap at 1.0](#cap-at-10)
+- [E-DISCOVERY DOCUMENT PROCESSING](#e-discovery-document-processing)
+- [The Scar](#the-scar-1)
+- [VIBE: Manual document review](#vibe-manual-document-review)
+- [Misses attachments, metadata, can't handle 2M docs](#misses-attachments-metadata-cant-handle-2m-docs)
+- [TITAN: Technology-Assisted Review (TAR) pipeline](#titan-technology-assisted-review-tar-pipeline)
+- [Calculate hash for deduplication](#calculate-hash-for-deduplication)
+- [Deduplication check](#deduplication-check)
+- [Determine file type and extract text](#determine-file-type-and-extract-text)
+- [ML-based relevance scoring](#ml-based-relevance-scoring)
+- [Privilege detection](#privilege-detection)
+- [Hot document detection (high relevance + specific keywords)](#hot-document-detection-high-relevance--specific-keywords)
+- [Outlook MSG files](#outlook-msg-files)
+- [Process attachments recursively](#process-attachments-recursively)
+- [Standard EML files](#standard-eml-files)
+- [Office documents and PDFs](#office-documents-and-pdfs)
+- [Fallback](#fallback)
+- [Check if sender/recipient is attorney](#check-if-senderrecipient-is-attorney)
 - [IMMUTABLE AUDIT LOGS WITH QLDB](#immutable-audit-logs-with-qldb)
-  - [The Scar](#the-scar-1)
+- [The Scar](#the-scar-2)
+- [VIBE: SQL audit log (deletable)](#vibe-sql-audit-log-deletable)
+- [Can be deleted: DELETE FROM audit_logs WHERE ..](#can-be-deleted-delete-from-auditlogs-where-)
+- [TITAN: Amazon QLDB for cryptographically verifiable logs](#titan-amazon-qldb-for-cryptographically-verifiable-logs)
+- [Return the document ID from QLDB](#return-the-document-id-from-qldb)
+- [Get the current digest of the ledger](#get-the-current-digest-of-the-ledger)
+- [Get revision history for document](#get-revision-history-for-document)
+- [Get proof from QLDB](#get-proof-from-qldb)
+- [Verify the Merkle proof](#verify-the-merkle-proof)
+- [Implementation of SHA256 Merkle proof verification](#implementation-of-sha256-merkle-proof-verification)
+- [Combine hashes according to Merkle tree rules](#combine-hashes-according-to-merkle-tree-rules)
+- [END OF VOLUME 8: TITAN GEMINI RESEARCH - LEGAL TECH PRODUCTION](#end-of-volume-8-titan-gemini-research---legal-tech-production)
+- [VOLUME 2: PRODUCTION LEGAL DOCUMENT PATTERNS](#volume-2-production-legal-document-patterns)
+- [CONTRACT GENERATION ENGINE](#contract-generation-engine)
+  - [Template-Based Document Generation](#template-based-document-generation)
+- [E-SIGNATURE INTEGRATION](#e-signature-integration)
+  - [DocuSign API Integration](#docusign-api-integration)
+  - [END OF LEGAL DOCS VOLUME 2](#end-of-legal-docs-volume-2)
+  - [Lines: ~200+ added](#lines-200-added)
 
 ## 20_LEGAL_DOCS.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -91,47 +142,53 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
+
 1. The "Voided" Contract (Dynamic PDF Fail)
-2. The "Missing" Audit Trail (Database Delete)
-3. The "Public" S3 Bucket (Data Breach)
-4. The "Wrong Version" (Template Versioning)
+1. The "Missing" Audit Trail (Database Delete)
+1. The "Public" S3 Bucket (Data Breach)
+1. The "Wrong Version" (Template Versioning)
 
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-5. DocuSign API Integration (Embedded Signing)
-6. PDF Generation (Puppeteer vs PDFKit)
-7. Secure Storage (S3 Vault & Presigned URLs)
-8. Digital Signatures vs Electronic Signatures
+
+1. DocuSign API Integration (Embedded Signing)
+1. PDF Generation (Puppeteer vs PDFKit)
+1. Secure Storage (S3 Vault & Presigned URLs)
+1. Digital Signatures vs Electronic Signatures
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-9. Webhook Handling (Race Conditions & Security)
-10. Template Management (Variable Substitution)
-11. Watermarking & Security Features
-12. OCR & Data Extraction
+
+1. Webhook Handling (Race Conditions & Security)
+1. Template Management (Variable Substitution)
+1. Watermarking & Security Features
+1. OCR & Data Extraction
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-13. Immutable Audit Logs (QLDB / Blockchain)
-14. Retention Policies (GDPR/CCPA Compliance)
-15. Multi-Party Workflows (Escrow & Notary)
+
+1. Immutable Audit Logs (QLDB / Blockchain)
+1. Retention Policies (GDPR/CCPA Compliance)
+1. Multi-Party Workflows (Escrow & Notary)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-16. Blockchain Notarization (Proof of Existence)
-17. Smart Contract Integration (Self-Executing Leases)
-18. Zero-Knowledge Identity (KYC without PII)
+
+1. Blockchain Notarization (Proof of Existence)
+1. Smart Contract Integration (Self-Executing Leases)
+1. Zero-Knowledge Identity (KYC without PII)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-19. AI Contract Review (NLP Risk Analysis)
-20. Ricardian Contracts (Code = Law)
-21. Decentralized Court Systems (Kleros)
+
+1. AI Contract Review (NLP Risk Analysis)
+1. Ricardian Contracts (Code = Law)
+1. Decentralized Court Systems (Kleros)
 
 ---
 ## VOLUME 1: THE SCARS (THE "WHY")
@@ -178,18 +235,18 @@ No proof of who signed what.
 Don't send users an email link (high friction). Embed the signing experience inside your app (iFrame).
 
 **Flow**:
+
 1. **Create Envelope**: Send document + signer info to DocuSign.
-2. **Get Recipient View**: Request a URL for embedded signing.
-    ```json
-    {
-"returnUrl": "https://myapp.com/callback",
-"authenticationMethod": "email",
-"email": "user@example.com",
-"userName": "John Doe"
-    }
-    ```
-3. **Display**: Show the URL in an iFrame.
-4. **Callback**: Handle the `returnUrl` event.
+1. **Get Recipient View**: Request a URL for embedded signing.
+        {
+    "returnUrl": "<https://myapp.com/callback",>
+    "authenticationMethod": "email",
+    "email": "user@example.com",
+    "userName": "John Doe"
+        }
+
+1. **Display**: Show the URL in an iFrame.
+1. **Callback**: Handle the `returnUrl` event.
 
 ---
 
@@ -216,14 +273,9 @@ Who arrives first? Webhook or User?
 ### Variable Substitution
 
 **Concept**:
-Don't upload a new PDF for every user. Upload a **Template** with "Tabs" (Placeholders).
-**Placeholders**:
+Don't upload a new PDF for every user. Upload a **Template**with "Tabs" (Placeholders).**Placeholders**:
 
-- `{{client_name}}`
-
-- `{{rent_amount}}`
-
-- `{{start_date}}`
+- `{{client_name}}`-`{{rent_amount}}`-`{{start_date}}`
 **API**:
 Send only the data: `{"client_name": "Alice", "rent_amount": "2000"}`.
 DocuSign merges data into the template.
@@ -256,9 +308,10 @@ You can prove mathematically that a record has *not* been tampered with since cr
 **Concept**:
 You don't need to store the whole PDF on the blockchain (too expensive).
 **Process**:
+
 1. Calculate `SHA256(PDF)`.
-2. Write this Hash to a Smart Contract.
-3. **Proof**: If you have the PDF later, you can hash it again. If it matches the blockchain hash, it proves the document existed at that timestamp and hasn't changed.
+1. Write this Hash to a Smart Contract.
+1. **Proof**: If you have the PDF later, you can hash it again. If it matches the blockchain hash, it proves the document existed at that timestamp and hasn't changed.
 
 ---
 
@@ -272,10 +325,11 @@ A legal contract (PDF) + A smart contract (Code).
 The PDF references the Smart Contract address.
 The Smart Contract references the PDF Hash.
 **Execution**:
+
 1. Tenant signs PDF.
-2. Tenant sends Security Deposit to Smart Contract.
-3. Smart Contract unlocks the Digital Lock (IoT) for the apartment.
-4. If Tenant stops paying, Smart Contract locks the door (after legal grace period).
+1. Tenant sends Security Deposit to Smart Contract.
+1. Smart Contract unlocks the Digital Lock (IoT) for the apartment.
+1. If Tenant stops paying, Smart Contract locks the door (after legal grace period).
 
 ---
 
@@ -301,40 +355,36 @@ Fine-tuned LLM (BERT/GPT) on legal corpus (EDGAR database).
 
 Block public access. Enforce encryption.
 
-```json
-{
-"Version": "2012-10-17",
-"Statement": [
-        {
-"Sid": "DenyPublicRead",
-"Effect": "Deny",
-"Principal": "*",
-"Action": "s3:GetObject",
-"Resource": "arn:aws:s3:::my-legal-docs/*",
-"Condition": {
-"Bool": { "aws:SecureTransport": "false" }
-        }
-        }
-    ]
-}
-
-```text
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+            {
+    "Sid": "DenyPublicRead",
+    "Effect": "Deny",
+    "Principal": "*",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::my-legal-docs/*",
+    "Condition": {
+    "Bool": { "aws:SecureTransport": "false" }
+            }
+            }
+        ]
+    }
+    
 
 ## B. THE AUDIT LOG SCHEMA
 
-```sql
-CREATE TABLE audit_log (
-id UUID PRIMARY KEY,
-document_id UUID,
-user_id UUID,
-action VARCHAR(50), -- 'VIEWED', 'SIGNED', 'DOWNLOADED'
-ip_address INET,
-user_agent TEXT,
-timestamp TIMESTAMP DEFAULT NOW(),
-hash VARCHAR(64) -- SHA256 of the document state
-);
-
-```text
+    CREATE TABLE audit_log (
+    id UUID PRIMARY KEY,
+    document_id UUID,
+    user_id UUID,
+    action VARCHAR(50), -- 'VIEWED', 'SIGNED', 'DOWNLOADED'
+    ip_address INET,
+    user_agent TEXT,
+    timestamp TIMESTAMP DEFAULT NOW(),
+    hash VARCHAR(64) -- SHA256 of the document state
+    );
+    
 ---
 
 ## KEYWORD REFERENCE INDEX
@@ -583,60 +633,58 @@ hash VARCHAR(64) -- SHA256 of the document state
 
 **Why it exists:** Dynamic legal documents
 
-```typescript
-// lib/contracts.ts
-import Handlebars from 'handlebars';
-
-const templates = {
-nda: `
-NON-DISCLOSURE AGREEMENT
-
-This Agreement is entered into on {{date}} between:
-
-DISCLOSER: {{discloser.name}}, {{discloser.address}}
-RECIPIENT: {{recipient.name}}, {{recipient.address}}
-
-1. CONFIDENTIAL INFORMATION
-{{#each sections}}
-{{@index}}. {{this}}
-    {{/each}}
-
-Term: {{term}} months
-Governing Law: {{jurisdiction}}
-
-    _________________________
-    {{discloser.name}}
-
-    _________________________
-    {{recipient.name}}
-  `,
-};
-
-export function generateContract(
-type: keyof typeof templates,
-data: Record<string, any>
-): string {
-const template = Handlebars.compile(templates[type]);
-return template(data);
-}
-
-// Generate PDF
-import PDFDocument from 'pdfkit';
-
-export async function generateContractPDF(content: string): Promise<Buffer> {
-return new Promise((resolve) => {
-const doc = new PDFDocument();
-const chunks: Buffer[] = [];
-
-doc.on('data', (chunk) => chunks.push(chunk));
-doc.on('end', () => resolve(Buffer.concat(chunks)));
-
-doc.fontSize(12).text(content, 50, 50);
-    doc.end();
-  });
-}
-
-```text
+    // lib/contracts.ts
+    import Handlebars from 'handlebars';
+    
+    const templates = {
+    nda: `
+    NON-DISCLOSURE AGREEMENT
+    
+    This Agreement is entered into on {{date}} between:
+    
+    DISCLOSER: {{discloser.name}}, {{discloser.address}}
+    RECIPIENT: {{recipient.name}}, {{recipient.address}}
+    
+    1. CONFIDENTIAL INFORMATION
+    {{#each sections}}
+    {{@index}}. {{this}}
+        {{/each}}
+    
+    Term: {{term}} months
+    Governing Law: {{jurisdiction}}
+    
+        _________________________
+        {{discloser.name}}
+    
+        _________________________
+        {{recipient.name}}
+      `,
+    };
+    
+    export function generateContract(
+    type: keyof typeof templates,
+    data: Record<string, any>
+    ): string {
+    const template = Handlebars.compile(templates[type]);
+    return template(data);
+    }
+    
+    // Generate PDF
+    import PDFDocument from 'pdfkit';
+    
+    export async function generateContractPDF(content: string): Promise<Buffer> {
+    return new Promise((resolve) => {
+    const doc = new PDFDocument();
+    const chunks: Buffer[] = [];
+    
+    doc.on('data', (chunk) => chunks.push(chunk));
+    doc.on('end', () => resolve(Buffer.concat(chunks)));
+    
+    doc.fontSize(12).text(content, 50, 50);
+        doc.end();
+      });
+    }
+    
 ---
 
 ## COMPLIANCE CHECKING
@@ -645,53 +693,51 @@ doc.fontSize(12).text(content, 50, 50);
 
 **Why it exists:** Regulatory compliance
 
-```typescript
-// lib/compliance.ts
-interface GDPRChecklist {
-hasPrivacyPolicy: boolean;
-hasCookieConsent: boolean;
-hasDataProcessingAgreement: boolean;
-hasRightToAccess: boolean;
-hasRightToErasure: boolean;
-hasDataPortability: boolean;
-hasBreachNotification: boolean;
-hasDPO: boolean;
-}
-
-export function validateGDPRCompliance(checklist: GDPRChecklist): {
-compliant: boolean;
-score: number;
-issues: string[];
-} {
-const issues: string[] = [];
-let score = 0;
-const weights = {
-hasPrivacyPolicy: 15,
-hasCookieConsent: 10,
-hasDataProcessingAgreement: 15,
-hasRightToAccess: 15,
-hasRightToErasure: 15,
-hasDataPortability: 10,
-hasBreachNotification: 10,
-hasDPO: 10,
-  };
-
-for (const [key, weight] of Object.entries(weights)) {
-if (checklist[key as keyof GDPRChecklist]) {
-score += weight;
-} else {
-issues.push(`Missing: ${key.replace('has', '').replace(/([A-Z])/g, ' $1')}`);
+    // lib/compliance.ts
+    interface GDPRChecklist {
+    hasPrivacyPolicy: boolean;
+    hasCookieConsent: boolean;
+    hasDataProcessingAgreement: boolean;
+    hasRightToAccess: boolean;
+    hasRightToErasure: boolean;
+    hasDataPortability: boolean;
+    hasBreachNotification: boolean;
+    hasDPO: boolean;
     }
-  }
-
-return {
-compliant: score >= 80,
-    score,
-    issues,
-  };
-}
-
-```text
+    
+    export function validateGDPRCompliance(checklist: GDPRChecklist): {
+    compliant: boolean;
+    score: number;
+    issues: string[];
+    } {
+    const issues: string[] = [];
+    let score = 0;
+    const weights = {
+    hasPrivacyPolicy: 15,
+    hasCookieConsent: 10,
+    hasDataProcessingAgreement: 15,
+    hasRightToAccess: 15,
+    hasRightToErasure: 15,
+    hasDataPortability: 10,
+    hasBreachNotification: 10,
+    hasDPO: 10,
+      };
+    
+    for (const [key, weight] of Object.entries(weights)) {
+    if (checklist[key as keyof GDPRChecklist]) {
+    score += weight;
+    } else {
+    issues.push(`Missing: ${key.replace('has', '').replace(/([A-Z])/g, ' $1')}`);
+        }
+      }
+    
+    return {
+    compliant: score >= 80,
+        score,
+        issues,
+      };
+    }
+    
 ---
 
 ## SIGNATURE
@@ -700,45 +746,43 @@ compliant: score >= 80,
 
 **Why it exists:** Legal electronic signatures
 
-```typescript
-// services/esignature.ts
-import docusign from 'docusign-esign';
-
-export async function sendForSignature(
-documentBase64: string,
-signers: { email: string; name: string }[]
-) {
-const apiClient = new docusign.ApiClient();
-  apiClient.setBasePath(process.env.DOCUSIGN_BASE_PATH!);
-apiClient.addDefaultHeader('Authorization', `Bearer ${await getAccessToken()}`);
-
-const envelopesApi = new docusign.EnvelopesApi(apiClient);
-
-const envelope: docusign.EnvelopeDefinition = {
-emailSubject: 'Please sign this document',
-documents: [{
-      documentBase64,
-name: 'Contract',
-fileExtension: 'pdf',
-documentId: '1',
-    }],
-recipients: {
-signers: signers.map((signer, i) => ({
-email: signer.email,
-name: signer.name,
-recipientId: String(i + 1),
-tabs: {
-signHereTabs: [{ documentId: '1', pageNumber: '1', xPosition: '100', yPosition: '700' }],
+    // services/esignature.ts
+    import docusign from 'docusign-esign';
+    
+    export async function sendForSignature(
+    documentBase64: string,
+    signers: { email: string; name: string }[]
+    ) {
+    const apiClient = new docusign.ApiClient();
+      apiClient.setBasePath(process.env.DOCUSIGN_BASE_PATH!);
+    apiClient.addDefaultHeader('Authorization', `Bearer ${await getAccessToken()}`);
+    
+    const envelopesApi = new docusign.EnvelopesApi(apiClient);
+    
+    const envelope: docusign.EnvelopeDefinition = {
+    emailSubject: 'Please sign this document',
+    documents: [{
+          documentBase64,
+    name: 'Contract',
+    fileExtension: 'pdf',
+    documentId: '1',
+        }],
+    recipients: {
+    signers: signers.map((signer, i) => ({
+    email: signer.email,
+    name: signer.name,
+    recipientId: String(i + 1),
+    tabs: {
+    signHereTabs: [{ documentId: '1', pageNumber: '1', xPosition: '100', yPosition: '700' }],
+            },
+          })),
         },
-      })),
-    },
-status: 'sent',
-  };
-
-return envelopesApi.createEnvelope(process.env.DOCUSIGN_ACCOUNT_ID!, { envelopeDefinition: envelope });
-}
-
-```text
+    status: 'sent',
+      };
+    
+    return envelopesApi.createEnvelope(process.env.DOCUSIGN_ACCOUNT_ID!, { envelopeDefinition: envelope });
+    }
+    
 ---
 
 ### CONTINUED: MORE LEGAL PATTERNS
@@ -758,18 +802,16 @@ return envelopesApi.createEnvelope(process.env.DOCUSIGN_ACCOUNT_ID!, { envelopeD
 > Still missed liability clause buried in Exhibit B.
 > Post-acquisition: $10M surprise liability discovered."
 
-```python
-
-## VIBE: Keyword search for contract review
-
-def find_liability_clauses(contract_text: str) -> list:
-keywords = ['liability', 'indemnify', 'hold harmless']
-return [line for line in contract_text.split('\n')
-if any(kw in line.lower() for kw in keywords)]
-
-## Misses "Seller shall be responsible for all claims arising from..."
-
-```python
+    
+    ## VIBE: Keyword search for contract review
+    
+    def find_liability_clauses(contract_text: str) -> list:
+    keywords = ['liability', 'indemnify', 'hold harmless']
+    return [line for line in contract_text.split('\n')
+    if any(kw in line.lower() for kw in keywords)]
+    
+    ## Misses "Seller shall be responsible for all claims arising from..."
+    
 
 ## TITAN: NLP-based contract analysis
 
@@ -802,7 +844,7 @@ key_terms: dict
 risk_score: float
 
 class ContractAnalyzer:
-def __init__(self):
+def **init**(self):
 
 ## Load legal-specific NLP model
 self.nlp = spacy.load("en_legal_core_lg")  # Legal-trained model
@@ -851,7 +893,7 @@ parties_mentioned=entities.get('parties', []),
 summary = self.generate_contract_summary(classified)
 
 return {
-'clauses': [c.__dict__ for c in classified],
+'clauses': [c.**dict** for c in classified],
 'summary': summary,
 'risk_assessment': self.overall_risk_assessment(classified),
 'missing_clauses': self.identify_missing_clauses(classified)
@@ -951,18 +993,16 @@ risk += score
 ## Cap at 1.0
 return min(risk, 1.0)
 
-```text
-
-## E-DISCOVERY DOCUMENT PROCESSING
-
-## The Scar
-
-> "Litigation discovery: 2 million documents to review.
-> Linear review estimated: 6 months, $5M in attorney time.
-> Missed a 'hot' email buried in PST file.
-> Sanctions for discovery failure. Case lost."
-
-```python
+    
+    ## E-DISCOVERY DOCUMENT PROCESSING
+    
+    ## The Scar
+    
+    > "Litigation discovery: 2 million documents to review.
+    > Linear review estimated: 6 months, $5M in attorney time.
+    > Missed a 'hot' email buried in PST file.
+    > Sanctions for discovery failure. Case lost."
+    
 
 ## VIBE: Manual document review
 
@@ -974,194 +1014,192 @@ print(f"Review: {file}")
 
 ## Misses attachments, metadata, can't handle 2M docs
 
-```python
-
-## TITAN: Technology-Assisted Review (TAR) pipeline
-
-import hashlib
-from dataclasses import dataclass
-from typing import Optional
-import extract_msg
-from email import policy
-from email.parser import BytesParser
-import textract
-
-@dataclass
-class DiscoveryDocument:
-doc_id: str
-hash: str
-file_path: str
-file_type: str
-extracted_text: str
-metadata: dict
-custodian: str
-date: Optional[str]
-relevance_score: float
-privilege_score: float
-hot_document: bool
-
-class EDiscoveryPipeline:
-def __init__(self, db, ml_model):
-self.db = db
-self.ml_model = ml_model
-self.processed = set()  # Deduplication
-
-async def process_collection(self, source_path: str, custodian: str):
-"""Process entire document collection for e-discovery."""
-documents = []
-
-for root, dirs, files in os.walk(source_path):
-for file in files:
-file_path = os.path.join(root, file)
-
-        try:
-doc = await self.process_document(file_path, custodian)
-if doc:
-        documents.append(doc)
-except Exception as e:
-await self.log_processing_error(file_path, str(e))
-
-return documents
-
-async def process_document(self, file_path: str, custodian: str) -> Optional[DiscoveryDocument]:
-"""Process single document with deduplication."""
-
-## Calculate hash for deduplication
-with open(file_path, 'rb') as f:
-content = f.read()
-doc_hash = hashlib.sha256(content).hexdigest()
-
-## Deduplication check
-if doc_hash in self.processed:
-return None
-        self.processed.add(doc_hash)
-
-## Determine file type and extract text
-file_type = self.detect_file_type(file_path)
-extracted_text, metadata = await self.extract_content(file_path, file_type)
-
-## ML-based relevance scoring
-relevance_score = self.ml_model.predict_relevance(extracted_text)
-
-## Privilege detection
-privilege_score = self.detect_privilege(extracted_text, metadata)
-
-## Hot document detection (high relevance + specific keywords)
-hot_document = self.is_hot_document(extracted_text, relevance_score)
-
-doc = DiscoveryDocument(
-        doc_id=hashlib.md5(file_path.encode()).hexdigest()[:12],
-        hash=doc_hash,
-        file_path=file_path,
-        file_type=file_type,
-        extracted_text=extracted_text,
-        metadata=metadata,
-        custodian=custodian,
-        date=metadata.get('date'),
-        relevance_score=relevance_score,
-        privilege_score=privilege_score,
-        hot_document=hot_document
-        )
-
-await self.db.documents.insert(doc.__dict__)
-
-return doc
-
-async def extract_content(self, file_path: str, file_type: str) -> tuple[str, dict]:
-"""Extract text and metadata from various file types."""
-metadata = {}
-
-if file_type == 'email_msg':
-
-## Outlook MSG files
-msg = extract_msg.Message(file_path)
-text = f"From: {msg.sender}\nTo: {msg.to}\nSubject: {msg.subject}\n\n{msg.body}"
-metadata = {
-'from': msg.sender,
-'to': msg.to,
-'subject': msg.subject,
-'date': str(msg.date)
-        }
-
-## Process attachments recursively
-for attachment in msg.attachments:
-attachment_text, _ = await self.extract_content(
-        attachment.file_path,
-        self.detect_file_type(attachment.file_path)
-        )
-text += f"\n\n[ATTACHMENT: {attachment.filename}]\n{attachment_text}"
-
-elif file_type == 'email_eml':
-
-## Standard EML files
-with open(file_path, 'rb') as f:
-msg = BytesParser(policy=policy.default).parse(f)
-text = msg.get_body(preferencelist=('plain', 'html')).get_content()
-metadata = {
-'from': msg['From'],
-'to': msg['To'],
-'subject': msg['Subject'],
-'date': msg['Date']
-        }
-
-elif file_type in ['pdf', 'docx', 'xlsx', 'pptx']:
-
-## Office documents and PDFs
-text = textract.process(file_path).decode('utf-8')
-
-        else:
-
-## Fallback
-text = textract.process(file_path).decode('utf-8', errors='ignore')
-
-return text, metadata
-
-def detect_privilege(self, text: str, metadata: dict) -> float:
-"""Detect attorney-client privilege."""
-privilege_indicators = [
-        'attorney-client',
-'privileged and confidential',
-'legal advice',
-'work product',
-        '@lawfirm.com',
-        'esq.',
-'attorney at law',
-'privileged communication'
-        ]
-
-text_lower = text.lower()
-score = 0.0
-
-for indicator in privilege_indicators:
-if indicator in text_lower:
-score += 0.2
-
-## Check if sender/recipient is attorney
-if metadata.get('from') and '@lawfirm' in metadata['from'].lower():
-score += 0.5
-
-return min(score, 1.0)
-
-def is_hot_document(self, text: str, relevance_score: float) -> bool:
-"""Identify 'hot' documents for priority review."""
-hot_phrases = [
-        'destroy',
-'delete this',
-'do not forward',
-'between us only',
-'off the record',
-'cover up',
-'hide from',
-'bury this'
-        ]
-
-if relevance_score < 0.7:
-return False
-
-text_lower = text.lower()
-return any(phrase in text_lower for phrase in hot_phrases)
-
-```text
+    
+    ## TITAN: Technology-Assisted Review (TAR) pipeline
+    
+    import hashlib
+    from dataclasses import dataclass
+    from typing import Optional
+    import extract_msg
+    from email import policy
+    from email.parser import BytesParser
+    import textract
+    
+    @dataclass
+    class DiscoveryDocument:
+    doc_id: str
+    hash: str
+    file_path: str
+    file_type: str
+    extracted_text: str
+    metadata: dict
+    custodian: str
+    date: Optional[str]
+    relevance_score: float
+    privilege_score: float
+    hot_document: bool
+    
+    class EDiscoveryPipeline:
+    def **init**(self, db, ml_model):
+    self.db = db
+    self.ml_model = ml_model
+    self.processed = set()  # Deduplication
+    
+    async def process_collection(self, source_path: str, custodian: str):
+    """Process entire document collection for e-discovery."""
+    documents = []
+    
+    for root, dirs, files in os.walk(source_path):
+    for file in files:
+    file_path = os.path.join(root, file)
+    
+            try:
+    doc = await self.process_document(file_path, custodian)
+    if doc:
+            documents.append(doc)
+    except Exception as e:
+    await self.log_processing_error(file_path, str(e))
+    
+    return documents
+    
+    async def process_document(self, file_path: str, custodian: str) -> Optional[DiscoveryDocument]:
+    """Process single document with deduplication."""
+    
+    ## Calculate hash for deduplication
+    with open(file_path, 'rb') as f:
+    content = f.read()
+    doc_hash = hashlib.sha256(content).hexdigest()
+    
+    ## Deduplication check
+    if doc_hash in self.processed:
+    return None
+            self.processed.add(doc_hash)
+    
+    ## Determine file type and extract text
+    file_type = self.detect_file_type(file_path)
+    extracted_text, metadata = await self.extract_content(file_path, file_type)
+    
+    ## ML-based relevance scoring
+    relevance_score = self.ml_model.predict_relevance(extracted_text)
+    
+    ## Privilege detection
+    privilege_score = self.detect_privilege(extracted_text, metadata)
+    
+    ## Hot document detection (high relevance + specific keywords)
+    hot_document = self.is_hot_document(extracted_text, relevance_score)
+    
+    doc = DiscoveryDocument(
+            doc_id=hashlib.md5(file_path.encode()).hexdigest()[:12],
+            hash=doc_hash,
+            file_path=file_path,
+            file_type=file_type,
+            extracted_text=extracted_text,
+            metadata=metadata,
+            custodian=custodian,
+            date=metadata.get('date'),
+            relevance_score=relevance_score,
+            privilege_score=privilege_score,
+            hot_document=hot_document
+            )
+    
+    await self.db.documents.insert(doc.**dict**)
+    
+    return doc
+    
+    async def extract_content(self, file_path: str, file_type: str) -> tuple[str, dict]:
+    """Extract text and metadata from various file types."""
+    metadata = {}
+    
+    if file_type == 'email_msg':
+    
+    ## Outlook MSG files
+    msg = extract_msg.Message(file_path)
+    text = f"From: {msg.sender}\nTo: {msg.to}\nSubject: {msg.subject}\n\n{msg.body}"
+    metadata = {
+    'from': msg.sender,
+    'to': msg.to,
+    'subject': msg.subject,
+    'date': str(msg.date)
+            }
+    
+    ## Process attachments recursively
+    for attachment in msg.attachments:
+    attachment_text, _ = await self.extract_content(
+            attachment.file_path,
+            self.detect_file_type(attachment.file_path)
+            )
+    text += f"\n\n[ATTACHMENT: {attachment.filename}]\n{attachment_text}"
+    
+    elif file_type == 'email_eml':
+    
+    ## Standard EML files
+    with open(file_path, 'rb') as f:
+    msg = BytesParser(policy=policy.default).parse(f)
+    text = msg.get_body(preferencelist=('plain', 'html')).get_content()
+    metadata = {
+    'from': msg['From'],
+    'to': msg['To'],
+    'subject': msg['Subject'],
+    'date': msg['Date']
+            }
+    
+    elif file_type in ['pdf', 'docx', 'xlsx', 'pptx']:
+    
+    ## Office documents and PDFs
+    text = textract.process(file_path).decode('utf-8')
+    
+            else:
+    
+    ## Fallback
+    text = textract.process(file_path).decode('utf-8', errors='ignore')
+    
+    return text, metadata
+    
+    def detect_privilege(self, text: str, metadata: dict) -> float:
+    """Detect attorney-client privilege."""
+    privilege_indicators = [
+            'attorney-client',
+    'privileged and confidential',
+    'legal advice',
+    'work product',
+            '@lawfirm.com',
+            'esq.',
+    'attorney at law',
+    'privileged communication'
+            ]
+    
+    text_lower = text.lower()
+    score = 0.0
+    
+    for indicator in privilege_indicators:
+    if indicator in text_lower:
+    score += 0.2
+    
+    ## Check if sender/recipient is attorney
+    if metadata.get('from') and '@lawfirm' in metadata['from'].lower():
+    score += 0.5
+    
+    return min(score, 1.0)
+    
+    def is_hot_document(self, text: str, relevance_score: float) -> bool:
+    """Identify 'hot' documents for priority review."""
+    hot_phrases = [
+            'destroy',
+    'delete this',
+    'do not forward',
+    'between us only',
+    'off the record',
+    'cover up',
+    'hide from',
+    'bury this'
+            ]
+    
+    if relevance_score < 0.7:
+    return False
+    
+    text_lower = text.lower()
+    return any(phrase in text_lower for phrase in hot_phrases)
+    
 
 ## IMMUTABLE AUDIT LOGS WITH QLDB
 
@@ -1172,19 +1210,17 @@ return any(phrase in text_lower for phrase in hot_phrases)
 > Regulatory investigation hit dead end.
 > $50M fine for inadequate record-keeping."
 
-```python
-
-## VIBE: SQL audit log (deletable)
-
-def log_action(user_id: str, action: str, document_id: str):
-    db.execute(
-"INSERT INTO audit_logs VALUES (?, ?, ?, NOW())",
-[user_id, action, document_id]
-    )
-
-## Can be deleted: DELETE FROM audit_logs WHERE ..
-
-```python
+    
+    ## VIBE: SQL audit log (deletable)
+    
+    def log_action(user_id: str, action: str, document_id: str):
+        db.execute(
+    "INSERT INTO audit_logs VALUES (?, ?, ?, NOW())",
+    [user_id, action, document_id]
+        )
+    
+    ## Can be deleted: DELETE FROM audit_logs WHERE ..
+    
 
 ## TITAN: Amazon QLDB for cryptographically verifiable logs
 
@@ -1193,7 +1229,7 @@ from amazon.ion import simpleion
 import hashlib
 
 class ImmutableAuditLog:
-def __init__(self, ledger_name: str = 'legal-audit-ledger'):
+def **init**(self, ledger_name: str = 'legal-audit-ledger'):
 self.client = boto3.client('qldb-session')
 self.ledger_name = ledger_name
 self.table_name = 'AuditLog'
@@ -1302,19 +1338,17 @@ calculated_hash = hashlib.sha256(calculated_hash + proof_hash).digest()
 
 return calculated_hash == digest
 
-```text
-
-## END OF VOLUME 8: TITAN GEMINI RESEARCH - LEGAL TECH PRODUCTION
-
----
-
-## VOLUME 2: PRODUCTION LEGAL DOCUMENT PATTERNS
-
-## CONTRACT GENERATION ENGINE
-
-### Template-Based Document Generation
-
-```typescript
+    
+    ## END OF VOLUME 8: TITAN GEMINI RESEARCH - LEGAL TECH PRODUCTION
+    
+    ---
+    
+    ## VOLUME 2: PRODUCTION LEGAL DOCUMENT PATTERNS
+    
+    ## CONTRACT GENERATION ENGINE
+    
+    ### Template-Based Document Generation
+    
 // ? TITAN: Production contract generator with version control
 import Handlebars from 'handlebars';
 import { v4 as uuidv4 } from 'uuid';
@@ -1406,14 +1440,12 @@ return crypto.subtle.digest('SHA-256', data)
   }
 }
 
-```text
----
-
-## E-SIGNATURE INTEGRATION
-
-### DocuSign API Integration
-
-```typescript
+    ---
+    
+    ## E-SIGNATURE INTEGRATION
+    
+    ### DocuSign API Integration
+    
 // ? TITAN: Production e-signature workflow
 interface SignatureRequest {
 documentId: string;
@@ -1424,7 +1456,7 @@ emailBody: string;
 }
 
 class ESignatureService {
-private baseUrl = 'https://na4.docusign.net/restapi';
+private baseUrl = '<https://na4.docusign.net/restapi';>
 private accountId: string;
 
 async sendForSignature(request: SignatureRequest): Promise<EnvelopeResult> {
@@ -1519,11 +1551,9 @@ signedAt: s.signedDateTime
   }
 }
 
-```text
----
-
-### END OF LEGAL DOCS VOLUME 2
-
-### Lines: ~200+ added
-
-```text
+    ---
+    
+    ### END OF LEGAL DOCS VOLUME 2
+    
+    ### Lines: ~200+ added
+    

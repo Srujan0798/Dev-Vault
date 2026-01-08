@@ -1,42 +1,43 @@
 # REALTIME VIDEO
 ## Table of Contents
 
-- [TABLE OF CONTENTS](#table-of-contents)
+- [Table of Contents](#table-of-contents)
+- [16_REALTIME_VIDEO.MD: THE TITAN GUIDE (50K TARGET)](#16realtimevideomd-the-titan-guide-50k-target)
 - [Production-Grade WebRTC, HLS, and Volumetric Streaming](#production-grade-webrtc-hls-and-volumetric-streaming)
-  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
 - [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
-  - [1. THE "AWKWARD SILENCE"](#1-the-awkward-silence)
-    - [HLS vs WebRTC](#hls-vs-webrtc)
-  - [2. THE "FEEDBACK LOOP" FROM HELL](#2-the-feedback-loop-from-hell)
-    - [AEC Failure](#aec-failure)
+- [1. THE "AWKWARD SILENCE"](#1-the-awkward-silence)
+  - [HLS vs WebRTC](#hls-vs-webrtc)
+- [2. THE "FEEDBACK LOOP" FROM HELL](#2-the-feedback-loop-from-hell)
+  - [AEC Failure](#aec-failure)
 - [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
-  - [5. WEBRTC VS HLS](#5-webrtc-vs-hls)
-    - [The Latency Tradeoff](#the-latency-tradeoff)
+- [5. WEBRTC VS HLS](#5-webrtc-vs-hls)
+  - [The Latency Tradeoff](#the-latency-tradeoff)
 - [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
-  - [10. SIMULCAST](#10-simulcast)
-    - [Quality Tiers](#quality-tiers)
-  - [12. NAT TRAVERSAL](#12-nat-traversal)
-    - [STUN / TURN / ICE](#stun-turn-ice)
+- [10. SIMULCAST](#10-simulcast)
+  - [Quality Tiers](#quality-tiers)
+- [12. NAT TRAVERSAL](#12-nat-traversal)
+  - [STUN / TURN / ICE](#stun--turn--ice)
 - [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
-  - [13. SFU VS MCU](#13-sfu-vs-mcu)
-    - [Scaling Architectures](#scaling-architectures)
+- [13. SFU VS MCU](#13-sfu-vs-mcu)
+  - [Scaling Architectures](#scaling-architectures)
 - [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
-  - [16. AV1 CODEC](#16-av1-codec)
-    - [The Royalty-Free Future](#the-royalty-free-future)
-  - [17. WEBASSEMBLY VIDEO FILTERS](#17-webassembly-video-filters)
-    - [Background Blur](#background-blur)
+- [16. AV1 CODEC](#16-av1-codec)
+  - [The Royalty-Free Future](#the-royalty-free-future)
+- [17. WEBASSEMBLY VIDEO FILTERS](#17-webassembly-video-filters)
+  - [Background Blur](#background-blur)
 - [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
-  - [19. VOLUMETRIC VIDEO](#19-volumetric-video)
-    - [Holograms](#holograms)
+- [19. VOLUMETRIC VIDEO](#19-volumetric-video)
+  - [Holograms](#holograms)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-  - [A. THE ULTIMATE FFMPEG COMMAND](#a-the-ultimate-ffmpeg-command)
+- [A. THE ULTIMATE FFMPEG COMMAND](#a-the-ultimate-ffmpeg-command)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+- [Each line = 100x LLM expansion potential](#each-line--100x-llm-expansion-potential)
 - [WEBRTC](#webrtc)
 - [CODECS](#codecs)
 - [STREAMING PROTOCOLS](#streaming-protocols)
@@ -45,75 +46,94 @@
 - [QUALITY](#quality)
 - [DRM](#drm)
 - [TIME FEATURES](#time-features)
-  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [VIDEO CODECS DEEP ATLAS](#video-codecs-deep-atlas)
-  - [Each keyword = expandable algorithm](#each-keyword-expandable-algorithm)
-  - [H.264/AVC](#h264avc)
-  - [H.265/HEVC](#h265hevc)
-  - [AV1](#av1)
-  - [VP9](#vp9)
+- [Each keyword = expandable algorithm](#each-keyword--expandable-algorithm)
+- [H.264/AVC](#h264avc)
+- [H.265/HEVC](#h265hevc)
+- [AV1](#av1)
+- [VP9](#vp9)
 - [AUDIO PROCESSING DEEP ATLAS](#audio-processing-deep-atlas)
-  - [Each keyword = expandable technique](#each-keyword-expandable-technique)
-  - [Codecs](#codecs-1)
-  - [Echo Cancellation](#echo-cancellation)
-  - [Noise Suppression](#noise-suppression)
+- [Each keyword = expandable technique](#each-keyword--expandable-technique)
+- [Codecs](#codecs-1)
+- [Echo Cancellation](#echo-cancellation)
+- [Noise Suppression](#noise-suppression)
 - [QUALITY METRICS DEEP ATLAS](#quality-metrics-deep-atlas)
-  - [Each keyword = expandable measurement](#each-keyword-expandable-measurement)
-  - [Video Quality](#video-quality)
-  - [Call Quality](#call-quality)
-  - [Monitoring](#monitoring)
-    - [END OF MEGA REALTIME VIDEO EXPANSION](#end-of-mega-realtime-video-expansion)
+- [Each keyword = expandable measurement](#each-keyword--expandable-measurement)
+- [Video Quality](#video-quality)
+- [Call Quality](#call-quality)
+- [Monitoring](#monitoring)
+  - [END OF MEGA REALTIME VIDEO EXPANSION](#end-of-mega-realtime-video-expansion)
 - [STREAMING ARCHITECTURE DEEP ATLAS](#streaming-architecture-deep-atlas)
-  - [Each keyword = expandable component](#each-keyword-expandable-component)
-  - [Media Server](#media-server)
-  - [Protocols](#protocols)
-  - [ABR](#abr)
-  - [CDN](#cdn)
+- [Each keyword = expandable component](#each-keyword--expandable-component)
+- [Media Server](#media-server)
+- [Protocols](#protocols)
+- [ABR](#abr)
+- [CDN](#cdn)
 - [LIVE STREAMING DEEP ATLAS](#live-streaming-deep-atlas)
-  - [Each keyword = expandable feature](#each-keyword-expandable-feature)
-  - [Ingest](#ingest)
-  - [Transcoding](#transcoding)
-  - [Platforms](#platforms)
-  - [Interactive](#interactive)
+- [Each keyword = expandable feature](#each-keyword--expandable-feature)
+- [Ingest](#ingest)
+- [Transcoding](#transcoding)
+- [Platforms](#platforms)
+- [Interactive](#interactive)
 - [RECORDING DEEP ATLAS](#recording-deep-atlas)
-  - [Each keyword = expandable feature](#each-keyword-expandable-feature-1)
-  - [Capture](#capture)
-  - [Storage](#storage)
-  - [Processing](#processing)
-  - [Playback](#playback)
+- [Each keyword = expandable feature](#each-keyword--expandable-feature-1)
+- [Capture](#capture)
+- [Storage](#storage)
+- [Processing](#processing)
+- [Playback](#playback)
 - [WEBRTC ADVANCED DEEP ATLAS](#webrtc-advanced-deep-atlas)
-  - [Each keyword = expandable concept](#each-keyword-expandable-concept)
-  - [Protocols](#protocols-1)
-  - [Optimization](#optimization)
-  - [Scaling](#scaling)
-  - [Libraries](#libraries)
-    - [END OF ULTRA REALTIME VIDEO EXPANSION](#end-of-ultra-realtime-video-expansion)
-    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+- [Each keyword = expandable concept](#each-keyword--expandable-concept)
+- [Protocols](#protocols-1)
+- [Optimization](#optimization)
+- [Scaling](#scaling)
+- [Libraries](#libraries)
+  - [END OF ULTRA REALTIME VIDEO EXPANSION](#end-of-ultra-realtime-video-expansion)
+  - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+- [REAL-TIME VIDEO CODE EXAMPLES](#real-time-video-code-examples)
 - [WEBRTC PATTERNS](#webrtc-patterns)
-  - [Peer Connection Setup](#peer-connection-setup)
+- [Peer Connection Setup](#peer-connection-setup)
 - [MEDIA RECORDER](#media-recorder)
-  - [Recording Video](#recording-video)
+- [Recording Video](#recording-video)
 - [HLS STREAMING](#hls-streaming)
-  - [Video Player with HLS.js](#video-player-with-hlsjs)
-    - [CONTINUED: MORE VIDEO PATTERNS](#continued-more-video-patterns)
+- [Video Player with HLS.js](#video-player-with-hlsjs)
+  - [CONTINUED: MORE VIDEO PATTERNS](#continued-more-video-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - REAL-TIME VIDEO FAILURES](#volume-8-titan-gemini-research---real-time-video-failures)
-  - [WEBRTC ICE RESTART FOR NETWORK CHANGES](#webrtc-ice-restart-for-network-changes)
-    - [The Scar](#the-scar)
-  - [JITTER BUFFER OPTIMIZATION](#jitter-buffer-optimization)
-    - [The Scar](#the-scar-1)
-    - [END OF VOLUME 8: TITAN GEMINI RESEARCH - REAL-TIME VIDEO FAILURES](#end-of-volume-8-titan-gemini-research---real-time-video-failures)
+- [WEBRTC ICE RESTART FOR NETWORK CHANGES](#webrtc-ice-restart-for-network-changes)
+  - [The Scar](#the-scar)
+- [TURN SERVER CASCADING FOR SCALE](#turn-server-cascading-for-scale)
+  - [The Scar](#the-scar-1)
+- [JITTER BUFFER OPTIMIZATION](#jitter-buffer-optimization)
+  - [The Scar](#the-scar-2)
+- [FFMPEG GPU TRANSCODING](#ffmpeg-gpu-transcoding)
+  - [The Scar](#the-scar-3)
+- [VIBE: CPU-only transcoding](#vibe-cpu-only-transcoding)
+- [0.5x realtime on modern server = too slow](#05x-realtime-on-modern-server--too-slow)
+- [TITAN: NVIDIA GPU transcoding with NVENC](#titan-nvidia-gpu-transcoding-with-nvenc)
+- [5-10x faster than CPU](#5-10x-faster-than-cpu)
+- [Check for NVIDIA GPU](#check-for-nvidia-gpu)
+- [Transcode with NVENC (H.264)](#transcode-with-nvenc-h264)
+- [TITAN: Multi-quality encoding for ABR](#titan-multi-quality-encoding-for-abr)
+- [Encode multiple resolutions on GPU simultaneously](#encode-multiple-resolutions-on-gpu-simultaneously)
+- [TITAN: Intel QuickSync for lower-cost GPU encoding](#titan-intel-quicksync-for-lower-cost-gpu-encoding)
+- [TITAN: Kubernetes GPU transcoding job](#titan-kubernetes-gpu-transcoding-job)
+- [kubernetes/transcoding-job.yaml](#kubernetestranscoding-jobyaml)
+- [WEBRTC BANDWIDTH ESTIMATION TUNING](#webrtc-bandwidth-estimation-tuning)
+- [The Scar](#the-scar-4)
+  - [END OF VOLUME 8: TITAN GEMINI RESEARCH - REAL-TIME VIDEO FAILURES](#end-of-volume-8-titan-gemini-research---real-time-video-failures)
 - [VOLUME 2: PRODUCTION STREAMING PATTERNS](#volume-2-production-streaming-patterns)
-  - [WEBRTC PRODUCTION PATTERNS](#webrtc-production-patterns)
-    - [SFU (Selective Forwarding Unit) Architecture](#sfu-selective-forwarding-unit-architecture)
-  - [ADAPTIVE BITRATE STREAMING (ABR)](#adaptive-bitrate-streaming-abr)
-    - [Netflix-Style ABR Algorithm](#netflix-style-abr-algorithm)
-  - [LOW-LATENCY LIVE STREAMING](#low-latency-live-streaming)
-    - [CMAF Low-Latency HLS Implementation](#cmaf-low-latency-hls-implementation)
-    - [END OF REALTIME VIDEO VOLUME 2](#end-of-realtime-video-volume-2)
-    - [Lines: ~200+ added](#lines-200-added)
+- [WEBRTC PRODUCTION PATTERNS](#webrtc-production-patterns)
+  - [SFU (Selective Forwarding Unit) Architecture](#sfu-selective-forwarding-unit-architecture)
+- [ADAPTIVE BITRATE STREAMING (ABR)](#adaptive-bitrate-streaming-abr)
+  - [Netflix-Style ABR Algorithm](#netflix-style-abr-algorithm)
+- [LOW-LATENCY LIVE STREAMING](#low-latency-live-streaming)
+  - [CMAF Low-Latency HLS Implementation](#cmaf-low-latency-hls-implementation)
+  - [END OF REALTIME VIDEO VOLUME 2](#end-of-realtime-video-volume-2)
+  - [Lines: ~200+ added](#lines-200-added)
 - [REAL WEBRTC PATTERNS 2024](#real-webrtc-patterns-2024)
-  - [Peer-to-Peer Video Call](#peer-to-peer-video-call)
-    - [END OF REALTIME VIDEO PATTERNS](#end-of-realtime-video-patterns)
+- [Peer-to-Peer Video Call](#peer-to-peer-video-call)
+  - [END OF REALTIME VIDEO PATTERNS](#end-of-realtime-video-patterns)
+- [VOLUME 2: TITAN UPGRADE (APPENDED)](#volume-2-titan-upgrade-appended)
 - [1. THE SCARS](#1-the-scars)
 - [2. THE FOUNDATION](#2-the-foundation)
 - [3. TITAN PATTERNS](#3-titan-patterns)
@@ -134,47 +154,53 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
+
 1. The "Awkward Silence" (HLS Latency)
-2. The "Feedback Loop" From Hell (Echo)
-3. The "Black Screen" (Autoplay Block)
-4. The "Bandwidth Hog" (4K on 3G)
+1. The "Feedback Loop" From Hell (Echo)
+1. The "Black Screen" (Autoplay Block)
+1. The "Bandwidth Hog" (4K on 3G)
 
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-5. WebRTC vs HLS (The Latency Tradeoff)
-6. Twilio Video Integration (Quick Start)
-7. OBS & RTMP Streaming (Ingest)
-8. Codecs (H.264, VP8, VP9)
+
+1. WebRTC vs HLS (The Latency Tradeoff)
+1. Twilio Video Integration (Quick Start)
+1. OBS & RTMP Streaming (Ingest)
+1. Codecs (H.264, VP8, VP9)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-9. Adaptive Bitrate (ABR)
-10. Simulcast (Quality Tiers)
-11. Transcoding Pipelines (FFmpeg)
-12. NAT Traversal (STUN/TURN/ICE)
+
+1. Adaptive Bitrate (ABR)
+1. Simulcast (Quality Tiers)
+1. Transcoding Pipelines (FFmpeg)
+1. NAT Traversal (STUN/TURN/ICE)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-13. SFU vs MCU Architecture (Scaling WebRTC)
-14. Global Edge Network (TURN Servers)
-15. E2E Encryption (Insertable Streams)
+
+1. SFU vs MCU Architecture (Scaling WebRTC)
+1. Global Edge Network (TURN Servers)
+1. E2E Encryption (Insertable Streams)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-16. AV1 Codec (The Future)
-17. WebAssembly Video Filters (Background Blur)
-18. Custom Congestion Control (Google GCC)
+
+1. AV1 Codec (The Future)
+1. WebAssembly Video Filters (Background Blur)
+1. Custom Congestion Control (Google GCC)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-19. Volumetric Video (Holograms)
-20. NeRF Streaming (Neural Radiance Fields)
-21. Generative Video Compression
+
+1. Volumetric Video (Holograms)
+1. NeRF Streaming (Neural Radiance Fields)
+1. Generative Video Compression
 
 ---
 ## VOLUME 1: THE SCARS (THE "WHY")
@@ -206,7 +232,7 @@ Mic picks up speaker output. Sends it back.
 **The Result**:
 Screeching feedback loop.
 **The Fix**:
-**AEC (Acoustic Echo Cancellation)**. Browser handles this, but you must ensure `echoCancellation: true` in `getUserMedia`.
+**AEC (Acoustic Echo Cancellation)**. Browser handles this, but you must ensure `echoCancellation: true`in`getUserMedia`.
 
 ---
 
@@ -313,10 +339,11 @@ H.264 is old. H.265 requires royalties.
 **Concept**:
 Process video frames in the browser before sending.
 **Pipeline**:
-1. `getUserMedia` -> `VideoFrame`.
-2. Send frame to WebAssembly (C++ OpenCV or TensorFlow Lite).
-3. Apply segmentation mask (Blur background).
-4. Send processed frame to WebRTC PeerConnection.
+
+1. `getUserMedia`->`VideoFrame`.
+1. Send frame to WebAssembly (C++ OpenCV or TensorFlow Lite).
+1. Apply segmentation mask (Blur background).
+1. Send processed frame to WebRTC PeerConnection.
 
 ---
 
@@ -341,20 +368,18 @@ Requires massive bandwidth (Gbps).
 
 Convert video to HLS with 3 quality layers.
 
-```bash
-ffmpeg -i input.mp4 \
--map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 \
--c:v libx264 -crf 22 -c:a aac -ar 44100 \
--filter:v:0 scale=w=480:h=360  -maxrate:v:0 600k -b:a:0 64k \
--filter:v:1 scale=w=640:h=480  -maxrate:v:1 1500k -b:a:1 128k \
--filter:v:2 scale=w=1280:h=720 -maxrate:v:2 3000k -b:a:2 128k \
--var_stream_map "v:0,a:0 v:1,a:1 v:2,a:2" \
--master_pl_name master.m3u8 \
--f hls -hls_time 6 -hls_list_size 0 \
--hls_segment_filename "v%v/fileSequence%d.ts" \
-  v%v/prog_index.m3u8
-
-```text
+    ffmpeg -i input.mp4 \
+    -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 \
+    -c:v libx264 -crf 22 -c:a aac -ar 44100 \
+    -filter:v:0 scale=w=480:h=360  -maxrate:v:0 600k -b:a:0 64k \
+    -filter:v:1 scale=w=640:h=480  -maxrate:v:1 1500k -b:a:1 128k \
+    -filter:v:2 scale=w=1280:h=720 -maxrate:v:2 3000k -b:a:2 128k \
+    -var_stream_map "v:0,a:0 v:1,a:1 v:2,a:2" \
+    -master_pl_name master.m3u8 \
+    -f hls -hls_time 6 -hls_list_size 0 \
+    -hls_segment_filename "v%v/fileSequence%d.ts" \
+      v%v/prog_index.m3u8
+    
 ---
 
 ## KEYWORD REFERENCE INDEX
@@ -853,58 +878,56 @@ ffmpeg -i input.mp4 \
 
 **Why it exists:** Browser-to-browser video streaming
 
-```typescript
-// lib/webrtc.ts
-export class PeerConnection {
-private pc: RTCPeerConnection;
-| private localStream: MediaStream | null = null; |
-
-constructor(private onTrack: (stream: MediaStream) => void) {
-this.pc = new RTCPeerConnection({
-iceServers: [
-{ urls: 'stun:stun.l.google.com:19302' },
-{ urls: process.env.NEXT_PUBLIC_TURN_URL!, credential: '...' },
-      ],
-    });
-
-this.pc.ontrack = (event) => {
-      this.onTrack(event.streams[0]);
-    };
-
-this.pc.onicecandidate = (event) => {
-if (event.candidate) {
-this.sendSignal({ type: 'candidate', candidate: event.candidate });
+    // lib/webrtc.ts
+    export class PeerConnection {
+    private pc: RTCPeerConnection;
+    | private localStream: MediaStream | null = null; |
+    
+    constructor(private onTrack: (stream: MediaStream) => void) {
+    this.pc = new RTCPeerConnection({
+    iceServers: [
+    { urls: 'stun:stun.l.google.com:19302' },
+    { urls: process.env.NEXT_PUBLIC_TURN_URL!, credential: '...' },
+          ],
+        });
+    
+    this.pc.ontrack = (event) => {
+          this.onTrack(event.streams[0]);
+        };
+    
+    this.pc.onicecandidate = (event) => {
+    if (event.candidate) {
+    this.sendSignal({ type: 'candidate', candidate: event.candidate });
+          }
+        };
       }
-    };
-  }
-
-async startLocalVideo() {
-this.localStream = await navigator.mediaDevices.getUserMedia({
-video: { width: 1280, height: 720 },
-audio: true,
-    });
-this.localStream.getTracks().forEach(track => {
-this.pc.addTrack(track, this.localStream!);
-    });
-return this.localStream;
-  }
-
-async createOffer() {
-const offer = await this.pc.createOffer();
-await this.pc.setLocalDescription(offer);
-return offer;
-  }
-
-async handleAnswer(answer: RTCSessionDescriptionInit) {
-await this.pc.setRemoteDescription(answer);
-  }
-
-async handleCandidate(candidate: RTCIceCandidateInit) {
-await this.pc.addIceCandidate(candidate);
-  }
-}
-
-```text
+    
+    async startLocalVideo() {
+    this.localStream = await navigator.mediaDevices.getUserMedia({
+    video: { width: 1280, height: 720 },
+    audio: true,
+        });
+    this.localStream.getTracks().forEach(track => {
+    this.pc.addTrack(track, this.localStream!);
+        });
+    return this.localStream;
+      }
+    
+    async createOffer() {
+    const offer = await this.pc.createOffer();
+    await this.pc.setLocalDescription(offer);
+    return offer;
+      }
+    
+    async handleAnswer(answer: RTCSessionDescriptionInit) {
+    await this.pc.setRemoteDescription(answer);
+      }
+    
+    async handleCandidate(candidate: RTCIceCandidateInit) {
+    await this.pc.addIceCandidate(candidate);
+      }
+    }
+    
 ---
 
 ## MEDIA RECORDER
@@ -913,52 +936,50 @@ await this.pc.addIceCandidate(candidate);
 
 **Why it exists:** Record and upload video
 
-```typescript
-// hooks/useMediaRecorder.ts
-import { useState, useRef, useCallback } from 'react';
-
-export function useMediaRecorder() {
-const [isRecording, setIsRecording] = useState(false);
-| const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null); |
-| const mediaRecorderRef = useRef<MediaRecorder | null>(null); |
-const chunksRef = useRef<Blob[]>([]);
-
-const startRecording = useCallback(async () => {
-const stream = await navigator.mediaDevices.getUserMedia({
-video: true,
-audio: true,
-    });
-
-const mediaRecorder = new MediaRecorder(stream, {
-mimeType: 'video/webm;codecs=vp9',
-    });
-
-mediaRecorder.ondataavailable = (event) => {
-if (event.data.size > 0) {
-        chunksRef.current.push(event.data);
-      }
-    };
-
-mediaRecorder.onstop = () => {
-const blob = new Blob(chunksRef.current, { type: 'video/webm' });
-      setRecordedBlob(blob);
-chunksRef.current = [];
-    };
-
-mediaRecorderRef.current = mediaRecorder;
-mediaRecorder.start(1000); // Chunk every second
-    setIsRecording(true);
-}, []);
-
-const stopRecording = useCallback(() => {
-    mediaRecorderRef.current?.stop();
-    setIsRecording(false);
-}, []);
-
-return { isRecording, recordedBlob, startRecording, stopRecording };
-}
-
-```text
+    // hooks/useMediaRecorder.ts
+    import { useState, useRef, useCallback } from 'react';
+    
+    export function useMediaRecorder() {
+    const [isRecording, setIsRecording] = useState(false);
+    | const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null); |
+    | const mediaRecorderRef = useRef<MediaRecorder | null>(null); |
+    const chunksRef = useRef<Blob[]>([]);
+    
+    const startRecording = useCallback(async () => {
+    const stream = await navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true,
+        });
+    
+    const mediaRecorder = new MediaRecorder(stream, {
+    mimeType: 'video/webm;codecs=vp9',
+        });
+    
+    mediaRecorder.ondataavailable = (event) => {
+    if (event.data.size > 0) {
+            chunksRef.current.push(event.data);
+          }
+        };
+    
+    mediaRecorder.onstop = () => {
+    const blob = new Blob(chunksRef.current, { type: 'video/webm' });
+          setRecordedBlob(blob);
+    chunksRef.current = [];
+        };
+    
+    mediaRecorderRef.current = mediaRecorder;
+    mediaRecorder.start(1000); // Chunk every second
+        setIsRecording(true);
+    }, []);
+    
+    const stopRecording = useCallback(() => {
+        mediaRecorderRef.current?.stop();
+        setIsRecording(false);
+    }, []);
+    
+    return { isRecording, recordedBlob, startRecording, stopRecording };
+    }
+    
 ---
 
 ## HLS STREAMING
@@ -967,51 +988,49 @@ return { isRecording, recordedBlob, startRecording, stopRecording };
 
 **Why it exists:** Adaptive bitrate streaming
 
-```typescript
-// components/VideoPlayer.tsx
-import { useEffect, useRef } from 'react';
-import Hls from 'hls.js';
-
-export function VideoPlayer({ src }: { src: string }) {
-const videoRef = useRef<HTMLVideoElement>(null);
-
-useEffect(() => {
-const video = videoRef.current;
-if (!video) return;
-
-if (Hls.isSupported()) {
-const hls = new Hls({
-maxBufferLength: 30,
-maxMaxBufferLength: 60,
-enableWorker: true,
-      });
-
-      hls.loadSource(src);
-      hls.attachMedia(video);
-
-hls.on(Hls.Events.ERROR, (event, data) => {
-if (data.fatal) {
-switch (data.type) {
-case Hls.ErrorTypes.NETWORK_ERROR:
-        hls.startLoad();
-        break;
-case Hls.ErrorTypes.MEDIA_ERROR:
-        hls.recoverMediaError();
-        break;
+    // components/VideoPlayer.tsx
+    import { useEffect, useRef } from 'react';
+    import Hls from 'hls.js';
+    
+    export function VideoPlayer({ src }: { src: string }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    
+    useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    
+    if (Hls.isSupported()) {
+    const hls = new Hls({
+    maxBufferLength: 30,
+    maxMaxBufferLength: 60,
+    enableWorker: true,
+          });
+    
+          hls.loadSource(src);
+          hls.attachMedia(video);
+    
+    hls.on(Hls.Events.ERROR, (event, data) => {
+    if (data.fatal) {
+    switch (data.type) {
+    case Hls.ErrorTypes.NETWORK_ERROR:
+            hls.startLoad();
+            break;
+    case Hls.ErrorTypes.MEDIA_ERROR:
+            hls.recoverMediaError();
+            break;
+            }
+            }
+          });
+    
+    return () => hls.destroy();
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = src; // Native HLS support (Safari)
         }
-        }
-      });
-
-return () => hls.destroy();
-} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-video.src = src; // Native HLS support (Safari)
+    }, [src]);
+    
+    return <video ref={videoRef} controls playsInline className="w-full" />;
     }
-}, [src]);
-
-return <video ref={videoRef} controls playsInline className="w-full" />;
-}
-
-```text
+    
 ---
 
 ### CONTINUED: MORE VIDEO PATTERNS
@@ -1031,12 +1050,10 @@ return <video ref={videoRef} controls playsInline className="w-full" />;
 > Connection never recovered despite new network available.
 > 30% of mobile users impacted."
 
-```typescript
-// VIBE: No ICE restart on network change
-const pc = new RTCPeerConnection(config);
-// Connection dies when network changes
-
-```typescript
+    // VIBE: No ICE restart on network change
+    const pc = new RTCPeerConnection(config);
+    // Connection dies when network changes
+    
 // TITAN: Automatic ICE restart on connection failure
 class ResilientPeerConnection {
 private pc: RTCPeerConnection;
@@ -1120,18 +1137,16 @@ iceRestart: true
     }
 }
 
-```text
-
-## TURN SERVER CASCADING FOR SCALE
-
-### The Scar
-
-> "Video call between New York and Singapore.
-> TURN server in US. 300ms additional latency added.
-> Terrible call quality. Users complaining.
-> No geo-distributed TURN servers."
-
-```typescript
+    
+    ## TURN SERVER CASCADING FOR SCALE
+    
+    ### The Scar
+    
+    > "Video call between New York and Singapore.
+    > TURN server in US. 300ms additional latency added.
+    > Terrible call quality. Users complaining.
+    > No geo-distributed TURN servers."
+    
 // VIBE: Single TURN server region
 const config = {
 iceServers: [
@@ -1140,80 +1155,78 @@ iceServers: [
 };
 // User in Singapore gets 300ms+ RTT
 
-```typescript
-// TITAN: Geo-distributed TURN with smart selection
-async function getTURNServers(): Promise<RTCIceServer[]> {
-// Get user's approximate location
-const response = await fetch('https://api.example.com/location');
-const { region } = await response.json();
-
-// Select closest TURN servers
-const turnEndpoints: Record<string, RTCIceServer[]> = {
-'us-east': [
-{ urls: 'turn:us-east.turn.example.com:443?transport=tcp', credential: 'x' },
-{ urls: 'turn:eu-west.turn.example.com:443?transport=tcp', credential: 'x' }  // Fallback
-        ],
-'eu-west': [
-{ urls: 'turn:eu-west.turn.example.com:443?transport=tcp', credential: 'x' },
-{ urls: 'turn:us-east.turn.example.com:443?transport=tcp', credential: 'x' }
-        ],
-'ap-southeast': [
-{ urls: 'turn:ap-southeast.turn.example.com:443?transport=tcp', credential: 'x' },
-{ urls: 'turn:ap-northeast.turn.example.com:443?transport=tcp', credential: 'x' }
-        ]
-    };
-
-| return turnEndpoints[region] |  | turnEndpoints['us-east']; |
-}
-
-// TITAN: TURN server health monitoring
-class TURNHealthMonitor {
-private servers: Map<string, { healthy: boolean, latency: number }> = new Map();
-
-async checkHealth(serverUrl: string): Promise<number> {
-const start = performance.now();
-
-try {
-// Create temporary PC to test TURN connectivity
-const pc = new RTCPeerConnection({
-iceServers: [{ urls: serverUrl, credential: 'test' }]
-        });
-
-return new Promise((resolve, reject) => {
-        pc.createDataChannel('health-check');
-
-pc.onicecandidate = (e) => {
-if (e.candidate?.type === 'relay') {
-// Got relay candidate = TURN is working
-const latency = performance.now() - start;
-        pc.close();
-        resolve(latency);
-        }
+    // TITAN: Geo-distributed TURN with smart selection
+    async function getTURNServers(): Promise<RTCIceServer[]> {
+    // Get user's approximate location
+    const response = await fetch('<https://api.example.com/location>');
+    const { region } = await response.json();
+    
+    // Select closest TURN servers
+    const turnEndpoints: Record<string, RTCIceServer[]> = {
+    'us-east': [
+    { urls: 'turn:us-east.turn.example.com:443?transport=tcp', credential: 'x' },
+    { urls: 'turn:eu-west.turn.example.com:443?transport=tcp', credential: 'x' }  // Fallback
+            ],
+    'eu-west': [
+    { urls: 'turn:eu-west.turn.example.com:443?transport=tcp', credential: 'x' },
+    { urls: 'turn:us-east.turn.example.com:443?transport=tcp', credential: 'x' }
+            ],
+    'ap-southeast': [
+    { urls: 'turn:ap-southeast.turn.example.com:443?transport=tcp', credential: 'x' },
+    { urls: 'turn:ap-northeast.turn.example.com:443?transport=tcp', credential: 'x' }
+            ]
         };
-
-pc.onicegatheringstatechange = () => {
-if (pc.iceGatheringState === 'complete') {
-// No relay candidate = TURN failed
-        pc.close();
-reject(new Error('No relay candidate'));
-        }
-        };
-
-pc.createOffer().then(o => pc.setLocalDescription(o));
-
-// Timeout after 5 seconds
-setTimeout(() => {
-        pc.close();
-reject(new Error('Timeout'));
-}, 5000);
-        });
-} catch (error) {
-return -1;  // Server unhealthy
+    
+    | return turnEndpoints[region] |  | turnEndpoints['us-east']; |
+    }
+    
+    // TITAN: TURN server health monitoring
+    class TURNHealthMonitor {
+    private servers: Map<string, { healthy: boolean, latency: number }> = new Map();
+    
+    async checkHealth(serverUrl: string): Promise<number> {
+    const start = performance.now();
+    
+    try {
+    // Create temporary PC to test TURN connectivity
+    const pc = new RTCPeerConnection({
+    iceServers: [{ urls: serverUrl, credential: 'test' }]
+            });
+    
+    return new Promise((resolve, reject) => {
+            pc.createDataChannel('health-check');
+    
+    pc.onicecandidate = (e) => {
+    if (e.candidate?.type === 'relay') {
+    // Got relay candidate = TURN is working
+    const latency = performance.now() - start;
+            pc.close();
+            resolve(latency);
+            }
+            };
+    
+    pc.onicegatheringstatechange = () => {
+    if (pc.iceGatheringState === 'complete') {
+    // No relay candidate = TURN failed
+            pc.close();
+    reject(new Error('No relay candidate'));
+            }
+            };
+    
+    pc.createOffer().then(o => pc.setLocalDescription(o));
+    
+    // Timeout after 5 seconds
+    setTimeout(() => {
+            pc.close();
+    reject(new Error('Timeout'));
+    }, 5000);
+            });
+    } catch (error) {
+    return -1;  // Server unhealthy
+            }
         }
     }
-}
-
-```text
+    
 
 ## JITTER BUFFER OPTIMIZATION
 
@@ -1224,12 +1237,10 @@ return -1;  // Server unhealthy
 > Late packets discarded. Audio garbled.
 > Default browser settings not optimal."
 
-```typescript
-// VIBE: Default jitter buffer settings
-const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-// Browser default jitter buffer may be too aggressive
-
-```typescript
+    // VIBE: Default jitter buffer settings
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    // Browser default jitter buffer may be too aggressive
+    
 // TITAN: Optimized audio constraints for low jitter
 // Modern browsers allow controlling processing
 const stream = await navigator.mediaDevices.getUserMedia({
@@ -1291,18 +1302,16 @@ params.encodings[0].maxBitrate = 500000;  // Drop to 500kbps
     }
 }
 
-```text
-
-## FFMPEG GPU TRANSCODING
-
-### The Scar
-
-> "Transcoding queue backed up 4 hours.
-> CPU-based x264 encoding at 0.5x realtime.
-> 10,000 videos uploaded daily. Not enough CPU.
-> Users waiting hours for their videos to be available."
-
-```bash
+    
+    ## FFMPEG GPU TRANSCODING
+    
+    ### The Scar
+    
+    > "Transcoding queue backed up 4 hours.
+    > CPU-based x264 encoding at 0.5x realtime.
+    > 10,000 videos uploaded daily. Not enough CPU.
+    > Users waiting hours for their videos to be available."
+    
 
 ## VIBE: CPU-only transcoding
 
@@ -1310,57 +1319,55 @@ ffmpeg -i input.mp4 -c:v libx264 -preset medium output.mp4
 
 ## 0.5x realtime on modern server = too slow
 
-```bash
-
-## TITAN: NVIDIA GPU transcoding with NVENC
-
-## 5-10x faster than CPU
-
-## Check for NVIDIA GPU
-
-nvidia-smi
-
-## Transcode with NVENC (H.264)
-
-ffmpeg -hwaccel cuda -hwaccel_output_format cuda \
--i input.mp4 \
--c:v h264_nvenc \
--preset p4 \  # Speed preset (p1=fastest, p7=best quality)
--tune hq \  # High quality tuning
--rc:v vbr \  # Variable bitrate
--cq:v 23 \  # Quality level (lower = better)
--b:v 5M \  # Target bitrate
--maxrate:v 10M \  # Max bitrate
--bufsize:v 10M \  # Buffer size
--c:a aac -b:a 128k \
-    output.mp4
-
-## TITAN: Multi-quality encoding for ABR
-
-## Encode multiple resolutions on GPU simultaneously
-
-ffmpeg -hwaccel cuda -i input.mp4 \
--filter_complex "[0:v]split=3[v1][v2][v3]; \
-[v1]scale_cuda=1280:720[v720]; \
-[v2]scale_cuda=854:480[v480]; \
-[v3]scale_cuda=640:360[v360]" \
--map "[v720]" -c:v h264_nvenc -b:v 2500k -preset p4 -g 48 720p.mp4 \
--map "[v480]" -c:v h264_nvenc -b:v 1000k -preset p4 -g 48 480p.mp4 \
--map "[v360]" -c:v h264_nvenc -b:v 500k -preset p4 -g 48 360p.mp4
-
-## TITAN: Intel QuickSync for lower-cost GPU encoding
-
-ffmpeg -hwaccel qsv -i input.mp4 \
--c:v h264_qsv \
--preset medium \
--global_quality 23 \
-    output.mp4
-
-## TITAN: Kubernetes GPU transcoding job
-
-## kubernetes/transcoding-job.yaml
-
-```yaml
+    
+    ## TITAN: NVIDIA GPU transcoding with NVENC
+    
+    ## 5-10x faster than CPU
+    
+    ## Check for NVIDIA GPU
+    
+    nvidia-smi
+    
+    ## Transcode with NVENC (H.264)
+    
+    ffmpeg -hwaccel cuda -hwaccel_output_format cuda \
+    -i input.mp4 \
+    -c:v h264_nvenc \
+    -preset p4 \  # Speed preset (p1=fastest, p7=best quality)
+    -tune hq \  # High quality tuning
+    -rc:v vbr \  # Variable bitrate
+    -cq:v 23 \  # Quality level (lower = better)
+    -b:v 5M \  # Target bitrate
+    -maxrate:v 10M \  # Max bitrate
+    -bufsize:v 10M \  # Buffer size
+    -c:a aac -b:a 128k \
+        output.mp4
+    
+    ## TITAN: Multi-quality encoding for ABR
+    
+    ## Encode multiple resolutions on GPU simultaneously
+    
+    ffmpeg -hwaccel cuda -i input.mp4 \
+    -filter_complex "[0:v]split=3[v1][v2][v3]; \
+    [v1]scale_cuda=1280:720[v720]; \
+    [v2]scale_cuda=854:480[v480]; \
+    [v3]scale_cuda=640:360[v360]" \
+    -map "[v720]" -c:v h264_nvenc -b:v 2500k -preset p4 -g 48 720p.mp4 \
+    -map "[v480]" -c:v h264_nvenc -b:v 1000k -preset p4 -g 48 480p.mp4 \
+    -map "[v360]" -c:v h264_nvenc -b:v 500k -preset p4 -g 48 360p.mp4
+    
+    ## TITAN: Intel QuickSync for lower-cost GPU encoding
+    
+    ffmpeg -hwaccel qsv -i input.mp4 \
+    -c:v h264_qsv \
+    -preset medium \
+    -global_quality 23 \
+        output.mp4
+    
+    ## TITAN: Kubernetes GPU transcoding job
+    
+    ## kubernetes/transcoding-job.yaml
+    
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -1369,6 +1376,7 @@ spec:
   template:
     spec:
       containers:
+
 - name: transcoder
 image: jrottenberg/ffmpeg:4.4-nvidia
 command: ["ffmpeg", "-hwaccel", "cuda", "-i", "..."]
@@ -1380,74 +1388,70 @@ memory: "4Gi"
 gpu: "nvidia"
 restartPolicy: Never
 
-```text
-
-## WEBRTC BANDWIDTH ESTIMATION TUNING
-
-## The Scar
-
-> "Video quality oscillates constantly.
-> Bitrate swings from 2Mbps to 200kbps every 5 seconds.
-> BWE (Bandwidth Estimation) too aggressive.
-> Poor user experience due to constant quality changes."
-
-```typescript
+    
+    ## WEBRTC BANDWIDTH ESTIMATION TUNING
+    
+    ## The Scar
+    
+    > "Video quality oscillates constantly.
+    > Bitrate swings from 2Mbps to 200kbps every 5 seconds.
+    > BWE (Bandwidth Estimation) too aggressive.
+    > Poor user experience due to constant quality changes."
+    
 // VIBE: Default BWE settings
 const sender = pc.getSenders().find(s => s.track?.kind === 'video');
 // Default parameters may cause oscillation
 
-```typescript
-// TITAN: Smooth bandwidth adaptation
-class SmoothBitrateController {
-private currentBitrate = 2000000;  // Start at 2Mbps
-private targetBitrate = 2000000;
-private smoothingFactor = 0.1;  // Slow adaptation
-
-constructor(private sender: RTCRtpSender) {
-        this.startMonitoring();
-    }
-
-private async startMonitoring() {
-setInterval(async () => {
-const stats = await this.sender.getStats();
-
-stats.forEach(report => {
-if (report.type === 'outbound-rtp' && report.kind === 'video') {
-const availableBitrate = report.availableOutgoingBitrate;
-
-if (availableBitrate) {
-// Smooth the target (exponential moving average)
-this.targetBitrate = this.targetBitrate * (1 - this.smoothingFactor) +
-availableBitrate * this.smoothingFactor;
-
-// Only change if significant difference (>20%)
-const diff = Math.abs(this.currentBitrate - this.targetBitrate) / this.currentBitrate;
-
-if (diff > 0.2) {
-        this.applyBitrate(this.targetBitrate);
+    // TITAN: Smooth bandwidth adaptation
+    class SmoothBitrateController {
+    private currentBitrate = 2000000;  // Start at 2Mbps
+    private targetBitrate = 2000000;
+    private smoothingFactor = 0.1;  // Slow adaptation
+    
+    constructor(private sender: RTCRtpSender) {
+            this.startMonitoring();
         }
+    
+    private async startMonitoring() {
+    setInterval(async () => {
+    const stats = await this.sender.getStats();
+    
+    stats.forEach(report => {
+    if (report.type === 'outbound-rtp' && report.kind === 'video') {
+    const availableBitrate = report.availableOutgoingBitrate;
+    
+    if (availableBitrate) {
+    // Smooth the target (exponential moving average)
+    this.targetBitrate = this.targetBitrate * (1 - this.smoothingFactor) +
+    availableBitrate * this.smoothingFactor;
+    
+    // Only change if significant difference (>20%)
+    const diff = Math.abs(this.currentBitrate - this.targetBitrate) / this.currentBitrate;
+    
+    if (diff > 0.2) {
+            this.applyBitrate(this.targetBitrate);
+            }
+            }
+            }
+            });
+    }, 2000);  // Check every 2 seconds, not every 100ms
         }
+    
+    private applyBitrate(bitrate: number) {
+    const params = this.sender.getParameters();
+    
+    if (!params.encodings[0]) return;
+    
+    // Set max bitrate with headroom
+    params.encodings[0].maxBitrate = Math.floor(bitrate * 0.9);
+    
+            this.sender.setParameters(params);
+    this.currentBitrate = bitrate;
+    
+    console.log(`Bitrate adjusted to ${(bitrate / 1000000).toFixed(1)}Mbps`);
         }
-        });
-}, 2000);  // Check every 2 seconds, not every 100ms
     }
-
-private applyBitrate(bitrate: number) {
-const params = this.sender.getParameters();
-
-if (!params.encodings[0]) return;
-
-// Set max bitrate with headroom
-params.encodings[0].maxBitrate = Math.floor(bitrate * 0.9);
-
-        this.sender.setParameters(params);
-this.currentBitrate = bitrate;
-
-console.log(`Bitrate adjusted to ${(bitrate / 1000000).toFixed(1)}Mbps`);
-    }
-}
-
-```text
+    
 
 ### END OF VOLUME 8: TITAN GEMINI RESEARCH - REAL-TIME VIDEO FAILURES
 
@@ -1461,233 +1465,227 @@ console.log(`Bitrate adjusted to ${(bitrate / 1000000).toFixed(1)}Mbps`);
 
 **The Production Reality**: At scale, peer-to-peer breaks down. SFU is the ONLY viable architecture for 10+ participants.
 
-```typescript
-// ? TITAN: Production SFU implementation with mediasoup
-import * as mediasoup from 'mediasoup';
-
-interface SFURoom {
-router: mediasoup.Router;
-producers: Map<string, mediasoup.Producer>;
-consumers: Map<string, mediasoup.Consumer[]>;
-}
-
-class ProductionSFU {
-private workers: mediasoup.Worker[] = [];
-private rooms: Map<string, SFURoom> = new Map();
-
-async initialize(numWorkers: number = 4) {
-for (let i = 0; i < numWorkers; i++) {
-const worker = await mediasoup.createWorker({
-logLevel: 'warn',
-rtcMinPort: 10000 + (i * 1000),
-rtcMaxPort: 10999 + (i * 1000),
-      });
-
-worker.on('died', () => {
-console.error('Worker died, restarting...');
-        this.handleWorkerDeath(worker);
-      });
-
-      this.workers.push(worker);
+    // ? TITAN: Production SFU implementation with mediasoup
+    import * as mediasoup from 'mediasoup';
+    
+    interface SFURoom {
+    router: mediasoup.Router;
+    producers: Map<string, mediasoup.Producer>;
+    consumers: Map<string, mediasoup.Consumer[]>;
     }
-  }
-
-async createRoom(roomId: string): Promise<SFURoom> {
-// Round-robin worker selection
-const worker = this.workers[this.rooms.size % this.workers.length];
-
-const router = await worker.createRouter({
-mediaCodecs: [
-        {
-kind: 'audio',
-mimeType: 'audio/opus',
-clockRate: 48000,
-channels: 2,
-        },
-        {
-kind: 'video',
-mimeType: 'video/VP8',
-clockRate: 90000,
-        },
-        {
-kind: 'video',
-mimeType: 'video/H264',
-clockRate: 90000,
-parameters: {
-'level-asymmetry-allowed': 1,
-'packetization-mode': 1,
-'profile-level-id': '42e01f',
-        },
-        },
-      ],
-    });
-
-const room: SFURoom = {
-      router,
-producers: new Map(),
-consumers: new Map(),
-    };
-
-this.rooms.set(roomId, room);
-return room;
-  }
-
-async createWebRtcTransport(roomId: string): Promise<mediasoup.WebRtcTransport> {
-const room = this.rooms.get(roomId);
-if (!room) throw new Error('Room not found');
-
-const transport = await room.router.createWebRtcTransport({
-listenIps: [
-{ ip: '0.0.0.0', announcedIp: process.env.PUBLIC_IP! },
-      ],
-enableUdp: true,
-enableTcp: true,
-preferUdp: true,
-initialAvailableOutgoingBitrate: 1000000,
-    });
-
-return transport;
-  }
-
-private async handleWorkerDeath(deadWorker: mediasoup.Worker) {
-// Recreate worker
-const newWorker = await mediasoup.createWorker();
-const index = this.workers.indexOf(deadWorker);
-this.workers[index] = newWorker;
-
-// Alert monitoring
-sendMetric('sfu.worker.death', 1);
-  }
-}
-
-```text
+    
+    class ProductionSFU {
+    private workers: mediasoup.Worker[] = [];
+    private rooms: Map<string, SFURoom> = new Map();
+    
+    async initialize(numWorkers: number = 4) {
+    for (let i = 0; i < numWorkers; i++) {
+    const worker = await mediasoup.createWorker({
+    logLevel: 'warn',
+    rtcMinPort: 10000 + (i * 1000),
+    rtcMaxPort: 10999 + (i * 1000),
+          });
+    
+    worker.on('died', () => {
+    console.error('Worker died, restarting...');
+            this.handleWorkerDeath(worker);
+          });
+    
+          this.workers.push(worker);
+        }
+      }
+    
+    async createRoom(roomId: string): Promise<SFURoom> {
+    // Round-robin worker selection
+    const worker = this.workers[this.rooms.size % this.workers.length];
+    
+    const router = await worker.createRouter({
+    mediaCodecs: [
+            {
+    kind: 'audio',
+    mimeType: 'audio/opus',
+    clockRate: 48000,
+    channels: 2,
+            },
+            {
+    kind: 'video',
+    mimeType: 'video/VP8',
+    clockRate: 90000,
+            },
+            {
+    kind: 'video',
+    mimeType: 'video/H264',
+    clockRate: 90000,
+    parameters: {
+    'level-asymmetry-allowed': 1,
+    'packetization-mode': 1,
+    'profile-level-id': '42e01f',
+            },
+            },
+          ],
+        });
+    
+    const room: SFURoom = {
+          router,
+    producers: new Map(),
+    consumers: new Map(),
+        };
+    
+    this.rooms.set(roomId, room);
+    return room;
+      }
+    
+    async createWebRtcTransport(roomId: string): Promise<mediasoup.WebRtcTransport> {
+    const room = this.rooms.get(roomId);
+    if (!room) throw new Error('Room not found');
+    
+    const transport = await room.router.createWebRtcTransport({
+    listenIps: [
+    { ip: '0.0.0.0', announcedIp: process.env.PUBLIC_IP! },
+          ],
+    enableUdp: true,
+    enableTcp: true,
+    preferUdp: true,
+    initialAvailableOutgoingBitrate: 1000000,
+        });
+    
+    return transport;
+      }
+    
+    private async handleWorkerDeath(deadWorker: mediasoup.Worker) {
+    // Recreate worker
+    const newWorker = await mediasoup.createWorker();
+    const index = this.workers.indexOf(deadWorker);
+    this.workers[index] = newWorker;
+    
+    // Alert monitoring
+    sendMetric('sfu.worker.death', 1);
+      }
+    }
+    
 ---
 
 ## ADAPTIVE BITRATE STREAMING (ABR)
 
 ### Netflix-Style ABR Algorithm
 
-```typescript
-// ? TITAN: Buffer-based ABR algorithm
-interface QualityLevel {
-bitrate: number;
-resolution: string;
-index: number;
-}
-
-class AdaptiveBitrateController {
-private qualityLevels: QualityLevel[] = [
-{ bitrate: 500000, resolution: '360p', index: 0 },
-{ bitrate: 1500000, resolution: '720p', index: 1 },
-{ bitrate: 4000000, resolution: '1080p', index: 2 },
-{ bitrate: 8000000, resolution: '4K', index: 3 },
-  ];
-
-private currentQuality = 0;
-private bufferHealth = 0; // seconds of buffered video
-private downloadHistory: number[] = []; // recent download speeds
-
-// Buffer thresholds (in seconds)
-private readonly BUFFER_LOW = 5;
-private readonly BUFFER_HIGH = 30;
-private readonly BUFFER_PANIC = 2;
-
-selectQuality(measuredBandwidth: number, bufferLevel: number): QualityLevel {
-this.bufferHealth = bufferLevel;
-    this.downloadHistory.push(measuredBandwidth);
-if (this.downloadHistory.length > 10) this.downloadHistory.shift();
-
-// Emergency: buffer almost empty
-if (bufferLevel < this.BUFFER_PANIC) {
-return this.qualityLevels[0]; // Lowest quality
+    // ? TITAN: Buffer-based ABR algorithm
+    interface QualityLevel {
+    bitrate: number;
+    resolution: string;
+    index: number;
     }
-
-// Conservative bandwidth estimate (use 10th percentile)
-const safeBandwidth = this.percentile(this.downloadHistory, 0.1);
-
-// Buffer-based switching
-if (bufferLevel < this.BUFFER_LOW) {
-// Low buffer: be conservative
-return this.findMaxQuality(safeBandwidth * 0.7);
-} else if (bufferLevel > this.BUFFER_HIGH) {
-// High buffer: can try higher quality
-return this.findMaxQuality(safeBandwidth * 1.2);
-} else {
-// Normal: match bandwidth
-return this.findMaxQuality(safeBandwidth * 0.9);
-    }
-  }
-
-private findMaxQuality(bandwidth: number): QualityLevel {
-// Find highest quality that fits bandwidth
-for (let i = this.qualityLevels.length - 1; i >= 0; i--) {
-if (this.qualityLevels[i].bitrate <= bandwidth) {
-return this.qualityLevels[i];
+    
+    class AdaptiveBitrateController {
+    private qualityLevels: QualityLevel[] = [
+    { bitrate: 500000, resolution: '360p', index: 0 },
+    { bitrate: 1500000, resolution: '720p', index: 1 },
+    { bitrate: 4000000, resolution: '1080p', index: 2 },
+    { bitrate: 8000000, resolution: '4K', index: 3 },
+      ];
+    
+    private currentQuality = 0;
+    private bufferHealth = 0; // seconds of buffered video
+    private downloadHistory: number[] = []; // recent download speeds
+    
+    // Buffer thresholds (in seconds)
+    private readonly BUFFER_LOW = 5;
+    private readonly BUFFER_HIGH = 30;
+    private readonly BUFFER_PANIC = 2;
+    
+    selectQuality(measuredBandwidth: number, bufferLevel: number): QualityLevel {
+    this.bufferHealth = bufferLevel;
+        this.downloadHistory.push(measuredBandwidth);
+    if (this.downloadHistory.length > 10) this.downloadHistory.shift();
+    
+    // Emergency: buffer almost empty
+    if (bufferLevel < this.BUFFER_PANIC) {
+    return this.qualityLevels[0]; // Lowest quality
+        }
+    
+    // Conservative bandwidth estimate (use 10th percentile)
+    const safeBandwidth = this.percentile(this.downloadHistory, 0.1);
+    
+    // Buffer-based switching
+    if (bufferLevel < this.BUFFER_LOW) {
+    // Low buffer: be conservative
+    return this.findMaxQuality(safeBandwidth * 0.7);
+    } else if (bufferLevel > this.BUFFER_HIGH) {
+    // High buffer: can try higher quality
+    return this.findMaxQuality(safeBandwidth * 1.2);
+    } else {
+    // Normal: match bandwidth
+    return this.findMaxQuality(safeBandwidth * 0.9);
+        }
+      }
+    
+    private findMaxQuality(bandwidth: number): QualityLevel {
+    // Find highest quality that fits bandwidth
+    for (let i = this.qualityLevels.length - 1; i >= 0; i--) {
+    if (this.qualityLevels[i].bitrate <= bandwidth) {
+    return this.qualityLevels[i];
+          }
+        }
+    return this.qualityLevels[0];
+      }
+    
+    private percentile(arr: number[], p: number): number {
+    const sorted = [...arr].sort((a, b) => a - b);
+    const index = Math.ceil(p * sorted.length) - 1;
+    return sorted[Math.max(0, index)];
       }
     }
-return this.qualityLevels[0];
-  }
-
-private percentile(arr: number[], p: number): number {
-const sorted = [...arr].sort((a, b) => a - b);
-const index = Math.ceil(p * sorted.length) - 1;
-return sorted[Math.max(0, index)];
-  }
-}
-
-```text
+    
 ---
 
 ## LOW-LATENCY LIVE STREAMING
 
 ### CMAF Low-Latency HLS Implementation
 
-```typescript
-// ? TITAN: Low-latency streaming with chunked transfer
-import { spawn } from 'child_process';
-
-class LowLatencyEncoder {
-encodeToLL_HLS(inputUrl: string, outputPath: string) {
-// FFmpeg command for Low-Latency HLS
-const ffmpeg = spawn('ffmpeg', [
-'-i', inputUrl,
-'-c:v', 'libx264',
-'-preset', 'veryfast',  // Fast encoding for low latency
-'-tune', 'zerolatency', // Disable lookahead
-'-profile:v', 'baseline',
-'-level', '3.0',
-'-b:v', '2500k',
-'-maxrate', '2500k',
-'-bufsize', '500k',  // Small buffer for low latency
-'-g', '30',  // GOP size = fps for 1-second segments
-'-keyint_min', '30',
-'-sc_threshold', '0',
-
-// Audio
-'-c:a', 'aac',
-'-b:a', '128k',
-'-ar', '44100',
-
-// HLS output
-'-f', 'hls',
-'-hls_time', '1',  // 1-second segments
-'-hls_list_size', '10',
-'-hls_flags', 'independent_segments+split_by_time',
-'-hls_segment_type', 'fmp4',  // CMAF
-'-hls_fmp4_init_filename', 'init.mp4',
-'-hls_segment_filename', ${outputPath}/%d.m4s,
-      ${outputPath}/playlist.m3u8,
-    ]);
-
-ffmpeg.stderr.on('data', (data) => {
-console.log('FFmpeg:', data.toString());
-    });
-
-return ffmpeg;
-  }
-}
-
-```text
+    // ? TITAN: Low-latency streaming with chunked transfer
+    import { spawn } from 'child_process';
+    
+    class LowLatencyEncoder {
+    encodeToLL_HLS(inputUrl: string, outputPath: string) {
+    // FFmpeg command for Low-Latency HLS
+    const ffmpeg = spawn('ffmpeg', [
+    '-i', inputUrl,
+    '-c:v', 'libx264',
+    '-preset', 'veryfast',  // Fast encoding for low latency
+    '-tune', 'zerolatency', // Disable lookahead
+    '-profile:v', 'baseline',
+    '-level', '3.0',
+    '-b:v', '2500k',
+    '-maxrate', '2500k',
+    '-bufsize', '500k',  // Small buffer for low latency
+    '-g', '30',  // GOP size = fps for 1-second segments
+    '-keyint_min', '30',
+    '-sc_threshold', '0',
+    
+    // Audio
+    '-c:a', 'aac',
+    '-b:a', '128k',
+    '-ar', '44100',
+    
+    // HLS output
+    '-f', 'hls',
+    '-hls_time', '1',  // 1-second segments
+    '-hls_list_size', '10',
+    '-hls_flags', 'independent_segments+split_by_time',
+    '-hls_segment_type', 'fmp4',  // CMAF
+    '-hls_fmp4_init_filename', 'init.mp4',
+    '-hls_segment_filename', ${outputPath}/%d.m4s,
+          ${outputPath}/playlist.m3u8,
+        ]);
+    
+    ffmpeg.stderr.on('data', (data) => {
+    console.log('FFmpeg:', data.toString());
+        });
+    
+    return ffmpeg;
+      }
+    }
+    
 ---
 
 ### END OF REALTIME VIDEO VOLUME 2
@@ -1700,56 +1698,54 @@ return ffmpeg;
 
 ## Peer-to-Peer Video Call
 
-```typescript
-async function startVideoCall(remoteUserId: string) {
-const localStream = await navigator.mediaDevices.getUserMedia({
-video: true,
-audio: true,
-  });
-
-const pc = new RTCPeerConnection({
-iceServers: [
-{ urls: 'stun:stun.l.google.com:19302' },
-{ urls: process.env.TURN_URL, username: 'user', credential: 'pass' },
-    ],
-  });
-
-// Add local stream
-localStream.getTracks().forEach(track => {
-pc.addTrack(track, localStream);
-  });
-
-// Handle remote stream
-pc.ontrack = (event) => {
-const remoteVideo = document.getElementById('remoteVideo') as HTMLVideoElement;
-remoteVideo.srcObject = event.streams[0];
-  };
-
-// ICE candidates
-pc.onicecandidate = (event) => {
-if (event.candidate) {
-signaling.send('ice-candidate', { candidate: event.candidate, to: remoteUserId });
+    async function startVideoCall(remoteUserId: string) {
+    const localStream = await navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true,
+      });
+    
+    const pc = new RTCPeerConnection({
+    iceServers: [
+    { urls: 'stun:stun.l.google.com:19302' },
+    { urls: process.env.TURN_URL, username: 'user', credential: 'pass' },
+        ],
+      });
+    
+    // Add local stream
+    localStream.getTracks().forEach(track => {
+    pc.addTrack(track, localStream);
+      });
+    
+    // Handle remote stream
+    pc.ontrack = (event) => {
+    const remoteVideo = document.getElementById('remoteVideo') as HTMLVideoElement;
+    remoteVideo.srcObject = event.streams[0];
+      };
+    
+    // ICE candidates
+    pc.onicecandidate = (event) => {
+    if (event.candidate) {
+    signaling.send('ice-candidate', { candidate: event.candidate, to: remoteUserId });
+        }
+      };
+    
+    // Create and send offer
+    const offer = await pc.createOffer();
+    await pc.setLocalDescription(offer);
+    signaling.send('offer', { sdp: offer, to: remoteUserId });
+    
+    return pc;
     }
-  };
-
-// Create and send offer
-const offer = await pc.createOffer();
-await pc.setLocalDescription(offer);
-signaling.send('offer', { sdp: offer, to: remoteUserId });
-
-return pc;
-}
-
-// Handle incoming calls
-signaling.on('offer', async (data) => {
-const pc = await createPeerConnection();
-await pc.setRemoteDescription(new RTCSessionDescription(data.sdp));
-const answer = await pc.createAnswer();
-await pc.setLocalDescription(answer);
-signaling.send('answer', { sdp: answer, to: data.from });
-});
-
-```text
+    
+    // Handle incoming calls
+    signaling.on('offer', async (data) => {
+    const pc = await createPeerConnection();
+    await pc.setRemoteDescription(new RTCSessionDescription(data.sdp));
+    const answer = await pc.createAnswer();
+    await pc.setLocalDescription(answer);
+    signaling.send('answer', { sdp: answer, to: data.from });
+    });
+    
 ---
 
 ### END OF REALTIME VIDEO PATTERNS
@@ -1757,13 +1753,16 @@ signaling.send('answer', { sdp: answer, to: data.from });
 ## VOLUME 2: TITAN UPGRADE (APPENDED)
 
 ## 1. THE SCARS
+
 - **The 'Black Screen'**: Firewall blocked UDP. Lesson: TURN servers are mandatory.
 - **The 'Echo' Chamber**: No acoustic echo cancellation (AEC). Unusable audio.
 
 ## 2. THE FOUNDATION
+
 - **WebRTC**: P2P for low latency (<500ms). UDP based.
 - **HLS/DASH**: CDN delivery for high scale (>10s latency). TCP based.
 
 ## 3. TITAN PATTERNS
+
 - **SFU (Selective Forwarding Unit)**: Server routes streams. Essential for group calls > 3 people.
 - **Adaptive Bitrate (ABR)**: Switch quality based on bandwidth (Simulcast).

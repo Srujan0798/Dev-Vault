@@ -3,8 +3,9 @@ import json
 import hashlib
 import time
 
-TARGET_DIR = "DevVault"
-MANIFEST_FILE = "vault_manifest.json"
+# Default target - Doxs folder
+TARGET_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "Doxs", "Dev Vault (ETERNAL MANUAL)")
+MANIFEST_FILE = os.path.join(os.path.dirname(__file__), "..", "reports", "vault_manifest.json")
 
 def calculate_checksum(filepath):
     try:

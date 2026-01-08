@@ -1,7 +1,8 @@
 import os
 from ftfy import fix_text
 
-TARGET_DIR = "DevVault"
+# Default target - Doxs folder
+TARGET_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "Doxs", "Dev Vault (ETERNAL MANUAL)")
 
 def fix_file(filepath):
     try:

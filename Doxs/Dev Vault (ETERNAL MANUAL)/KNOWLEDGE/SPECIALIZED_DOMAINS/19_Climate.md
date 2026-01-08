@@ -1,43 +1,44 @@
 # CLIMATE
 ## Table of Contents
 
-- [TABLE OF CONTENTS](#table-of-contents)
+- [Table of Contents](#table-of-contents)
+- [19_CLIMATE.MD: THE TITAN GUIDE (50K TARGET)](#19climatemd-the-titan-guide-50k-target)
 - [Production-Grade Climate Risk, Insurance Modeling, and ESG](#production-grade-climate-risk-insurance-modeling-and-esg)
-  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
 - [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
-  - [1. THE "100-YEAR FLOOD" FALLACY](#1-the-100-year-flood-fallacy)
-    - [**The Historical Data Trap**](#the-historical-data-trap)
-  - [2. THE INSURANCE EXODUS](#2-the-insurance-exodus)
-    - [Uninsurable Assets](#uninsurable-assets)
+- [1. THE "100-YEAR FLOOD" FALLACY](#1-the-100-year-flood-fallacy)
+  - [**The Historical Data Trap**](#the-historical-data-trap)
+- [2. THE INSURANCE EXODUS](#2-the-insurance-exodus)
+  - [Uninsurable Assets](#uninsurable-assets)
 - [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
-  - [5. CLIMATE DATA SOURCES](#5-climate-data-sources)
-    - [**The Big Three**](#the-big-three)
+- [5. CLIMATE DATA SOURCES](#5-climate-data-sources)
+  - [**The Big Three**1.**NOAA (USA)**:](#the-big-three1noaa-usa)
 - [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
-  - [9. SEA LEVEL RISE MODELING](#9-sea-level-rise-modeling)
-    - [Bathtub vs Hydrodynamic](#bathtub-vs-hydrodynamic)
-  - [10. WILDFIRE RISK ZONES](#10-wildfire-risk-zones)
-    - [Vegetation Density & Wind](#vegetation-density-wind)
+- [9. SEA LEVEL RISE MODELING](#9-sea-level-rise-modeling)
+  - [Bathtub vs Hydrodynamic](#bathtub-vs-hydrodynamic)
+- [10. WILDFIRE RISK ZONES](#10-wildfire-risk-zones)
+  - [Vegetation Density & Wind](#vegetation-density--wind)
 - [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
-  - [13. SATELLITE INTELLIGENCE](#13-satellite-intelligence)
-    - [Sentinel-2 Analysis](#sentinel-2-analysis)
+- [13. SATELLITE INTELLIGENCE](#13-satellite-intelligence)
+  - [Sentinel-2 Analysis](#sentinel-2-analysis)
 - [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
-  - [16. CARBON FOOTPRINT CALCULATOR](#16-carbon-footprint-calculator)
-    - [Scope 1, 2, 3](#scope-1-2-3)
-  - [17. ENERGY MODELING](#17-energy-modeling)
-    - [Physics of Efficiency](#physics-of-efficiency)
+- [16. CARBON FOOTPRINT CALCULATOR](#16-carbon-footprint-calculator)
+  - [Scope 1, 2, 3](#scope-1-2-3)
+- [17. ENERGY MODELING](#17-energy-modeling)
+  - [Physics of Efficiency](#physics-of-efficiency)
 - [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
-  - [19. GEO-ENGINEERING IMPACT](#19-geo-engineering-impact)
-    - [Solar Radiation Management](#solar-radiation-management)
+- [19. GEO-ENGINEERING IMPACT](#19-geo-engineering-impact)
+  - [Solar Radiation Management](#solar-radiation-management)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-  - [A. THE ULTIMATE ESG CHECKLIST](#a-the-ultimate-esg-checklist)
-  - [B. THE CLIMATE API LIST](#b-the-climate-api-list)
+- [A. THE ULTIMATE ESG CHECKLIST](#a-the-ultimate-esg-checklist)
+- [B. THE CLIMATE API LIST](#b-the-climate-api-list)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+- [Each line = 100x LLM expansion potential](#each-line--100x-llm-expansion-potential)
 - [CARBON ACCOUNTING](#carbon-accounting)
 - [CLIMATE RISKS](#climate-risks)
 - [GREEN BUILDING](#green-building)
@@ -45,62 +46,132 @@
 - [WASTE](#waste)
 - [ESG REPORTING](#esg-reporting)
 - [CLIMATE TECH](#climate-tech)
-  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [CARBON ACCOUNTING DEEP ATLAS](#carbon-accounting-deep-atlas)
-  - [Each keyword = expandable methodology](#each-keyword-expandable-methodology)
-  - [Scope Categories](#scope-categories)
-  - [Calculation](#calculation)
-  - [Reporting](#reporting)
+- [Each keyword = expandable methodology](#each-keyword--expandable-methodology)
+- [Scope Categories](#scope-categories)
+- [Calculation](#calculation)
+- [Reporting](#reporting)
 - [RENEWABLE ENERGY DEEP ATLAS](#renewable-energy-deep-atlas)
-  - [Each keyword = expandable technology](#each-keyword-expandable-technology)
-  - [Solar](#solar)
-  - [Wind](#wind)
-  - [Storage](#storage)
+- [Each keyword = expandable technology](#each-keyword--expandable-technology)
+- [Solar](#solar)
+- [Wind](#wind)
+- [Storage](#storage)
 - [CLIMATE TECH DEEP ATLAS](#climate-tech-deep-atlas)
-  - [Each keyword = expandable solution](#each-keyword-expandable-solution)
-  - [Carbon Removal](#carbon-removal)
-  - [Decarbonization](#decarbonization)
-  - [Adaptation](#adaptation)
-    - [END OF MEGA CLIMATE EXPANSION](#end-of-mega-climate-expansion)
+- [Each keyword = expandable solution](#each-keyword--expandable-solution)
+- [Carbon Removal](#carbon-removal)
+- [Decarbonization](#decarbonization)
+- [Adaptation](#adaptation)
+  - [END OF MEGA CLIMATE EXPANSION](#end-of-mega-climate-expansion)
 - [ESG DATA DEEP ATLAS](#esg-data-deep-atlas)
-  - [Each keyword = expandable framework](#each-keyword-expandable-framework)
-  - [Environmental](#environmental)
-  - [Social](#social)
-  - [Governance](#governance)
-  - [Platforms](#platforms)
+- [Each keyword = expandable framework](#each-keyword--expandable-framework)
+- [Environmental](#environmental)
+- [Social](#social)
+- [Governance](#governance)
+- [Platforms](#platforms)
 - [CARBON MARKETS DEEP ATLAS](#carbon-markets-deep-atlas)
-  - [Each keyword = expandable mechanism](#each-keyword-expandable-mechanism)
-  - [Compliance Markets](#compliance-markets)
-  - [Voluntary Markets](#voluntary-markets)
-  - [Project Types](#project-types)
-  - [Integrity](#integrity)
+- [Each keyword = expandable mechanism](#each-keyword--expandable-mechanism)
+- [Compliance Markets](#compliance-markets)
+- [Voluntary Markets](#voluntary-markets)
+- [Project Types](#project-types)
+- [Integrity](#integrity)
 - [SUSTAINABILITY REPORTING DEEP ATLAS](#sustainability-reporting-deep-atlas)
-  - [Each keyword = expandable standard](#each-keyword-expandable-standard)
-  - [Frameworks](#frameworks)
-  - [Assurance](#assurance)
-  - [Materiality](#materiality)
-  - [Integration](#integration)
+- [Each keyword = expandable standard](#each-keyword--expandable-standard)
+- [Frameworks](#frameworks)
+- [Assurance](#assurance)
+- [Materiality](#materiality)
+- [Integration](#integration)
 - [GREEN SOFTWARE DEEP ATLAS](#green-software-deep-atlas)
-  - [Each keyword = expandable practice](#each-keyword-expandable-practice)
-  - [Efficiency](#efficiency)
-  - [Measurement](#measurement)
-  - [Practices](#practices)
-  - [Tools](#tools)
-    - [END OF ULTRA CLIMATE EXPANSION](#end-of-ultra-climate-expansion)
-    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+- [Each keyword = expandable practice](#each-keyword--expandable-practice)
+- [Efficiency](#efficiency)
+- [Measurement](#measurement)
+- [Practices](#practices)
+- [Tools](#tools)
+  - [END OF ULTRA CLIMATE EXPANSION](#end-of-ultra-climate-expansion)
+  - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
 - [CLIMATE CODE EXAMPLES](#climate-code-examples)
 - [CARBON CALCULATIONS](#carbon-calculations)
-  - [Emissions Calculator](#emissions-calculator)
+- [Emissions Calculator](#emissions-calculator)
 - [ESG METRICS](#esg-metrics)
-  - [Sustainability Scoring](#sustainability-scoring)
-    - [CONTINUED: MORE CLIMATE PATTERNS](#continued-more-climate-patterns)
+- [Sustainability Scoring](#sustainability-scoring)
+  - [CONTINUED: MORE CLIMATE PATTERNS](#continued-more-climate-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - CLIMATE TECH PRODUCTION](#volume-8-titan-gemini-research---climate-tech-production)
-  - [CARBON-AWARE JOB SCHEDULING](#carbon-aware-job-scheduling)
-    - [**The Scar:**](#the-scar)
+- [CARBON-AWARE JOB SCHEDULING](#carbon-aware-job-scheduling)
+  - [**The Scar:**](#the-scar)
+- [VIBE: Schedule jobs whenever](#vibe-schedule-jobs-whenever)
+- [Just run immediately](#just-run-immediately)
+- [Peak grid = peak carbon intensity](#peak-grid--peak-carbon-intensity)
+- [TITAN: Carbon-aware job scheduler](#titan-carbon-aware-job-scheduler)
+- [Filter to windows before deadline](#filter-to-windows-before-deadline)
+- [Find lowest carbon window](#find-lowest-carbon-window)
+- [All windows above threshold - pick the best anyway but warn](#all-windows-above-threshold---pick-the-best-anyway-but-warn)
+- [TITAN: Kubernetes carbon-aware autoscaler](#titan-kubernetes-carbon-aware-autoscaler)
+- [Scale down non-critical workloads during high carbon periods](#scale-down-non-critical-workloads-during-high-carbon-periods)
+- [kubernetes/carbon-aware-hpa.yaml](#kubernetescarbon-aware-hpayaml)
 - [REAL-TIME CLIMATE SENSOR NETWORKS](#real-time-climate-sensor-networks)
-  - [**The Scar:**](#the-scar-1)
+- [**The Scar:**](#the-scar-1)
+- [VIBE: Trust sensor readings blindly](#vibe-trust-sensor-readings-blindly)
+- [No validation, calibration, or anomaly detection](#no-validation-calibration-or-anomaly-detection)
+- [TITAN: Sensor network with calibration and anomaly detection](#titan-sensor-network-with-calibration-and-anomaly-detection)
+- [1. Range validation](#1-range-validation)
+- [2. Spatial consistency check](#2-spatial-consistency-check)
+- [3. Apply calibration](#3-apply-calibration)
+- [4. Temporal anomaly detection](#4-temporal-anomaly-detection)
+- [5. Store processed reading](#5-store-processed-reading)
+- [Use factory defaults if no recent calibration](#use-factory-defaults-if-no-recent-calibration)
+- [Get last hour of readings](#get-last-hour-of-readings)
+- [Get co-located readings from sensor and reference](#get-co-located-readings-from-sensor-and-reference)
+- [Align timestamps](#align-timestamps)
+- [Linear regression to find calibration factors](#linear-regression-to-find-calibration-factors)
+- [Poor correlation - sensor may be faulty](#poor-correlation---sensor-may-be-faulty)
+- [Update calibration](#update-calibration)
+- [SATELLITE IMAGERY ANALYSIS FOR CLIMATE](#satellite-imagery-analysis-for-climate)
+- [**The Scar:**](#the-scar-2)
+- [VIBE: Raw satellite analysis](#vibe-raw-satellite-analysis)
+- [No cloud masking, no atmospheric correction](#no-cloud-masking-no-atmospheric-correction)
+- [TITAN: Production satellite analysis pipeline](#titan-production-satellite-analysis-pipeline)
+- [1. Search for imagery](#1-search-for-imagery)
+- [2. Load as lazy dask array](#2-load-as-lazy-dask-array)
+- [3. Cloud masking using Scene Classification Layer](#3-cloud-masking-using-scene-classification-layer)
+- [SCL values: 3=cloud shadow, 8=cloud medium, 9=cloud high, 10=cirrus](#scl-values-3cloud-shadow-8cloud-medium-9cloud-high-10cirrus)
+- [4. Calculate NDVI](#4-calculate-ndvi)
+- [5. Temporal median composite (reduce noise)](#5-temporal-median-composite-reduce-noise)
+- [6. Classify vegetation health](#6-classify-vegetation-health)
+- [Use Landsat 8/9 thermal bands or VIIRS](#use-landsat-89-thermal-bands-or-viirs)
+- [Load thermal band (Band 10)](#load-thermal-band-band-10)
+- [Convert to temperature (Kelvin to Celsius)](#convert-to-temperature-kelvin-to-celsius)
+- [Fire detection threshold](#fire-detection-threshold)
+- [Get fire locations](#get-fire-locations)
 - [ESG DATA PIPELINE](#esg-data-pipeline)
-  - [**The Scar:**](#the-scar-2)
+- [**The Scar:**](#the-scar-3)
+- [VIBE: Manual ESG data collection](#vibe-manual-esg-data-collection)
+- [Error-prone, not auditable](#error-prone-not-auditable)
+- [TITAN: Automated ESG data pipeline with audit trail](#titan-automated-esg-data-pipeline-with-audit-trail)
+- [Scope 1: Direct emissions (fuel combustion)](#scope-1-direct-emissions-fuel-combustion)
+- [Scope 2: Indirect emissions (purchased electricity)](#scope-2-indirect-emissions-purchased-electricity)
+- [Water usage](#water-usage)
+- [Store with audit trail](#store-with-audit-trail)
+- [Get electricity consumption from all facilities](#get-electricity-consumption-from-all-facilities)
+- [Get grid emission factor for location](#get-grid-emission-factor-for-location)
+- [Calculate emissions](#calculate-emissions)
+- [Use EPA eGRID for US, IEA for international](#use-epa-egrid-for-us-iea-for-international)
+- [eGRID subregion factors](#egrid-subregion-factors)
+- [IEA country factors](#iea-country-factors)
+- [END OF VOLUME 8: TITAN GEMINI RESEARCH - CLIMATE TECH PRODUCTION](#end-of-volume-8-titan-gemini-research---climate-tech-production)
+- [VOLUME 2: PRODUCTION CLIMATE PATTERNS](#volume-2-production-climate-patterns)
+- [CARBON FOOTPRINT CALCULATION ENGINE](#carbon-footprint-calculation-engine)
+  - [Scope 1, 2, 3 Emissions Calculator](#scope-1-2-3-emissions-calculator)
+- [ENVIRONMENTAL DATA API](#environmental-data-api)
+  - [Real-time Air Quality Monitoring](#real-time-air-quality-monitoring)
+- [? TITAN: Air Quality Index (AQI) calculation and monitoring](#-titan-air-quality-index-aqi-calculation-and-monitoring)
+- [EPA breakpoints for each pollutant](#epa-breakpoints-for-each-pollutant)
+- [Overall AQI is the highest of all pollutants](#overall-aqi-is-the-highest-of-all-pollutants)
+- [END OF CLIMATE VOLUME 2](#end-of-climate-volume-2)
+- [Lines: ~180+ added](#lines-180-added)
+- [VOLUME 2: TITAN UPGRADE (APPENDED)](#volume-2-titan-upgrade-appended)
+- [1. THE SCARS](#1-the-scars)
+- [2. THE FOUNDATION](#2-the-foundation)
+- [3. TITAN PATTERNS](#3-titan-patterns)
 
 ## 19_CLIMATE.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -118,47 +189,53 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
+
 1. The "100-Year Flood" Fallacy (Houston)
-2. The Insurance Exodus (Uninsurable Assets)
-3. The Zillow "Climate Score" Backlash
-4. The "Greenwashing" Lawsuit (ESG Fraud)
+1. The Insurance Exodus (Uninsurable Assets)
+1. The Zillow "Climate Score" Backlash
+1. The "Greenwashing" Lawsuit (ESG Fraud)
 
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-5. Climate Data Sources (NOAA, NASA, Copernicus)
-6. Risk Scoring Algorithm (0-100 Scale)
-7. Insurance Cost Projection (Actuarial Science)
-8. ESG Reporting Standards (GRI, SASB)
+
+1. Climate Data Sources (NOAA, NASA, Copernicus)
+1. Risk Scoring Algorithm (0-100 Scale)
+1. Insurance Cost Projection (Actuarial Science)
+1. ESG Reporting Standards (GRI, SASB)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-9. Sea Level Rise Modeling (Bathtub vs Hydrodynamic)
-10. Wildfire Risk Zones (Vegetation Density & Wind)
-11. Flood Plain Evolution (Impervious Surface Impact)
-12. Heat Island Effect (Urban Planning)
+
+1. Sea Level Rise Modeling (Bathtub vs Hydrodynamic)
+1. Wildfire Risk Zones (Vegetation Density & Wind)
+1. Flood Plain Evolution (Impervious Surface Impact)
+1. Heat Island Effect (Urban Planning)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-13. Satellite Intelligence (Sentinel-2 Analysis)
-14. Real-Time Environmental Monitoring (IoT Integration)
-15. Biodiversity Assessment (eDNA)
+
+1. Satellite Intelligence (Sentinel-2 Analysis)
+1. Real-Time Environmental Monitoring (IoT Integration)
+1. Biodiversity Assessment (eDNA)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-16. Carbon Footprint Calculator (Scope 1, 2, 3 Math)
-17. Energy Modeling (HVAC Efficiency Physics)
-18. Water Scarcity Prediction (Aquifer Depletion)
+
+1. Carbon Footprint Calculator (Scope 1, 2, 3 Math)
+1. Energy Modeling (HVAC Efficiency Physics)
+1. Water Scarcity Prediction (Aquifer Depletion)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-19. Geo-Engineering Impact (Solar Radiation Management)
-20. Climate Gentrification Models
-21. Regenerative Real Estate (Net Positive)
+
+1. Geo-Engineering Impact (Solar Radiation Management)
+1. Climate Gentrification Models
+1. Regenerative Real Estate (Net Positive)
 
 ---
 ## VOLUME 1: THE SCARS (THE "WHY")
@@ -170,8 +247,7 @@
 **The Context**:
 FEMA Flood Maps define a "100-Year Flood Zone" as having a 1% chance of flooding in any given year.
 **The Error**:
-These maps rely on historical data (1900-2000). They assume the climate is **Stationary** (stable).
-**The Reality**:
+These maps rely on historical data (1900-2000). They assume the climate is **Stationary**(stable).**The Reality**:
 Climate change makes extreme weather more frequent. Houston experienced three "500-year floods" in 3 years (2015, 2016, 2017).
 **The Result**:
 New developments built in "safe" zones were destroyed. Homeowners had no flood insurance.
@@ -197,15 +273,14 @@ Real Estate transactions froze. You can't get a mortgage without insurance.
 
 ## 5. CLIMATE DATA SOURCES
 
-### **The Big Three**
+### **The Big Three**1.**NOAA (USA)**:
 
-1. **NOAA (USA)**:
 - **NEXRAD**: Real-time radar (Rain/Hail).
 - **SLR Viewer**: Sea Level Rise scenarios.
-2. **NASA (Global)**:
+1. **NASA (Global)**:
 - **GISS**: Surface temperature analysis.
 - **GRACE**: Groundwater depletion (Gravity satellites).
-3. **Copernicus (EU)**:
+1. **Copernicus (EU)**:
 - **Sentinel Satellites**: High-res imagery for vegetation and moisture.
 - **C3S**: Climate Change Service API.
 
@@ -238,10 +313,11 @@ Simulates the physics of water movement.
 **WUI (Wildland-Urban Interface)**:
 The danger zone where houses meet forests.
 **Risk Factors**:
+
 1. **Fuel Load**: Dry vegetation (NDVI).
-2. **Slope**: Fire travels faster uphill.
-3. **Wind**: Santa Ana winds spread embers miles ahead of the fire.
-4. **Access**: One road in/out = Trap.
+1. **Slope**: Fire travels faster uphill.
+1. **Wind**: Santa Ana winds spread embers miles ahead of the fire.
+1. **Access**: One road in/out = Trap.
 
 ---
 
@@ -324,14 +400,14 @@ Extremely complex. Requires Global Climate Models (GCMs).
 ## A. THE ULTIMATE ESG CHECKLIST
 
 1. **Environmental**: Carbon footprint, Water usage, Waste management.
-2. **Social**: Diversity, Labor standards, Community impact.
-3. **Governance**: Board composition, Executive pay, Ethics.
+1. **Social**: Diversity, Labor standards, Community impact.
+1. **Governance**: Board composition, Executive pay, Ethics.
 
 ## B. THE CLIMATE API LIST
 
 1. **OpenWeatherMap**: Real-time weather.
-2. **Climate Trace**: Greenhouse gas emissions map.
-3. **First Street Foundation**: Property-level flood/fire risk (US).
+1. **Climate Trace**: Greenhouse gas emissions map.
+1. **First Street Foundation**: Property-level flood/fire risk (US).
 
 ---
 
@@ -801,59 +877,57 @@ Extremely complex. Requires Global Climate Models (GCMs).
 
 **Why it exists:** Track environmental impact
 
-```typescript
-// lib/carbon.ts
-interface EmissionFactors {
-electricity: number; // kg CO2 per kWh
-naturalGas: number; // kg CO2 per therm
-gasoline: number; // kg CO2 per gallon
-flight: number; // kg CO2 per mile
-}
-
-const defaultFactors: EmissionFactors = {
-electricity: 0.42, // US average
-naturalGas: 5.3,
-gasoline: 8.89,
-flight: 0.255,
-};
-
-export function calculateCarbonFootprint(usage: {
-electricityKwh?: number;
-naturalGasTherms?: number;
-gasolineGallons?: number;
-flightMiles?: number;
-}, factors = defaultFactors): number {
-let total = 0;
-
-if (usage.electricityKwh) {
-total += usage.electricityKwh * factors.electricity;
-  }
-if (usage.naturalGasTherms) {
-total += usage.naturalGasTherms * factors.naturalGas;
-  }
-if (usage.gasolineGallons) {
-total += usage.gasolineGallons * factors.gasoline;
-  }
-if (usage.flightMiles) {
-total += usage.flightMiles * factors.flight;
-  }
-
-return total; // kg CO2
-}
-
-// Cloud computing emissions
-export async function calculateCloudEmissions(
-cpuHours: number,
-region: string
-): Promise<number> {
-const gridIntensity = await getGridIntensity(region);
-const powerUsage = cpuHours * 0.012; // kWh per vCPU-hour
-const pue = 1.1; // Power Usage Effectiveness
-
-return powerUsage * pue * gridIntensity;
-}
-
-```text
+    // lib/carbon.ts
+    interface EmissionFactors {
+    electricity: number; // kg CO2 per kWh
+    naturalGas: number; // kg CO2 per therm
+    gasoline: number; // kg CO2 per gallon
+    flight: number; // kg CO2 per mile
+    }
+    
+    const defaultFactors: EmissionFactors = {
+    electricity: 0.42, // US average
+    naturalGas: 5.3,
+    gasoline: 8.89,
+    flight: 0.255,
+    };
+    
+    export function calculateCarbonFootprint(usage: {
+    electricityKwh?: number;
+    naturalGasTherms?: number;
+    gasolineGallons?: number;
+    flightMiles?: number;
+    }, factors = defaultFactors): number {
+    let total = 0;
+    
+    if (usage.electricityKwh) {
+    total += usage.electricityKwh * factors.electricity;
+      }
+    if (usage.naturalGasTherms) {
+    total += usage.naturalGasTherms * factors.naturalGas;
+      }
+    if (usage.gasolineGallons) {
+    total += usage.gasolineGallons * factors.gasoline;
+      }
+    if (usage.flightMiles) {
+    total += usage.flightMiles * factors.flight;
+      }
+    
+    return total; // kg CO2
+    }
+    
+    // Cloud computing emissions
+    export async function calculateCloudEmissions(
+    cpuHours: number,
+    region: string
+    ): Promise<number> {
+    const gridIntensity = await getGridIntensity(region);
+    const powerUsage = cpuHours * 0.012; // kWh per vCPU-hour
+    const pue = 1.1; // Power Usage Effectiveness
+    
+    return powerUsage *pue* gridIntensity;
+    }
+    
 ---
 
 ## ESG METRICS
@@ -862,61 +936,59 @@ return powerUsage * pue * gridIntensity;
 
 **Why it exists:** ESG compliance tracking
 
-```typescript
-// services/esg.ts
-interface ESGMetrics {
-environmental: {
-carbonIntensity: number;
-renewableEnergy: number;
-wasteRecycled: number;
-waterUsage: number;
-  };
-social: {
-diversityScore: number;
-employeeSatisfaction: number;
-communityInvestment: number;
-  };
-governance: {
-boardDiversity: number;
-ethicsViolations: number;
-executivePayRatio: number;
-  };
-}
-
-export function calculateESGScore(metrics: ESGMetrics): {
-environmental: number;
-social: number;
-governance: number;
-total: number;
-} {
-const environmental = (
-(1 - metrics.environmental.carbonIntensity / 100) * 25 +
-metrics.environmental.renewableEnergy * 25 +
-metrics.environmental.wasteRecycled * 25 +
-(1 - metrics.environmental.waterUsage / 100) * 25
-  );
-
-const social = (
-metrics.social.diversityScore * 33.3 +
-metrics.social.employeeSatisfaction * 33.3 +
-metrics.social.communityInvestment * 33.4
-  );
-
-const governance = (
-metrics.governance.boardDiversity * 33.3 +
-(1 - metrics.governance.ethicsViolations / 10) * 33.3 +
-(1 - Math.min(metrics.governance.executivePayRatio / 300, 1)) * 33.4
-  );
-
-return {
-    environmental,
-    social,
-    governance,
-total: (environmental + social + governance) / 3,
-  };
-}
-
-```text
+    // services/esg.ts
+    interface ESGMetrics {
+    environmental: {
+    carbonIntensity: number;
+    renewableEnergy: number;
+    wasteRecycled: number;
+    waterUsage: number;
+      };
+    social: {
+    diversityScore: number;
+    employeeSatisfaction: number;
+    communityInvestment: number;
+      };
+    governance: {
+    boardDiversity: number;
+    ethicsViolations: number;
+    executivePayRatio: number;
+      };
+    }
+    
+    export function calculateESGScore(metrics: ESGMetrics): {
+    environmental: number;
+    social: number;
+    governance: number;
+    total: number;
+    } {
+    const environmental = (
+    (1 - metrics.environmental.carbonIntensity / 100) * 25 +
+    metrics.environmental.renewableEnergy * 25 +
+    metrics.environmental.wasteRecycled * 25 +
+    (1 - metrics.environmental.waterUsage / 100) * 25
+      );
+    
+    const social = (
+    metrics.social.diversityScore * 33.3 +
+    metrics.social.employeeSatisfaction * 33.3 +
+    metrics.social.communityInvestment * 33.4
+      );
+    
+    const governance = (
+    metrics.governance.boardDiversity * 33.3 +
+    (1 - metrics.governance.ethicsViolations / 10) * 33.3 +
+    (1 - Math.min(metrics.governance.executivePayRatio / 300, 1)) * 33.4
+      );
+    
+    return {
+        environmental,
+        social,
+        governance,
+    total: (environmental + social + governance) / 3,
+      };
+    }
+    
 ---
 
 ### CONTINUED: MORE CLIMATE PATTERNS
@@ -936,18 +1008,16 @@ total: (environmental + social + governance) / 3,
 > Same job at 2 AM would have been 150g CO2/kWh.
 > 4x carbon footprint for same result. No business need for daytime."
 
-```python
-
-## VIBE: Schedule jobs whenever
-
-def train_model():
-
-## Just run immediately
-trainer.fit(model, data)
-
-## Peak grid = peak carbon intensity
-
-```python
+    
+    ## VIBE: Schedule jobs whenever
+    
+    def train_model():
+    
+    ## Just run immediately
+    trainer.fit(model, data)
+    
+    ## Peak grid = peak carbon intensity
+    
 
 ## TITAN: Carbon-aware job scheduler
 
@@ -962,9 +1032,9 @@ timestamp: datetime
 region: str
 
 class CarbonAwareScheduler:
-def __init__(self, region: str = 'US-CAL-CISO'):
+def **init**(self, region: str = 'US-CAL-CISO'):
 self.region = region
-self.electricitymap_api = 'https://api.electricitymap.org/v3'
+self.electricitymap_api = '<https://api.electricitymap.org/v3'>
 self.api_key = os.environ['ELECTRICITYMAP_API_KEY']
 
 async def get_current_intensity(self) -> CarbonIntensity:
@@ -1034,45 +1104,46 @@ return best.timestamp
 
 ## Scale down non-critical workloads during high carbon periods
 
-```yaml
+    
+    ## kubernetes/carbon-aware-hpa.yaml
+    
+    apiVersion: autoscaling/v2
+    kind: HorizontalPodAutoscaler
+    metadata:
+    name: carbon-aware-ml-training
+    spec:
+      scaleTargetRef:
+    apiVersion: batch/v1
+    kind: Job
+    name: ml-training
+    minReplicas: 0  # Can scale to zero
+    maxReplicas: 10
+      metrics:
 
-## kubernetes/carbon-aware-hpa.yaml
+    - type: External
+        external:
+          metric:
+    name: carbon_intensity_grams_per_kwh
+            selector:
+            matchLabels:
+    region: us-west-1
+          target:
+    type: Value
+    value: "200"  # Scale down if > 200g CO2/kWh
+      behavior:
+        scaleDown:
+          policies:
 
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-name: carbon-aware-ml-training
-spec:
-  scaleTargetRef:
-apiVersion: batch/v1
-kind: Job
-name: ml-training
-minReplicas: 0  # Can scale to zero
-maxReplicas: 10
-  metrics:
-- type: External
-    external:
-      metric:
-name: carbon_intensity_grams_per_kwh
-        selector:
-        matchLabels:
-region: us-west-1
-      target:
-type: Value
-value: "200"  # Scale down if > 200g CO2/kWh
-  behavior:
-    scaleDown:
-      policies:
-- type: Pods
-value: 10
-periodSeconds: 300  # 5 minute grace period
-    scaleUp:
-      policies:
-- type: Percent
-value: 100
-periodSeconds: 60
+    - type: Pods
+    value: 10
+    periodSeconds: 300  # 5 minute grace period
+        scaleUp:
+          policies:
 
-```text
+    - type: Percent
+    value: 100
+    periodSeconds: 60
+    
 
 ## REAL-TIME CLIMATE SENSOR NETWORKS
 
@@ -1083,17 +1154,15 @@ periodSeconds: 60
 > Policy decisions made on bad data.
 > No automatic calibration or anomaly detection."
 
-```python
-
-## VIBE: Trust sensor readings blindly
-
-def get_air_quality(sensor_id: str) -> float:
-reading = sensors.get_reading(sensor_id)
-return reading.pm25
-
-## No validation, calibration, or anomaly detection
-
-```python
+    
+    ## VIBE: Trust sensor readings blindly
+    
+    def get_air_quality(sensor_id: str) -> float:
+    reading = sensors.get_reading(sensor_id)
+    return reading.pm25
+    
+    ## No validation, calibration, or anomaly detection
+    
 
 ## TITAN: Sensor network with calibration and anomaly detection
 
@@ -1113,7 +1182,7 @@ humidity: float
 raw_values: dict
 
 class ClimateMonitoringNetwork:
-def __init__(self, db: Database):
+def **init**(self, db: Database):
 self.db = db
 self.reference_sensors = ['REF_001', 'REF_002']  # Calibrated reference
 
@@ -1219,7 +1288,7 @@ return {'status': 'insufficient_data'}
 aligned = self.align_timeseries(sensor_data, ref_data)
 
 ## Linear regression to find calibration factors
-slope, intercept, r_value, _, _ = stats.linregress(
+slope, intercept, r_value, *, * = stats.linregress(
 [a['sensor'] for a in aligned],
 [a['reference'] for a in aligned]
         )
@@ -1241,18 +1310,16 @@ await self.db.calibrations.upsert(sensor_id, {
 
 return {'status': 'calibrated', 'r_squared': r_value**2}
 
-```text
-
-## SATELLITE IMAGERY ANALYSIS FOR CLIMATE
-
-## **The Scar:**
-
-> "Downloaded 10TB of Sentinel-2 imagery for wildfire analysis.
-> Processed at 10m resolution. Took 2 weeks on local servers.
-> Cloud masking failed. 30% of 'fires' were actually clouds.
-> No proper atmospheric correction applied."
-
-```python
+    
+    ## SATELLITE IMAGERY ANALYSIS FOR CLIMATE
+    
+    ## **The Scar:**
+    
+    > "Downloaded 10TB of Sentinel-2 imagery for wildfire analysis.
+    > Processed at 10m resolution. Took 2 weeks on local servers.
+    > Cloud masking failed. 30% of 'fires' were actually clouds.
+    > No proper atmospheric correction applied."
+    
 
 ## VIBE: Raw satellite analysis
 
@@ -1267,124 +1334,122 @@ return ndvi < 0.2  # "fire risk"
 
 ## No cloud masking, no atmospheric correction
 
-```python
-
-## TITAN: Production satellite analysis pipeline
-
-import planetary_computer as pc
-import pystac_client
-import stackstac
-import xarray as xr
-from dask.distributed import Client
-
-class SatelliteAnalysisPipeline:
-def __init__(self):
-self.catalog = pystac_client.Client.open(
-        "https://planetarycomputer.microsoft.com/api/stac/v1",
-        modifier=pc.sign_inplace
-        )
-
-async def analyze_vegetation_health(
-        self,
-bbox: tuple,  # (min_lon, min_lat, max_lon, max_lat)
-date_range: tuple,  # (start_date, end_date)
-cloud_cover_max: float = 20
-) -> xr.DataArray:
-"""Analyze vegetation health with proper preprocessing."""
-
-## 1. Search for imagery
-search = self.catalog.search(
-collections=["sentinel-2-l2a"], # Already atmospherically corrected
-        bbox=bbox,
-        datetime=f"{date_range[0]}/{date_range[1]}",
-query={"eo:cloud_cover": {"lt": cloud_cover_max}}
-        )
-
-items = list(search.items())
-if not items:
-raise ValueError("No imagery found for criteria")
-
-## 2. Load as lazy dask array
-stack = stackstac.stack(
-        items,
-assets=['B04', 'B08', 'SCL'],  # Red, NIR, Scene Classification
-        bounds_latlon=bbox,
-resolution=10, # 10m resolution
-chunksize=(1, 1, 2048, 2048)  # Chunk for parallel processing
-        )
-
-## 3. Cloud masking using Scene Classification Layer
-
-## SCL values: 3=cloud shadow, 8=cloud medium, 9=cloud high, 10=cirrus
-scl = stack.sel(band='SCL')
-cloud_mask = ~scl.isin([3, 8, 9, 10])
-
-## 4. Calculate NDVI
-red = stack.sel(band='B04').astype('float32')
-nir = stack.sel(band='B08').astype('float32')
-
-ndvi = (nir - red) / (nir + red + 1e-8)
-ndvi = ndvi.where(cloud_mask)  # Apply cloud mask
-
-## 5. Temporal median composite (reduce noise)
-ndvi_composite = ndvi.median(dim='time')
-
-## 6. Classify vegetation health
-health_classes = xr.where(
-ndvi_composite > 0.6, 4,  # Very healthy
-xr.where(ndvi_composite > 0.4, 3,  # Healthy
-xr.where(ndvi_composite > 0.2, 2,  # Stressed
-xr.where(ndvi_composite > 0, 1,  # Very stressed
-0))) # No vegetation / bare soil
-        )
-
-return health_classes
-
-async def detect_active_fires(
-        self,
-bbox: tuple,
-hours_lookback: int = 24
-) -> list[dict]:
-"""Detect active fires using thermal bands."""
-
-## Use Landsat 8/9 thermal bands or VIIRS
-search = self.catalog.search(
-        collections=["landsat-c2-l2"],
-        bbox=bbox,
-datetime=f"{datetime.now() - timedelta(hours=hours_lookback)}/{datetime.now()}",
-        )
-
-fires = []
-
-for item in search.items():
-
-## Load thermal band (Band 10)
-thermal = stackstac.stack([item], assets=['ST_B10'])
-
-## Convert to temperature (Kelvin to Celsius)
-temp_kelvin = thermal * 0.00341802 + 149.0
-temp_celsius = temp_kelvin - 273.15
-
-## Fire detection threshold
-fire_pixels = (temp_celsius > 350).values  # = likely fire
-
-if fire_pixels.any():
-
-## Get fire locations
-fire_coords = np.argwhere(fire_pixels[0, 0])
-for coord in fire_coords:
-lat, lon = self.pixel_to_latlon(coord, item)
-        fires.append({
-'lat': lat,
-'lon': lon,
-'temperature_c': float(temp_celsius.values[0, 0, coord[0], coord[1]]),
-'detection_time': item.datetime,
-'confidence': 'high' if temp_celsius.values[0, 0, coord[0], coord[1]] > 400 else 'medium'
-        })
-
-return fires
-
-```text
+    
+    ## TITAN: Production satellite analysis pipeline
+    
+    import planetary_computer as pc
+    import pystac_client
+    import stackstac
+    import xarray as xr
+    from dask.distributed import Client
+    
+    class SatelliteAnalysisPipeline:
+    def **init**(self):
+    self.catalog = pystac_client.Client.open(
+            "<https://planetarycomputer.microsoft.com/api/stac/v1",>
+            modifier=pc.sign_inplace
+            )
+    
+    async def analyze_vegetation_health(
+            self,
+    bbox: tuple,  # (min_lon, min_lat, max_lon, max_lat)
+    date_range: tuple,  # (start_date, end_date)
+    cloud_cover_max: float = 20
+    ) -> xr.DataArray:
+    """Analyze vegetation health with proper preprocessing."""
+    
+    ## 1. Search for imagery
+    search = self.catalog.search(
+    collections=["sentinel-2-l2a"], # Already atmospherically corrected
+            bbox=bbox,
+            datetime=f"{date_range[0]}/{date_range[1]}",
+    query={"eo:cloud_cover": {"lt": cloud_cover_max}}
+            )
+    
+    items = list(search.items())
+    if not items:
+    raise ValueError("No imagery found for criteria")
+    
+    ## 2. Load as lazy dask array
+    stack = stackstac.stack(
+            items,
+    assets=['B04', 'B08', 'SCL'],  # Red, NIR, Scene Classification
+            bounds_latlon=bbox,
+    resolution=10, # 10m resolution
+    chunksize=(1, 1, 2048, 2048)  # Chunk for parallel processing
+            )
+    
+    ## 3. Cloud masking using Scene Classification Layer
+    
+    ## SCL values: 3=cloud shadow, 8=cloud medium, 9=cloud high, 10=cirrus
+    scl = stack.sel(band='SCL')
+    cloud_mask = ~scl.isin([3, 8, 9, 10])
+    
+    ## 4. Calculate NDVI
+    red = stack.sel(band='B04').astype('float32')
+    nir = stack.sel(band='B08').astype('float32')
+    
+    ndvi = (nir - red) / (nir + red + 1e-8)
+    ndvi = ndvi.where(cloud_mask)  # Apply cloud mask
+    
+    ## 5. Temporal median composite (reduce noise)
+    ndvi_composite = ndvi.median(dim='time')
+    
+    ## 6. Classify vegetation health
+    health_classes = xr.where(
+    ndvi_composite > 0.6, 4,  # Very healthy
+    xr.where(ndvi_composite > 0.4, 3,  # Healthy
+    xr.where(ndvi_composite > 0.2, 2,  # Stressed
+    xr.where(ndvi_composite > 0, 1,  # Very stressed
+    0))) # No vegetation / bare soil
+            )
+    
+    return health_classes
+    
+    async def detect_active_fires(
+            self,
+    bbox: tuple,
+    hours_lookback: int = 24
+    ) -> list[dict]:
+    """Detect active fires using thermal bands."""
+    
+    ## Use Landsat 8/9 thermal bands or VIIRS
+    search = self.catalog.search(
+            collections=["landsat-c2-l2"],
+            bbox=bbox,
+    datetime=f"{datetime.now() - timedelta(hours=hours_lookback)}/{datetime.now()}",
+            )
+    
+    fires = []
+    
+    for item in search.items():
+    
+    ## Load thermal band (Band 10)
+    thermal = stackstac.stack([item], assets=['ST_B10'])
+    
+    ## Convert to temperature (Kelvin to Celsius)
+    temp_kelvin = thermal * 0.00341802 + 149.0
+    temp_celsius = temp_kelvin - 273.15
+    
+    ## Fire detection threshold
+    fire_pixels = (temp_celsius > 350).values  # = likely fire
+    
+    if fire_pixels.any():
+    
+    ## Get fire locations
+    fire_coords = np.argwhere(fire_pixels[0, 0])
+    for coord in fire_coords:
+    lat, lon = self.pixel_to_latlon(coord, item)
+            fires.append({
+    'lat': lat,
+    'lon': lon,
+    'temperature_c': float(temp_celsius.values[0, 0, coord[0], coord[1]]),
+    'detection_time': item.datetime,
+    'confidence': 'high' if temp_celsius.values[0, 0, coord[0], coord[1]] > 400 else 'medium'
+            })
+    
+    return fires
+    
 
 ## ESG DATA PIPELINE
 
@@ -1395,18 +1460,16 @@ return fires
 > Found calculation error after submission. Restated numbers.
 > Regulators not happy. Stock dropped 3%."
 
-```python
-
-## VIBE: Manual ESG data collection
-
-def collect_esg_data():
-emissions = read_excel('emissions_john.xlsx')
-water = read_excel('water_data_old_v3_final_FIXED.xlsx')
-return {'emissions': emissions.sum(), 'water': water.sum()}
-
-## Error-prone, not auditable
-
-```python
+    
+    ## VIBE: Manual ESG data collection
+    
+    def collect_esg_data():
+    emissions = read_excel('emissions_john.xlsx')
+    water = read_excel('water_data_old_v3_final_FIXED.xlsx')
+    return {'emissions': emissions.sum(), 'water': water.sum()}
+    
+    ## Error-prone, not auditable
+    
 
 ## TITAN: Automated ESG data pipeline with audit trail
 
@@ -1434,7 +1497,7 @@ raw_data_hash: str  # For audit trail
 methodology: str
 
 class ESGDataPipeline:
-def __init__(self, db: Database):
+def **init**(self, db: Database):
 self.db = db
 self.sources = {
 'sap': SAPConnector(),
@@ -1537,19 +1600,17 @@ return {
 'source': f'IEA {period}'
         }
 
-```text
-
-## END OF VOLUME 8: TITAN GEMINI RESEARCH - CLIMATE TECH PRODUCTION
-
----
-
-## VOLUME 2: PRODUCTION CLIMATE PATTERNS
-
-## CARBON FOOTPRINT CALCULATION ENGINE
-
-### Scope 1, 2, 3 Emissions Calculator
-
-```typescript
+    
+    ## END OF VOLUME 8: TITAN GEMINI RESEARCH - CLIMATE TECH PRODUCTION
+    
+    ---
+    
+    ## VOLUME 2: PRODUCTION CLIMATE PATTERNS
+    
+    ## CARBON FOOTPRINT CALCULATION ENGINE
+    
+    ### Scope 1, 2, 3 Emissions Calculator
+    
 // ? TITAN: Production carbon footprint calculator
 interface EmissionFactors {
 electricity: Record<string, number>;  // kgCO2/kWh by region
@@ -1612,7 +1673,7 @@ total += activity.hours *
         break;
 
 case 'employee_commute':
-total += activity.distance * 0.21 * activity.days;
+total += activity.distance *0.21* activity.days;
         break;
 
 case 'supply_chain':
@@ -1654,14 +1715,12 @@ recommendations: this.generateRecommendations(scope1, scope2, scope3)
   }
 }
 
-```text
----
-
-## ENVIRONMENTAL DATA API
-
-### Real-time Air Quality Monitoring
-
-```python
+    ---
+    
+    ## ENVIRONMENTAL DATA API
+    
+    ### Real-time Air Quality Monitoring
+    
 
 ## ? TITAN: Air Quality Index (AQI) calculation and monitoring
 
@@ -1746,24 +1805,25 @@ if category.value[0] <= aqi <= category.value[1]:
 return category
 return AQICategory.HAZARDOUS
 
-```text
----
+    ---
+    
+    ## END OF CLIMATE VOLUME 2
+    
+    ## Lines: ~180+ added
+    
+    ## VOLUME 2: TITAN UPGRADE (APPENDED)
+    
+    ## 1. THE SCARS
 
-## END OF CLIMATE VOLUME 2
+    - **The 'Coordinate' Mixup**: Lat/Long swapped. Data plotted in Antarctica. Lesson: GeoJSON standard.
+    
+    ## 2. THE FOUNDATION
 
-## Lines: ~180+ added
+    - **H3 Indexing**: Uber's hexagonal grid system for spatial indexing.
+    - **Raster vs Vector**: Satellite images (Raster) vs Shapes (Vector).
+    
+    ## 3. TITAN PATTERNS
 
-## VOLUME 2: TITAN UPGRADE (APPENDED)
-
-## 1. THE SCARS
-- **The 'Coordinate' Mixup**: Lat/Long swapped. Data plotted in Antarctica. Lesson: GeoJSON standard.
-
-## 2. THE FOUNDATION
-- **H3 Indexing**: Uber's hexagonal grid system for spatial indexing.
-- **Raster vs Vector**: Satellite images (Raster) vs Shapes (Vector).
-
-## 3. TITAN PATTERNS
-- **Tile Server**: Serve map data in XYZ tiles for performance.
-- **PostGIS**: The gold standard for SQL spatial queries.
-
-```text
+    - **Tile Server**: Serve map data in XYZ tiles for performance.
+    - **PostGIS**: The gold standard for SQL spatial queries.
+    

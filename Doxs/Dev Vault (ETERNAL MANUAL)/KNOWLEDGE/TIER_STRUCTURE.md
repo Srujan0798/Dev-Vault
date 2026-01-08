@@ -1,5 +1,22 @@
 # KNOWLEDGE STRUCTURE - TIER ORGANIZATION
 
+## Table of Contents
+
+- [TIER STRUCTURE](#tier-structure)
+- [TIER 1: CORE FOUNDATION (150K lines each)](#tier-1-core-foundation-150k-lines-each)
+- [TIER 2: CRITICAL SYSTEMS (80K lines each)](#tier-2-critical-systems-80k-lines-each)
+- [TIER 3: IMPORTANT DOMAINS (40K lines each)](#tier-3-important-domains-40k-lines-each)
+- [TIER 4: SPECIALIZED (20K lines each)](#tier-4-specialized-20k-lines-each)
+- [SUPPORT FILES (Root Level)](#support-files-root-level)
+- [TOTAL TARGET: 1,000,000 LINES](#total-target-1000000-lines)
+- [FOLDER STRUCTURE](#folder-structure)
+- [BENEFITS OF TIER ORGANIZATION](#benefits-of-tier-organization)
+- [1. Clear Priority](#1-clear-priority)
+- [2. Easier Navigation](#2-easier-navigation)
+- [3. Project Adaptation](#3-project-adaptation)
+- [4. Expansion Strategy](#4-expansion-strategy)
+
+
 **Last Updated**: January 5, 2026
 **Purpose**: Organize knowledge files by importance and priority
 
@@ -121,7 +138,7 @@
 | Tier 3 | 4 | 160,000 | 9,297 | 5.8% |
 | Tier 4 | 9 | 180,000 | 14,138 | 7.9% |
 | Support | 2 | 10,000 | 271 | 2.7% |
-| **TOTAL** | **24** | **1,280,000** | **100,011** | **7.8%** |
+| **TOTAL**|**24**|**1,280,000**|**100,011**|**7.8%** |
 
 > Note: Adjusted to 1M by reducing proportionally
 
@@ -129,38 +146,36 @@
 
 ## FOLDER STRUCTURE
 
-```
-KNOWLEDGE/
-├── 00_MASTER_INDEX.md (5K target)
-├── ADAPTATION_GUIDE.md (5K target)
-├── TIER_1_CORE_FOUNDATION/
-│   ├── 01_Frontend.md (150K target)
-│   ├── 02_Backend.md (150K target)
-│   └── 03_Database.md (150K target)
-├── TIER_2_CRITICAL_SYSTEMS/
-│   ├── 04_Testing.md (80K target)
-│   ├── 05_Security.md (80K target)
-│   ├── 06_DevOps.md (80K target)
-│   ├── 07_Cloud.md (80K target)
-│   ├── 08_System_Design.md (80K target)
-│   └── 09_Mobile.md (80K target)
-├── TIER_3_IMPORTANT_DOMAINS/
-│   ├── 10_DataEngineering.md (40K target)
-│   ├── 11_Search.md (40K target)
-│   ├── 12_Payments.md (40K target)
-│   └── 13_ML_AI.md (40K target)
-├── TIER_4_SPECIALIZED/
-│   ├── 14_Blockchain.md (20K target)
-│   ├── 15_IoT.md (20K target)
-│   ├── 16_RealTime_Video.md (20K target)
-│   ├── 17_VR_AR.md (20K target)
-│   ├── 18_Investment.md (20K target)
-│   ├── 19_Climate.md (20K target)
-│   ├── 20_Legal_Docs.md (20K target)
-│   ├── 21_Localization.md (20K target)
-│   └── 22_Ancient_Wisdom.md (20K target)
-└── BACKUP_BEFORE_TITAN_CLEAN/ (backup directory)
-```
+    KNOWLEDGE/
+    ├── 00_MASTER_INDEX.md (5K target)
+    ├── ADAPTATION_GUIDE.md (5K target)
+    ├── TIER_1_CORE_FOUNDATION/
+    │ ├── 01_Frontend.md (150K target)
+    │ ├── 02_Backend.md (150K target)
+    │ └── 03_Database.md (150K target)
+    ├── TIER_2_CRITICAL_SYSTEMS/
+    │ ├── 04_Testing.md (80K target)
+    │ ├── 05_Security.md (80K target)
+    │ ├── 06_DevOps.md (80K target)
+    │ ├── 07_Cloud.md (80K target)
+    │ ├── 08_System_Design.md (80K target)
+    │ └── 09_Mobile.md (80K target)
+    ├── TIER_3_IMPORTANT_DOMAINS/
+    │ ├── 10_DataEngineering.md (40K target)
+    │ ├── 11_Search.md (40K target)
+    │ ├── 12_Payments.md (40K target)
+    │ └── 13_ML_AI.md (40K target)
+    ├── TIER_4_SPECIALIZED/
+    │ ├── 14_Blockchain.md (20K target)
+    │ ├── 15_IoT.md (20K target)
+    │ ├── 16_RealTime_Video.md (20K target)
+    │ ├── 17_VR_AR.md (20K target)
+    │ ├── 18_Investment.md (20K target)
+    │ ├── 19_Climate.md (20K target)
+    │ ├── 20_Legal_Docs.md (20K target)
+    │ ├── 21_Localization.md (20K target)
+    │ └── 22_Ancient_Wisdom.md (20K target)
+    └── BACKUP_BEFORE_TITAN_CLEAN/ (backup directory)
 
 ---
 

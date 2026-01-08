@@ -1,51 +1,49 @@
 # DEVOPS
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [06_DEVOPS.MD: THE TITAN GUIDE (50K TARGET)](#06_devopsmd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade CI/CD, GitOps, SRE, and Observability](#production-grade-cicd-gitops-sre-and-observability)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. THE "RM -RF" DEPLOYMENT](#1-the-rm--rf-deployment)
-  - [Why Scripts are Dangerous](#why-scripts-are-dangerous)
-- [2. THE "CERTIFICATE EXPIRY"](#2-the-certificate-expiry)
-  - [The Outage No One Saw Coming](#the-outage-no-one-saw-coming)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [5. CI/CD PIPELINES](#5-cicd-pipelines)
-  - [GitHub Actions Workflow](#github-actions-workflow)
-- [6. DOCKER CONTAINERIZATION](#6-docker-containerization)
-  - [Multi-Stage Builds](#multi-stage-builds)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [9. GITOPS](#9-gitops)
-  - [ArgoCD Architecture](#argocd-architecture)
-- [10. BLUE/GREEN VS CANARY](#10-bluegreen-vs-canary)
-  - [Flagger & Istio](#flagger-istio)
-- [11. SECRET MANAGEMENT](#11-secret-management)
-  - [Vault & External Secrets](#vault-external-secrets)
-- [VOLUME 4: THE EXPERT (THE "SCALE") 2](#volume-4-the-expert-the-scale-2)
-- [13. CHAOS ENGINEERING](#13-chaos-engineering)
-  - [Breaking Things on Purpose](#breaking-things-on-purpose)
-- [14. SERVICE MESH](#14-service-mesh)
-  - [Istio Internals](#istio-internals)
-- [VOLUME 5: THE TITAN (THE "KERNEL") 2](#volume-5-the-titan-the-kernel-2)
-- [16. EBPF OBSERVABILITY](#16-ebpf-observability)
-  - [Pixie / Cilium](#pixie-cilium)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. THE "RM -RF" DEPLOYMENT](#1-the-rm--rf-deployment)
+    - [Why Scripts are Dangerous](#why-scripts-are-dangerous)
+  - [2. THE "CERTIFICATE EXPIRY"](#2-the-certificate-expiry)
+    - [The Outage No One Saw Coming](#the-outage-no-one-saw-coming)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [5. CI/CD PIPELINES](#5-cicd-pipelines)
+    - [GitHub Actions Workflow](#github-actions-workflow)
+  - [6. DOCKER CONTAINERIZATION](#6-docker-containerization)
+    - [Multi-Stage Builds](#multi-stage-builds)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [9. GITOPS](#9-gitops)
+    - [ArgoCD Architecture](#argocd-architecture)
+  - [10. BLUE/GREEN VS CANARY](#10-bluegreen-vs-canary)
+    - [Flagger & Istio](#flagger-istio)
+  - [11. SECRET MANAGEMENT](#11-secret-management)
+    - [Vault & External Secrets](#vault-external-secrets)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [13. CHAOS ENGINEERING](#13-chaos-engineering)
+    - [Breaking Things on Purpose](#breaking-things-on-purpose)
+  - [14. SERVICE MESH](#14-service-mesh)
+    - [Istio Internals](#istio-internals)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [16. EBPF OBSERVABILITY](#16-ebpf-observability)
+    - [Pixie / Cilium](#pixie-cilium)
 - [17. KERNEL TUNING FOR HIGH LOAD](#17-kernel-tuning-for-high-load)
-- [Sysctl & File Descriptors](#sysctl-file-descriptors)
-- [VOLUME 6: THE INFINITE (THE "FUTURE") 2](#volume-6-the-infinite-the-future-2)
-- [19. AI-DRIVEN ROLLBACKS](#19-ai-driven-rollbacks)
-  - [Keptn & Self-Healing](#keptn-self-healing)
+  - [Sysctl & File Descriptors](#sysctl-file-descriptors)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [19. AI-DRIVEN ROLLBACKS](#19-ai-driven-rollbacks)
+    - [Keptn & Self-Healing](#keptn-self-healing)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE ULTIMATE GITHUB ACTIONS WORKFLOW](#a-the-ultimate-github-actions-workflow)
-- [B. THE ULTIMATE PROMETHEUS ALERTS](#b-the-ultimate-prometheus-alerts)
+  - [A. THE ULTIMATE GITHUB ACTIONS WORKFLOW](#a-the-ultimate-github-actions-workflow)
+  - [B. THE ULTIMATE PROMETHEUS ALERTS](#b-the-ultimate-prometheus-alerts)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-- [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
 - [CD PATTERNS](#cd-patterns)
 - [CONTAINER ORCHESTRATION](#container-orchestration)
 - [MONITORING STACK](#monitoring-stack)
@@ -55,625 +53,160 @@
 - [SCALABILITY](#scalability)
 - [DISASTER RECOVERY](#disaster-recovery)
 - [PERFORMANCE](#performance)
-- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [GITOPS DEEP ATLAS](#gitops-deep-atlas)
-- [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
-- [ArgoCD](#argocd)
-- [Flux](#flux)
-- [Principles](#principles)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
+  - [ArgoCD](#argocd)
+  - [Flux](#flux)
+  - [Principles](#principles)
 - [OBSERVABILITY DEEP ATLAS](#observability-deep-atlas)
-- [Each keyword = expandable configuration](#each-keyword-expandable-configuration)
-- [OpenTelemetry](#opentelemetry)
-- [Distributed Tracing](#distributed-tracing)
-- [Metrics](#metrics)
-- [Logging](#logging)
+  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration)
+  - [OpenTelemetry](#opentelemetry)
+  - [Distributed Tracing](#distributed-tracing)
+  - [Metrics](#metrics)
+  - [Logging](#logging)
 - [CONTAINER SECURITY DEEP ATLAS](#container-security-deep-atlas)
-- [Each keyword = expandable practice](#each-keyword-expandable-practice-2)
-- [Image Security](#image-security)
-- [Runtime Security](#runtime-security)
-- [Network Security](#network-security)
-- [Supply Chain](#supply-chain)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice)
+  - [Image Security](#image-security)
+  - [Runtime Security](#runtime-security)
+  - [Network Security](#network-security)
+  - [Supply Chain](#supply-chain)
 - [INFRASTRUCTURE AS CODE DEEP ATLAS](#infrastructure-as-code-deep-atlas)
-- [Each keyword = expandable pattern](#each-keyword-expandable-pattern)
-- [Terraform Advanced](#terraform-advanced)
-- [Pulumi](#pulumi)
-- [Testing](#testing)
-- [Patterns](#patterns)
+  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern)
+  - [Terraform Advanced](#terraform-advanced)
+  - [Pulumi](#pulumi)
+  - [Testing](#testing)
+  - [Patterns](#patterns)
 - [INCIDENT MANAGEMENT DEEP ATLAS](#incident-management-deep-atlas)
-- [Each keyword = expandable process](#each-keyword-expandable-process)
-- [Response](#response)
-- [On-Call](#on-call)
-- [Post-Incident](#post-incident)
-- [SRE Practices](#sre-practices)
-  - [END OF MEGA DEVOPS EXPANSION](#end-of-mega-devops-expansion)
+  - [Each keyword = expandable process](#each-keyword-expandable-process)
+  - [Response](#response)
+  - [On-Call](#on-call)
+  - [Post-Incident](#post-incident)
+  - [SRE Practices](#sre-practices)
+    - [END OF MEGA DEVOPS EXPANSION](#end-of-mega-devops-expansion)
 - [DOCKER DEEP ATLAS](#docker-deep-atlas)
-- [Each keyword = expandable technique](#each-keyword-expandable-technique)
-- [Dockerfile](#dockerfile)
-- [Multi-stage Builds 2](#multi-stage-builds-2)
-- [Image Optimization](#image-optimization)
-- [Docker Compose](#docker-compose)
+  - [Each keyword = expandable technique](#each-keyword-expandable-technique)
+  - [Dockerfile](#dockerfile)
+  - [Multi-stage Builds](#multi-stage-builds-1)
+  - [Image Optimization](#image-optimization)
+  - [Docker Compose](#docker-compose)
 - [KUBERNETES ADVANCED DEEP ATLAS](#kubernetes-advanced-deep-atlas)
-- [Each keyword = expandable configuration 2](#each-keyword-expandable-configuration-2)
-- [Workloads](#workloads)
-- [Networking](#networking)
-- [Storage](#storage)
-- [Security](#security)
-- [Advanced](#advanced)
+  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration-1)
+  - [Workloads](#workloads)
+  - [Networking](#networking)
+  - [Storage](#storage)
+  - [Security](#security)
+  - [Advanced](#advanced)
 - [MONITORING DEEP ATLAS](#monitoring-deep-atlas)
-- [Each keyword = expandable implementation 2](#each-keyword-expandable-implementation-2)
-- [Prometheus](#prometheus)
-- [Grafana](#grafana)
-- [Metrics Types](#metrics-types)
-- [Best Practices](#best-practices)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation-1)
+  - [Prometheus](#prometheus)
+  - [Grafana](#grafana)
+  - [Metrics Types](#metrics-types)
+  - [Best Practices](#best-practices)
 - [LOGGING DEEP ATLAS](#logging-deep-atlas)
-- [Each keyword = expandable practice 2](#each-keyword-expandable-practice-2)
-- [Log Aggregation](#log-aggregation)
-- [Structured Logging](#structured-logging)
-- [Log Analysis](#log-analysis)
-- [Best Practices 2](#best-practices-2)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice-1)
+  - [Log Aggregation](#log-aggregation)
+  - [Structured Logging](#structured-logging)
+  - [Log Analysis](#log-analysis)
+  - [Best Practices](#best-practices-1)
 - [SECURITY SCANNING DEEP ATLAS](#security-scanning-deep-atlas)
-- [Each keyword = expandable tool](#each-keyword-expandable-tool)
-- [Static Analysis](#static-analysis)
-- [Container Security](#container-security)
-- [Runtime Security 2](#runtime-security-2)
-- [Secrets Management](#secrets-management)
+  - [Each keyword = expandable tool](#each-keyword-expandable-tool)
+  - [Static Analysis](#static-analysis)
+  - [Container Security](#container-security)
+  - [Runtime Security](#runtime-security-1)
+  - [Secrets Management](#secrets-management)
 - [RELEASE MANAGEMENT DEEP ATLAS](#release-management-deep-atlas)
-- [Each keyword = expandable practice 3](#each-keyword-expandable-practice-3)
-- [Deployment Strategies](#deployment-strategies)
-- [Progressive Delivery](#progressive-delivery)
-- [Version Control](#version-control)
-- [Rollback](#rollback)
-  - [END OF ULTRA DEVOPS EXPANSION](#end-of-ultra-devops-expansion)
-  - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice-2)
+  - [Deployment Strategies](#deployment-strategies)
+  - [Progressive Delivery](#progressive-delivery)
+  - [Version Control](#version-control)
+  - [Rollback](#rollback)
+    - [END OF ULTRA DEVOPS EXPANSION](#end-of-ultra-devops-expansion)
+    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
 - [DEVOPS CODE EXAMPLES](#devops-code-examples)
 - [GITHUB ACTIONS](#github-actions)
-- [Production CI/CD Pipeline](#production-cicd-pipeline)
-- [Dockerfile 3](#dockerfile-3)
-- [Build stage](#build-stage)
-- [Production stage](#production-stage)
+  - [Production CI/CD Pipeline](#production-cicd-pipeline)
+- [DOCKERFILE](#dockerfile-1)
+  - [Production Multi-stage Build](#production-multi-stage-build)
 - [HELM CHARTS](#helm-charts)
-- [Application Chart](#application-chart)
-- [prometheus-rules.yaml](#prometheus-rulesyaml)
+  - [Application Chart](#application-chart)
+- [PROMETHEUS RULES](#prometheus-rules)
+  - [Alerting Configuration](#alerting-configuration)
 - [CONTINUED: MORE DEVOPS PATTERNS](#continued-more-devops-patterns)
 - [EXPERT-LEVEL: PRODUCTION DEVOPS & SRE](#expert-level-production-devops-sre)
 - [DEPLOYMENT STRATEGIES AT SCALE](#deployment-strategies-at-scale)
-- [Canary Deployments with Automatic Rollback](#canary-deployments-with-automatic-rollback)
+  - [Canary Deployments with Automatic Rollback](#canary-deployments-with-automatic-rollback)
 - [KUBERNETES PRODUCTION DEBUGGING](#kubernetes-production-debugging)
-- [Pod Debugging Techniques](#pod-debugging-techniques)
-- [ArgoCD Application with Progressive Delivery](#argocd-application-with-progressive-delivery)
-- [Kustomize configuration](#kustomize-configuration)
-- [Health checks](#health-checks)
-- [[STAFF SRE LEVEL] CONTINUED: MORE PATTERNS](#staff-sre-level-continued-more-patterns)
-- [Density: Spotify/Google SRE quality](#density-spotifygoogle-sre-quality)
-- [ADVANCED DEVOPS PATTERNS](#advanced-devops-patterns)
-- [Container Best Practices](#container-best-practices)
-- [Dockerfile Optimization](#dockerfile-optimization)
-- [Image Size Reduction](#image-size-reduction)
-- [Kubernetes Essentials](#kubernetes-essentials)
-- [Pod Health Checks](#pod-health-checks)
-- [Resource Limits](#resource-limits)
-- [CI/CD Patterns](#cicd-patterns)
-- [Pipeline Stages](#pipeline-stages)
-- [GitHub Actions Example](#github-actions-example)
-- [Infrastructure as Code](#infrastructure-as-code)
-- [Terraform Basics](#terraform-basics)
-- [State Management](#state-management)
-- [Monitoring Stack 2](#monitoring-stack-2)
-- [Metrics (Prometheus)](#metrics-prometheus)
-- [Logging (ELK/Loki)](#logging-elkloki)
-- [Tracing (Jaeger/Tempo)](#tracing-jaegertempo)
-- [Deployment Strategies 2](#deployment-strategies-2)
-- [Blue-Green](#blue-green)
-- [Canary](#canary)
-- [Rolling](#rolling)
-- [Secrets in CI/CD](#secrets-in-cicd)
-- [GitHub Actions 2](#github-actions-2)
-- [Best Practices 3](#best-practices-3)
-- [OBSERVABILITY PATTERNS](#observability-patterns)
-- [Three Pillars](#three-pillars)
-- [Logs](#logs)
-- [Metrics 2](#metrics-2)
-- [Traces](#traces)
-- [Alert Design](#alert-design)
-- [Good Alerts](#good-alerts)
-- [Bad Alerts](#bad-alerts)
-- [SLI/SLO/SLA](#slislosla)
-- [Example](#example)
-- [Dashboard Best Practices](#dashboard-best-practices)
-- [Layout](#layout)
-- [Colors](#colors)
-- [BASED DEVELOPMENT](#based-development)
-- [Trunk-Based vs GitFlow](#trunk-based-vs-gitflow)
-- [Key Practices](#key-practices)
-- [Short-Lived Branches](#short-lived-branches)
-- [Feature Flags](#feature-flags)
-- [Code Review](#code-review)
-- [Small PRs](#small-prs)
-- [Review Checklist](#review-checklist)
-- [CONFIGURATION MANAGEMENT 2](#configuration-management-2)
-- [Environment Variables](#environment-variables)
-- [Hierarchy](#hierarchy)
-- [12-Factor Config](#12-factor-config)
-- [Principles 2](#principles-2)
-- [Secret Management](#secret-management)
-- [Never Do](#never-do)
-- [Use Instead](#use-instead)
-- [Config Validation](#config-validation)
-- [DOCKER PATTERNS](#docker-patterns)
-- [Dockerfile Best Practices](#dockerfile-best-practices)
-- [Multi-Stage Builds 2 2](#multi-stage-builds-2-2)
-- [Build stage 2](#build-stage-2)
-- [Production stage 2](#production-stage-2)
-- [Docker Compose 2](#docker-compose-2)
-- [Tips](#tips)
-- [LOGGING BEST PRACTICES](#logging-best-practices)
-- [Structured Logging 2](#structured-logging-2)
-- [Good Log Entry](#good-log-entry)
-- [Log Levels](#log-levels)
-- [What to Log](#what-to-log)
-- [Always Log](#always-log)
-- [Never Log](#never-log)
-- [Pino Example](#pino-example)
-- [MONOREPO PATTERNS](#monorepo-patterns)
-- [Monorepo Tools](#monorepo-tools)
-- [Structure](#structure)
-- [Turborepo Config](#turborepo-config)
-- [Package.json Workspaces](#packagejson-workspaces)
-- [Benefits](#benefits)
-- [Challenges](#challenges)
-- [KUBERNETES SECRETS](#kubernetes-secrets)
-- [Secret Types](#secret-types)
-- [Creating Secrets](#creating-secrets)
-- [From Literal](#from-literal)
-- [From File](#from-file)
-- [Using in Pods](#using-in-pods)
-- [As Environment Variables](#as-environment-variables)
-- [As Mounted Volume](#as-mounted-volume)
-- [External Secrets](#external-secrets)
-- [BUILD OPTIMIZATION](#build-optimization)
-- [Cache Strategies](#cache-strategies)
-- [npm ci](#npm-ci)
-- [Turborepo Remote Cache](#turborepo-remote-cache)
-- [Parallel Builds](#parallel-builds)
-- [GitHub Actions Matrix](#github-actions-matrix)
-- [Incremental Builds](#incremental-builds)
-- [Docker Layer Caching](#docker-layer-caching)
-- [ERROR TRACKING](#error-tracking)
-- [Error Tracking Tools](#error-tracking-tools)
-- [Sentry Integration](#sentry-integration)
-- [Setup](#setup)
-- [Capture Error](#capture-error)
-- [Best Practices 4](#best-practices-4)
-- [GIT ADVANCED](#git-advanced)
-- [Branching Strategies](#branching-strategies)
-- [Interactive Rebase](#interactive-rebase)
-- [Bisect](#bisect)
-- [Stash](#stash)
-- [Cherry Pick](#cherry-pick)
-- [TERRAFORM PATTERNS](#terraform-patterns)
-- [File Structure](#file-structure)
-- [State Management 2](#state-management-2)
-- [Tagging Strategy](#tagging-strategy)
-- [GITHUB ACTIONS PATTERNS](#github-actions-patterns)
-- [Matrix Strategy](#matrix-strategy)
-- [Caching Dependencies](#caching-dependencies)
-- [Reusable Workflow](#reusable-workflow)
-- [values.yaml 2](#valuesyaml-2)
-- [Deployment Template](#deployment-template)
-- [KUBERNETES NETWORKING](#kubernetes-networking)
-- [Service Types](#service-types)
-- [Ingress](#ingress)
-- [Network Policies](#network-policies)
-- [DOCKER COMPOSE PATTERNS](#docker-compose-patterns)
-- [Multi-Service Setup](#multi-service-setup)
-- [Development vs Production](#development-vs-production)
-- [Health Checks 2](#health-checks-2)
-- [EFFICIENT LOGGING PATTERNS](#efficient-logging-patterns)
-- [Structured Logging 3](#structured-logging-3)
-- [Log Levels 2](#log-levels-2)
-- [Context Propagation](#context-propagation)
-- [What NOT to Log](#what-not-to-log)
-- [VERCEL DEPLOYMENT GOTCHAS](#vercel-deployment-gotchas)
-- [Build Cache Issues](#build-cache-issues)
-- [Environment Variable Gotchas](#environment-variable-gotchas)
-- [Function Size Limit](#function-size-limit)
-- [Domain Configuration](#domain-configuration)
-- [CD PIPELINES PATTERNS](#cd-pipelines-patterns)
-- [GitHub Actions Matrix 2](#github-actions-matrix-2)
-- [Parallel Jobs](#parallel-jobs)
-- [Caching Dependencies 2](#caching-dependencies-2)
-- [DOCKER PRODUCTION PATTERNS](#docker-production-patterns)
-  - [Multi-Stage Build Optimization](#multi-stage-build-optimization)
-- [Docker Compose for Dev](#docker-compose-for-dev)
-- [Health Check](#health-check)
-- [PRODUCTION LOGGING PATTERNS](#production-logging-patterns)
-- [Structured Logging 4](#structured-logging-4)
-- [Correlation IDs](#correlation-ids)
-- [What to Log (Checklist)](#what-to-log-checklist)
-- [MONITORING PATTERNS](#monitoring-patterns)
-- [Four Golden Signals](#four-golden-signals)
-- [Prometheus Metrics](#prometheus-metrics)
-- [CD BEST PRACTICES](#cd-best-practices)
-- [Pipeline Stages 2](#pipeline-stages-2)
-- [.github/workflows/ci.yml](#githubworkflowsciyml)
-- [Stage 1: Quick checks](#stage-1-quick-checks)
-- [Stage 2: Tests (parallel)](#stage-2-tests-parallel)
-- [Stage 3: Build](#stage-3-build)
-- [Stage 4: Deploy](#stage-4-deploy)
-- [DEPLOY STRATEGIES](#deploy-strategies)
-- [Rolling Update](#rolling-update)
-- [!/bin/bash](#binbash)
+  - [Pod Debugging Techniques](#pod-debugging-techniques)
+- [Blue-Green Deploy](#blue-green-deploy)
+- [Canary Deploy](#canary-deploy)
+- [FEATURE FLAGS](#feature-flags)
+- [Basic Implementation](#basic-implementation)
+- [With LaunchDarkly](#with-launchdarkly)
+- [SENTRY ERROR TRACKING](#sentry-error-tracking)
+- [Basic Setup](#basic-setup)
+- [Error Context](#error-context)
+- [Performance Monitoring](#performance-monitoring)
+- [VOLUME 1.1: PRODUCTION INCIDENTS FROM THE TRENCHES](#volume-11-production-incidents-from-the-trenches)
+  - [1. DOCKER: CONTAINER SIZE EXPLOSION](#1-docker-container-size-explosion)
+    - [Stack Overflow Horror Story (7,200+ upvotes)](#stack-overflow-horror-story-7200-upvotes)
+    - [Spotify Production Incident](#spotify-production-incident)
+    - [CRITICAL .dockerignore File](#critical-dockerignore-file)
+  - [2. ENVIRONMENT VARIABLES & SECRETS DISASTER](#2-environment-variables-secrets-disaster)
+    - [Uber GitHub Incident (8,500+ stars)](#uber-github-incident-8500-stars)
+    - [AWS Secrets Manager Solution](#aws-secrets-manager-solution)
+  - [3. KUBERNETES: RESOURCE LIMITS & OOM KILLS](#3-kubernetes-resource-limits-oom-kills)
+    - [Shopify Production Incident (4,500+ upvotes)](#shopify-production-incident-4500-upvotes)
+    - [Production-Ready Resource Management](#production-ready-resource-management)
+  - [4. AUTOMATED ROLLBACK SCRIPT](#4-automated-rollback-script)
+    - [GitLab Production Incident (3,000+ comments)](#gitlab-production-incident-3000-comments)
 - [5. DISASTER RECOVERY PLAN](#5-disaster-recovery-plan)
-- [6. GRACEFUL SHUTDOWN](#6-graceful-shutdown)
-- [7. COST OPTIMIZATION (SPOT INSTANCES + SCALING)](#7-cost-optimization-spot-instances-scaling)
+  - [6. GRACEFUL SHUTDOWN](#6-graceful-shutdown)
+  - [7. COST OPTIMIZATION (SPOT INSTANCES + SCALING)](#7-cost-optimization-spot-instances-scaling)
 - [8. MULTI-REGION DEPLOYMENT](#8-multi-region-deployment)
-- [Global DynamoDB (multi-region replication)](#global-dynamodb-multi-region-replication)
-- [Let's Encrypt + Certbot auto-renewal](#lets-encrypt-certbot-auto-renewal)
-- [Auto-renewal cron (runs twice daily)](#auto-renewal-cron-runs-twice-daily)
-- [Setup Harbor](#setup-harbor)
-- [Login](#login)
-- [Tag and push](#tag-and-push)
-- [Pull](#pull)
-- [Generate new password](#generate-new-password)
-- [Update database](#update-database)
-- [Update secret](#update-secret)
-- [terraform plan -detailed-exitcode](#terraform-plan--detailed-exitcode)
-- [Exit code 2 = drift detected](#exit-code-2-drift-detected)
+- [9. SSL/TLS AUTO-RENEWAL](#9-ssltls-auto-renewal)
+  - [Knight Capital Incident (440M USD loss)](#knight-capital-incident-440m-usd-loss)
+- [10. COMPREHENSIVE HEALTH CHECKS](#10-comprehensive-health-checks)
+  - [11. RATE LIMITING (INFRASTRUCTURE LEVEL)](#11-rate-limiting-infrastructure-level)
+  - [12. CHAOS TESTING](#12-chaos-testing)
+  - [13. INCIDENT RESPONSE RUNBOOK](#13-incident-response-runbook)
+  - [14. COMPLETE OBSERVABILITY (OPENTELEMETRY)](#14-complete-observability-opentelemetry)
+  - [15. ZERO DOWNTIME DEPLOYMENTS](#15-zero-downtime-deployments)
+    - [[DEVOPS PRODUCTION PATTERNS - VOLUME 8] COMPLETED](#devops-production-patterns---volume-8-completed)
+    - [Coverage: Docker optimization, Secrets management, OOM kills, Rollback automation, Disaster recovery, Graceful shutdown, Cost optimization, Multi-region, SSL auto-renewal, Health checks, Rate limiting, Chaos testing, Incident response, Observability, Zero-downtime](#coverage-docker-optimization-secrets-management-oom-kills-rollback-automation-disaster-recovery-graceful-shutdown-cost-optimization-multi-region-ssl-auto-renewal-health-checks-rate-limiting-chaos-testing-incident-response-observability-zero-downtime)
+- [VOLUME 1.2: ADDITIONAL PRODUCTION PATTERNS](#volume-12-additional-production-patterns)
+  - [16. CONFIGURATION MANAGEMENT (ANSIBLE)](#16-configuration-management-ansible)
+  - [17. LOG AGGREGATION (EFK/FLUENTD)](#17-log-aggregation-efkfluentd)
+  - [18. METRICS COLLECTION (TELEGRAF)](#18-metrics-collection-telegraf)
+  - [19. CONTAINER REGISTRY (HARBOR)](#19-container-registry-harbor)
+- [20. AUTOMATIC SECRETS ROTATION](#20-automatic-secrets-rotation)
+- [21. INFRASTRUCTURE DRIFT DETECTION](#21-infrastructure-drift-detection)
 - [22. DATABASE CONNECTION POOLING (PGBOUNCER)](#22-database-connection-pooling-pgbouncer)
-- [23. LOG ROTATION (LOGROTATE)](#23-log-rotation-logrotate)
-- [24. MEMORY PROFILING & LEAK DETECTION](#24-memory-profiling-leak-detection)
+  - [23. LOG ROTATION (LOGROTATE)](#23-log-rotation-logrotate)
+  - [24. MEMORY PROFILING & LEAK DETECTION](#24-memory-profiling-leak-detection)
 - [25. DDoS PROTECTION (CLOUDFLARE)](#25-ddos-protection-cloudflare)
-- [Run: pytest --hosts=ssh://server1,ssh://server2](#run-pytest---hostssshserver1sshserver2)
-- [!/bin/bash 2](#binbash-2)
-- [AUTOMATED POSTGRESQL BACKUP](#automated-postgresql-backup)
-- [Full backup](#full-backup)
-- [Upload to S3](#upload-to-s3)
-- [Keep only last 30 days](#keep-only-last-30-days)
-- [Verify backup integrity](#verify-backup-integrity)
-- [Schedule: 0 */6* ** /scripts/backup.sh](#schedule-0-6-scriptsbackupsh)
+- [26. INFRASTRUCTURE TESTING (TESTINFRA)](#26-infrastructure-testing-testinfra)
+- [[DEVOPS PRODUCTION PATTERNS - VOLUME 9] COMPLETED](#devops-production-patterns---volume-9-completed)
+  - [NEW Coverage: Ansible, Fluentd/EFK, Telegraf, Harbor, Secrets Rotation, Drift Detection, PgBouncer, Logrotate, Memory Profiling, DDoS Protection, Testinfra](#new-coverage-ansible-fluentdefk-telegraf-harbor-secrets-rotation-drift-detection-pgbouncer-logrotate-memory-profiling-ddos-protection-testinfra)
+- [VOLUME 1.3: REMAINING PRODUCTION PATTERNS](#volume-13-remaining-production-patterns)
+  - [27. DATABASE BACKUP & RESTORE (PostgreSQL)](#27-database-backup-restore-postgresql)
 - [Point-in-Time Recovery](#point-in-time-recovery)
 - [28. HIGH AVAILABILITY PATTERNS](#28-high-availability-patterns)
-- [Anti-affinity (spread across nodes)](#anti-affinity-spread-across-nodes)
 - [29. TERRAFORM DEEP DIVE (Production Structure)](#29-terraform-deep-dive-production-structure)
-- [modules/vpc/main.tf](#modulesvpcmaintf)
-- [Private subnets (for apps)](#private-subnets-for-apps)
-- [Public subnets (for load balancers)](#public-subnets-for-load-balancers)
-- [NAT Gateway](#nat-gateway)
-- [Usage in prod](#usage-in-prod)
-- [Blue deployment (current)](#blue-deployment-current)
-- [Green deployment (new)](#green-deployment-new)
-- [Switch: kubectl patch service api -p '{"spec":{"selector":{"version":"green"}}}'](#switch-kubectl-patch-service-api--p-specselectorversiongreen)
-- [Circuit breaker](#circuit-breaker)
-- [PRODUCTION Python Dockerfile](#production-python-dockerfile)
-- [Install build dependencies](#install-build-dependencies)
-- [Create virtual environment](#create-virtual-environment)
-- [Production stage 4](#production-stage-4)
-- [Result: 200MB (vs 1.5GB with full Python image)](#result-200mb-vs-15gb-with-full-python-image)
-- [Google's distroless (no shell, no package manager)](#googles-distroless-no-shell-no-package-manager)
-- [Result](#result)
-- [- Image: 120MB (smallest possible)](#--image-120mb-smallest-possible)
-- [- No shell (attackers can't exec into container)](#--no-shell-attackers-cant-exec-into-container)
-- [- No apt/yum (can't install tools)](#--no-aptyum-cant-install-tools)
-- [- Minimal attack surface](#--minimal-attack-surface)
-- [TITAN K8s Spec: Container-Aware JVM](#titan-k8s-spec-container-aware-jvm)
-- [TERRAFORM STATE LOCKING RACE CONDITION](#terraform-state-locking-race-condition)
-- [CI Pipeline Scar](#ci-pipeline-scar)
-- [TITAN Config: etcd tuning](#titan-config-etcd-tuning)
-- [END OF VOLUME 1.5: TITAN DEVOPS PHYSICS](#end-of-volume-15-titan-devops-physics)
-- [VOLUME 1.6: TITAN VAULT - K8S CNI & IP EXHAUSTION](#volume-16-titan-vault---k8s-cni-ip-exhaustion)
-- [KUBERNETES CNI IP EXHAUSTION](#kubernetes-cni-ip-exhaustion)
-  - [Pod Scheduling Scar](#pod-scheduling-scar)
-- [INVESTMENT: KNIGHT CAPITAL KILL SWITCHES](#investment-knight-capital-kill-switches)
-  - [$440M Loss in 45 Minutes Scar](#440m-loss-in-45-minutes-scar)
-- [FIX PROTOCOL EDGE CASES](#fix-protocol-edge-cases)
-  - [Trading Protocol Parsing Scar](#trading-protocol-parsing-scar)
-  - [Titan Fix](#titan-fix)
-  - [END OF VOLUME 1.6: TITAN DEVOPS & TRADING SYSTEMS](#end-of-volume-16-titan-devops-trading-systems)
-- [VOLUME 1.7: TITAN VAULT - TERRAFORM & LAMBDA ENI](#volume-17-titan-vault---terraform-lambda-eni)
-- [TERRAFORM NATIVE S3 LOCKING (1.11+)](#terraform-native-s3-locking-111)
-  - [DynamoDB Removal](#dynamodb-removal)
-- [LAMBDA HYPERPLANE ENIs](#lambda-hyperplane-enis)
-  - [ENI Exhaustion Scar](#eni-exhaustion-scar)
-  - [Titan Fix 2](#titan-fix-2)
-  - [END OF VOLUME 1.7: TITAN INFRASTRUCTURE](#end-of-volume-17-titan-infrastructure)
-- [VOLUME 1.8: TITAN CATALOG - 30 DEVOPS FAILURES](#volume-18-titan-catalog---30-devops-failures)
-- [END OF VOLUME 1.8: TITAN DEVOPS CATALOG](#end-of-volume-18-titan-devops-catalog)
-- [VOLUME 1.9: TITAN VAULT - K8S OPERATORS & OBSERVABILITY](#volume-19-titan-vault---k8s-operators-observability)
-- [KUBERNETES OPERATOR INFINITE RECONCILIATION LOOP](#kubernetes-operator-infinite-reconciliation-loop)
-  - [Self-DoS Scar](#self-dos-scar)
-- [ISTIO SIDECAR MEMORY EXPLOSION](#istio-sidecar-memory-explosion)
-  - [Mesh Cardinality Scar](#mesh-cardinality-scar)
-  - [Titan Fix 3](#titan-fix-3)
-- [PROMETHEUS HIGH CARDINALITY](#prometheus-high-cardinality)
-  - [Monitoring Kills Itself Scar](#monitoring-kills-itself-scar)
-- [OPENTELEMETRY TAIL SAMPLING](#opentelemetry-tail-sampling)
-  - [100% Error Capture](#100-error-capture)
-  - [END OF VOLUME 1.9: TITAN K8S & OBSERVABILITY](#end-of-volume-19-titan-k8s-observability)
-- [VOLUME 2.0: TITAN DEEP INTERNALS - CONTAINER & ORCHESTRATION](#volume-20-titan-deep-internals---container-orchestration)
-- [CGROUPS V2 CPU THROTTLING](#cgroups-v2-cpu-throttling)
-  - [Java Container CPU Scar](#java-container-cpu-scar)
-- [TITAN: Kubernetes resource config for JVM](#titan-kubernetes-resource-config-for-jvm)
 - [OOM KILLER MECHANICS](#oom-killer-mechanics)
-- [Container OOM Scar](#container-oom-scar)
-- [TITAN: Pre-OOM detection in application](#titan-pre-oom-detection-in-application)
-- [cgroups v2](#cgroups-v2)
-- [Parse: full avg10=0.00 avg60=0.00 avg300=0.00 total=0](#parse-full-avg10000-avg60000-avg300000-total0)
-- [Check periodically and shed load before OOM](#check-periodically-and-shed-load-before-oom)
-- [Drop caches, reject new requests, etc](#drop-caches-reject-new-requests-etc)
-- [KUBERNETES SCHEDULER INTERNALS](#kubernetes-scheduler-internals)
-- [Pod Pending Forever Scar](#pod-pending-forever-scar)
-- [Check scheduler logs for specific pod](#check-scheduler-logs-for-specific-pod)
-- [Increase scheduler verbosity](#increase-scheduler-verbosity)
-- [TITAN: Proper topology spread](#titan-proper-topology-spread)
-- [Spread across AZs](#spread-across-azs)
-- [Also spread across nodes within AZ](#also-spread-across-nodes-within-az)
-- [END OF VOLUME 2.0: TITAN DEEP INTERNALS - CONTAINER & ORCHESTRATION](#end-of-volume-20-titan-deep-internals---container-orchestration)
-- [VOLUME 2.1: TITAN GEMINI RESEARCH - K8S & TERRAFORM FAILURES](#volume-21-titan-gemini-research---k8s-terraform-failures)
-- [KUBERNETES CRASHLOOPBACKOFF DIAGNOSIS](#kubernetes-crashloopbackoff-diagnosis)
+  - [Container OOM Scar](#container-oom-scar)
+- [KUBERNETES POD TOPOLOGY SPREAD](#kubernetes-pod-topology-spread)
+  - [AZ Imbalance Scar](#az-imbalance-scar)
+- [GRPC FLOW CONTROL](#grpc-flow-control)
+  - [Stream Backpressure Scar](#stream-backpressure-scar)
+  - [GRPC KEEPALIVE AND LOAD BALANCING](#grpc-keepalive-and-load-balancing)
+    - [Connection Goes Stale Scar](#connection-goes-stale-scar)
+- [AWS LAMBDA COLD START OPTIMIZATION](#aws-lambda-cold-start-optimization)
   - [The Scar](#the-scar)
-- [VIBE: No resource limits = OOMKilled under load](#-vibe-no-resource-limits-oomkilled-under-load-2)
-- [No resources defined = unbounded = OOMKilled eventually](#no-resources-defined-unbounded-oomkilled-eventually)
-- [TITAN: Proper resource configuration](#titan-proper-resource-configuration)
-- [VIBE: Aggressive liveness probe = false restarts](#-vibe-aggressive-liveness-probe-false-restarts-2)
-- [TITAN: Proper probe configuration](#titan-proper-probe-configuration)
-- [TERRAFORM STATE LOCKING RACE CONDITIONS](#terraform-state-locking-race-conditions)
-- [The Scar 2](#the-scar-2)
-- [TITAN: Force unlock after crash (DANGEROUS - verify no one else running)](#titan-force-unlock-after-crash-dangerous---verify-no-one-else-running)
-- [TITAN: Check who holds the lock](#titan-check-who-holds-the-lock)
-- [TITAN: Prevent simultaneous applies in CI/CD](#titan-prevent-simultaneous-applies-in-cicd)
-- [Use GitHub Actions concurrency group](#use-github-actions-concurrency-group)
-- [TITAN: Lazy loading for optional heavy imports](#titan-lazy-loading-for-optional-heavy-imports)
-- [Only import when actually needed](#only-import-when-actually-needed)
-- [TITAN: Move initialization outside handler](#titan-move-initialization-outside-handler)
-- [Initialize ONCE per container lifecycle (reused across invocations)](#initialize-once-per-container-lifecycle-reused-across-invocations)
-- [Reuses existing connection](#reuses-existing-connection)
-- [VIBE: Basic debugging](#vibe-basic-debugging)
-- [Error: container has no logs](#error-container-has-no-logs)
-- [Pod crashed before writing anything](#pod-crashed-before-writing-anything)
-- [TITAN: Automated crash analysis](#titan-automated-crash-analysis)
-- [Get pod details](#get-pod-details)
-- [Get container status](#get-container-status)
-- [Get events](#get-events)
-- [Get logs](#get-logs)
-- [Analyze exit code](#analyze-exit-code)
-- [Check events for specific issues](#check-events-for-specific-issues)
-- [Slack alert with analysis](#slack-alert-with-analysis)
-- [TITAN: ArgoCD GitOps setup](#titan-argocd-gitops-setup)
-- [argocd/application.yaml](#argocdapplicationyaml)
-- [Helm values (if using Helm)](#helm-values-if-using-helm)
-- [Health checks 3](#health-checks-3)
-- [TITAN: Multi-environment promotion](#titan-multi-environment-promotion)
-- [apps/myapp/base/kustomization.yaml](#appsmyappbasekustomizationyaml)
-- [END OF VOLUME 3: TITAN GEMINI RESEARCH - K8S DEBUGGING AND GITOPS](#end-of-volume-3-titan-gemini-research---k8s-debugging-and-gitops)
-- [VOLUME 4: TITAN GEMINI RESEARCH - OBSERVABILITY AND INCIDENT RESPONSE](#volume-4-titan-gemini-research---observability-and-incident-response)
-- [DISTRIBUTED TRACING GAPS](#distributed-tracing-gaps)
-  - [The Scar 4 2](#the-scar-4-2)
-- [TITAN: OpenTelemetry distributed tracing](#titan-opentelemetry-distributed-tracing)
-- [Setup tracing](#setup-tracing)
-- [Auto-instrument everything](#auto-instrument-everything)
-- [Nested spans auto-propagate context](#nested-spans-auto-propagate-context)
-- [TITAN: Custom span context for async operations](#titan-custom-span-context-for-async-operations)
-- [Restore trace context from job data](#restore-trace-context-from-job-data)
-- [Process job with full trace context](#process-job-with-full-trace-context)
-- [When enqueueing job, capture context](#when-enqueueing-job-capture-context)
-- [INCIDENT RESPONSE AUTOMATION](#incident-response-automation)
-- [The Scar 6](#the-scar-6)
-- [TITAN: Automated incident response with runbooks](#titan-automated-incident-response-with-runbooks)
-- [Create incident thread](#create-incident-thread)
-- [Summary](#summary)
-- [prometheus.yml](#prometheusyml)
-- [alerts/api.yml](#alertsapiyml)
-- [fluent-bit.conf](#fluent-bitconf)
-- [!/bin/bash 4](#binbash-4)
-- [Production database backup with verification](#production-database-backup-with-verification)
-- [Configuration](#configuration)
-- [Generate backup filename](#generate-backup-filename)
-- [Create backup with compression](#create-backup-with-compression)
-- [Calculate checksum](#calculate-checksum)
-- [Upload to S3 with encryption](#upload-to-s3-with-encryption)
-- [Verify backup by restoring to test database](#verify-backup-by-restoring-to-test-database)
-- [Clean up old backups](#clean-up-old-backups)
-- [backend.tf - Remote state with locking](#backendtf---remote-state-with-locking)
-- [Cross-account access](#cross-account-access)
-- [State locking table](#state-locking-table)
-- [lambda_function.py - Secrets rotation handler](#lambda_functionpy---secrets-rotation-handler)
-- [Generate new secret value](#generate-new-secret-value)
-- [Apply secret to the service](#apply-secret-to-the-service)
-- [Verify new secret works](#verify-new-secret-works)
-- [Promote pending to current](#promote-pending-to-current)
-- [.github/workflows/deploy.yml 2](#githubworkflowsdeployyml-2)
-- [Region Mismatch Issues](#region-mismatch-issues)
-- [Fix](#fix)
-- [PRODUCTION DEBUGGING CHECKLIST](#production-debugging-checklist)
-  - [END OF VERCEL REAL PRODUCTION ISSUES](#end-of-vercel-real-production-issues)
-- [VOLUME 7: REAL 2024 DOCKER PRODUCTION ISSUES](#volume-7-real-2024-docker-production-issues)
-- [Source: Docker Docs, Kubernetes Community, Real Incident Reports](#source-docker-docs-kubernetes-community-real-incident-reports)
-- [OOM (OUT OF MEMORY) KILLS](#oom-out-of-memory-kills)
-  - [The Symptom](#the-symptom)
-  - [Why This Happens](#why-this-happens)
-  - [Real Fixes](#real-fixes)
-  - [Fix 1: Set Appropriate Memory Limits](#fix-1-set-appropriate-memory-limits)
-- [Docker Compose 3](#docker-compose-3)
-- [Fix 2: Monitor Memory Before Problems](#fix-2-monitor-memory-before-problems)
-- [Fix 3: Debug Memory Issues](#fix-3-debug-memory-issues)
-- [NODE.JS MEMORY IN CONTAINERS](#nodejs-memory-in-containers)
-- [The Problem 2](#the-problem-2)
-  - [Real Fixes 2](#real-fixes-2)
-  - [Fix 1: Match Timeouts](#fix-1-match-timeouts)
-- [JAVA/JVM MEMORY IN CONTAINERS](#javajvm-memory-in-containers)
-- [The Problem 2 2](#the-problem-2-2)
-  - [The Fix 2](#the-fix-2)
-- [Dockerfile 5](#dockerfile-5)
-- [Modern JVMs (Java 10+) respect container limits](#modern-jvms-java-10-respect-container-limits)
-- [But configure explicitly](#but-configure-explicitly)
-- [75% of container limit for max heap](#75-of-container-limit-for-max-heap)
-- [50% for initial heap](#50-for-initial-heap)
-- [Example: Container 512MB ? Max heap 384MB](#example-container-512mb-max-heap-384mb)
-- [Fix 2: Use Smaller Base Images](#fix-2-use-smaller-base-images)
-- [Fix 3: Layer Caching Strategy](#fix-3-layer-caching-strategy)
-- [CONTAINER STARTUP ISSUES](#container-startup-issues)
-- [Health Check Configuration](#health-check-configuration)
-- [Graceful Shutdown](#graceful-shutdown)
-- [DECISION TREE: DOCKER DEBUGGING](#decision-tree-docker-debugging)
-  - [END OF DOCKER REAL PRODUCTION ISSUES](#end-of-docker-real-production-issues)
-- [VOLUME 8: REAL 2024 KUBERNETES PRODUCTION ISSUES](#volume-8-real-2024-kubernetes-production-issues)
-- [Source: Kubernetes Docs, Real Incident Reports, Production Experience](#source-kubernetes-docs-real-incident-reports-production-experience)
-- [CRASHLOOPBACKOFF](#crashloopbackoff)
-  - [The Symptom 2](#the-symptom-2)
-  - [What It Means](#what-it-means)
-  - [Debugging Steps](#debugging-steps)
-  - [Step 1: Get Pod Events](#step-1-get-pod-events)
-- [Step 2: Check Logs](#step-2-check-logs)
-- [Step 3: Check Exit Code](#step-3-check-exit-code)
-- [OOMKILLED IN KUBERNETES](#oomkilled-in-kubernetes)
-- [The Problem 4](#the-problem-4)
-  - [Real Fixes 3](#real-fixes-3)
-  - [Fix 1: Set Proper Resource Requests and Limits](#fix-1-set-proper-resource-requests-and-limits)
-- [Request: Guaranteed minimum, used for scheduling](#request-guaranteed-minimum-used-for-scheduling)
-- [Limit: Maximum allowed, OOMKilled if exceeded](#limit-maximum-allowed-oomkilled-if-exceeded)
-- [Guaranteed QoS (Last to be OOMKilled)](#guaranteed-qos-last-to-be-oomkilled)
-- [requests == limits for both CPU and memory](#requests-limits-for-both-cpu-and-memory)
-- [Burstable QoS (Middle priority)](#burstable-qos-middle-priority)
-- [requests < limits](#requests-limits)
-- [BestEffort QoS (First to be OOMKilled!)](#besteffort-qos-first-to-be-oomkilled)
-- [No requests or limits defined](#no-requests-or-limits-defined)
-- [DON'T do this in production](#dont-do-this-in-production)
-- [Fix 3: Monitor Memory Before OOMKill](#fix-3-monitor-memory-before-oomkill)
-- [POD SCHEDULING ISSUES](#pod-scheduling-issues)
-- [Pending Pods](#pending-pods)
-  - [Common Causes and Fixes](#common-causes-and-fixes)
-  - [Cause 1: Insufficient Resources](#cause-1-insufficient-resources)
-- [Cause 2: Node Selector Mismatch](#cause-2-node-selector-mismatch)
-- [Cause 3: Taints and Tolerations](#cause-3-taints-and-tolerations)
-- [PROBES MISCONFIGURATION](#probes-misconfiguration)
-- [Liveness Probe Issues](#liveness-probe-issues)
-- [Readiness probe tells K8s when pod is ready for traffic](#readiness-probe-tells-k8s-when-pod-is-ready-for-traffic)
-- [If failing: Pod removed from Service endpoints](#if-failing-pod-removed-from-service-endpoints)
-- [Check: kubectl get endpoints myservice](#check-kubectl-get-endpoints-myservice)
-- [Get all resources in namespace](#get-all-resources-in-namespace)
-- [Describe any resource for events](#describe-any-resource-for-events)
-- [View logs (current and previous)](#view-logs-current-and-previous)
-- [Execute command in pod](#execute-command-in-pod)
-- [Port forward for local testing](#port-forward-for-local-testing)
-- [Copy files to/from pod](#copy-files-tofrom-pod)
-- [Get resource usage](#get-resource-usage)
-- [Debug with ephemeral container (K8s 1.23+)](#debug-with-ephemeral-container-k8s-123)
-- [Workflow runs but secrets are empty](#workflow-runs-but-secrets-are-empty)
-- [Output: "Deploy to "  <- Empty](#output-deploy-to---empty)
-- [Common Causes and Fixes 2](#common-causes-and-fixes-2)
-- [Cause 1: Secret Not Defined](#cause-1-secret-not-defined)
-- [Cause 2: Pull Request from Fork](#cause-2-pull-request-from-fork)
-- [Cause 3: Environment Not Specified](#cause-3-environment-not-specified)
-- [Real Fix: Create .env During Build](#real-fix-create-env-during-build)
-- [WORKFLOW PERMISSIONS ISSUES](#workflow-permissions-issues)
-- [The Problem 6](#the-problem-6)
-  - [Real Fix: Set Permissions Explicitly](#real-fix-set-permissions-explicitly)
-- [TITAN: Explicit permissions](#titan-explicit-permissions)
-- [OIDC FOR CLOUD AUTHENTICATION (Best Practice 2024)](#oidc-for-cloud-authentication-best-practice-2024)
-- [VIBE: Installing dependencies every time (slow)](#vibe-installing-dependencies-every-time-slow)
-- [TITAN: Cache node_modules](#titan-cache-node_modules)
-- [Even better for Next.js](#even-better-for-nextjs)
-- [Production environment with required reviewers](#production-environment-with-required-reviewers)
-- [Settings ? Environments ? production ? Protection rules](#settings-environments-production-protection-rules)
-- [Workflow pauses here until reviewer approves](#workflow-pauses-here-until-reviewer-approves)
-- [VIBE: Echoing secrets](#vibe-echoing-secrets)
-- [GitHub masks it, but derived values might leak](#github-masks-it-but-derived-values-might-leak)
-- [TITAN: Never echo secrets, use them directly](#titan-never-echo-secrets-use-them-directly)
-- [Mistake 2: Hardcoded Versions](#mistake-2-hardcoded-versions)
-- [VIBE: Multiple deploys can run simultaneously](#vibe-multiple-deploys-can-run-simultaneously)
-- [TITAN: Cancel in-progress deploys](#titan-cancel-in-progress-deploys)
-- [DECISION TREE: GITHUB ACTIONS DEBUGGING](#decision-tree-github-actions-debugging)
-- [END OF GITHUB ACTIONS REAL PRODUCTION ISSUES](#end-of-github-actions-real-production-issues)
-- [VOLUME 10: REAL 2024 AWS LAMBDA PRODUCTION ISSUES](#volume-10-real-2024-aws-lambda-production-issues)
-- [Source: AWS Docs, Developer Reports, Real Production Experience](#source-aws-docs-developer-reports-real-production-experience)
-- [COLD STARTS 2](#cold-starts-2)
-  - [The Problem 3 2](#the-problem-3-2)
-  - [Why Cold Starts Happen](#why-cold-starts-happen)
-  - [Real Fixes 4](#real-fixes-4)
-  - [Fix 1: Minimize Package Size](#fix-1-minimize-package-size)
-- [VIBE: Huge package with everything](#vibe-huge-package-with-everything)
-- [Deployment package: 100MB ? Slow cold start](#deployment-package-100mb-slow-cold-start)
-- [TITAN: Minimal dependencies](#titan-minimal-dependencies)
-- [aws-sdk is already in Lambda runtime - don't bundle it](#aws-sdk-is-already-in-lambda-runtime---dont-bundle-it)
-- [package.json](#packagejson)
-- [Deployment package: 5MB ? Fast cold start](#deployment-package-5mb-fast-cold-start)
-- [serverless.yml](#serverlessyml)
-- [Fix 4: SnapStart (Java Only)](#fix-4-snapstart-java-only)
-- [TIMEOUT ISSUES](#timeout-issues)
-- [The Problem 7](#the-problem-7)
-  - [Real Fixes 5](#real-fixes-5)
-  - [Fix 1: Match Timeouts 2](#fix-1-match-timeouts-2)
-- [serverless.yml 2](#serverlessyml-2)
-- [Fix 2: Implement Timeouts in Code](#fix-2-implement-timeouts-in-code)
-- [VPC COLD START PENALTY](#vpc-cold-start-penalty)
-  - [The Problem 4 2](#the-problem-4-2)
-  - [Real Fix: Only Use VPC When Necessary](#real-fix-only-use-vpc-when-necessary)
-- [DATABASE CONNECTION MANAGEMENT](#database-connection-management)
-- [DECISION TREE: AWS LAMBDA DEBUGGING](#decision-tree-aws-lambda-debugging)
-  - [END OF AWS LAMBDA REAL PRODUCTION ISSUES](#end-of-aws-lambda-real-production-issues)
-- [VOLUME 11: REAL 2024 CLOUDFLARE WORKERS PRODUCTION ISSUES](#volume-11-real-2024-cloudflare-workers-production-issues)
-- [Source: Cloudflare Docs, Incident Reports, Developer Experience](#source-cloudflare-docs-incident-reports-developer-experience)
-- [WORKERS LIMITS AND COLD STARTS](#workers-limits-and-cold-starts)
-  - [The Limits](#the-limits)
-  - [Cold Start Reality](#cold-start-reality)
-  - [Real Fixes 3 2](#real-fixes-3-2)
-  - [Fix 1: Keep Dependencies Small](#fix-1-keep-dependencies-small)
-  - [Fix 2: Lazy Load Heavy Dependencies](#fix-2-lazy-load-heavy-dependencies)
-- [CLOUDFLARE KV ISSUES](#cloudflare-kv-issues)
-  - [Eventually Consistent (60 Second Propagation)](#eventually-consistent-60-second-propagation)
-  - [Cold Cache Reads](#cold-cache-reads)
-- [CLOUDFLARE D1 (SQLite)](#cloudflare-d1-sqlite)
-  - [Single Region Warning](#single-region-warning)
-  - [Limits](#limits)
-- [CLOUDFLARE R2 (S3 Compatible)](#cloudflare-r2-s3-compatible)
-  - [Use Cases vs Limits](#use-cases-vs-limits)
-- [VOLUME 12: REAL 2024 FIREBASE FIRESTORE ISSUES](#volume-12-real-2024-firebase-firestore-issues)
-- [READ COSTS EXPLOSION](#read-costs-explosion)
-  - [The Problem 5 2](#the-problem-5-2)
-  - [Real Fixes 4 2](#real-fixes-4-2)
-  - [Fix 1: Minimize Reads with Data Model](#fix-1-minimize-reads-with-data-model)
-  - [Fix 2: Use Query Cursors for Pagination](#fix-2-use-query-cursors-for-pagination)
-- [COMPOSITE INDEX REQUIREMENTS](#composite-index-requirements)
-- [SECURITY RULES](#security-rules)
-- [DECISION TREE: FIREBASE DEBUGGING](#decision-tree-firebase-debugging)
-  - [END OF CLOUDFLARE AND FIREBASE REAL PRODUCTION ISSUES](#end-of-cloudflare-and-firebase-real-production-issues)
-- [REAL DOCKER PATTERNS 2024](#real-docker-patterns-2024)
-- [Production Dockerfile](#production-dockerfile)
-- [Terraform for Infrastructure](#terraform-for-infrastructure)
-- [END OF DEVOPS PATTERNS](#end-of-devops-patterns)
-- [FEATURE FLAGS 2 2](#feature-flags-2-2)
-- [Schedule: 0 */6 * * * /scripts/backup.sh 2](#schedule-0-6-scriptsbackupsh-2)
-- [? TITAN K8s Spec: Container-Aware JVM 2](#-titan-k8s-spec-container-aware-jvm-2)
-- [? TITAN Config: etcd tuning 2](#-titan-config-etcd-tuning-2)
-- [? VIBE: No resource limits = OOMKilled under load 2](#-vibe-no-resource-limits-oomkilled-under-load-2)
-- [? TITAN: Proper resource configuration 2](#-titan-proper-resource-configuration-2)
-- [? VIBE: Local state = no locking = race conditions 2](#-vibe-local-state-no-locking-race-conditions-2)
-- [? VIBE: Heavy imports at module level 2](#-vibe-heavy-imports-at-module-level-2)
-- [? TITAN: Lazy loading for optional heavy imports 2](#-titan-lazy-loading-for-optional-heavy-imports-2)
-- [? TITAN: Move initialization outside handler 2](#-titan-move-initialization-outside-handler-2)
-- [? TITAN: Provisioned Concurrency for critical paths 2](#-titan-provisioned-concurrency-for-critical-paths-2)
-- [? VIBE: Running as root + privileged 2](#-vibe-running-as-root-privileged-2)
-- [? TITAN: Pod Security Standards (PSS) 2](#-titan-pod-security-standards-pss-2)
-- [LOG AGGREGATION 2 2](#log-aggregation-2-2)
-- [INFRASTRUCTURE AS CODE 2 2](#infrastructure-as-code-2-2)
-- [Use ~75% of container limit (512MB * 0.75 = 384MB) 2](#use-75-of-container-limit-512mb-075-384mb-2)
-- [? VIBE: Full image 2](#-vibe-full-image-2)
-- [? TITAN: Alpine variant 2](#-titan-alpine-variant-2)
-- [? TITAN EXTREME: Distroless 2](#-titan-extreme-distroless-2)
-- [? VIBE: All in one layer 2](#-vibe-all-in-one-layer-2)
-- [? TITAN: Separate layers for caching 2](#-titan-separate-layers-for-caching-2)
-- [? VIBE: No health check 2](#-vibe-no-health-check-2)
-- [? Kubernetes/orchestrator can't know if app is ready 2](#-kubernetesorchestrator-cant-know-if-app-is-ready-2)
-- [? TITAN: Proper health check 2](#-titan-proper-health-check-2)
-- [DON'T do this in production 2](#dont-do-this-in-production-2)
-- [Output: "Deploy to "  <- Empty 2](#output-deploy-to---empty-2)
-- [? TITAN: Explicit permissions 2](#-titan-explicit-permissions-2)
-- [? VIBE: Installing dependencies every time (slow) 2](#-vibe-installing-dependencies-every-time-slow-2)
-- [? TITAN: Cache node_modules 2](#-titan-cache-node_modules-2)
-- [? VIBE: Echoing secrets 2](#-vibe-echoing-secrets-2)
-- [? TITAN: Never echo secrets, use them directly 2](#-titan-never-echo-secrets-use-them-directly-2)
-- [? VIBE: Multiple deploys can run simultaneously 2](#-vibe-multiple-deploys-can-run-simultaneously-2)
-- [? TITAN: Cancel in-progress deploys 2](#-titan-cancel-in-progress-deploys-2)
+- [Promotion Request](#promotion-request)
+  - [Checklist](#checklist)
+- [SLI/SLO AUTOMATION](#slislo-automation)
+  - [The Scar](#the-scar-1)
 
 ## 06_DEVOPS.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -691,7 +224,6 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
-
 1. The "Rm -rf" Deployment - Why Scripts are Dangerous
 2. The "Certificate Expiry" - The Outage No One Saw Coming
 3. The "Config Drift" - It Worked on My Machine
@@ -700,48 +232,42 @@
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. CI/CD Pipelines (GitHub Actions/GitLab CI)
-2. Docker Containerization (Best Practices)
-3. Semantic Versioning & Changelogs (Conventional Commits)
-4. Infrastructure as Code (Terraform State Management)
+5. CI/CD Pipelines (GitHub Actions/GitLab CI)
+6. Docker Containerization (Best Practices)
+7. Semantic Versioning & Changelogs (Conventional Commits)
+8. Infrastructure as Code (Terraform State Management)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. GitOps (ArgoCD/Flux Architecture)
-2. Blue/Green vs Canary Deployments (Istio Traffic Splitting)
-3. Secret Management (Vault, Sealed Secrets, SOPS)
-4. Observability Stack (Prometheus, Grafana, Loki, Tempo)
+9. GitOps (ArgoCD/Flux Architecture)
+10. Blue/Green vs Canary Deployments (Istio Traffic Splitting)
+11. Secret Management (Vault, Sealed Secrets, SOPS)
+12. Observability Stack (Prometheus, Grafana, Loki, Tempo)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. Chaos Engineering (Gremlin/Chaos Mesh)
-2. Service Mesh (Istio/Linkerd Internals)
-3. Multi-Cluster Kubernetes (Federation)
+13. Chaos Engineering (Gremlin/Chaos Mesh)
+14. Service Mesh (Istio/Linkerd Internals)
+15. Multi-Cluster Kubernetes (Federation)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. eBPF Observability (Pixie, Cilium)
-2. Kernel Tuning for High Load (Sysctl, File Descriptors)
-3. Custom Kubernetes Operators (Golang/Kubebuilder)
+16. eBPF Observability (Pixie, Cilium)
+17. Kernel Tuning for High Load (Sysctl, File Descriptors)
+18. Custom Kubernetes Operators (Golang/Kubebuilder)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. AI-Driven Rollbacks (Self-Healing)
-2. NoOps (Autonomous Operations)
-3. Quantum-Safe Encryption in CI/CD
+19. AI-Driven Rollbacks (Self-Healing)
+20. NoOps (Autonomous Operations)
+21. Quantum-Safe Encryption in CI/CD
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. THE "RM -RF" DEPLOYMENT
 
@@ -756,7 +282,6 @@ BUILD_DIR=$1
 rm -rf $BUILD_DIR/*
 
 ```text
-
 **The Error**:
 The script was called without arguments: `./deploy.sh`.
 `$BUILD_DIR` resolved to an empty string.
@@ -764,7 +289,6 @@ The command became `rm -rf /*`.
 **The Result**:
 It deleted the entire server root, including `/bin`, `/etc`, and `/boot`. The server stopped responding.
 **The Fix**:
-
 1. **set -u**: Treat unset variables as an error.
 2. **Validation**: Check if variable is empty.
 3. **Immutable Infrastructure**: Don't run scripts on live servers. Replace the VM/Container.
@@ -788,47 +312,44 @@ Prometheus Alert: `SSL_Cert_Expiry < 30 days`.
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 5. CI/CD PIPELINES
 
 ### GitHub Actions Workflow
 
 **Best Practices**:
-
 1. **Cache Dependencies**: Don't download `node_modules` every time.
 2. **Parallel Jobs**: Run Lint, Test, and Build concurrently.
 3. **Matrix Builds**: Test on Node 18, 20, 22.
 
+```yaml
 name: Production Build
-    on:
-      push:
+on:
+  push:
 branches: [ "main" ]
 
-    jobs:
-      test:
+jobs:
+  test:
 runs-on: ubuntu-latest
-        steps:
-
+    steps:
 - uses: actions/checkout@v3
 - uses: actions/setup-node@v3
-
-        with:
-
+      with:
 node-version: 18
 cache: 'npm'
-
 - run: npm ci
 - run: npm test
 
-      build:
-
+  build:
 needs: test
 runs-on: ubuntu-latest
-        steps:
-
+    steps:
 - run: docker build -t my-app:${{ github.sha }} .
 - run: docker push my-app:${{ github.sha }}
+
+```text
+---
 
 ## 6. DOCKER CONTAINERIZATION
 
@@ -859,12 +380,11 @@ COPY --from=builder /app/node_modules ./node_modules
 CMD ["node", "dist/main.js"]
 
 ```python
-
 **Result**: Image size reduced from 1GB to 100MB.
 
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 9. GITOPS
 
@@ -878,19 +398,23 @@ Cluster State = Git State.
 **App of Apps Pattern**:
 Manage 100 microservices with one "Root" Application.
 
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-    metadata:
+metadata:
 name: root-app
-    spec:
-      source:
-repoURL: <<<<<<https://github.com/my-org/infra.git>>>>>>
+spec:
+  source:
+repoURL: https://github.com/my-org/infra.git
 path: apps
-      destination:
-server: <<<<<<https://kubernetes.default.svc>>>>>>
+  destination:
+server: https://kubernetes.default.svc
 
+```text
 **Argo Image Updater**:
 Automatically commits new image tags to Git when a new Docker image is pushed to the registry.
+
+---
 
 ## 10. BLUE/GREEN VS CANARY
 
@@ -904,33 +428,31 @@ If error rate spikes, revert to 0%.
 **Flagger (Progressive Delivery Operator)**:
 Automates the promotion.
 
+```yaml
 apiVersion: flagger.app/v1beta1
 kind: Canary
-    metadata:
+metadata:
 name: podinfo
-    spec:
-      targetRef:
+spec:
+  targetRef:
 apiVersion: apps/v1
 kind: Deployment
 name: podinfo
-      analysis:
+  analysis:
 interval: 1m
 threshold: 5
 stepWeight: 10
 maxWeight: 50
-        metrics:
-
+    metrics:
 - name: request-success-rate
-
-        thresholdRange:
-
+      thresholdRange:
 min: 99
-
 - name: request-duration
-
-        thresholdRange:
-
+      thresholdRange:
 max: 500
+
+```text
+---
 
 ## 11. SECRET MANAGEMENT
 
@@ -940,7 +462,6 @@ max: 500
 Secrets in Git are bad. Secrets in Env Vars are visible in `ps aux`.
 
 **The Solution (Vault Agent Injector)**:
-
 1. Pod starts.
 2. Vault Agent Sidecar authenticates with Vault (using K8s Service Account).
 3. Fetches secrets.
@@ -949,7 +470,7 @@ Secrets in Git are bad. Secrets in Env Vars are visible in `ps aux`.
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 13. CHAOS ENGINEERING
 
@@ -958,32 +479,32 @@ Secrets in Git are bad. Secrets in Env Vars are visible in `ps aux`.
 **Chaos Mesh**:
 Kubernetes-native chaos.
 **Experiments**:
-
 1. **Pod Kill**: Randomly kill pods.
 2. **Network Latency**: Add 500ms delay to DB calls.
 3. **Packet Loss**: Drop 10% of packets.
 
 **NetworkChaos YAML**:
 
+```yaml
 apiVersion: chaos-mesh.org/v1alpha1
 kind: NetworkChaos
-    metadata:
+metadata:
 name: delay-db
-    spec:
+spec:
 action: delay
 mode: all
-      selector:
-        namespaces:
-
+  selector:
+    namespaces:
 - default
-
-        labelSelectors:
-
+    labelSelectors:
 app: database
-      delay:
+  delay:
 latency: "100ms"
 jitter: "10ms"
 duration: "5m"
+
+```text
+---
 
 ## 14. SERVICE MESH
 
@@ -1000,13 +521,11 @@ http:
       user-agent:
 regex: ".*Firefox.*"
   route:
-
 - destination:
 host: my-service
 subset: v2
 
 ```text
-
 **DestinationRule**:
 Controls policies (Circuit Breaking, Load Balancing).
 
@@ -1023,10 +542,9 @@ baseEjectionTime: 3m
 maxEjectionPercent: 100
 
 ```text
-
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 16. EBPF OBSERVABILITY
 
@@ -1056,7 +574,6 @@ b.attach_kprobe(event="sys_clone", fn_name="hello")
 b.trace_print()
 
 ```text
-
 This prints "Hello World" every time a new process is created (`sys_clone`).
 
 ---
@@ -1090,17 +607,15 @@ net.ipv4.tcp_tw_reuse = 1
 net.core.somaxconn = 65535
 
 ```text
-
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 19. AI-DRIVEN ROLLBACKS
 
 ### Keptn & Self-Healing
 
 **Concept**:
-
 1. Prometheus detects high latency.
 2. Alertmanager fires alert to Keptn.
 3. Keptn triggers a "Remediation Workflow".
@@ -1115,27 +630,25 @@ net.core.somaxconn = 65535
 
 Includes caching, security scanning, and deployment.
 
+```yaml
 name: Titan Build
 on: [push]
-    jobs:
-      build:
+jobs:
+  build:
 runs-on: ubuntu-latest
-        steps:
-
+    steps:
 - uses: actions/checkout@v3
 - uses: actions/setup-node@v3
-
 with: { node-version: 18, cache: 'npm' }
-
 - run: npm ci
 - run: npm audit --audit-level=high
 - run: npm test
 - uses: docker/build-push-action@v4
-
         with:
-
 push: true
 tags: my-registry/app:latest
+
+```text
 
 ## B. THE ULTIMATE PROMETHEUS ALERTS
 
@@ -1144,7 +657,6 @@ groups:
 
 - name: node-exporter
   rules:
-
 - alert: HighCPU
 expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 80
 for: 5m
@@ -1154,7 +666,6 @@ severity: warning
 summary: "High CPU usage on {{ $labels.instance }}"
 
 ```text
-
 ---
 
 ## KEYWORD REFERENCE INDEX
@@ -1366,6 +877,8 @@ summary: "High CPU usage on {{ $labels.instance }}"
 - Approved: PR-based changes
 
 - Observable: drift detection
+
+---
 
 ## OBSERVABILITY DEEP ATLAS
 
@@ -1604,7 +1117,7 @@ summary: "High CPU usage on {{ $labels.instance }}"
 
 - WORKDIR: working directory
 
-## Multi-stage Builds 2
+## Multi-stage Builds
 
 - Builder pattern: compile, copy
 
@@ -1640,9 +1153,11 @@ summary: "High CPU usage on {{ $labels.instance }}"
 
 - profiles: environment-specific
 
+---
+
 ## KUBERNETES ADVANCED DEEP ATLAS
 
-## Each keyword = expandable configuration 2
+## Each keyword = expandable configuration
 
 ## Workloads
 
@@ -1708,7 +1223,7 @@ summary: "High CPU usage on {{ $labels.instance }}"
 
 ## MONITORING DEEP ATLAS
 
-## Each keyword = expandable implementation 2
+## Each keyword = expandable implementation
 
 ## Prometheus
 
@@ -1758,9 +1273,11 @@ summary: "High CPU usage on {{ $labels.instance }}"
 
 - Federation: multi-cluster
 
+---
+
 ## LOGGING DEEP ATLAS
 
-## Each keyword = expandable practice 2
+## Each keyword = expandable practice
 
 ## Log Aggregation
 
@@ -1776,41 +1293,15 @@ summary: "High CPU usage on {{ $labels.instance }}"
 
 ## Structured Logging
 
-```typescript
-import pino from 'pino';
+- JSON: key-value pairs
 
-const logger = pino({
-| level: process.env.LOG_LEVEL |  | 'info', |
-transport: process.env.NODE_ENV === 'development'
-? { target: 'pino-pretty' }
-: undefined,
-redact: ['req.headers.authorization', 'password', 'token']
-});
+- Context: request ID, user
 
-// Usage
-logger.info({ userId, action: 'login' }, 'User logged in');
-logger.error({ err, userId }, 'Failed to process payment');
+- Levels: DEBUG, INFO, WARN, ERROR
 
-// Request logging middleware
-app.use((req, res, next) => {
-const start = Date.now();
+- Correlation: trace ID
 
-res.on('finish', () => {
-    logger.info({
-method: req.method,
-url: req.url,
-status: res.statusCode,
-duration: Date.now() - start,
-userId: req.user?.id
-    });
-  });
-
-  next();
-});
-
-```text
-
----
+- Sampling: reduce volume
 
 ## Log Analysis
 
@@ -1824,7 +1315,7 @@ userId: req.user?.id
 
 - Retention: lifecycle policies
 
-## Best Practices 2
+## Best Practices
 
 - Consistent format: schema
 
@@ -1835,6 +1326,8 @@ userId: req.user?.id
 - Security: PII masking
 
 - Cost: retention, tiering
+
+---
 
 ## SECURITY SCANNING DEEP ATLAS
 
@@ -1864,7 +1357,7 @@ userId: req.user?.id
 
 - Cosign: image signing
 
-## Runtime Security 2
+## Runtime Security
 
 - Falco: runtime detection
 
@@ -1888,9 +1381,11 @@ userId: req.user?.id
 
 - Sealed Secrets: Kubernetes
 
+---
+
 ## RELEASE MANAGEMENT DEEP ATLAS
 
-## Each keyword = expandable practice 3
+## Each keyword = expandable practice
 
 ## Deployment Strategies
 
@@ -1962,58 +1457,50 @@ userId: req.user?.id
 
 name: CI/CD Pipeline
 
-    on:
-      push:
+on:
+  push:
 branches: [main, develop]
-      pull_request:
+  pull_request:
 branches: [main]
 
-    env:
+env:
 REGISTRY: ghcr.io
 IMAGE_NAME: ${{ github.repository }}
 
-    jobs:
-      test:
+jobs:
+  test:
 runs-on: ubuntu-latest
-        steps:
-
+    steps:
 - uses: actions/checkout@v4
 
 - name: Setup Node.js
-
 uses: actions/setup-node@v4
         with:
 node-version: '20'
 cache: 'npm'
 
 - name: Install dependencies
-
 run: npm ci
 
 - name: Run linter
-
 run: npm run lint
 
 - name: Run tests
-
 run: npm run test:coverage
 
 - name: Upload coverage
-
 uses: codecov/codecov-action@v3
 
-      build:
+  build:
 needs: test
 runs-on: ubuntu-latest
-        permissions:
+    permissions:
 contents: read
 packages: write
-        steps:
-
+    steps:
 - uses: actions/checkout@v4
 
 - name: Login to Registry
-
 uses: docker/login-action@v3
         with:
 registry: ${{ env.REGISTRY }}
@@ -2021,28 +1508,28 @@ username: ${{ github.actor }}
 password: ${{ secrets.GITHUB_TOKEN }}
 
 - name: Build and push
-
 uses: docker/build-push-action@v5
         with:
 context: .
 push: ${{ github.event_name != 'pull_request' }}
 tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-      deploy:
+  deploy:
 needs: build
 if: github.ref == 'refs/heads/main'
 runs-on: ubuntu-latest
 environment: production
-        steps:
-
+    steps:
 - name: Deploy to Kubernetes
-
 uses: azure/k8s-deploy@v4
         with:
 manifests: k8s/
 images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
-## DOCKERFILE 2
+```text
+---
+
+## DOCKERFILE
 
 ## Production Multi-stage Build
 
@@ -2050,7 +1537,7 @@ images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
 ```dockerfile
 
-## Dockerfile 3
+## Dockerfile
 
 ## Build stage
 
@@ -2065,28 +1552,6 @@ RUN npm run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
-
-ENV NODE_ENV=production
-
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
-
-USER nextjs
-
-EXPOSE 3000
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
-
-CMD ["npm", "start"]
-
-```text
-
----
 
 ## Security: run as non-root
 
@@ -2106,7 +1571,6 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
 CMD ["node", "dist/main.js"]
 
 ```text
-
 ---
 
 ## HELM CHARTS
@@ -2127,24 +1591,24 @@ appVersion: "1.0.0"
 ## values.yaml
 
 replicaCount: 3
-    image:
+image:
 repository: registry/api
 tag: latest
 pullPolicy: IfNotPresent
 
-    service:
+service:
 type: ClusterIP
 port: 80
 
-    resources:
-      requests:
+resources:
+  requests:
 cpu: 100m
 memory: 128Mi
-      limits:
+  limits:
 cpu: 500m
 memory: 512Mi
 
-    autoscaling:
+autoscaling:
 enabled: true
 minReplicas: 2
 maxReplicas: 10
@@ -2154,22 +1618,23 @@ targetCPUUtilization: 70
 
 apiVersion: apps/v1
 kind: Deployment
-    metadata:
+metadata:
 name: {{ .Release.Name }}
-    spec:
+spec:
 replicas: {{ .Values.replicaCount }}
-      selector:
-        matchLabels:
+  selector:
+    matchLabels:
 app: {{ .Release.Name }}
-      template:
-        spec:
-        containers:
-
+  template:
+    spec:
+      containers:
 - name: {{ .Chart.Name }}
-
 image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         resources:
 | {{- toYaml .Values.resources | nindent 10 }} |
+
+```text
+---
 
 ## PROMETHEUS RULES
 
@@ -2181,14 +1646,10 @@ image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 
 ## prometheus-rules.yaml
 
-    groups:
-
+groups:
 - name: api-alerts
-
-        rules:
-
+    rules:
 - alert: HighErrorRate
-
 expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) > 0.05
 for: 5m
         labels:
@@ -2198,7 +1659,6 @@ summary: "High error rate on {{ $labels.instance }}"
 | description: "Error rate is {{ $value | humanizePercentage }}" |
 
 - alert: HighLatency
-
 expr: histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m])) > 1
 for: 5m
         labels:
@@ -2207,11 +1667,13 @@ severity: warning
 summary: "High p99 latency"
 
 - alert: PodNotReady
-
 expr: kube_pod_status_ready{condition="false"} == 1
 for: 5m
         labels:
 severity: critical
+
+```text
+---
 
 ## CONTINUED: MORE DEVOPS PATTERNS
 
@@ -2223,24 +1685,22 @@ severity: critical
 
 ## Canary Deployments with Automatic Rollback
 
-**Source:**Spotify Engineering, Shopify Production Engineering**Why this is critical:** Deploy to millions without downtime
+**Source:** Spotify Engineering, Shopify Production Engineering
+**Why this is critical:** Deploy to millions without downtime
 
-    /**
-
+```typescript
+/**
 - CANARY DEPLOYMENT ARCHITECTURE
-- *SPOTIFY'S APPROACH:
+- * SPOTIFY'S APPROACH:
 - "We deploy to 1% of users first. If error rate increases,
 - we automatically roll back within 5 minutes. If stable,
 - we gradually increase to 5%, 25%, 100%."
-
--* KEY METRICS TO MONITOR:
-
+- * KEY METRICS TO MONITOR:
 - - Error rate (5xx responses)
 - - Latency (p50, p95, p99)
 - - Saturation (CPU, memory, connections)
 - - Business metrics (conversion rate, checkout success)
-
-     */
+ */
 
 interface CanaryConfig {
 stages: {
@@ -2249,11 +1709,11 @@ durationMinutes: number;
 rollbackThreshold: {
 errorRateIncrease: number;  // e.g., 0.5 = 50% increase
 latencyP99Increase: number; // e.g., 0.3 = 30% increase
-        };
-      }[];
+    };
+  }[];
 automaticRollback: boolean;
 pauseOnAlert: boolean;
-    }
+}
 
 const productionCanaryConfig: CanaryConfig = {
 stages: [
@@ -2261,10 +1721,10 @@ stages: [
 { percentage: 5, durationMinutes: 15, rollbackThreshold: { errorRateIncrease: 0.2, latencyP99Increase: 0.3 } },
 { percentage: 25, durationMinutes: 30, rollbackThreshold: { errorRateIncrease: 0.3, latencyP99Increase: 0.4 } },
 { percentage: 100, durationMinutes: 0, rollbackThreshold: { errorRateIncrease: 0.5, latencyP99Increase: 0.5 } },
-      ],
+  ],
 automaticRollback: true,
 pauseOnAlert: true,
-    };
+};
 
 class CanaryDeploymentController {
 private currentStage = 0;
@@ -2287,17 +1747,17 @@ if (!healthy) {
 Canary failed health check, rolling back');
 await this.rollback();
 return { success: false, rolledBack: true, failedAtStage: stage.percentage };
-        }
+      }
 
 Stage ${stage.percentage}% healthy, proceeding`);
-        }
+    }
 
 return { success: true, rolledBack: false };
-      }
+  }
 
 private async monitorHealth(stage: CanaryConfig['stages'][0]): Promise<boolean> {
 const checkInterval = 30000; // 30 seconds
-const checks = Math.floor((stage.durationMinutes *60000) / checkInterval);
+const checks = Math.floor((stage.durationMinutes * 60000) / checkInterval);
 
 for (let i = 0; i < checks; i++) {
 await new Promise(r => setTimeout(r, checkInterval));
@@ -2314,18 +1774,18 @@ const latencyIncrease =
         this.baselineMetrics!.latencyP99;
 
 if (errorRateIncrease > stage.rollbackThreshold.errorRateIncrease) {
-console.error(`Error rate increased by ${(errorRateIncrease* 100).toFixed(1)}%`);
+console.error(`Error rate increased by ${(errorRateIncrease * 100).toFixed(1)}%`);
 return false;
-        }
+      }
 
 if (latencyIncrease > stage.rollbackThreshold.latencyP99Increase) {
 console.error(`Latency increased by ${(latencyIncrease * 100).toFixed(1)}%`);
 return false;
-        }
-        }
+      }
+    }
 
 return true;
-      }
+  }
 
 private async rollback(): Promise<void> {
 Initiating rollback...');
@@ -2338,15 +1798,19 @@ await this.alertTeam({
 severity: 'high',
 message: 'Canary deployment rolled back automatically',
 metrics: await this.captureMetrics('canary'),
-        });
-      }
-    }
+    });
+  }
+}
+
+```text
+---
 
 ## KUBERNETES PRODUCTION DEBUGGING
 
 ## Pod Debugging Techniques
 
-**Source:**Google SRE Book, Kubernetes Production Best Practices**Why it's hard:** Ephemeral containers, networking layers
+**Source:** Google SRE Book, Kubernetes Production Best Practices
+**Why it's hard:** Ephemeral containers, networking layers
 
 ```bash
 
@@ -2385,13 +1849,10 @@ kubectl top pod $POD_NAME -n $NAMESPACE
 kubectl get pod $POD_NAME -n $NAMESPACE -o jsonpath='{.status.containerStatuses[*].lastState.terminated.reason}'
 
 ```typescript
-
 /**
-
 - KUBERNETES EVENTS ANALYZER
 - * Production issue: Pods failing but nobody notices.
 - Solution: Automated event analysis and alerting.
-
  */
 
 interface K8sEvent {
@@ -2473,11 +1934,9 @@ const recommendations: Record<string, string> = {
 }
 
 /**
-
 - RESOURCE RIGHTSIZING
 - * Problem: Teams request 4GB memory, use 100MB.
 - Solution: Analyze actual usage and recommend limits.
-
  */
 
 class ResourceRightsizer {
@@ -2526,14 +1985,14 @@ memory: current.memory.request - recommendedMemory * 0.5,
 }
 
 ```text
-
 ---
 
 ## GITOPS PATTERNS
 
 ## ArgoCD Production Setup
 
-**Source:**Intuit Engineering, Red Hat OpenShift practices**Why it matters:** GitOps = auditable, reproducible deployments
+**Source:** Intuit Engineering, Red Hat OpenShift practices
+**Why it matters:** GitOps = auditable, reproducible deployments
 
 ```yaml
 
@@ -2545,25 +2004,21 @@ metadata:
 name: production-app
 namespace: argocd
   finalizers:
-
 - resources-finalizer.argocd.argoproj.io
-
 spec:
 project: production
   source:
-repoURL: <<<<<<https://github.com/company/app-manifests>>>>>>
+repoURL: https://github.com/company/app-manifests
 targetRevision: main
 path: overlays/production
 
 ## Kustomize configuration
-
     kustomize:
       images:
-
 - app-image=registry.company.com/app
 
   destination:
-server: <<<<<<https://kubernetes.default.svc>>>>>>
+server: https://kubernetes.default.svc
 namespace: production
 
   syncPolicy:
@@ -2572,11 +2027,9 @@ prune: true  # Remove resources not in Git
 selfHeal: true   # Revert manual changes
 allowEmpty: false
     syncOptions:
-
 - CreateNamespace=true
 - PrunePropagationPolicy=foreground
 - PruneLast=true
-
     retry:
 limit: 5
       backoff:
@@ -2585,17 +2038,13 @@ factor: 2
 maxDuration: 3m
 
 ## Health checks
-
   ignoreDifferences:
-
 - group: apps
-
 kind: Deployment
       jsonPointers:
+- /spec/replicas  # Allow HPA to control replicas
 
-- /spec/replicas  # Ignore HPA-managed replicas
-
-```yaml
+---
 
 ## Rollout strategy with Argo Rollouts
 
@@ -2614,10 +2063,8 @@ stableService: app-stable
         virtualService:
 name: app-vsvc
         routes:
-
 - primary
       steps:
-
 - setWeight: 5
 - pause: { duration: 10m }
 - setWeight: 20
@@ -2627,16 +2074,13 @@ name: app-vsvc
 - setWeight: 100
       analysis:
         templates:
-
 - templateName: success-rate
 startingStep: 2
         args:
-
 - name: service-name
 value: app-canary
 
 ```text
-
 ---
 
 ## [STAFF SRE LEVEL] CONTINUED: MORE PATTERNS
@@ -2719,7 +2163,6 @@ memory: "512Mi"
 cpu: "500m"
 
 ```text
-
 ---
 
 ## CI/CD Patterns
@@ -2744,7 +2187,6 @@ jobs:
   build:
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v4
 - uses: actions/setup-node@v4
 - run: npm ci
@@ -2752,7 +2194,6 @@ runs-on: ubuntu-latest
 - run: npm run build
 
 ```text
-
 ---
 
 ## Infrastructure as Code
@@ -2773,23 +2214,15 @@ Name = "WebServer"
 
 ## State Management
 
-```text
-REMOTE STATE (Required for teams):
+- Use remote state (S3, Terraform Cloud)
 
-terraform {
-backend "s3" {
-bucket = "my-terraform-state"
-key = "prod/terraform.tfstate"
-region = "us-east-1"
-dynamodb_table = "terraform-locks"
-  }
-}
+- Lock state during operations
 
-```text
+- Separate state per environment
 
 ---
 
-## Monitoring Stack 2
+## Monitoring Stack
 
 ## Metrics (Prometheus)
 
@@ -2819,7 +2252,7 @@ dynamodb_table = "terraform-locks"
 
 ---
 
-## Deployment Strategies 2
+## Deployment Strategies
 
 ## Blue-Green
 
@@ -2849,12 +2282,15 @@ dynamodb_table = "terraform-locks"
 
 ## Secrets in CI/CD
 
-## GitHub Actions 2
+## GitHub Actions
 
+```yaml
 env:
 SECRET_KEY: {{ secrets.SECRET_KEY }}
 
-## Best Practices 3
+```text
+
+## Best Practices
 
 - Never echo secrets
 
@@ -2864,6 +2300,7 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 
 - Audit secret access
 
+---
 ## OBSERVABILITY PATTERNS
 
 > **The patterns that show what's happening**
@@ -2880,7 +2317,7 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 
 - Centralized collection
 
-## Metrics 2
+## Metrics
 
 - How much
 
@@ -2925,15 +2362,7 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 ## SLI/SLO/SLA
 
 | Term | Definition |
-|
-
----
-
-|
-
----
-
-|
+|------|------------|
 | SLI | Service Level Indicator (metric) |
 | SLO | Service Level Objective (target) |
 | SLA | Service Level Agreement (contract) |
@@ -2964,7 +2393,6 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 - Red: Error
 
 ---
-
 ## BASED DEVELOPMENT
 
 > **The patterns for CI/CD workflow**
@@ -2974,19 +2402,7 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 ## Trunk-Based vs GitFlow
 
 | Aspect | Trunk-Based | GitFlow |
-|
-
----
-
-| --|
-
----
-
-| -|
-
----
-
-|
+|--------|-------------|---------|
 | Branches | Short-lived | Long-lived |
 | Integration | Continuous | Periodic |
 | Complexity | Simple | Complex |
@@ -3019,15 +2435,7 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 ## Small PRs
 
 | Lines Changed | Review Quality |
-|
-
----
-
-|
-
----
-
-| -|
+|---------------|----------------|
 | < 50 | Thorough |
 | 50-200 | Good |
 | 200-500 | Cursory |
@@ -3044,10 +2452,11 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 - Security considered?
 
 ---
-
-## CONFIGURATION MANAGEMENT 2
+## CONFIGURATION MANAGEMENT
 
 > **The patterns for env management**
+
+---
 
 ## Environment Variables
 
@@ -3062,13 +2471,15 @@ SECRET_KEY: {{ secrets.SECRET_KEY }}
 
 ## 12-Factor Config
 
-## Principles 2
+## Principles
 
 - Store config in environment
 
 - Separate config from code
 
 - Same build, different config
+
+---
 
 ## Secret Management
 
@@ -3105,9 +2516,7 @@ PORT: z.string().transform(Number).default('3000')
 export const env = envSchema.parse(process.env);
 
 ```text
-
 ---
-
 ## DOCKER PATTERNS
 
 > **The patterns for containerization**
@@ -3152,19 +2561,20 @@ EXPOSE 3000
 CMD ["node", "dist/index.js"]
 
 ```text
-
 ---
 
-## Multi-Stage Builds 2 2
+## Multi-Stage Builds
 
-## Build stage 2
+```dockerfile
+
+## Build stage
 
 FROM node:20 AS builder
 WORKDIR /app
 COPY . .
 RUN npm ci && npm run build
 
-## Production stage 2
+## Production stage
 
 FROM node:20-alpine
 WORKDIR /app
@@ -3172,35 +2582,34 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 CMD ["node", "dist/index.js"]
 
-## Docker Compose 2
+```text
+---
 
+## Docker Compose
+
+```yaml
 services:
   api:
 build: .
     ports:
-
 - "3000:3000"
-
     environment:
-
 - DATABASE_URL=postgres://db:5432/app
-
     depends_on:
-
 - db
 
   db:
 image: postgres:15
     volumes:
-
 - pgdata:/var/lib/postgresql/data
-
     environment:
-
 - POSTGRES_PASSWORD=secret
 
 volumes:
   pgdata:
+
+```text
+---
 
 ## Tips
 
@@ -3215,14 +2624,13 @@ volumes:
 - Cache dependencies layer
 
 ---
-
 ## LOGGING BEST PRACTICES
 
 > **The patterns for observable systems**
 
 ---
 
-## Structured Logging 2
+## Structured Logging
 
 ## Good Log Entry
 
@@ -3242,19 +2650,17 @@ volumes:
 }
 
 ```text
-
 ---
 
 ## Log Levels
 
-```yaml
-ERROR: Actionable problems requiring attention
-WARN: Potential issues, degraded performance
-INFO: Normal operations, key events
-DEBUG: Detailed diagnostic information
-TRACE: Very detailed, high volume
-
-```text
+| Level | When to Use |
+|-------|-------------|
+| ERROR | Operation failed |
+| WARN | Unexpected but handled |
+| INFO | Business events |
+| DEBUG | Development details |
+| TRACE | Very verbose |
 
 ---
 
@@ -3300,9 +2706,7 @@ logger.info({ userId, orderId }, 'Order created');
 logger.error({ err, requestId }, 'Payment failed');
 
 ```text
-
 ---
-
 ## MONOREPO PATTERNS
 
 > **The patterns for multi-package repos**
@@ -3312,15 +2716,7 @@ logger.error({ err, requestId }, 'Payment failed');
 ## Monorepo Tools
 
 | Tool | Best For |
-|
-
----
-
-|
-
----
-
-| -|
+|------|----------|
 | Turborepo | Speed, caching |
 | Nx | Enterprise, plugins |
 | Lerna | NPM publishing |
@@ -3344,7 +2740,6 @@ utils/ # Shared utilities
   turbo.json
 
 ```text
-
 ---
 
 ## Turborepo Config
@@ -3367,7 +2762,6 @@ utils/ # Shared utilities
 }
 
 ```text
-
 ---
 
 ## Package.json Workspaces
@@ -3382,7 +2776,6 @@ utils/ # Shared utilities
 }
 
 ```text
-
 ---
 
 ## Benefits
@@ -3406,7 +2799,6 @@ utils/ # Shared utilities
 - Tool lock-in
 
 ---
-
 ## KUBERNETES SECRETS
 
 > **The patterns for secure configuration**
@@ -3416,15 +2808,7 @@ utils/ # Shared utilities
 ## Secret Types
 
 | Type | Use Case |
-|
-
----
-
-|
-
----
-
-| -|
+|------|----------|
 | Opaque | Generic secrets |
 | docker-registry | Image pull |
 | tls | TLS certificates |
@@ -3451,7 +2835,6 @@ kubectl create secret generic tls-secret \
   --from-file=tls.key
 
 ```text
-
 ---
 
 ## Using in Pods
@@ -3460,7 +2843,6 @@ kubectl create secret generic tls-secret \
 
 ```yaml
 env:
-
 - name: DB_PASSWORD
     valueFrom:
       secretKeyRef:
@@ -3473,18 +2855,15 @@ key: password
 
 ```yaml
 volumes:
-
 - name: secrets
     secret:
 secretName: my-secret
 volumeMounts:
-
 - name: secrets
 mountPath: /etc/secrets
 readOnly: true
 
 ```text
-
 ---
 
 ## External Secrets
@@ -3498,7 +2877,6 @@ Use tools like:
 - External Secrets Operator
 
 ---
-
 ## BUILD OPTIMIZATION
 
 > **The patterns for fast builds**
@@ -3521,29 +2899,7 @@ Enable shared cache across team
 
 ## GitHub Actions Matrix
 
-```yaml
-name: CI
-on: [push, pull_request]
-
-jobs:
-  test:
-    strategy:
-      matrix:
-node: [18, 20]
-os: [ubuntu-latest, windows-latest]
-runs-on: ${{ matrix.os }}
-    steps:
-
-- uses: actions/checkout@v4
-- uses: actions/setup-node@v4
-        with:
-node-version: ${{ matrix.node }}
-cache: 'npm'
-
-- run: npm ci
-- run: npm test
-
-```text
+Run tests on multiple Node versions and OS simultaneously
 
 ---
 
@@ -3562,14 +2918,12 @@ cache: 'npm'
 ## Docker Layer Caching
 
 Order Dockerfile to maximize cache hits:
-
 1. Copy package files first
 2. Install dependencies
 3. Copy source code
 4. Build
 
 ---
-
 ## ERROR TRACKING
 
 > **The patterns for catching production bugs**
@@ -3579,15 +2933,7 @@ Order Dockerfile to maximize cache hits:
 ## Error Tracking Tools
 
 | Tool | Best For |
-|
-
----
-
-|
-
----
-
-| -|
+|------|----------|
 | Sentry | Full-featured |
 | Bugsnag | Mobile focus |
 | Rollbar | Real-time |
@@ -3623,10 +2969,9 @@ extra: { orderId, userId }
 }
 
 ```text
-
 ---
 
-## Best Practices 4
+## Best Practices
 
 - Set release version
 
@@ -3640,6 +2985,7 @@ extra: { orderId, userId }
 
 - Track resolution
 
+---
 ## GIT ADVANCED
 
 > **The patterns beyond basics**
@@ -3649,15 +2995,7 @@ extra: { orderId, userId }
 ## Branching Strategies
 
 | Strategy | When to Use |
-|
-
----
-
-| -|
-
----
-
-| -|
+|----------|-------------|
 | Trunk-based | Mature CI/CD |
 | GitFlow | Scheduled releases |
 | GitHub Flow | Continuous deploy |
@@ -3680,7 +3018,6 @@ reword - change message
 drop - remove commit
 
 ```text
-
 ---
 
 ## Bisect
@@ -3701,7 +3038,6 @@ git bisect good  # or bad
 git bisect reset
 
 ```text
-
 ---
 
 ## Stash
@@ -3714,7 +3050,6 @@ git stash apply  # Restore and keep
 git stash drop  # Delete stash
 
 ```text
-
 ---
 
 ## Cherry Pick
@@ -3726,9 +3061,7 @@ git stash drop  # Delete stash
 git cherry-pick abc123
 
 ```text
-
 ---
-
 ## TERRAFORM PATTERNS
 
 > **The IaC best practices**
@@ -3752,11 +3085,11 @@ terraform/
       variables.tf
 
 ```text
-
 ---
 
-## State Management 2
+## State Management
 
+```text
 REMOTE STATE (Required for teams):
 
 terraform {
@@ -3768,8 +3101,12 @@ dynamodb_table = "terraform-locks"
   }
 }
 
+```text
+---
+
 ## Tagging Strategy
 
+```hcl
 locals {
 common_tags = {
 Environment = var.environment
@@ -3781,13 +3118,14 @@ Owner = var.owner
 
 resource "aws_instance" "example" {
 
-##
-
+## ...
 tags = merge(local.common_tags, {
 Name = "my-instance"
   })
 }
 
+```text
+---
 ## GITHUB ACTIONS PATTERNS
 
 > **The CI/CD workflow best practices**
@@ -3805,37 +3143,25 @@ node: [18, 20]
 os: [ubuntu-latest, windows-latest]
 runs-on: ${{ matrix.os }}
     steps:
-
 - uses: actions/setup-node@v4
         with:
 node-version: ${{ matrix.node }}
 
 ```text
-
 ---
 
 ## Caching Dependencies
 
 ```yaml
 
-- name: Cache dependencies
-uses: actions/cache@v3
+- uses: actions/cache@v3
   with:
 path: ~/.npm
 key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 | restore-keys: |
 ${{ runner.os }}-node-
 
-- name: Cache Next.js
-uses: actions/cache@v3
-  with:
-| path: |
-      ~/.npm
-${{ github.workspace }}/.next/cache
-key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-
 ```text
-
 ---
 
 ## Reusable Workflow
@@ -3855,27 +3181,25 @@ jobs:
   deploy:
 runs-on: ubuntu-latest
     steps:
-
 - run: echo "Deploying to ${{ inputs.environment }}"
+
+```text
+---
 
 ## Environment Protection
 
 ```yaml
-
 jobs:
   deploy-prod:
     environment:
 name: production
-url: <https://app.example.com>
+url: https://app.example.com
 runs-on: ubuntu-latest
     steps:
-
 - run: ./deploy.sh
 
 ```text
-
 ---
-
 ## PROMETHEUS METRICS PATTERNS
 
 > **The observability metrics patterns**
@@ -3885,35 +3209,28 @@ runs-on: ubuntu-latest
 ## Metric Types
 
 ```yaml
-
 COUNTER: Only goes up
-
 - requests_total
 - errors_total
 
 GAUGE: Goes up and down
-
 - active_connections
 - temperature
 
 HISTOGRAM: Distribution of values
-
 - request_duration_seconds
 - response_size_bytes
 
 SUMMARY: Similar to histogram
-
 - request_latency (with quantiles)
 
 ```text
-
 ---
 
 ## Naming Conventions
 
 ```yaml
-
-<namespace>*<subsystem>*<name>_<unit>
+<namespace>_<subsystem>_<name>_<unit>
 
 Examples:
 http_requests_total
@@ -3922,13 +3239,11 @@ node_memory_usage_bytes
 database_connections_active
 
 ```text
-
 ---
 
 ## Node.js Integration
 
 ```javascript
-
 import { Registry, Counter, Histogram } from 'prom-client';
 
 const register = new Registry();
@@ -3959,9 +3274,7 @@ end({ method: req.method, path: req.path });
 });
 
 ```text
-
 ---
-
 ## HELM CHART PATTERNS
 
 > **The Kubernetes package patterns**
@@ -3971,7 +3284,6 @@ end({ method: req.method, path: req.path });
 ## Basic Structure
 
 ```text
-
 mychart/
 Chart.yaml # Chart metadata
 values.yaml # Default values
@@ -3982,14 +3294,13 @@ values.yaml # Default values
 _helpers.tpl # Template helpers
 
 ```text
-
 ---
 
 ## Values Template
 
 ```yaml
 
-## values.yaml 2
+## values.yaml
 
 replicaCount: 2
 
@@ -4011,6 +3322,9 @@ resources:
 cpu: 500m
 memory: 512Mi
 
+```text
+---
+
 ## Deployment Template
 
 ```yaml
@@ -4023,16 +3337,13 @@ replicas: {{ .Values.replicaCount }}
   template:
     spec:
       containers:
-
 - name: {{ .Chart.Name }}
 image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         resources:
 | {{- toYaml .Values.resources | nindent 12 }} |
 
 ```text
-
 ---
-
 ## KUBERNETES NETWORKING
 
 > **The K8s network patterns**
@@ -4052,9 +3363,7 @@ name: my-service
 spec:
 type: ClusterIP
   ports:
-
 - port: 80
-
 targetPort: 8080
 
 ## NodePort (external on node IP)
@@ -4062,9 +3371,7 @@ targetPort: 8080
 spec:
 type: NodePort
   ports:
-
 - port: 80
-
 nodePort: 30007
 
 ## LoadBalancer (cloud LB)
@@ -4073,7 +3380,6 @@ spec:
 type: LoadBalancer
 
 ```text
-
 ---
 
 ## Ingress
@@ -4085,11 +3391,9 @@ metadata:
 name: my-ingress
 spec:
   rules:
-
 - host: api.example.com
       http:
         paths:
-
 - path: /
 pathType: Prefix
         backend:
@@ -4099,7 +3403,6 @@ name: api-service
 number: 80
 
 ```text
-
 ---
 
 ## Network Policies
@@ -4117,16 +3420,13 @@ spec:
     matchLabels:
 app: db
   ingress:
-
 - from:
 - podSelector:
         matchLabels:
 app: api
 
 ```text
-
 ---
-
 ## DOCKER COMPOSE PATTERNS
 
 > **The local development patterns**
@@ -4142,7 +3442,6 @@ services:
   app:
 build: .
     ports:
-
 - "3000:3000"
     environment:
 DATABASE_URL: postgres://postgres:password@db:5432/mydb
@@ -4151,7 +3450,6 @@ REDIS_URL: redis://redis:6379
       db:
 condition: service_healthy
     volumes:
-
 - .:/app
 - /app/node_modules
 
@@ -4166,20 +3464,17 @@ interval: 5s
 timeout: 5s
 retries: 5
     volumes:
-
 - postgres_data:/var/lib/postgresql/data
 
   redis:
 image: redis:7-alpine
     ports:
-
 - "6379:6379"
 
 volumes:
   postgres_data:
 
 ```text
-
 ---
 
 ## Development vs Production
@@ -4193,31 +3488,33 @@ services:
     build:
 target: development
     volumes:
-
 - .:/app
 command: npm run dev
 
 ```text
-
 ---
 
-## Health Checks 2
+## Health Checks
 
+```yaml
 healthcheck:
-test: ["CMD", "curl", "-f", "<<<<<<http://localhost:3000/health">>>>>]>
+test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
 interval: 30s
 timeout: 10s
 retries: 3
 start_period: 40s
 
+```text
+---
 ## EFFICIENT LOGGING PATTERNS
 
 > **The production logging strategies**
 
 ---
 
-## Structured Logging 3
+## Structured Logging
 
+```javascript
 // BAD: Unstructured
 console.log('User 123 created order 456');
 
@@ -4230,13 +3527,20 @@ total: 99.99,
 itemCount: 3
 });
 
-## Log Levels 2
+```text
+---
 
+## Log Levels
+
+```yaml
 ERROR: Actionable problems requiring attention
 WARN: Potential issues, degraded performance
 INFO: Normal operations, key events
 DEBUG: Detailed diagnostic information
 TRACE: Very detailed, high volume
+
+```text
+---
 
 ## Context Propagation
 
@@ -4254,7 +3558,6 @@ requestLogger.error({ err }, 'Payment failed');
 // All logs have requestId attached!
 
 ```text
-
 ---
 
 ## What NOT to Log
@@ -4281,9 +3584,7 @@ card: { last4: card.last4 }
 });
 
 ```text
-
 ---
-
 ## VERCEL DEPLOYMENT GOTCHAS
 
 > **The deployment patterns for Vercel**
@@ -4296,13 +3597,11 @@ card: { last4: card.last4 }
 SYMPTOM: Old code deployed despite changes
 
 CAUSES:
-
 1. Build cache stuck
 2. Branch not cleared
 3. Environment variables not updated
 
 FIX:
-
 1. Redeploy without cache
 vercel --force
 
@@ -4310,7 +3609,6 @@ vercel --force
 Settings General Clear Build Cache
 
 ```text
-
 ---
 
 ## Environment Variable Gotchas
@@ -4319,7 +3617,6 @@ Settings General Clear Build Cache
 PROBLEM: Works locally, fails in production
 
 CAUSES:
-
 1. Forgot to add env var in Vercel
 2. Used NEXT_PUBLIC_ prefix incorrectly
 3. Env var contains special characters
@@ -4333,7 +3630,6 @@ RULES:
 - Quotes not needed in Vercel UI
 
 ```text
-
 ---
 
 ## Function Size Limit
@@ -4348,21 +3644,18 @@ LIMITS:
 - Uncompressed: 250MB
 
 FIX:
-
 1. Check node_modules imports
 2. Use dynamic imports
 3. Split into multiple functions
 4. Move to Edge functions
 
 ```text
-
 ---
 
 ## Domain Configuration
 
 ```text
 COMMON ISSUES:
-
 1. www vs non-www redirect loop
 2. SSL not provisioning
 3. DNS propagation delay
@@ -4376,17 +3669,16 @@ BEST PRACTICE:
 - Check with: dig yourdomain.com
 
 ```text
-
 ---
-
 ## CD PIPELINES PATTERNS
 
 > **The deployment patterns that scale**
 
 ---
 
-## GitHub Actions Matrix 2
+## GitHub Actions Matrix
 
+```yaml
 name: CI
 on: [push, pull_request]
 
@@ -4398,17 +3690,16 @@ node: [18, 20]
 os: [ubuntu-latest, windows-latest]
 runs-on: ${{ matrix.os }}
     steps:
-
 - uses: actions/checkout@v4
 - uses: actions/setup-node@v4
-
         with:
-
 node-version: ${{ matrix.node }}
 cache: 'npm'
-
 - run: npm ci
 - run: npm test
+
+```text
+---
 
 ## Parallel Jobs
 
@@ -4417,7 +3708,6 @@ jobs:
   lint:
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v4
 - run: npm ci
 - run: npm run lint
@@ -4425,7 +3715,6 @@ runs-on: ubuntu-latest
   test:
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v4
 - run: npm ci
 - run: npm test
@@ -4435,17 +3724,16 @@ needs: [lint, test]  # Wait for both
 runs-on: ubuntu-latest
 if: github.ref == 'refs/heads/main'
     steps:
-
 - run: echo "Deploying..."
 
 ```text
-
 ---
 
-## Caching Dependencies 2
+## Caching Dependencies
+
+```yaml
 
 - name: Cache dependencies
-
 uses: actions/cache@v3
   with:
 path: ~/.npm
@@ -4454,7 +3742,6 @@ key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 ${{ runner.os }}-node-
 
 - name: Cache Next.js
-
 uses: actions/cache@v3
   with:
 | path: |
@@ -4462,15 +3749,19 @@ uses: actions/cache@v3
 ${{ github.workspace }}/.next/cache
 key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
 
+```text
+---
 ## DOCKER PRODUCTION PATTERNS
 
-### Multi-Stage Build Optimization
+> **The patterns for containerized deployments**
+
+---
+
+## Multi-Stage Build
 
 ```dockerfile
 
-## Multi-Stage Build 2
-
-## Build stage 3
+## Build stage
 
 FROM node:20-alpine AS builder
 WORKDIR /app
@@ -4479,7 +3770,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-## Production stage 3
+## Production stage
 
 FROM node:20-alpine AS runner
 WORKDIR /app
@@ -4502,7 +3793,6 @@ EXPOSE 3000
 CMD ["node", "dist/server.js"]
 
 ```text
-
 ---
 
 ## Docker Compose for Dev
@@ -4514,14 +3804,11 @@ services:
   app:
 build: .
     ports:
-
 - "3000:3000"
     volumes:
-
 - .:/app
 - /app/node_modules  # Preserve node_modules
     environment:
-
 - DATABASE_URL=postgres://user:pass@db:5432/mydb
     depends_on:
       db:
@@ -4534,7 +3821,6 @@ POSTGRES_USER: user
 POSTGRES_PASSWORD: pass
 POSTGRES_DB: mydb
     volumes:
-
 - postgres_data:/var/lib/postgresql/data
     healthcheck:
 test: ["CMD-SHELL", "pg_isready -U user -d mydb"]
@@ -4546,7 +3832,6 @@ volumes:
   postgres_data:
 
 ```text
-
 ---
 
 ## Health Check
@@ -4556,21 +3841,20 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 | CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health |  | exit 1 |
 
 ```text
-
 ---
-
 ## PRODUCTION LOGGING PATTERNS
 
 > **The logging that helps you debug at 3 AM**
 
 ---
 
-## Structured Logging 4
+## Structured Logging
 
+```typescript
 import pino from 'pino';
 
 const logger = pino({
-| level: process.env.LOG_LEVEL | 'info', |
+| level: process.env.LOG_LEVEL |  | 'info', |
 transport: process.env.NODE_ENV === 'development'
 ? { target: 'pino-pretty' }
 : undefined,
@@ -4597,6 +3881,9 @@ userId: req.user?.id
 
   next();
 });
+
+```text
+---
 
 ## Correlation IDs
 
@@ -4629,7 +3916,6 @@ timestamp: new Date().toISOString()
 };
 
 ```text
-
 ---
 
 ## What to Log (Checklist)
@@ -4650,9 +3936,7 @@ Personal data (unless needed)
 Session tokens
 
 ```text
-
 ---
-
 ## MONITORING PATTERNS
 
 > **The observability that saves you at 3AM**
@@ -4689,7 +3973,6 @@ SATURATION: How full is the system
 - Connection pool usage
 
 ```text
-
 ---
 
 ## Prometheus Metrics
@@ -4734,16 +4017,16 @@ httpDuration.observe({ method: req.method, path: req.path }, duration);
 });
 
 ```text
-
 ---
-
 ## CD BEST PRACTICES
 
 > **The pipeline patterns that don't block deploys**
 
 ---
 
-## Pipeline Stages 2
+## Pipeline Stages
+
+```yaml
 
 ## .github/workflows/ci.yml
 
@@ -4758,73 +4041,59 @@ branches: [main]
 jobs:
 
 ## Stage 1: Quick checks
-
   lint:
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v4
 - uses: actions/setup-node@v4
-
         with:
-
 node-version: 20
 cache: 'npm'
-
 - run: npm ci
 - run: npm run lint
 - run: npm run type-check
 
 ## Stage 2: Tests (parallel)
-
   test:
 runs-on: ubuntu-latest
     strategy:
       matrix:
 shard: [1, 2, 3]
     steps:
-
 - uses: actions/checkout@v4
 - run: npm ci
 - run: npm test -- --shard=${{ matrix.shard }}/3
 
 ## Stage 3: Build
-
   build:
 needs: [lint, test]
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v4
 - run: npm ci
 - run: npm run build
 - uses: actions/upload-artifact@v4
-
         with:
-
 name: build
 path: dist
 
 ## Stage 4: Deploy
-
   deploy:
 needs: build
 if: github.ref == 'refs/heads/main'
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/download-artifact@v4
-
         with:
 name: build
-
 - run: echo "Deploying..."
 
 ```text
-
 ---
 
-## Secrets Management 2
+## Secrets Management
+
+```yaml
 
 ## Use GitHub Secrets
 
@@ -4839,9 +4108,7 @@ role-to-assume: arn:aws:iam::123:role/deploy
 aws-region: us-east-1
 
 ```text
-
 ---
-
 ## DEPLOY STRATEGIES
 
 > **The patterns for zero-downtime deploys**
@@ -4862,9 +4129,7 @@ maxSurge: 25%  # Extra pods during update
 maxUnavailable: 25%  # Max pods down at once
 
 ```yaml
-
 FLOW:
-
 1. Start new pod (v2)
 2. Wait for ready
 3. Remove old pod (v1)
@@ -4875,13 +4140,11 @@ Automatic rollback on failure
 Mixed versions during deploy
 
 ```text
-
 ---
 
 ## Blue-Green Deploy
 
 ```yaml
-
 SETUP:
 
 - Blue: Current production (v1)
@@ -4889,7 +4152,6 @@ SETUP:
 - Green: New version (v2)
 
 FLOW:
-
 1. Deploy v2 to Green (not receiving traffic)
 2. Test Green
 3. Switch load balancer to Green
@@ -4900,44 +4162,44 @@ Full testing before live
 Needs 2x resources
 
 ```text
-
 ---
 
 ## Canary Deploy
 
-    FLOW:
-
+```yaml
+FLOW:
 1. Deploy v2 to small % of traffic (5%)
-1. Monitor errors, latency
-1. If OK, increase to 25%, 50%, 100%
-1. If bad, rollback immediately
+2. Monitor errors, latency
+3. If OK, increase to 25%, 50%, 100%
+4. If bad, rollback immediately
 
-    IMPLEMENTATION:
+IMPLEMENTATION:
 
 ## Istio VirtualService
 
-    spec:
-      http:
-
+spec:
+  http:
 - route:
 - destination:
-
 host: myapp
 subset: v1
 weight: 95
-
 - destination:
-
 host: myapp
 subset: v2
 weight: 5
 
-## FEATURE FLAGS 2
+```text
+---
+## FEATURE FLAGS
 
 > **The patterns for safe deployments**
 
+---
+
 ## Basic Implementation
 
+```typescript
 // Feature flag service
 class FeatureFlags {
 | private flags: Map<string, boolean | ((user: User) => boolean)>; |
@@ -4947,28 +4209,30 @@ this.flags = new Map([
 ['new_checkout', true],
 ['dark_mode', (user) => user.plan === 'pro'],
 ['beta_features', (user) => user.betaAccess]
-        ]);
-      }
+    ]);
+  }
 
 isEnabled(flag: string, user?: User): boolean {
 const value = this.flags.get(flag);
 if (value === undefined) return false;
 if (typeof value === 'function') return user ? value(user) : false;
 return value;
-      }
-    }
+  }
+}
 
 // Usage
 if (featureFlags.isEnabled('new_checkout', currentUser)) {
-      renderNewCheckout();
+  renderNewCheckout();
 } else {
-      renderOldCheckout();
-    }
+  renderOldCheckout();
+}
+
+```text
+---
 
 ## With LaunchDarkly
 
 ```typescript
-
 import * as LaunchDarkly from 'launchdarkly-node-server-sdk';
 
 const ldClient = LaunchDarkly.init(process.env.LAUNCHDARKLY_SDK_KEY);
@@ -5001,9 +4265,7 @@ return enabled ? children : fallback;
 </FeatureFlag>
 
 ```text
-
 ---
-
 ## SENTRY ERROR TRACKING
 
 > **The observability patterns**
@@ -5013,7 +4275,6 @@ return enabled ? children : fallback;
 ## Basic Setup
 
 ```typescript
-
 // sentry.ts
 import * as Sentry from '@sentry/nextjs';
 
@@ -5026,24 +4287,24 @@ replaysOnErrorSampleRate: 1.0   // 100% of errors
 });
 
 ```text
-
 ---
 
 ## Error Context
 
+```typescript
 // Add user context
-    Sentry.setUser({
+Sentry.setUser({
 id: user.id,
 email: user.email,
 plan: user.plan
-    });
+});
 
 // Add breadcrumbs (trail of events)
-    Sentry.addBreadcrumb({
+Sentry.addBreadcrumb({
 category: 'ui.click',
 message: 'User clicked checkout',
 level: 'info'
-    });
+});
 
 // Capture error with context
 try {
@@ -5053,17 +4314,19 @@ Sentry.captureException(error, {
 extra: {
 orderId: order.id,
 amount: order.total
-        },
+    },
 tags: {
 paymentProvider: 'stripe'
-        }
-      });
     }
+  });
+}
+
+```text
+---
 
 ## Performance Monitoring
 
 ```typescript
-
 // Transaction (group of spans)
 const transaction = Sentry.startTransaction({
 name: 'process-order',
@@ -5081,9 +4344,7 @@ span.finish();
 transaction.finish();
 
 ```text
-
 ---
-
 ## VOLUME 1.1: PRODUCTION INCIDENTS FROM THE TRENCHES
 
 *Real-world disasters and fixes from Spotify, Uber, Shopify, Netflix*
@@ -5103,22 +4364,27 @@ Root cause: Image was 3.5GB. Auto-scaling triggered 50 new containers. Hit rate 
 
 ### CRITICAL .dockerignore File
 
-    node_modules
-    npm-debug.log
-    .git
-    .gitignore
-    .env
-.env.**.log
-    logs/
-    .DS_Store
-    .vscode
-    .idea
-    coverage/
-    dist/
-    build/
-    *.md
-    Dockerfile
-    docker-compose.yml
+```text
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
+.env.*
+*.log
+logs/
+.DS_Store
+.vscode
+.idea
+coverage/
+dist/
+build/
+*.md
+Dockerfile
+docker-compose.yml
+
+```text
+---
 
 ## 2. ENVIRONMENT VARIABLES & SECRETS DISASTER
 
@@ -5131,7 +4397,6 @@ AWS bill: 284,000 USD
 ### AWS Secrets Manager Solution
 
 ```python
-
 import boto3
 import json
 
@@ -5144,7 +4409,6 @@ secrets = get_secret('prod/fastapi/database')
 DATABASE_URL = secrets['DATABASE_URL']
 
 ```text
-
 ---
 
 ## 3. KUBERNETES: RESOURCE LIMITS & OOM KILLS
@@ -5158,7 +4422,6 @@ Root cause: No resource limits set. Pods consumed all node memory.
 ### Production-Ready Resource Management
 
 ```yaml
-
 resources:
   requests:
 memory: "256Mi"   # Minimum guaranteed
@@ -5168,7 +4431,6 @@ memory: "512Mi"   # Maximum allowed
 cpu: "500m"  # 0.5 CPU cores
 
 ```text
-
 ---
 
 ## 4. AUTOMATED ROLLBACK SCRIPT
@@ -5181,12 +4443,11 @@ Site down 4 hours. Lost 1.2M USD. Fix: Blue-green with automated rollback.
 ```bash
 
 ## !/bin/bash
-
-    CLUSTER="production"
-    SERVICE="api"
-    HEALTH_ENDPOINT="<<<<<<https://myapp.com/health">>>>>>
-    MAX_ERRORS=5
-    ERROR_COUNT=0
+CLUSTER="production"
+SERVICE="api"
+HEALTH_ENDPOINT="https://myapp.com/health"
+MAX_ERRORS=5
+ERROR_COUNT=0
 
 while true; do
 HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" $HEALTH_ENDPOINT)
@@ -5206,11 +4467,14 @@ aws ecs update-service --cluster $CLUSTER --service $SERVICE \
 
 exit 1
         fi
-        else
+    else
         ERROR_COUNT=0
-        fi
+    fi
 sleep 10
-    done
+done
+
+```text
+---
 
 ## 5. DISASTER RECOVERY PLAN
 
@@ -5238,7 +4502,6 @@ rto: 30 minutes
 4: Scale up DR application servers
 
 ```text
-
 ---
 
 ## 6. GRACEFUL SHUTDOWN
@@ -5248,7 +4511,7 @@ import signal
 import sys
 
 class GracefulShutdown:
-def **init**(self):
+def __init__(self):
 self.is_shutting_down = False
 signal.signal(signal.SIGTERM, self.handle_shutdown)
 signal.signal(signal.SIGINT, self.handle_shutdown)
@@ -5267,7 +4530,6 @@ print("Shutdown complete")
         sys.exit(0)
 
 ```text
-
 ---
 
 ## 7. COST OPTIMIZATION (SPOT INSTANCES + SCALING)
@@ -5285,20 +4547,20 @@ eksctl create nodegroup \
 --nodes-max 10
 
 ```text
-
 ---
 
 ## 8. MULTI-REGION DEPLOYMENT
 
+```hcl
 variable "regions" {
 default = ["us-east-1", "eu-west-1", "ap-south-1"]
-    }
+}
 
 module "region" {
 for_each = toset(var.regions)
 source = "./modules/region"
 region = each.value
-    }
+}
 
 ## Global DynamoDB (multi-region replication)
 
@@ -5313,7 +4575,6 @@ replica { region_name = "ap-south-1" }
 }
 
 ```text
-
 ---
 
 ## 9. SSL/TLS AUTO-RENEWAL
@@ -5326,21 +4587,19 @@ SSL certificate expired. Trading system went down.
 
 ## Let's Encrypt + Certbot auto-renewal
 
-certbot certonly --nginx -d myapp.com -d <www.myapp.com> \
---agree-tos --email <admin@myapp.com> --non-interactive
+certbot certonly --nginx -d myapp.com -d www.myapp.com \
+--agree-tos --email admin@myapp.com --non-interactive
 
 ## Auto-renewal cron (runs twice daily)
 
 0 0,12 * * * certbot renew --quiet --post-hook "systemctl reload nginx"
 
 ```text
-
 ---
 
 ## 10. COMPREHENSIVE HEALTH CHECKS
 
 ```python
-
 from fastapi import FastAPI, Response
 import psutil
 
@@ -5366,11 +4625,11 @@ status_code=200 if all_healthy else 503
     )
 
 ```text
-
 ---
 
 ## 11. RATE LIMITING (INFRASTRUCTURE LEVEL)
 
+```nginx
 http {
 limit_req_zone $binary_remote_addr zone=general:10m rate=10r/s;
 limit_req_zone $binary_remote_addr zone=login:10m rate=5r/m;
@@ -5380,30 +4639,32 @@ server {
 location / {
 limit_req zone=general burst=20 nodelay;
 limit_req_status 429;
-proxy_pass <<<<<http://backend;>>>>>
+proxy_pass http://backend;
         }
 
 location /login {
 limit_req zone=login burst=5;
-proxy_pass <<<<<http://backend;>>>>>
+proxy_pass http://backend;
         }
 
 location /api/ {
 limit_req zone=api burst=50 nodelay;
-proxy_pass <<<<<http://backend;>>>>>
-        }
+proxy_pass http://backend;
         }
     }
+}
+
+```text
+---
 
 ## 12. CHAOS TESTING
 
 ```python
-
 from kubernetes import client, config
 import random
 
 class ChaosMonkey:
-def **init**(self):
+def __init__(self):
         config.load_kube_config()
 self.v1 = client.CoreV1Api()
 
@@ -5417,44 +4678,43 @@ print(f"Killing pod: {victim.metadata.name}")
 self.v1.delete_namespaced_pod(name=victim.metadata.name, namespace=namespace)
 
 ```text
-
 ---
 
 ## 13. INCIDENT RESPONSE RUNBOOK
 
-    incidents:
-      high_latency:
+```yaml
+incidents:
+  high_latency:
 severity: P1
 detection: API response time > 1s for 5 minutes
 
-        investigation:
-
+    investigation:
 - Check logs: kubectl logs -l app=api --tail=100
-- Check database: SELECT* FROM pg_stat_activity
+- Check database: SELECT * FROM pg_stat_activity
 - Check Redis: redis-cli --latency-history
 
-        mitigation:
-
+    mitigation:
 - Scale up: kubectl scale deployment api --replicas=20
 - Clear cache: redis-cli FLUSHALL
 
-        escalation:
-
+    escalation:
 - 15 min: Notify on-call
 - 30 min: Notify engineering manager
 - 1 hour: Notify CTO
 
+```text
+---
+
 ## 14. COMPLETE OBSERVABILITY (OPENTELEMETRY)
 
 ```python
-
 from opentelemetry import trace, metrics
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
 
 trace.set_tracer_provider(TracerProvider())
-tracer = trace.get_tracer(**name**)
+tracer = trace.get_tracer(__name__)
 
 FastAPIInstrumentor.instrument_app(app)
 SQLAlchemyInstrumentor().instrument(engine=engine)
@@ -5473,13 +4733,11 @@ result = process(data)
 return result
 
 ```text
-
 ---
 
 ## 15. ZERO DOWNTIME DEPLOYMENTS
 
 ```yaml
-
 apiVersion: apps/v1
 kind: Deployment
 spec:
@@ -5494,7 +4752,6 @@ maxUnavailable: 0  # Never go below desired count
 minReadySeconds: 30  # Wait 30s before marking ready
 
 ```text
-
 ---
 
 ### [DEVOPS PRODUCTION PATTERNS - VOLUME 8] COMPLETED
@@ -5509,85 +4766,76 @@ minReadySeconds: 30  # Wait 30s before marking ready
 
 ## 16. CONFIGURATION MANAGEMENT (ANSIBLE)
 
-- name: Configure production servers
+```yaml
 
+- name: Configure production servers
 hosts: production
 become: yes
 
-      vars:
+  vars:
 app_name: myapp
 app_port: 8000
 
-      tasks:
-
+  tasks:
 - name: Update system packages
-
-        apt:
-
+      apt:
 update_cache: yes
 upgrade: dist
 
 - name: Install required packages
-
-        apt:
+      apt:
         name:
-
 - docker.io
 - docker-compose
 - nginx
 - certbot
-
 state: present
 
 - name: Configure firewall
-
-        ufw:
-
+      ufw:
 rule: allow
 port: "{{ item }}"
-        loop:
-
+      loop:
 - "22"
 - "80"
 - "443"
 
 - name: Deploy application
-
-        docker_compose:
-
+      docker_compose:
 project_src: /opt/{{ app_name }}
 state: present
 notify: restart app
 
-      handlers:
-
+  handlers:
 - name: restart app
-
-        docker_compose:
-
+      docker_compose:
 project_src: /opt/{{ app_name }}
 restarted: yes
 
+```text
+---
+
 ## 17. LOG AGGREGATION (EFK/FLUENTD)
 
-    <source>
+```xml
+<source>
 @type tail
 path /var/log/app/*.log
 pos_file /var/log/td-agent/app.log.pos
 tag app.logs
-      <parse>
+  <parse>
 @type json
 time_key timestamp
-      </parse>
-    </source>
+  </parse>
+</source>
 
 <filter app.logs>
 @type record_transformer
-      <record>
+  <record>
 hostname ${hostname}
 environment production
-      </record>
-    </filter>
+  </record>
+</filter>
 
 <match app.logs>
 @type elasticsearch
@@ -5595,40 +4843,47 @@ host elasticsearch.cluster.local
 port 9200
 index_name app-logs
 
-      <buffer>
+  <buffer>
 @type file
 path /var/log/td-agent/buffer/app
 flush_interval 10s
-      </buffer>
-    </match>
+  </buffer>
+</match>
+
+```text
+---
 
 ## 18. METRICS COLLECTION (TELEGRAF)
 
-    [agent]
+```toml
+[agent]
 interval = "10s"
 round_interval = true
 metric_batch_size = 1000
 
-    [[outputs.prometheus_client]]
+[[outputs.prometheus_client]]
 listen = ":9273"
 path = "/metrics"
 
-    [[inputs.cpu]]
+[[inputs.cpu]]
 percpu = true
 totalcpu = true
 
-    [[inputs.disk]]
+[[inputs.disk]]
 ignore_fs = ["tmpfs", "devtmpfs"]
 
-    [[inputs.mem]]
+[[inputs.mem]]
 
-    [[inputs.docker]]
+[[inputs.docker]]
 endpoint = "unix:///var/run/docker.sock"
 timeout = "5s"
 
-    [[inputs.postgresql]]
+[[inputs.postgresql]]
 address = "host=localhost user=postgres sslmode=disable"
 databases = ["myapp"]
+
+```text
+---
 
 ## 19. CONTAINER REGISTRY (HARBOR)
 
@@ -5639,7 +4894,7 @@ databases = ["myapp"]
 docker run -d \
 -p 80:80 -p 443:443 \
 -v /data/harbor:/data \
-      goharbor/harbor-installer:latest
+  goharbor/harbor-installer:latest
 
 ## Login
 
@@ -5655,31 +4910,27 @@ docker push harbor.myapp.com/production/api:v1.0.0
 docker pull harbor.myapp.com/production/api:v1.0.0
 
 ```text
-
 ---
 
 ## 20. AUTOMATIC SECRETS ROTATION
 
 ```python
-
 import boto3
 import json
 
 class SecretsRotator:
-def **init**(self):
+def __init__(self):
 self.secrets = boto3.client('secretsmanager')
 self.rds = boto3.client('rds')
 
 def rotate_database_password(self, secret_name, db_instance):
 
 ## Generate new password
-
 new_password = self.secrets.get_random_password(
 PasswordLength=32, ExcludeCharacters='/@"\\'
         )['RandomPassword']
 
 ## Update database
-
         self.rds.modify_db_instance(
         DBInstanceIdentifier=db_instance,
         MasterUserPassword=new_password,
@@ -5687,14 +4938,12 @@ PasswordLength=32, ExcludeCharacters='/@"\\'
         )
 
 ## Update secret
-
         self.secrets.put_secret_value(
         SecretId=secret_name,
 SecretString=json.dumps({'password': new_password})
         )
 
 ```text
-
 ---
 
 ## 21. INFRASTRUCTURE DRIFT DETECTION
@@ -5713,13 +4962,16 @@ command = <<EOF
 terraform plan -detailed-exitcode -out=tfplan
 if [ $? -eq 2 ]; then
 echo "DRIFT DETECTED!"
-curl -X POST <<<<<<https://slack.com/api/chat.postMessage>>>>>> \
+curl -X POST https://slack.com/api/chat.postMessage \
 -H "Authorization: Bearer $SLACK_TOKEN" \
 -d "text=Infrastructure drift detected!"
-        fi
-        EOF
-      }
-    }
+      fi
+    EOF
+  }
+}
+
+```text
+---
 
 ## 22. DATABASE CONNECTION POOLING (PGBOUNCER)
 
@@ -5739,26 +4991,29 @@ server_lifetime = 3600
 server_idle_timeout = 600
 
 ```text
-
 ---
 
 ## 23. LOG ROTATION (LOGROTATE)
 
+```text
 /var/log/app/*.log {
-        daily
+    daily
 rotate 30
-        compress
-        delaycompress
-        missingok
-        notifempty
+    compress
+    delaycompress
+    missingok
+    notifempty
 create 0640 app app
-        sharedscripts
-        postrotate
-| systemctl reload app > /dev/null 2>&1 | true |
-        endscript
+    sharedscripts
+    postrotate
+| systemctl reload app > /dev/null 2>&1 |  | true |
+    endscript
 size 100M
 maxage 90
-    }
+}
+
+```text
+---
 
 ## 24. MEMORY PROFILING & LEAK DETECTION
 
@@ -5776,7 +5031,7 @@ return data
 ## Production memory tracking
 
 def start_memory_tracking():
-        tracemalloc.start()
+    tracemalloc.start()
 
 def take_memory_snapshot():
 snapshot = tracemalloc.take_snapshot()
@@ -5791,7 +5046,6 @@ import schedule
 schedule.every(1).hour.do(take_memory_snapshot)
 
 ```text
-
 ---
 
 ## 25. DDoS PROTECTION (CLOUDFLARE)
@@ -5800,26 +5054,28 @@ schedule.every(1).hour.do(take_memory_snapshot)
 
 ## Enable high security level
 
-curl -X PATCH "<<<<<https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_level">>>>> \
+curl -X PATCH "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_level" \
 -H "Authorization: Bearer $CF_API_TOKEN" \
 -H "Content-Type: application/json" \
 --data '{"value":"high"}'
 
 ## Rate limiting rules
 
-curl -X POST "<<<<<https://api.cloudflare.com/client/v4/zones/{zone_id}/rate_limits">>>>> \
+curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/rate_limits" \
 -H "Authorization: Bearer $CF_API_TOKEN" \
 --data '{
 "match": {"request": {"url": "*.myapp.com/api/*"}},
 "threshold": 100,
 "period": 60,
 "action": {"mode": "ban", "timeout": 3600}
-      }'
+  }'
+
+```text
+---
 
 ## 26. INFRASTRUCTURE TESTING (TESTINFRA)
 
 ```python
-
 import testinfra
 
 def test_nginx_is_installed(host):
@@ -5842,12 +5098,11 @@ assert cert.mode == 0o644
 
 def test_disk_space(host):
 mount = host.mount_point("/")
-assert mount.size_available > 10 *1024* 1024 * 1024  # 10GB
+assert mount.size_available > 10 * 1024 * 1024 * 1024  # 10GB
 
 ## Run: pytest --hosts=ssh://server1,ssh://server2
 
 ```text
-
 ---
 
 ## [DEVOPS PRODUCTION PATTERNS - VOLUME 9] COMPLETED
@@ -5864,13 +5119,13 @@ assert mount.size_available > 10 *1024* 1024 * 1024  # 10GB
 
 ```bash
 
-## !/bin/bash 2
+## !/bin/bash
 
 ## AUTOMATED POSTGRESQL BACKUP
 
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-    BACKUP_DIR="/backups/postgres"
-    DB_NAME="myapp_production"
+BACKUP_DIR="/backups/postgres"
+DB_NAME="myapp_production"
 
 ## Full backup
 
@@ -5889,11 +5144,13 @@ find $BACKUP_DIR -name "*.dump" -mtime +30 -delete
 pg_restore --list $BACKUP_DIR/backup_$TIMESTAMP.dump > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 echo "Backup verified"
-    else
-| echo "Backup CORRUPTED!" | mail -s "BACKUP FAILURE" <admin@myapp.com> |
-    fi
+else
+| echo "Backup CORRUPTED!" | mail -s "BACKUP FAILURE" admin@myapp.com |
+fi
 
-## Schedule: 0 */6* ** /scripts/backup.sh
+## Schedule: 0 */6 * * * /scripts/backup.sh
+
+```text
 
 ## Point-in-Time Recovery
 
@@ -5911,50 +5168,41 @@ restore_command = 'aws s3 cp s3://myapp-wal/%f %p'
 recovery_target_time = '2025-01-01 14:30:00'
 
 ```text
-
 ---
 
 ## 28. HIGH AVAILABILITY PATTERNS
 
+```yaml
 apiVersion: apps/v1
 kind: Deployment
-    metadata:
+metadata:
 name: api
-    spec:
+spec:
 replicas: 3  # Minimum for HA
 
-      strategy:
+  strategy:
 type: RollingUpdate
-        rollingUpdate:
+    rollingUpdate:
 maxSurge: 1
 maxUnavailable: 0  # Zero downtime
 
-      template:
-        spec:
+  template:
+    spec:
 
 ## Anti-affinity (spread across nodes)
-
-        affinity:
+      affinity:
         podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
-
 - labelSelector:
-
         matchExpressions:
-
 - key: app
-
 operator: In
         values:
-
 - api
-
 topologyKey: kubernetes.io/hostname
 
-        containers:
-
+      containers:
 - name: api
-
 image: myapp/api:v1.0.0
 
         livenessProbe:
@@ -5980,15 +5228,19 @@ cpu: "250m"
 memory: "512Mi"
 cpu: "500m"
 
+---
 apiVersion: policy/v1
 kind: PodDisruptionBudget
-    metadata:
+metadata:
 name: api-pdb
-    spec:
+spec:
 minAvailable: 2  # Always keep 2 pods running
-      selector:
-        matchLabels:
+  selector:
+    matchLabels:
 app: api
+
+```text
+---
 
 ## 29. TERRAFORM DEEP DIVE (Production Structure)
 
@@ -6069,13 +5321,11 @@ ManagedBy = "terraform"
 }
 
 ```text
-
 ---
 
 ## 30. BLUE-GREEN DEPLOYMENT (Full K8s)
 
 ```yaml
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -6085,9 +5335,7 @@ spec:
 app: api
 version: blue  # Currently pointing to blue
   ports:
-
 - port: 80
-
 targetPort: 8000
 
 ---
@@ -6111,9 +5359,7 @@ app: api
 version: blue
     spec:
       containers:
-
 - name: api
-
 image: myapp/api:v1.0.0
 
 ---
@@ -6137,59 +5383,44 @@ app: api
 version: green
     spec:
       containers:
-
 - name: api
-
 image: myapp/api:v2.0.0
 
 ## Switch: kubectl patch service api -p '{"spec":{"selector":{"version":"green"}}}'
 
 ```text
-
 ---
 
 ## 31. CANARY DEPLOYMENT (ISTIO VirtualService)
 
 ```yaml
-
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
 name: api
 spec:
   hosts:
-
 - api.myapp.com
-
   http:
-
 - match:
 - headers:
-
         beta-user:
 exact: "true"
     route:
-
 - destination:
-
 host: api
 subset: v2
-
 - route:
 - destination:
-
 host: api
 subset: v1
 weight: 90  # 90% to v1
-
 - destination:
-
 host: api
 subset: v2
 weight: 10  # 10% to v2 (canary)
 
 ---
-
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
@@ -6197,14 +5428,10 @@ name: api
 spec:
 host: api
   subsets:
-
 - name: v1
-
     labels:
 version: v1
-
 - name: v2
-
     labels:
 version: v2
 
@@ -6243,7 +5470,6 @@ interval: 1s
 baseEjectionTime: 3m
 
 ```text
-
 ---
 
 ## 32. CONTAINER OPTIMIZATION (Python)
@@ -6270,7 +5496,7 @@ RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install --no-cache-dir -r requirements.txt
 
-## Production stage 4
+## Production stage
 
 FROM python:3.11-slim
 
@@ -6286,18 +5512,18 @@ COPY --chown=appuser:appuser . .
 USER appuser
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-CMD python -c "import requests; requests.get('<<<<<<http://localhost:8000/health>>>>>>')"
+CMD python -c "import requests; requests.get('http://localhost:8000/health')"
 
 CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000"]
 
 ## Result: 200MB (vs 1.5GB with full Python image)
 
 ```text
-
 ---
 
 ## 33. PRODUCTION CI/CD PIPELINE (Complete)
 
+```yaml
 name: Deploy to Production
 
 on:
@@ -6314,18 +5540,14 @@ jobs:
   test:
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v3
 - name: Run Tests
-
 | run: |
 npm install
 npm run test:unit
 npm run test:integration
 npm run test:e2e
-
 - name: Security Scan
-
 | run: |
 npm audit --audit-level=moderate
 docker build -t myapp:test .
@@ -6335,18 +5557,14 @@ trivy image myapp:test
 needs: test
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v3
 - name: Configure AWS
-
 uses: aws-actions/configure-aws-credentials@v2
         with:
 aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 aws-region: ${{ env.AWS_REGION }}
-
 - name: Build and push
-
 | run: |
 docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} .
 docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
@@ -6356,42 +5574,30 @@ needs: build
 runs-on: ubuntu-latest
 environment: staging
     steps:
-
 - name: Deploy to Staging
-
 run: aws ecs update-service --cluster staging --service api --force-new-deployment
-
 - name: Wait for deployment
-
 run: aws ecs wait services-stable --cluster staging --services api
-
 - name: Smoke tests
-
-run: ./scripts/smoke-test.sh <<<<<https://staging.myapp.com>>>>>
+run: ./scripts/smoke-test.sh https://staging.myapp.com
 
   deploy-production:
 needs: deploy-staging
 runs-on: ubuntu-latest
 environment: production
     steps:
-
 - name: Deploy
-
 | run: |
 aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE \
 --deployment-configuration "maximumPercent=200,minimumHealthyPercent=100"
-
 - name: Verify
-
 | run: |
 for i in {1..5}; do
-| STATUS=$(curl -sf <<<<<https://myapp.com/health>>>>> | jq -r '.status') |
+| STATUS=$(curl -sf https://myapp.com/health | jq -r '.status') |
 if [ "$STATUS" != "healthy" ]; then exit 1; fi
 sleep 10
         done
-
 - name: Rollback on failure
-
 if: failure()
 | run: |
 PREV=$(aws ecs describe-services --cluster $ECS_CLUSTER --service $ECS_SERVICE \
@@ -6399,10 +5605,12 @@ PREV=$(aws ecs describe-services --cluster $ECS_CLUSTER --service $ECS_SERVICE \
 aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE \
 --task-definition $PREV --force-new-deployment
 
+```text
+---
+
 ## 34. DISTROLESS IMAGES (Most Secure)
 
 ```dockerfile
-
 FROM node:18-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
@@ -6433,11 +5641,11 @@ CMD ["dist/server.js"]
 ## - Minimal attack surface
 
 ```text
-
 ---
 
 ## 35. HORIZONTAL POD AUTOSCALER (Advanced)
 
+```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -6450,17 +5658,13 @@ name: api
 minReplicas: 3
 maxReplicas: 50
   metrics:
-
 - type: Resource
-
     resource:
 name: cpu
       target:
 type: Utilization
 averageUtilization: 70
-
 - type: Resource
-
     resource:
 name: memory
       target:
@@ -6471,17 +5675,13 @@ averageUtilization: 80
     scaleDown:
 stabilizationWindowSeconds: 300  # Wait 5min before scaling down
       policies:
-
 - type: Percent
-
 value: 50
 periodSeconds: 60
     scaleUp:
 stabilizationWindowSeconds: 0  # Scale up immediately
       policies:
-
 - type: Percent
-
 value: 100  # Double pods at once
 periodSeconds: 60
 
@@ -6491,7 +5691,10 @@ periodSeconds: 60
 
 ## Target: 70% CPU
 
-## Calculation: 5 *(85 / 70) = 6.07 -> 7 pods
+## Calculation: 5 * (85 / 70) = 6.07 -> 7 pods
+
+```text
+---
 
 ## [DEVOPS PRODUCTION PATTERNS - VOLUMES 8-10] FULLY COMPLETED
 
@@ -6537,7 +5740,7 @@ periodSeconds: 60
 
 ```yaml
 
-## TITAN K8s Spec: Container-Aware JVM
+## ? TITAN K8s Spec: Container-Aware JVM
 
 apiVersion: apps/v1
 kind: Deployment
@@ -6545,22 +5748,19 @@ spec:
   template:
     spec:
       containers:
-
 - name: java-service
-
         resources:
         limits:
-
 memory: "2Gi"
         env:
-
 - name: JAVA_OPTS
-
 value: >-
         -XX:+UseContainerSupport
         -XX:MaxRAMPercentage=75.0
         -XX:+ExitOnOutOfMemoryError
         -XX:+HeapDumpOnOutOfMemoryError
+
+```text
 
 ## TERRAFORM STATE LOCKING RACE CONDITION
 
@@ -6571,7 +5771,7 @@ value: >-
 
 ```hcl
 
-## TITAN Terraform: Remote Backend with Locking
+## ? TITAN Terraform: Remote Backend with Locking
 
 terraform {
 backend "s3" {
@@ -6583,6 +5783,8 @@ encrypt = true
   }
 }
 
+```text
+
 ## ETCD LEADER ELECTION STORMS (RAFT SPLIT-BRAIN)
 
 ## Kubernetes API Unavailable Scar
@@ -6593,13 +5795,15 @@ encrypt = true
 
 ```yaml
 
-## TITAN Config: etcd tuning
+## ? TITAN Config: etcd tuning
 
 tick-ms: 500
 election-timeout: 5000  # 10x tick
 wal-dir: /var/lib/etcd/wal  # Dedicated NVMe SSD
 data-dir: /var/lib/etcd/data
 quota-backend-bytes: 8589934592  # 8GB
+
+```text
 
 ## END OF VOLUME 1.5: TITAN DEVOPS PHYSICS
 
@@ -6673,7 +5877,7 @@ use_lockfile = true  # NEW! No DynamoDB needed
 > "ENILimitReachedException: subnet out of IPs or account ENI limit hit.
 > Hyperplane: Functions with identical security groups + subnets SHARE ENIs."
 
-### Titan Fix 2
+### Titan Fix
 
 > "Dedicate /20 subnets for Lambda (4096 IPs).
 > Standardize security group configs to maximize ENI sharing."
@@ -6685,23 +5889,7 @@ use_lockfile = true  # NEW! No DynamoDB needed
 ## VOLUME 1.8: TITAN CATALOG - 30 DEVOPS FAILURES
 
 | ID | Scenario | Failure Mechanism | Titan Mitigation |
-|
-
----
-
-| -|
-
----
-
-| -|
-
----
-
-| -|
-
----
-
-|
+|----|----------|-------------------|------------------|
 | 6.3 | State Lock Race | Concurrent Terraform | DynamoDB / S3 native locking |
 | 6.4 | Layer Bloat | Re-copying deps breaks cache | Dockerfile ordering |
 | 6.5 | CrashLoopBackOff | App crashes on start | Check probes/logs |
@@ -6760,7 +5948,7 @@ r.Status().Update(ctx, &resource)
 > Large cluster = gigabytes of memory.
 > High-cardinality metrics (unique IDs in labels) = OOMKill."
 
-### Titan Fix 3
+### Titan Fix
 
 - Sidecar CRD: Restrict visibility to only services pod talks to
 
@@ -6830,27 +6018,24 @@ kubectl exec -it pod -- cat /sys/fs/cgroup/cpu,cpuacct/cpu.stat
 
 apiVersion: v1
 kind: Pod
-    spec:
-      containers:
-
+spec:
+  containers:
 - name: java-app
-
-        resources:
-        requests:
-
+    resources:
+      requests:
 memory: "4Gi"
 cpu: "2"
-        limits:
+      limits:
 memory: "4Gi"
 cpu: "4"  # Higher limit = less throttling (burstable)
-        env:
-
+    env:
 - name: JAVA_OPTS
-
 value: >-
         -XX:+UseContainerSupport
         -XX:MaxRAMPercentage=75.0
         -XX:ActiveProcessorCount=2
+
+```text
 
 ## OOM KILLER MECHANICS
 
@@ -6889,15 +6074,13 @@ def get_memory_pressure():
     try:
 
 ## cgroups v2
-
 with open('/sys/fs/cgroup/memory.pressure', 'r') as f:
 for line in f:
 if line.startswith('full'):
 
 ## Parse: full avg10=0.00 avg60=0.00 avg300=0.00 total=0
-
 parts = line.split()
-avg10 = float(parts[1].split['='](1))
+avg10 = float(parts[1].split('=')[1])
 if avg10 > 10.0:  # 10% stalled on memory
 return "CRITICAL"
 elif avg10 > 1.0:
@@ -6910,9 +6093,10 @@ return "OK"
 
 if get_memory_pressure() == "CRITICAL":
 
-## Drop caches, reject new requests, etc
-
+## Drop caches, reject new requests, etc.
     shed_load()
+
+```text
 
 ## KUBERNETES SCHEDULER INTERNALS
 
@@ -6948,9 +6132,7 @@ name: high-priority
 value: 1000000
 globalDefault: false
 preemptionPolicy: PreemptLowerPriority  # Will evict lower priority pods
-
 ---
-
 apiVersion: v1
 kind: Pod
 spec:
@@ -6983,15 +6165,13 @@ kubectl patch deployment kube-scheduler -n kube-system \
 
 apiVersion: apps/v1
 kind: Deployment
+spec:
+  template:
     spec:
-      template:
-        spec:
-        topologySpreadConstraints:
+      topologySpreadConstraints:
 
 ## Spread across AZs
-
 - maxSkew: 1
-
 topologyKey: topology.kubernetes.io/zone
 whenUnsatisfiable: DoNotSchedule  # Hard requirement
         labelSelector:
@@ -6999,9 +6179,7 @@ whenUnsatisfiable: DoNotSchedule  # Hard requirement
 app: my-app
 
 ## Also spread across nodes within AZ
-
 - maxSkew: 1
-
 topologyKey: kubernetes.io/hostname
 whenUnsatisfiable: ScheduleAnyway  # Soft preference
         labelSelector:
@@ -7019,8 +6197,9 @@ app: my-app
 > If server doesn't handle blocking: Connection stalls.
 > Other RPCs on same connection: Affected by head-of-line blocking."
 
+```go
 // ? TITAN: gRPC Server with flow control awareness
-func (s *Server) StreamData(req*pb.Request, stream pb.Service_StreamDataServer) error {
+func (s *Server) StreamData(req *pb.Request, stream pb.Service_StreamDataServer) error {
 for data := range dataChannel {
 // Send can block if client is slow!
 err := stream.Send(&pb.Response{Data: data})
@@ -7035,9 +6214,9 @@ case <-stream.Context().Done():
 return stream.Context().Err()
         default:
         }
-        }
-return nil
     }
+return nil
+}
 
 // Client side: Don't let server wait forever
 ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -7048,10 +6227,12 @@ for {
 resp, err := stream.Recv()
 if err == io.EOF {
         break
-        }
+    }
 // Process resp quickly or buffer to separate goroutine
 // Slow processing here = server flow control triggers
-    }
+}
+
+```text
 
 ## GRPC KEEPALIVE AND LOAD BALANCING
 
@@ -7062,26 +6243,29 @@ if err == io.EOF {
 > K8s Service = L4 LB. No request-level balancing.
 > Dead connection stays in pool until TCP keepalive catches it."
 
+```go
 // ? TITAN: gRPC Client Connection Config
 import (
-        "google.golang.org/grpc"
-        "google.golang.org/grpc/keepalive"
-    )
+    "google.golang.org/grpc"
+    "google.golang.org/grpc/keepalive"
+)
 
 conn, err := grpc.Dial(
-        "dns:///my-service.namespace.svc.cluster.local:50051",
-        grpc.WithDefaultServiceConfig(`{
+    "dns:///my-service.namespace.svc.cluster.local:50051",
+    grpc.WithDefaultServiceConfig(`{
 "loadBalancingPolicy": "round_robin",
 "healthCheckConfig": {
 "serviceName": "my.service.Name"
         }
-        }`),
-        grpc.WithKeepaliveParams(keepalive.ClientParameters{
-Time: 10 *time.Second,  // Ping every 10s
-Timeout: 3* time.Second,   // Wait 3s for pong
+    }`),
+    grpc.WithKeepaliveParams(keepalive.ClientParameters{
+Time: 10 * time.Second,  // Ping every 10s
+Timeout: 3 * time.Second,   // Wait 3s for pong
 PermitWithoutStream: true,  // Ping even when idle
-        }),
-    )
+    }),
+)
+
+```yaml
 
 ## TITAN: K8s headless service for client-side LB
 
@@ -7092,12 +6276,10 @@ name: my-service
 spec:
 clusterIP: None  # Headless! Returns all pod IPs
   ports:
-
 - port: 50051
 name: grpc
   selector:
 app: my-app
-
 ---
 
 ## DNS query for my-service returns multiple A records
@@ -7148,38 +6330,36 @@ kubectl logs <pod-name> --previous
 
 ```yaml
 
-## VIBE: No resource limits = OOMKilled under load
+## ? VIBE: No resource limits = OOMKilled under load
 
 apiVersion: v1
 kind: Pod
-    spec:
-      containers:
-
+spec:
+  containers:
 - name: app
-
 image: myapp:latest
 
 ## No resources defined = unbounded = OOMKilled eventually
 
-## TITAN: Proper resource configuration
+## ? TITAN: Proper resource configuration
 
 apiVersion: v1
 kind: Pod
-    spec:
-      containers:
-
+spec:
+  containers:
 - name: app
-
 image: myapp:latest
-        resources:
-        requests:
+    resources:
+      requests:
 memory: "256Mi"    # Guaranteed memory
 cpu: "100m"  # 0.1 CPU cores
-        limits:
+      limits:
 memory: "512Mi"    # Max before OOMKilled
 cpu: "500m"  # Max CPU (throttled, not killed)
 
-## VIBE: Aggressive liveness probe = false restarts
+```yaml
+
+## ? VIBE: Aggressive liveness probe = false restarts
 
 livenessProbe:
   httpGet:
@@ -7189,7 +6369,7 @@ initialDelaySeconds: 5   # Too short for startup!
 periodSeconds: 5
 failureThreshold: 1  # One failure = restart
 
-## TITAN: Proper probe configuration
+## ? TITAN: Proper probe configuration
 
 livenessProbe:
   httpGet:
@@ -7207,24 +6387,27 @@ port: 8080
 failureThreshold: 30  # 5 min to start (30 * 10s)
 periodSeconds: 10
 
+```text
+
 ## TERRAFORM STATE LOCKING RACE CONDITIONS
 
-## The Scar 2
+## The Scar
 
-> "PagerDuty went off at 3 AM. On-call engineer woke up.
-> Spent 20 minutes finding the runbook.
-> Runbook was outdated. Wrong commands.
-> Resolution time: 2 hours. Could have been 10 minutes."
+> "Two engineers run terraform apply simultaneously.
+> Both think they have the lock. State file corrupted.
+> Infrastructure in unknown state. Manual cleanup required."
 
-```python
+```hcl
 
-## VIBE: Local state = no locking = race conditions
+## ? VIBE: Local state = no locking = race conditions
 
 terraform {
 backend "local" {}  # NEVER in production!
 }
 
-## TITAN: S3 backend with DynamoDB locking
+```hcl
+
+## ? TITAN: S3 backend with DynamoDB locking
 
 terraform {
 backend "s3" {
@@ -7233,8 +6416,8 @@ key = "prod/terraform.tfstate"
 region = "us-east-1"
 encrypt = true
 dynamodb_table = "terraform-locks"  # CRITICAL: Lock table
-      }
-    }
+  }
+}
 
 ## Create the lock table
 
@@ -7267,32 +6450,34 @@ aws dynamodb get-item \
 
 ```yaml
 
-## TITAN: GitHub Actions with concurrency lock
+## ? TITAN: GitHub Actions with concurrency lock
 
 name: Terraform
 on: push
-    concurrency:
+concurrency:
 group: terraform-${{ github.ref }}
 cancel-in-progress: false  # Don't cancel, wait in queue
-    jobs:
-      apply:
+jobs:
+  apply:
 runs-on: ubuntu-latest
-        steps:
-
+    steps:
 - uses: actions/checkout@v4
 - name: Terraform Apply
-
 run: terraform apply -auto-approve
+
+```text
 
 ## AWS LAMBDA COLD START OPTIMIZATION
 
-## The Scar 2 2
+## The Scar
 
 > "Lambda in VPC takes 10 seconds to start.
 > Users see 30-second timeouts. Provisioned Concurrency costs $500/month.
 > Root cause: ENI attachment in VPC."
 
-## VIBE: Heavy imports at module level
+```python
+
+## ? VIBE: Heavy imports at module level
 
 import boto3
 import pandas as pd  # 2 seconds to import!
@@ -7306,12 +6491,11 @@ def lambda_handler(event, context):
 
 ```python
 
-## TITAN: Lazy loading for optional heavy imports
+## ? TITAN: Lazy loading for optional heavy imports
 
 def lambda_handler(event, context):
 
 ## Only import when actually needed
-
 if event.get('needs_ml'):
 import sklearn
 import numpy as np
@@ -7319,7 +6503,7 @@ return ml_processing(event)
     else:
 return simple_processing(event)
 
-## TITAN: Move initialization outside handler
+## ? TITAN: Move initialization outside handler
 
 import boto3
 
@@ -7331,29 +6515,30 @@ table = dynamodb.Table('my-table')
 def lambda_handler(event, context):
 
 ## Reuses existing connection
-
 return table.get_item(Key={'id': event['id']})
 
 ```yaml
 
-## TITAN: Provisioned Concurrency for critical paths
+## ? TITAN: Provisioned Concurrency for critical paths
 
-    Resources:
-      MyFunction:
+Resources:
+  MyFunction:
 Type: AWS::Lambda::Function
-        Properties:
+    Properties:
 FunctionName: critical-api
 Runtime: python3.11
 MemorySize: 1024  # More memory = faster CPU
 
-      ProvisionedConcurrency:
+  ProvisionedConcurrency:
 Type: AWS::Lambda::Version
-        Properties:
+    Properties:
 FunctionName: !Ref MyFunction
-        ProvisionedConcurrencyConfig:
+      ProvisionedConcurrencyConfig:
 ProvisionedConcurrentExecutions: 10  # Always warm
 
-## TITAN: Lambda outside VPC if possible
+```hcl
+
+## ? TITAN: Lambda outside VPC if possible
 
 ## If VPC required, use VPC endpoint
 
@@ -7364,10 +6549,9 @@ vpc_endpoint_type = "Gateway"
 route_table_ids = [aws_route_table.private.id]
 
 ## Now Lambda->DynamoDB doesn't need NAT gateway
-
 }
 
-## TITAN: Use AWS SnapStart for Java
+## ? TITAN: Use AWS SnapStart for Java
 
 resource "aws_lambda_function" "java_function" {
 function_name = "java-api"
@@ -7378,53 +6562,56 @@ apply_on = "PublishedVersions"  # 10x faster cold start
   }
 }
 
+```text
+
 ## CONTAINER ESCAPE PREVENTION (CVE-2019-5736)
 
-## The Scar 3
+## The Scar
 
 > "runc vulnerability allows container to overwrite host binary.
 > Container escapes to host. Full node compromise.
 > If one pod compromised, entire cluster at risk."
 
-## VIBE: Running as root + privileged
+```yaml
+
+## ? VIBE: Running as root + privileged
 
 apiVersion: v1
 kind: Pod
 spec:
   containers:
-
 - name: app
-
 image: myapp
     securityContext:
 privileged: true  # FULL HOST ACCESS!
 runAsUser: 0  # Root!
 
-## TITAN: Hardened security context
+```yaml
+
+## ? TITAN: Hardened security context
 
 apiVersion: v1
 kind: Pod
-    spec:
-      securityContext:
+spec:
+  securityContext:
 runAsNonRoot: true
-        seccompProfile:
+    seccompProfile:
 type: RuntimeDefault
-      containers:
-
+  containers:
 - name: app
-
 image: myapp
-        securityContext:
+    securityContext:
 allowPrivilegeEscalation: false
 readOnlyRootFilesystem: true
 runAsUser: 1000
 runAsGroup: 1000
-        capabilities:
+      capabilities:
         drop:
-
 - ALL
 
-## TITAN: Pod Security Standards (PSS)
+```yaml
+
+## ? TITAN: Pod Security Standards (PSS)
 
 apiVersion: v1
 kind: Namespace
@@ -7435,6 +6622,8 @@ pod-security.kubernetes.io/enforce: restricted
 pod-security.kubernetes.io/warn: restricted
 pod-security.kubernetes.io/audit: restricted
 
+```text
+
 ## END OF VOLUME 2.1: TITAN GEMINI RESEARCH - K8S & TERRAFORM FAILURES
 
 ---
@@ -7443,7 +6632,7 @@ pod-security.kubernetes.io/audit: restricted
 
 ## KUBERNETES POD CRASH FORENSICS
 
-### The Scar 3 2
+### The Scar
 
 > "Pod crashed. kubectl logs shows nothing.
 > Container exited before logging anything.
@@ -7452,7 +6641,7 @@ pod-security.kubernetes.io/audit: restricted
 
 ```bash
 
-## VIBE: Basic debugging
+## ? VIBE: Basic debugging
 
 kubectl logs pod-name
 
@@ -7462,12 +6651,12 @@ kubectl logs pod-name
 
 ```bash
 
-## TITAN: Complete crash forensics
+## ? TITAN: Complete crash forensics
 
-## !/bin/bash 3
+## !/bin/bash
 
-    POD=$1
-    NAMESPACE=${2:-default}
+POD=$1
+NAMESPACE=${2:-default}
 
 echo "=== POD CRASH FORENSICS: $POD ==="
 
@@ -7476,7 +6665,7 @@ echo "=== POD CRASH FORENSICS: $POD ==="
 echo -e "\n=== EVENTS ==="
 kubectl get events --namespace=$NAMESPACE \
 --field-selector involvedObject.name=$POD \
-        --sort-by=.metadata.creationTimestamp
+    --sort-by=.metadata.creationTimestamp
 
 ## 2. Get previous container logs (if exists)
 
@@ -7505,7 +6694,7 @@ echo -e "\n=== INIT CONTAINER LOGS ==="
 
 ```python
 
-## TITAN: Automated crash analysis
+## ? TITAN: Automated crash analysis
 
 from kubernetes import client, config
 from dataclasses import dataclass
@@ -7524,7 +6713,7 @@ resource_issue: Optional[str]
 suggested_fix: str
 
 class K8sCrashAnalyzer:
-def **init**(self):
+def __init__(self):
         config.load_incluster_config()
 self.core_v1 = client.CoreV1Api()
 
@@ -7532,11 +6721,9 @@ def analyze_crash(self, pod_name: str, namespace: str) -> CrashAnalysis:
 """Analyze why a pod crashed."""
 
 ## Get pod details
-
 pod = self.core_v1.read_namespaced_pod(pod_name, namespace)
 
 ## Get container status
-
 container_status = pod.status.container_statuses[0]
 last_state = container_status.last_state.terminated
 
@@ -7544,7 +6731,6 @@ exit_code = last_state.exit_code if last_state else -1
 reason = last_state.reason if last_state else "Unknown"
 
 ## Get events
-
 events = self.core_v1.list_namespaced_event(
         namespace,
         field_selector=f"involvedObject.name={pod_name}"
@@ -7556,7 +6742,6 @@ for e in events.items[-10:]  # Last 10 events
         ]
 
 ## Get logs
-
         try:
 logs = self.core_v1.read_namespaced_pod_log(
 pod_name, namespace,
@@ -7567,7 +6752,6 @@ pod_name, namespace,
 logs = "No previous logs available"
 
 ## Analyze exit code
-
 resource_issue = None
 suggested_fix = "Unknown issue"
 
@@ -7582,7 +6766,6 @@ elif exit_code == 255:
 suggested_fix = "Exit status out of range - check for segfault or panic"
 
 ## Check events for specific issues
-
 for event in event_messages:
 if "FailedScheduling" in event.get("reason", ""):
 suggested_fix = "Not enough resources - scale down or add nodes"
@@ -7633,14 +6816,16 @@ await slack.send({
 
 ## GITOPS WITH ARGOCD
 
-## The Scar 4
+## The Scar
 
 > "kubectl apply in production. From laptop.
 > No record of who deployed what.
 > Config drift. Git says v1.2, cluster has v1.5.
 > Rollback impossible. Which version was working?"
 
-## VIBE: Manual kubectl deployments
+```bash
+
+## ? VIBE: Manual kubectl deployments
 
 kubectl apply -f deployment.yaml  # From someone's laptop
 
@@ -7648,77 +6833,65 @@ kubectl apply -f deployment.yaml  # From someone's laptop
 
 ```yaml
 
-## TITAN: ArgoCD GitOps setup
+## ? TITAN: ArgoCD GitOps setup
 
 ## argocd/application.yaml
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-    metadata:
+metadata:
 name: myapp
 namespace: argocd
-      finalizers:
-
+  finalizers:
 - resources-finalizer.argocd.argoproj.io
-
-    spec:
+spec:
 project: default
 
-      source:
-
-repoURL: <<<<<<https://github.com/company/k8s-manifests.git>>>>>>
+  source:
+repoURL: https://github.com/company/k8s-manifests.git
 targetRevision: main
 path: apps/myapp/overlays/production
 
 ## Helm values (if using Helm)
-
-        helm:
-        valueFiles:
-
+    helm:
+      valueFiles:
 - values-production.yaml
-
-        parameters:
-
+      parameters:
 - name: image.tag
-
 value: $ARGOCD_APP_REVISION
 
-      destination:
-server: <<<<<<https://kubernetes.default.svc>>>>>>
+  destination:
+server: https://kubernetes.default.svc
 namespace: production
 
-      syncPolicy:
-        automated:
+  syncPolicy:
+    automated:
 prune: true  # Delete resources not in Git
 selfHeal: true  # Auto-sync if drift detected
 allowEmpty: false  # Don't sync if manifests empty
 
-        syncOptions:
-
+    syncOptions:
 - CreateNamespace=true
 - PrunePropagationPolicy=foreground
 - PruneLast=true
 
-        retry:
-
+    retry:
 limit: 5
-        backoff:
+      backoff:
 duration: 5s
 factor: 2
 maxDuration: 3m
 
-## Health checks 3
-
-      ignoreDifferences:
-
+## Health checks
+  ignoreDifferences:
 - group: apps
-
 kind: Deployment
-        jsonPointers:
-
+      jsonPointers:
 - /spec/replicas  # Ignore HPA-managed replicas
 
-## TITAN: Multi-environment promotion
+```yaml
+
+## ? TITAN: Multi-environment promotion
 
 ## apps/myapp/base/kustomization.yaml
 
@@ -7726,15 +6899,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-
 - deployment.yaml
 - service.yaml
 - configmap.yaml
 
 images:
-
 - name: myapp
-
 newTag: PLACEHOLDER  # Replaced by overlay
 
 ```yaml
@@ -7746,39 +6916,34 @@ kind: Kustomization
 
 namespace: staging
 
-    resources:
-
+resources:
 - ../../base
 
-    images:
-
+images:
 - name: myapp
-
 newName: registry.company.com/myapp
 newTag: v1.2.3-rc1
 
-    patchesStrategicMerge:
-
+patchesStrategicMerge:
 - replicas-patch.yaml  # Lower replicas for staging
 
-    configMapGenerator:
-
+configMapGenerator:
 - name: myapp-config
-
 behavior: merge
-        literals:
-
+    literals:
 - LOG_LEVEL=debug
 - FEATURE_FLAGS=staging
 
-## TITAN: Automated promotion between environments
+```python
+
+## ? TITAN: Automated promotion between environments
 
 import subprocess
 import json
 from github import Github
 
 class GitOpsPromoter:
-def **init**(self, github_token: str, repo: str):
+def __init__(self, github_token: str, repo: str):
 self.gh = Github(github_token)
 self.repo = self.gh.get_repo(repo)
 
@@ -7791,12 +6956,10 @@ to_env: str
 """Promote image tag from one environment to another."""
 
 ## 1. Read current kustomization
-
 kustomize_path = f"apps/myapp/overlays/{to_env}/kustomization.yaml"
 content = self.repo.get_contents(kustomize_path, ref="main")
 
 ## 2. Update image tag
-
 kustomize_yaml = yaml.safe_load(content.decoded_content)
 
 for image in kustomize_yaml.get('images', []):
@@ -7806,7 +6969,6 @@ image['newTag'] = image_tag
 new_content = yaml.dump(kustomize_yaml)
 
 ## 3. Create branch and PR
-
 branch_name = f"promote/{to_env}/{image_tag}"
 
 main_ref = self.repo.get_git_ref("heads/main")
@@ -7821,7 +6983,6 @@ f"Promote {image_tag} to {to_env}",
         )
 
 ## 4. Create PR
-
 pr = self.repo.create_pull(
 title=f"?? Promote {image_tag} to {to_env}",
         body=f"""
@@ -7829,15 +6990,7 @@ title=f"?? Promote {image_tag} to {to_env}",
 ## Promotion Request
 
 | Field | Value |
-|
-
----
-
-| -|
-
----
-
-| -|
+|-------|-------|
 | Image Tag | `{image_tag}` |
 | From | {from_env} |
 | To | {to_env} |
@@ -7849,7 +7002,6 @@ title=f"?? Promote {image_tag} to {to_env}",
 - [ ] Smoke tests passed
 
 - [ ] Approved by team lead
-
         """,
         head=branch_name,
         base="main"
@@ -7877,7 +7029,7 @@ print(f"Created promotion PR: {pr_url}")
 
 ## DISTRIBUTED TRACING GAPS
 
-### The Scar 4 2
+### The Scar
 
 > "API latency spiked to 5 seconds. Checked logs: nothing.
 > Checked metrics: high latency. But where?
@@ -7886,7 +7038,7 @@ print(f"Created promotion PR: {pr_url}")
 
 ```python
 
-## VIBE: Logging without context
+## ? VIBE: Logging without context
 
 def process_order(order_id: str):
 logger.info(f"Processing order {order_id}")
@@ -7897,7 +7049,7 @@ logger.info(f"Got user {user.id}")
 
 ```python
 
-## TITAN: OpenTelemetry distributed tracing
+## ? TITAN: OpenTelemetry distributed tracing
 
 from opentelemetry import trace
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
@@ -7915,32 +7067,31 @@ resource = Resource.create({
 "service.name": "order-service",
 "service.version": "1.2.3",
 "deployment.environment": os.environ.get("ENV", "development")
-    })
+})
 
 provider = TracerProvider(resource=resource)
 processor = BatchSpanProcessor(
-        OTLPSpanExporter(endpoint="<<<<<<http://otel-collector:4317>>>>>>")
-    )
-    provider.add_span_processor(processor)
-    trace.set_tracer_provider(provider)
+    OTLPSpanExporter(endpoint="http://otel-collector:4317")
+)
+provider.add_span_processor(processor)
+trace.set_tracer_provider(provider)
 
 ## Auto-instrument everything
 
-    FastAPIInstrumentor.instrument_app(app)
-    SQLAlchemyInstrumentor().instrument(engine=db_engine)
-    RedisInstrumentor().instrument()
-    HTTPXClientInstrumentor().instrument()
+FastAPIInstrumentor.instrument_app(app)
+SQLAlchemyInstrumentor().instrument(engine=db_engine)
+RedisInstrumentor().instrument()
+HTTPXClientInstrumentor().instrument()
 
-tracer = trace.get_tracer(**name**)
+tracer = trace.get_tracer(__name__)
 
-    @app.post("/orders")
+@app.post("/orders")
 async def create_order(order: OrderCreate):
 with tracer.start_as_current_span("create_order") as span:
 span.set_attribute("order.user_id", order.user_id)
 span.set_attribute("order.total", order.total)
 
 ## Nested spans auto-propagate context
-
 with tracer.start_as_current_span("validate_inventory"):
 available = await check_inventory(order.items)
 span.set_attribute("inventory.available", available)
@@ -7963,7 +7114,7 @@ except PaymentError as e:
 
 return {"order_id": order.id}
 
-## TITAN: Custom span context for async operations
+## ? TITAN: Custom span context for async operations
 
 from opentelemetry.context import attach, detach, get_current
 
@@ -7972,18 +7123,16 @@ async def process_background_job(job_data: dict, trace_context: dict):
 from opentelemetry.propagate import extract
 
 ## Restore trace context from job data
-
 ctx = extract(trace_context)
 token = attach(ctx)
 
-        try:
+    try:
 with tracer.start_as_current_span("background_job") as span:
 span.set_attribute("job.type", job_data["type"])
 
 ## Process job with full trace context
-
 await do_work(job_data)
-        finally:
+    finally:
         detach(token)
 
 ## When enqueueing job, capture context
@@ -8003,54 +7152,54 @@ inject(trace_context) # Captures current span context
 
 ## SLI/SLO AUTOMATION
 
-## The Scar 5
+## The Scar
 
 > "SLA: 99.9% uptime. Checked: we're at 99.5%.
 > 4.5 hours of downtime this month.
 > Leadership: 'Why didn't anyone alert us?'
 > No automated SLO monitoring. Manual checks monthly."
 
-## TITAN: SLO definitions in configuration
+```yaml
+
+## ? TITAN: SLO definitions in configuration
 
 ## slos.yaml
 
-    slos:
-
+slos:
 - name: api_availability
-
 type: availability
 target: 0.999  # 99.9%
 window: 30d
-        sli:
+    sli:
 | good_events: |
         sum(rate(http_requests_total{status!~"5.."}[5m]))
 | total_events: |
         sum(rate(http_requests_total[5m]))
 
 - name: api_latency
-
 type: latency
 target: 0.95  # 95th percentile
 window: 30d
 threshold: 200ms
-        sli:
+    sli:
 | good_events: |
         sum(rate(http_request_duration_seconds_bucket{le="0.2"}[5m]))
 | total_events: |
         sum(rate(http_request_duration_seconds_count[5m]))
 
 - name: checkout_success
-
 type: success_rate
 target: 0.999
 window: 7d
-        sli:
+    sli:
 | good_events: |
         sum(rate(checkout_completed_total[5m]))
 | total_events: |
         sum(rate(checkout_attempts_total[5m]))
 
-## TITAN: SLO calculator and burn rate alerting
+```python
+
+## ? TITAN: SLO calculator and burn rate alerting
 
 from datetime import datetime, timedelta
 from dataclasses import dataclass
@@ -8073,7 +7222,7 @@ burn_rate_6h: float
 | time_to_exhaustion_hours: float | None |
 
 class SLOMonitor:
-def **init**(self, prometheus_url: str, slo_configs: list):
+def __init__(self, prometheus_url: str, slo_configs: list):
 self.prometheus = PrometheusConnect(prometheus_url)
 self.slos = slo_configs
 
@@ -8081,7 +7230,6 @@ async def calculate_slo_status(self, slo_config: dict) -> SLOStatus:
 """Calculate current SLO status with burn rates."""
 
 ## Query good and total events
-
 good_1h = await self._query(slo_config['sli']['good_events'], '1h')
 total_1h = await self._query(slo_config['sli']['total_events'], '1h')
 
@@ -8094,11 +7242,9 @@ total_window = await self._query(slo_config['sli']['total_events'],
         slo_config['window'])
 
 ## Calculate SLI
-
 current_sli = good_window / total_window if total_window > 0 else 1.0
 
 ## Calculate error budget
-
 target = slo_config['target']
 error_budget_total = 1 - target  # e.g., 0.001 for 99.9%
 error_rate = 1 - current_sli
@@ -8106,7 +7252,6 @@ error_budget_consumed = error_rate / error_budget_total
 error_budget_remaining = max(0, 1 - error_budget_consumed)
 
 ## Calculate burn rates
-
 sli_1h = good_1h / total_1h if total_1h > 0 else 1.0
 sli_6h = good_6h / total_6h if total_6h > 0 else 1.0
 
@@ -8114,17 +7259,15 @@ burn_rate_1h = (1 - sli_1h) / error_budget_total
 burn_rate_6h = (1 - sli_6h) / error_budget_total
 
 ## Time to exhaustion
-
 if burn_rate_1h > 0 and error_budget_remaining > 0:
 window_hours = self._parse_window_hours(slo_config['window'])
-hours_remaining = (error_budget_remaining *window_hours) / burn_rate_1h
+hours_remaining = (error_budget_remaining * window_hours) / burn_rate_1h
         else:
 hours_remaining = None
 
 ## Update Prometheus metrics
-
         slo_remaining_budget.labels(slo_config['name']).set(
-error_budget_remaining* 100
+error_budget_remaining * 100
         )
 
 return SLOStatus(
@@ -8143,11 +7286,9 @@ for slo_config in self.slos:
 status = await self.calculate_slo_status(slo_config)
 
 ## Multi-window burn rate alerting
-
 if status.burn_rate_1h > 14.4 and status.burn_rate_6h > 6:
 
 ## Critical: Will exhaust budget in <1 hour
-
 await self.alert(
         severity='critical',
 title=f"SLO {status.name} burning too fast",
@@ -8167,14 +7308,16 @@ message=f"Time to exhaustion: {status.time_to_exhaustion_hours:.1f}h"
 
 ## INCIDENT RESPONSE AUTOMATION
 
-## The Scar 6
+## The Scar
 
 > "PagerDuty went off at 3 AM. On-call engineer woke up.
 > Spent 20 minutes finding the runbook.
 > Runbook was outdated. Wrong commands.
 > Resolution time: 2 hours. Could have been 10 minutes."
 
-## TITAN: Automated incident response with runbooks
+```python
+
+## ? TITAN: Automated incident response with runbooks
 
 from pydantic import BaseModel
 import subprocess
@@ -8227,7 +7370,7 @@ rollback="kubectl rollout undo deploy/api -n production"
 }
 
 class IncidentResponder:
-def **init**(self, slack_client, k8s_client):
+def __init__(self, slack_client, k8s_client):
 self.slack = slack_client
 self.k8s = k8s_client
 
@@ -8245,7 +7388,6 @@ text=f"?? Alert: {alert_name}\nNo runbook found. Manual investigation required."
 runbook = RUNBOOKS[alert_name]
 
 ## Create incident thread
-
 thread = await self.slack.post_message(
         channel='#incidents',
 text=f"?? Incident: {runbook.title}\nSeverity: {runbook.severity}\n"
@@ -8297,7 +7439,6 @@ text=f"?? Manual action required:\n{step.manual_action}"
         )
 
 ## Summary
-
 await self.slack.post_message(
         channel='#incidents',
         thread_ts=thread['ts'],
@@ -8313,9 +7454,11 @@ f"Escalation: {', '.join(runbook.escalation_contacts)}"
 
 ## VOLUME 5: PRODUCTION DEVOPS PATTERNS
 
-## DOCKER PRODUCTION PATTERNS 2
+## DOCKER PRODUCTION PATTERNS
 
-### Multi-Stage Build Optimization 2
+### Multi-Stage Build Optimization
+
+```dockerfile
 
 ## Production Dockerfile with multi-stage build
 
@@ -8365,14 +7508,17 @@ COPY --from=builder --chown=appuser:nodejs /app/package.json ./
 
 USER appuser
 
-## Health check 2
+## Health check
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-| CMD wget --no-verbose --tries=1 --spider <<<<<http://localhost:3000/health>>>>> | exit 1 |
+| CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health |  | exit 1 |
 
 EXPOSE 3000
 
 CMD ["node", "dist/server.js"]
+
+```text
+---
 
 ## MONITORING AND ALERTING
 
@@ -8388,37 +7534,27 @@ evaluation_interval: 15s
 
 alerting:
   alertmanagers:
-
 - static_configs:
 - targets: ['alertmanager:9093']
 
 rule_files:
-
 - /etc/prometheus/alerts/*.yml
 
 scrape_configs:
-
 - job_name: 'prometheus'
-
     static_configs:
-
 - targets: ['localhost:9090']
 
 - job_name: 'api-server'
-
 metrics_path: /metrics
     static_configs:
-
 - targets: ['api:3000']
 
 - job_name: 'node-exporter'
-
     static_configs:
-
 - targets: ['node-exporter:9100']
 
 ```text
-
 ---
 
 ## Alert Rules
@@ -8428,13 +7564,9 @@ metrics_path: /metrics
 ## alerts/api.yml
 
 groups:
-
 - name: api-alerts
-
     rules:
-
 - alert: HighErrorRate
-
 expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) > 0.05
 for: 5m
         labels:
@@ -8444,7 +7576,6 @@ summary: "High error rate detected"
 description: "Error rate is above 5% for 5 minutes"
 
 - alert: HighLatency
-
 expr: histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m])) > 1
 for: 5m
         labels:
@@ -8454,7 +7585,6 @@ summary: "High latency detected"
 description: "P99 latency is above 1 second"
 
 - alert: PodNotReady
-
 expr: kube_pod_status_ready{condition="true"} == 0
 for: 10m
         labels:
@@ -8463,10 +7593,9 @@ severity: warning
 summary: "Pod not ready"
 
 ```text
-
 ---
 
-## LOG AGGREGATION 2
+## LOG AGGREGATION
 
 ## Fluent Bit Configuration
 
@@ -8490,7 +7619,7 @@ Mem_Buf_Limit 50MB
 [FILTER]
 Name kubernetes
 Match kube.*
-Kube_URL <https://kubernetes.default.svc:443>
+Kube_URL https://kubernetes.default.svc:443
 Kube_CA_File /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 Kube_Token_File /var/run/secrets/kubernetes.io/serviceaccount/token
 Merge_Log On
@@ -8508,7 +7637,6 @@ Logstash_Format On
 Retry_Limit 5
 
 ```text
-
 ---
 
 ## DATABASE BACKUP AUTOMATION
@@ -8517,7 +7645,7 @@ Retry_Limit 5
 
 ```bash
 
-## !/bin/bash 4
+## !/bin/bash
 
 ## Production database backup with verification
 
@@ -8583,10 +7711,9 @@ echo "Cleaned up backups older than ${RETENTION_DAYS} days"
 echo "Backup completed successfully!"
 
 ```text
-
 ---
 
-## INFRASTRUCTURE AS CODE 2
+## INFRASTRUCTURE AS CODE
 
 ## Terraform State Management
 
@@ -8603,7 +7730,6 @@ encrypt = true
 dynamodb_table = "terraform-state-locks"
 
 ## Cross-account access
-
 role_arn = "arn:aws:iam::123456789012:role/TerraformStateAccess"
   }
 
@@ -8638,7 +7764,6 @@ Purpose = "Terraform state locking"
 }
 
 ```text
-
 ---
 
 ## SECRETS ROTATION
@@ -8665,7 +7790,6 @@ sm = boto3.client('secretsmanager')
 if step == 'createSecret':
 
 ## Generate new secret value
-
 new_password = generate_secure_password()
         sm.put_secret_value(
         SecretId=secret_id,
@@ -8677,27 +7801,24 @@ SecretString=json.dumps({'password': new_password}),
 elif step == 'setSecret':
 
 ## Apply secret to the service
-
 pending = sm.get_secret_value(
         SecretId=secret_id,
         VersionStage='AWSPENDING'
         )
-        update_database_password(json.loads[pending['SecretString']]('password'))
+        update_database_password(json.loads(pending['SecretString'])['password'])
 
 elif step == 'testSecret':
 
 ## Verify new secret works
-
 pending = sm.get_secret_value(
         SecretId=secret_id,
         VersionStage='AWSPENDING'
         )
-        test_database_connection(json.loads[pending['SecretString']]('password'))
+        test_database_connection(json.loads(pending['SecretString'])['password'])
 
 elif step == 'finishSecret':
 
 ## Promote pending to current
-
         sm.update_secret_version_stage(
         SecretId=secret_id,
         VersionStage='AWSCURRENT',
@@ -8710,7 +7831,6 @@ alphabet = string.ascii_letters + string.digits + string.punctuation
 return ''.join(secrets.choice(alphabet) for _ in range(length))
 
 ```text
-
 ---
 
 ## END OF DEVOPS VOLUME 5
@@ -8732,7 +7852,6 @@ return ''.join(secrets.choice(alphabet) for _ in range(length))
 ### The Error
 
 ```yaml
-
 Error: FUNCTION_INVOCATION_TIMEOUT
 Your serverless function has timed out.
 
@@ -8741,7 +7860,6 @@ Your serverless function has timed out.
 ### Timeout Limits by Plan
 
 ```yaml
-
 Hobby: 10 seconds (max 30s with maxDuration)
 Pro: 60 seconds (up to 5 minutes / 800s with Fluid Compute)
 Enterprise: 900 seconds (15 minutes)
@@ -8753,7 +7871,6 @@ Enterprise: 900 seconds (15 minutes)
 ### Cause 1: Slow Database Queries
 
 ```typescript
-
 // ? VIBE: Query that takes 15 seconds
 export async function GET() {
 const data = await prisma.order.findMany({
@@ -8784,7 +7901,6 @@ return Response.json(data);
 ### Cause 2: Setting maxDuration Incorrectly
 
 ```typescript
-
 // api/long-process/route.ts
 
 // ? TITAN: Set maxDuration for long operations
@@ -8804,7 +7920,6 @@ return Response.json(result);
 ### Cause 3: Offload to Background Jobs
 
 ```typescript
-
 // ? TITAN: Use Vercel's Cron or Upstash Workflow for long tasks
 // Instead of running in API route, trigger background job
 
@@ -8813,7 +7928,7 @@ export async function POST(request: Request) {
 const { reportId } = await request.json();
 
 // Queue the job, don't wait for completion
-await fetch('<https://qstash.upstash.io/v1/publish/report',> {
+await fetch('https://qstash.upstash.io/v1/publish/report', {
 method: 'POST',
 headers: {
 'Authorization': `Bearer ${process.env.QSTASH_TOKEN}`,
@@ -8829,22 +7944,25 @@ message: 'Report generation started'
 }
 
 ```text
-
 ---
 
 ## COLD STARTS
 
 ### The Problem
 
+```text
 First request after idle: 2-5 seconds
 Subsequent requests: 50-100ms
 
 User experience: "Why is the first load so slow?"
 
+```text
+
 ### Cold Start Reduction Strategies
 
 ### Strategy 1: Enable Fluid Compute (Pro/Enterprise)
 
+```typescript
 // vercel.json
 {
 "functions": {
@@ -8857,8 +7975,11 @@ User experience: "Why is the first load so slow?"
 
 // On Pro/Enterprise, Vercel keeps instances warm automatically
 
+```text
+
 ### Strategy 2: Reduce Function Size
 
+```typescript
 // ? VIBE: Importing everything
 import * as aws from 'aws-sdk';  // Huge bundle
 import moment from 'moment';  // Large dependency
@@ -8870,8 +7991,11 @@ import { format } from 'date-fns';  // Lighter alternative
 // Even better: Use native APIs when possible
 const formattedDate = new Date().toLocaleDateString('en-US');
 
+```text
+
 ### Strategy 3: Use Edge Functions for Speed-Critical Routes
 
+```typescript
 // api/fast/route.ts
 
 // Edge functions have ~9x faster cold starts globally
@@ -8881,12 +8005,15 @@ export async function GET(request: Request) {
 // Edge limitations: No Node.js APIs, limited npm packages
 // But: 50ms cold start instead of 500ms
 
-const data = await fetch('<<<<<https://api.example.com/data>>>>>');
+const data = await fetch('https://api.example.com/data');
 return Response.json(await data.json());
 }
 
+```text
+
 ### Strategy 4: Pre-warm with Cron (Hobby Plan)
 
+```typescript
 // api/cron/keep-warm/route.ts
 export async function GET() {
 // This runs every 5 minutes via Vercel Cron
@@ -8898,16 +8025,18 @@ return Response.json({ status: 'warm', timestamp: Date.now() });
 {
 "crons": [{
 "path": "/api/cron/keep-warm",
-"schedule": "*/5* ** *"
+"schedule": "*/5 * * * *"
   }]
 }
+
+```text
+---
 
 ## EDGE FUNCTION ISSUES
 
 ### October 2024 Incident
 
 ```yaml
-
 Problem: Increased CPU time and 5xx errors in certain regions
 Impact: Edge functions failing intermittently
 Root Cause: Infrastructure issue (resolved by Vercel)
@@ -8917,7 +8046,6 @@ Root Cause: Infrastructure issue (resolved by Vercel)
 ### Edge Runtime Limitations
 
 ```typescript
-
 // ? CANNOT use in Edge Runtime:
 import { PrismaClient } from '@prisma/client';  // Requires Node.js
 import fs from 'fs';  // Node.js API
@@ -8932,7 +8060,6 @@ const hash = await crypto.subtle.digest('SHA-256', data);  // Web Crypto API
 ### Edge Function Decision Tree
 
 ```text
-
 Your API route needs to:
 
 +- Access Node.js APIs (fs, crypto)?
@@ -8951,7 +8078,6 @@ Your API route needs to:
 +- Use: export const runtime = 'nodejs'; + maxDuration
 
 ```text
-
 ---
 
 ## DEPLOYMENT FAILURES
@@ -8959,7 +8085,6 @@ Your API route needs to:
 ### Hobby Plan Limit (100 deploys/24h)
 
 ```yaml
-
 Error: You have exceeded the maximum number of deployments.
 
 ```text
@@ -8968,15 +8093,16 @@ Error: You have exceeded the maximum number of deployments.
 
 ```yaml
 
-## .github/workflows/deploy.yml 2
+## .github/workflows/deploy.yml
 
 on:
   push:
 branches: [main]  # Only deploy on main, not every branch
     paths-ignore:
-
 - '**.md'  # Don't deploy for docs changes
 - '.gitignore'
+
+```text
 
 ## Region Mismatch Issues
 
@@ -9002,7 +8128,6 @@ Cause: Vercel function in iad1 (Virginia), database in fra1 (Frankfurt)
 // OR for Prisma, use Prisma Accelerate for global edge caching
 
 ```text
-
 ---
 
 ## PRODUCTION DEBUGGING CHECKLIST
@@ -9027,7 +8152,6 @@ After Deployment Issues:
 [ ] Check Vercel Status page for incidents
 
 ```text
-
 ---
 
 ### END OF VERCEL REAL PRODUCTION ISSUES
@@ -9090,8 +8214,9 @@ docker run -m 512m --memory-swap 512m myapp
 
 ```text
 
-## Docker Compose 3
+## Docker Compose
 
+```yaml
 services:
   app:
 image: myapp
@@ -9101,6 +8226,8 @@ image: myapp
 memory: 512M
         reservations:
 memory: 256M
+
+```text
 
 ## Fix 2: Monitor Memory Before Problems
 
@@ -9143,29 +8270,26 @@ docker inspect <container> --format='{{.State.OOMKilled}}'
 cat /sys/fs/cgroup/memory/memory.limit_in_bytes
 
 ```text
-
 ---
 
 ## NODE.JS MEMORY IN CONTAINERS
 
-## The Problem 2
+## The Problem
 
 ```text
-Lambda max timeout: 15 minutes
-API Gateway timeout: 29 seconds
+Node.js defaults to using 25% of SYSTEM memory for V8 heap.
+But container sees HOST memory, not container limit!
 
-User hits API ? Lambda runs for 35 seconds ? API Gateway times out
-User sees error, but Lambda keeps running!
+Host: 32GB ? Node thinks it has 8GB heap
+Container limit: 512MB ? Node tries to use 8GB ? OOM killed
 
 ```text
 
-### Real Fixes 2
+### The Fix
 
-### Fix 1: Match Timeouts
+```dockerfile
 
-```yaml
-
-## Dockerfile 4
+## Dockerfile
 
 FROM node:20-alpine
 
@@ -9173,7 +8297,7 @@ FROM node:20-alpine
 
 ENV NODE_OPTIONS="--max-old-space-size=384"
 
-## Use ~75% of container limit (512MB *0.75 = 384MB)
+## Use ~75% of container limit (512MB * 0.75 = 384MB)
 
 ## Leave room for other memory usage
 
@@ -9184,20 +8308,24 @@ ENV NODE_OPTIONS="--max-old-space-size=384"
 ## But be explicit to be safe
 
 ```text
-
 ---
 
 ## JAVA/JVM MEMORY IN CONTAINERS
 
-## The Problem 2 2
+## The Problem
 
+```yaml
 JVM defaults to 25% of PHYSICAL memory for heap.
 Container: 512MB, Host: 32GB
-JVM calculates: 32GB* 25% = 8GB heap ? OOM killed
+JVM calculates: 32GB * 25% = 8GB heap ? OOM killed
 
-### The Fix 2
+```text
 
-## Dockerfile 5
+### The Fix
+
+```dockerfile
+
+## Dockerfile
 
 FROM eclipse-temurin:17-jre
 
@@ -9216,21 +8344,25 @@ ENV JAVA_OPTS="-XX:MaxRAMPercentage=75.0 -XX:InitialRAMPercentage=50.0"
 CMD ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
 
 ```text
-
 ---
 
 ## IMAGE SIZE OPTIMIZATION
 
-## The Problem 3
+## The Problem
 
+```yaml
 Image: 2.5GB
 Pull time: 3 minutes
 CI/CD: Slow
 Cold starts: Terrible
 
-### Real Fixes 2 2
+```text
+
+### Real Fixes
 
 ### Fix 1: Multi-Stage Build
+
+```dockerfile
 
 ## Stage 1: Build (large with all dev deps)
 
@@ -9262,15 +8394,15 @@ CMD ["node", "dist/server.js"]
 
 ```dockerfile
 
-## VIBE: Full image
+## ? VIBE: Full image
 
 FROM node:20  # ~1GB
 
-## TITAN: Alpine variant
+## ? TITAN: Alpine variant
 
 FROM node:20-alpine  # ~140MB
 
-## TITAN EXTREME: Distroless
+## ? TITAN EXTREME: Distroless
 
 FROM gcr.io/distroless/nodejs20-debian12  # ~120MB
 
@@ -9282,12 +8414,12 @@ FROM gcr.io/distroless/nodejs20-debian12  # ~120MB
 
 ```dockerfile
 
-## VIBE: All in one layer
+## ? VIBE: All in one layer
 
 COPY . .
 RUN npm ci && npm run build
 
-## TITAN: Separate layers for caching
+## ? TITAN: Separate layers for caching
 
 ## Dependencies change less often than code
 
@@ -9298,7 +8430,6 @@ COPY . .
 RUN npm run build  # Only this runs on code change
 
 ```text
-
 ---
 
 ## CONTAINER STARTUP ISSUES
@@ -9307,14 +8438,14 @@ RUN npm run build  # Only this runs on code change
 
 ```dockerfile
 
-## VIBE: No health check
+## ? VIBE: No health check
 
-## Kubernetes/orchestrator can't know if app is ready
+## ? Kubernetes/orchestrator can't know if app is ready
 
-## TITAN: Proper health check
+## ? TITAN: Proper health check
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-| CMD wget --no-verbose --tries=1 --spider <<<<<http://localhost:3000/health>>>>> | exit 1 |
+| CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health |  | exit 1 |
 
 ## --start-period: Grace period for slow starters
 
@@ -9348,7 +8479,6 @@ console.error('Forced shutdown after timeout');
 });
 
 ```text
-
 ---
 
 ## DECISION TREE: DOCKER DEBUGGING
@@ -9386,7 +8516,6 @@ CONTAINER ISSUE
 +- Check resource limits
 
 ```text
-
 ---
 
 ### END OF DOCKER REAL PRODUCTION ISSUES
@@ -9403,7 +8532,7 @@ CONTAINER ISSUE
 
 ## CRASHLOOPBACKOFF
 
-### The Symptom 2
+### The Symptom
 
 ```bash
 $ kubectl get pods
@@ -9459,7 +8588,7 @@ kubectl logs myapp-abc123 -c sidecar-container --previous
 
 ## Exit Code 137 = OOMKilled (kernel killed due to memory)
 
-## Exit Code 1 = Application error 2
+## Exit Code 1 = Application error
 
 ## Exit Code 0 = Completed (wrong restart policy?)
 
@@ -9468,20 +8597,23 @@ kubectl logs myapp-abc123 -c sidecar-container --previous
 ## Exit Code 127 = Command not found
 
 ```text
-
 ---
 
 ## OOMKILLED IN KUBERNETES
 
-## The Problem 4
+## The Problem
 
+```text
 Container exceeds memory limit ? Linux kernel kills it
 Pod restarts ? happens again ? CrashLoopBackOff
 
-### Real Fixes 3
+```text
+
+### Real Fixes
 
 ### Fix 1: Set Proper Resource Requests and Limits
 
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -9490,20 +8622,16 @@ spec:
   template:
     spec:
       containers:
-
 - name: myapp
-
 image: myapp:latest
         resources:
 
 ## Request: Guaranteed minimum, used for scheduling
-
         requests:
 memory: "256Mi"
 cpu: "100m"
 
 ## Limit: Maximum allowed, OOMKilled if exceeded
-
         limits:
 memory: "512Mi"
 cpu: "500m"
@@ -9540,7 +8668,9 @@ memory: "512Mi"
 
 ## No requests or limits defined
 
-## DON'T do this in production
+## DON'T do this in production!
+
+```text
 
 ## Fix 3: Monitor Memory Before OOMKill
 
@@ -9550,7 +8680,7 @@ memory: "512Mi"
 
 kubectl top pod myapp-abc123
 
-## Output 2
+## Output
 
 ## NAME  CPU(cores)   MEMORY(bytes)
 
@@ -9559,7 +8689,6 @@ kubectl top pod myapp-abc123
 ## If approaching limit (512Mi), increase limit or optimize app
 
 ```text
-
 ---
 
 ## POD SCHEDULING ISSUES
@@ -9580,7 +8709,7 @@ myapp-abc123 0/1  Pending   0  10m
 ```bash
 kubectl describe pod myapp-abc123
 
-## Events 2
+## Events
 
 ## Warning  FailedScheduling  0/3 nodes available
 
@@ -9599,7 +8728,7 @@ kubectl describe pod myapp-abc123
 nodeSelector:
 gpu: "true"
 
-## But no nodes have this label
+## But no nodes have this label!
 
 | kubectl get nodes --show-labels | grep gpu |
 
@@ -9623,14 +8752,12 @@ kubectl label nodes node1 gpu=true
 
 spec:
   tolerations:
-
 - key: "dedicated"
 operator: "Equal"
 value: "high-priority"
 effect: "NoSchedule"
 
 ```text
-
 ---
 
 ## PROBES MISCONFIGURATION
@@ -9639,7 +8766,7 @@ effect: "NoSchedule"
 
 ```yaml
 
-## VIBE: Too aggressive probe
+## ? VIBE: Too aggressive probe
 
 livenessProbe:
   httpGet:
@@ -9649,7 +8776,7 @@ initialDelaySeconds: 3    # Not enough for slow starters
 periodSeconds: 5
 failureThreshold: 1  # Killed on first failure!
 
-## TITAN: Reasonable probe
+## ? TITAN: Reasonable probe
 
 livenessProbe:
   httpGet:
@@ -9659,6 +8786,8 @@ initialDelaySeconds: 30   # Wait for app startup
 periodSeconds: 10  # Check every 10 seconds
 failureThreshold: 3  # Tolerate 3 failures
 timeoutSeconds: 5  # Timeout per check
+
+```text
 
 ## Readiness Probe Issues
 
@@ -9679,13 +8808,11 @@ failureThreshold: 3
 ## Check: kubectl get endpoints myservice
 
 ```text
-
 ---
 
 ## DECISION TREE: KUBERNETES DEBUGGING
 
 ```text
-
 KUBERNETES POD ISSUE
 
 +- Pod in CrashLoopBackOff?
@@ -9720,7 +8847,6 @@ KUBERNETES POD ISSUE
 +- kubectl rollout undo deployment/<name>
 
 ```text
-
 ---
 
 ## ESSENTIAL DEBUGGING COMMANDS
@@ -9762,7 +8888,6 @@ kubectl top nodes
 kubectl debug <pod> --image=busybox -it -- sh
 
 ```text
-
 ---
 
 ## END OF KUBERNETES REAL PRODUCTION ISSUES
@@ -9779,7 +8904,7 @@ kubectl debug <pod> --image=busybox -it -- sh
 
 ## SECRETS NOT LOADING IN WORKFLOWS
 
-### The Problem 3 2
+### The Problem
 
 ```yaml
 
@@ -9787,9 +8912,11 @@ kubectl debug <pod> --image=busybox -it -- sh
 
 - run: echo "Deploy to ${{ secrets.PROD_URL }}"
 
-## Output: "Deploy to "  <- Empty
+## Output: "Deploy to "  <- Empty!
 
-## Common Causes and Fixes 2
+```text
+
+## Common Causes and Fixes
 
 ## Cause 1: Secret Not Defined
 
@@ -9797,13 +8924,13 @@ kubectl debug <pod> --image=busybox -it -- sh
 
 ## Check: Settings ? Secrets and variables ? Actions
 
-## VIBE: Secret exists in wrong scope
+## ? VIBE: Secret exists in wrong scope
 
 ## Repository secret: MY_SECRET
 
 ## But workflow references environment secret
 
-## TITAN: Define in correct scope
+## ? TITAN: Define in correct scope
 
 ## Repository secrets: Available to all workflows
 
@@ -9815,15 +8942,15 @@ kubectl debug <pod> --image=busybox -it -- sh
 
 ```yaml
 
-## GitHub BLOCKS secrets from forks for security
+## GitHub BLOCKS secrets from forks for security!
 
 ## Fork PRs can't access your secrets
 
-## VIBE: Expecting secrets in PR workflow
+## ? VIBE: Expecting secrets in PR workflow
 
 on: pull_request  # Secrets blocked for forks!
 
-## TITAN: Use different approach for forks
+## ? TITAN: Use different approach for forks
 
 on: pull_request_target  # Runs in context of target repo
 
@@ -9835,28 +8962,31 @@ on: pull_request_target  # Runs in context of target repo
 
 ```yaml
 
-## VIBE: Environment secrets not loading
+## ? VIBE: Environment secrets not loading
 
 jobs:
   deploy:
 runs-on: ubuntu-latest
     steps:
-
 - run: echo ${{ secrets.PROD_API_KEY }}  # Empty!
 
-## TITAN: Specify environment to access its secrets
+## ? TITAN: Specify environment to access its secrets
 
 jobs:
   deploy:
 runs-on: ubuntu-latest
 environment: production  # NOW environment secrets load!
     steps:
-
 - run: echo ${{ secrets.PROD_API_KEY }}  # Works!
+
+```text
+---
 
 ## ENVIRONMENT VARIABLES NOT IN BUILD
 
-## The Problem 5
+## The Problem
+
+```yaml
 
 ## Next.js needs env vars at BUILD time
 
@@ -9874,7 +9004,6 @@ jobs:
 runs-on: ubuntu-latest
 environment: production
     steps:
-
 - uses: actions/checkout@v4
 
 - name: Create .env file
@@ -9893,24 +9022,26 @@ run: npm run build
 NEXT_PUBLIC_API_URL: ${{ vars.API_URL }}
 
 ```text
-
 ---
 
 ## WORKFLOW PERMISSIONS ISSUES
 
-## The Problem 6
+## The Problem
 
+```yaml
 Error: Resource not accessible by integration
 Error: Permission "contents: write" is required
 
+```text
+
 ### Real Fix: Set Permissions Explicitly
 
+```yaml
 jobs:
   release:
 runs-on: ubuntu-latest
 
-## TITAN: Explicit permissions
-
+## ? TITAN: Explicit permissions
     permissions:
 contents: write  # For pushing tags, releases
 packages: write  # For publishing to GitHub Packages
@@ -9918,22 +9049,22 @@ pull-requests: write  # For commenting on PRs
 id-token: write  # For OIDC authentication
 
     steps:
-
 - uses: actions/checkout@v4
-
         with:
-
 token: ${{ secrets.GITHUB_TOKEN }}  # or PAT for more permissions
+
+```text
+---
 
 ## OIDC FOR CLOUD AUTHENTICATION (Best Practice 2024)
 
 ```yaml
 
-## VIBE: Long-lived access keys stored as secrets
+## ? VIBE: Long-lived access keys stored as secrets
 
 ## If leaked, attacker has permanent access
 
-## TITAN: OIDC for short-lived tokens
+## ? TITAN: OIDC for short-lived tokens
 
 jobs:
   deploy:
@@ -9946,39 +9077,36 @@ contents: read
     steps:
 
 ## AWS Example
-
 - name: Configure AWS Credentials
-
 uses: aws-actions/configure-aws-credentials@v4
         with:
 role-to-assume: arn:aws:iam::123456789:role/GitHubActionsRole
 aws-region: ap-south-1  # Mumbai for India
 
-## No access keys - uses OIDC token
+## No access keys - uses OIDC token!
 
 ## GCP Example
-
 - uses: google-github-actions/auth@v2
-
         with:
-
 workload_identity_provider: 'projects/123/locations/global/workloadIdentityPools/pool/providers/github'
-service_account: '<deploy@project.iam.gserviceaccount.com>'
+service_account: 'deploy@project.iam.gserviceaccount.com'
 
-## No service account key - uses OIDC token
+## No service account key - uses OIDC token!
+
+```text
+---
 
 ## CACHING FOR FASTER BUILDS
 
 ```yaml
 
-## VIBE: Installing dependencies every time (slow)
+## ? VIBE: Installing dependencies every time (slow)
 
 - run: npm ci  # 2-3 minutes
 
-## TITAN: Cache node_modules
+## ? TITAN: Cache node_modules
 
 - uses: actions/cache@v4
-
   with:
 path: ~/.npm
 key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -9990,7 +9118,6 @@ npm-${{ runner.os }}-
 ## Even better for Next.js
 
 - uses: actions/cache@v4
-
   with:
 | path: |
       ~/.npm
@@ -10000,7 +9127,6 @@ key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFi
 ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
 ```text
-
 ---
 
 ## DEPLOYMENT PROTECTION RULES
@@ -10016,7 +9142,6 @@ jobs:
 runs-on: ubuntu-latest
 environment: staging  # No approval needed
     steps:
-
 - run: deploy-to-staging.sh
 
   deploy-production:
@@ -10024,13 +9149,11 @@ runs-on: ubuntu-latest
 needs: deploy-staging
 environment: production  # Requires approval!
     steps:
-
 - run: deploy-to-production.sh
 
 ## Workflow pauses here until reviewer approves
 
 ```text
-
 ---
 
 ## COMMON WORKFLOW MISTAKES
@@ -10039,49 +9162,54 @@ environment: production  # Requires approval!
 
 ```yaml
 
-## VIBE: Echoing secrets
+## ? VIBE: Echoing secrets
 
 - run: echo "API Key is ${{ secrets.API_KEY }}"
 
 ## GitHub masks it, but derived values might leak
 
-## TITAN: Never echo secrets, use them directly
+## ? TITAN: Never echo secrets, use them directly
 
-| *run: |
-curl -H "Authorization: Bearer ${{ secrets.API_KEY }}" <<<<<<https://api.example.com>>>>>>
+| * run: |
+curl -H "Authorization: Bearer ${{ secrets.API_KEY }}" https://api.example.com
+
+```text
 
 ## Mistake 2: Hardcoded Versions
 
 ```yaml
 
-## VIBE: Hardcoded Node version
+## ? VIBE: Hardcoded Node version
 
 - uses: actions/setup-node@v4
-
   with:
 node-version: '18.17.1'
 
-## TITAN: Use .nvmrc or package.json
+## ? TITAN: Use .nvmrc or package.json
 
 - uses: actions/setup-node@v4
-
   with:
 node-version-file: '.nvmrc'  # Single source of truth
+
+```text
 
 ## Mistake 3: No Concurrency Control
 
 ```yaml
 
-## VIBE: Multiple deploys can run simultaneously
+## ? VIBE: Multiple deploys can run simultaneously
 
 on: push
 
-## TITAN: Cancel in-progress deploys
+## ? TITAN: Cancel in-progress deploys
 
 on: push
 concurrency:
 group: deploy-${{ github.ref }}
 cancel-in-progress: true  # Cancel older runs
+
+```text
+---
 
 ## DECISION TREE: GITHUB ACTIONS DEBUGGING
 
@@ -10118,7 +9246,6 @@ GITHUB ACTIONS ISSUE
 +- Check for required status checks
 
 ```text
-
 ---
 
 ## END OF GITHUB ACTIONS REAL PRODUCTION ISSUES
@@ -10133,10 +9260,11 @@ GITHUB ACTIONS ISSUE
 
 ---
 
-## COLD STARTS 2
+## COLD STARTS
 
-### The Problem 3 2 2
+### The Problem
 
+```text
 First request after idle period: 1-5 seconds
 Subsequent requests: 50-200ms
 
@@ -10146,10 +9274,12 @@ User experience:
 
 - User thinks app is broken
 
+```text
+
 ### Why Cold Starts Happen
 
+```text
 AWS needs to:
-
 1. Find a server
 2. Download your code
 3. Start runtime (Node.js, Python, etc.)
@@ -10158,17 +9288,21 @@ AWS needs to:
 
 All this takes time on first request.
 
-### Real Fixes 4
+```text
+
+### Real Fixes
 
 ### Fix 1: Minimize Package Size
 
-## VIBE: Huge package with everything
+```bash
+
+## ? VIBE: Huge package with everything
 
 npm install aws-sdk  # 50MB+ already in Lambda!
 
 ## Deployment package: 100MB ? Slow cold start
 
-## TITAN: Minimal dependencies
+## ? TITAN: Minimal dependencies
 
 ## aws-sdk is already in Lambda runtime - don't bundle it
 
@@ -10190,7 +9324,6 @@ npm install aws-sdk  # 50MB+ already in Lambda!
 ## Fix 2: Initialize Outside Handler
 
 ```typescript
-
 // ? VIBE: Initialize in handler (every request)
 export const handler = async (event) => {
 const client = new DynamoDBClient({});  // Cold start every time!
@@ -10217,13 +9350,7 @@ return result;
 functions:
   api:
 handler: handler.main
-timeout: 25  # Less than API Gateway's 29s
-
-  background:
-handler: handler.process
-timeout: 900  # Full 15 minutes for background jobs
-
-```text
+provisionedConcurrency: 5  # Keep 5 instances warm
 
 ## Cost: You pay for warm instances even when idle
 
@@ -10249,24 +9376,28 @@ snapStart: true  # Snapshots initialized JVM
 ## Works by taking a snapshot after initialization
 
 ```text
-
 ---
 
 ## TIMEOUT ISSUES
 
-## The Problem 7
+## The Problem
 
+```text
 Lambda max timeout: 15 minutes
 API Gateway timeout: 29 seconds
 
 User hits API ? Lambda runs for 35 seconds ? API Gateway times out
 User sees error, but Lambda keeps running!
 
-### Real Fixes 5
+```text
 
-### Fix 1: Match Timeouts 2
+### Real Fixes
 
-## serverless.yml 2
+### Fix 1: Match Timeouts
+
+```yaml
+
+## serverless.yml
 
 functions:
   api:
@@ -10276,6 +9407,8 @@ timeout: 25  # Less than API Gateway's 29s
   background:
 handler: handler.process
 timeout: 900  # Full 15 minutes for background jobs
+
+```text
 
 ## Fix 2: Implement Timeouts in Code
 
@@ -10296,12 +9429,11 @@ throw error;
 }
 
 ```text
-
 ---
 
 ## VPC COLD START PENALTY
 
-### The Problem 4 2
+### The Problem
 
 ```text
 Lambda in VPC needs to create ENI (Elastic Network Interface)
@@ -10314,7 +9446,7 @@ New behavior (2019+): Much faster, but still overhead
 
 ```yaml
 
-## VIBE: All Lambdas in VPC "for security"
+## ? VIBE: All Lambdas in VPC "for security"
 
 functions:
   publicApi:
@@ -10325,7 +9457,7 @@ subnetIds: [subnet-xxx]
 
 ## But this Lambda just calls DynamoDB (no VPC needed!)
 
-## TITAN: VPC only for private resources
+## ? TITAN: VPC only for private resources
 
 functions:
   publicApi:
@@ -10344,7 +9476,6 @@ subnetIds: [subnet-xxx]
 ## VPC needed - connects to RDS in private subnet
 
 ```text
-
 ---
 
 ## DATABASE CONNECTION MANAGEMENT
@@ -10387,7 +9518,6 @@ return result;
 // RDS Proxy manages connection pooling for you
 
 ```text
-
 ---
 
 ## DECISION TREE: AWS LAMBDA DEBUGGING
@@ -10425,7 +9555,6 @@ AWS LAMBDA ISSUE
 +- Check reserved concurrency limits
 
 ```text
-
 ---
 
 ### END OF AWS LAMBDA REAL PRODUCTION ISSUES
@@ -10478,7 +9607,7 @@ Cloudflare claims "zero cold starts" but:
 
 ```text
 
-### Real Fixes 3 2
+### Real Fixes
 
 ### Fix 1: Keep Dependencies Small
 
@@ -10498,7 +9627,7 @@ const result = obj?.nested?.value ?? 'default';
 ```typescript
 // ? VIBE: Initialize at top level
 import { createClient } from 'some-heavy-sdk';
-const client = createClient({ /*options*/ });
+const client = createClient({ /* options */ });
 
 // ? TITAN: Initialize on demand
 | let client: Client | null = null; |
@@ -10506,13 +9635,12 @@ const client = createClient({ /*options*/ });
 async function getClient() {
 if (!client) {
 const { createClient } = await import('some-heavy-sdk');
-client = createClient({ /*options*/ });
+client = createClient({ /* options */ });
   }
 return client;
 }
 
 ```text
-
 ---
 
 ## CLOUDFLARE KV ISSUES
@@ -10540,7 +9668,6 @@ const data = await KV.get('user:123');  // Might be stale!
 // For rarely accessed data, expect higher latency
 
 ```text
-
 ---
 
 ## CLOUDFLARE D1 (SQLite)
@@ -10572,7 +9699,6 @@ Per Worker invocation:
 - Paid: 1000 queries
 
 ```text
-
 ---
 
 ## CLOUDFLARE R2 (S3 Compatible)
@@ -10593,14 +9719,13 @@ Per Worker invocation:
 // - Use presigned URLs for uploads
 
 ```text
-
 ---
 
 ## VOLUME 12: REAL 2024 FIREBASE FIRESTORE ISSUES
 
 ## READ COSTS EXPLOSION
 
-### The Problem 5 2
+### The Problem
 
 ```text
 Firebase bill shock: $500/month for a small app
@@ -10609,7 +9734,7 @@ Security rules reading other docs = also charged
 
 ```text
 
-### Real Fixes 4 2
+### Real Fixes
 
 ### Fix 1: Minimize Reads with Data Model
 
@@ -10648,7 +9773,6 @@ query(collection(db, 'posts'), orderBy('createdAt'), startAfter(lastDoc), limit(
 // Charges for only 20 reads!
 
 ```text
-
 ---
 
 ## COMPOSITE INDEX REQUIREMENTS
@@ -10686,7 +9810,6 @@ orderBy('createdAt', 'desc')
 // Deploy: firebase deploy --only firestore:indexes
 
 ```text
-
 ---
 
 ## SECURITY RULES
@@ -10727,7 +9850,6 @@ allow read, write: if request.auth != null
 }
 
 ```text
-
 ---
 
 ## DECISION TREE: FIREBASE DEBUGGING
@@ -10763,7 +9885,6 @@ FIREBASE FIRESTORE ISSUE
 +- Distribute writes across collections
 
 ```text
-
 ---
 
 ### END OF CLOUDFLARE AND FIREBASE REAL PRODUCTION ISSUES
@@ -10788,7 +9909,7 @@ FROM base AS deps
 COPY package.json package-lock.json ./
 RUN npm ci --only=production
 
-## Build stage 4
+## Build stage
 
 FROM base AS builder
 COPY package.json package-lock.json ./
@@ -10796,7 +9917,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-## Production stage 5
+## Production stage
 
 FROM node:20-alpine AS runner
 WORKDIR /app
@@ -10819,10 +9940,12 @@ ENV HOSTNAME "0.0.0.0"
 
 CMD ["npm", "start"]
 
+```text
+---
+
 ## Docker Compose for Development
 
 ```yaml
-
 version: '3.8'
 
 services:
@@ -10831,19 +9954,13 @@ services:
 context: .
 dockerfile: Dockerfile.dev
     volumes:
-
 - .:/app
 - /app/node_modules
-
     ports:
-
 - "3000:3000"
-
     environment:
-
 - DATABASE_URL=postgresql://postgres:postgres@db:5432/myapp
 - REDIS_URL=redis://redis:6379
-
     depends_on:
       db:
 condition: service_healthy
@@ -10857,13 +9974,9 @@ POSTGRES_USER: postgres
 POSTGRES_PASSWORD: postgres
 POSTGRES_DB: myapp
     volumes:
-
 - postgres_data:/var/lib/postgresql/data
-
     ports:
-
 - "5432:5432"
-
     healthcheck:
 test: ["CMD-SHELL", "pg_isready -U postgres"]
 interval: 5s
@@ -10873,11 +9986,8 @@ retries: 5
   redis:
 image: redis:7-alpine
     ports:
-
 - "6379:6379"
-
     volumes:
-
 - redis_data:/data
 
 volumes:
@@ -10885,13 +9995,11 @@ volumes:
   redis_data:
 
 ```text
-
 ---
 
 ## Health Check Pattern
 
 ```typescript
-
 // health.ts - Express health endpoint
 import { Router } from 'express';
 import { Pool } from 'pg';
@@ -10955,13 +10063,13 @@ res.status(503).send('Not Ready');
 });
 
 ```text
-
 ---
 
 ## REAL CI/CD PATTERNS 2024
 
 ## GitHub Actions - Complete Pipeline
 
+```yaml
 name: CI/CD Pipeline
 
 on:
@@ -10985,9 +10093,7 @@ POSTGRES_USER: test
 POSTGRES_PASSWORD: test
 POSTGRES_DB: test
         ports:
-
 - 5432:5432
-
 options: >-
 --health-cmd pg_isready
 --health-interval 10s
@@ -10995,36 +10101,29 @@ options: >-
 --health-retries 5
 
     steps:
-
 - uses: actions/checkout@v4
 
 - name: Setup Node.js
-
 uses: actions/setup-node@v4
         with:
 node-version: '20'
 cache: 'npm'
 
 - name: Install dependencies
-
 run: npm ci
 
 - name: Run linter
-
 run: npm run lint
 
 - name: Run type check
-
 run: npm run type-check
 
 - name: Run tests
-
 run: npm run test:ci
         env:
 DATABASE_URL: postgresql://test:test@localhost:5432/test
 
 - name: Upload coverage
-
 uses: codecov/codecov-action@v3
         with:
 files: ./coverage/lcov.info
@@ -11035,11 +10134,9 @@ runs-on: ubuntu-latest
 if: github.event_name == 'push'
 
     steps:
-
 - uses: actions/checkout@v4
 
 - name: Log in to Container Registry
-
 uses: docker/login-action@v3
         with:
 registry: ${{ env.REGISTRY }}
@@ -11047,7 +10144,6 @@ username: ${{ github.actor }}
 password: ${{ secrets.GITHUB_TOKEN }}
 
 - name: Extract metadata
-
 id: meta
 uses: docker/metadata-action@v5
         with:
@@ -11057,7 +10153,6 @@ images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         type=sha,prefix=
 
 - name: Build and push
-
 uses: docker/build-push-action@v5
         with:
 context: .
@@ -11074,9 +10169,7 @@ if: github.ref == 'refs/heads/develop'
 environment: staging
 
     steps:
-
 - name: Deploy to staging
-
 uses: appleboy/ssh-action@v1.0.0
         with:
 host: ${{ secrets.STAGING_HOST }}
@@ -11094,16 +10187,13 @@ if: github.ref == 'refs/heads/main'
 environment: production
 
     steps:
-
 - name: Deploy to production
-
 | run: |
 
 ## Use your deployment method (Kubernetes, AWS ECS, etc.)
 echo "Deploying to production..."
 
 ```text
-
 ---
 
 ## Terraform for Infrastructure
@@ -11187,758 +10277,8 @@ Environment = var.environment
 }
 
 ```text
-
 ---
 
 ## END OF DEVOPS PATTERNS
-
-```text
-
-## DOCKERFILE 2 2
-
-## Monitoring Stack 2 2
-
-## GitHub Actions 2 2
-
-```yaml
-
-env:
-SECRET_KEY: {{ secrets.SECRET_KEY }}
-
-```text
-
-## Multi-Stage Builds 3
-
-```dockerfile
-
-##  2
-
-tags = merge(local.common_tags, {
-Name = "my-instance"
-  })
-}
-
-```text
-
----
-
-## Health Checks 2 2
-
-```yaml
-
-healthcheck:
-test: ["CMD", "curl", "-f", "<http://localhost:3000/health">]
-interval: 30s
-timeout: 10s
-retries: 3
-start_period: 40s
-
-```text
-
----
-
-## Multi-Stage Build 2 2
-
-```dockerfile
-
-## FEATURE FLAGS 2 2
-
-> **The patterns for safe deployments**
-
----
-
-## Schedule: 0 */6 * * * /scripts/backup.sh 2
-
-```text
-
-## Calculation: 5 * (85 / 70) = 6.07 -> 7 pods 2
-
-```text
-
----
-
-## ? TITAN K8s Spec: Container-Aware JVM 2
-
-apiVersion: apps/v1
-kind: Deployment
-spec:
-  template:
-    spec:
-      containers:
-
-- name: java-service
-
-        resources:
-        limits:
-memory: "2Gi"
-        env:
-
-- name: JAVA_OPTS
-
-value: >-
-        -XX:+UseContainerSupport
-        -XX:MaxRAMPercentage=75.0
-        -XX:+ExitOnOutOfMemoryError
-        -XX:+HeapDumpOnOutOfMemoryError
-
-```text
-
-## ? TITAN Terraform: Remote Backend with Locking 2
-
-terraform {
-backend "s3" {
-bucket = "titan-infra-state"
-key = "prod/terraform.tfstate"
-region = "us-east-1"
-dynamodb_table = "terraform-state-lock"
-encrypt = true
-  }
-}
-
-```text
-
-## ? TITAN Config: etcd tuning 2
-
-tick-ms: 500
-election-timeout: 5000  # 10x tick
-wal-dir: /var/lib/etcd/wal  # Dedicated NVMe SSD
-data-dir: /var/lib/etcd/data
-quota-backend-bytes: 8589934592  # 8GB
-
-```text
-
-## Drop caches, reject new requests, etc 2
-    shed_load()
-
-```text
-
-## ? VIBE: No resource limits = OOMKilled under load 2
-
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-
-- name: app
-
-image: myapp:latest
-
-## ? TITAN: Proper resource configuration 2
-
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-
-- name: app
-
-image: myapp:latest
-    resources:
-      requests:
-memory: "256Mi"    # Guaranteed memory
-cpu: "100m"  # 0.1 CPU cores
-      limits:
-memory: "512Mi"    # Max before OOMKilled
-cpu: "500m"  # Max CPU (throttled, not killed)
-
-```yaml
-
-## ? VIBE: Aggressive liveness probe = false restarts 2
-
-livenessProbe:
-  httpGet:
-path: /health
-port: 8080
-initialDelaySeconds: 5   # Too short for startup!
-periodSeconds: 5
-failureThreshold: 1  # One failure = restart
-
-## ? TITAN: Proper probe configuration 2
-
-livenessProbe:
-  httpGet:
-path: /health
-port: 8080
-initialDelaySeconds: 60    # Wait for app to start
-periodSeconds: 10
-failureThreshold: 3  # 3 failures before restart
-timeoutSeconds: 5
-
-startupProbe: # Separate probe for slow starts
-  httpGet:
-path: /health
-port: 8080
-failureThreshold: 30  # 5 min to start (30 * 10s)
-periodSeconds: 10
-
-```text
-
-## ? VIBE: Local state = no locking = race conditions 2
-
-terraform {
-backend "local" {}  # NEVER in production!
-}
-
-```hcl
-
-## ? TITAN: S3 backend with DynamoDB locking 2
-
-terraform {
-backend "s3" {
-bucket = "my-terraform-state"
-key = "prod/terraform.tfstate"
-region = "us-east-1"
-encrypt = true
-dynamodb_table = "terraform-locks"  # CRITICAL: Lock table
-  }
-}
-
-## ? TITAN: GitHub Actions with concurrency lock 2
-
-name: Terraform
-on: push
-concurrency:
-group: terraform-${{ github.ref }}
-cancel-in-progress: false  # Don't cancel, wait in queue
-jobs:
-  apply:
-runs-on: ubuntu-latest
-    steps:
-
-- uses: actions/checkout@v4
-- name: Terraform Apply
-run: terraform apply -auto-approve
-
-```text
-
-## ? VIBE: Heavy imports at module level 2
-
-import boto3
-import pandas as pd  # 2 seconds to import!
-import sklearn  # 3 seconds to import!
-import numpy as np   # 1 second to import!
-
-def lambda_handler(event, context):
-
-## ? TITAN: Lazy loading for optional heavy imports 2
-
-def lambda_handler(event, context):
-
-## ? TITAN: Move initialization outside handler 2
-
-import boto3
-
-## ? TITAN: Provisioned Concurrency for critical paths 2
-
-Resources:
-  MyFunction:
-Type: AWS::Lambda::Function
-    Properties:
-FunctionName: critical-api
-Runtime: python3.11
-MemorySize: 1024  # More memory = faster CPU
-
-  ProvisionedConcurrency:
-Type: AWS::Lambda::Version
-    Properties:
-FunctionName: !Ref MyFunction
-      ProvisionedConcurrencyConfig:
-ProvisionedConcurrentExecutions: 10  # Always warm
-
-```hcl
-
-## ? TITAN: Lambda outside VPC if possible 2
-
-## ? TITAN: Use AWS SnapStart for Java 2
-
-resource "aws_lambda_function" "java_function" {
-function_name = "java-api"
-runtime = "java21"
-
-snap_start {
-apply_on = "PublishedVersions"  # 10x faster cold start
-  }
-}
-
-```text
-
-## ? VIBE: Running as root + privileged 2
-
-apiVersion: v1
-kind: Pod
-spec:
-  containers:
-
-- name: app
-
-image: myapp
-    securityContext:
-privileged: true  # FULL HOST ACCESS!
-runAsUser: 0  # Root!
-
-```yaml
-
-## ? TITAN: Hardened security context 2
-
-apiVersion: v1
-kind: Pod
-spec:
-  securityContext:
-runAsNonRoot: true
-    seccompProfile:
-type: RuntimeDefault
-  containers:
-
-- name: app
-image: myapp
-    securityContext:
-allowPrivilegeEscalation: false
-readOnlyRootFilesystem: true
-runAsUser: 1000
-runAsGroup: 1000
-      capabilities:
-        drop:
-
-- ALL
-
-```yaml
-
-## ? TITAN: Pod Security Standards (PSS) 2
-
-apiVersion: v1
-kind: Namespace
-metadata:
-name: production
-  labels:
-pod-security.kubernetes.io/enforce: restricted
-pod-security.kubernetes.io/warn: restricted
-pod-security.kubernetes.io/audit: restricted
-
-```text
-
-## ? VIBE: Basic debugging 2
-
-kubectl logs pod-name
-
-## ? TITAN: Complete crash forensics 2
-
-## ? TITAN: Automated crash analysis 2
-
-from kubernetes import client, config
-from dataclasses import dataclass
-from typing import Optional
-import json
-
-@dataclass
-class CrashAnalysis:
-pod_name: str
-namespace: str
-exit_code: int
-reason: str
-last_logs: str
-events: list
-resource_issue: Optional[str]
-suggested_fix: str
-
-class K8sCrashAnalyzer:
-def **init**(self):
-        config.load_incluster_config()
-self.core_v1 = client.CoreV1Api()
-
-def analyze_crash(self, pod_name: str, namespace: str) -> CrashAnalysis:
-"""Analyze why a pod crashed."""
-
-## ? VIBE: Manual kubectl deployments 2
-
-kubectl apply -f deployment.yaml  # From someone's laptop
-
-## ? TITAN: ArgoCD GitOps setup 2
-
-## ? TITAN: Multi-environment promotion 2
-
-## ? TITAN: Automated promotion between environments 2
-
-import subprocess
-import json
-from github import Github
-
-class GitOpsPromoter:
-def **init**(self, github_token: str, repo: str):
-self.gh = Github(github_token)
-self.repo = self.gh.get_repo(repo)
-
-def promote(
-        self,
-image_tag: str,
-from_env: str,
-to_env: str
-) -> str:
-"""Promote image tag from one environment to another."""
-
-## ? VIBE: Logging without context 2
-
-def process_order(order_id: str):
-logger.info(f"Processing order {order_id}")
-user = get_user(order.user_id)
-logger.info(f"Got user {user.id}")
-
-## ? TITAN: OpenTelemetry distributed tracing 2
-
-from opentelemetry import trace
-from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
-from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
-from opentelemetry.instrumentation.redis import RedisInstrumentor
-from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk.resources import Resource
-
-## ? TITAN: Custom span context for async operations 2
-
-from opentelemetry.context import attach, detach, get_current
-
-async def process_background_job(job_data: dict, trace_context: dict):
-"""Background job that continues the trace."""
-from opentelemetry.propagate import extract
-
-## ? TITAN: SLO definitions in configuration 2
-
-## ? TITAN: SLO calculator and burn rate alerting 2
-
-from datetime import datetime, timedelta
-from dataclasses import dataclass
-from prometheus_client import Gauge
-
-slo_remaining_budget = Gauge(
-    'slo_remaining_error_budget_percent',
-'Remaining error budget as percentage',
-    ['slo_name']
-)
-
-@dataclass
-class SLOStatus:
-name: str
-target: float
-current: float
-error_budget_remaining: float
-burn_rate_1h: float
-burn_rate_6h: float
-| time_to_exhaustion_hours: float | None |
-
-class SLOMonitor:
-def **init**(self, prometheus_url: str, slo_configs: list):
-self.prometheus = PrometheusConnect(prometheus_url)
-self.slos = slo_configs
-
-async def calculate_slo_status(self, slo_config: dict) -> SLOStatus:
-"""Calculate current SLO status with burn rates."""
-
-## ? TITAN: Automated incident response with runbooks 2
-
-from pydantic import BaseModel
-import subprocess
-
-class RunbookStep(BaseModel):
-name: str
-description: str
-| command: str | None = None |
-| manual_action: str | None = None |
-| rollback: str | None = None |
-timeout_seconds: int = 60
-
-class Runbook(BaseModel):
-id: str
-title: str
-severity: str
-steps: list[RunbookStep]
-escalation_contacts: list[str]
-
-RUNBOOKS = {
-"high_memory_usage": Runbook(
-        id="high_memory_usage",
-title="High Memory Usage Remediation",
-        severity="warning",
-        steps=[
-        RunbookStep(
-        name="check_current_memory",
-description="Get current memory usage",
-| command="kubectl top pods -n production | head -20" |
-        ),
-        RunbookStep(
-        name="identify_memory_hogs",
-description="Find pods with highest memory",
-| command="kubectl top pods -n production --sort-by=memory | head -5" |
-        ),
-        RunbookStep(
-        name="check_for_memory_leaks",
-description="Check if memory is growing over time",
-| command="kubectl exec -n production deploy/api -- pmap -x 1 | tail -1" |
-        ),
-        RunbookStep(
-        name="restart_if_leaking",
-description="Perform rolling restart",
-command="kubectl rollout restart deploy/api -n production",
-rollback="kubectl rollout undo deploy/api -n production"
-        )
-        ],
-        escalation_contacts=["platform-team@example.com"]
-    )
-}
-
-class IncidentResponder:
-def **init**(self, slack_client, k8s_client):
-self.slack = slack_client
-self.k8s = k8s_client
-
-async def handle_alert(self, alert: dict):
-"""Automated first-response to alert."""
-alert_name = alert['labels']['alertname']
-
-if alert_name not in RUNBOOKS:
-await self.slack.post_message(
-        channel='#incidents',
-text=f"?? Alert: {alert_name}\nNo runbook found. Manual investigation required."
-        )
-        return
-
-runbook = RUNBOOKS[alert_name]
-
-## Health check 2 2
-
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-| CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health |  | exit 1 |
-
-EXPOSE 3000
-
-CMD ["node", "dist/server.js"]
-
-```text
-
----
-
-## LOG AGGREGATION 2 2
-
-## INFRASTRUCTURE AS CODE 2 2
-
-## Use ~75% of container limit (512MB * 0.75 = 384MB) 2
-
-## ? VIBE: Full image 2
-
-FROM node:20  # ~1GB
-
-## ? TITAN: Alpine variant 2
-
-FROM node:20-alpine  # ~140MB
-
-## ? TITAN EXTREME: Distroless 2
-
-FROM gcr.io/distroless/nodejs20-debian12  # ~120MB
-
-## ? VIBE: All in one layer 2
-
-COPY . .
-RUN npm ci && npm run build
-
-## ? TITAN: Separate layers for caching 2
-
-## ? VIBE: No health check 2
-
-## ? Kubernetes/orchestrator can't know if app is ready 2
-
-## ? TITAN: Proper health check 2
-
-HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-| CMD wget --no-verbose --tries=1 --spider <http://localhost:3000/health> |  | exit 1 |
-
-## DON'T do this in production 2
-
-```text
-
-## But no nodes have this label 2
-
-| kubectl get nodes --show-labels | grep gpu |
-
-## ? VIBE: Too aggressive probe 2
-
-livenessProbe:
-  httpGet:
-path: /health
-port: 8080
-initialDelaySeconds: 3    # Not enough for slow starters
-periodSeconds: 5
-failureThreshold: 1  # Killed on first failure!
-
-## ? TITAN: Reasonable probe 2
-
-livenessProbe:
-  httpGet:
-path: /health
-port: 8080
-initialDelaySeconds: 30   # Wait for app startup
-periodSeconds: 10  # Check every 10 seconds
-failureThreshold: 3  # Tolerate 3 failures
-timeoutSeconds: 5  # Timeout per check
-
-```text
-
-## Output: "Deploy to "  <- Empty 2
-
-```text
-
-## ? VIBE: Secret exists in wrong scope 2
-
-## ? TITAN: Define in correct scope 2
-
-## GitHub BLOCKS secrets from forks for security 2
-
-## ? VIBE: Expecting secrets in PR workflow 2
-
-on: pull_request  # Secrets blocked for forks!
-
-## ? TITAN: Use different approach for forks 2
-
-on: pull_request_target  # Runs in context of target repo
-
-## ? VIBE: Environment secrets not loading 2
-
-jobs:
-  deploy:
-runs-on: ubuntu-latest
-    steps:
-
-- run: echo ${{ secrets.PROD_API_KEY }}  # Empty!
-
-## ? TITAN: Specify environment to access its secrets 2
-
-jobs:
-  deploy:
-runs-on: ubuntu-latest
-environment: production  # NOW environment secrets load!
-    steps:
-
-- run: echo ${{ secrets.PROD_API_KEY }}  # Works!
-
-```text
-
----
-
-## ? TITAN: Explicit permissions 2
-
-    permissions:
-contents: write  # For pushing tags, releases
-packages: write  # For publishing to GitHub Packages
-pull-requests: write  # For commenting on PRs
-id-token: write  # For OIDC authentication
-
-    steps:
-
-- uses: actions/checkout@v4
-
-        with:
-token: ${{ secrets.GITHUB_TOKEN }}  # or PAT for more permissions
-
-```text
-
----
-
-## ? VIBE: Long-lived access keys stored as secrets 2
-
-## ? TITAN: OIDC for short-lived tokens 2
-
-jobs:
-  deploy:
-runs-on: ubuntu-latest
-
-    permissions:
-id-token: write   # Required for OIDC
-contents: read
-
-    steps:
-
-## No access keys - uses OIDC token 2
-
-## No service account key - uses OIDC token 2
-
-```text
-
----
-
-## ? VIBE: Installing dependencies every time (slow) 2
-
-- run: npm ci  # 2-3 minutes
-
-## ? TITAN: Cache node_modules 2
-
-- uses: actions/cache@v4
-
-  with:
-path: ~/.npm
-key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-| restore-keys: |
-npm-${{ runner.os }}-
-
-- run: npm ci  # 30 seconds with cache
-
-## ? VIBE: Echoing secrets 2
-
-- run: echo "API Key is ${{ secrets.API_KEY }}"
-
-## ? TITAN: Never echo secrets, use them directly 2
-
-| * run: |
-curl -H "Authorization: Bearer ${{ secrets.API_KEY }}" <https://api.example.com>
-
-```text
-
-## ? VIBE: Hardcoded Node version 2
-
-- uses: actions/setup-node@v4
-  with:
-node-version: '18.17.1'
-
-## ? TITAN: Use .nvmrc or package.json 2
-
-- uses: actions/setup-node@v4
-  with:
-node-version-file: '.nvmrc'  # Single source of truth
-
-```text
-
-## ? VIBE: Multiple deploys can run simultaneously 2
-
-on: push
-
-## ? TITAN: Cancel in-progress deploys 2
-
-on: push
-concurrency:
-group: deploy-${{ github.ref }}
-cancel-in-progress: true  # Cancel older runs
-
-```text
-
----
-
-## ? VIBE: Huge package with everything 2
-
-npm install aws-sdk  # 50MB+ already in Lambda!
-
-## ? TITAN: Minimal dependencies 2
-
-## ? VIBE: All Lambdas in VPC "for security" 2
-
-functions:
-  publicApi:
-handler: handler.main
-    vpc:
-securityGroupIds: [sg-xxx]
-subnetIds: [subnet-xxx]
-
-## ? TITAN: VPC only for private resources 2
-
-functions:
-  publicApi:
-handler: handler.main
 
 ```text

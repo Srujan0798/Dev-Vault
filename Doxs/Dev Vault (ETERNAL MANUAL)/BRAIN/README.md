@@ -1,24 +1,10 @@
 # 🧠 BRAIN - The Thinking Engine
 
-## Table of Contents
+> **This folder contains the AI's thinking methodology.**
+> Not just knowledge, but HOW to apply that knowledge.
+> The difference between having data and having a senior developer's brain.
 
-- [Table of Contents](#table-of-contents)
-- [📁 Structure](#-structure)
-- [🎯 Purpose](#-purpose)
-- [The Manual serves TWO functions](#the-manual-serves-two-functions)
-  - [📚 KNOWLEDGE (../Dev Vault files)](#-knowledge-dev-vault-files)
-  - [🧠 BRAIN (this folder)](#-brain-this-folder)
-- [🩺 VACCINE vs 💉 INJECTION](#-vaccine-vs-injection)
-- [VACCINE (Preventive)](#vaccine-preventive)
-- [INJECTION (Reactive)](#injection-reactive)
-  - [This folder contains BOTH approaches](#this-folder-contains-both-approaches)
-- [🔗 How to Use](#-how-to-use)
-- [Before Coding a Feature](#before-coding-a-feature)
-- [When Debugging](#when-debugging)
-- [Before Deploying](#before-deploying)
-- [After Fixing](#after-fixing)
-- [🌟 The Goal](#-the-goal)
-  - [This is the external brain that makes AI think like a senior developer](#this-is-the-external-brain-that-makes-ai-think-like-a-senior-developer)
+---
 
 ## 📁 Structure
 
@@ -31,7 +17,6 @@ BRAIN/
 └── README.md            → You are here
 
 ```text
-
 ---
 
 ## 🎯 Purpose
@@ -56,7 +41,6 @@ LINK: Dependency maps for connections
 FIND: Root cause database for quick fixes
 
 ```text
-
 ---
 
 ## 🩺 VACCINE vs 💉 INJECTION
@@ -75,7 +59,7 @@ FIND: Root cause database for quick fixes
 - Fix systematically
 - Verify thoroughly
 
-### This folder contains BOTH approaches
+### This folder contains BOTH approaches.
 
 ---
 
@@ -115,4 +99,4 @@ DEPLOY → Know nothing is forgotten
 
 ```text
 
-### This is the external brain that makes AI think like a senior developer
+### This is the external brain that makes AI think like a senior developer.

@@ -1,42 +1,16 @@
 # DEPENDENCY MAPS
 
-## Table of Contents
+## TABLE OF CONTENTS
 
-- [Table of Contents](#table-of-contents)
 - [FULL STACK ARCHITECTURE MAP](#full-stack-architecture-map)
-- [Next.js + Prisma + PostgreSQL Stack](#nextjs-prisma-postgresql-stack)
-- [FILE DEPENDENCY MAP](#file-dependency-map)
-- [When You Change X, Check These Files](#when-you-change-x-check-these-files)
-- [DATA FLOW MAPS](#data-flow-maps)
-- [CREATE Flow (POST)](#create-flow-post)
-- [READ Flow (GET)](#read-flow-get)
-- [COMMON BREAK POINT MAP](#common-break-point-map)
-- [Where Things Typically Break](#where-things-typically-break)
-- [COMPONENT RELATIONSHIP MAP](#component-relationship-map)
-- [Authentication Flow Dependencies](#authentication-flow-dependencies)
-- [State Management Dependencies](#state-management-dependencies)
-  - [This is your CONNECTION MAP](#this-is-your-connection-map)
-  - [Know what breaks when you change something](#know-what-breaks-when-you-change-something)
-  - [Know what else needs updating](#know-what-else-needs-updating)
-- [TECHNOLOGY DEPENDENCY MAP](#technology-dependency-map)
-- [Node.js Upgrade Impact](#nodejs-upgrade-impact)
-- [Database Change Impact](#database-change-impact)
-- [React Version Impact](#react-version-impact)
-- [PACKAGE/LIBRARY DEPENDENCY MAP](#packagelibrary-dependency-map)
-- [React Ecosystem Dependencies](#react-ecosystem-dependencies)
-- [Backend Dependency Chain](#backend-dependency-chain)
-- [INFRASTRUCTURE DEPENDENCY MAP](#infrastructure-dependency-map)
-- [Load Balancer Changes](#load-balancer-changes)
-- [DNS Changes](#dns-changes)
-- [Certificate Renewal](#certificate-renewal)
-- [AWS SERVICE DEPENDENCY MAP](#aws-service-dependency-map)
-- [Lambda Dependencies](#lambda-dependencies)
-- [RDS Dependencies](#rds-dependencies)
-- [ECS Dependencies](#ecs-dependencies)
-- [MONOREPO DEPENDENCY MAP](#monorepo-dependency-map)
-- [Shared Package Changes](#shared-package-changes)
-- [Version Sync Challenges](#version-sync-challenges)
-- [Breaking Change Flow](#breaking-change-flow)
+- [Next.js + Prisma + PostgreSQL Stack](#nextjs--prisma--postgresql-stack)
+
+---
+> **The Connection Engine: How Everything Links**
+> Understand what breaks when you change something.
+> Know what else needs updating.
+
+---
 
 ## FULL STACK ARCHITECTURE MAP
 
@@ -90,10 +64,11 @@ Indexes for performance
 
 ## When You Change X, Check These Files
 
-    schema.prisma
-    REGENERATE
+```text
+schema.prisma
+REGENERATE
 npx prisma generate
-    MIGRATE
+MIGRATE
 npx prisma migrate dev
 CHECK THESE FILES
 app/api/**/*.ts (all API routes using changed models)
@@ -105,8 +80,8 @@ Frontend components displaying the data
 Forms creating/editing the data
 Tests using the models
 
-    middleware.ts
-    AFFECTS
+middleware.ts
+AFFECTS
 All routes matched by matcher config
 Authentication flow
 Redirect behavior
@@ -121,66 +96,71 @@ API routes auth works
 
 .env / .env.local
 ALSO UPDATE
-      .env.example
+  .env.example
 Vercel/hosting environment
 CI/CD secrets
 Docker compose (if using)
 CHECK THESE FILES
 Any file doing process.env.VARIABLE
-    RESTART
+RESTART
 Development server (picks up new env)
 
-    next.config.js
-    AFFECTS
+next.config.js
+AFFECTS
 Build process
 Image handling
-      Redirects/rewrites
+  Redirects/rewrites
 Experimental features
 CHECK THESE
 Image components (domains)
 Route handlers (rewrites)
 Build output
-    RESTART
+RESTART
 Development server
 
-    tailwind.config.js
-    AFFECTS
+tailwind.config.js
+AFFECTS
 All Tailwind classes
 Custom colors/fonts
 Responsive breakpoints
 CHECK THESE
 Components using custom classes
 Dark mode toggle (if theme change)
-    RESTART
+RESTART
 Development server (maybe)
 
-    package.json
+package.json
 ALSO UPDATE
 Run: npm install
 CHECK THESE
 Import statements using changed packages
 Scripts that might break
-    CI/CD
+CI/CD
 Will run npm install on deploy
 
-    tsconfig.json
-    AFFECTS
+tsconfig.json
+AFFECTS
 Path aliases (@/...)
 Type checking strictness
 Build target
 CHECK THESE
 All imports using path aliases
 jest.config.js (needs matching paths)
-    RESTART
+RESTART
 TypeScript server (Ctrl+Shift+P Restart TS)
+
+```text
+
+---
 
 ## DATA FLOW MAPS
 
 ## CREATE Flow (POST)
 
+```text
 User Action: Submit Form
 
-    FRONTEND
+FRONTEND
 
 1. Form collects data
 2. Client-side validation
@@ -191,43 +171,45 @@ fetch('/api/resource', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify(formData)
-     })
+ })
 
 API ROUTE: app/api/resource/route.ts
 
 export async function POST(req: Request) {
-
 1. Parse request body
 2. Validate with Zod
 3. Auth check (if needed)
 4. Business logic
 5. Create in database
 6. Return response
+ }
 
-     }
-
-    PRISMA
+PRISMA
 
 await prisma.resource.create({
 data: {
-         ...validatedData,
+     ...validatedData,
 userId: session.user.id  // relation
-       }
-     })
+   }
+ })
 
-    DATABASE
+DATABASE
 
 INSERT INTO resources (...)
 Returns: created record with id
 
 Response bubbles back up
 
-    FRONTEND
+FRONTEND
 
-1. Hide loading state
-2. Show success message
-3. Update local state (add to list)
-4. Or redirect to new page
+5. Hide loading state
+6. Show success message
+7. Update local state (add to list)
+8. Or redirect to new page
+
+```text
+
+---
 
 ## READ Flow (GET)
 
@@ -405,7 +387,6 @@ Node.js Version Change
 | - watch mode (18+) |
   |
 +-> npm version changes
-
 - lockfile format
 
 ```text
@@ -428,7 +409,6 @@ PostgreSQL Upgrade
 | - May need replica upgrade first |
   |
 +-> Connection library
-
 - pg, prisma versions
 
 ```text
@@ -450,7 +430,6 @@ React Upgrade
 | - Hook behavior changes |
   |
 +-> Build tooling
-
 - React refresh
 - JSX transform
 
@@ -476,8 +455,8 @@ React
   |
 +-> State Management
 | +-> Redux Toolkit |
-|  | +-> immer |
-|  | +-> redux |
+| | +-> immer |
+| | +-> redux |
 | +-> Zustand |
 | +-> Jotai |
   |
@@ -499,8 +478,8 @@ Express App
   |
 +-> ORM
 | +-> Prisma |
-|  | +-> prisma client |
-|  | +-> prisma migrate |
+| | +-> prisma client |
+| | +-> prisma migrate |
 | +-> TypeORM |
 | +-> Drizzle |
   |
@@ -539,7 +518,6 @@ Load Balancer
 | - Certificate expiry = outage |
   |
 +-> Sticky sessions
-
 - Affects deployments
 - Affects scaling
 
@@ -563,7 +541,6 @@ DNS Record Change
 | - May cache DNS separately |
   |
 +-> Service discovery
-
 - Internal DNS updates
 
 ```text
@@ -585,7 +562,6 @@ SSL Certificate
 | - May have pinned certs |
   |
 +-> Third-party integration
-
 - Webhook verifiers
 
 ```text
@@ -617,7 +593,6 @@ Lambda Function
 | - Version mismatch = runtime errors |
   |
 +-> Triggers
-
 - API Gateway = routing
 - SQS = message delivery
 - S3 = event notifications
@@ -644,7 +619,6 @@ RDS Instance
 | - Role policies |
   |
 +-> Secrets Manager
-
 - Credential rotation
 
 ```text
@@ -668,7 +642,6 @@ ECS Service
 | - Target group = routing |
   |
 +-> Auto Scaling
-
 - Metric alarms = scaling issues
 
 ```text
@@ -704,7 +677,6 @@ packages/shared-ui
 
 ```text
 PROBLEM:
-
 - packages/utils@1.0.0
 - apps/web uses utils@1.0.0
 - apps/mobile uses utils@1.0.0
@@ -712,7 +684,6 @@ PROBLEM:
 - Both apps need update!
 
 SOLUTION:
-
 - Turborepo/Nx for orchestration
 - Consistent versioning
 - CI tests all affected packages
@@ -724,7 +695,6 @@ SOLUTION:
 ## Breaking Change Flow
 
 ```text
-
 1. Make change in shared package
 2. Turborepo detects dependents
 3. Type errors surface immediately

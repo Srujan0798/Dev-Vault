@@ -1,42 +1,10 @@
 # 🗺️ DEPENDENCY MAPS
 
-## Table of Contents
+> **The Connection Engine: How Everything Links**
+> Understand what breaks when you change something.
+> Know what else needs updating.
 
-- [Table of Contents](#table-of-contents)
-- [🏗️ FULL STACK ARCHITECTURE MAP](#-full-stack-architecture-map)
-- [Next.js + Prisma + PostgreSQL Stack](#nextjs-prisma-postgresql-stack)
-- [📁 FILE DEPENDENCY MAP](#-file-dependency-map)
-- [When You Change X, Check These Files](#when-you-change-x-check-these-files)
-- [🔄 DATA FLOW MAPS](#-data-flow-maps)
-- [CREATE Flow (POST)](#create-flow-post)
-- [READ Flow (GET)](#read-flow-get)
-- [⚠️ COMMON BREAK POINT MAP](#-common-break-point-map)
-- [Where Things Typically Break](#where-things-typically-break)
-- [🔗 COMPONENT RELATIONSHIP MAP](#-component-relationship-map)
-- [Authentication Flow Dependencies](#authentication-flow-dependencies)
-- [State Management Dependencies](#state-management-dependencies)
-  - [This is your CONNECTION MAP 🗺️](#this-is-your-connection-map-)
-  - [Know what breaks when you change something](#know-what-breaks-when-you-change-something)
-  - [Know what else needs updating](#know-what-else-needs-updating)
-- [🔧 TECHNOLOGY DEPENDENCY MAP](#-technology-dependency-map)
-- [Node.js Upgrade Impact](#nodejs-upgrade-impact)
-- [Database Change Impact](#database-change-impact)
-- [React Version Impact](#react-version-impact)
-- [🔧 PACKAGE/LIBRARY DEPENDENCY MAP](#-packagelibrary-dependency-map)
-- [React Ecosystem Dependencies](#react-ecosystem-dependencies)
-- [Backend Dependency Chain](#backend-dependency-chain)
-- [🔧 INFRASTRUCTURE DEPENDENCY MAP](#-infrastructure-dependency-map)
-- [Load Balancer Changes](#load-balancer-changes)
-- [DNS Changes](#dns-changes)
-- [Certificate Renewal](#certificate-renewal)
-- [🔧 AWS SERVICE DEPENDENCY MAP](#-aws-service-dependency-map)
-- [Lambda Dependencies](#lambda-dependencies)
-- [RDS Dependencies](#rds-dependencies)
-- [ECS Dependencies](#ecs-dependencies)
-- [âš¡ MONOREPO DEPENDENCY MAP](#âš-monorepo-dependency-map)
-- [Shared Package Changes](#shared-package-changes)
-- [Version Sync Challenges](#version-sync-challenges)
-- [Breaking Change Flow](#breaking-change-flow)
+---
 
 ## 🏗️ FULL STACK ARCHITECTURE MAP
 
@@ -96,7 +64,6 @@
 └───────────────────────────────────────────────────────────────────────┘
 
 ```text
-
 ---
 
 ## 📁 FILE DEPENDENCY MAP
@@ -201,7 +168,6 @@ tsconfig.json
     └── TypeScript server (Ctrl+Shift+P → Restart TS)
 
 ```text
-
 ---
 
 ## 🔄 DATA FLOW MAPS
@@ -276,7 +242,6 @@ User Action: Submit Form
 └─────────────────────────────────────────────────────────────────┘
 
 ```text
-
 ---
 
 ## READ Flow (GET)
@@ -321,7 +286,6 @@ User Action: Navigate to Page
                                          Re-renders with data
 
 ```text
-
 ---
 
 ## ⚠️ COMMON BREAK POINT MAP
@@ -394,7 +358,6 @@ User Action: Navigate to Page
 └─────────────────────────────────────────────────────────────────┘
 
 ```text
-
 ---
 
 ## 🔗 COMPONENT RELATIONSHIP MAP
@@ -456,7 +419,6 @@ Context/Store ──────────────────────
                └─► Used by: data-displaying components │
 
 ```text
-
 ---
 
 ### This is your CONNECTION MAP 🗺️
@@ -479,24 +441,22 @@ Context/Store ──────────────────────
 Node.js Version Change
   |
   +-> Native modules need rebuild
-| - node-gyp based packages |
-| - bcrypt, sharp, canvas |
+  |   - node-gyp based packages
+  |   - bcrypt, sharp, canvas
   |
   +-> V8 changes
-| - New JS features |
-| - Performance differences |
+  |   - New JS features
+  |   - Performance differences
   |
   +-> Built-in changes
-| - fetch (18+) |
-| - test runner (18+) |
-| - watch mode (18+) |
+  |   - fetch (18+)
+  |   - test runner (18+)
+  |   - watch mode (18+)
   |
   +-> npm version changes
-
       - lockfile format
 
 ```text
-
 ---
 
 ## Database Change Impact
@@ -505,21 +465,19 @@ Node.js Version Change
 PostgreSQL Upgrade
   |
   +-> Query plan changes
-| - May need retuning |
-| - EXPLAIN ANALYZE all critical |
+  |   - May need retuning
+  |   - EXPLAIN ANALYZE all critical
   |
   +-> Extension compatibility
-| - PostGIS, pg_trgm, etc |
+  |   - PostGIS, pg_trgm, etc
   |
   +-> Replication protocol
-| - May need replica upgrade first |
+  |   - May need replica upgrade first
   |
   +-> Connection library
-
       - pg, prisma versions
 
 ```text
-
 ---
 
 ## React Version Impact
@@ -528,23 +486,20 @@ PostgreSQL Upgrade
 React Upgrade
   |
   +-> 17 -> 18
-| - Concurrent features |
-| - Auto batching |
-| - Strict mode double render |
+  |   - Concurrent features
+  |   - Auto batching
+  |   - Strict mode double render
   |
   +-> Component changes
-| - Third party libs compatibility |
-| - Hook behavior changes |
+  |   - Third party libs compatibility
+  |   - Hook behavior changes
   |
   +-> Build tooling
-
       - React refresh
       - JSX transform
 
 ```text
-
 ---
-
 ## 🔧 PACKAGE/LIBRARY DEPENDENCY MAP
 
 > **What depends on what**
@@ -559,14 +514,14 @@ React
   +-> React DOM (rendering)
   |
   +-> React Router (routing)
-| +-> history |
+  |   +-> history
   |
   +-> State Management
-| +-> Redux Toolkit |
-|  | +-> immer |
-|  | +-> redux |
-| +-> Zustand |
-| +-> Jotai |
+  |   +-> Redux Toolkit
+  |   |   +-> immer
+  |   |   +-> redux
+  |   +-> Zustand
+  |   +-> Jotai
   |
   +-> Data Fetching
       +-> TanStack Query
@@ -574,7 +529,6 @@ React
       +-> RTK Query (in Redux Toolkit)
 
 ```text
-
 ---
 
 ## Backend Dependency Chain
@@ -585,15 +539,15 @@ Express App
   +-> express
   |
   +-> ORM
-| +-> Prisma |
-|  | +-> prisma client |
-|  | +-> prisma migrate |
-| +-> TypeORM |
-| +-> Drizzle |
+  |   +-> Prisma
+  |   |   +-> prisma client
+  |   |   +-> prisma migrate
+  |   +-> TypeORM
+  |   +-> Drizzle
   |
   +-> Validation
-| +-> Zod |
-| +-> Yup |
+  |   +-> Zod
+  |   +-> Yup
   |
   +-> Auth
       +-> passport
@@ -601,9 +555,7 @@ Express App
       +-> bcrypt
 
 ```text
-
 ---
-
 ## 🔧 INFRASTRUCTURE DEPENDENCY MAP
 
 > **What breaks when infrastructure changes**
@@ -616,22 +568,20 @@ Express App
 Load Balancer
   |
   +-> Health check settings
-| - Too aggressive = pod thrashing |
-| - Too lenient = bad pods get traffic |
+  |   - Too aggressive = pod thrashing
+  |   - Too lenient = bad pods get traffic
   |
   +-> Timeout settings
-| - Should match application timeout |
+  |   - Should match application timeout
   |
   +-> SSL termination
-| - Certificate expiry = outage |
+  |   - Certificate expiry = outage
   |
   +-> Sticky sessions
-
       - Affects deployments
       - Affects scaling
 
 ```text
-
 ---
 
 ## DNS Changes
@@ -640,21 +590,19 @@ Load Balancer
 DNS Record Change
   |
   +-> TTL still cached
-| - Old IP gets traffic |
-| - Duration = TTL value |
+  |   - Old IP gets traffic
+  |   - Duration = TTL value
   |
   +-> Health checks
-| - DNS failover timing |
+  |   - DNS failover timing
   |
   +-> CDN invalidation
-| - May cache DNS separately |
+  |   - May cache DNS separately
   |
   +-> Service discovery
-
       - Internal DNS updates
 
 ```text
-
 ---
 
 ## Certificate Renewal
@@ -663,22 +611,19 @@ DNS Record Change
 SSL Certificate
   |
   +-> Load balancer
-| - Needs new cert |
+  |   - Needs new cert
   |
   +-> CDN
-| - Needs propagation |
+  |   - Needs propagation
   |
   +-> Mobile apps
-| - May have pinned certs |
+  |   - May have pinned certs
   |
   +-> Third-party integration
-
       - Webhook verifiers
 
 ```text
-
 ---
-
 ## 🔧 AWS SERVICE DEPENDENCY MAP
 
 > **What breaks when AWS changes**
@@ -691,26 +636,24 @@ SSL Certificate
 Lambda Function
   |
   +-> IAM Role
-| - Permission changes = access denied |
+  |   - Permission changes = access denied
   |
   +-> VPC (if configured)
-| - Subnet CIDR = NAT issues |
-| - Security Group = network blocked |
+  |   - Subnet CIDR = NAT issues
+  |   - Security Group = network blocked
   |
   +-> Environment Variables
-| - Secrets rotation = breaks |
+  |   - Secrets rotation = breaks
   |
   +-> Package Layers
-| - Version mismatch = runtime errors |
+  |   - Version mismatch = runtime errors
   |
   +-> Triggers
-
       - API Gateway = routing
       - SQS = message delivery
       - S3 = event notifications
 
 ```text
-
 ---
 
 ## RDS Dependencies
@@ -719,23 +662,21 @@ Lambda Function
 RDS Instance
   |
   +-> Security Group
-| - Inbound rules = connection refused |
+  |   - Inbound rules = connection refused
   |
   +-> VPC Subnets
-| - Availability zones |
+  |   - Availability zones
   |
   +-> Parameter Group
-| - postgres.conf changes |
+  |   - postgres.conf changes
   |
   +-> IAM Authentication
-| - Role policies |
+  |   - Role policies
   |
   +-> Secrets Manager
-
       - Credential rotation
 
 ```text
-
 ---
 
 ## ECS Dependencies
@@ -744,24 +685,21 @@ RDS Instance
 ECS Service
   |
   +-> Task Definition
-| - Container images = deploy failures |
-| - Environment = config errors |
+  |   - Container images = deploy failures
+  |   - Environment = config errors
   |
   +-> Service Discovery
-| - DNS propagation delay |
+  |   - DNS propagation delay
   |
   +-> Load Balancer
-| - Health checks = deregistration |
-| - Target group = routing |
+  |   - Health checks = deregistration
+  |   - Target group = routing
   |
   +-> Auto Scaling
-
       - Metric alarms = scaling issues
 
 ```text
-
 ---
-
 ## âš¡ MONOREPO DEPENDENCY MAP
 
 > **What breaks when packages change**
@@ -774,24 +712,22 @@ ECS Service
 packages/shared-ui
   |
   +-> apps/web (imports Button)
-| -> Rebuild required |
+  |   -> Rebuild required
   |
   +-> apps/mobile (imports Button)
-| -> Rebuild required |
+  |   -> Rebuild required
   |
   +-> packages/dashboard (imports Button)
       -> Rebuild required
       -> Consumers of dashboard also rebuild!
 
 ```text
-
 ---
 
 ## Version Sync Challenges
 
 ```text
 PROBLEM:
-
 - packages/utils@1.0.0
 - apps/web uses utils@1.0.0
 - apps/mobile uses utils@1.0.0
@@ -799,19 +735,16 @@ PROBLEM:
 - Both apps need update!
 
 SOLUTION:
-
 - Turborepo/Nx for orchestration
 - Consistent versioning
 - CI tests all affected packages
 
 ```text
-
 ---
 
 ## Breaking Change Flow
 
 ```text
-
 1. Make change in shared package
 2. Turborepo detects dependents
 3. Type errors surface immediately
@@ -819,5 +752,4 @@ SOLUTION:
 5. Single atomic commit
 
 ```text
-
 ---

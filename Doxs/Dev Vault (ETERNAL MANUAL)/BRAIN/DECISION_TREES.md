@@ -1,67 +1,9 @@
 # 🌳 DECISION TREES
 
-## Table of Contents
+> **The Thinking Engine: How to Diagnose**
+> When you see a problem, follow these trees to the root cause.
 
-- [Table of Contents](#table-of-contents)
-- [🖥️ FRONTEND DECISION TREES](#-frontend-decision-trees)
-- [Tree: Page Not Loading / White Screen](#tree-page-not-loading-white-screen)
-- [Tree: Undefined Property Error](#tree-undefined-property-error)
-- [Tree: Hydration Mismatch](#tree-hydration-mismatch)
-- [Tree: Infinite Render Loop](#tree-infinite-render-loop)
-- [🔧 BACKEND DECISION TREES](#-backend-decision-trees)
-- [Tree: API Returns 500 Error](#tree-api-returns-500-error)
-- [Tree: Prisma Errors](#tree-prisma-errors)
-- [Tree: API Returns 4XX Error](#tree-api-returns-4xx-error)
-- [🗄️ DATABASE DECISION TREES](#-database-decision-trees)
-- [Tree: Database Not Connecting](#tree-database-not-connecting)
-- [Tree: Migration Issues](#tree-migration-issues)
-- [🏗️ BUILD/DEPLOY DECISION TREES](#-builddeploy-decision-trees)
-- [Tree: Build Failing](#tree-build-failing)
-- [Tree: Deployment Failing](#tree-deployment-failing)
-  - [CONTINUED: MORE DECISION TREES FOR](#continued-more-decision-trees-for)
-- [🔐 AUTHENTICATION DECISION TREES](#-authentication-decision-trees)
-- [Tree: Login Not Working](#tree-login-not-working)
-- [Tree: Session/Token Issues](#tree-sessiontoken-issues)
-- [Tree: OAuth Login Issues](#tree-oauth-login-issues)
-- [📁 FILE UPLOAD DECISION TREES](#-file-upload-decision-trees)
-- [Tree: File Upload Issues](#tree-file-upload-issues)
-- [âš¡ REAL-TIME/WEBSOCKET DECISION TREES](#âš-real-timewebsocket-decision-trees)
-- [Tree: WebSocket Not Connecting](#tree-websocket-not-connecting)
-- [Tree: Real-time Updates Not Working](#tree-real-time-updates-not-working)
-- [🔌 THIRD-PARTY API DECISION TREES](#-third-party-api-decision-trees)
-- [Tree: External API Integration Issues](#tree-external-api-integration-issues)
-- [📊 PERFORMANCE DECISION TREES](#-performance-decision-trees)
-- [Tree: Slow Page Load](#tree-slow-page-load)
-- [Tree: Slow API Response](#tree-slow-api-response)
-- [Tree: Memory Issues](#tree-memory-issues)
-  - [[TARGET: 10,000 LINES OF DECISION TREES]](#target-10000-lines-of-decision-trees)
-  - [Current: ~1,100 lines - Expanding systematically](#current-1100-lines---expanding-systematically)
-  - [Coverage: Frontend, Backend, Database, Deploy, Auth, Files, Real-time, APIs, Performance](#coverage-frontend-backend-database-deploy-auth-files-real-time-apis-performance)
-  - [This is your DIAGNOSTIC BRAIN 🌳](#this-is-your-diagnostic-brain-)
-  - [Follow the branches to find the root cause](#follow-the-branches-to-find-the-root-cause)
-- [🎯 DEBUGGING DECISION TREE](#-debugging-decision-tree)
-- [Application Not Responding](#application-not-responding)
-- [Slow API Response](#slow-api-response)
-- [Memory Growing](#memory-growing)
-- [🔍 SEARCH DECISION TREE](#-search-decision-tree)
-- [Search Solution Decision](#search-solution-decision)
-- [Cache Decision Tree](#cache-decision-tree)
-- [🎯 ARCHITECTURE DECISION TREE](#-architecture-decision-tree)
-- [Monolith vs Microservices](#monolith-vs-microservices)
-- [Database Selection](#database-selection)
-- [Sync vs Async Communication](#sync-vs-async-communication)
-- [🔥 TECH STACK DECISION TREE](#-tech-stack-decision-tree)
-- [Frontend Framework Decision](#frontend-framework-decision)
-- [Hosting Decision](#hosting-decision)
-- [Database Decision](#database-decision)
-- [🔥 DATABASE INDEX DECISION TREE](#-database-index-decision-tree)
-- [Should I Create an Index?](#should-i-create-an-index)
-- [Index Type Decision](#index-type-decision)
-- [Composite Index Order](#composite-index-order)
-- [🎯 CI/CD DECISION TREE](#-cicd-decision-tree)
-- [When to Run Tests](#when-to-run-tests)
-- [Deployment Strategy Decision](#deployment-strategy-decision)
-- [Environment Promotion](#environment-promotion)
+---
 
 ## 🖥️ FRONTEND DECISION TREES
 
@@ -107,7 +49,6 @@ Page not loading?
 │               → Check middleware blocking
 
 ```text
-
 ---
 
 ## Tree: Undefined Property Error
@@ -141,7 +82,6 @@ Page not loading?
 │           FIX: Check each level separately
 
 ```text
-
 ---
 
 ## Tree: Hydration Mismatch
@@ -183,7 +123,6 @@ Page not loading?
 │           FIX: Ignore if app works
 
 ```text
-
 ---
 
 ## Tree: Infinite Render Loop
@@ -221,7 +160,6 @@ Page not loading?
 │       └── CHECK PARENT FOR ABOVE ISSUES
 
 ```text
-
 ---
 
 ## 🔧 BACKEND DECISION TREES
@@ -266,7 +204,6 @@ API returns 500 Internal Server Error?
 │           → No startup errors?
 
 ```text
-
 ---
 
 ## Tree: Prisma Errors
@@ -310,7 +247,6 @@ Prisma error?
 │           → Check username, password
 
 ```text
-
 ---
 
 ## Tree: API Returns 4XX Error
@@ -351,7 +287,6 @@ API returns 400/401/403/404?
         → Wrong ID being passed
 
 ```text
-
 ---
 
 ## 🗄️ DATABASE DECISION TREES
@@ -403,7 +338,6 @@ API returns 400/401/403/404?
     → Cloud security groups?
 
 ```text
-
 ---
 
 ## Tree: Migration Issues
@@ -441,7 +375,6 @@ Migration failing / Schema out of sync?
         → Restart TypeScript server
 
 ```text
-
 ---
 
 ## 🏗️ BUILD/DEPLOY DECISION TREES
@@ -498,7 +431,6 @@ Build fails?
         → Split into smaller chunks
 
 ```text
-
 ---
 
 ## Tree: Deployment Failing
@@ -534,11 +466,9 @@ Deployment to Vercel/Netlify/etc fails?
         → Fix code, redeploy
 
 ```text
-
 ---
 
 ### CONTINUED: MORE DECISION TREES FOR
-
 - Authentication flows
 - File upload issues
 - Real-time/WebSocket issues
@@ -605,7 +535,6 @@ User can't log in?
 │       └── GO TO: CORS Error Tree
 
 ```text
-
 ---
 
 ## Tree: Session/Token Issues
@@ -650,7 +579,6 @@ User keeps getting logged out?
 │           → credentials: 'include' missing?
 
 ```text
-
 ---
 
 ## Tree: OAuth Login Issues
@@ -694,7 +622,6 @@ OAuth (Google/GitHub/etc) login failing?
 │       → Map provider data correctly
 
 ```text
-
 ---
 
 ## 📁 FILE UPLOAD DECISION TREES
@@ -767,7 +694,6 @@ File upload not working?
 │           → File ACL settings
 
 ```text
-
 ---
 
 ## âš¡ REAL-TIME/WEBSOCKET DECISION TREES
@@ -824,7 +750,6 @@ WebSocket connection failing?
         → Check Connection: Upgrade header
 
 ```text
-
 ---
 
 ## Tree: Real-time Updates Not Working
@@ -866,7 +791,6 @@ Updates not appearing in real-time?
         → Correct event name?
 
 ```text
-
 ---
 
 ## 🔌 THIRD-PARTY API DECISION TREES
@@ -919,7 +843,6 @@ Third-party API not working?
         → Add loading states
 
 ```text
-
 ---
 
 ## 📊 PERFORMANCE DECISION TREES
@@ -983,7 +906,6 @@ Page loading slowly?
         → Virtual scrolling for long lists
 
 ```text
-
 ---
 
 ## Tree: Slow API Response
@@ -1042,7 +964,6 @@ API taking too long?
         → Or warm with scheduled ping
 
 ```text
-
 ---
 
 ## Tree: Memory Issues
@@ -1093,7 +1014,6 @@ App using too much memory / crash?
         → What components are leaking?
 
 ```text
-
 ---
 
 ### [TARGET: 10,000 LINES OF DECISION TREES]
@@ -1124,14 +1044,14 @@ START: App not responding
   +-> Check if process running?
       |
       +-> NO: Check logs for crash reason
-| -> OOM? Increase memory, fix leak |
-| -> Exception? Fix code |
-| -> Killed? Check OOM killer, signals |
+      |       -> OOM? Increase memory, fix leak
+      |       -> Exception? Fix code
+      |       -> Killed? Check OOM killer, signals
       |
       +-> YES: Check CPU usage
               |
               +-> HIGH CPU: Infinite loop? Hot code path?
-| Profile with 0x or clinic |
+              |            Profile with 0x or clinic
               |
               +-> LOW CPU: Blocked on I/O?
                           Check connections, network
@@ -1139,7 +1059,6 @@ START: App not responding
                           Check file system
 
 ```text
-
 ---
 
 ## Slow API Response
@@ -1150,22 +1069,21 @@ START: API slow (>1s)
   +-> Check single request or all?
       |
       +-> ALL SLOW: System-wide issue
-| -> Check DB connection pool |
-| -> Check external service |
-| -> Check CPU/memory |
+      |   -> Check DB connection pool
+      |   -> Check external service
+      |   -> Check CPU/memory
       |
       +-> SINGLE ENDPOINT:
           |
           +-> Add timing logs
-| -> DB query slow? EXPLAIN ANALYZE |
-| -> External API? Add timeout |
-| -> CPU work? Consider async |
+          |   -> DB query slow? EXPLAIN ANALYZE
+          |   -> External API? Add timeout
+          |   -> CPU work? Consider async
           |
           +-> N+1 query pattern?
               -> Add eager loading
 
 ```text
-
 ---
 
 ## Memory Growing
@@ -1176,9 +1094,9 @@ START: Memory keeps increasing
   +-> Restart fixes temporarily?
       |
       +-> YES: Memory leak
-| -> Take heap snapshots |
-| -> Compare over time |
-| -> Find growing objects |
+      |   -> Take heap snapshots
+      |   -> Compare over time
+      |   -> Find growing objects
       |
       +-> NO: Legitimate growth
           -> Add memory limits
@@ -1186,9 +1104,7 @@ START: Memory keeps increasing
           -> Add pagination
 
 ```text
-
 ---
-
 ## 🔍 SEARCH DECISION TREE
 
 > **Choosing the right search solution**
@@ -1203,23 +1119,21 @@ START: Need search functionality
   +-> How many documents?
       |
       +-> < 10K: PostgreSQL Full-Text
-| - Built-in |
-| - Simple to maintain |
+      |         - Built-in
+      |         - Simple to maintain
       |
       +-> 10K - 1M: Consider dedicated
       |   |
-| +-> Need instant search? |
-| +-> YES: Algolia (managed) |
-| +-> NO: Elasticsearch/Meilisearch |
+      |   +-> Need instant search?
+      |       +-> YES: Algolia (managed)
+      |       +-> NO: Elasticsearch/Meilisearch
       |
       +-> > 1M: Elasticsearch cluster
-
           - Sharding
           - Dedicated resources
           - Ops expertise required
 
 ```text
-
 ---
 
 ## Cache Decision Tree
@@ -1243,9 +1157,7 @@ START: Should I cache this?
                       +-> Often: Short TTL + invalidation
 
 ```text
-
 ---
-
 ## 🎯 ARCHITECTURE DECISION TREE
 
 > **Choosing the right architecture**
@@ -1260,12 +1172,12 @@ START: New project architecture
   +-> Team size?
       |
       +-> < 5 engineers: Monolith
-| (Complexity not worth it) |
+      |   (Complexity not worth it)
       |
       +-> 5-20 engineers:
-| +-> Domain boundaries clear? |
-| +-> NO: Monolith first |
-| +-> YES: Consider modular monolith |
+      |   +-> Domain boundaries clear?
+      |       +-> NO: Monolith first
+      |       +-> YES: Consider modular monolith
       |
       +-> > 20 engineers:
           +-> Independent team scaling needed?
@@ -1273,7 +1185,6 @@ START: New project architecture
               +-> NO: Modular monolith
 
 ```text
-
 ---
 
 ## Database Selection
@@ -1296,7 +1207,6 @@ START: Choose database
       +-> Search: Elasticsearch
 
 ```text
-
 ---
 
 ## Sync vs Async Communication
@@ -1307,9 +1217,9 @@ START: How should services communicate?
   +-> Need immediate response?
       |
       +-> YES: Sync (REST/gRPC)
-| +-> Response time critical? |
-| +-> YES: gRPC |
-| +-> NO: REST |
+      |   +-> Response time critical?
+      |       +-> YES: gRPC
+      |       +-> NO: REST
       |
       +-> NO: Async (Queue/Events)
           +-> Need delivery guarantee?
@@ -1317,9 +1227,7 @@ START: How should services communicate?
               +-> NO: Pub/Sub (SNS/Kafka)
 
 ```text
-
 ---
-
 ## 🔥 TECH STACK DECISION TREE
 
 > **Choosing the right tools**
@@ -1334,9 +1242,9 @@ START: Choose frontend framework
   +-> Need SSR/SEO?
       |
       +-> YES:
-| +-> React ecosystem preferred? |
-|  | +-> YES: Next.js |
-|  | +-> NO: Nuxt (Vue) or SvelteKit |
+      |   +-> React ecosystem preferred?
+      |   |   +-> YES: Next.js
+      |   |   +-> NO: Nuxt (Vue) or SvelteKit
       |
       +-> NO: SPA is fine
           +-> Team experience?
@@ -1345,7 +1253,6 @@ START: Choose frontend framework
               +-> New team: Consider Svelte
 
 ```text
-
 ---
 
 ## Hosting Decision
@@ -1358,16 +1265,15 @@ START: Where to host?
       +-> Static site: Vercel, Netlify, Cloudflare Pages
       |
       +-> Full-stack:
-| +-> Serverless OK? |
-| +-> YES: Vercel, AWS Lambda |
-| +-> NO: Railway, Fly.io, AWS ECS |
+      |   +-> Serverless OK?
+      |       +-> YES: Vercel, AWS Lambda
+      |       +-> NO: Railway, Fly.io, AWS ECS
       |
       +-> Need containers?
           +-> YES: Fly.io, Railway, AWS ECS
           +-> Kubernetes needed: AWS EKS, GKE
 
 ```text
-
 ---
 
 ## Database Decision
@@ -1390,9 +1296,7 @@ START: Choose database
       +-> Graph data: Neo4j
 
 ```text
-
 ---
-
 ## 🔥 DATABASE INDEX DECISION TREE
 
 > **When and how to create indexes**
@@ -1415,13 +1319,12 @@ START: Column used in WHERE/JOIN/ORDER BY?
           +-> YES: Check selectivity
               |
               +-> High selectivity (few matches)?
-| -> GOOD candidate |
+              |   -> GOOD candidate
               |
               +-> Low selectivity (many matches)?
                   -> May not help
 
 ```text
-
 ---
 
 ## Index Type Decision
@@ -1438,7 +1341,6 @@ Array contains      -> GIN
 Spatial/Geo         -> GiST
 
 ```text
-
 ---
 
 ## Composite Index Order
@@ -1454,9 +1356,7 @@ Query: WHERE date > '2024-01-01' AND user_id = 123
 Index: (user_id, date) -- equality before range!
 
 ```text
-
 ---
-
 ## 🎯 CI/CD DECISION TREE
 
 > **Choosing the right pipeline approach**
@@ -1469,19 +1369,18 @@ Index: (user_id, date) -- equality before range!
 START: What changed?
   |
   +-> Code change in PR?
-| -> Run all tests |
+  |   -> Run all tests
   |
   +-> Dependency update?
-| -> Run all tests + security scan |
+  |   -> Run all tests + security scan
   |
   +-> Config change only?
-| -> Run integration tests |
+  |   -> Run integration tests
   |
   +-> Documentation only?
       -> Skip tests
 
 ```text
-
 ---
 
 ## Deployment Strategy Decision
@@ -1490,21 +1389,20 @@ START: What changed?
 START: What kind of deployment?
   |
   +-> Can have downtime?
-| -> Simple replace |
+  |   -> Simple replace
   |
   +-> Zero downtime needed?
       |
       +-> Easy rollback critical?
-| -> Blue-green |
+      |   -> Blue-green
       |
       +-> Gradual rollout wanted?
-| -> Canary |
+      |   -> Canary
       |
       +-> Simpler, less resources?
           -> Rolling update
 
 ```text
-
 ---
 
 ## Environment Promotion
@@ -1518,5 +1416,4 @@ dev → staging: Tests pass
 staging → production: QA sign-off + smoke test
 
 ```text
-
 ---

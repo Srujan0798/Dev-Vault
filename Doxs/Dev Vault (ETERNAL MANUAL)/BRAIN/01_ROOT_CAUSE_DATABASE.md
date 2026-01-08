@@ -1,769 +1,19 @@
 # ROOT CAUSE DATABASE
 
-## Table of Contents
+## TABLE OF CONTENTS
 
-- [Table of Contents](#table-of-contents)
 - [HOW TO USE THIS DATABASE](#how-to-use-this-database)
-- [FRONTEND ROOT CAUSES](#frontend-root-causes)
-- [Symptom: Component Not Rendering](#symptom-component-not-rendering)
-- [Symptom: Component Renders with Wrong Data](#symptom-component-renders-with-wrong-data)
-- [Symptom: Component Re-renders Too Much](#symptom-component-re-renders-too-much)
-- [Symptom: Form Not Submitting](#symptom-form-not-submitting)
-- [Symptom: Styles Not Applying](#symptom-styles-not-applying)
-- [BACKEND ROOT CAUSES](#backend-root-causes)
-- [Symptom: API Returns 500 Error](#symptom-api-returns-500-error)
-- [Symptom: API Returns Empty/Wrong Data](#symptom-api-returns-emptywrong-data)
-- [Symptom: Authentication Not Working](#symptom-authentication-not-working)
-- [Symptom: Route Returns 404](#symptom-route-returns-404)
-- [DATABASE ROOT CAUSES](#database-root-causes)
-- [Symptom: Can't Connect to Database](#symptom-cant-connect-to-database)
-- [Symptom: Query Returns Error](#symptom-query-returns-error)
-- [Symptom: Insert Fails](#symptom-insert-fails)
-- [Symptom: Update Doesn't Persist](#symptom-update-doesnt-persist)
-- [DEPLOY ROOT CAUSES](#deploy-root-causes)
-- [Symptom: Build Fails](#symptom-build-fails)
-- [Symptom: Works Locally, Fails in Production](#symptom-works-locally-fails-in-production)
-- [Symptom: Performance Slow in Production](#symptom-performance-slow-in-production)
-- [SECURITY ROOT CAUSES](#security-root-causes)
-- [Symptom: CORS Error in Browser](#symptom-cors-error-in-browser)
-- [Symptom: Authentication Bypassed](#symptom-authentication-bypassed)
-- [Symptom: Data Leaking to Wrong User](#symptom-data-leaking-to-wrong-user)
-- [QUICK LOOKUP TABLE](#quick-lookup-table)
-- [By Error Message](#by-error-message)
-  - [This is your DIAGNOSIS DATABASE](#this-is-your-diagnosis-database)
-    - [Symptom Cause Test Fix](#symptom-cause-test-fix)
-    - [No more guessing](#no-more-guessing)
-- [EXTENDED ROOT CAUSE DATABASE](#extended-root-cause-database)
-- [1000+ Error Patterns Across All Domains](#1000-error-patterns-across-all-domains)
-- [REACT SPECIFIC ERRORS](#react-specific-errors)
-- [Symptom: "Warning: Can't perform a React state update on an unmounted component"](#symptom-warning-cant-perform-a-react-state-update-on-an-unmounted-component)
-  - [FIX PATTERN](#fix-pattern)
-- [Symptom: "Too many re-renders. React limits the number of renders"](#symptom-too-many-re-renders-react-limits-the-number-of-renders)
-  - [FIX PATTERN 2](#fix-pattern-2)
-- [Symptom: "React has detected a change in the order of Hooks"](#symptom-react-has-detected-a-change-in-the-order-of-hooks)
-  - [RULE](#rule)
-- [Symptom: "Cannot update a component while rendering a different component"](#symptom-cannot-update-a-component-while-rendering-a-different-component)
-- [Symptom: "Element type is invalid: expected a string or class/function"](#symptom-element-type-is-invalid-expected-a-string-or-classfunction)
-  - [COMMON PATTERNS](#common-patterns)
-- [JS SPECIFIC ERRORS](#js-specific-errors)
-- [Symptom: "Error: Invariant: headers() expects to have requestAsyncStorage"](#symptom-error-invariant-headers-expects-to-have-requestasyncstorage)
-- [Symptom: "Error: NEXT_REDIRECT"](#symptom-error-next_redirect)
-  - [FIX PATTERN 3](#fix-pattern-3)
-- [Symptom: "Error: Dynamic server usage: headers"](#symptom-error-dynamic-server-usage-headers)
-- [Symptom: "Module not found: Can't resolve 'fs'"](#symptom-module-not-found-cant-resolve-fs)
-  - [FIX PATTERN 4](#fix-pattern-4)
-- [Symptom: "Error: Page changed from static to dynamic"](#symptom-error-page-changed-from-static-to-dynamic)
-- [Symptom: "Unhandled Runtime Error: NotFoundError"](#symptom-unhandled-runtime-error-notfounderror)
-- [TYPESCRIPT SPECIFIC ERRORS](#typescript-specific-errors)
-- [Symptom: "Type 'X' is not assignable to type 'Y'"](#symptom-type-x-is-not-assignable-to-type-y)
-  - [COMMON FIXES](#common-fixes)
-- [Symptom: "Property 'X' does not exist on type 'Y'"](#symptom-property-x-does-not-exist-on-type-y)
-- [Symptom: "Object is possibly 'undefined'"](#symptom-object-is-possibly-undefined)
-  - [FIX PATTERNS](#fix-patterns)
-- [Symptom: "Argument of type 'X' is not assignable to parameter"](#symptom-argument-of-type-x-is-not-assignable-to-parameter)
-- [Symptom: "Cannot find module 'X' or its declarations"](#symptom-cannot-find-module-x-or-its-declarations)
-- [PRISMA SPECIFIC ERRORS](#prisma-specific-errors)
-- [Symptom: "PrismaClient is not configured to run in Vercel Edge Functions"](#symptom-prismaclient-is-not-configured-to-run-in-vercel-edge-functions)
-  - [FIX](#fix)
-- [Symptom: "Environment variable not found: DATABASE_URL"](#symptom-environment-variable-not-found-database_url)
-- [Symptom: "Prisma has detected that this project was built on a different platform"](#symptom-prisma-has-detected-that-this-project-was-built-on-a-different-platform)
-  - [FIX 2](#fix-2)
-- [Symptom: "Unable to fit integer value X into an Int4"](#symptom-unable-to-fit-integer-value-x-into-an-int4)
-  - [FIX 3](#fix-3)
-- [Symptom: "Prepared statement already exists"](#symptom-prepared-statement-already-exists)
-  - [FIX 4](#fix-4)
-- [Symptom: "Transaction already closed"](#symptom-transaction-already-closed)
-- [API INTEGRATION ERRORS](#api-integration-errors)
-- [Symptom: "Network request failed"](#symptom-network-request-failed)
-- [Symptom: "SyntaxError: Unexpected token < in JSON"](#symptom-syntaxerror-unexpected-token-in-json)
-- [Symptom: "Failed to fetch" with no details](#symptom-failed-to-fetch-with-no-details)
-- [STATE MANAGEMENT ERRORS](#state-management-errors)
-- [Symptom: "Cannot read properties of undefined" in store/context](#symptom-cannot-read-properties-of-undefined-in-storecontext)
-- [Symptom: Store not updating UI](#symptom-store-not-updating-ui)
-  - [FIX (Zustand example)](#fix-zustand-example)
-- [TAILWIND CSS ERRORS](#tailwind-css-errors)
-- [Symptom: Tailwind classes not working](#symptom-tailwind-classes-not-working)
-  - [FIX 5](#fix-5)
-- [Symptom: Dark mode not switching](#symptom-dark-mode-not-switching)
-- [AUTHENTICATION ERRORS](#authentication-errors)
-- [Symptom: NextAuth "NEXTAUTH_SECRET" error](#symptom-nextauth-nextauth_secret-error)
-  - [GENERATE SECRET](#generate-secret)
-- [Symptom: "OAuthAccountNotLinked"](#symptom-oauthaccountnotlinked)
-- [Symptom: Callback URL error in OAuth](#symptom-callback-url-error-in-oauth)
-- [PERFORMANCE ISSUES](#performance-issues)
-- [Symptom: Slow page load](#symptom-slow-page-load)
-- [Symptom: Memory leak](#symptom-memory-leak)
-- [RESPONSIVE ISSUES](#responsive-issues)
-- [Symptom: Touch not working](#symptom-touch-not-working)
-- [Symptom: Layout breaking on mobile](#symptom-layout-breaking-on-mobile)
-  - [[TARGET: 50,000 LINES OF ROOT CAUSES]](#target-50000-lines-of-root-causes)
-    - [Current: ~800 lines - Expanding systematically](#current-800-lines---expanding-systematically)
-    - [Coverage: React, Next.js, TypeScript, Prisma, Auth, Performance, Mobile](#coverage-react-nextjs-typescript-prisma-auth-performance-mobile)
-- [INDEX BY KEYWORD](#index-by-keyword)
-- [TYPESCRIPT ERROR PATTERNS](#typescript-error-patterns)
-- [TS2322: Type 'X' is not assignable to type 'Y'](#ts2322-type-x-is-not-assignable-to-type-y)
-- [TS2339: Property 'X' does not exist on type 'Y'](#ts2339-property-x-does-not-exist-on-type-y)
-- [TS2345: Argument type mismatch](#ts2345-argument-type-mismatch)
-- [TS7006: Parameter implicitly has 'any' type](#ts7006-parameter-implicitly-has-any-type)
-- [DEPLOYMENT ERROR PATTERNS](#deployment-error-patterns)
-- [Vercel Build Fails](#vercel-build-fails)
-- [Docker Build Fails](#docker-build-fails)
-- [CI/CD Pipeline Fails](#cicd-pipeline-fails)
-- [ENVIRONMENT VARIABLE PATTERNS](#environment-variable-patterns)
-- [ENV Not Working](#env-not-working)
-- [NETWORK PATTERNS](#network-patterns)
-- [CORS Errors](#cors-errors)
-- [PERFORMANCE PATTERNS](#performance-patterns)
-- [Slow Page Load](#slow-page-load)
-- [Memory Leaks](#memory-leaks)
-- [REAL PRODUCTION INCIDENTS (Sourced from Web)](#real-production-incidents-sourced-from-web)
-  - [The EXACT Error](#the-exact-error)
-  - [Real Incident Reports](#real-incident-reports)
-  - [KEYWORDS that trigger this](#keywords-that-trigger-this)
-  - [Real Fix From Production](#real-fix-from-production)
-- [REACT HYDRATION MISMATCH: Text Content Does Not Match](#react-hydration-mismatch-text-content-does-not-match)
-  - [The EXACT Error 2](#the-exact-error-2)
-  - [Real Causes (from Next.js docs)](#real-causes-from-nextjs-docs)
-  - [Real Fix](#real-fix)
-- [VERCEL "500 Internal Server Error" with No Logs](#vercel-500-internal-server-error-with-no-logs)
-  - [The Pattern](#the-pattern)
-  - [Real Causes](#real-causes)
-  - [KEYWORDS that trigger this 2](#keywords-that-trigger-this-2)
-  - [Real Fix 2](#real-fix-2)
-- [NEXT.JS "Dynamic server usage" Error](#nextjs-dynamic-server-usage-error)
-  - [The EXACT Error 4](#the-exact-error-4)
-  - [KEYWORDS that trigger this 3](#keywords-that-trigger-this-3)
-  - [Real Fix 3](#real-fix-3)
-    - [[REAL DATA FROM WEB SOURCES]](#real-data-from-web-sources)
-    - [Sources: GitHub Issues, Prisma Docs, Next.js Docs, Vercel Community](#sources-github-issues-prisma-docs-nextjs-docs-vercel-community)
-    - [NOT AI-Generated - Actual production incident patterns](#not-ai-generated---actual-production-incident-patterns)
-- [RECOGNITION KEYS INDEX](#recognition-keys-index)
-- [COMPLETE PRISMA ERROR CODE DATABASE](#complete-prisma-error-code-database)
-- [Connection Errors (P1xxx)](#connection-errors-p1xxx)
-- [Query Errors (P2xxx)](#query-errors-p2xxx)
-- [Prisma Accelerate/Pool Errors (P6xxx)](#prisma-acceleratepool-errors-p6xxx)
-- [JS ERROR DATABASE](#js-error-database)
-- [Common Next.js Production Errors](#common-nextjs-production-errors)
-- [Performance Killers (from real web sources)](#performance-killers-from-real-web-sources)
-  - [[SOURCED FROM REAL WEB DATA]](#sourced-from-real-web-data)
-    - [Stack Overflow, Prisma Docs, LogRocket, Medium, GitHub Issues](#stack-overflow-prisma-docs-logrocket-medium-github-issues)
-- [QUICK SEARCH INDEX](#quick-search-index)
-- [TYPESCRIPT COMMON ERRORS (Web Sourced)](#typescript-common-errors-web-sourced)
-- [Top TypeScript Production Errors](#top-typescript-production-errors)
-- [tsconfig.json Critical Settings](#tsconfigjson-critical-settings)
-- [VERCEL DEPLOYMENT ERRORS (Web Sourced)](#vercel-deployment-errors-web-sourced)
-- [Common Vercel Build Failures](#common-vercel-build-failures)
-- [Vercel Deployment Checklist](#vercel-deployment-checklist)
-- [Quick Keyword Search Index](#quick-keyword-search-index)
-  - [[REAL WEB-SOURCED DATA]](#real-web-sourced-data)
-    - [Sources: Vercel Docs, TypeScript Docs, dev.to, Medium, Reddit 2024](#sources-vercel-docs-typescript-docs-devto-medium-reddit-2024)
-- [REACT HOOKS COMMON ERRORS (Web Sourced)](#react-hooks-common-errors-web-sourced)
-- [useState Errors](#usestate-errors)
-- [useEffect Errors](#useeffect-errors)
-- [Example Fixes](#example-fixes)
-- [TAILWIND CSS COMMON ISSUES (Web Sourced)](#tailwind-css-common-issues-web-sourced)
-- [Tailwind Not Working](#tailwind-not-working)
-- [tailwind.config.js Critical Setup](#tailwindconfigjs-critical-setup)
-- [Standard PostgreSQL URL format](#standard-postgresql-url-format)
-- [With SSL (production)](#with-ssl-production)
-- [Connection pooling with Prisma](#connection-pooling-with-prisma)
-- [REQUIRED for NextAuth](#required-for-nextauth)
-- [For OAuth providers](#for-oauth-providers)
-- [PRODUCTION DOCKERFILE - Multi-stage, secure](#production-dockerfile---multi-stage-secure)
-- [Security: Non-root user](#security-non-root-user)
-- [Only copy what's needed](#only-copy-whats-needed)
-- [Health check](#health-check)
-- [Quick Keyword Search Index 4](#quick-keyword-search-index-4)
-  - [[REAL WEB-SOURCED DATA] 2 2 2](#real-web-sourced-data-2-2-2)
-    - [Sources: Medium, tech-couch.com, Chrome DevTools, kombai.com 2024](#sources-medium-tech-couchcom-chrome-devtools-kombaicom-2024)
-- [NPM / YARN / PNPM ERRORS (Web Sourced)](#npm-yarn-pnpm-errors-web-sourced)
-- [npm Common Errors](#npm-common-errors)
-- [yarn Common Errors](#yarn-common-errors)
-- [pnpm Common Errors](#pnpm-common-errors)
-- [Package Manager Quick Fixes](#package-manager-quick-fixes)
-- [SUPABASE COMMON ERRORS (Web Sourced)](#supabase-common-errors-web-sourced)
-- [Authentication Errors 2](#authentication-errors-2)
-- [Database Errors](#database-errors)
-- [Supabase Connection String](#supabase-connection-string)
-- [Quick Keyword Search Index 5](#quick-keyword-search-index-5)
-  - [[REAL WEB-SOURCED DATA] 3](#real-web-sourced-data-3)
-    - [Sources: pnpm.io, yarnpkg.com, Supabase docs, Medium 2024](#sources-pnpmio-yarnpkgcom-supabase-docs-medium-2024)
-- [THE IMPOSSIBLE PATTERNS](#the-impossible-patterns)
-- [POSTMORTEM WISDOM](#postmortem-wisdom)
-- [WHYS THAT MATTER](#whys-that-matter)
-- [SENIOR DEV COMPRESSED WISDOM](#senior-dev-compressed-wisdom)
-- [PATTERNS](#patterns)
-- [THE DECISIONS THAT SHAPED PRODUCTION](#the-decisions-that-shaped-production)
-- [FAILURE MODE CATALOG](#failure-mode-catalog)
-- [SCALING TRUTHS](#scaling-truths)
-- [THE COMPRESSION](#the-compression)
-- [DECISION COMPRESSION ENGINE](#decision-compression-engine)
-- [PATTERN: "It works locally but..."](#pattern-it-works-locally-but)
-- [PATTERN: "It was working yesterday..."](#pattern-it-was-working-yesterday)
-- [PATTERN: "It works once then fails..."](#pattern-it-works-once-then-fails)
-- [PATTERN: "It randomly fails..."](#pattern-it-randomly-fails)
-- [PATTERN: "It gets slower over time..."](#pattern-it-gets-slower-over-time)
-  - [[24K GOLD DENSITY]](#24k-gold-density)
-    - [From these patterns AI solves the impossible](#from-these-patterns-ai-solves-the-impossible)
-- [THE PATTERNS THAT BROKE PRODUCTION](#the-patterns-that-broke-production)
-- [CATASTROPHIC PATTERN: Flag Reuse](#catastrophic-pattern-flag-reuse)
-- [CATASTROPHIC PATTERN: Missing Timeout](#catastrophic-pattern-missing-timeout)
-- [CATASTROPHIC PATTERN: Single Point Control](#catastrophic-pattern-single-point-control)
-- [DEBUGGING HEURISTICS (GOLD)](#debugging-heuristics-gold)
-- [TECH DEBT DECISION MATRIX](#tech-debt-decision-matrix)
-- [SCALE ARCHITECTURE TRUTHS](#scale-architecture-truths)
-- [THE REAL COST OF DECISIONS](#the-real-cost-of-decisions)
-- [THE IMPOSSIBLE DEBUGGING PATTERNS](#the-impossible-debugging-patterns)
-- [PATTERN: "The test passes but prod fails"](#pattern-the-test-passes-but-prod-fails)
-- [PATTERN: "It fails every 49.7 days"](#pattern-it-fails-every-497-days)
-- [PATTERN: "Works on all machines except one"](#pattern-works-on-all-machines-except-one)
-- [PATTERN: "Slow only on Tuesdays"](#pattern-slow-only-on-tuesdays)
-- [PATTERN: "Random user can't login"](#pattern-random-user-cant-login)
-- [PRODUCTION INTUITION RULES](#production-intuition-rules)
-- [[24K GOLD: YEARS OF PAIN COMPRESSED]](#24k-gold-years-of-pain-compressed)
-  - [Each line above saved a production outage](#each-line-above-saved-a-production-outage)
-- [AI AGENT TRIBAL KNOWLEDGE](#ai-agent-tribal-knowledge)
-- [AI HALLUCINATION PATTERNS](#ai-hallucination-patterns)
-- [30% RULE (2024 Studies)](#30-rule-2024-studies)
-- [PROMPT ENGINEERING FOR CODE (COMPRESSED)](#prompt-engineering-for-code-compressed)
-- [THE VIBE CODING TRAP](#the-vibe-coding-trap)
-- [SPECIFIC PATTERNS](#specific-patterns)
-- [Cursor](#cursor)
-- [Copilot](#copilot)
-- [Replit AI](#replit-ai)
-- [v0 / Vercel](#v0-vercel)
-- [AI CODE REVIEW CHECKLIST](#ai-code-review-checklist)
-- [EFFECTIVE VIBE CODING WORKFLOW](#effective-vibe-coding-workflow)
-- [WHEN AI FAILS PATTERNS](#when-ai-fails-patterns)
-- [[24K GOLD: AI AGENT TRIBAL KNOWLEDGE]](#24k-gold-ai-agent-tribal-knowledge)
-  - [From these patterns Vibe coding that actually works](#from-these-patterns-vibe-coding-that-actually-works)
-- [DATABASE QUERY TRIBAL KNOWLEDGE](#database-query-tribal-knowledge)
-- [N+1 QUERY DEATH (The #1 ORM Killer)](#n1-query-death-the-1-orm-killer)
-- [N+1 FIX PATTERNS (Per ORM)](#n1-fix-patterns-per-orm)
-- [PATTERNS 2](#patterns-2)
-- [QUERY OPTIMIZATION GOLD](#query-optimization-gold)
-- [THE EXPLAIN MOMENT](#the-explain-moment)
-- [CONNECTION POOL TRUTHS](#connection-pool-truths)
-- [MIGRATION DISASTERS](#migration-disasters)
-- [CACHING DECAY PATTERNS](#caching-decay-patterns)
-- [[24K GOLD: DATABASE TRIBAL KNOWLEDGE]](#24k-gold-database-tribal-knowledge)
-  - [Each pattern above saved a production incident](#each-pattern-above-saved-a-production-incident)
-- [MICROSERVICES TRIBAL KNOWLEDGE](#microservices-tribal-knowledge)
-- [PATTERNS 3](#patterns-3)
-- [MICROSERVICES TRUTHS](#microservices-truths)
-- [WHEN TO USE WHAT](#when-to-use-what)
-- [FRONTEND PERFORMANCE TRIBAL KNOWLEDGE](#frontend-performance-tribal-knowledge)
-- [CORE WEB VITALS (2024)](#core-web-vitals-2024)
-- [PERFORMANCE KILLS](#performance-kills)
-- [CRITICAL RENDERING PATH](#critical-rendering-path)
-- [RATE LIMITING TRIBAL KNOWLEDGE](#rate-limiting-tribal-knowledge)
-- [RATE LIMIT ALGORITHMS](#rate-limit-algorithms)
-- [TOKEN BUCKET FORMULA](#token-bucket-formula)
-- [RATE LIMIT DIMENSIONS](#rate-limit-dimensions)
-- [RATE LIMIT RESPONSE](#rate-limit-response)
-- [STATE MANAGEMENT TRIBAL KNOWLEDGE](#state-management-tribal-knowledge)
-- [WHEN TO USE WHAT 2](#when-to-use-what-2)
-- [ZUSTAND VS REDUX](#zustand-vs-redux)
-- [PATTERNS 4](#patterns-4)
-- [ZUSTAND PATTERNS](#zustand-patterns)
-- [[24K GOLD: ARCHITECTURE + PERFORMANCE + STATE]](#24k-gold-architecture--performance--state)
-  - [The impossible patterns, compressed](#the-impossible-patterns-compressed)
-- [AUTHENTICATION TRIBAL KNOWLEDGE](#authentication-tribal-knowledge)
-- [AUTH FLOW CHOICES](#auth-flow-choices)
-- [JWT SECURITY TRUTHS](#jwt-security-truths)
-- [SESSION COOKIE FLAGS](#session-cookie-flags)
-- [PATTERNS 5](#patterns-5)
-- [DEPLOYMENT TRIBAL KNOWLEDGE](#deployment-tribal-knowledge)
-- [DEPLOYMENT STRATEGIES](#deployment-strategies)
-- [GREEN TRUTHS](#green-truths)
-- [CANARY TRUTHS](#canary-truths)
-- [ROLLBACK CHECKLIST](#rollback-checklist)
-- [ERROR HANDLING TRIBAL KNOWLEDGE](#error-handling-tribal-knowledge)
-- [ASYNC ERROR PATTERNS](#async-error-patterns)
-- [PATTERNS 6](#patterns-6)
-- [ERROR RESPONSE PATTERN](#error-response-pattern)
-- [TYPESCRIPT ERROR NARROWING](#typescript-error-narrowing)
-- [[24K GOLD: AUTH + DEPLOY + ERROR HANDLING]](#24k-gold-auth--deploy--error-handling)
-  - [The patterns that keep production alive](#the-patterns-that-keep-production-alive)
-- [TESTING TRIBAL KNOWLEDGE](#testing-tribal-knowledge)
-- [TESTING PYRAMID](#testing-pyramid)
-- [WHEN TO USE WHAT 3](#when-to-use-what-3)
-- [TESTING TRUTHS](#testing-truths)
-- [WHAT TO TEST (PRIORITY ORDER)](#what-to-test-priority-order)
-- [PATTERNS 7](#patterns-7)
-- [OBSERVABILITY TRIBAL KNOWLEDGE](#observability-tribal-knowledge)
-- [THREE PILLARS](#three-pillars)
-- [STRUCTURED LOGGING PATTERN](#structured-logging-pattern)
-- [LOG LEVELS TRUTHS](#log-levels-truths)
-- [PATTERNS 8](#patterns-8)
-- [WHAT TO MONITOR (GOLDEN SIGNALS)](#what-to-monitor-golden-signals)
-- [TRACING PATTERN](#tracing-pattern)
-- [[24K GOLD: TESTING + OBSERVABILITY]](#24k-gold-testing--observability)
-  - [The patterns that make debugging possible](#the-patterns-that-make-debugging-possible)
-- [GIT WORKFLOW TRIBAL KNOWLEDGE](#git-workflow-tribal-knowledge)
-- [BRANCHING STRATEGY CHOICE](#branching-strategy-choice)
-- [REBASE VS MERGE](#rebase-vs-merge)
-- [GOOD: Rebase your feature on main before merge](#good-rebase-your-feature-on-main-before-merge)
-- [BAD: Rebase shared branches](#bad-rebase-shared-branches)
-- [Check propagation globally](#check-propagation-globally)
-- [Query specific DNS server](#query-specific-dns-server)
-- [Trace full resolution path](#trace-full-resolution-path)
-- [Check all records](#check-all-records)
-- [Flush local cache (Windows)](#flush-local-cache-windows)
-- [Flush local cache (macOS)](#flush-local-cache-macos)
-- [Start rebase](#start-rebase)
-- [Conflict! Git pauses](#conflict-git-pauses)
-- [1. Fix conflicts in files](#1-fix-conflicts-in-files)
-- [2. Stage fixed files](#2-stage-fixed-files)
-- [3. Continue rebase](#3-continue-rebase)
-- [Too messy? Abort](#too-messy-abort)
-- [Rebase last 5 commits interactively](#rebase-last-5-commits-interactively)
-- [Commands](#commands)
-- [pick   = use commit](#pick-use-commit)
-- [squash = meld into previous](#squash-meld-into-previous)
-- [edit   = stop to amend](#edit-stop-to-amend)
-- [drop   = delete commit](#drop-delete-commit)
-- [reword = change message](#reword-change-message)
-- [View running containers](#view-running-containers)
-- [View ALL containers (including stopped)](#view-all-containers-including-stopped)
-- [View logs](#view-logs)
-- [Shell into running container](#shell-into-running-container)
-- [Container resource usage](#container-resource-usage)
-- [Detailed container info](#detailed-container-info)
-- [HTTPS enforcement](#https-enforcement)
-- [Prevent clickjacking](#prevent-clickjacking)
-- [XSS protection](#xss-protection)
-- [Prevent MIME sniffing](#prevent-mime-sniffing)
-- [Control referrer info](#control-referrer-info)
-- [View pod status](#view-pod-status)
-- [Detailed pod info + events](#detailed-pod-info-events)
-- [View pod logs](#view-pod-logs)
-- [Previous crash logs](#previous-crash-logs)
-- [Shell into running pod](#shell-into-running-pod)
-- [Resource usage](#resource-usage)
-- [GRAPHQL TRIBAL KNOWLEDGE](#graphql-tribal-knowledge)
-- [PROBLEM 2](#problem-2)
-- [DATALOADER PATTERN 2](#dataloader-pattern-2)
-- [GRAPHQL SECURITY](#graphql-security)
-- [MONOREPO TRIBAL KNOWLEDGE 2](#monorepo-tribal-knowledge-2)
-- [TOOL COMPARISON](#tool-comparison)
-- [TURBOREPO SETUP](#turborepo-setup)
-- [MONOREPO BEST PRACTICES](#monorepo-best-practices)
-- [GIT BRANCHING TRIBAL KNOWLEDGE](#git-branching-tribal-knowledge)
-- [BASED DEVELOPMENT](#based-development)
-- [FEATURE BRANCHES](#feature-branches)
-- [BRANCHING CHECKLIST](#branching-checklist)
-- [[24K GOLD: KUBERNETES + GRAPHQL + MONOREPO + GIT BRANCHING]](#24k-gold-kubernetes--graphql--monorepo--git-branching)
-  - [The patterns that scale teams and systems 2](#the-patterns-that-scale-teams-and-systems-2)
-- [CD PIPELINE TRIBAL KNOWLEDGE](#cd-pipeline-tribal-knowledge)
-- [GITHUB ACTIONS CACHING](#github-actions-caching)
-- [CD OPTIMIZATION](#cd-optimization)
-- [MONITORING TRIBAL KNOWLEDGE](#monitoring-tribal-knowledge)
-- [THREE PILLARS OF OBSERVABILITY](#three-pillars-of-observability)
-- [SLO (SERVICE LEVEL OBJECTIVE)](#slo-service-level-objective)
-- [ALERTING CHECKLIST](#alerting-checklist)
-- [SERVERLESS TRIBAL KNOWLEDGE](#serverless-tribal-knowledge)
-- [COLD START CAUSES 2](#cold-start-causes-2)
-- [COLD START OPTIMIZATION 2](#cold-start-optimization-2)
-- [LAMBDA BEST PRACTICES](#lambda-best-practices)
-- [DATABASE MIGRATION TRIBAL KNOWLEDGE 2](#database-migration-tribal-knowledge-2)
-- [CONTRACT PATTERN 2](#contract-pattern-2)
-- [PATTERNS 21](#patterns-21)
-- [MIGRATION CHECKLIST](#migration-checklist)
-- [[24K GOLD: CI/CD + MONITORING + SERVERLESS + MIGRATIONS]](#24k-gold-cicd--monitoring--serverless--migrations)
-  - [The patterns that ship and maintain production systems](#the-patterns-that-ship-and-maintain-production-systems)
-- [CODE SPLITTING TRIBAL KNOWLEDGE](#code-splitting-tribal-knowledge)
-- [REACT LAZY LOADING](#react-lazy-loading)
-- [BASED SPLITTING](#based-splitting)
-- [BUNDLE OPTIMIZATION CHECKLIST](#bundle-optimization-checklist)
-- [DRIVEN ARCHITECTURE TRIBAL KNOWLEDGE](#driven-architecture-tribal-knowledge)
-- [MESSAGE QUEUE COMPARISON](#message-queue-comparison)
-- [DRIVEN PATTERNS](#driven-patterns)
-- [MESSAGE QUEUE CHECKLIST](#message-queue-checklist)
-- [API GATEWAY TRIBAL KNOWLEDGE](#api-gateway-tribal-knowledge)
-- [GATEWAY RESPONSIBILITIES](#gateway-responsibilities)
-- [KONG VS AWS API GATEWAY](#kong-vs-aws-api-gateway)
-- [GATEWAY BEST PRACTICES](#gateway-best-practices)
-- [ORM OPTIMIZATION TRIBAL KNOWLEDGE](#orm-optimization-tribal-knowledge)
-- [QUERY PROBLEM](#query-problem)
-- [PRISMA OPTIMIZATION](#prisma-optimization)
-- [ORM CHECKLIST](#orm-checklist)
-- [[24K GOLD: CODE SPLITTING + EVENT-DRIVEN + API GATEWAY + ORM]](#24k-gold-code-splitting--event-driven--api-gateway--orm)
-  - [The patterns that make apps fast and scalable](#the-patterns-that-make-apps-fast-and-scalable)
-- [REACT STATE MANAGEMENT TRIBAL KNOWLEDGE](#react-state-management-tribal-knowledge)
-- [STATE LIBRARY COMPARISON](#state-library-comparison)
-- [WHEN TO USE WHAT 4](#when-to-use-what-4)
-- [STATE MANAGEMENT CHECKLIST](#state-management-checklist)
-- [TESTING PYRAMID TRIBAL KNOWLEDGE](#testing-pyramid-tribal-knowledge)
-- [THE TEST PYRAMID](#the-test-pyramid)
-- [TEST TYPE COMPARISON](#test-type-comparison)
-- [MOCKING BEST PRACTICES](#mocking-best-practices)
-- [CORE WEB VITALS TRIBAL KNOWLEDGE](#core-web-vitals-tribal-knowledge)
-- [METRICS](#metrics)
-- [LCP OPTIMIZATION](#lcp-optimization)
-- [CLS OPTIMIZATION](#cls-optimization)
-- [INP OPTIMIZATION](#inp-optimization)
-- [TYPESCRIPT GENERICS TRIBAL KNOWLEDGE](#typescript-generics-tribal-knowledge)
-- [BASIC GENERICS](#basic-generics)
-- [CONSTRAINTS AND KEYOF](#constraints-and-keyof)
-- [ADVANCED TYPE PATTERNS](#advanced-type-patterns)
-- [TYPESCRIPT CHECKLIST](#typescript-checklist)
-- [[24K GOLD: STATE MANAGEMENT + TESTING + WEB VITALS + TYPESCRIPT]](#24k-gold-state-management--testing--web-vitals--typescript)
-  - [The patterns that build quality React apps](#the-patterns-that-build-quality-react-apps)
-- [BUILD TOOLS TRIBAL KNOWLEDGE](#build-tools-tribal-knowledge)
-- [BUILD TOOL COMPARISON](#build-tool-comparison)
-- [WHEN TO USE WHAT 5](#when-to-use-what-5)
-- [BACKEND FRAMEWORKS TRIBAL KNOWLEDGE](#backend-frameworks-tribal-knowledge)
-- [FRAMEWORK COMPARISON](#framework-comparison)
-- [WHEN TO USE WHAT 6](#when-to-use-what-6)
-- [DATABASE COMPARISON TRIBAL KNOWLEDGE](#database-comparison-tribal-knowledge)
-- [POSTGRES VS MYSQL](#postgres-vs-mysql)
-- [WHEN TO USE WHAT 7](#when-to-use-what-7)
-- [CSS ARCHITECTURE TRIBAL KNOWLEDGE](#css-architecture-tribal-knowledge)
-- [CSS APPROACH COMPARISON](#css-approach-comparison)
-- [WHEN TO USE WHAT 8](#when-to-use-what-8)
-- [CSS ARCHITECTURE CHECKLIST](#css-architecture-checklist)
-- [[24K GOLD: BUILD TOOLS + BACKEND FRAMEWORKS + DATABASES + CSS]](#24k-gold-build-tools--backend-frameworks--databases--css)
-  - [The patterns that choose the right stack](#the-patterns-that-choose-the-right-stack)
-- [AUTHENTICATION TRIBAL KNOWLEDGE 2](#authentication-tribal-knowledge-2)
-- [BEST PRACTICES](#best-practices)
-- [TOKEN STORAGE](#token-storage)
-- [COOKIE SECURITY FLAGS](#cookie-security-flags)
-- [REACT HOOKS OPTIMIZATION TRIBAL KNOWLEDGE](#react-hooks-optimization-tribal-knowledge)
-- [HOOK COMPARISON](#hook-comparison)
-- [USECALLBACK PATTERN](#usecallback-pattern)
-- [USEMEMO PATTERN](#usememo-pattern)
-- [MEMOIZATION CHECKLIST](#memoization-checklist)
-- [JS RSC TRIBAL KNOWLEDGE](#js-rsc-tribal-knowledge)
-- [SERVER VS CLIENT COMPONENTS](#server-vs-client-components)
-- [RSC DATA FETCHING](#rsc-data-fetching)
-- [RSC COMPOSITION RULES](#rsc-composition-rules)
-- [STREAMING WITH SUSPENSE 2](#streaming-with-suspense-2)
-- [ERROR HANDLING TRIBAL KNOWLEDGE 2](#error-handling-tribal-knowledge-2)
-- [ERROR BOUNDARY PATTERN](#error-boundary-pattern)
-- [T CATCH](#t-catch)
-- [PRODUCTION LOGGING CHECKLIST](#production-logging-checklist)
-- [LOG LEVELS 2](#log-levels-2)
-- [[24K GOLD: AUTH + REACT HOOKS + NEXT.JS RSC + ERROR HANDLING]](#24k-gold-auth--react-hooks--nextjs-rsc--error-handling)
-  - [The patterns that build secure, fast, resilient apps](#the-patterns-that-build-secure-fast-resilient-apps)
-- [AWAIT TRIBAL KNOWLEDGE](#await-tribal-knowledge)
-- [PROMISE STATES](#promise-states)
-- [AWAIT PATTERNS](#await-patterns)
-- [ASYNC PITFALLS](#async-pitfalls)
-- [ALL VS ALLSETTLED](#all-vs-allsettled)
-- [API VERSIONING TRIBAL KNOWLEDGE 2](#api-versioning-tribal-knowledge-2)
-- [VERSIONING METHODS](#versioning-methods)
-- [BACKWARD COMPATIBILITY RULES](#backward-compatibility-rules)
-- [DEPRECATION CHECKLIST](#deprecation-checklist)
-- [INFRASTRUCTURE AS CODE TRIBAL KNOWLEDGE](#infrastructure-as-code-tribal-knowledge)
-- [TOOL COMPARISON 2](#tool-comparison-2)
-- [C BEST PRACTICES](#c-best-practices)
-- [TERRAFORM PATTERNS](#terraform-patterns)
-- [GIT CONFLICT RESOLUTION TRIBAL KNOWLEDGE](#git-conflict-resolution-tribal-knowledge)
-- [CONFLICT PREVENTION 3](#conflict-prevention-3)
-- [REBASE VS MERGE 3](#rebase-vs-merge-3)
-- [CONFLICT RESOLUTION COMMANDS](#conflict-resolution-commands)
-- [[24K GOLD: ASYNC + API VERSIONING + IaC + GIT CONFLICTS]](#24k-gold-async--api-versioning--iac--git-conflicts)
-  - [The patterns that handle complexity at scale](#the-patterns-that-handle-complexity-at-scale)
-- [WEB SECURITY TRIBAL KNOWLEDGE](#web-security-tribal-knowledge)
-- [XSS PREVENTION](#xss-prevention)
-- [CSRF PREVENTION](#csrf-prevention)
-- [SQL INJECTION PREVENTION](#sql-injection-prevention)
-- [SECURITY HEADERS CHECKLIST](#security-headers-checklist)
-- [REACT PROFILING TRIBAL KNOWLEDGE](#react-profiling-tribal-knowledge)
-- [CHROME DEVTOOLS PERFORMANCE](#chrome-devtools-performance)
-- [REACT DEVTOOLS PROFILER](#react-devtools-profiler)
-- [PERFORMANCE OPTIMIZATION CHECKLIST](#performance-optimization-checklist)
-- [MICROSERVICES COMMUNICATION TRIBAL KNOWLEDGE](#microservices-communication-tribal-knowledge)
-- [GRPC VS REST](#grpc-vs-rest)
-- [GRPC PATTERNS](#grpc-patterns)
-- [SERVICE MESH BENEFITS](#service-mesh-benefits)
-- [DATABASE SCALING TRIBAL KNOWLEDGE](#database-scaling-tribal-knowledge)
-- [SHARDING VS REPLICATION](#sharding-vs-replication)
-- [SHARDING STRATEGIES](#sharding-strategies)
-- [REPLICATION STRATEGIES](#replication-strategies)
-- [SCALING DECISION TREE](#scaling-decision-tree)
-- [[24K GOLD: WEB SECURITY + REACT PROFILING + MICROSERVICES + DATABASE SCALING]](#24k-gold-web-security--react-profiling--microservices--database-scaling)
-  - [The patterns that build secure, observable, scalable systems](#the-patterns-that-build-secure-observable-scalable-systems)
-- [BROWSER DEVTOOLS TRIBAL KNOWLEDGE](#browser-devtools-tribal-knowledge)
-- [NETWORK TAB ESSENTIALS](#network-tab-essentials)
-- [DEBUGGING TECHNIQUES](#debugging-techniques)
-- [DEVTOOLS SHORTCUTS](#devtools-shortcuts)
-- [PWA TRIBAL KNOWLEDGE](#pwa-tribal-knowledge)
-- [SERVICE WORKER LIFECYCLE](#service-worker-lifecycle)
-- [CACHING STRATEGIES](#caching-strategies)
-- [PWA CHECKLIST](#pwa-checklist)
-- [FRONTEND ARCHITECTURE TRIBAL KNOWLEDGE](#frontend-architecture-tribal-knowledge)
-- [ARCHITECTURE COMPARISON](#architecture-comparison)
-- [FRONTEND PATTERNS](#frontend-patterns)
-- [COMPONENT DESIGN PATTERNS](#component-design-patterns)
-- [BACKEND PATTERNS TRIBAL KNOWLEDGE](#backend-patterns-tribal-knowledge)
-- [LAYERED ARCHITECTURE](#layered-architecture)
-- [REPOSITORY PATTERN](#repository-pattern)
-- [SERVICE LAYER PATTERN](#service-layer-pattern)
-- [PATTERN COMPARISON](#pattern-comparison)
-- [[24K GOLD: DEVTOOLS + PWA + FRONTEND ARCHITECTURE + BACKEND PATTERNS]](#24k-gold-devtools--pwa--frontend-architecture--backend-patterns)
-  - [The patterns that build full-stack expertise](#the-patterns-that-build-full-stack-expertise)
-- [LOAD BALANCING TRIBAL KNOWLEDGE](#load-balancing-tribal-knowledge)
-- [ALGORITHM COMPARISON 2](#algorithm-comparison-2)
-- [ROUND ROBIN](#round-robin)
-- [LEAST CONNECTIONS](#least-connections)
-- [CONSISTENT HASHING](#consistent-hashing)
-- [CDN TRIBAL KNOWLEDGE](#cdn-tribal-knowledge)
-- [CACHE INVALIDATION STRATEGIES](#cache-invalidation-strategies)
-- [CONTROL HEADERS 2](#control-headers-2)
-- [Cache for 1 year (immutable assets)](#cache-for-1-year-immutable-assets)
-- [Always revalidate (API responses)](#always-revalidate-api-responses)
-- [Never cache (sensitive data)](#never-cache-sensitive-data)
-- [Install](#install)
-- [Upgrade](#upgrade)
-- [Rollback](#rollback)
-- [List releases](#list-releases)
-- [Uninstall](#uninstall)
-- [Production deployment with approval](#production-deployment-with-approval)
-- [Non-sensitive config](#non-sensitive-config)
-- [Sensitive Use secret manager](#sensitive-use-secret-manager)
-- [Store reference, not actual value](#store-reference-not-actual-value)
-- [Status and log](#status-and-log)
-- [Branching](#branching)
-- [Stashing](#stashing)
-- [Undoing](#undoing)
-- [Project Name](#project-name)
-- [Quick Start](#quick-start)
-- [Environment Variables](#environment-variables)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [ADR-001: Use PostgreSQL over MySQL](#adr-001-use-postgresql-over-mysql)
-- [Status: Accepted](#status-accepted)
-- [Context](#context)
-- [Decision](#decision)
-- [Consequences](#consequences)
-- [Check DNS resolution](#check-dns-resolution)
-- [Common issues](#common-issues)
-- [- DNS propagation (TTL)](#--dns-propagation-ttl)
-- [- Wrong DNS server](#--wrong-dns-server)
-- [- DNS cache](#--dns-cache)
-- [Check certificate](#check-certificate)
-- [Common issues 2](#common-issues-2)
-- [- Certificate expired](#--certificate-expired)
-- [- Wrong hostname](#--wrong-hostname)
-- [- Incomplete chain](#--incomplete-chain)
-- [- Self-signed in production](#--self-signed-in-production)
-- [Test connectivity](#test-connectivity)
-- [Check open ports](#check-open-ports)
-- [Trace route](#trace-route)
-- [Check local ports](#check-local-ports)
-- [WRONG: Any file change busts cache](#wrong-any-file-change-busts-cache)
-- [RIGHT: Dependencies cached separately](#right-dependencies-cached-separately)
-- [ATTACK: Deeply nested query crashes server](#attack-deeply-nested-query-crashes-server)
-- [Incident Summary](#incident-summary)
-- [Impact](#impact)
-- [Timeline](#timeline)
-- [Root Cause 2](#root-cause-2)
-- [Action Items](#action-items)
-- [DOCKER IN PRODUCTION](#docker-in-production)
-- [Alpine + Node.js DNS Issue](#alpine-nodejs-dns-issue)
-- [Layer Ordering Performance](#layer-ordering-performance)
-- [Zombie Processes](#zombie-processes)
-- [Build Args vs Env Vars](#build-args-vs-env-vars)
-- [Webhook Verification Skip](#webhook-verification-skip)
-- [Currency Decimal Trap](#currency-decimal-trap)
-- [Webhook Ordering Assumptions](#webhook-ordering-assumptions)
-- [Refund After Settlement](#refund-after-settlement)
-- [AWAIT ANTIPATTERNS](#await-antipatterns)
-- [Unhandled Promise Rejection](#unhandled-promise-rejection)
-- [Await in Loop](#await-in-loop)
-- [Try-Catch Misplacement](#try-catch-misplacement)
-- [Returning Inside Finally](#returning-inside-finally)
-- [Mixed Callbacks and Promises](#mixed-callbacks-and-promises)
-- [HTTP CLIENT TRAPS](#http-client-traps)
-- [Connection Pool Exhaustion 2](#connection-pool-exhaustion-2)
-- [Axios vs Fetch Default Timeout](#axios-vs-fetch-default-timeout)
-- [Response Body Not Consumed](#response-body-not-consumed)
-- [Content-Length Mismatch](#content-length-mismatch)
-- [Retry Idempotency](#retry-idempotency)
-- [JS PRODUCTION GOTCHAS](#js-production-gotchas)
-- [ISR Stale During Deploy](#isr-stale-during-deploy)
-- [API Route Cold Start](#api-route-cold-start)
-- [Hydration Mismatch](#hydration-mismatch)
-- [getServerSideProps Blocking](#getserversideprops-blocking)
-- [Image Optimization Limits](#image-optimization-limits)
-- [PRODUCTION SECRETS MANAGEMENT](#production-secrets-management)
-- [Env File Committed](#env-file-committed)
-- [Secrets in Docker Image](#secrets-in-docker-image)
-- [Visible in CI logs](#visible-in-ci-logs)
-- [Rollback Fails When Needed](#rollback-fails-when-needed)
-- [FINAL IMPOSSIBLE KNOWLEDGE DUMP](#final-impossible-knowledge-dump)
-- [Production Readiness Checklist](#production-readiness-checklist)
-- [Debug Order for Unknown Issues](#debug-order-for-unknown-issues)
-- [The Hierarchy of Debugging](#the-hierarchy-of-debugging)
-- [Incident Severity Matrix](#incident-severity-matrix)
-- [Experience Multipliers](#experience-multipliers)
-- [RACE CONDITION FIXES](#race-condition-fixes)
-- [Database Level Locks](#database-level-locks)
-- [Application Level Locks](#application-level-locks)
-- [Queue-Based Serialization](#queue-based-serialization)
-- [AUTH STATE MACHINE](#auth-state-machine)
-- [Authentication States](#authentication-states)
-- [Implementation](#implementation)
-- [ENVIRONMENT VARIABLE GOTCHAS](#environment-variable-gotchas)
-- [Boolean Trap](#boolean-trap)
-- [Missing Variable Silent Fail](#missing-variable-silent-fail)
-- [Different in Docker](#different-in-docker)
-- [Newline in Value](#newline-in-value)
-- [View logs 2](#view-logs-2)
-- [Shell into container 2](#shell-into-container-2)
-- [Inspect container](#inspect-container)
-- [List processes](#list-processes)
-- [View resource usage](#view-resource-usage)
-- [PostgreSQL](#postgresql)
-- [TLS TROUBLESHOOTING](#tls-troubleshooting)
-- [Common Certificate Errors](#common-certificate-errors)
-- [Debug Commands](#debug-commands)
-- [Certificate Order](#certificate-order)
-- [DATABASE SHARDING MISTAKES](#database-sharding-mistakes)
-- [Wrong Shard Key](#wrong-shard-key)
-- [Cross-Shard Queries](#cross-shard-queries)
-- [Resharding Nightmare](#resharding-nightmare)
-- [DISTRIBUTED TRACING](#distributed-tracing)
-- [Core Concepts](#core-concepts)
-- [OpenTelemetry Setup](#opentelemetry-setup)
-- [Best Practices 3](#best-practices-3)
-- [LOAD BALANCING STRATEGIES](#load-balancing-strategies)
-- [Algorithms](#algorithms)
-- [Health Checks](#health-checks)
-- [Session Affinity](#session-affinity)
-- [FEATURE FLAG PATTERNS](#feature-flag-patterns)
-- [Flag Types 2](#flag-types-2)
-- [Implementation 2](#implementation-2)
-- [Flag Lifecycle](#flag-lifecycle)
-- [EVENT SOURCING PATTERNS](#event-sourcing-patterns)
-- [Core Concepts 2](#core-concepts-2)
-- [Event Store Structure](#event-store-structure)
-- [Projections](#projections)
-- [Snapshots](#snapshots)
-- [MEMORY LEAK DEBUGGING](#memory-leak-debugging)
-- [Node.js Heap Snapshots](#nodejs-heap-snapshots)
-- [Common Leak Patterns](#common-leak-patterns)
-- [Detection 2](#detection-2)
-- [Monitor RSS over time](#monitor-rss-over-time)
-- [Force GC and check](#force-gc-and-check)
-- [Use clinic.js](#use-clinicjs)
-- [Blue-Green](#blue-green)
-- [Canary](#canary)
-- [Database Considerations](#database-considerations)
-- [TYPESCRIPT STRICT MODE PATTERNS](#typescript-strict-mode-patterns)
-- [Strict Mode Options](#strict-mode-options)
-- [Type Guards](#type-guards)
-- [Zod for Runtime Validation](#zod-for-runtime-validation)
-- [PRODUCTION MONITORING CHECKLIST](#production-monitoring-checklist)
-- [Golden Signals](#golden-signals)
-- [Alerting Rules 2](#alerting-rules-2)
-- [Dashboard Essentials](#dashboard-essentials)
-- [FINAL PRODUCTION WISDOM](#final-production-wisdom)
-- [The 3 AM Rule](#the-3-am-rule)
-- [Deployment Checklist](#deployment-checklist)
-- [When Things Break](#when-things-break)
-- [Career-Saving Facts](#career-saving-facts)
-- [DEVELOPER TRUTH](#developer-truth)
-- [SERVERLESS EDGE FUNCTION GOTCHAS](#serverless-edge-function-gotchas)
-- [Cold Start Death Spiral](#cold-start-death-spiral)
-- [Memory Limit Exceeded](#memory-limit-exceeded)
-- [Timeout Trap](#timeout-trap)
-- [Edge vs Serverless](#edge-vs-serverless)
-- [JS PRODUCTION GOTCHAS 2](#js-production-gotchas-2)
-- [Hydration Mismatch 2](#hydration-mismatch-2)
-- [Dynamic Import Issues](#dynamic-import-issues)
-- [Image Optimization Limits 2](#image-optimization-limits-2)
-- [ISR Revalidation](#isr-revalidation)
-- [PRISMA PRODUCTION PATTERNS](#prisma-production-patterns)
-- [P2024 Connection Pool Exhaustion](#p2024-connection-pool-exhaustion)
-- [N+1 Query Problem](#n1-query-problem)
-- [Transaction Patterns](#transaction-patterns)
-- [Soft Delete Pattern](#soft-delete-pattern)
-- [TLS GOTCHAS](#tls-gotchas)
-- [Certificate Expiry](#certificate-expiry)
-- [Mixed Content 2](#mixed-content-2)
-- [Certificate Chain Issues](#certificate-chain-issues)
-- [HSTS Preload Trap](#hsts-preload-trap)
-- [GRAPHQL GOTCHAS](#graphql-gotchas)
-- [N+1 Problem](#n1-problem)
-- [Over-fetching Auth](#over-fetching-auth)
-- [Query Complexity](#query-complexity)
-- [POSTGRES PERFORMANCE GOTCHAS](#postgres-performance-gotchas)
-- [Missing Indexes 3](#missing-indexes-3)
-- [Index Bloat](#index-bloat)
-- [Lock Contention](#lock-contention)
-- [Connection Exhaustion](#connection-exhaustion)
-- [AWS LAMBDA GOTCHAS](#aws-lambda-gotchas)
-- [Cold Start Hell](#cold-start-hell)
-- [Timeout Trap 2](#timeout-trap-2)
-- [Memory = CPU](#memory-cpu)
-- [VPC Cold Start](#vpc-cold-start)
-- [MONOREPO GOTCHAS](#monorepo-gotchas)
-- [Dependency Hell](#dependency-hell)
-- [Build Order](#build-order)
-- [Circular Dependencies](#circular-dependencies)
-- [Type Sharing](#type-sharing)
-- [GOTCHAS](#gotchas)
-- [Presigned URL Pitfalls](#presigned-url-pitfalls)
-- [CORS Hell](#cors-hell)
-- [Cost Optimization](#cost-optimization)
-- [TERRAFORM GOTCHAS](#terraform-gotchas)
-- [State Lock Timeout](#state-lock-timeout)
-- [Count vs For_Each](#count-vs-for_each)
-- [Drift Detection](#drift-detection)
-- [MEMORY LEAK DEBUGGING 2](#memory-leak-debugging-2)
-- [Node.js Memory Leaks](#nodejs-memory-leaks)
-- [Finding Leaks](#finding-leaks)
-- [Common Fixes 2 2](#common-fixes-2-2)
-- [DATABASE MIGRATIONS GOTCHAS](#database-migrations-gotchas)
-- [Safe Migration Principles](#safe-migration-principles)
-- [Adding NOT NULL Column](#adding-not-null-column)
-- [Renaming Column](#renaming-column)
-- [RDS PRODUCTION GOTCHAS](#rds-production-gotchas)
-- [Connection Limits](#connection-limits)
-- [Slow Queries](#slow-queries)
-- [Failover Gotchas](#failover-gotchas)
-- [NGINX GOTCHAS](#nginx-gotchas)
-- [Client Max Body Size](#client-max-body-size)
-- [Proxy Headers](#proxy-headers)
-- [WebSocket Upgrade](#websocket-upgrade)
-- [Rate Limiting 2](#rate-limiting-2)
-- [DOCKER NETWORKING](#docker-networking)
-- [Bridge Network (Default)](#bridge-network-default)
-- [Containers on same network can reach each other by service name](#containers-on-same-network-can-reach-each-other-by-service-name)
-- [app can connect to db:5432](#app-can-connect-to-db5432)
-- [Uses host's network directly (Linux only)](#uses-hosts-network-directly-linux-only)
-- [No port mapping needed](#no-port-mapping-needed)
-- [Within Docker network](#within-docker-network)
-- [From host](#from-host)
-- [Distributed Rate Limiting](#distributed-rate-limiting)
-- [Dead Letter Queue](#dead-letter-queue)
-- [PRISMA P2024: Connection Pool Exhaustion](#prisma-p2024-connection-pool-exhaustion)
-  - [The EXACT Error 5](#the-exact-error-5)
-  - [Real Incident Reports 2](#real-incident-reports-2)
-  - [KEYWORDS that trigger this 4](#keywords-that-trigger-this-4)
-  - [Real Fix From Production 2](#real-fix-from-production-2)
-- [Authentication Errors 2 2](#authentication-errors-2-2)
-- [SESSION COMPLETE: BRAIN CROSSED 10% 2](#session-complete-brain-crossed-10-2)
-- [Common Mistakes 2 2](#common-mistakes-2-2)
-  - [Adding NOT NULL without default 2](#adding-not-null-without-default-2)
-  - [Changing column type 2](#changing-column-type-2)
-  - [Large table migration 2](#large-table-migration-2)
-- [Best Practices 2 2](#best-practices-2-2)
-- [Cannot change without rebuild 2](#cannot-change-without-rebuild-2)
-- [Visible in CI logs 2](#visible-in-ci-logs-2)
-- [Flag Types 2 2](#flag-types-2-2)
-- [Error Response Format 2 2](#error-response-format-2-2)
-- [HTTP Status Codes 2 2](#http-status-codes-2-2)
-- [Scaling WebSockets 2 2](#scaling-websockets-2-2)
-- [Rolling Update 2 2](#rolling-update-2-2)
+
+---
+> **Symptom -> Cause -> Test -> Fix**
+> Like medical diagnosis but for code.
+> Find root cause instantly without guessing.
+
+---
 
 ## HOW TO USE THIS DATABASE
 
 ```text
-
 1. Find your SYMPTOM in the list below
 2. Check possible CAUSES
 3. Run the TEST to confirm
@@ -781,32 +31,36 @@
 
 | Possible Cause | Test | Fix |
 |----------------|------|-----|
-| Data is undefined | `console.log(data)`before render | Initialize state:`useState([])` |
+| Data is undefined | `console.log(data)` before render | Initialize state: `useState([])` |
 | Error thrown during render | Check browser console | Fix the error, add try-catch |
 | Conditional hiding component | Check condition that controls `{condition && <Comp />}` | Fix condition logic |
 | CSS hiding component | Inspect element check opacity, display, visibility | Fix CSS |
-| Parent not rendering children | Check parent's `{children}`or child placement | Add`{children}` to parent |
+| Parent not rendering children | Check parent's `{children}` or child placement | Add `{children}` to parent |
 
 ---
 
 ## Symptom: Component Renders with Wrong Data
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
-| State not updated | `console.log(state)`in render | Check setState logic |
+|----------------|------|-----|
+| State not updated | `console.log(state)` in render | Check setState logic |
 | Props not passed correctly | `console.log(props)` | Check parent passing correct props |
 | Stale closure in useEffect | Compare value inside and outside useEffect | Add to dependency array |
 | Data cached from old request | Hard refresh (Ctrl+Shift+R) | Clear cache or add cache-busting |
 | Wrong API endpoint | Check Network tab | Fix URL |
 
+---
+
 ## Symptom: Component Re-renders Too Much
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Object/array in deps recreated | React DevTools Highlight updates | useMemo for objects, useCallback for functions |
 | Parent re-renders unnecessarily | Check parent's re-render triggers | Memoize parent state changes |
 | Context value changing | Check context provider value | Memoize context value |
 | Missing React.memo | Check if pure component takes same props | Wrap with React.memo |
+
+---
 
 ## Symptom: Form Not Submitting
 
@@ -815,7 +69,7 @@
 | Validation failing | Check validation errors state | Fix validation rules or input |
 | Submit handler not attached | Log inside handler | Add `onSubmit={handleSubmit}` |
 | Button type not submit | Inspect button element | Add `type="submit"` |
-| Form action interfering | Check `<form action=...>` | Remove action or use`preventDefault` |
+| Form action interfering | Check `<form action=...>` | Remove action or use `preventDefault` |
 | Disabled state stuck | Check button `disabled` prop | Fix disabled condition |
 
 ---
@@ -823,12 +77,14 @@
 ## Symptom: Styles Not Applying
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Tailwind class not purged | Check class in browser | Add file to tailwind.config content |
 | CSS specificity overridden | Inspect element | Use more specific selector or !important |
 | Dynamic class not applied | Log the class name | Ensure class construction is correct |
 | Wrong file imported | Check import statement | Import correct CSS file |
 | Browser caching old CSS | Hard refresh | Add cache-busting or build again |
+
+---
 
 ## BACKEND ROOT CAUSES
 
@@ -837,32 +93,38 @@
 ## Symptom: API Returns 500 Error
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Uncaught exception | Check server logs | Add try-catch, handle error |
 | Database connection failed | Check DATABASE_URL | Fix connection string |
 | Prisma query error | Check Prisma error code | Fix query or schema |
 | Missing environment variable | `console.log(process.env.VAR)` | Add to .env |
 | Type error in code | Check error stack trace | Fix type issue |
 
+---
+
 ## Symptom: API Returns Empty/Wrong Data
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Wrong query | Log Prisma query input | Fix where/select conditions |
 | Data doesn't exist | Check database directly | Add data or handle empty case |
 | Wrong model used | Check model name | Use correct model |
-| Relations not included | Check response shape | Add`include: { relation: true }` |
+| Relations not included | Check response shape | Add `include: { relation: true }` |
 | Filtering too strict | Log filter values | Relax or fix filter |
+
+---
 
 ## Symptom: Authentication Not Working
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Token not sent | Check request headers | Add token to Authorization header |
-| Cookie not sent | Check Application Cookies | Use`credentials: 'include'` |
+| Cookie not sent | Check Application Cookies | Use `credentials: 'include'` |
 | Token expired | Decode token, check exp | Refresh token or re-login |
 | Wrong secret used | Compare secrets | Use correct JWT_SECRET |
 | Session not found | Check session storage | Fix session creation |
+
+---
 
 ## Symptom: Route Returns 404
 
@@ -883,39 +145,47 @@
 ## Symptom: Can't Connect to Database
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
-| Database not running | Try`psql`connection | Start database service |
+|----------------|------|-----|
+| Database not running | Try `psql` connection | Start database service |
 | Wrong host | Check DATABASE_URL host | Use localhost or container name |
 | Wrong port | Check DATABASE_URL port | Use correct port (default 5432) |
 | Wrong credentials | Check username/password | Fix credentials |
 | Firewall blocking | telnet host port | Configure firewall |
 
+---
+
 ## Symptom: Query Returns Error
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | P2002: Unique constraint | Check if value already exists | Check before insert, or use upsert |
 | P2003: Foreign key | Check if related record exists | Create related record first |
 | P2025: Record not found | Check if ID exists | Handle not found case |
 | Schema mismatch | `prisma migrate status` | Run migrations |
 
+---
+
 ## Symptom: Insert Fails
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Missing required field | Check schema for required fields | Add required field to data |
 | Duplicate unique value | Query for existing record | Check first or use upsert |
 | Foreign key doesn't exist | Query for related record | Create related record first |
 | Wrong data type | Check field types in schema | Convert data to correct type |
 
+---
+
 ## Symptom: Update Doesn't Persist
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Wrong where clause | Log the where condition | Fix ID or unique condition |
 | Update data empty | Log the update data | Add fields to update |
 | Transaction rolled back | Check for errors in transaction | Fix error causing rollback |
 | Caching showing old data | Query directly after update | Disable caching or invalidate |
+
+---
 
 ## DEPLOY ROOT CAUSES
 
@@ -924,32 +194,38 @@
 ## Symptom: Build Fails
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | TypeScript error | Read error message | Fix type issue at line |
 | Module not found | Check import path | Install package or fix path |
 | ESLint error | Read lint message | Fix lint issue |
 | Environment variable missing | Check all process.env usages | Add to build environment |
-| Out of memory | Increase NODE_OPTIONS | Use`--max-old-space-size=4096` |
+| Out of memory | Increase NODE_OPTIONS | Use `--max-old-space-size=4096` |
+
+---
 
 ## Symptom: Works Locally, Fails in Production
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Env variables different | Compare local vs prod env | Add missing prod vars |
 | Database not accessible | Test connection from prod | Configure firewall/whitelist |
 | Different Node version | Check version in package.json | Match versions |
 | Missing build step | Check build logs | Add missing build command |
 | Serverless timeout | Check function logs | Optimize or increase timeout |
 
+---
+
 ## Symptom: Performance Slow in Production
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | N+1 query problem | Check queries in logs | Use include/join, not loops |
 | No caching | Check response headers | Add caching headers |
 | Large bundle size | Run bundle analyzer | Split code, lazy load |
 | Cold start | Check first request time | Keep-alive or optimize cold start |
 | Too many database calls | Count queries per request | Batch or cache queries |
+
+---
 
 ## SECURITY ROOT CAUSES
 
@@ -958,29 +234,35 @@
 ## Symptom: CORS Error in Browser
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | No CORS headers | Check response headers | Add Access-Control-Allow-Origin |
 | Wrong origin allowed | Check allowed origins | Add correct origin |
 | Credentials mode mismatch | Check credentials setting | Match frontend and backend |
 | Preflight fails | Check OPTIONS response | Handle OPTIONS method |
 
+---
+
 ## Symptom: Authentication Bypassed
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Middleware not matching | Check matcher config | Fix matcher pattern |
 | Auth check missing in API | Check route handler code | Add auth check |
 | Token validation wrong | Test with invalid token | Fix validation logic |
 | Public route misconfigured | Check route protection | Add to protected routes |
 
+---
+
 ## Symptom: Data Leaking to Wrong User
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
-| Missing user filter in query | Check where clause | Add`userId`filter |
+|----------------|------|-----|
+| Missing user filter in query | Check where clause | Add `userId` filter |
 | Authorization check missing | Check access control code | Add ownership check |
 | Caching per-user data globally | Check cache key | Make cache key user-specific |
 | Session mixup | Check session logic | Fix session handling |
+
+---
 
 ## QUICK LOOKUP TABLE
 
@@ -1054,7 +336,7 @@ return () => { isMounted = false };
 | Infinite loop in useEffect | Check dependency array | Fix dependencies or add conditions |
 | Event handler calling setState repeatedly | Log event handler calls | Debounce or add conditions |
 
-### FIX PATTERN 2
+### FIX PATTERN
 
 ```typescript
 // BAD - setState in render
@@ -1103,10 +385,12 @@ if (!show) return null;
 ## Symptom: "Cannot update a component while rendering a different component"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Parent setState during child render | Add console.log to find caller | Move to useEffect |
 | Context update during render | Check context provider | Memoize context value |
 | Redux dispatch during render | Check for dispatch in render | Move to useEffect |
+
+---
 
 ## Symptom: "Element type is invalid: expected a string or class/function"
 
@@ -1143,10 +427,12 @@ import { Button } from './Button';
 ## Symptom: "Error: Invariant: headers() expects to have requestAsyncStorage"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | headers() called in client component | Check for 'use client' | Move to server component |
 | headers() called at module level | Check where headers() is called | Move inside function |
 | Dynamic function in static context | Check page static/dynamic | Add export const dynamic = 'force-dynamic' |
+
+---
 
 ## Symptom: "Error: NEXT_REDIRECT"
 
@@ -1155,7 +441,7 @@ import { Button } from './Button';
 | redirect() called in try block | Check if redirect in try-catch | Move redirect outside try or rethrow |
 | redirect() error caught | Check catch blocks | Check for NEXT_REDIRECT and rethrow |
 
-### FIX PATTERN 3
+### FIX PATTERN
 
 ```typescript
 // BAD - redirect caught by catch
@@ -1181,9 +467,11 @@ redirect('/dashboard');
 ## Symptom: "Error: Dynamic server usage: headers"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
-| Using dynamic function in static page | Check page type | Add`export const dynamic = 'force-dynamic'` |
+|----------------|------|-----|
+| Using dynamic function in static page | Check page type | Add `export const dynamic = 'force-dynamic'` |
 | cookies/headers in generateStaticParams | Check static generation | Remove dynamic functions |
+
+---
 
 ## Symptom: "Module not found: Can't resolve 'fs'"
 
@@ -1192,7 +480,7 @@ redirect('/dashboard');
 | Server-only module in client | Check where module is imported | Move to API route or server component |
 | Package uses Node APIs | Check package documentation | Use server-side only |
 
-### FIX PATTERN 4
+### FIX PATTERN
 
 ```typescript
 // next.config.js - for edge cases
@@ -1215,16 +503,20 @@ return config;
 ## Symptom: "Error: Page changed from static to dynamic"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Added dynamic function to static page | Check for cookies/headers usage | Remove or mark as dynamic |
 | Inconsistent generateStaticParams | Check path generation | Return all expected paths |
+
+---
 
 ## Symptom: "Unhandled Runtime Error: NotFoundError"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Dynamic import failed | Check import path | Fix import path |
 | Component not exported | Check export statement | Add export |
+
+---
 
 ## TYPESCRIPT SPECIFIC ERRORS
 
@@ -1262,11 +554,13 @@ return 'id' in obj && 'email' in obj;
 ## Symptom: "Property 'X' does not exist on type 'Y'"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Typo in property name | Check spelling | Fix typo |
 | Property not defined | Check type definition | Add to interface |
 | Using wrong type | Check variable type | Use correct type |
 | Optional chaining needed | Check if property might not exist | Use obj?.prop |
+
+---
 
 ## Symptom: "Object is possibly 'undefined'"
 
@@ -1299,18 +593,22 @@ const value = obj!.prop;
 ## Symptom: "Argument of type 'X' is not assignable to parameter"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Passing wrong type | Check function signature | Transform data or fix type |
 | Missing conversion | Check expected format | Convert data |
+
+---
 
 ## Symptom: "Cannot find module 'X' or its declarations"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Package not installed | Check package.json | npm install package |
 | Types not installed | Check for @types package | npm install -D @types/package |
 | Path alias not configured | Check tsconfig paths | Add path mapping |
 | Case sensitivity | Check exact file name | Fix casing |
+
+---
 
 ## PRISMA SPECIFIC ERRORS
 
@@ -1335,10 +633,12 @@ export const runtime = 'nodejs'; // Not 'edge'
 ## Symptom: "Environment variable not found: DATABASE_URL"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | .env not loaded | Check .env file exists | Create .env file |
 | Wrong env file | Check file name | Should be .env or .env.local |
 | Not set in production | Check hosting platform | Add to environment variables |
+
+---
 
 ## Symptom: "Prisma has detected that this project was built on a different platform"
 
@@ -1347,7 +647,7 @@ export const runtime = 'nodejs'; // Not 'edge'
 | Building on different OS | Check build environment | Regenerate client after build |
 | Docker platform mismatch | Check Dockerfile | Add prisma generate to build |
 
-### FIX 2
+### FIX
 
 ```json
 // package.json
@@ -1367,7 +667,7 @@ export const runtime = 'nodejs'; // Not 'edge'
 |----------------|------|-----|
 | Number too large for Int | Check value size | Use BigInt in schema |
 
-### FIX 3
+### FIX
 
 ```prisma
 // schema.prisma
@@ -1385,7 +685,7 @@ amount BigInt  // Instead of Int
 |----------------|------|-----|
 | Connection pool conflict | Check for multiple clients | Use singleton Prisma client |
 
-### FIX 4
+### FIX
 
 ```typescript
 // lib/prisma.ts
@@ -1406,9 +706,11 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 ## Symptom: "Transaction already closed"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Async operation after transaction ends | Check transaction timing | Move all operations inside $transaction |
 | Error causing early close | Check for errors | Handle errors properly |
+
+---
 
 ## API INTEGRATION ERRORS
 
@@ -1417,27 +719,33 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 ## Symptom: "Network request failed"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | No internet connection | Check connectivity | Retry with offline detection |
 | Server unreachable | Try URL in browser | Fix URL or server |
 | DNS failure | Try different DNS | Fix DNS or use IP |
 | Timeout | Increase timeout | Add proper timeout handling |
 
+---
+
 ## Symptom: "SyntaxError: Unexpected token < in JSON"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | HTML returned instead of JSON | Check response in Network tab | Server returned error page |
 | 404 page returned | Check URL | Fix endpoint URL |
 | Auth redirect returned | Check login status | Handle auth |
 
+---
+
 ## Symptom: "Failed to fetch" with no details
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | CORS blocked | Check console for CORS | Add CORS headers |
 | Mixed content (HTTP on HTTPS) | Check URLs | Use HTTPS |
 | Ad blocker interfering | Disable extensions | Rename problematic routes |
+
+---
 
 ## STATE MANAGEMENT ERRORS
 
@@ -1446,10 +754,12 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 ## Symptom: "Cannot read properties of undefined" in store/context
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Provider not wrapping | Check component tree | Add Provider higher |
 | Initial state undefined | Check default value | Provide initial state |
 | Async state not loaded | Check loading sequence | Add loading state |
+
+---
 
 ## Symptom: Store not updating UI
 
@@ -1484,34 +794,41 @@ items: [...state.items, item]
 ## Symptom: Tailwind classes not working
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | File not in content config | Check tailwind.config.js | Add file pattern |
 | Class purged | Check production build | Use safelist for dynamic |
 | Wrong class name | Check Tailwind docs | Fix class name |
 | Conflicting styles | Inspect element | Use !important or specificity |
 
-### FIX 5
+### FIX
 
+```javascript
 // tailwind.config.js
 module.exports = {
 content: [
-        './app/**/*.{js,ts,jsx,tsx}',
-        './components/**/*.{js,ts,jsx,tsx}',
-      ],
+    './app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
 safelist: [
-        'bg-red-500',
-        'bg-green-500',
+    'bg-red-500',
+    'bg-green-500',
 // Dynamic classes that might be purged
-      ],
-    };
+  ],
+};
+
+```text
+
+---
 
 ## Symptom: Dark mode not switching
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Wrong dark mode strategy | Check config | Set darkMode: 'class' or 'media' |
 | Class not applied to html | Check html element | Add dark class to html |
 | CSS specificity | Inspect element | Check for overrides |
+
+---
 
 ## AUTHENTICATION ERRORS
 
@@ -1536,16 +853,20 @@ openssl rand -base64 32
 ## Symptom: "OAuthAccountNotLinked"
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Email already used with different provider | Check user table | Allow account linking |
 | Strict linking policy | Check adapter | Enable flexible linking |
+
+---
 
 ## Symptom: Callback URL error in OAuth
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Wrong callback URL in provider | Check provider dashboard | Fix callback URL |
 | Environment URLs wrong | Check NEXTAUTH_URL | Set correct URL |
+
+---
 
 ## PERFORMANCE ISSUES
 
@@ -1554,21 +875,25 @@ openssl rand -base64 32
 ## Symptom: Slow page load
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Large bundle | Run bundle analyzer | Code split, lazy load |
 | No code splitting | Check build output | Use dynamic imports |
 | Unoptimized images | Check Network tab | Use next/image |
 | Too many API calls | Count requests | Batch or cache |
 | Slow database | Profile queries | Add indexes, optimize |
 
+---
+
 ## Symptom: Memory leak
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | Event listener not removed | Check cleanup | Remove in useEffect cleanup |
 | Interval not cleared | Check for setInterval | Clear in cleanup |
 | Large objects held | Profile memory | Release references |
 | State growing unbounded | Check state size | Implement limits |
+
+---
 
 ## RESPONSIVE ISSUES
 
@@ -1577,10 +902,12 @@ openssl rand -base64 32
 ## Symptom: Touch not working
 
 | Possible Cause | Test | Fix |
-| ---------------- | ------ | -----  |
+|----------------|------|-----|
 | onClick not touch-friendly | Test on mobile | Add touch events |
 | Element too small | Check tap target size | Min 44x44 pixels |
 | Overlay blocking | Check z-index | Fix stacking context |
+
+---
 
 ## Symptom: Layout breaking on mobile
 
@@ -1603,7 +930,7 @@ openssl rand -base64 32
 ## INDEX BY KEYWORD
 
 | Keyword | Go To Section |
-| --------- | ---------------  |
+|---------|---------------|
 | undefined | Component Not Rendering |
 | hydration | NEXT.JS: Hydration errors |
 | CORS | API Integration: CORS |
@@ -1620,6 +947,8 @@ openssl rand -base64 32
 | token | AUTH: Token issues |
 | NEXTAUTH | AUTH: NextAuth specific |
 
+---
+
 ## TYPESCRIPT ERROR PATTERNS
 
 ---
@@ -1629,9 +958,9 @@ openssl rand -base64 32
 | Symptom | Cause | Test | Fix |
 |---------|-------|------|-----|
 | `Type 'string' is not assignable to type 'number'` | Wrong type passed | Check function signature | Use correct type or type assertion |
-| `Type 'undefined' is not assignable` | Optional property used as required | Add null check | `value!`or`if (value) {}` |
+| `Type 'undefined' is not assignable` | Optional property used as required | Add null check | `value!` or `if (value) {}` |
 | `Type '{ }' is not assignable to type 'Props'` | Missing required props | Check component props | Add all required props |
-| `Type 'null' is not assignable` | strictNullChecks enabled | Check variable initialization | Handle null case or use`!` |
+| `Type 'null' is not assignable` | strictNullChecks enabled | Check variable initialization | Handle null case or use `!` |
 
 ---
 
@@ -1663,18 +992,22 @@ return typeof obj === 'object' && obj !== null && 'id' in obj;
 ## TS2345: Argument type mismatch
 
 | Symptom | Cause | Test | Fix |
-| --------- | ------- | ------ | -----  |
+|---------|-------|------|-----|
 | Wrong argument type | Passing incorrect type | Check function params | Cast or convert type |
 | Partial vs required | Using Partial for required params | Check interface | Use full interface |
-| `Promise<T>`vs`T` | Missing await | Check async | Add await |
+| `Promise<T>` vs `T` | Missing await | Check async | Add await |
+
+---
 
 ## TS7006: Parameter implicitly has 'any' type
 
 | Symptom | Cause | Test | Fix |
-| --------- | ------- | ------ | -----  |
-| Event handler`(e) =>` | No type annotation | noImplicitAny enabled | Add type:`(e: MouseEvent)` |
+|---------|-------|------|-----|
+| Event handler `(e) =>` | No type annotation | noImplicitAny enabled | Add type: `(e: MouseEvent)` |
 | Callback parameter | Implicit any | Check function signature | Add explicit type |
 | Map/filter callback | Array type unknown | Check array declaration | Type the array |
+
+---
 
 ## DEPLOYMENT ERROR PATTERNS
 
@@ -1684,8 +1017,8 @@ return typeof obj === 'object' && obj !== null && 'id' in obj;
 
 | Symptom | Cause | Test | Fix |
 |---------|-------|------|-----|
-| `ESLint: X errors` | Linting failures | Run`npm run lint` locally | Fix lint errors or disable rule |
-| `Type error: X` | TypeScript strict mode | Run`npm run build` locally | Fix type errors |
+| `ESLint: X errors` | Linting failures | Run `npm run lint` locally | Fix lint errors or disable rule |
+| `Type error: X` | TypeScript strict mode | Run `npm run build` locally | Fix type errors |
 | `Module not found: X` | Missing dependency | Check package.json | `npm install X` |
 | `ENOENT: no such file` | Case sensitivity | Check file path casing | Match exact casing (Linux is case-sensitive) |
 | `Cannot read properties of undefined` | Runtime error during build | Check getStaticProps | Handle edge cases |
@@ -1727,12 +1060,14 @@ CMD ["npm", "start"]
 ## CI/CD Pipeline Fails
 
 | Symptom | Cause | Test | Fix |
-| --------- | ------- | ------ | -----  |
+|---------|-------|------|-----|
 | `Tests passed locally, fail in CI` | Environment difference | Check CI logs | Mock environment vars |
-| `npm ci failed` | lockfile mismatch | Compare package-lock.json | `npm install`and commit lockfile |
+| `npm ci failed` | lockfile mismatch | Compare package-lock.json | `npm install` and commit lockfile |
 | `EACCES: permission denied` | File permissions | Check chmod | Add file permission step |
 | `Timeout waiting for X` | Service not ready | Check health checks | Add wait-for script |
 | `Out of memory` | Large build | Check memory limit | Increase CI memory or optimize |
+
+---
 
 ## ENVIRONMENT VARIABLE PATTERNS
 
@@ -1773,7 +1108,7 @@ const databaseUrl = getEnvVar('DATABASE_URL');
 |---------|-------|------|-----|
 | `Access-Control-Allow-Origin missing` | No CORS headers | Check browser network tab | Add CORS middleware |
 | `preflight` blocked | OPTIONS not handled | Check OPTIONS response | Add OPTIONS handler |
-| `credentials`error | Wrong credentials mode | Check withCredentials | Set proper origin (not`*`) |
+| `credentials` error | Wrong credentials mode | Check withCredentials | Set proper origin (not `*`) |
 | Works in dev, fails prod | Different origins | Check production URLs | Update allowed origins |
 
 ```typescript
@@ -1810,11 +1145,13 @@ headers: {
 ## Slow Page Load
 
 | Symptom | Cause | Test | Fix |
-| --------- | ------- | ------ | -----  |
+|---------|-------|------|-----|
 | High TTI (Time to Interactive) | Large JS bundle | Analyze with Lighthouse | Code split, lazy load |
 | Slow LCP | Large images | Check image sizes | next/image, WebP |
 | Layout shift (CLS) | Dynamic content | Check CLS score | Reserve space, priority hints |
 | Slow API | N+1 queries | Check query count | Use Prisma include |
+
+---
 
 ## Memory Leaks
 
@@ -1846,35 +1183,49 @@ ws.close(); // Clean WebSocket
 
 ## REAL PRODUCTION INCIDENTS (Sourced from Web)
 
-> **These are REAL error patterns from actual production incidents, GitHub issues, and official documentation - NOT AI-generated patterns**## PRISMA P2024: Connection Pool Exhaustion**Source:**GitHub Issues #prisma, Prisma Documentation, Real production incidents
+> **These are REAL error patterns from actual production incidents, GitHub issues, and official documentation - NOT AI-generated patterns**
+
+---
+
+## PRISMA P2024: Connection Pool Exhaustion
+
+**Source:** GitHub Issues #prisma, Prisma Documentation, Real production incidents
 
 ### The EXACT Error
 
-    PrismaClientKnownRequestError:
+```text
+PrismaClientKnownRequestError:
 Timed out fetching a new connection from the connection pool.
 Please consider reducing the number of requests or increasing
-the `connection_limit`parameter.
+the `connection_limit` parameter.
 Error Code: P2024
+
+```text
 
 ### Real Incident Reports
 
--**GitHub Issue Pattern:**Workers hit P1001, web server hits P2024, server becomes unresponsive, requires restart
--**Prisma v6 Upgrade:**Users report connection pool exhaustion after upgrading, especially with`@prisma/adapter-mssql`-**Serverless flood:** Each Lambda/Vercel function has own pool, multiplied connections exhaust DB
+- **GitHub Issue Pattern:** Workers hit P1001, web server hits P2024, server becomes unresponsive, requires restart
+- **Prisma v6 Upgrade:** Users report connection pool exhaustion after upgrading, especially with `@prisma/adapter-mssql`
+- **Serverless flood:** Each Lambda/Vercel function has own pool, multiplied connections exhaust DB
 
 ### KEYWORDS that trigger this
 
-    P2024
+```text
+P2024
 Timed out fetching
 connection pool
-    connection_limit
-    pool_timeout
+connection_limit
+pool_timeout
 serverless connections
 too many clients already
 
+```text
+
 ### Real Fix From Production
 
+```typescript
 // CONNECTION STRING FIX (Prisma docs)
-    DATABASE_URL="postgresql://user:pass@host:5432/db?connection_limit=5&pool_timeout=10"
+DATABASE_URL="postgresql://user:pass@host:5432/db?connection_limit=5&pool_timeout=10"
 
 // SERVERLESS FIX: Use Prisma Accelerate or PgBouncer
 // Don't create new PrismaClient every request
@@ -1887,11 +1238,15 @@ const globalForPrisma = globalThis as unknown as { prisma: PrismaClient }
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
+```text
+
+---
+
 ## REACT HYDRATION MISMATCH: Text Content Does Not Match
 
 **Source:** Next.js Official Docs, React.dev, Real Stack Overflow incidents
 
-### The EXACT Error 2
+### The EXACT Error
 
 ```text
 Unhandled Runtime Error
@@ -1906,8 +1261,11 @@ Warning: Expected server HTML to contain a matching <div> in <p>.
 2. **localStorage/window** - undefined on server
 3. **Browser extensions** - GTM, Hotjar modify DOM
 4. **CDN auto-minify** - Cloudflare strips whitespace
-5. **Invalid HTML nesting** - `<div>`inside`<p>`### KEYWORDS that trigger this```text
+5. **Invalid HTML nesting** - `<div>` inside `<p>`
 
+### KEYWORDS that trigger this
+
+```text
 hydration mismatch
 text content does not match
 server-rendered HTML
@@ -1920,7 +1278,6 @@ Minified React error #425
 ### Real Fix From Next.js Docs
 
 ```typescript
-
 // FIX 1: useEffect for client-only content
 function ClientDate() {
 const [date, setDate] = useState('')
@@ -1953,10 +1310,9 @@ const ClientOnlyComponent = dynamic(
 
 **Source:** Vercel Documentation, Real deployment issues
 
-### The EXACT Error 3
+### The EXACT Error
 
 ```text
-
 Error: ENOENT: no such file or directory, open '/vercel/path0/components/Button.tsx'
 
 Module not found: Can't resolve './Components/Button'
@@ -1967,7 +1323,11 @@ Module not found: Can't resolve './Components/Button'
 
 - **Windows/Mac:** Case-insensitive file system
 - **Linux (Vercel):** Case-SENSITIVE file system
-- Import says `./Components/Button`, file is `./components/Button`### KEYWORDS that trigger this```text
+- Import says `./Components/Button`, file is `./components/Button`
+
+### KEYWORDS that trigger this
+
+```text
 ENOENT
 no such file or directory
 Module not found
@@ -2008,7 +1368,7 @@ git commit -m "fix case sensitivity"
 2. **Edge runtime + Node module** - Can't use `fs` in Edge
 3. **Unserializable data** - `undefined` in getServerSideProps
 
-### KEYWORDS that trigger this 2
+### KEYWORDS that trigger this
 
 ```text
 500 internal server error vercel
@@ -2018,7 +1378,7 @@ works locally 500 production
 
 ```text
 
-### Real Fix 2
+### Real Fix
 
 ```typescript
 // FIX: Check all ENV vars at startup
@@ -2046,17 +1406,17 @@ return Response.json({ status: 'ok' });
 
 **Source:** Next.js 14 App Router, Real migration issues
 
-### The EXACT Error 4
+### The EXACT Error
 
 ```text
 Error: Dynamic server usage: cookies
 
 This page was configured to be statically generated,
-but it uses dynamic features like `cookies()`or`headers()`.
+but it uses dynamic features like `cookies()` or `headers()`.
 
 ```text
 
-### KEYWORDS that trigger this 3
+### KEYWORDS that trigger this
 
 ```text
 Dynamic server usage
@@ -2067,7 +1427,7 @@ static generation dynamic features
 
 ```text
 
-### Real Fix 3
+### Real Fix
 
 ```typescript
 // FIX: Add dynamic export
@@ -2120,29 +1480,35 @@ return <ClientPart />
 ## Connection Errors (P1xxx)
 
 | Code | Error Message | Keyword Trigger | Fix |
-| ------ | --------------- | ----------------- | -----  |
+|------|---------------|-----------------|-----|
 | P1001 | Database server not reachable | `Can't reach database`, `Connection refused`, `ECONNREFUSED` | Check DATABASE_URL, firewall, DB is running |
 | P1013 | Invalid database string | `Invalid database string`, `malformed` | Fix DATABASE_URL format in .env |
-| P1014 | Missing underlying database model | `does not exist in the current database` | Run`npx prisma migrate deploy` |
+| P1014 | Missing underlying database model | `does not exist in the current database` | Run `npx prisma migrate deploy` |
 | P1015 | Incompatible database version | `Your Prisma schema is using features` | Upgrade database or change features |
 | P1016 | Incorrect number of parameters | `Raw query failed`, `parameter` | Check $queryRaw parameter count |
 | P1017 | Connection closed by server | `Server has closed the connection` | Check DB server logs, connection timeout |
 
+---
+
 ## Query Errors (P2xxx)
 
 | Code | Error Message | Keyword Trigger | Fix |
-| ------ | --------------- | ----------------- | -----  |
+|------|---------------|-----------------|-----|
 | P2002 | Unique constraint failed | `Unique constraint failed on the` | Check for duplicate values, add try/catch |
 | P2003 | Foreign key constraint failed | `Foreign key constraint failed` | Ensure referenced record exists first |
 | P2025 | Record not found | `Record to update not found`, `An operation failed` | Check if record exists before update/delete |
 
+---
+
 ## Prisma Accelerate/Pool Errors (P6xxx)
 
 | Code | Error Message | Keyword Trigger | Fix |
-| ------ | --------------- | ----------------- | -----  |
+|------|---------------|-----------------|-----|
 | P6004 | Query timeout | `The global timeout of Prisma Accelerate has been exceeded` | Optimize query, increase timeout |
 | P6008 | Engine start error | `Could not start query engine` | Check Prisma version, regenerate client |
 | P6009 | Response size exceeded | `Response size limit exceeded` | Paginate results, use select |
+
+---
 
 ## JS ERROR DATABASE
 
@@ -2153,7 +1519,7 @@ return <ClientPart />
 ## Common Next.js Production Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Maximum call stack size exceeded | `Maximum call stack`, `RangeError`, `stack overflow` | Infinite recursion, circular reference | Check recursive functions, circular imports |
 | Module not found | `Cannot find module`, `Module not found` | Wrong import path, server module on client | Check path casing, use dynamic import for server modules |
 | Document is not defined | `document is not defined`, `window is not defined` | Using browser API on server | Wrap in useEffect or check typeof window |
@@ -2161,6 +1527,8 @@ return <ClientPart />
 | Hydration mismatch | `Text content does not match`, `#418`, `#425` | Server/client HTML differs | useEffect for dynamic content, suppressHydrationWarning |
 | CORS error in API | `has been blocked by CORS policy` | No CORS headers on API route | Add Access-Control headers to response |
 | Build fail swcMinify | `Failed to compile`, `swcMinify` | Incompatible dependency with SWC | Set swcMinify: false in next.config.js |
+
+---
 
 ## Performance Killers (from real web sources)
 
@@ -2205,8 +1573,8 @@ return <ClientPart />
 
 | Error | Keyword Trigger | Root Cause | Fix |
 |-------|-----------------|------------|-----|
-| Overuse of `any` | `any type`, `implicit any` | Bypasses type-checking | Use`unknown`, explicit types |
-| `strictNullChecks`disabled | `null`, `undefined`, `cannot read property of null` | Uncaught null values | Enable`strict: true` in tsconfig |
+| Overuse of `any` | `any type`, `implicit any` | Bypasses type-checking | Use `unknown`, explicit types |
+| `strictNullChecks` disabled | `null`, `undefined`, `cannot read property of null` | Uncaught null values | Enable `strict: true` in tsconfig |
 | Bad type assertions | `as any`, `as Type`, type assertion | Runtime mismatch | Use type guards, validate at runtime |
 | No function return types | Implicit return | Silent failures | Add explicit return types |
 | `Type 'X' is not assignable` | `TS2322`, `not assignable` | Type mismatch | Check types, use correct type |
@@ -2245,11 +1613,11 @@ return <ClientPart />
 | Error | Keyword Trigger | Root Cause | Fix |
 |-------|-----------------|------------|-----|
 | Missing ENV vars | `undefined`, `Cannot read property`, `500 no logs` | ENV not in Vercel dashboard | Add to Project Settings Environment Variables |
-| Unsupported Node | `syntax error`, `Unexpected token` | Wrong Node version | Add`"engines": {"node": ">=18"}` to package.json |
+| Unsupported Node | `syntax error`, `Unexpected token` | Wrong Node version | Add `"engines": {"node": ">=18"}` to package.json |
 | Case sensitivity | `ENOENT`, `Module not found`, `works locally fails Vercel` | case mismatch | `git config core.ignorecase false` |
 | Build timeout | `Build exceeded`, `timeout` | Large dependencies | Use pnpm, remove unused deps |
-| ESLint errors | `ESLint: X errors`, `lint failed` | Strict lint on Vercel | Run`npm run lint` before deploy |
-| Prisma init error | `PrismaClientInitializationError` | Prisma not generated | Add postinstall:`prisma generate` |
+| ESLint errors | `ESLint: X errors`, `lint failed` | Strict lint on Vercel | Run `npm run lint` before deploy |
+| Prisma init error | `PrismaClientInitializationError` | Prisma not generated | Add postinstall: `prisma generate` |
 
 ---
 
@@ -2272,7 +1640,7 @@ No server-only code in client components
 ## Quick Keyword Search Index
 
 | Keyword Pattern | Section |
-| ----------------- | ---------  |
+|-----------------|---------|
 | `TS2322`, `not assignable` | TypeScript Type Mismatch |
 | `TS2339`, `does not exist` | TypeScript Property Error |
 | `strict: true`, `noImplicitAny` | TypeScript Config |
@@ -2280,9 +1648,13 @@ No server-only code in client components
 | `PrismaClientInitializationError` | Vercel Prisma Error |
 | `undefined`, `ENV`, `no logs` | Vercel ENV Variables |
 
+---
+
 ### [REAL WEB-SOURCED DATA]
 
 #### Sources: Vercel Docs, TypeScript Docs, dev.to, Medium, Reddit 2024
+
+---
 
 ## REACT HOOKS COMMON ERRORS (Web Sourced)
 
@@ -2293,21 +1665,25 @@ No server-only code in client components
 ## useState Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Direct state mutation | `push`, `splice`, state mutation | Modifying state directly | Use spread: `setState([...arr, new])` |
-| Incorrect initialization | `Cannot read property`, `undefined` | Initial state doesn't match expected type | Initialize with correct type:`useState<User | null>(null)` |
-| Stale state in async | `setState`wrong value | Async callback uses old state | Use functional update:`setState(prev => prev + 1)` |
-| Nested object access crash | `Cannot read property of undefined` | Accessing nested props without checks | Use optional chaining:`user?.profile?.name` |
+| Incorrect initialization | `Cannot read property`, `undefined` | Initial state doesn't match expected type | Initialize with correct type: `useState<User | null>(null)` |
+| Stale state in async | `setState` wrong value | Async callback uses old state | Use functional update: `setState(prev => prev + 1)` |
+| Nested object access crash | `Cannot read property of undefined` | Accessing nested props without checks | Use optional chaining: `user?.profile?.name` |
+
+---
 
 ## useEffect Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Stale closures | `stale closure`, value not updating | Missing dependency in array | Add all dependencies to array |
 | Infinite loop | `Maximum update depth`, infinite re-render | State update triggers effect that updates state | Check dependency array, use correct deps |
-| Memory leak | `state update on unmounted` | No cleanup function | Return cleanup:`return () => clearInterval(id)` |
+| Memory leak | `state update on unmounted` | No cleanup function | Return cleanup: `return () => clearInterval(id)` |
 | Hooks in conditional | `Hooks must be called in same order` | Hook inside if/loop | Move hook above conditional |
 | Async useEffect | `async function`, `Promise` | Making useEffect callback async | Define async function inside and call it |
+
+---
 
 ## Example Fixes
 
@@ -2363,11 +1739,11 @@ const data = await api.get('/');
 
 | Issue | Keyword Trigger | Root Cause | Fix |
 |-------|-----------------|------------|-----|
-| Styles not applying | `tailwind not working`, `classes not applying` | Missing or wrong content config | Check`content` in tailwind.config.js |
+| Styles not applying | `tailwind not working`, `classes not applying` | Missing or wrong content config | Check `content` in tailwind.config.js |
 | Works dev, fails prod | `styles missing production`, `purging` | Content paths not matching prod files | Add all file paths to content array |
 | Missing directives | `@tailwind base`, no base styles | Directives not in CSS file | Add `@tailwind base/components/utilities` |
 | Dynamic classes not working | `bg-${color}` not working | Tailwind purges dynamic classes | Use complete class names, add to safelist |
-| Classes conflicting | `!important`, CSS not applying | Other CSS overriding Tailwind | Use `!`prefix:`!p-4` or check CSS order |
+| Classes conflicting | `!important`, CSS not applying | Other CSS overriding Tailwind | Use `!` prefix: `!p-4` or check CSS order |
 
 ---
 
@@ -2390,7 +1766,7 @@ plugins: [],
 
 ```css
 
-/*globals.css - Required directives*/
+/* globals.css - Required directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -2398,10 +1774,10 @@ plugins: [],
 ```text
 ---
 
-## Quick Keyword Search Index 2
+## Quick Keyword Search Index
 
 | Keyword Pattern | Section |
-| ----------------- | ---------  |
+|-----------------|---------|
 | `useState`, `push`, `splice` | React State Mutation |
 | `stale closure`, `old value` | React useEffect Deps |
 | `Maximum update depth` | React Infinite Loop |
@@ -2409,9 +1785,13 @@ plugins: [],
 | `tailwind not working` | Tailwind Content Config |
 | `styles missing production` | Tailwind Purging |
 
-## [REAL WEB-SOURCED DATA] 2
+---
+
+## [REAL WEB-SOURCED DATA]
 
 ### Sources: Telerik, refine.dev, React.dev, tailwindcss.com, Stack Overflow 2024
+
+---
 
 ## POSTGRESQL COMMON ERRORS (Web Sourced)
 
@@ -2423,21 +1803,23 @@ plugins: [],
 
 | Error | Keyword Trigger | Root Cause | Fix |
 |-------|-----------------|------------|-----|
-| Connection refused | `ECONNREFUSED`, `connection refused`, `server not running` | PostgreSQL not running or wrong port | Check`service postgresql status`, verify port |
+| Connection refused | `ECONNREFUSED`, `connection refused`, `server not running` | PostgreSQL not running or wrong port | Check `service postgresql status`, verify port |
 | Permission denied | `permission denied for table`, `GRANT` | User lacks privileges | `GRANT SELECT, INSERT ON table TO user;` |
 | Disk full | `disk full`, `could not write`, `no space left` | Out of disk space | Check disk usage, clean old logs/backups |
-| Too many connections | `too many clients`, `sorry, too many clients` | Max connections exceeded | Increase`max_connections` or use connection pooling |
+| Too many connections | `too many clients`, `sorry, too many clients` | Max connections exceeded | Increase `max_connections` or use connection pooling |
 
 ---
 
 ## Performance Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
-| Slow queries | `slow query`, `query timeout`, `PQueueLimit` | Missing indexes, inefficient query | Use`EXPLAIN ANALYZE`, add indexes |
-| High CPU | `high CPU postgres`, `autovacuum` | Bloated tables, bad autovacuum | Tune autovacuum, run`VACUUM ANALYZE` |
-| Out of memory | `out of memory`, `OOM killer` | work_mem too high, big queries | Reduce`work_mem`, optimize queries |
-| Replication lag | `replication lag`, `standby behind` | Slow replica, network issues | Check network, monitor`pg_stat_replication` |
+|-------|-----------------|------------|-----|
+| Slow queries | `slow query`, `query timeout`, `PQueueLimit` | Missing indexes, inefficient query | Use `EXPLAIN ANALYZE`, add indexes |
+| High CPU | `high CPU postgres`, `autovacuum` | Bloated tables, bad autovacuum | Tune autovacuum, run `VACUUM ANALYZE` |
+| Out of memory | `out of memory`, `OOM killer` | work_mem too high, big queries | Reduce `work_mem`, optimize queries |
+| Replication lag | `replication lag`, `standby behind` | Slow replica, network issues | Check network, monitor `pg_stat_replication` |
+
+---
 
 ## PostgreSQL Connection String Fix
 
@@ -2467,11 +1849,13 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/DATABASE?connection_limit=5&p
 ## Token & Session Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Token expired | `jwt expired`, `token expired`, `session invalid` | JWT reached maxAge | Implement token refresh in jwt callback |
-| jwt.verify fails | `jwt malformed`, `invalid signature`, `jwt verification` | NextAuth encrypts, not just signs | Use`jose`library, not jsonwebtoken |
+| jwt.verify fails | `jwt malformed`, `invalid signature`, `jwt verification` | NextAuth encrypts, not just signs | Use `jose` library, not jsonwebtoken |
 | Session null | `getSession null`, `getServerSession null`, `session undefined` | NEXTAUTH_SECRET missing/mismatch | Ensure same secret in all environments |
 | Multi-tab race | `outdated token`, `token rotation`, multiple tabs | Token rotation race condition | Lock refresh requests, handle errors |
+
+---
 
 ## Critical NextAuth Configuration
 
@@ -2482,7 +1866,7 @@ export const authOptions: NextAuthOptions = {
 secret: process.env.NEXTAUTH_SECRET, // MUST BE SAME IN ALL ENVS
 session: {
 strategy: "jwt",
-maxAge: 30 *24* 60 * 60, // 30 days
+maxAge: 30 * 24 * 60 * 60, // 30 days
   },
 cookies: {
 sessionToken: {
@@ -2527,7 +1911,7 @@ return refreshAccessToken(token);
 
 ## REQUIRED for NextAuth
 
-NEXTAUTH_URL=<<<<<<https://your-domain.com>>>>>> # Production URL
+NEXTAUTH_URL=https://your-domain.com # Production URL
 NEXTAUTH_SECRET=your-secret-here # SAME across all envs
 
 ## For OAuth providers
@@ -2549,20 +1933,24 @@ GITHUB_SECRET=
 ## REST API Issues
 
 | Issue | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Over-fetching | `too much data`, `bandwidth`, large response | Endpoint returns all fields | Add field selection, GraphQL |
 | Under-fetching | `multiple requests`, `N+1 API calls` | Need multiple endpoints | Add aggregated endpoints, embed related data |
-| No versioning | `breaking change`, `API version` | Changes break clients | Add`/v1/`, `/v2/`versioning |
+| No versioning | `breaking change`, `API version` | Changes break clients | Add `/v1/`, `/v2/` versioning |
 | Missing pagination | `timeout`, `memory`, large dataset | Returns all records | Add `?page=1&limit=20` |
+
+---
 
 ## GraphQL Issues
 
 | Issue | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | N+1 queries | `N+1`, `slow resolver`, many DB calls | Each field triggers query | Use DataLoader for batching |
 | Query depth attack | `DoS`, `deeply nested`, timeout | Unlimited query depth | Add depth limiting middleware |
 | Caching hard | `cache miss`, `GraphQL cache` | Dynamic queries break cache | Use persisted queries, response caching |
 | Schema changes break | `breaking schema`, `field removed` | No deprecation strategy | Mark fields @deprecated first |
+
+---
 
 ## API Security Best Practices
 
@@ -2596,10 +1984,10 @@ return Response.json(result);
 ```text
 ---
 
-## Quick Keyword Search Index 3
+## Quick Keyword Search Index
 
 | Keyword Pattern | Section |
-| ----------------- | ---------  |
+|-----------------|---------|
 | `ECONNREFUSED`, `connection refused` | PostgreSQL Connection |
 | `too many clients` | PostgreSQL Max Connections |
 | `slow query`, `EXPLAIN` | PostgreSQL Performance |
@@ -2608,9 +1996,13 @@ return Response.json(result);
 | `NEXTAUTH_SECRET` | NextAuth Configuration |
 | `N+1`, `over-fetching` | API Design Issues |
 
-## [REAL WEB-SOURCED DATA] 2 2
+---
+
+## [REAL WEB-SOURCED DATA]
 
 ### Sources: Percona, Clerk, Forbes, GraphQL docs, OWASP 2024
+
+---
 
 ## DOCKER COMMON ERRORS (Web Sourced)
 
@@ -2621,20 +2013,24 @@ return Response.json(result);
 ## Build & Deploy Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Image too large | `large image`, `slow build`, `disk space` | Including dev deps, no multi-stage | Use multi-stage builds, Alpine base |
 | Can't connect to daemon | `Cannot connect to Docker daemon`, `docker.sock` | Daemon not running or no permission | Start Docker, add user to docker group |
 | No space left | `no space left on device`, `disk full` | Old images/containers accumulated | `docker system prune -a` |
 | Build cache issues | `stale cache`, `not using new code` | Cached layer not invalidated | `docker build --no-cache` |
 | Port already in use | `bind: address already in use`, `port conflict` | Another process using port | Kill process or use different port |
 
+---
+
 ## Security Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
-| Running as root | `running as root`, `privilege escalation` | No USER in Dockerfile | Add`USER node`or non-root user |
+|-------|-----------------|------------|-----|
+| Running as root | `running as root`, `privilege escalation` | No USER in Dockerfile | Add `USER node` or non-root user |
 | Exposed secrets | `secrets in image`, `ENV contains password` | Secrets baked in image | Use Docker secrets, env vars at runtime |
 | Vuln image | `CVE`, `vulnerability`, `security scan` | Outdated base image | Update base image, scan with Trivy |
+
+---
 
 ## Production Dockerfile Best Practices
 
@@ -2665,7 +2061,7 @@ COPY --from=builder --chown=app:app /app/node_modules ./node_modules
 ## Health check
 
 HEALTHCHECK --interval=30s --timeout=3s \
-| CMD wget --spider <http://localhost:3000/health> |  | exit 1 |
+| CMD wget --spider http://localhost:3000/health |  | exit 1 |
 
 ENV NODE_ENV=production
 EXPOSE 3000
@@ -2684,11 +2080,11 @@ CMD ["node", "dist/main.js"]
 
 | Error | Keyword Trigger | Root Cause | Fix |
 |-------|-----------------|------------|-----|
-| flex on wrong element | `display: flex not working` | Applied to items, not container | Apply`display: flex` to parent |
-| justify-content not working | `justify-content no effect` | Items fill all space, no room | Check`flex-grow`, set `flex: 0 1 auto` |
+| flex on wrong element | `display: flex not working` | Applied to items, not container | Apply `display: flex` to parent |
+| justify-content not working | `justify-content no effect` | Items fill all space, no room | Check `flex-grow`, set `flex: 0 1 auto` |
 | Items not centering vertically | `align-items not working`, `vertical center` | Container has no height | Set explicit height on container |
-| Items overflowing | `flex items overflow`, `not shrinking` | min-width: auto default | Set`min-width: 0` on flex items |
-| align-content vs align-items | `align-content not working` | Single line layout | `align-content`only works with`flex-wrap: wrap` |
+| Items overflowing | `flex items overflow`, `not shrinking` | min-width: auto default | Set `min-width: 0` on flex items |
+| align-content vs align-items | `align-content not working` | Single line layout | `align-content` only works with `flex-wrap: wrap` |
 
 ---
 
@@ -2696,11 +2092,11 @@ CMD ["node", "dist/main.js"]
 
 | Error | Keyword Trigger | Root Cause | Fix |
 |-------|-----------------|------------|-----|
-| Grid not working | `display: grid not working` | Missing on parent | Apply`display: grid` to container |
+| Grid not working | `display: grid not working` | Missing on parent | Apply `display: grid` to container |
 | Items overlapping | `grid items overlap`, `z-index grid` | Same grid-area or row/column | Use explicit grid-area names |
-| Implicit rows too small | `grid rows auto`, `content cut off` | No`grid-auto-rows`set | Set`grid-auto-rows: minmax(100px, auto)` |
-| FR units not responsive | `1fr fixed`, `grid not flexible` | Fixed column mixed with 1fr | Use`minmax()` for flexible sizing |
-| Gap causing overflow | `grid gap overflow`, `scrollbar` | Explicit width + gap > container | Use`calc(100% - gap)` or fix sizing |
+| Implicit rows too small | `grid rows auto`, `content cut off` | No `grid-auto-rows` set | Set `grid-auto-rows: minmax(100px, auto)` |
+| FR units not responsive | `1fr fixed`, `grid not flexible` | Fixed column mixed with 1fr | Use `minmax()` for flexible sizing |
+| Gap causing overflow | `grid gap overflow`, `scrollbar` | Explicit width + gap > container | Use `calc(100% - gap)` or fix sizing |
 
 ---
 
@@ -2708,17 +2104,16 @@ CMD ["node", "dist/main.js"]
 
 ```css
 
-/*Debug: See all element boundaries*/
+/* Debug: See all element boundaries */
 
-- { outline: 1px solid red !important; }
+* { outline: 1px solid red !important; }
 
-/*Debug: Highlight specific layout type*/
+/* Debug: Highlight specific layout type */
 [style*="display: flex"] { outline: 2px solid blue !important; }
 [style*="display: grid"] { outline: 2px solid green !important; }
 
 ```text
 DevTools Tips:
-
 1. Elements > click element > see "flex" or "grid" badge
 2. Click badge to open layout editor
 3. Toggle grid/flex overlay to see lines
@@ -2728,10 +2123,10 @@ DevTools Tips:
 
 ---
 
-## Quick Keyword Search Index 4
+## Quick Keyword Search Index
 
 | Keyword Pattern | Section |
-| ----------------- | ---------  |
+|-----------------|---------|
 | `Cannot connect to Docker daemon` | Docker Daemon |
 | `no space left on device` | Docker Disk Space |
 | `running as root` | Docker Security |
@@ -2741,9 +2136,13 @@ DevTools Tips:
 | `display: grid not working` | Grid Container |
 | `grid items overlap` | Grid Placement |
 
-### [REAL WEB-SOURCED DATA] 2 2 2
+---
+
+### [REAL WEB-SOURCED DATA]
 
 #### Sources: Medium, tech-couch.com, Chrome DevTools, kombai.com 2024
+
+---
 
 ## NPM / YARN / PNPM ERRORS (Web Sourced)
 
@@ -2766,20 +2165,24 @@ DevTools Tips:
 ## yarn Common Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
-| Missing lockfile | `YN0020`, lockfile entry | package.json changed, no install | Run `yarn install`after changes |
+|-------|-----------------|------------|-----|
+| Missing lockfile | `YN0020`, lockfile entry | package.json changed, no install | Run `yarn install` after changes |
 | Peer dep issues | `YN0002`, peer dependency | Missing peer dependency | Install required peer deps |
 | Incompatible deps | `YN0024`, workspace constraint | Version mismatch in workspace | Align versions in workspace |
 | Missing fetcher | `YN0011`, no fetcher | Missing Yarn plugin | Install required plugin |
 
+---
+
 ## pnpm Common Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
-| Peer dep issues | `ERR_PNPM_PEER_DEP_ISSUES` | Unresolved peer deps | Install peer deps or use`--strict-peer-dependencies=false` |
-| Outdated lockfile | `ERR_PNPM_OUTDATED_LOCKFILE` | Lockfile out of sync | Run`pnpm install` |
+|-------|-----------------|------------|-----|
+| Peer dep issues | `ERR_PNPM_PEER_DEP_ISSUES` | Unresolved peer deps | Install peer deps or use `--strict-peer-dependencies=false` |
+| Outdated lockfile | `ERR_PNPM_OUTDATED_LOCKFILE` | Lockfile out of sync | Run `pnpm install` |
 | Tarball integrity | `ERR_PNPM_TARBALL_INTEGRITY` | Corrupted package | Delete lockfile, reinstall |
 | Unexpected store | `ERR_PNPM_UNEXPECTED_STORE` | node_modules linked to wrong store | `pnpm store prune`, reinstall |
+
+---
 
 ## Package Manager Quick Fixes
 
@@ -2813,47 +2216,56 @@ pnpm install
 
 ---
 
-## Authentication Errors 2
+## Authentication Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Auth session missing | `AuthSessionMissingError`, session null | Email link pre-fetched by provider | Add CAPTCHA, use redirect button |
 | Database error email link | `AuthApiError database error` | Misconfigured user table | Check auth schema, user table |
 | 500 auth errors | `500`, auth, SMTP | SMTP misconfigured or DB constraint | Check SMTP settings, DB logs |
 | Email not authorized | `Email address cannot be used` | No SMTP configured (2024 change) | Configure custom SMTP server |
 
+---
+
 ## Database Errors
 
 | Error | Keyword Trigger | Root Cause | Fix |
-| ------- | ----------------- | ------------ | -----  |
+|-------|-----------------|------------|-----|
 | Too many connections | `too many connections`, `max client` | Serverless connection flood | Use Supavisor pooler, transaction mode |
 | RLS policy violation | `violates row-level security` | Missing INSERT/UPDATE policy | Add permissive policy for action |
 | Timeout/5xx | `timeout`, `5xx`, `504` | Under-provisioned compute | Upgrade compute, optimize queries |
 | RLS performance | `slow RLS`, `policy timeout` | Complex RLS subqueries | Index policy columns, simplify queries |
 
+---
+
 ## Supabase Connection String
 
+```typescript
 // Standard connection (for server-side)
 const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    );
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 // With service role (for admin ops - NEVER expose to client)
 const supabaseAdmin = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
-    );
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 // Common .env setup
-    NEXT_PUBLIC_SUPABASE_URL=<<<<<<https://xxx.supabase.co>>>>>>
-    NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx
 SUPABASE_SERVICE_ROLE_KEY=eyJxxx // NEVER in NEXT_PUBLIC_
 
-## Quick Keyword Search Index 5
+```text
+
+---
+
+## Quick Keyword Search Index
 
 | Keyword Pattern | Section |
-| ----------------- | ---------  |
+|-----------------|---------|
 | `EACCES`, `permission denied npm` | npm Permissions |
 | `ERR_PNPM_PEER_DEP_ISSUES` | pnpm Peer Deps |
 | `YN0020`, `lockfile` | yarn Lockfile |
@@ -2861,9 +2273,13 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx // NEVER in NEXT_PUBLIC_
 | `too many connections supabase` | Supabase Pooling |
 | `violates row-level security` | Supabase RLS |
 
-### [REAL WEB-SOURCED DATA] 3
+---
+
+### [REAL WEB-SOURCED DATA]
 
 #### Sources: pnpm.io, yarnpkg.com, Supabase docs, Medium 2024
+
+---
 
 ## THE IMPOSSIBLE PATTERNS
 
@@ -2874,17 +2290,18 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx // NEVER in NEXT_PUBLIC_
 ## POSTMORTEM WISDOM
 
 | LESSON | HIDDEN TRUTH | ARCHITECTURAL IMPLICATION |
-| -------- | -------------- | ---------------------------  |
+|--------|--------------|---------------------------|
 | Redundancy Resilience | Copies fail together | ISOLATE blast radius |
 | Generous timeouts = Cascade | Requests pile, resources exhaust | Fail FAST < 3s |
 | Autoscaling can kill | Scales into failing region | Add kill switches |
 | Dependency you forgot | Least understood = outage source | Map ALL deps |
 | Monitoring only uptime | Hides degradation until too late | Measure TRENDS |
 
+---
+
 ## WHYS THAT MATTER
 
 ```text
-
 1. WHY did it break? Find mechanism
 2. WHY wasn't it caught? Find detection gap
 3. WHY did fix take so long? Find observability gap
@@ -2898,7 +2315,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx // NEVER in NEXT_PUBLIC_
 ## SENIOR DEV COMPRESSED WISDOM
 
 | TRUTH | JUNIOR THINKS | SENIOR KNOWS |
-| ------- | --------------- | --------------  |
+|-------|---------------|--------------|
 | Done | PR merged | Stable 1 week in prod |
 | Simple | Few features | Few dependencies |
 | Fast | Quick code | Quick to understand |
@@ -2906,10 +2323,12 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx // NEVER in NEXT_PUBLIC_
 | Tested | All green | Tested FAILURE paths |
 | Debugged | Found bug | Found SYSTEM flaw |
 
+---
+
 ## PATTERNS
 
 | NAME | SYMPTOM | THE REAL PROBLEM |
-| ------ | --------- | ------------------  |
+|------|---------|------------------|
 | Distributed Monolith | Microservices but coupled | Missing domain boundaries |
 | Cache Everything | Fast but stale | No invalidation strategy |
 | Event Soup | Everything async | Missing transaction boundaries |
@@ -2917,10 +2336,12 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx // NEVER in NEXT_PUBLIC_
 | Config Sprawl | ENVs everywhere | No source of truth |
 | Log Blindness | GB of logs, no insight | Wrong granularity |
 
+---
+
 ## THE DECISIONS THAT SHAPED PRODUCTION
 
 | DECISION POINT | WRONG INTUITION | BATTLE-TESTED CHOICE |
-| ---------------- | ----------------- | ----------------------  |
+|----------------|-----------------|----------------------|
 | Auth token storage | localStorage fast | httpOnly cookie |
 | API error format | Include stack | Error code + message only |
 | DB connection | Open when needed | Pool, singleton |
@@ -2929,15 +2350,19 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx // NEVER in NEXT_PUBLIC_
 | Caching | Cache response | Cache BY user, BY time |
 | Logging | Log everything | Log BUSINESS events |
 
+---
+
 ## FAILURE MODE CATALOG
 
 | MODE | LOOKS LIKE | ACTUALLY IS |
-| ------ | ------------ | -------------  |
+|------|------------|-------------|
 | Slow degradation | "Getting slower" | Memory leak / connection leak |
 | Intermittent | "Sometimes fails" | Race condition / timing |
 | Works locally | "Fine on my machine" | ENV / dep version / case sensitivity |
 | Random errors | "Chaos" | Retry storm / thundering herd |
 | Sudden death | "Just crashed" | OOM / disk full / connection exhaust |
+
+---
 
 ## SCALING TRUTHS
 
@@ -2970,7 +2395,6 @@ This is TRIBAL KNOWLEDGE - not in any doc.
 ```text
 IF: works locally + fails deployed
 CHECK IN ORDER:
-
 1. ENV vars (NEXT_PUBLIC_ prefix?)
 2. Case sensitivity
 3. Build-time vs runtime (SSR/CSR boundary)
@@ -2986,7 +2410,6 @@ CHECK IN ORDER:
 ```text
 IF: regression + no code changes
 CHECK IN ORDER:
-
 1. Dependency auto-update (^version)
 2. External API change
 3. Certificate expiry
@@ -3002,7 +2425,6 @@ CHECK IN ORDER:
 ```text
 IF: first request OK + subsequent fail
 CHECK IN ORDER:
-
 1. Connection not released (pool exhaust)
 2. Cache poisoned on first call
 3. One-time token consumed
@@ -3018,7 +2440,6 @@ CHECK IN ORDER:
 ```text
 IF: intermittent + unpredictable
 CHECK IN ORDER:
-
 1. Race condition (async order)
 2. Timeout boundary (some requests slow)
 3. Memory pressure (GC pauses)
@@ -3034,7 +2455,6 @@ CHECK IN ORDER:
 ```text
 IF: degradation + cumulative
 CHECK IN ORDER:
-
 1. Memory leak (event listeners, closures)
 2. Connection leak (DB, HTTP)
 3. Log file growth
@@ -3094,23 +2514,27 @@ LESSON: Regex = execution bomb (use RE2, set limits)
 ## DEBUGGING HEURISTICS (GOLD)
 
 | IF YOU SEE | CHECK FIRST | LIKELY CAUSE |
-| ------------ | ------------- | --------------  |
+|------------|-------------|--------------|
 | CPU 100% constantly | Single thread | Infinite loop / regex backtrack |
 | Memory growing forever | Heap snapshot diff | Event listener leak / closure leak |
 | Random 500s | Timing + logs | Race condition / connection pool |
 | Slow then fast then slow | Metrics pattern | GC thrashing / cache eviction |
 | Works dev, fails prod | Env diff | Secret missing / dep version |
 
+---
+
 ## TECH DEBT DECISION MATRIX
 
 | SITUATION | TAKE DEBT? | REASONING |
-| ----------- | ------------ | -----------  |
+|-----------|------------|-----------|
 | MVP to validate | YES | Speed > perfection, may pivot |
 | Core auth/payment | NO | Security debt = existential risk |
 | Scale 10x coming | NO | Debt compounds at scale |
 | Team leaving | NO | Knowledge debt = permanent |
 | Demo to investor | YES | Existence > elegance |
 | Production feature | STRATEGIC | Planned payback < 3 sprints |
+
+---
 
 ## SCALE ARCHITECTURE TRUTHS
 
@@ -3128,13 +2552,15 @@ LESSON: Regex = execution bomb (use RE2, set limits)
 ## THE REAL COST OF DECISIONS
 
 | DECISION | SEEMS LIKE | ACTUALLY COSTS |
-| ---------- | ------------ | ----------------  |
+|----------|------------|----------------|
 | Skip tests | Save 20% time | 10x debugging later |
 | Copy-paste code | Fast | N copies to maintain |
 | Any external API | Easy integration | Entire team on-call for their outage |
 | SQL in application | Flexible | Every dev = DBA |
 | Log everything | Good visibility | $10K/month logging bill |
 | Cache everything | Faster | Consistency hell |
+
+---
 
 ## THE IMPOSSIBLE DEBUGGING PATTERNS
 
@@ -3146,7 +2572,6 @@ LESSON: Regex = execution bomb (use RE2, set limits)
 
 ```text
 CAUSE CHAIN:
-
 1. Test uses mock prod uses real service
 2. Mock returns fast real times out
 3. Race condition only visible under real latency
@@ -3171,7 +2596,6 @@ FIX: Use 64-bit for all time tracking
 
 ```text
 CAUSE CHAIN (check in order):
-
 1. Locale settings (date/number format)
 2. Timezone (server vs UTC)
 3. Filesystem (case, encoding)
@@ -3186,7 +2610,6 @@ CAUSE CHAIN (check in order):
 
 ```text
 CAUSE: Cron job + traffic pattern
-
 - Backup cron runs Tuesday 2am
 - Wakes up at same time as Europe traffic
 - IO contention = slow for 2 hours
@@ -3200,7 +2623,6 @@ FIX: Stagger crons, monitor overlap
 
 ```text
 CAUSE CHAIN:
-
 1. UUID collision? (No, astronomically rare)
 2. Email case sensitivity? (YES - COMMON)
 User registered: John@email.com
@@ -3215,7 +2637,6 @@ FIX: Lowercase all emails at registration AND login
 ## PRODUCTION INTUITION RULES
 
 ```text
-
 1. If it's random it's a race condition
 2. If it degrades something is leaking
 3. If it worked yesterday env/dep changed
@@ -3243,12 +2664,14 @@ FIX: Lowercase all emails at registration AND login
 ## AI HALLUCINATION PATTERNS
 
 | AI DOES THIS | WHY IT'S DANGEROUS | YOUR DEFENSE |
-| -------------- | ------------------- | --------------  |
+|--------------|-------------------|--------------|
 | Invents packages | Package doesn't exist, could be typosquat | Verify EVERY import exists in npm/pypi |
 | Deprecated methods | Trained on old data | Check version docs, use latest API |
 | Confident but wrong | Optimized to sound right | TEST EVERYTHING, trust nothing |
 | Missing error handling | Optimizes happy path | Add try/catch, edge cases manually |
 | Security holes | Doesn't understand attack vectors | Security review EVERY generated code |
+
+---
 
 ## 30% RULE (2024 Studies)
 
@@ -3264,7 +2687,7 @@ FIX: Lowercase all emails at registration AND login
 ## PROMPT ENGINEERING FOR CODE (COMPRESSED)
 
 | TECHNIQUE | WHAT TO DO | WHY IT WORKS |
-| ----------- | ------------ | --------------  |
+|-----------|------------|--------------|
 | PERSONA | "You are senior backend engineer" | Changes code quality/style |
 | SPECIFIC | State language, framework, version | Reduces hallucination |
 | FEW-SHOT | Give example of desired output | Model mimics pattern |
@@ -3272,15 +2695,19 @@ FIX: Lowercase all emails at registration AND login
 | GUARDRAILS | "Do NOT modify X, Y, Z" | Prevents unintended changes |
 | LEADING | Start with "import", "SELECT" | Nudges correct syntax |
 
+---
+
 ## THE VIBE CODING TRAP
 
 | SEEMS LIKE | ACTUALLY COSTS |
-| ------------ | ----------------  |
+|------------|----------------|
 | Fast prototyping | Unmaintainable code in prod |
 | Less learning needed | Skill atrophy (can't debug) |
 | AI knows best | AI invents non-existent APIs |
 | Iterate to fix | Compounds errors with each pass |
 | Copy-paste works | Understanding is zero |
+
+---
 
 ## SPECIFIC PATTERNS
 
@@ -3341,7 +2768,6 @@ Can I explain what this does without AI?
 ## EFFECTIVE VIBE CODING WORKFLOW
 
 ```text
-
 1. PLAN in natural language (what, not how)
 2. DECOMPOSE into small functions
 3. PROMPT with specificity (language, version, constraints)
@@ -3357,12 +2783,14 @@ Can I explain what this does without AI?
 ## WHEN AI FAILS PATTERNS
 
 | SYMPTOM | ROOT CAUSE | YOUR MOVE |
-| --------- | ------------ | -----------  |
+|---------|------------|-----------|
 | Loops forever | AI logic error | Rewrite from scratch |
 | Import not found | Hallucinated package | Search npm manually |
 | Type mismatch | Wrong version assumed | Check actual types |
 | Works but slow | Naive algorithm | Specify performance needs |
 | Breaks other code | Lost context | Smaller scope, more guardrails |
+
+---
 
 ## [24K GOLD: AI AGENT TRIBAL KNOWLEDGE]
 
@@ -3384,14 +2812,12 @@ WHAT IT LOOKS LIKE:
 N queries: Get posts for each user (N = 1000 users = 1000 queries)
 
 WHY IT KILLS:
-
 - 1 user = fine
 - 100 users = slow
 - 1000 users = timeout
 - Connection pool exhausted crash
 
 DETECTION:
-
 - Slow page load but fast individual queries
 - Query log shows same pattern repeated
 - DB connections spike with load
@@ -3403,7 +2829,7 @@ DETECTION:
 ## N+1 FIX PATTERNS (Per ORM)
 
 | ORM | FIX PATTERN |
-| ----- | -------------  |
+|-----|-------------|
 | Prisma | `include: { posts: true }` |
 | Sequelize | `include: [{ model: Post }]` |
 | Django | `prefetch_related('posts')` |
@@ -3411,28 +2837,34 @@ DETECTION:
 | ActiveRecord | `includes(:posts)` |
 | TypeORM | `relations: ['posts']` |
 
-## PATTERNS 2
+---
+
+## PATTERNS
 
 | ANTI-PATTERN | WHY IT'S BAD | FIX |
-| -------------- | -------------- | -----  |
+|--------------|--------------|-----|
 | Index on every column | Slows ALL writes | Only index WHERE/JOIN columns |
 | Low selectivity index | Gender, bool = useless | Skip unless composite |
-| Wrong composite order | `(status, id)`when query is`WHERE id` | Put filtered columns FIRST |
+| Wrong composite order | `(status, id)` when query is `WHERE id` | Put filtered columns FIRST |
 | Duplicate indexes | Same columns different names | Delete duplicates |
 | Never rebuild | Fragmented = slow reads | Monthly maintenance |
 | Giant VARCHAR index | Slow comparison | Use hash or prefix |
 | No FK index | JOIN does full scan | ALWAYS index foreign keys |
 
+---
+
 ## QUERY OPTIMIZATION GOLD
 
 | WHAT YOU WRITE | WHY IT'S SLOW | WHAT TO WRITE |
-| ---------------- | --------------- | ---------------  |
+|----------------|---------------|---------------|
 | `SELECT *` | Network + memory waste | Select only needed columns |
 | `LIKE '%search%'` | Can't use index | Full-text search or prefix |
-| `WHERE id = '123'`(string) | Type conversion = no index | Use correct type |
-| `SELECT DISTINCT`everywhere | Often masks bad JOIN | Fix JOIN logic |
+| `WHERE id = '123'` (string) | Type conversion = no index | Use correct type |
+| `SELECT DISTINCT` everywhere | Often masks bad JOIN | Fix JOIN logic |
 | Subquery in SELECT | Runs per row | Rewrite as JOIN |
 | No LIMIT on dev query | Fetches millions | Always LIMIT |
+
+---
 
 ## THE EXPLAIN MOMENT
 
@@ -3441,7 +2873,6 @@ DETECTION:
 EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'x@y.com';
 
 LOOK FOR:
-
 - Seq Scan on large table = MISSING INDEX
 - Nested Loop with high rows = N+1 pattern
 - Sort with high memory = needs ORDER BY index
@@ -3475,18 +2906,19 @@ PRISMA ENV:
 ## MIGRATION DISASTERS
 
 | WHAT YOU DO | WHAT HAPPENS | PREVENTION |
-| ------------- | -------------- | ------------  |
+|-------------|--------------|------------|
 | Add column NOT NULL | Table lock + backfill | Add nullable, then backfill, then constraint |
 | Add index on prod | Locks table | CREATE INDEX CONCURRENTLY |
 | Rename column | App breaks | Add new, copy data, deploy, drop old |
 | Change column type | Data loss possible | Create new, migrate, drop old |
 | Drop table | Irreversible | Rename first, drop after confirming |
 
+---
+
 ## CACHING DECAY PATTERNS
 
 ```text
 CACHE STAMPEDE:
-
 - Popular key expires
 - 1000 requests hit at same moment
 - All 1000 go to DB
@@ -3495,7 +2927,6 @@ CACHE STAMPEDE:
 FIX: Early expiry jitter + mutex lock on regenerate
 
 STALE CACHE:
-
 - Data updated
 - Cache not invalidated
 - Users see old data
@@ -3518,16 +2949,18 @@ FIX: Write-through OR explicit invalidation on mutation
 
 ---
 
-## PATTERNS 3
+## PATTERNS
 
 | ANTI-PATTERN | HOW IT LOOKS | WHY IT KILLS |
-| -------------- | -------------- | --------------  |
+|--------------|--------------|--------------|
 | Distributed Monolith | Services but tight coupling | Worst of both worlds |
 | Nanoservices | 100+ tiny services | Ops nightmare, network hell |
 | Shared Database | Multiple services one DB | Can't deploy independently |
 | Sync Everything | REST calls for everything | Cascading failures |
 | No Observability | Can't trace requests | Debugging impossible |
 | Chatty Services | 50 calls per request | Latency compounds, P99 explodes |
+
+---
 
 ## MICROSERVICES TRUTHS
 
@@ -3551,32 +2984,12 @@ Timeout < 3s, circuit breaker, retry with backoff
 
 ## WHEN TO USE WHAT
 
-```text
-BEM:
-
-- Traditional CSS
-- No build step wanted
-- Large teams, conventions
-
-CSS MODULES:
-
-- Scoped styles
-- Standard CSS syntax
-- Build-time processing
-
-TAILWIND:
-
-- Rapid prototyping
-- Utility-first
-- Design system enforcement
-
-STYLED COMPONENTS:
-
-- Dynamic theming
-- Component-scoped
-- Note: In maintenance mode (2024)
-
-```text
+| SITUATION | CHOICE | WHY |
+|-----------|--------|-----|
+| <5 devs | Monolith | Overhead kills small teams |
+| Growing, 5-20 devs | Modular monolith | Prep for split |
+| 20+ devs, clear domains | Microservices | Teams need independence |
+| Startup MVP | Monolith always | Speed > architecture |
 
 ---
 
@@ -3589,33 +3002,35 @@ STYLED COMPONENTS:
 ## CORE WEB VITALS (2024)
 
 | METRIC | WHAT | GOOD | BAD |
-| -------- | ------ | ------ | -----  |
+|--------|------|------|-----|
 | LCP | Largest paint | < 2.5s | > 4s |
 | INP | Interaction response | < 200ms | > 500ms |
 | CLS | Layout shift | < 0.1 | > 0.25 |
 
+---
+
 ## PERFORMANCE KILLS
 
 | WHAT DEVS DO | WHY IT'S SLOW | FIX |
-| -------------- | --------------- | -----  |
-| `<script>`in head | Blocks parsing | defer or async |
+|--------------|---------------|-----|
+| `<script>` in head | Blocks parsing | defer or async |
 | Massive bundle | Downloads forever | Code split |
 | Unoptimized images | 2MB per image | WebP, AVIF, lazy load |
 | No preload | Critical assets wait | `<link rel="preload">` |
 | Third-party scripts | Can't control them | Load async, audit impact |
 | CSS in JS runtime | Computes on render | Extract critical CSS |
 
+---
+
 ## CRITICAL RENDERING PATH
 
 ```text
-
 1. HTML DOM
 2. CSS CSSOM
 3. DOM + CSSOM Render Tree
 4. Layout Paint Composite
 
 BLOCK POINTS:
-
 - CSS blocks render (inline critical)
 - JS blocks parsing (defer/async)
 - Fonts block text (font-display: swap)
@@ -3628,14 +3043,18 @@ BLOCK POINTS:
 
 > **The patterns that save your API and database**
 
+---
+
 ## RATE LIMIT ALGORITHMS
 
 | ALGORITHM | HOW IT WORKS | USE WHEN |
-| ----------- | -------------- | ----------  |
+|-----------|--------------|----------|
 | Fixed Window | Count per minute reset at 0s | Simple, some burst ok |
 | Sliding Window | Rolling 60s window | Smooth, no cliff at reset |
 | Token Bucket | Tokens refill, burst ok | API gateways, burst-friendly |
 | Leaky Bucket | Fixed output rate | Traffic shaping, steady |
+
+---
 
 ## TOKEN BUCKET FORMULA
 
@@ -3658,25 +3077,27 @@ Empty waits for refill
 ## RATE LIMIT DIMENSIONS
 
 | DIMENSION | WHEN | WHY |
-| ----------- | ------ | -----  |
+|-----------|------|-----|
 | Per IP | Anonymous | Stop scraping |
 | Per User | Authenticated | Fair usage |
 | Per Endpoint | Resource-heavy | Protect expensive ops |
 | Per Action | Login, password reset | Stop brute force |
 | Global | Entire API | Protect infrastructure |
 
+---
+
 ## RATE LIMIT RESPONSE
 
-```typescript
-// Always return these headers
-res.setHeader('X-RateLimit-Limit', limit);
-res.setHeader('X-RateLimit-Remaining', remaining);
-res.setHeader('X-RateLimit-Reset', resetTime);
+```http
+HTTP/1.1 429 Too Many Requests
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1234567890
+Retry-After: 60
 
-if (rateLimited) {
-  res.status(429);
-res.setHeader('Retry-After', secondsUntilReset);
-return res.json({ error: 'Too many requests' });
+{
+"error": "rate_limit_exceeded",
+"retry_after": 60
 }
 
 ```text
@@ -3689,35 +3110,41 @@ return res.json({ error: 'Too many requests' });
 
 ---
 
-## WHEN TO USE WHAT 2
+## WHEN TO USE WHAT
 
 | SITUATION | USE | WHY |
-| ----------- | ----- | -----  |
+|-----------|-----|-----|
 | Component state | useState | Local, simple |
 | Sibling sharing | Lift state up | React pattern |
 | Deep tree | Context or Zustand | Avoid prop drilling |
 | Complex app | Redux Toolkit | Predictable, DevTools |
 | Simple global | Zustand | Minimal boilerplate |
 
+---
+
 ## ZUSTAND VS REDUX
 
 | ASPECT | ZUSTAND | REDUX |
-| -------- | --------- | -------  |
+|--------|---------|-------|
 | Boilerplate | Minimal | More (even with RTK) |
 | Learning | Easy | Steeper |
 | Bundle size | ~1KB | ~10KB+ |
 | DevTools | Via middleware | Native |
 | Best for | Small-medium | Enterprise |
 
-## PATTERNS 4
+---
+
+## PATTERNS
 
 | ANTI-PATTERN | WHY IT'S BAD | FIX |
-| -------------- | -------------- | -----  |
+|--------------|--------------|-----|
 | Global for local | Unnecessary coupling | useState for local |
 | Prop drilling 5+ levels | Maintenance hell | Context or store |
 | Mutating state | React can't detect | Always spread/Immer |
 | Store everything | Re-renders everywhere | Minimal store |
 | Derived in store | Stale data | Compute on select |
+
+---
 
 ## ZUSTAND PATTERNS
 
@@ -3751,28 +3178,32 @@ const { user, cart, settings } = useStore();
 
 ## AUTHENTICATION TRIBAL KNOWLEDGE
 
-> **The patterns that secure user identity**
+> **The patterns that prevent account takeover**
 
 ---
 
 ## AUTH FLOW CHOICES
 
 | FLOW | USE WHEN | WHY |
-| ------ | ---------- | -----  |
+|------|----------|-----|
 | OAuth + PKCE | SPAs, mobile | No secrets in client |
 | Session cookies | Traditional web | Simple, secure by default |
 | JWT access + refresh | API-first | Stateless, scalable |
 | Magic links | Low friction | No password to steal |
 
+---
+
 ## JWT SECURITY TRUTHS
 
 | RULE | WHY | CONSEQUENCE IF VIOLATED |
-| ------ | ----- | -------------------------  |
+|------|-----|-------------------------|
 | Short expiry (15-30min) | Limits breach window | Stolen token = prolonged access |
 | Never store in localStorage | XSS reads it | Token theft via code injection |
 | Validate ALL claims | iss, aud, exp | Accept forged tokens |
 | Don't put PII in payload | Base64 encrypted | Expose user data |
 | Use RS256 over HS256 | Asymmetric > symmetric | Secret compromise = all tokens forged |
+
+---
 
 ## SESSION COOKIE FLAGS
 
@@ -3788,15 +3219,17 @@ SameSite=Strict; // CSRF protection
 
 ---
 
-## PATTERNS 5
+## PATTERNS
 
 | ANTI-PATTERN | WHY IT'S DANGEROUS | FIX |
-| -------------- | ------------------- | -----  |
+|--------------|-------------------|-----|
 | Token in URL | Logged, leaked in referer | Authorization header |
 | Long-lived tokens | Stolen = long damage | Short access + refresh |
 | No refresh rotation | Reuse forever | Rotate on use |
 | Implicit grant | Token in URL fragment | Auth code + PKCE |
 | Custom crypto | Almost always broken | Use bcrypt, argon2 |
+
+---
 
 ## DEPLOYMENT TRIBAL KNOWLEDGE
 
@@ -3807,23 +3240,23 @@ SameSite=Strict; // CSRF protection
 ## DEPLOYMENT STRATEGIES
 
 | STRATEGY | HOW | ROLLBACK | USE WHEN |
-| ---------- | ----- | ---------- | ----------  |
+|----------|-----|----------|----------|
 | Blue-Green | 2 envs, swap traffic | Instant | DBless or compatible schema |
 | Canary | % traffic to new | Fast, partial | Need to validate in prod |
 | Rolling | Instance by instance | Slower | Limited resources |
 | Recreate | Kill old, start new | Downtime | Stateful, dev only |
 
+---
+
 ## GREEN TRUTHS
 
 ```text
 PROS:
-
 - Instant rollback (just swap back)
 - Full testing before live
 - Zero downtime
 
 CONS:
-
 - 2x infrastructure cost
 - Database migration complexity
 - Stateful apps need careful handling
@@ -3836,13 +3269,11 @@ CONS:
 
 ```text
 PROS:
-
 - Real traffic validation
 - Gradual rollout = limited blast radius
 - Can target specific user segments
 
 CONS:
-
 - Multiple versions running
 - Metrics comparison complexity
 - Feature flags needed
@@ -3867,7 +3298,7 @@ Did you test rollback in staging?
 
 ## ERROR HANDLING TRIBAL KNOWLEDGE
 
-> **The patterns that catch errors gracefully**
+> **The patterns that prevent silent failures**
 
 ---
 
@@ -3899,15 +3330,17 @@ if (r.status === 'rejected') logger.error(r.reason);
 
 ---
 
-## PATTERNS 6
+## PATTERNS
 
 | ANTI-PATTERN | WHY IT'S BAD | FIX |
-| -------------- | -------------- | -----  |
+|--------------|--------------|-----|
 | Empty catch | Silent failure | Log and rethrow |
 | catch(e) console.log | Production blindness | Structured logging + alert |
 | throw "string" | No stack trace | throw new Error() |
 | Catch too broad | Hides different errors | Specific error types |
 | No finally | Resources leak | Always cleanup |
+
+---
 
 ## ERROR RESPONSE PATTERN
 
@@ -3970,40 +3403,42 @@ throw e; // Rethrow unknown
 
 ```text
         /\
-/ \
-/ E2E\  (Few, slow, expensive)
-         /------\
-/ Integ \   (Some, medium speed)
-       /----------\
-/ Unit  \ (Many, fast, cheap)
-     /_____________\
+/E2E\ Few, slow, expensive
+      /------\
+/INTEGR \  Some, medium speed
+    /----------\
+/ UNIT  \   Many, fast, cheap
+  ----------------
 
 ```text
 
 ---
 
-## WHEN TO USE WHAT 3
+## WHEN TO USE WHAT
 
 | TEST TYPE | USE WHEN | CATCHES |
-| ----------- | ---------- | ---------  |
+|-----------|----------|---------|
 | Unit | Pure functions, logic | Algorithm bugs |
 | Integration | Components together | Interface bugs |
 | E2E | Critical user flows | Workflow bugs |
 
+---
+
 ## TESTING TRUTHS
 
 | MYTH | TRUTH |
-| ------ | -------  |
+|------|-------|
 | 100% coverage = safe | Coverage quality of tests |
 | Unit tests catch all | Only catch what you test |
 | E2E is slow | Worth it for critical paths |
 | Mocks are always good | Over-mocking = false confidence |
 | Skip tests for speed | Pay 10x later in debugging |
 
+---
+
 ## WHAT TO TEST (PRIORITY ORDER)
 
 ```text
-
 1. Business logic (money, auth, data integrity)
 2. Edge cases (null, empty, max, boundary)
 3. Integration points (API calls, DB queries)
@@ -4014,15 +3449,17 @@ throw e; // Rethrow unknown
 
 ---
 
-## PATTERNS 7
+## PATTERNS
 
 | ANTI-PATTERN | WHY IT'S BAD | FIX |
-| -------------- | -------------- | -----  |
+|--------------|--------------|-----|
 | Test implementation | Breaks on refactor | Test behavior, not code |
 | Giant test file | Hard to maintain | Small, focused tests |
 | Order-dependent | Flaky, unreliable | Each test independent |
 | No assertions | Passes but verifies nothing | Assert expected outcome |
 | Mock everything | False confidence | Mock only external systems |
+
+---
 
 ## OBSERVABILITY TRIBAL KNOWLEDGE
 
@@ -4033,10 +3470,12 @@ throw e; // Rethrow unknown
 ## THREE PILLARS
 
 | PILLAR | WHAT | USE FOR |
-| -------- | ------ | ---------  |
+|--------|------|---------|
 | Logs | Event records | Debugging, audit |
 | Metrics | Numbers over time | Alerting, trends |
 | Traces | Request journey | Performance, bottlenecks |
+
+---
 
 ## STRUCTURED LOGGING PATTERN
 
@@ -4062,34 +3501,36 @@ timestamp: new Date().toISOString()
 ## LOG LEVELS TRUTHS
 
 | LEVEL | USE FOR | EXAMPLE |
-| ------- | --------- | ---------  |
+|-------|---------|---------|
 | DEBUG | Dev only, verbose | Variable values |
 | INFO | Normal operations | Request completed |
 | WARN | Recoverable issues | Retry succeeded |
 | ERROR | Failures, needs attention | Payment failed |
 | FATAL | App can't continue | DB connection lost |
 
-## PATTERNS 8
+---
+
+## PATTERNS
 
 | ANTI-PATTERN | WHY IT'S BAD | FIX |
-| -------------- | -------------- | -----  |
+|--------------|--------------|-----|
 | Log PII | Privacy/legal risk | Redact or don't log |
 | Log everything | Noise, storage cost | Log what matters |
 | No correlation ID | Can't trace requests | Add requestId to all logs |
 | Alert on every error | Alert fatigue | Alert on patterns, not events |
 | Metrics no labels | Can't filter | Add service, endpoint labels |
 
+---
+
 ## WHAT TO MONITOR (GOLDEN SIGNALS)
 
 ```text
-
 1. LATENCY - How long requests take
 2. TRAFFIC - Requests per second
 3. ERRORS - Error rate percentage
 4. SATURATION - Resource usage %
 
 ALERT WHEN:
-
 - Latency P99 > threshold
 - Error rate > baseline
 - CPU/Memory > 85%
@@ -4131,20 +3572,24 @@ Bottleneck: Service B External API
 ## BRANCHING STRATEGY CHOICE
 
 | TEAM SIZE | RELEASE CADENCE | STRATEGY |
-| ----------- | ----------------- | ----------  |
+|-----------|-----------------|----------|
 | <5 devs | Continuous | Trunk-Based |
 | 5-20 devs | Weekly | GitHub Flow |
 | 20+ devs | Scheduled | GitFlow |
 | Any | Multiple versions | GitFlow |
 
+---
+
 ## REBASE VS MERGE
 
 | SITUATION | USE | WHY |
-| ----------- | ----- | -----  |
+|-----------|-----|-----|
 | Feature main | Merge | Preserve history |
 | Sync feature from main | Rebase | Clean linear history |
 | Shared branch | NEVER rebase | Breaks everyone's history |
 | Personal cleanup | Interactive rebase | Squash before PR |
+
+```bash
 
 ## GOOD: Rebase your feature on main before merge
 
@@ -4163,23 +3608,26 @@ git rebase main  # on shared branch = disaster
 
 ## CONFLICT PREVENTION
 
+```text
 1. Pull main into feature DAILY
-1. Keep branches SHORT-LIVED (1-3 days max)
-1. Small commits, small PRs
-1. Communicate about shared files
-1. Lock files if editing config
+2. Keep branches SHORT-LIVED (1-3 days max)
+3. Small commits, small PRs
+4. Communicate about shared files
+5. Lock files if editing config
+
+```text
+
+---
 
 ## CONFLICT RESOLUTION
 
 ```text
-
 Between markers:
  <<<<<<< HEAD  = Your changes
  ======= = Separator
  >>>>>>> branch   = Their changes
 
 STEPS:
-
 1. Understand both changes
 2. Keep what makes sense
 3. Remove ALL markers
@@ -4192,18 +3640,16 @@ STEPS:
 
 ## WEBSOCKET TRIBAL KNOWLEDGE
 
-> **The patterns that enable real-time communication**
+> **The patterns that scale real-time**
 
 ---
 
 ## WEBSOCKET SCALING TRUTHS
 
 ```text
-
 PROBLEM: Stateful connections = hard to scale
 
 SOLUTIONS:
-
 1. Horizontal scale with sticky sessions
 2. Pub/Sub for cross-server messaging
 3. Redis for connection state
@@ -4221,20 +3667,24 @@ Reality: 10K-100K per server is realistic
 ## WEBSOCKET PATTERNS
 
 | PATTERN | WHAT | USE WHEN |
-| --------- | ------ | ----------  |
+|---------|------|----------|
 | Pub/Sub | Broadcast via message broker | 10K+ connections |
 | Sticky Sessions | Route user to same server | State must persist |
 | Fallback | Long polling if WS fails | Enterprise firewalls |
 | Heartbeat | Ping/pong every 30s | Detect dead connections |
 
-## PATTERNS 9
+---
+
+## PATTERNS
 
 | ANTI-PATTERN | WHY IT KILLS | FIX |
-| -------------- | -------------- | -----  |
+|--------------|--------------|-----|
 | No heartbeat | Zombie connections | Ping/pong + timeout |
 | Store state in memory only | Server restart = lost | Redis or similar |
 | No reconnection logic | Network blip = dead | Exponential backoff |
 | Send full data every time | Bandwidth waste | Send diffs only |
+
+---
 
 ## CACHING TRIBAL KNOWLEDGE
 
@@ -4245,16 +3695,17 @@ Reality: 10K-100K per server is realistic
 ## CACHING PATTERNS
 
 | PATTERN | HOW | CONSISTENCY | USE WHEN |
-| --------- | ----- | ------------- | ----------  |
+|---------|-----|-------------|----------|
 | Cache-Aside | App checks cache, then DB | Eventual | Read-heavy |
 | Write-Through | Write to cache + DB together | Strong | Read + write |
 | Write-Behind | Write to cache, async to DB | Eventual | Write-heavy |
 | Read-Through | Cache fetches from DB | Eventual | Simplicity |
 
+---
+
 ## REDIS COMMANDS YOU NEED
 
 ```redis
-
 SET key value EX 3600  # Set with 1hr TTL
 GET key  # Get value
 DEL key  # Delete
@@ -4268,27 +3719,17 @@ INCR counter  # Atomic increment
 
 ## THUNDERING HERD PREVENTION
 
-```typescript
+```text
+PROBLEM:
+Popular cache key expires
+1000 requests hit DB at once
+DB dies
 
-// BAD: All requests hit DB on cache miss
-// GOOD: Lock + single fetch + cache
-
-async function getWithLock(key, fetchFn) {
-const cached = await redis.get(key);
-if (cached) return JSON.parse(cached);
-
-// Acquire lock
-const lock = await redis.set(`lock:${key}`, 1, 'NX', 'EX', 5);
-if (!lock) {
-await sleep(100);
-return getWithLock(key, fetchFn); // Retry
-  }
-
-const data = await fetchFn();
-await redis.setex(key, 3600, JSON.stringify(data));
-await redis.del(`lock:${key}`);
-return data;
-}
+SOLUTIONS:
+1. LOCK: Only one request regenerates
+2. JITTER: Random TTL variance (base 10%)
+3. STALE: Serve stale while refreshing background
+4. WARM: Pre-populate before expire
 
 ```text
 
@@ -4297,7 +3738,6 @@ return data;
 ## CACHE INVALIDATION TRUTHS
 
 ```text
-
 "There are only two hard things: cache invalidation and naming things"
 
 PATTERNS:
@@ -4323,12 +3763,10 @@ Use infinite TTL without plan
 ## LARGE FILE HANDLING
 
 ```text
-
 PROBLEM:
 Large file = timeout, memory exhaustion
 
 SOLUTION: CHUNKING
-
 1. Client splits file into 5MB chunks
 2. Upload chunks with index
 3. Server stores chunks temporarily
@@ -4342,16 +3780,17 @@ SOLUTION: CHUNKING
 ## FILE UPLOAD SECURITY
 
 | ATTACK | HOW | PREVENTION |
-| -------- | ----- | ------------  |
+|--------|-----|------------|
 | Malicious file | Upload .exe disguised as .jpg | Check magic bytes, not extension |
 | Path traversal | ../../../etc/passwd | Sanitize filename, use UUID |
 | DoS | Upload 10GB file | Size limit, rate limit |
 | XSS | SVG with script | Sanitize SVG, CSP headers |
 
+---
+
 ## UPLOAD SECURITY CHECKLIST
 
 ```text
-
 Whitelist allowed extensions
 Check magic bytes (file signature)
 Validate MIME type server-side
@@ -4369,13 +3808,11 @@ Set non-executable permissions
 ## CLOUD UPLOAD PATTERN
 
 ```text
-
 WRONG:
 Client Your server S3
 (Server handles all bytes)
 
 RIGHT:
-
 1. Client requests presigned URL from server
 2. Server returns URL (1 hour expiry)
 3. Client uploads directly to S3
@@ -4396,19 +3833,22 @@ RIGHT:
 
 > **The patterns that prevent breaking your consumers**
 
+---
+
 ## VERSIONING STRATEGIES
 
 | STRATEGY | WHERE | PROS | CONS |
-| ---------- | ------- | ------ | ------  |
+|----------|-------|------|------|
 | URL Path | /api/v1/users | Easy, visible | URL fragmentation |
 | Header | X-API-Version: 1 | Clean URLs | Less discoverable |
 | Query Param | ?version=1 | Simple | Pollutes URL |
 | Accept Header | Accept: application/vnd.api+json;v=1 | RESTful | Complex |
 
+---
+
 ## SEMVER FOR APIs
 
 ```text
-
 MAJOR.MINOR.PATCH
 
 MAJOR: Breaking changes (removes field, changes type)
@@ -4422,19 +3862,19 @@ PATCH: Bug fixes, no API changes
 ## WHAT IS A BREAKING CHANGE
 
 | BREAKING | NON-BREAKING |
-| ------------- | -----------------  |
+|-------------|-----------------|
 | Remove field | Add optional field |
 | Change field type | Add new endpoint |
 | Rename field | Add optional parameter |
 | Remove endpoint | Deprecate (not remove) |
 | Change required params | Add default values |
 
+---
+
 ## DEPRECATION STRATEGY
 
 ```text
-
 TIMELINE:
-
 1. Announce deprecation (6+ months warning)
 2. Add Sunset header: Sunset: Sat, 31 Dec 2025 23:59:59 GMT
 3. Log usage of deprecated endpoints
@@ -4442,7 +3882,6 @@ TIMELINE:
 5. Remove after sunset date
 
 NEVER:
-
 - Remove without warning
 - Sunset in < 6 months for major APIs
 - Ignore remaining traffic
@@ -4453,52 +3892,58 @@ NEVER:
 
 ## DATABASE MIGRATION TRIBAL KNOWLEDGE
 
-> **The patterns that change schemas safely**
+> **The patterns that prevent data disasters**
 
 ---
 
 ## CONTRACT PATTERN
 
+```text
 FOR ZERO-DOWNTIME MIGRATIONS:
 
-    EXPAND:
-
+EXPAND:
 1. Add new column (nullable)
-1. Deploy code that writes to BOTH old and new
-1. Backfill existing data
+2. Deploy code that writes to BOTH old and new
+3. Backfill existing data
 
-    CONTRACT:
-
-1. Deploy code that reads from new
-1. Stop writing to old
-1. Remove old column
+CONTRACT:
+4. Deploy code that reads from new
+5. Stop writing to old
+6. Remove old column
 
 EXAMPLE: Rename column "name" "full_name"
-
 1. ALTER TABLE ADD full_name
-1. Deploy dual-write code
-1. UPDATE full_name = name WHERE full_name IS NULL
-1. Deploy read from full_name
-1. ALTER TABLE DROP name
+2. Deploy dual-write code
+3. UPDATE full_name = name WHERE full_name IS NULL
+4. Deploy read from full_name
+5. ALTER TABLE DROP name
+
+```text
+
+---
 
 ## MIGRATION SAFETY RULES
 
 | SAFE | DANGEROUS |
-| --------- | --------------  |
+|---------|--------------|
 | Add nullable column | Add NOT NULL column |
 | Add index CONCURRENTLY | Add index (locks table) |
 | Add new table | Rename table |
 | Add default later | Add default on existing |
 | Backfill in batches | Backfill all at once |
 
-## PATTERNS 10
+---
+
+## PATTERNS
 
 | ANTI-PATTERN | WHAT HAPPENS | PREVENTION |
-| -------------- | -------------- | ------------  |
+|--------------|--------------|------------|
 | Auto-migrate prod | Unexpected downtime | Manual review + staging |
 | No rollback plan | Stuck if fails | Test rollback first |
 | Big bang migration | Hours of downtime | Incremental steps |
 | Ignore data size | Lock timeout | Batch updates |
+
+---
 
 ## SECRETS MANAGEMENT TRIBAL KNOWLEDGE
 
@@ -4509,9 +3954,7 @@ EXAMPLE: Rename column "name" "full_name"
 ## ENV FILES ARE DANGEROUS
 
 ```text
-
 PROBLEMS:
-
 - Plaintext on disk
 - Easy to commit to Git
 - No access control
@@ -4520,11 +3963,9 @@ PROBLEMS:
 - Visible in process env
 
 USE .ENV FOR:
-
 - Local development ONLY
 
 NEVER USE FOR:
-
 - Production secrets
 - API keys
 - Database passwords
@@ -4536,17 +3977,18 @@ NEVER USE FOR:
 ## SECRETS MANAGEMENT OPTIONS
 
 | SOLUTION | BEST FOR | FEATURES |
-| ---------- | ---------- | ----------  |
+|----------|----------|----------|
 | HashiCorp Vault | Enterprise | Dynamic secrets, audit |
 | AWS Secrets Manager | AWS apps | Auto-rotation, IAM |
 | Google Secret Manager | GCP apps | Versioning, access control |
 | Azure Key Vault | Azure apps | HSM-backed |
 | Infisical | Self-hosted | Open source |
 
+---
+
 ## SECRETS SECURITY CHECKLIST
 
 ```text
-
 Use secrets manager, not .env in prod
 Never commit secrets to Git
 Use pre-commit hooks to scan for secrets
@@ -4565,20 +4007,17 @@ Use short-lived tokens where possible
 ## WHAT TO DO IF SECRET LEAKED
 
 ```text
-
 IMMEDIATELY:
-
 1. Rotate the compromised secret NOW
 2. Check audit logs for unauthorized access
 3. Invalidate any tokens/sessions using that secret
 4. Notify security team
 
 THEN:
-
-1. Scan Git history for other secrets
-2. Review access controls
-3. Conduct post-incident review
-4. Update runbooks
+5. Scan Git history for other secrets
+6. Review access controls
+7. Conduct post-incident review
+8. Update runbooks
 
 ```text
 
@@ -4592,38 +4031,44 @@ THEN:
 
 ## PAGINATION TRIBAL KNOWLEDGE
 
-> **The patterns that handle large datasets**
+> **The patterns that load data efficiently**
 
 ---
 
 ## PAGINATION STRATEGIES
 
 | STRATEGY | PROS | CONS | USE WHEN |
-| ---------- | ------ | ------ | ----------  |
+|----------|------|------|----------|
 | Offset | Simple, jump to page | Slow at high offsets, data shift | Small datasets, admin |
 | Cursor | Fast, consistent | No page jump, complex | Large/dynamic data |
 | Keyset | Very fast, indexed | Forward only | Sorted by unique field |
 
+---
+
 ## OFFSET VS CURSOR
 
+```text
 OFFSET (Page-based):
-SELECT *FROM posts ORDER BY id LIMIT 20 OFFSET 1000
+SELECT * FROM posts ORDER BY id LIMIT 20 OFFSET 1000
 
 PROBLEM: DB scans 1000 rows to skip them
 SLOW: Gets slower as page increases
 DRIFT: If data changes, items duplicate or skip
 
 CURSOR (Seek-based):
-SELECT* FROM posts WHERE id > :lastId ORDER BY id LIMIT 20
+SELECT * FROM posts WHERE id > :lastId ORDER BY id LIMIT 20
 
 FAST: O(1) performance regardless of position
 STABLE: No duplicates even if data changes
 LIMITATION: Can't jump to arbitrary page
 
+```text
+
+---
+
 ## CURSOR IMPLEMENTATION
 
 ```typescript
-
 // API Response
 {
 "data": [...],
@@ -4647,21 +4092,17 @@ const decoded = JSON.parse(atob(cursor)); // {id: 100}
 ## INFINITE SCROLL TRUTHS
 
 ```text
-
 GOOD FOR:
-
 - Social feeds
 - Content browsing
 - Mobile apps
 
 BAD FOR:
-
 - SEO (bots can't scroll)
 - Finding specific item
 - Bookmarking position
 
 IMPLEMENTATION:
-
 - Use cursor pagination backend
 - IntersectionObserver to detect scroll
 - Show "Load more" if JS disabled
@@ -4679,17 +4120,18 @@ IMPLEMENTATION:
 ## FORMAT CHOICE
 
 | FORMAT | USE FOR | SIZE |
-| -------- | --------- | ------  |
+|--------|---------|------|
 | WebP | Everything modern | 25-35% smaller than JPEG |
 | AVIF | Best compression | 50% smaller, newer |
 | JPEG | Photos, fallback | Universal support |
 | PNG | Transparency, lossless | Larger |
 | SVG | Icons, logos | Scalable, tiny |
 
+---
+
 ## LAZY LOADING
 
 ```html
-
 <!-- GOOD: Native lazy loading -->
 <img src="image.jpg" loading="lazy" alt="...">
 
@@ -4705,29 +4147,33 @@ IMPLEMENTATION:
 
 ## RESPONSIVE IMAGES
 
+```html
 <!-- srcset: Browser picks best size -->
-    <img
-      src="image-800.jpg"
-      srcset="
+<img
+  src="image-800.jpg"
+  srcset="
 image-400.jpg 400w,
 image-800.jpg 800w,
 image-1200.jpg 1200w
-      "
+  "
 sizes="(max-width: 600px) 400px, 800px"
-      alt="..."
-    >
+  alt="..."
+>
 
 <!-- picture: Art direction -->
-    <picture>
+<picture>
 <source srcset="image.webp" type="image/webp">
 <source srcset="image.avif" type="image/avif">
 <img src="image.jpg" alt="...">
-    </picture>
+</picture>
+
+```text
+
+---
 
 ## IMAGE OPTIMIZATION CHECKLIST
 
 ```text
-
 Use WebP/AVIF with JPEG fallback
 Serve appropriate size for viewport
 Lazy load below-the-fold images
@@ -4743,14 +4189,13 @@ Use blur placeholder for loading
 
 ## FORM VALIDATION TRIBAL KNOWLEDGE
 
-> **The patterns that validate user input**
+> **The patterns that prevent bad data**
 
 ---
 
 ## VALIDATION LAYERS
 
 ```text
-
 LAYER 1: HTML attributes (immediate)
 <input required minlength="3" type="email">
 
@@ -4768,7 +4213,6 @@ This is the ONLY real validation
 ## ZOD SHARED VALIDATION
 
 ```typescript
-
 // shared/schemas.ts
 import { z } from 'zod';
 
@@ -4795,15 +4239,17 @@ return res.status(400).json({ errors: result.error });
 
 ---
 
-## PATTERNS 11
+## PATTERNS
 
 | ANTI-PATTERN | RISK | FIX |
-| -------------- | ------ | -----  |
+|--------------|------|-----|
 | Client-only validation | Bypass via curl/postman | Always validate server |
 | Different FE/BE schemas | Inconsistent errors | Share single schema |
 | Generic error messages | Poor UX | Field-specific errors |
 | Validate on blur only | Miss empty submits | Also validate on submit |
 | Trust content-type | Injection attacks | Validate actual content |
+
+---
 
 ## DEPENDENCY INJECTION TRIBAL KNOWLEDGE
 
@@ -4814,16 +4260,17 @@ return res.status(400).json({ errors: result.error });
 ## DI PATTERNS
 
 | PATTERN | HOW | USE WHEN |
-| --------- | ----- | ----------  |
+|---------|-----|----------|
 | Constructor | Pass deps to constructor | Classes |
 | Context | React Context API | React components |
 | Props | Pass as component props | Simple cases |
 | Container | InversifyJS, TSyringe | Large apps |
 
+---
+
 ## REACT CONTEXT DI
 
 ```typescript
-
 // GOOD: Inject dependencies via context
 const ServiceContext = createContext<ApiService>(null);
 
@@ -4844,21 +4291,21 @@ const api = useContext(ServiceContext);
 
 ---
 
-## PATTERNS 12
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Direct imports | Can't mock | Inject via props/context |
 | Hardcoded `new` | Tight coupling | Factory or inject instance |
 | Global singletons | Testing nightmare | Scoped instances |
 | Over-engineering | Complexity | Only DI what you test |
 
+---
+
 ## WHEN TO USE DI
 
 ```text
-
 USE DI FOR:
-
 - API clients (mock in tests)
 - Database connections
 - External services
@@ -4866,7 +4313,6 @@ USE DI FOR:
 - Logger instances
 
 DON'T OVERCOMPLICATE:
-
 - Small utils (just import)
 - Pure functions (no side effects)
 - Simple components
@@ -4885,15 +4331,15 @@ DON'T OVERCOMPLICATE:
 
 > **The patterns that catch bugs before production**
 
+---
+
 ## PR SIZE LAW
 
 ```text
-
 IDEAL: 200-400 lines
 MAX: 500 lines
 
 BIGGER =
-
 - Slower reviews
 - More missed bugs
 - Harder to rollback
@@ -4907,17 +4353,18 @@ RULE: If PR > 500 lines, split it
 ## WHAT TO CHECK FIRST
 
 | PRIORITY | CHECK | WHY |
-| ---------- | ------- | -----  |
+|----------|-------|-----|
 | 1 | Security | Prevents breaches |
 | 2 | Correctness | Does it do what it should |
 | 3 | Edge cases | Handles null, empty, max |
 | 4 | Performance | N+1, memory, complexity |
 | 5 | Readability | Maintainability |
 
+---
+
 ## SECURITY REVIEW CHECKLIST
 
 ```text
-
 Input validated/sanitized?
 SQL parameterized (no string concat)?
 No secrets in code?
@@ -4933,7 +4380,6 @@ Error messages don't leak internals?
 ## PERFORMANCE REVIEW CHECKLIST
 
 ```text
-
 No N+1 queries?
 Heavy operations not in loops?
 Appropriate indexes used?
@@ -4946,15 +4392,17 @@ No blocking main thread?
 
 ---
 
-## PATTERNS 13
+## PATTERNS
 
 | ANTI-PATTERN | WHY BAD | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Rubber stamping | Bugs slip through | Check security first |
 | Nitpicking only | Miss important issues | Prioritize impact |
 | No context given | Reviewee confused | Explain why |
 | Too many rounds | Developer exhausted | Batch feedback |
 | Only negative | Demoralizing | Acknowledge good too |
+
+---
 
 ## MEMORY LEAK TRIBAL KNOWLEDGE
 
@@ -4965,15 +4413,18 @@ No blocking main thread?
 ## REACT MEMORY LEAK CAUSES
 
 | CAUSE | WHY | FIX |
-| ------- | ----- | -----  |
+|-------|-----|-----|
 | Event listener not removed | Keeps ref to component | Remove in cleanup |
 | setInterval not cleared | Runs forever | clearInterval in cleanup |
 | Subscription not unsubscribed | Holds reference | Unsubscribe in cleanup |
 | API call completes after unmount | Updates dead component | AbortController |
 | Large closure captured | Holds old state | Break closure |
 
+---
+
 ## CLEANUP PATTERN
 
+```typescript
 useEffect(() => {
 // Setup
 const controller = new AbortController();
@@ -4985,19 +4436,21 @@ return () => {
 controller.abort(); // Cancel fetch
 clearInterval(timer); // Stop timer
 window.removeEventListener('resize', handler); // Remove listener
-      };
+  };
 }, []);
+
+```text
+
+---
 
 ## DETECTION TECHNIQUES
 
 ```text
-
 1. Chrome DevTools Memory tab
 2. Take heap snapshot before/after
 3. Compare: what's retained?
 
 WARNING SIGNS:
-
 - Memory grows without release
 - "Detached DOM nodes" increasing
 - Performance degrades over time
@@ -5009,7 +4462,6 @@ WARNING SIGNS:
 ## COMMON MISTAKES
 
 ```typescript
-
 // BAD: Fetch without abort
 useEffect(() => {
   fetch('/api').then(setData);
@@ -5037,7 +4489,6 @@ return () => ctrl.abort();
 ## THE GOLDEN RULE
 
 ```text
-
 STORE: UTC always
 DISPLAY: Local timezone (on frontend)
 NEVER: Mix them up
@@ -5053,16 +4504,17 @@ Frontend: new Date().toLocaleString()
 ## COMMON DATE BUGS
 
 | BUG | CAUSE | FIX |
-| ----- | ------- | -----  |
+|-----|-------|-----|
 | Off-by-one day | Date-only string parsed as UTC | Store full timestamp with Z |
 | Wrong timezone | Local vs UTC confusion | Always explicit Z in ISO |
 | DST issues | Clock changes | Use UTC, convert for display |
 | Comparison fails | Different timezones | Compare in UTC |
 
+---
+
 ## SAFE DATE PATTERNS
 
 ```typescript
-
 // BAD: Ambiguous
 new Date("2024-01-15")  // Is this UTC or local?
 
@@ -5083,7 +4535,6 @@ new Date(isoString).toLocaleString()
 ## TIMESTAMP TRAPS
 
 ```text
-
 JavaScript: MILLISECONDS since epoch
 Date.now() = 1705312200000
 
@@ -5101,7 +4552,6 @@ Unix JS: unixTimestamp * 1000
 ## DATABASE TIMEZONE RULE
 
 ```sql
-
 -- GOOD: With timezone
 CREATE TABLE events (
 created_at TIMESTAMPTZ DEFAULT NOW()
@@ -5131,7 +4581,6 @@ created_at TIMESTAMP  -- No TZ info!
 ## THE HIDDEN DDOS
 
 ```text
-
 ReDoS = Regular Expression Denial of Service
 
 PROBLEM:
@@ -5162,25 +4611,19 @@ DANGER PATTERNS:
 ## PREVENTION TECHNIQUES
 
 ```text
-
 1. ATOMIC GROUPS: (?>pattern)
-
 Prevents backtracking once matched
 
-1. POSSESSIVE QUANTIFIERS: ++, *+, ?+
-
+2. POSSESSIVE QUANTIFIERS: ++, *+, ?+
 Greedy but no backtracking
 
-1. LAZY QUANTIFIERS: +?, *?, ??
-
+3. LAZY QUANTIFIERS: +?, *?, ??
 Match minimum first
 
-1. TIMEOUT
-
+4. TIMEOUT
 Set max execution time
 
-1. USE RE2
-
+5. USE RE2
 No backtracking by design
 
 ```text
@@ -5190,7 +4633,6 @@ No backtracking by design
 ## REGEX SECURITY CHECKLIST
 
 ```text
-
 Avoid nested quantifiers
 Limit input length before regex
 Set timeout for regex operations
@@ -5211,15 +4653,12 @@ Consider RE2 for untrusted input
 ## RACE CONDITIONS IN JS
 
 ```text
-
 JS is single-threaded, BUT:
-
 - async ops complete in any order
 - Multiple fetches = race for state
 - Click handlers while processing = conflict
 
 SYMPTOMS:
-
 - Intermittent bugs
 - "Works sometimes"
 - Stale data displaying
@@ -5232,16 +4671,17 @@ SYMPTOMS:
 ## COMMON RACE PATTERNS
 
 | CASE | WHAT HAPPENS | FIX |
-| ------ | -------------- | -----  |
+|------|--------------|-----|
 | Fast typing outdated search | Slow response overwrites fast | AbortController |
 | Double click submit | Two orders created | Disable button after click |
 | Navigate away during fetch | State update on unmounted | Cancel on unmount |
 | Concurrent writes | Last write wins (wrong) | Optimistic locking |
 
+---
+
 ## ABORTCONTROLLER PATTERN
 
 ```typescript
-
 // Cancel stale requests
 function useSearch(query: string) {
 useEffect(() => {
@@ -5267,7 +4707,6 @@ return () => controller.abort();
 ## MUTEX PATTERN (JS)
 
 ```typescript
-
 // Simple mutex with Promise
 class Mutex {
 private locked = false;
@@ -5312,12 +4751,10 @@ await criticalOperation();
 ## FUNDAMENTALS
 
 ```text
-
 ASCII: 1 byte per character (0-127)
 UTF-8: 1-4 bytes per character
 
 ALWAYS USE UTF-8:
-
 - HTML: <meta charset="UTF-8">
 - HTTP: Content-Type: text/html; charset=utf-8
 - Database: CREATE DATABASE db CHARACTER SET utf8mb4
@@ -5330,16 +4767,17 @@ ALWAYS USE UTF-8:
 ## COMMON ENCODING BUGS
 
 | BUG | SYMPTOM | CAUSE | FIX |
-| ----- | --------- | ------- | -----  |
+|-----|---------|-------|-----|
 | Mojibake | instead of " | Encoding mismatch | Consistent UTF-8 |
 | Truncated text | becomes | Length by bytes not chars | Use string.length carefully |
 | DB corruption | ??? characters | Wrong DB charset | utf8mb4 in MySQL |
 | Form submission | Garbled text | Missing form accept-charset | Always UTF-8 |
 
+---
+
 ## STRING LENGTH TRAPS
 
 ```typescript
-
 // DANGEROUS: Bytes vs characters
 const emoji =
 emoji.length; // 11 (JS counts code units!)
@@ -5353,26 +4791,27 @@ const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
 
 ---
 
-## PATTERNS 14
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Hardcoded strings | Can't translate | Externalize to resource files |
 | String concatenation | Word order varies | Use template with placeholders |
 | Fixed-width UI | Text expands | Flexible layouts |
 | US date format | 01/02/03 = ? | Intl.DateTimeFormat |
 
+---
+
 ## N CHECKLIST
 
 ```text
-
-[ ] Extract all strings to translation files
-[ ] Use ICU message format for plurals
-[ ] Never concatenate translated strings
-[ ] Handle RTL layout (Arabic, Hebrew)
-[ ] Format dates/numbers per locale
-[ ] Test with long German strings
-[ ] Use context for homonyms
+All user-facing strings externalized
+No string concatenation for sentences
+Use Intl API for dates, numbers, currency
+UTF-8 everywhere (no exceptions)
+RTL language support (if applicable)
+Test with pseudo-localization
+Test with actual translations
 
 ```text
 
@@ -5393,17 +4832,18 @@ const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
 ## HYDRATION MISMATCH CAUSES
 
 | CAUSE | WHY | FIX |
-| ------- | ----- | -----  |
+|-------|-----|-----|
 | window/document access | Undefined on server | useEffect only |
 | Date.now() / Math.random() | Different each render | Stable values or useEffect |
 | localStorage access | Server has none | useEffect + state |
 | Invalid HTML nesting | p inside p, div inside p | Fix HTML structure |
 | Browser extensions | Modify DOM | Nothing (user issue) |
 
+---
+
 ## SAFE SSR PATTERNS
 
 ```typescript
-
 // BAD: Crashes on server
 const width = window.innerWidth;
 
@@ -5423,13 +4863,11 @@ const Chart = dynamic(() => import('./Chart'), { ssr: false });
 ## DEBUGGING HYDRATION ERRORS
 
 ```text
-
 1. View Page Source (Ctrl+U) see server HTML
 2. Inspect Element see client DOM
 3. DIFF them find mismatch
 
 TOOLS:
-
 - React DevTools
 - Sentry Session Replay (shows HTML diff)
 - React 19: throwOnHydrationMismatch flag
@@ -5441,7 +4879,6 @@ TOOLS:
 ## COMMON INVALID HTML
 
 ```html
-
 <!-- BAD: These cause hydration errors -->
 <p><div>...</div></p> <!-- div in p -->
 <p><p>...</p></p> <!-- p in p -->
@@ -5458,36 +4895,34 @@ TOOLS:
 
 ## MONOREPO TRIBAL KNOWLEDGE
 
-> **The patterns that manage multiple packages**
+> **The patterns that scale codebases**
 
 ---
 
 ## PACKAGE MANAGER CHOICE
 
 | MANAGER | BEST FOR | WHY |
-| --------- | ---------- | -----  |
+|---------|----------|-----|
 | pnpm | Large monorepos | Strict deps, disk efficient |
 | npm workspaces | Simple setups | Native, no install needed |
 | yarn | Legacy projects | Berry still maturing |
 
+---
+
 ## PNPM ADVANTAGE
 
 ```text
-
 pnpm = STRICT + FAST + SMALL
 
 STRICT:
-
 - No phantom dependencies
 - Can't import undeclared deps
 
 FAST:
-
 - Content-addressable storage
 - Symlinks instead of copies
 
 SMALL:
-
 - One copy of each package version
 - Saves 60%+ disk space
 
@@ -5498,12 +4933,10 @@ SMALL:
 ## TURBOREPO PATTERNS
 
 ```text
-
 WHAT: Build system for monorepos
 WHY: Caching + parallel execution
 
 KEY FEATURES:
-
 - Local caching (skip unchanged)
 - Remote caching (share with team)
 - Parallel tasks
@@ -5517,14 +4950,16 @@ npx turbo run build --filter=./packages/*
 
 ---
 
-## PATTERNS 15
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Different TS versions | Type conflicts | Shared tsconfig |
 | Circular dependencies | Build fails | Dependency graph |
 | No build caching | Slow CI | Turborepo/Nx |
 | Coupled releases | All or nothing | Independent versioning |
+
+---
 
 ## SERVERLESS COLD START TRIBAL KNOWLEDGE
 
@@ -5535,17 +4970,15 @@ npx turbo run build --filter=./packages/*
 ## COLD START CAUSES
 
 ```text
+COLD START =
+1. Download code
+2. Start container
+3. Initialize runtime
+4. Run init code
+5. THEN handle request
 
-WHAT HAPPENS:
-
-1. AWS finds server
-2. Downloads function code
-3. Starts runtime
-4. Runs init code
-5. Runs handler
-
-COLD = Steps 1-4 (~500ms-3s)
-WARM = Step 5 only (~50ms)
+WARM START =
+Container reused Skip 1-4
 
 ```text
 
@@ -5554,17 +4987,18 @@ WARM = Step 5 only (~50ms)
 ## COLD START OPTIMIZATION
 
 | TECHNIQUE | IMPACT | EFFORT |
-| ----------- | -------- | --------  |
+|-----------|--------|--------|
 | Smaller package | High | Low |
 | Increase memory | High | Low |
 | Provisioned concurrency | Very high | $$ |
 | Lightweight runtime | Medium | Medium |
 | Avoid VPC if possible | High | Low |
 
+---
+
 ## PACKAGE SIZE RULES
 
 ```text
-
 GOAL: Under 10MB unzipped
 
 TECHNIQUES:
@@ -5581,7 +5015,6 @@ Exclude dev dependencies
 ## COLD START NUMBERS
 
 ```text
-
 TYPICAL COLD START TIMES (2024):
 Python: 100-300ms
 Node.js: 100-300ms
@@ -5604,17 +5037,19 @@ WITH PROVISIONED CONCURRENCY:
 ## PROBLEM
 
 ```text
+WITHOUT BATCHING:
+Query: { users { posts } }
 
-PROBLEM:
-Query 10 users 1 query
-Each user fetch posts 10 queries
-Total: 11 queries (should be 2)
+1 query: Get all users
+N queries: Get posts for each user (one per user)
 
-SOLUTION: DataLoader
+= N+1 queries = SLOW
 
-- Batches requests in single tick
-- Caches within same request
-- 1 query for users + 1 query for all posts
+WITH DATALOADER:
+1 query: Get all users
+1 query: Get posts for ALL users (batched)
+
+= 2 queries = FAST
 
 ```text
 
@@ -5623,19 +5058,19 @@ SOLUTION: DataLoader
 ## DATALOADER PATTERN
 
 ```typescript
-
-const userLoader = new DataLoader(async (userIds) => {
-// ONE query for ALL ids
+// Create loader PER REQUEST
+const userLoader = new DataLoader(async (ids: string[]) => {
+// Single batched query
 const users = await db.users.findMany({
-where: { id: { in: userIds } }
+where: { id: { in: ids } }
   });
 
-// Return in same order as ids
-return userIds.map(id => users.find(u => u.id === id));
+// MUST return in same order as input
+return ids.map(id => users.find(u => u.id === id));
 });
 
-// Usage in resolver
-resolve: (parent) => userLoader.load(parent.userId)
+// In resolver
+const user = await userLoader.load(userId);
 
 ```text
 
@@ -5644,17 +5079,16 @@ resolve: (parent) => userLoader.load(parent.userId)
 ## DATALOADER RULES
 
 ```text
-
 1. NEW INSTANCE PER REQUEST
 - Prevents data leaking between users
 
-1. RETURN IN ORDER
+2. RETURN IN ORDER
 - batchFn([1,2,3]) [result1, result2, result3]
 
-1. USE .load() NOT .loadMany()
+3. USE .load() NOT .loadMany()
 - load() auto-batches in same tick
 
-1. ONE LOADER PER ENTITY TYPE
+4. ONE LOADER PER ENTITY TYPE
 - userLoader, postLoader, commentLoader
 
 ```text
@@ -5664,7 +5098,6 @@ resolve: (parent) => userLoader.load(parent.userId)
 ## GRAPHQL PERFORMANCE CHECKLIST
 
 ```text
-
 Use DataLoader for all relations
 Create loaders per request
 Index database on foreign keys
@@ -5692,15 +5125,12 @@ Cache at field level where safe
 ## CORS PREFLIGHT BASICS
 
 ```text
-
 SIMPLE REQUESTS (no preflight):
-
 - GET, HEAD, POST
 - Only standard headers
 - Content-Type: text/plain, form-data, x-www-form-urlencoded
 
 COMPLEX REQUESTS (trigger preflight):
-
 - PUT, DELETE, PATCH
 - Custom headers (Authorization, X-Custom)
 - Content-Type: application/json
@@ -5714,8 +5144,7 @@ Browser sends OPTIONS first
 ## REQUIRED CORS HEADERS
 
 ```text
-
-Access-Control-Allow-Origin: <https://your-frontend.com>
+Access-Control-Allow-Origin: https://your-frontend.com
 Access-Control-Allow-Methods: GET, POST, PUT, DELETE
 Access-Control-Allow-Headers: Content-Type, Authorization
 Access-Control-Allow-Credentials: true  # if using cookies
@@ -5728,24 +5157,31 @@ Access-Control-Max-Age: 86400  # cache preflight 24h
 ## COMMON CORS ERRORS
 
 | ERROR | CAUSE | FIX |
-| ------- | ------- | -----  |
+|-------|-------|-----|
 | Missing Allow-Origin | Server not sending header | Add CORS middleware |
 | Origin mismatch | http vs https | Exact origin match |
 | Multiple Allow-Origin | Header sent twice | Check all middleware |
-| Wildcard with credentials | *+ credentials = blocked | Specific origin |
+| Wildcard with credentials | * + credentials = blocked | Specific origin |
 | OPTIONS not handled | Server returns 404/405 | Handle OPTIONS route |
+
+---
 
 ## CORS DEBUGGING
 
+```text
 1. Network tab find OPTIONS request
-1. Check response headers
-1. Missing header = that's the problem
+2. Check response headers
+3. Missing header = that's the problem
 
 TEST WITH CURL:
-curl -X OPTIONS <<<<<https://api.example.com>>>>> \
--H "Origin: <<<<<https://frontend.com">>>>> \
+curl -X OPTIONS https://api.example.com \
+-H "Origin: https://frontend.com" \
 -H "Access-Control-Request-Method: POST" \
-      -v
+  -v
+
+```text
+
+---
 
 ## TLS TRIBAL KNOWLEDGE
 
@@ -5756,17 +5192,18 @@ curl -X OPTIONS <<<<<https://api.example.com>>>>> \
 ## COMMON SSL ERRORS
 
 | ERROR | CAUSE | FIX |
-| ------- | ------- | -----  |
+|-------|-------|-----|
 | ERR_CERT_DATE_INVALID | Certificate expired | Renew cert |
 | ERR_CERT_COMMON_NAME | Domain mismatch | Get cert for correct domain |
 | ERR_CERT_AUTHORITY_INVALID | Self-signed or untrusted CA | Use trusted CA (Let's Encrypt) |
 | ERR_SSL_PROTOCOL_ERROR | TLS version mismatch | Use TLS 1.2+ |
 | ERR_CERT_REVOKED | Certificate revoked | Get new cert |
 
+---
+
 ## CERTIFICATE CHECKLIST
 
 ```text
-
 Certificate not expired
 Domain matches (incl. www)
 Full chain installed (intermediate certs)
@@ -5782,7 +5219,6 @@ Monitor expiration (30 days warning)
 ## MIXED CONTENT
 
 ```text
-
 WHAT:
 HTTPS page loading HTTP resources
 
@@ -5791,7 +5227,6 @@ Passive: images, videos (warning)
 Active: scripts, CSS, iframes (BLOCKED)
 
 FIX:
-
 1. Update all URLs to https://
 2. Use protocol-relative: //example.com/...
 3. Add CSP: upgrade-insecure-requests
@@ -5803,9 +5238,7 @@ FIX:
 ## SSL DEBUGGING
 
 ```text
-
 ONLINE TOOLS:
-
 - SSL Labs (ssllabs.com/ssltest)
 - Why No Padlock
 
@@ -5828,18 +5261,15 @@ Click padlock Certificate
 ## DNS PROPAGATION TRUTHS
 
 ```text
-
 TYPICAL TIME: 5 minutes - 48 hours
 AVERAGE: 2-4 hours
 
 FACTORS:
-
 - TTL of old record
 - ISP caching
 - Regional resolver caching
 
 CANNOT SPEED UP:
-
 - ISPs that ignore TTL
 - Configured upstream resolvers
 
@@ -5850,20 +5280,16 @@ CANNOT SPEED UP:
 ## TTL STRATEGY
 
 ```text
-
 BEFORE CHANGE:
-
 1. Lower TTL to 300 (5 min) 24+ hours before
 2. Wait for old TTL to expire
 
 MAKE CHANGE:
-
-1. Update DNS record
-2. Propagates in ~5-10 min
+3. Update DNS record
+4. Propagates in ~5-10 min
 
 AFTER CHANGE:
-
-1. Raise TTL back to 3600+ (1h+)
+5. Raise TTL back to 3600+ (1h+)
 
 ```text
 
@@ -5904,7 +5330,6 @@ sudo killall -HUP mDNSResponder
 ## DNS CHECKLIST
 
 ```text
-
 TTL lowered before changes
 All A/AAAA records updated
 CNAME targets correct
@@ -5932,17 +5357,14 @@ Cleared local DNS cache
 ## CONFIG
 
 ```text
-
 RULE: Store config in environment variables
 
 WHY:
-
 - Same code, different envs
 - No secrets in code
 - Easy to change without deploy
 
 WHAT IS CONFIG:
-
 - Database credentials
 - API keys
 - Feature flags
@@ -5955,7 +5377,6 @@ WHAT IS CONFIG:
 ## DOTENV FOR DEV ONLY
 
 ```text
-
 LOCAL DEV:
 .env files (convenience)
 
@@ -5963,7 +5384,6 @@ PRODUCTION:
 .env files (security risk)
 
 WHY NOT IN PROD:
-
 - Unencrypted on disk
 - No access control
 - No audit trail
@@ -5976,17 +5396,18 @@ WHY NOT IN PROD:
 ## PRODUCTION SECRETS
 
 | SOLUTION | USE CASE |
-| ---------- | ----------  |
+|----------|----------|
 | AWS Secrets Manager | AWS workloads |
 | HashiCorp Vault | Multi-cloud, on-prem |
 | Azure Key Vault | Azure workloads |
 | GCP Secret Manager | GCP workloads |
 | Infisical | Open source, self-host |
 
+---
+
 ## ENV VALIDATION
 
 ```typescript
-
 // GOOD: Validate at startup with Zod
 import { z } from 'zod';
 
@@ -6012,16 +5433,13 @@ export const env = envSchema.parse(process.env);
 ## WHEN TO RETRY
 
 ```text
-
 RETRY:
-
 - 5xx server errors
 - Timeouts
 - Network errors (ECONNRESET)
 - Rate limits (with backoff)
 
 DON'T RETRY:
-
 - 4xx client errors (except 429)
 - Authentication failures
 - Validation errors
@@ -6033,7 +5451,6 @@ DON'T RETRY:
 ## EXPONENTIAL BACKOFF
 
 ```typescript
-
 async function fetchWithRetry(url: string, maxRetries = 3) {
 for (let attempt = 0; attempt < maxRetries; attempt++) {
 try {
@@ -6056,7 +5473,6 @@ await sleep(delay + jitter);
 ## CIRCUIT BREAKER
 
 ```text
-
 STATES:
 CLOSED Normal operation, monitoring failures
 OPEN Failing fast, not calling service
@@ -6074,6 +5490,7 @@ HALF-OPEN OPEN: Test request fails
 
 ## RESILIENCE CHECKLIST
 
+```text
 Retry with exponential backoff
 Add jitter to prevent thundering herd
 Set maximum retry attempts (3-5)
@@ -6081,6 +5498,10 @@ Circuit breaker for persistent failures
 Timeout on all external calls
 Fallback/degraded response when down
 Monitor circuit breaker state
+
+```text
+
+---
 
 ## BUNDLE OPTIMIZATION TRIBAL KNOWLEDGE
 
@@ -6091,15 +5512,12 @@ Monitor circuit breaker state
 ## TREE SHAKING REQUIREMENTS
 
 ```text
-
 MUST HAVE:
-
 - ES6 modules (import/export)
 - production mode
 - sideEffects: false in package.json
 
 BREAKS TREE SHAKING:
-
 - CommonJS (require)
 - Dynamic imports with variables
 - Importing entire libraries
@@ -6111,7 +5529,6 @@ BREAKS TREE SHAKING:
 ## IMPORT PATTERNS
 
 ```typescript
-
 // BAD: Imports entire library
 import _ from 'lodash';
 _.debounce(fn, 300);
@@ -6130,15 +5547,12 @@ import { debounce } from 'lodash-es';
 ## BUNDLE ANALYSIS
 
 ```text
-
 TOOLS:
-
 - webpack-bundle-analyzer
 - source-map-explorer
 - bundlephobia.com (check before install)
 
 TARGETS:
-
 - Initial bundle < 200KB (gzipped)
 - Largest chunk < 500KB
 - No duplicate dependencies
@@ -6150,7 +5564,6 @@ TARGETS:
 ## OPTIMIZATION CHECKLIST
 
 ```text
-
 Use ES modules (import/export)
 Set mode: 'production'
 Configure sideEffects in package.json
@@ -6173,8 +5586,7 @@ Remove unused dependencies
 ## FIRST APPROACH
 
 ```css
-
-/*GOOD: Mobile-first (min-width)*/
+/* GOOD: Mobile-first (min-width) */
 .container { padding: 1rem; }
 
 @media (min-width: 768px) {
@@ -6185,8 +5597,8 @@ Remove unused dependencies
 .container { padding: 3rem; }
 }
 
-/*BAD: Desktop-first (max-width)*/
-/*Leads to overrides and complexity*/
+/* BAD: Desktop-first (max-width) */
+/* Leads to overrides and complexity */
 
 ```text
 
@@ -6195,16 +5607,15 @@ Remove unused dependencies
 ## COMMON BREAKPOINTS
 
 ```css
+/* Standard breakpoints (2024) */
+/* Mobile: default styles */
+/* Tablet: */ @media (min-width: 768px) { }
+/* Desktop: */ @media (min-width: 1024px) { }
+/* Large: */ @media (min-width: 1280px) { }
+/* XL: */ @media (min-width: 1536px) { }
 
-/*Standard breakpoints (2024)*/
-/*Mobile: default styles*/
-/*Tablet:*/ @media (min-width: 768px) { }
-/*Desktop:*/ @media (min-width: 1024px) { }
-/*Large:*/ @media (min-width: 1280px) { }
-/*XL:*/ @media (min-width: 1536px) { }
-
-/*Bootstrap 5: 576, 768, 992, 1200, 1400*/
-/*Tailwind: 640, 768, 1024, 1280, 1536*/
+/* Bootstrap 5: 576, 768, 992, 1200, 1400 */
+/* Tailwind: 640, 768, 1024, 1280, 1536 */
 
 ```text
 
@@ -6213,8 +5624,7 @@ Remove unused dependencies
 ## DEBUGGING MEDIA QUERIES
 
 ```css
-
-/*Temporary debug helper*/
+/* Temporary debug helper */
 body::before {
 content: 'Mobile';
 position: fixed;
@@ -6236,14 +5646,16 @@ body::before { content: 'Desktop'; background: green; }
 
 ---
 
-## PATTERNS 16
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Fixed widths | Breaks on small screens | Use max-width, % |
 | Mixing min/max-width | Confusion, overrides | Stick to one approach |
 | Too many breakpoints | Complex maintenance | Content-driven breaks |
 | Ignoring touch | Tiny tap targets | Min 44x44px touch areas |
+
+---
 
 ## [24K GOLD: ENV CONFIG + RETRY + BUNDLE + RESPONSIVE]
 
@@ -6259,6 +5671,7 @@ body::before { content: 'Desktop'; background: green; }
 
 ## LOG LEVELS
 
+```text
 FATAL: App cannot continue (shutdown)
 ERROR: Error occurred, operation failed
 WARN: Potential problem, recoverable
@@ -6269,10 +5682,13 @@ TRACE: Very detailed (never in prod)
 PRODUCTION: Only INFO and above
 DEVELOPMENT: DEBUG and above
 
+```text
+
+---
+
 ## STRUCTURED LOGGING
 
 ```typescript
-
 // BAD: String concatenation
 console.log('User ' + userId + ' created order ' + orderId);
 
@@ -6292,6 +5708,7 @@ amount: order.total
 
 ## WHAT TO LOG
 
+```text
 DO LOG:
 Request received (method, path, requestId)
 Request completed (status, duration)
@@ -6306,10 +5723,13 @@ Credit card numbers
 PII without masking
 Sensitive business data
 
+```text
+
+---
+
 ## CORRELATION IDS
 
 ```typescript
-
 // Generate once per request
 const requestId = crypto.randomUUID();
 
@@ -6331,21 +5751,24 @@ logger.info({ requestId, event: 'request_end' });
 
 ---
 
-## REBASE VS MERGE 2
+## REBASE VS MERGE
 
-    MERGE:
-
+```text
+MERGE:
 - Preserves full history
 - Creates merge commit
 - Safe for shared branches
 
-    REBASE:
-
+REBASE:
 - Linear history
 - Rewrites commits
 - NEVER on shared branches
 
 RULE: Rebase local, merge shared
+
+```text
+
+---
 
 ## REBASE CONFLICT RESOLUTION
 
@@ -6375,14 +5798,19 @@ git rebase --abort
 
 ---
 
-## CONFLICT PREVENTION 2
+## CONFLICT PREVENTION
 
+```text
 Rebase frequently (daily)
 Keep branches short-lived
 Small, focused commits
 Communicate with team
 Pull before push
 Use feature flags for parallel work
+
+```text
+
+---
 
 ## INTERACTIVE REBASE POWER
 
@@ -6417,7 +5845,6 @@ git rebase -i HEAD~5
 ## RSC VS SSR
 
 ```text
-
 TRADITIONAL SSR:
 Server renders HTML to client Hydrate ALL
 
@@ -6425,7 +5852,6 @@ REACT SERVER COMPONENTS:
 Server renders HTML + RSC Payload Hydrate ONLY client parts
 
 BENEFIT:
-
 - Less JavaScript shipped
 - No hydration for server parts
 - Direct data access on server
@@ -6437,7 +5863,6 @@ BENEFIT:
 ## SERVER VS CLIENT
 
 ```typescript
-
 // Server Component (default in App Router)
 // Can: fetch data, access DB, use secrets
 // Cannot: useState, useEffect, onClick
@@ -6460,28 +5885,35 @@ return <button onClick={() => setCount(c => c + 1)}>{count}</button>;
 
 ## STREAMING WITH SUSPENSE
 
+```typescript
 // Shell loads immediately
 // Slow data streams in later
 export default function Page() {
 return (
-        <div>
-<Header />  {/*Immediate*/}
+    <div>
+<Header />  {/* Immediate */}
 <Suspense fallback={<Skeleton />}>
-<SlowDataComponent />  {/*Streamed later*/}
-        </Suspense>
-<Footer />  {/*Immediate*/}
-        </div>
-      );
-    }
+<SlowDataComponent />  {/* Streamed later */}
+      </Suspense>
+<Footer />  {/* Immediate */}
+    </div>
+  );
+}
 
-## PATTERNS 17
+```text
+
+---
+
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | 'use client' everywhere | No RSC benefits | Default to server |
 | Huge client components | All code ships | Split client/server |
 | Passing functions to client | Can't serialize | Use server actions |
 | useState for server data | Unnecessary | Fetch on server |
+
+---
 
 ## CONNECTION POOLING TRIBAL KNOWLEDGE
 
@@ -6492,7 +5924,6 @@ return (
 ## WHY POOLING
 
 ```text
-
 WITHOUT POOLING:
 Each request new DB connection
 100 requests 100 connections
@@ -6511,15 +5942,16 @@ Pool of 20 connections
 ## PGBOUNCER MODES
 
 | MODE | BEHAVIOR | USE WHEN |
-| ------ | ---------- | ----------  |
+|------|----------|----------|
 | Session | Connection per client session | Need session features |
 | Transaction | Connection per transaction | High throughput, most apps |
 | Statement | Connection per statement | Very high throughput, no transactions |
 
+---
+
 ## POOL SIZING
 
 ```text
-
 FORMULA (per server):
 pool_size = (CPU cores * 2) + disks
 
@@ -6538,7 +5970,6 @@ Too large = DB overload, context switching
 ## POOLING CHECKLIST
 
 ```text
-
 Use connection pooler (PgBouncer, RDS Proxy)
 Set appropriate pool size
 Transaction mode for most apps
@@ -6566,15 +5997,16 @@ Handle "no connections" gracefully
 ## STORAGE COMPARISON
 
 | STORAGE | LIMIT | PERSISTENCE | API | USE CASE |
-| --------- | ------- | ------------- | ----- | ----------  |
+|---------|-------|-------------|-----|----------|
 | localStorage | 5-10MB | Permanent | Sync | User prefs, light cache |
 | sessionStorage | 5-10MB | Tab close | Sync | Form state, temp data |
 | IndexedDB | 100MB+ | Permanent | Async | Large data, offline apps |
 
+---
+
 ## LOCALSTORAGE PATTERN
 
 ```typescript
-
 // GOOD: Wrapper with JSON handling
 const storage = {
 get: (key: string) => {
@@ -6595,14 +6027,16 @@ const user = storage.get('user');
 
 ---
 
-## PATTERNS 18
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Sensitive data in localStorage | XSS can steal | Use httpOnly cookies |
 | No try-catch | Quota errors | Wrap in try-catch |
 | Storing too much | Sync API blocks UI | Use IndexedDB |
 | No expiry check | Stale data | Add timestamp |
+
+---
 
 ## ACCESSIBILITY TRIBAL KNOWLEDGE
 
@@ -6613,15 +6047,14 @@ const user = storage.get('user');
 ## ARIA GOLDEN RULES
 
 ```text
-
 1. NO ARIA IS BETTER THAN BAD ARIA
 - Wrong ARIA breaks assistive tech
 
-1. USE SEMANTIC HTML FIRST
+2. USE SEMANTIC HTML FIRST
 - <button> not <div role="button">
 - <nav> not <div role="navigation">
 
-1. ONLY ADD ARIA WHEN HTML ISN'T ENOUGH
+3. ONLY ADD ARIA WHEN HTML ISN'T ENOUGH
 - Custom widgets
 - Dynamic content
 - Complex interactions
@@ -6633,7 +6066,6 @@ const user = storage.get('user');
 ## ESSENTIAL ARIA
 
 ```html
-
 <!-- Labeling -->
 <button aria-label="Close
 <input aria-labelledby="nameLabel" />
@@ -6653,7 +6085,6 @@ const user = storage.get('user');
 ## ACCESSIBILITY CHECKLIST
 
 ```text
-
 All images have alt text
 Color contrast 4.5:1 minimum
 Keyboard navigable (Tab, Enter, Escape)
@@ -6675,6 +6106,7 @@ Test with screen reader
 
 ## CONTROL HEADERS
 
+```text
 STATIC ASSETS (images, CSS, JS):
 Cache-Control: public, max-age=31536000, immutable
 
@@ -6684,26 +6116,26 @@ Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400
 NEVER CACHE:
 Cache-Control: no-store
 
-    USER-SPECIFIC:
+USER-SPECIFIC:
 Cache-Control: private, max-age=0
+
+```text
+
+---
 
 ## CDN CACHING STRATEGY
 
 ```text
-
 TIER 1: Edge (closest to user)
-
 - Static assets
 - ISR pages
 - API responses (short TTL)
 
 TIER 2: Origin shield
-
 - Reduces origin load
 - Single point of cache
 
 TIER 3: Origin server
-
 - Generates dynamic content
 - Only hit on cache miss
 
@@ -6711,14 +6143,16 @@ TIER 3: Origin server
 
 ---
 
-## PATTERNS 19
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Cache with cookies | Personalized content shared | Vary: Cookie |
 | No immutable | Asset re-validation | Add immutable |
 | Cache authenticated | Data leaks | Cache-Control: private |
 | Short TTL everywhere | Origin hammered | Longer TTL + revalidate |
+
+---
 
 ## FEATURE FLAGS TRIBAL KNOWLEDGE
 
@@ -6729,22 +6163,18 @@ TIER 3: Origin server
 ## FLAG TYPES
 
 ```text
-
 RELEASE FLAGS:
-
 - Enable/disable new features
 - Progressive rollout
 - Remove after full launch
 
 OPERATIONAL FLAGS:
-
 - Kill switches
 - Rate limiting
 - Feature degradation
 - Keep permanently
 
 EXPERIMENT FLAGS:
-
 - A/B testing
 - User segmentation
 - Data collection
@@ -6755,6 +6185,7 @@ EXPERIMENT FLAGS:
 
 ## PROGRESSIVE ROLLOUT
 
+```typescript
 // Rollout strategy
 const rolloutConfig = {
 0: 'staff only',  // Day 1
@@ -6762,19 +6193,22 @@ const rolloutConfig = {
 25: 'early adopters',   // Day 7
 50: 'half users',  // Day 10
 100: 'everyone',  // Day 14
-    };
+};
 
 // Usage
 if (featureFlags.isEnabled('new-checkout', user)) {
-      renderNewCheckout();
+  renderNewCheckout();
 } else {
-      renderLegacyCheckout();
-    }
+  renderLegacyCheckout();
+}
+
+```text
+
+---
 
 ## FLAG BEST PRACTICES
 
 ```text
-
 Clean naming convention (enable-xyz, show-xyz)
 Default to OFF for new flags
 Document flag purpose and owner
@@ -6802,7 +6236,6 @@ Audit flag changes
 ## ERROR BOUNDARY BASICS
 
 ```typescript
-
 class ErrorBoundary extends React.Component {
 state = { hasError: false };
 
@@ -6830,15 +6263,12 @@ return this.props.children;
 ## WHAT ERROR BOUNDARIES CATCH
 
 ```text
-
 CATCHES:
-
 - Render errors
 - Lifecycle method errors
 - Constructor errors in child tree
 
 DOESN'T CATCH:
-
 - Event handlers (use try-catch)
 - Async code (use catch)
 - Server-side rendering
@@ -6851,15 +6281,12 @@ DOESN'T CATCH:
 ## ERROR BOUNDARY PLACEMENT
 
 ```text
-
 LEVELS:
-
 1. App level prevents white screen
 2. Route level isolates page failures
 3. Component level granular fallbacks
 
 BEST PRACTICE:
-
 - Multiple boundaries at different levels
 - Route-level catches most issues
 - Feature boundaries for critical widgets
@@ -6877,7 +6304,6 @@ BEST PRACTICE:
 ## SCALING STRATEGY
 
 ```text
-
 VERTICAL (one server):
 Max ~50K-100K connections
 Limited by memory, CPU
@@ -6895,12 +6321,10 @@ PRODUCTION = Horizontal + Pub/Sub
 ## SUB PATTERN
 
 ```text
-
 CLIENT WebSocket Server 1 Message Broker (Redis)
 CLIENT WebSocket Server 2 Message Broker (Redis)
 
 HOW IT WORKS:
-
 1. Client connects to any server
 2. Server publishes messages to broker
 3. All servers receive from broker
@@ -6915,7 +6339,6 @@ HOW IT WORKS:
 ## WEBSOCKET CHECKLIST
 
 ```text
-
 Horizontal scaling with load balancer
 Pub/Sub for cross-server messaging
 Sticky sessions OR shared state
@@ -6932,10 +6355,11 @@ Graceful degradation when overloaded
 
 > **The patterns that catch bugs at compile time**
 
+---
+
 ## TSCONFIG STRICT FLAGS
 
 ```json
-
 {
 "compilerOptions": {
 "strict": true,  // Enable all strict checks
@@ -6953,7 +6377,6 @@ Graceful degradation when overloaded
 ## TYPE SAFETY PATTERNS
 
 ```typescript
-
 // BAD: Using any
 function process(data: any) {
 return data.value; // No type checking!
@@ -6978,25 +6401,26 @@ function getUser(id: string): Promise<User> { ... }
 
 ---
 
-## PATTERNS 20
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | any everywhere | No type safety | Use unknown + guards |
 | Type assertions (as) | Bypasses checks | Proper narrowing |
 | ! non-null assertion | Runtime errors | Handle null properly |
 | Ignoring compiler errors | Bugs in prod | Fix all errors |
 
+---
+
 ## DATABASE INDEXING TRIBAL KNOWLEDGE
 
-> **The patterns that speed up queries**
+> **The patterns that make queries fast**
 
 ---
 
 ## INDEX BASICS
 
 ```text
-
 INDEX = Sorted data structure for fast lookup
 
 WITHOUT INDEX:
@@ -7015,9 +6439,7 @@ Faster reads Slower writes (index updates)
 ## WHAT TO INDEX
 
 ```text
-
 INDEX THESE:
-
 - Primary keys (automatic)
 - Foreign keys (JOIN speed)
 - WHERE clause columns
@@ -7025,7 +6447,6 @@ INDEX THESE:
 - Unique constraints
 
 DON'T INDEX:
-
 - Rarely queried columns
 - Low cardinality (true/false)
 - Frequently updated columns
@@ -7038,7 +6459,6 @@ DON'T INDEX:
 ## COMPOSITE INDEX RULES
 
 ```sql
-
 -- Composite index on (a, b, c)
 CREATE INDEX idx_abc ON users (status, created_at, name);
 
@@ -7058,7 +6478,6 @@ WHERE name = 'John'
 ## INDEX DEBUGGING
 
 ```sql
-
 -- Check if query uses index
 EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'x@y.com';
 
@@ -7075,27 +6494,30 @@ SELECT * FROM pg_stat_user_indexes WHERE idx_scan = 0;
 
 ## [24K GOLD: ERROR BOUNDARIES + WEBSOCKET SCALING + TYPESCRIPT + INDEXING]
 
-### The patterns that prevent production disasters 2
+### The patterns that prevent production disasters
 
 ---
 
-## RATE LIMITING TRIBAL KNOWLEDGE 2
+## RATE LIMITING TRIBAL KNOWLEDGE
 
 > **The patterns that protect your API**
+
+---
 
 ## ALGORITHM COMPARISON
 
 | ALGORITHM | BEST FOR | BURST HANDLING |
-| ----------- | ---------- | ----------------  |
+|-----------|----------|----------------|
 | Token Bucket | Most APIs | Allows bursts up to bucket size |
 | Sliding Window | Smooth limits | Even distribution, no edge bursts |
 | Fixed Window | Simple cases | Edge burst problem (2x at boundary) |
 | Leaky Bucket | Queue-based | Constant output rate |
 
+---
+
 ## TOKEN BUCKET PATTERN
 
 ```typescript
-
 class TokenBucket {
 tokens: number;
 maxTokens: number;
@@ -7118,18 +6540,23 @@ return false; // Rate limited
 
 ---
 
-## RATE LIMIT RESPONSE 2
+## RATE LIMIT RESPONSE
 
+```typescript
 // Always return these headers
 res.setHeader('X-RateLimit-Limit', limit);
 res.setHeader('X-RateLimit-Remaining', remaining);
 res.setHeader('X-RateLimit-Reset', resetTime);
 
 if (rateLimited) {
-      res.status(429);
+  res.status(429);
 res.setHeader('Retry-After', secondsUntilReset);
 return res.json({ error: 'Too many requests' });
-    }
+}
+
+```text
+
+---
 
 ## AUTH TOKEN TRIBAL KNOWLEDGE
 
@@ -7140,25 +6567,24 @@ return res.json({ error: 'Too many requests' });
 ## JWT VS SESSIONS
 
 | ASPECT | JWT | SESSIONS |
-| -------- | ----- | ----------  |
+|--------|-----|----------|
 | Storage | Client (stateless) | Server (stateful) |
 | Revocation | Hard (until expiry) | Easy (delete from DB) |
 | Scaling | Easy (no shared state) | Needs Redis/DB |
 | Size | Larger (payload) | Small (session ID) |
 
+---
+
 ## JWT BEST PRACTICES
 
 ```text
-
 ACCESS TOKEN:
-
 - Short-lived (15-60 minutes)
 - Store in memory (not localStorage)
 - Send via Authorization header
 - Verify signature on EVERY request
 
 REFRESH TOKEN:
-
 - Long-lived (7-14 days)
 - Store in HttpOnly + Secure cookie
 - Rotate on every use
@@ -7171,7 +6597,6 @@ REFRESH TOKEN:
 ## REFRESH TOKEN ROTATION
 
 ```typescript
-
 // When refreshing:
 // 1. Verify old refresh token
 // 2. Issue NEW access + refresh tokens
@@ -7196,11 +6621,10 @@ REFRESH TOKEN:
 ## ACID PROPERTIES
 
 ```text
-
-A - Atomicity:    All or nothing
-C - Consistency:  Valid state to valid state
-I - Isolation:    Concurrent txns don't interfere
-D - Durability:   Committed = permanent
+A - Atomicity:   All or nothing
+C - Consistency: Valid state to valid state
+I - Isolation:   Transactions don't interfere
+D - Durability:  Committed = permanent
 
 ```text
 
@@ -7209,28 +6633,31 @@ D - Durability:   Committed = permanent
 ## ISOLATION LEVELS
 
 | LEVEL | DIRTY READ | NON-REPEATABLE | PHANTOM |
-| ------- | ------------ | ---------------- | ---------  |
+|-------|------------|----------------|---------|
 | Read Uncommitted | Yes | Yes | Yes |
 | Read Committed | No | Yes | Yes |
 | Repeatable Read | No | No | Yes |
 | Serializable | No | No | No |
 
+```text
 Default: Read Committed (Postgres)
 Repeatable Read (MySQL)
 
 Higher isolation = slower performance
 
+```text
+
+---
+
 ## DEADLOCK PREVENTION
 
 ```text
-
 CAUSES:
 TX1: Lock A, then lock B
 TX2: Lock B, then lock A
   Deadlock!
 
 PREVENT:
-
 1. Lock in consistent order
 2. Keep transactions short
 3. Lock at lowest level needed
@@ -7250,31 +6677,29 @@ PREVENT:
 ## PLAYWRIGHT VS CYPRESS
 
 | ASPECT | PLAYWRIGHT | CYPRESS |
-| -------- | ------------ | ---------  |
+|--------|------------|---------|
 | Architecture | CDP (outside browser) | Inside browser |
 | Multi-tab | Native support | No |
 | Languages | TS, JS, Python, .NET | JS only |
 | Parallelism | Native | Requires Cloud |
 | Speed | Faster | Fast |
 
+---
+
 ## FLAKY TEST CAUSES
 
 ```text
-
 TIMING:
-
 - Race conditions
 - Async operations
 - Animation delays
 
 ENVIRONMENT:
-
 - Network latency
 - Server state
 - External APIs
 
 STATE:
-
 - Test pollution
 - Shared resources
 - Unstable selectors
@@ -7286,7 +6711,6 @@ STATE:
 ## FLAKY TEST FIXES
 
 ```typescript
-
 // BAD: Fixed wait
 await page.waitForTimeout(3000);
 
@@ -7306,7 +6730,6 @@ await page.click('[data-testid="submit-button"]');
 ## E TESTING CHECKLIST
 
 ```text
-
 Use stable selectors (data-testid)
 Wait for conditions, not time
 Mock external APIs
@@ -7367,7 +6790,6 @@ docker inspect <container>
 ## T START
 
 ```text
-
 CHECKLIST:
 docker logs <container>
 Check Dockerfile CMD/ENTRYPOINT
@@ -7384,16 +6806,13 @@ Check disk space
 ## DOCKER LOGGING BEST PRACTICES
 
 ```text
-
 DO:
-
 - Use JSON logging driver
 - Centralize logs (ELK, Loki)
 - Set log rotation (max-size, max-file)
 - Include timestamps
 
 DON'T:
-
 - Write to files inside container
 - Log to console without limits
 - Log sensitive data
@@ -7408,18 +6827,19 @@ DON'T:
 
 ---
 
-## CACHING PATTERNS 2
+## CACHING PATTERNS
 
 | PATTERN | HOW | USE CASE |
-| --------- | ----- | ----------  |
+|---------|-----|----------|
 | Cache-Aside | App checks cache, fetches DB on miss | Most common |
 | Write-Through | Write to cache + DB together | Strong consistency |
 | Write-Behind | Write to cache, async to DB | High throughput |
 
+---
+
 ## TTL GUIDELINES
 
 ```text
-
 VOLATILE (seconds):
 Real-time data:  10-30s
 Session data:  15-60min
@@ -7441,7 +6861,6 @@ RULE: Always set TTL, never infinite
 ## CACHE INVALIDATION
 
 ```typescript
-
 // On data update:
 async function updateUser(id, data) {
 // 1. Update database
@@ -7457,8 +6876,9 @@ await redis.del(`user:${id}`);
 
 ---
 
-## THUNDERING HERD PREVENTION 2
+## THUNDERING HERD PREVENTION
 
+```typescript
 // BAD: All requests hit DB on cache miss
 // GOOD: Lock + single fetch + cache
 
@@ -7471,35 +6891,43 @@ const lock = await redis.set(`lock:${key}`, 1, 'NX', 'EX', 5);
 if (!lock) {
 await sleep(100);
 return getWithLock(key, fetchFn); // Retry
-      }
+  }
 
 const data = await fetchFn();
 await redis.setex(key, 3600, JSON.stringify(data));
 await redis.del(`lock:${key}`);
 return data;
-    }
+}
 
-## REST API DESIGN TRIBAL KNOWLEDGE
-
-> **The patterns that build clean APIs**
+```text
 
 ---
 
-## VERSIONING STRATEGIES 2
+## REST API DESIGN TRIBAL KNOWLEDGE
+
+> **The patterns that make APIs usable**
+
+---
+
+## VERSIONING STRATEGIES
 
 | METHOD | EXAMPLE | PROS | CONS |
-| -------- | --------- | ------ | ------  |
+|--------|---------|------|------|
 | URL Path | `/v1/users` | Clear, cacheable | URL pollution |
 | Header | `X-API-Version: 1` | Clean URLs | Hidden |
 | Query | `/users?v=1` | Easy to add | Clutters params |
 
+```text
 RECOMMENDED: URL Path (/v1/)
 Most explicit, widely understood
+
+```text
+
+---
 
 ## PAGINATION PATTERNS
 
 ```typescript
-
 // Offset-based (simple, common)
 GET /users?page=2&limit=20
 
@@ -7524,34 +6952,38 @@ nextCursor: "def456"
 
 ## HTTP STATUS CODES
 
-| CODE | MEANING | USE |
-|------|---------|-----|
-| 200 | OK | Success |
-| 201 | Created | POST success |
-| 204 | No Content | DELETE success |
-| 400 | Bad Request | Client error |
-| 401 | Unauthorized | Not logged in |
-| 403 | Forbidden | No permission |
-| 404 | Not Found | Resource missing |
-| 429 | Too Many | Rate limited |
-| 500 | Server Error | Our fault |
-| 503 | Unavailable | Overloaded |
+```text
+SUCCESS:
+200 OK  - GET/PUT successful
+201 Created    - POST created resource
+204 No Content - DELETE successful
+
+CLIENT ERROR:
+400 Bad Request    - Invalid input
+401 Unauthorized   - Not authenticated
+403 Forbidden  - Not authorized
+404 Not Found  - Resource missing
+429 Too Many Reqs  - Rate limited
+
+SERVER ERROR:
+500 Internal Error - Unexpected error
+503 Unavailable    - Service down
+
+```text
 
 ---
 
 ## ERROR RESPONSE FORMAT
 
 ```json
-
 {
 "error": {
 "code": "VALIDATION_ERROR",
 "message": "Invalid email format",
 "details": [
-{ "field": "email", "issue": "Must be valid email" }
+{ "field": "email", "issue": "must be valid email" }
     ],
-"requestId": "abc-123",
-"timestamp": "2024-01-01T00:00:00Z"
+"requestId": "abc-123"
   }
 }
 
@@ -7596,7 +7028,6 @@ Referrer-Policy: strict-origin-when-cross-origin
 ## CSP (CONTENT SECURITY POLICY)
 
 ```text
-
 BASIC:
 Content-Security-Policy: default-src 'self'
 
@@ -7606,7 +7037,7 @@ script-src 'self';
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: https:;
 font-src 'self';
-connect-src 'self' <https://api.example.com;>
+connect-src 'self' https://api.example.com;
 frame-ancestors 'none';
 
 ```text
@@ -7616,16 +7047,13 @@ frame-ancestors 'none';
 ## CSRF PROTECTION
 
 ```text
-
 STRATEGIES:
-
 1. CSRF tokens in forms
 2. SameSite=Strict cookies
 3. Double-submit cookie
 4. Check Origin header
 
 BEST PRACTICE:
-
 - SameSite=Lax or Strict for all cookies
 - CSRF token for state-changing requests
 - Verify Origin/Referer header
@@ -7637,7 +7065,6 @@ BEST PRACTICE:
 ## SECURITY CHECKLIST
 
 ```text
-
 HTTPS everywhere (HSTS enabled)
 CSP header configured
 SameSite cookies set
@@ -7698,7 +7125,6 @@ kubectl top pods
 ## CRASHLOOPBACKOFF CAUSES
 
 ```text
-
 COMMON CAUSES:
 Out of memory (OOMKilled)
 Failed liveness probe
@@ -7708,7 +7134,6 @@ Application crash on startup
 Port binding conflict
 
 DIAGNOSIS:
-
 1. kubectl describe pod <name>
 2. Look at Events section
 3. kubectl logs -p <name>
@@ -7720,11 +7145,12 @@ DIAGNOSIS:
 
 ## S RESOURCE LIMITS
 
-    resources:
-      requests:
+```yaml
+resources:
+  requests:
 memory: "128Mi"
 cpu: "250m"
-      limits:
+  limits:
 memory: "512Mi"
 cpu: "1000m"
 
@@ -7744,33 +7170,42 @@ cpu: "1000m"
 
 ---
 
-## PROBLEM 2
+## PROBLEM
 
-    PROBLEM:
+```text
+PROBLEM:
 Query 10 users 1 query
 Each user fetch posts 10 queries
 Total: 11 queries (should be 2)
 
 SOLUTION: DataLoader
-
 - Batches requests in single tick
 - Caches within same request
 - 1 query for users + 1 query for all posts
 
-## DATALOADER PATTERN 2
+```text
 
+---
+
+## DATALOADER PATTERN
+
+```typescript
 const userLoader = new DataLoader(async (userIds) => {
 // ONE query for ALL ids
 const users = await db.users.findMany({
 where: { id: { in: userIds } }
-      });
+  });
 
 // Return in same order as ids
 return userIds.map(id => users.find(u => u.id === id));
-    });
+});
 
 // Usage in resolver
 resolve: (parent) => userLoader.load(parent.userId)
+
+```text
+
+---
 
 ## GRAPHQL SECURITY
 
@@ -7788,37 +7223,45 @@ Mask error details
 
 ---
 
-## MONOREPO TRIBAL KNOWLEDGE 2
+## MONOREPO TRIBAL KNOWLEDGE
 
 > **The patterns that manage multiple packages**
+
+---
 
 ## TOOL COMPARISON
 
 | TOOL | ROLE | KEY FEATURE |
-| ------ | ------ | -------------  |
+|------|------|-------------|
 | pnpm | Package manager | Fast, saves disk space |
 | Yarn | Package manager | Workspaces, good perf |
 | Turborepo | Build system | Caching, parallelism |
 | Nx | Build system | Affected commands |
 
+---
+
 ## TURBOREPO SETUP
 
-    monorepo/
-    apps/
-      web/
-      api/
-    packages/
-      ui/
-      shared/
-    pnpm-workspace.yaml
-    turbo.json
-    package.json
+```text
+monorepo/
+apps/
+  web/
+  api/
+packages/
+  ui/
+  shared/
+pnpm-workspace.yaml
+turbo.json
+package.json
+
+```text
+
+---
 
 ## MONOREPO BEST PRACTICES
 
 ```text
 DO:
-
 - Install deps where used
 - Shared deps in packages/
 - Use turbo for builds/tests
@@ -7826,7 +7269,6 @@ DO:
 - Consistent naming
 
 DON'T:
-
 - Giant root package.json
 - Circular dependencies
 - Different versions of same dep
@@ -7852,7 +7294,6 @@ short PRs (< 1 day)
 feature flags for WIP
 
 BEST FOR:
-
 - CI/CD teams
 - Fast iteration
 - Small to medium teams
@@ -7871,7 +7312,6 @@ main
 PR + review
 
 BEST FOR:
-
 - Code review culture
 - Longer development cycles
 - Larger teams
@@ -7898,7 +7338,7 @@ Squash merge for clean history
 
 ## [24K GOLD: KUBERNETES + GRAPHQL + MONOREPO + GIT BRANCHING]
 
-### The patterns that scale teams and systems 2
+### The patterns that scale teams and systems
 
 ---
 
@@ -7911,7 +7351,6 @@ Squash merge for clean history
 ## GITHUB ACTIONS CACHING
 
 ```yaml
-
 - uses: actions/cache@v4
   with:
 path: ~/.npm
@@ -7942,7 +7381,6 @@ Use self-hosted for heavy builds
 Docker layer caching
 
 CACHE LIMITS:
-
 - GitHub: 10GB per repo
 - Caches evicted after 7 days unused
 
@@ -7958,23 +7396,25 @@ CACHE LIMITS:
 
 ## THREE PILLARS OF OBSERVABILITY
 
-    METRICS:
-
+```text
+METRICS:
 - Numbers over time
 - CPU, memory, request count
 - Good for dashboards + alerts
 
-    LOGS:
-
+LOGS:
 - Timestamped events
 - Errors, requests, state changes
 - Good for debugging
 
-    TRACES:
-
+TRACES:
 - Request flow across services
 - Latency breakdown
 - Good for distributed systems
+
+```text
+
+---
 
 ## SLO (SERVICE LEVEL OBJECTIVE)
 
@@ -8016,10 +7456,10 @@ Alert on error budget burn rate
 
 ---
 
-## COLD START CAUSES 2
+## COLD START CAUSES
 
+```text
 WHAT HAPPENS:
-
 1. AWS finds server
 2. Downloads function code
 3. Starts runtime
@@ -8029,19 +7469,28 @@ WHAT HAPPENS:
 COLD = Steps 1-4 (~500ms-3s)
 WARM = Step 5 only (~50ms)
 
-## COLD START OPTIMIZATION 2
+```text
 
-    DO:
+---
+
+## COLD START OPTIMIZATION
+
+```text
+DO:
 Use lightweight runtimes (Node, Python)
 Minimize package size
 Initialize SDK outside handler
 Use Provisioned Concurrency
 Increase memory (more CPU)
 
-    DON'T:
+DON'T:
 Use VPC unless required
 Import entire AWS SDK
 Heavy init code in handler
+
+```text
+
+---
 
 ## LAMBDA BEST PRACTICES
 
@@ -8063,34 +7512,41 @@ await db;
 
 ---
 
-## DATABASE MIGRATION TRIBAL KNOWLEDGE 2
+## DATABASE MIGRATION TRIBAL KNOWLEDGE
 
 > **The patterns that change schemas safely**
 
-## CONTRACT PATTERN 2
+---
 
+## CONTRACT PATTERN
+
+```text
 PHASE 1: EXPAND
-
 - Add new column (nullable)
 - App writes to both old + new
 - Backfill new column
 - Old app still works
 
 PHASE 2: CONTRACT
-
 - All apps use new column
 - Drop old column
 - App reads only new
 - Zero downtime achieved
 
-## PATTERNS 21
+```text
+
+---
+
+## PATTERNS
 
 | ANTI-PATTERN | PROBLEM | FIX |
-| -------------- | --------- | -----  |
+|--------------|---------|-----|
 | Add NOT NULL column | Breaks existing rows | Add nullable, then backfill |
 | Rename column directly | App breaks | Expand-contract |
 | Big bang migration | Downtime | Incremental changes |
 | No rollback plan | Stuck on failure | Test rollback first |
+
+---
 
 ## MIGRATION CHECKLIST
 
@@ -8177,17 +7633,19 @@ Lazy load below-the-fold content
 
 ## DRIVEN ARCHITECTURE TRIBAL KNOWLEDGE
 
-> **The patterns that decouple systems**
+> **The patterns that decouple services**
 
 ---
 
 ## MESSAGE QUEUE COMPARISON
 
 | TOOL | BEST FOR | ORDERING | THROUGHPUT |
-| ------ | ---------- | ---------- | ------------  |
+|------|----------|----------|------------|
 | Kafka | High volume, streaming | Per partition | Highest |
 | RabbitMQ | Complex routing, tasks | Queue-level | High |
 | SQS | AWS serverless | FIFO option | High |
+
+---
 
 ## DRIVEN PATTERNS
 
@@ -8233,19 +7691,16 @@ Schema versioning for events
 
 ```text
 TRAFFIC:
-
 - Rate limiting
 - Load balancing
 - Request routing
 
 SECURITY:
-
 - Authentication
 - Authorization
 - SSL termination
 
 OBSERVABILITY:
-
 - Logging
 - Metrics
 - Tracing
@@ -8257,11 +7712,13 @@ OBSERVABILITY:
 ## KONG VS AWS API GATEWAY
 
 | FEATURE | KONG | AWS API GATEWAY |
-| --------- | ------ | -----------------  |
+|---------|------|-----------------|
 | Deployment | Self-hosted/Cloud | AWS managed |
 | Plugins | 100+ built-in | Lambda-based |
 | Multi-cloud | Yes | AWS only |
 | Cost | Self-managed | Pay per request |
+
+---
 
 ## GATEWAY BEST PRACTICES
 
@@ -8360,37 +7817,40 @@ Batch operations for writes
 ## STATE LIBRARY COMPARISON
 
 | LIBRARY | SIZE | BEST FOR | STYLE |
-| --------- | ------ | ---------- | -------  |
+|---------|------|----------|-------|
 | Context | 0KB | Simple global state | Built-in |
 | Zustand | ~4KB | Most apps | Centralized |
 | Jotai | ~4KB | Fine-grained updates | Atomic |
 | Redux Toolkit | ~15KB | Large/enterprise apps | Flux |
 
-## WHEN TO USE WHAT 4
+---
 
-    CONTEXT:
+## WHEN TO USE WHAT
 
+```text
+CONTEXT:
 - Theme, auth status
 - Rarely changing global state
 - Avoid for frequent updates
 
-    ZUSTAND:
-
+ZUSTAND:
 - Medium apps
 - Simple API, minimal boilerplate
 - Good performance
 
-    JOTAI:
-
+JOTAI:
 - Complex interdependent state
 - Fine-grained reactivity
 - TypeScript-heavy projects
 
-    REDUX:
-
+REDUX:
 - Large teams
 - Need time-travel debugging
 - Complex middleware requirements
+
+```text
+
+---
 
 ## STATE MANAGEMENT CHECKLIST
 
@@ -8428,23 +7888,23 @@ Don't put everything in global state
 ## TEST TYPE COMPARISON
 
 | TYPE | SPEED | COST | CATCHES |
-| ------ | ------- | ------ | ---------  |
+|------|-------|------|---------|
 | Unit | Fast | Low | Logic bugs |
 | Integration | Medium |  | API/DB issues |
 | E2E | Slow |  | User flow bugs |
+
+---
 
 ## MOCKING BEST PRACTICES
 
 ```text
 DO:
-
 - Mock external APIs
 - Mock timers/dates
 - Isolate unit under test
 - Use dependency injection
 
 DON'T:
-
 - Mock everything
 - Mock implementation details
 - Over-mock in integration tests
@@ -8572,12 +8032,17 @@ type Readonly<T> = { readonly [K in keyof T]: T[K] };
 
 ## TYPESCRIPT CHECKLIST
 
+```text
 Use generics for reusable code
 Constrain with extends when needed
 Use conditional types for logic
 Leverage utility types (Partial, Pick, Omit)
 Prefer inference over explicit types
 Use as const for literal types
+
+```text
+
+---
 
 ## [24K GOLD: STATE MANAGEMENT + TESTING + WEB VITALS + TYPESCRIPT]
 
@@ -8594,37 +8059,40 @@ Use as const for literal types
 ## BUILD TOOL COMPARISON
 
 | TOOL | SPEED | BEST FOR | LANGUAGE |
-| ------ | ------- | ---------- | ----------  |
+|------|-------|----------|----------|
 | Vite |  | Modern apps | JS + ESM |
 | esbuild |  | Raw speed | Go |
 | Webpack |  | Complex apps | JS |
 | Turbopack |  | Next.js | Rust |
 
-## WHEN TO USE WHAT 5
+---
 
-    VITE:
+## WHEN TO USE WHAT
 
+```text
+VITE:
 - New projects (React, Vue, Svelte)
 - Fast dev server (ESM)
 - Rollup for production
 
-    WEBPACK:
-
+WEBPACK:
 - Legacy projects
 - Need mature plugin ecosystem
 - Complex customization
 
-    TURBOPACK:
-
+TURBOPACK:
 - Next.js 14+
 - Maximum performance
 - Enterprise scale
 
-    ESBUILD:
-
+ESBUILD:
 - Pre-bundling (used by Vite)
 - Extremely fast builds
 - Limited plugins
+
+```text
+
+---
 
 ## BACKEND FRAMEWORKS TRIBAL KNOWLEDGE
 
@@ -8635,30 +8103,34 @@ Use as const for literal types
 ## FRAMEWORK COMPARISON
 
 | FRAMEWORK | PERF | STRUCTURE | TS SUPPORT |
-| ----------- | ------ | ----------- | ------------  |
+|-----------|------|-----------|------------|
 | Express |  | Minimal | Manual |
 | Fastify |  | Plugin-based | Native |
 | NestJS |  | Opinionated | Built-in |
 
-## WHEN TO USE WHAT 6
+---
 
-    EXPRESS:
+## WHEN TO USE WHAT
 
+```text
+EXPRESS:
 - Simple APIs
 - Quick prototypes
 - Huge middleware ecosystem
 
-    FASTIFY:
-
+FASTIFY:
 - High performance needed
 - Modern API design
 - JSON schema validation
 
-    NESTJS:
-
+NESTJS:
 - Enterprise apps
 - Microservices
 - Large teams, TypeScript
+
+```text
+
+---
 
 ## DATABASE COMPARISON TRIBAL KNOWLEDGE
 
@@ -8669,28 +8141,33 @@ Use as const for literal types
 ## POSTGRES VS MYSQL
 
 | ASPECT | POSTGRESQL | MYSQL |
-| -------- | ------------ | -------  |
+|--------|------------|-------|
 | Writes | Better |  |
 | Reads |  | (simpler) |
 | Complex queries |  |  |
 | JSON support | JSONB (fast) | JSON |
 | Concurrency | MVCC (excellent) | Good |
 
-## WHEN TO USE WHAT 7
+---
 
-    POSTGRESQL:
+## WHEN TO USE WHAT
 
+```text
+POSTGRESQL:
 - Complex queries
 - Write-heavy workloads
 - JSONB needed
 - Data integrity critical
 
-    MYSQL:
-
+MYSQL:
 - Read-heavy apps
 - Simpler queries
 - Easier setup
 - Wide hosting support
+
+```text
+
+---
 
 ## CSS ARCHITECTURE TRIBAL KNOWLEDGE
 
@@ -8701,37 +8178,40 @@ Use as const for literal types
 ## CSS APPROACH COMPARISON
 
 | APPROACH | SCOPING | PERF | DX |
-| ---------- | --------- | ------ | -----  |
+|----------|---------|------|-----|
 | BEM | Manual naming |  | Verbose |
 | CSS Modules | Build-time |  | Good |
 | Tailwind | Class-based |  | Fast dev |
 | Styled Comp. | Runtime |  | Dynamic |
 
-## WHEN TO USE WHAT 8
+---
 
-    BEM:
+## WHEN TO USE WHAT
 
+```text
+BEM:
 - Traditional CSS
 - No build step wanted
 - Large teams, conventions
 
 CSS MODULES:
-
 - Scoped styles
 - Standard CSS syntax
 - Build-time processing
 
-    TAILWIND:
-
+TAILWIND:
 - Rapid prototyping
 - Utility-first
 - Design system enforcement
 
 STYLED COMPONENTS:
-
 - Dynamic theming
 - Component-scoped
 - Note: In maintenance mode (2024)
+
+```text
+
+---
 
 ## CSS ARCHITECTURE CHECKLIST
 
@@ -8753,9 +8233,11 @@ Consider bundle size impact
 
 ---
 
-## AUTHENTICATION TRIBAL KNOWLEDGE 2
+## AUTHENTICATION TRIBAL KNOWLEDGE
 
 > **The patterns that secure user identity**
+
+---
 
 ## BEST PRACTICES
 
@@ -8778,11 +8260,13 @@ Tokens in URL query params
 ## TOKEN STORAGE
 
 | STORAGE | SECURITY | USE CASE |
-| --------- | ---------- | ----------  |
+|---------|----------|----------|
 | HttpOnly Cookie | Best | Refresh tokens |
 | Memory (JS) | Good | Access tokens |
 | localStorage | Weak (XSS) | Avoid for tokens |
 | sessionStorage | Weak (XSS) | Avoid for tokens |
+
+---
 
 ## COOKIE SECURITY FLAGS
 
@@ -8807,10 +8291,12 @@ SameSite=Lax; // CSRF protection
 ## HOOK COMPARISON
 
 | HOOK | MEMOIZES | USE FOR |
-| ------ | ---------- | ---------  |
+|------|----------|---------|
 | useCallback | Functions | Passing to memo'd children |
 | useMemo | Values | Expensive calculations |
 | useRef | Refs | DOM access, timers |
+
+---
 
 ## USECALLBACK PATTERN
 
@@ -8913,21 +8399,28 @@ Server can pass Server Component as prop to Client
 
 ---
 
-## STREAMING WITH SUSPENSE 2
+## STREAMING WITH SUSPENSE
 
+```tsx
 // loading.js - Route-level loading
 export default function Loading() {
 return <Skeleton />;
-    }
+}
 
 // Suspense - Component-level loading
 <Suspense fallback={<Skeleton />}>
 <SlowComponent />
-    </Suspense>
+</Suspense>
 
-## ERROR HANDLING TRIBAL KNOWLEDGE 2
+```text
+
+---
+
+## ERROR HANDLING TRIBAL KNOWLEDGE
 
 > **The patterns that catch errors gracefully**
+
+---
 
 ## ERROR BOUNDARY PATTERN
 
@@ -8987,15 +8480,17 @@ Full request bodies
 
 ---
 
-## LOG LEVELS 2
+## LOG LEVELS
 
 | LEVEL | USE FOR |
-| ------- | ---------  |
+|-------|---------|
 | DEBUG | Development only |
 | INFO | Normal operations |
 | WARN | Potential issues |
 | ERROR | Failures (investigate) |
 | FATAL | App crash (page someone) |
+
+---
 
 ## [24K GOLD: AUTH + REACT HOOKS + NEXT.JS RSC + ERROR HANDLING]
 
@@ -9075,9 +8570,11 @@ Use allSettled when partial failure is OK
 
 ---
 
-## API VERSIONING TRIBAL KNOWLEDGE 2
+## API VERSIONING TRIBAL KNOWLEDGE
 
 > **The patterns that evolve APIs safely**
+
+---
 
 ## VERSIONING METHODS
 
@@ -9132,13 +8629,15 @@ Set clear end-of-life date
 
 ---
 
-## TOOL COMPARISON 2
+## TOOL COMPARISON
 
 | TOOL | LANGUAGE | BEST FOR |
-| ------ | ---------- | ----------  |
+|------|----------|----------|
 | Terraform | HCL (declarative) | Multi-cloud |
 | Pulumi | Real languages | Developers |
 | AWS CDK | TypeScript/Python | AWS-only |
+
+---
 
 ## C BEST PRACTICES
 
@@ -9165,7 +8664,7 @@ Implement drift detection
 module "vpc" {
 source = "./modules/vpc"
 cidr = var.vpc_cidr
-    }
+}
 
 ## GOOD: Remote state
 
@@ -9187,21 +8686,33 @@ region = "us-east-1"
 
 ---
 
-## CONFLICT PREVENTION 3
+## CONFLICT PREVENTION
 
+```text
 Small, frequent commits
 Pull main often into feature branch
 Communicate about shared files
 Consistent code formatting
 
-## REBASE VS MERGE 3
+```text
+
+```text
+
+---
+
+## REBASE VS MERGE
 
 | APPROACH | HISTORY | USE WHEN |
-| ---------- | --------- | ----------  |
+|----------|---------|----------|
 | Merge | Preserves all | Shared branches |
 | Rebase | Linear, clean | Private branches |
 
+```text
 Never rebase shared branches!
+
+```text
+
+---
 
 ## CONFLICT RESOLUTION COMMANDS
 
@@ -9273,12 +8784,17 @@ Re-authenticate for sensitive actions
 
 ## SQL INJECTION PREVENTION
 
+```typescript
 // BAD: String concatenation
-const query =`SELECT *FROM users WHERE id = '${userId}'`;
+const query = `SELECT * FROM users WHERE id = '${userId}'`;
 
 // GOOD: Parameterized query
-const query = 'SELECT* FROM users WHERE id = $1';
+const query = 'SELECT * FROM users WHERE id = $1';
 db.query(query, [userId]);
+
+```text
+
+---
 
 ## SECURITY HEADERS CHECKLIST
 
@@ -9302,7 +8818,6 @@ X-XSS-Protection: 1; mode=block
 ## CHROME DEVTOOLS PERFORMANCE
 
 ```text
-
 1. Open DevTools Performance tab
 2. Click Record
 3. Perform actions
@@ -9310,7 +8825,6 @@ X-XSS-Protection: 1; mode=block
 5. Analyze flame chart
 
 LOOK FOR:
-
 - Long tasks (> 50ms)
 - Layout thrashing
 - Excessive renders
@@ -9322,7 +8836,6 @@ LOOK FOR:
 ## REACT DEVTOOLS PROFILER
 
 ```text
-
 1. Install React DevTools extension
 2. Open Profiler tab
 3. Click Record
@@ -9330,7 +8843,6 @@ LOOK FOR:
 5. Analyze component renders
 
 IDENTIFY:
-
 - Unnecessary re-renders
 - Slow components
 - Missing memoization
@@ -9364,12 +8876,14 @@ Avoid inline objects/functions
 ## GRPC VS REST
 
 | ASPECT | gRPC | REST |
-| -------- | ------ | ------  |
+|--------|------|------|
 | Protocol | HTTP/2 | HTTP/1.1 |
 | Format | Protobuf (binary) | JSON (text) |
 | Speed |  |  |
 | Streaming | Bidirectional |  |
 | Best for | Internal services | Public APIs |
+
+---
 
 ## GRPC PATTERNS
 
@@ -9387,18 +8901,15 @@ BIDI: Stream Stream (real-time)
 
 ```text
 TRAFFIC:
-
 - Load balancing
 - Retries
 - Circuit breaking
 
 SECURITY:
-
 - Mutual TLS (mTLS)
 - Access policies
 
 OBSERVABILITY:
-
 - Distributed tracing
 - Metrics
 
@@ -9499,14 +9010,12 @@ Add indexes, optimize query
 
 ```text
 INSPECT:
-
 - Status codes (200, 404, 500)
 - Response time
 - Payload size
 - Headers
 
 FILTER BY:
-
 - XHR (API calls)
 - JS/CSS (scripts)
 - Images
@@ -9528,7 +9037,6 @@ Simulate CDN failure
 Test error states
 
 TIMING BREAKDOWN:
-
 - DNS Lookup
 - SSL Handshake
 - TTFB (Time to First Byte)
@@ -9573,10 +9081,12 @@ INSTALL WAITING ACTIVATE FETCH
 ## CACHING STRATEGIES
 
 | STRATEGY | DESCRIPTION | USE FOR |
-| ---------- | ------------- | ---------  |
+|----------|-------------|---------|
 | Cache First | Cache Network | Static assets |
 | Network First | Network Cache | Dynamic data |
 | Stale While Revalidate | Cache + Background fetch | Balanced |
+
+---
 
 ## PWA CHECKLIST
 
@@ -9603,22 +9113,22 @@ Add to home screen
 ## ARCHITECTURE COMPARISON
 
 | PATTERN | SCALE | TEAMS | COMPLEXITY |
-| --------- | ------- | ------- | ------------  |
+|---------|-------|-------|------------|
 | Monolith | Small | 1 | Low |
 | Modular | Medium | 1-3 | Medium |
 | Micro-frontend | Large | Many | High |
+
+---
 
 ## FRONTEND PATTERNS
 
 ```text
 MODULE FEDERATION:
-
 - Webpack 5 feature
 - Share deps at runtime
 - Deploy independently
 
 COMPOSITION:
-
 - Build-time (npm packages)
 - Run-time (iframes, web components)
 - Edge-side (SSR composition)
@@ -9719,13 +9229,15 @@ return user;
 ## PATTERN COMPARISON
 
 | PATTERN | PURPOSE |
-| --------- | ---------  |
+|---------|---------|
 | Repository | Abstract data access |
 | Service | Business logic |
 | Factory | Object creation |
 | Singleton | Single instance |
 | Observer | Event notifications |
 | Strategy | Swappable algorithms |
+
+---
 
 ## [24K GOLD: DEVTOOLS + PWA + FRONTEND ARCHITECTURE + BACKEND PATTERNS]
 
@@ -9739,14 +9251,16 @@ return user;
 
 ---
 
-## ALGORITHM COMPARISON 2
+## ALGORITHM COMPARISON
 
 | ALGORITHM | TYPE | USE WHEN |
-| ----------- | ------ | ----------  |
+|-----------|------|----------|
 | Round Robin | Static | Equal servers |
 | Weighted RR | Static | Different capacities |
 | Least Connections | Dynamic | Varying response times |
 | Consistent Hashing | Dynamic | Session stickiness |
+
+---
 
 ## ROUND ROBIN
 
@@ -9800,12 +9314,16 @@ BENEFIT: Add/remove servers = minimal redistribution
 ## CACHE INVALIDATION STRATEGIES
 
 | STRATEGY | DESCRIPTION | USE FOR |
-| ---------- | ------------- | ---------  |
+|----------|-------------|---------|
 | TTL | Expire after time | Static assets |
 | Event-driven | Purge on update | Dynamic content |
 | Versioning | New filename each build | JS/CSS bundles |
 
-## CONTROL HEADERS 2
+---
+
+## CONTROL HEADERS
+
+```text
 
 ## Cache for 1 year (immutable assets)
 
@@ -9826,7 +9344,6 @@ Cache-Control: no-store
 ## CDN CHECKLIST
 
 ```text
-
 Use versioned filenames (hash)
 Set appropriate Cache-Control
 Configure purge automation
@@ -9838,22 +9355,21 @@ Enable Brotli/Gzip compression
 
 ---
 
-## FORM VALIDATION TRIBAL KNOWLEDGE 2
+## FORM VALIDATION TRIBAL KNOWLEDGE
 
 > **The patterns that validate user input**
+
+---
 
 ## DOUBLE VALIDATION RULE
 
 ```text
-
 CLIENT-SIDE:
-
 - Fast feedback (UX)
 - Can be bypassed!
 - Use HTML5 attributes
 
 SERVER-SIDE:
-
 - Security (required!)
 - Final authority
 - Never trust client
@@ -9865,7 +9381,6 @@ SERVER-SIDE:
 ## VALIDATION ATTRIBUTES
 
 ```html
-
 <input type="email" required>
 <input type="tel" pattern="[0-9]{10}">
 <input minlength="8" maxlength="50">
@@ -9878,7 +9393,6 @@ SERVER-SIDE:
 ## VALIDATION PATTERNS
 
 ```typescript
-
 // GOOD: Shared schema (Zod)
 const userSchema = z.object({
 email: z.string().email(),
@@ -9894,7 +9408,6 @@ password: z.string().min(8),
 ## ERROR HANDLING CHECKLIST
 
 ```text
-
 Show all errors at once
 Display near relevant field
 Clear, specific messages
@@ -9912,16 +9425,20 @@ Mark required fields
 
 ---
 
-## THREE PILLARS OF OBSERVABILITY 2
+## THREE PILLARS OF OBSERVABILITY
 
+```text
 LOGS: What happened (events)
 METRICS: How many/how much (counters)
 TRACES: Request path across services
 
+```text
+
+---
+
 ## TRACE CONCEPTS
 
 ```text
-
 TRACE: End-to-end request journey
 SPAN: Single unit of work
 CONTEXT: Passed between services
@@ -9938,16 +9455,17 @@ Span: Database (50ms)
 ## DISTRIBUTED TRACING TOOLS
 
 | TOOL | TYPE | NOTES |
-| ------ | ------ | -------  |
+|------|------|-------|
 | OpenTelemetry | Standard | Vendor-neutral |
 | Jaeger | Open source | Popular, CNCF |
 | Zipkin | Open source | Simple |
 | Datadog | Commercial | Full platform |
 
+---
+
 ## TRACING CHECKLIST
 
 ```text
-
 Use OpenTelemetry SDK
 Propagate context headers
 Sample appropriately (1-10%)
@@ -9974,7 +9492,6 @@ Monitor latency percentiles
 ## S CORE CONCEPTS
 
 ```text
-
 POD: Smallest unit (1+ containers)
 SERVICE: Stable network endpoint
 DEPLOYMENT: Manages ReplicaSets
@@ -9986,19 +9503,20 @@ INGRESS: External HTTP routing
 
 ---
 
-## DEPLOYMENT STRATEGIES 2
+## DEPLOYMENT STRATEGIES
 
 | STRATEGY | DOWNTIME | ROLLBACK | RISK |
-| ---------- | ---------- | ---------- | ------  |
+|----------|----------|----------|------|
 | Recreate | Yes | Easy | High |
 | Rolling | No | Easy | Medium |
 | Blue-Green | No | Instant | Low |
 | Canary | No | Easy | Low |
 
+---
+
 ## ROLLING UPDATE
 
 ```yaml
-
 spec:
   strategy:
 type: RollingUpdate
@@ -10013,7 +9531,6 @@ maxSurge: 1
 ## CANARY DEPLOYMENT
 
 ```text
-
 PHASE 1: Deploy new version to 10% of pods
 PHASE 2: Monitor metrics, error rates
 PHASE 3: Gradually increase to 100%
@@ -10032,7 +9549,6 @@ ROLLBACK: If issues, send all traffic to old
 ## HELM CHART STRUCTURE
 
 ```text
-
 mychart/
 Chart.yaml # Metadata
 values.yaml # Default config
@@ -10076,7 +9592,6 @@ helm uninstall myapp
 ## HELM BEST PRACTICES
 
 ```text
-
 Use values.yaml for all config
 Separate values per environment
 Pin chart versions
@@ -10097,14 +9612,12 @@ Never hardcode secrets
 ## GITHUB ACTIONS STRUCTURE
 
 ```yaml
-
 name: CI/CD
 on: [push]
 jobs:
   build:
 runs-on: ubuntu-latest
     steps:
-
 - uses: actions/checkout@v4
 - uses: actions/setup-node@v4
 - run: npm ci
@@ -10117,7 +9630,6 @@ runs-on: ubuntu-latest
 ## CD BEST PRACTICES
 
 ```text
-
 SPEED:
 Cache dependencies
 Run jobs in parallel
@@ -10137,9 +9649,7 @@ Read-only GITHUB_TOKEN
 ## CACHING PATTERN
 
 ```yaml
-
 - uses: actions/cache@v4
-
   with:
 path: ~/.npm
 key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
@@ -10161,9 +9671,7 @@ needs: build
 runs-on: ubuntu-latest
 environment: production  # Requires approval
   steps:
-
 - name: Deploy
-
 run: ./deploy.sh
 
 ```text
@@ -10173,7 +9681,6 @@ run: ./deploy.sh
 ## CD CHECKLIST
 
 ```text
-
 Fail fast (lint, test first)
 Cache dependencies
 Use reusable workflows
@@ -10193,27 +9700,29 @@ Notify on failures
 
 ---
 
-## WEBSOCKET TRIBAL KNOWLEDGE 2
+## WEBSOCKET TRIBAL KNOWLEDGE
 
 > **The patterns that enable real-time communication**
+
+---
 
 ## WEBSOCKET VS HTTP
 
 | ASPECT | WebSocket | HTTP |
-| -------- | ----------- | ------  |
+|--------|-----------|------|
 | Connection | Persistent | Request/Response |
 | Direction | Bidirectional | Client-initiated |
 | Overhead | Low (after handshake) | Headers each request |
 | Use case | Real-time, chat, gaming | REST APIs, pages |
 
+---
+
 ## SCALING WEBSOCKETS
 
 ```text
-
 CHALLENGE: WebSockets are stateful
 
 SOLUTION:
-
 1. Use Pub/Sub (Redis) for cross-server messaging
 2. Externalize state to shared store
 3. Use sticky sessions or connection IDs
@@ -10226,7 +9735,6 @@ SOLUTION:
 ## WEBSOCKET BEST PRACTICES
 
 ```text
-
 Implement heartbeat/ping-pong
 Handle reconnection gracefully
 Buffer messages during disconnect
@@ -10239,24 +9747,27 @@ Use load balancer with sticky sessions
 
 ---
 
-## DATABASE INDEXING TRIBAL KNOWLEDGE 2
+## DATABASE INDEXING TRIBAL KNOWLEDGE
 
 > **The patterns that speed up queries**
+
+---
 
 ## INDEX TYPES
 
 | TYPE | USE CASE | NOTES |
-| ------ | ---------- | -------  |
+|------|----------|-------|
 | B-tree | Default, most queries | Balanced tree |
 | Hash | Equality lookups | No range queries |
 | Composite | Multi-column WHERE | Column order matters |
 | Covering | All cols in query | Avoids table lookup |
 | Partial | Filtered subset | Smaller, faster |
 
+---
+
 ## WHEN TO INDEX
 
 ```text
-
 INDEX THESE COLUMNS:
 WHERE clause filters
 JOIN conditions
@@ -10275,7 +9786,6 @@ Tables with heavy writes
 ## EXPLAIN ANALYZE
 
 ```sql
-
 EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'test@example.com';
 
 LOOK FOR:
@@ -10291,7 +9801,6 @@ Sort operations (possible index needed)
 ## INDEXING CHECKLIST
 
 ```text
-
 Index foreign keys
 Use composite index for multi-column WHERE
 Put most selective column first
@@ -10303,24 +9812,27 @@ Rebuild fragmented indexes
 
 ---
 
-## REST API DESIGN TRIBAL KNOWLEDGE 2
+## REST API DESIGN TRIBAL KNOWLEDGE
 
->**The patterns that build clean APIs**
+> **The patterns that build clean APIs**
+
+---
 
 ## HTTP METHOD SEMANTICS
 
 | METHOD | ACTION | IDEMPOTENT |
-| -------- | -------- | ------------  |
+|--------|--------|------------|
 | GET | Read | Yes |
 | POST | Create | No |
 | PUT | Replace | Yes |
 | PATCH | Partial update | Yes |
 | DELETE | Remove | Yes |
 
+---
+
 ## IDEMPOTENCY PATTERN
 
 ```text
-
 PROBLEM:
 Network retry Duplicate order
 
@@ -10335,8 +9847,9 @@ If new Process and store result
 
 ---
 
-## ERROR RESPONSE FORMAT 2
+## ERROR RESPONSE FORMAT
 
+```json
 {
 "error": {
 "code": "VALIDATION_ERROR",
@@ -10349,10 +9862,13 @@ If new Process and store result
   }
 }
 
+```text
+
+---
+
 ## REST API CHECKLIST
 
 ```text
-
 Use plural nouns (/users not /user)
 Version in URL (/v1/users)
 Return proper status codes
@@ -10374,7 +9890,6 @@ Always validate input server-side
 ## FACTOR CONFIG RULE
 
 ```text
-
 SEPARATE CONFIG FROM CODE:
 Environment variables
 Config files (not committed)
@@ -10410,17 +9925,18 @@ AWS_SECRET_ID=prod/api/db-password
 ## SECRET MANAGEMENT TOOLS
 
 | TOOL | PROVIDER | NOTES |
-| ------ | ---------- | -------  |
+|------|----------|-------|
 | AWS Secrets Manager | AWS | Native AWS |
 | HashiCorp Vault | Any | Self-hosted option |
 | GCP Secret Manager | GCP | Native GCP |
 | Doppler | Any | Developer-friendly |
 | 1Password | Any | Team secrets |
 
+---
+
 ## CONFIG CHECKLIST
 
 ```text
-
 Never commit .env files
 Use .env.example as template
 Secrets in secret manager (not env vars)
@@ -10438,14 +9954,15 @@ Use ConfigMaps/Secrets in K8s
 
 ---
 
-## TYPESCRIPT STRICT MODE TRIBAL KNOWLEDGE 2
+## TYPESCRIPT STRICT MODE TRIBAL KNOWLEDGE
 
 > **The patterns that prevent null errors**
+
+---
 
 ## STRICT MODE FLAGS
 
 ```json
-
 {
 "compilerOptions": {
 "strict": true,
@@ -10462,7 +9979,6 @@ Use ConfigMaps/Secrets in K8s
 ## NULL HANDLING OPERATORS
 
 ```typescript
-
 // Optional chaining (?.)
 const name = user?.profile?.name;
 
@@ -10485,7 +10001,6 @@ if (user !== null) {
 ## TYPE GUARD PATTERNS
 
 ```typescript
-
 // Type guard function
 function isString(value: unknown): value is string {
 return typeof value === 'string';
@@ -10505,8 +10020,9 @@ type Result =
 
 ---
 
-## TYPESCRIPT CHECKLIST 2
+## TYPESCRIPT CHECKLIST
 
+```text
 Enable strict mode
 Avoid 'any' type
 Use unknown for unknown data
@@ -10514,6 +10030,10 @@ Define explicit return types
 Use discriminated unions
 Prefer interfaces for objects
 Use const assertions
+
+```text
+
+---
 
 ## REACT USEEFFECT TRIBAL KNOWLEDGE
 
@@ -10524,7 +10044,6 @@ Use const assertions
 ## USEEFFECT DEPENDENCY RULES
 
 ```typescript
-
 // Empty array = Run once on mount
 useEffect(() => {
   initApp();
@@ -10544,8 +10063,9 @@ useEffect(() => {
 
 ---
 
-## CLEANUP PATTERN 2
+## CLEANUP PATTERN
 
+```typescript
 useEffect(() => {
 const controller = new AbortController();
 
@@ -10557,10 +10077,13 @@ fetch('/api/data', { signal: controller.signal })
 return () => controller.abort();
 }, []);
 
+```text
+
+---
+
 ## COMMON USEEFFECT MISTAKES
 
 ```text
-
 Missing dependency array Infinite loop
 Object/array in deps New reference each render
 No cleanup for subscriptions Memory leak
@@ -10578,7 +10101,6 @@ Use cleanup for event listeners
 ## USEEFFECT CHECKLIST
 
 ```text
-
 Always include dependency array
 Add cleanup for subscriptions
 Abort pending fetches on unmount
@@ -10599,7 +10121,6 @@ Cancel promises with AbortController
 ## CONSOLE METHODS
 
 ```javascript
-
 console.log('Basic output');
 console.table([{a:1}, {a:2}]);  // Table format
 console.dir(object); // Object tree
@@ -10616,7 +10137,6 @@ console.groupEnd();
 ## DEBUGGER STATEMENT
 
 ```javascript
-
 function processData(data) {
 debugger; // Pause here in DevTools
 return data.map(x => x * 2);
@@ -10629,7 +10149,6 @@ return data.map(x => x * 2);
 ## DEBUGGING CHECKLIST
 
 ```text
-
 Check console for errors first
 Use debugger statement
 Add breakpoints in DevTools
@@ -10682,7 +10201,6 @@ git checkout -- file.js  # Discard file changes
 ## COMMIT BEST PRACTICES
 
 ```text
-
 FORMAT:
 type(scope): description
 
@@ -10705,7 +10223,6 @@ feat(auth): add password reset flow
 ## GIT WORKFLOW
 
 ```text
-
 1. git pull origin main
 2. git checkout -b feature/xyz
 3. (make changes)
@@ -10722,7 +10239,6 @@ feat(auth): add password reset flow
 ## GIT CHECKLIST
 
 ```text
-
 Pull before starting work
 Use meaningful commit messages
 Commit small, atomic changes
@@ -10750,7 +10266,6 @@ Delete merged branches
 ## DEPENDENCY TYPES
 
 ```json
-
 {
 "dependencies": {
 // Production deps (shipped to users)
@@ -10773,7 +10288,6 @@ Delete merged branches
 ## VERSION SYNTAX
 
 ```text
-
 "1.2.3" Exact version
 "^1.2.3" Minor updates OK (1.x.x)
 "~1.2.3" Patch updates OK (1.2.x)
@@ -10786,7 +10300,6 @@ Delete merged branches
 ## NPM COMMANDS
 
 ```bash
-
 npm install  # Install all deps
 npm install pkg  # Add to dependencies
 npm install -D pkg    # Add to devDependencies
@@ -10803,7 +10316,6 @@ npm ci  # Clean install (CI/CD)
 ## NPM CHECKLIST
 
 ```text
-
 Use package-lock.json
 Use npm ci in CI/CD
 Run npm audit regularly
@@ -10816,14 +10328,15 @@ Remove unused packages
 
 ---
 
-## CODE REVIEW TRIBAL KNOWLEDGE 2
+## CODE REVIEW TRIBAL KNOWLEDGE
 
 > **The patterns that improve code quality**
+
+---
 
 ## PR SIZE GUIDELINES
 
 ```text
-
 | LINES CHANGED | REVIEW TIME | QUALITY |
 |---------------|-------------|---------|
 | < 50 lines | Quick | Best |
@@ -10838,7 +10351,6 @@ Remove unused packages
 ## WHAT TO REVIEW
 
 ```text
-
 MUST CHECK:
 Logic correctness
 Edge cases handled
@@ -10859,7 +10371,6 @@ Code duplication
 ## REVIEW FEEDBACK FORMAT
 
 ```text
-
 GOOD: "Consider using early return here to
 reduce nesting"
 
@@ -10884,7 +10395,6 @@ TYPES:
 ## FRONTEND PERFORMANCE
 
 ```text
-
 CRITICAL RENDERING PATH:
 Minimize critical CSS
 Defer non-critical JS
@@ -10904,7 +10414,6 @@ Analyze with webpack-bundle-analyzer
 ## BACKEND PERFORMANCE
 
 ```text
-
 DATABASE:
 Add indexes for queries
 Use connection pooling
@@ -10924,7 +10433,6 @@ Rate limiting
 ## PERFORMANCE METRICS
 
 ```text
-
 FRONTEND (Core Web Vitals):
 LCP < 2.5s   (Largest Contentful Paint)
 INP < 200ms  (Interaction to Next Paint)
@@ -10948,27 +10456,22 @@ p99 < 1s  (99th percentile)
 ## COMMON PRODUCTION ERRORS
 
 ```text
-
 1. MEMORY LEAK
-
 Symptom: Gradual slowdown, crash
 Cause: Unbounded cache, event listeners
 Fix: Add cleanup, set limits
 
-1. CONNECTION EXHAUSTION
-
+2. CONNECTION EXHAUSTION
 Symptom: "Too many connections"
 Cause: Not closing DB connections
 Fix: Use connection pooling
 
-1. CERTIFICATE EXPIRY
-
+3. CERTIFICATE EXPIRY
 Symptom: HTTPS errors
 Cause: Forgot to renew
 Fix: Auto-renewal (Let's Encrypt)
 
-1. DISK FULL
-
+4. DISK FULL
 Symptom: Write failures
 Cause: Unbounded logs
 Fix: Log rotation, monitoring
@@ -10980,7 +10483,6 @@ Fix: Log rotation, monitoring
 ## INCIDENT RESPONSE
 
 ```text
-
 1. DETECT:   Alerting fires
 2. TRIAGE:   Assess impact
 3. MITIGATE: Rollback / hotfix
@@ -10994,7 +10496,6 @@ Fix: Log rotation, monitoring
 ## PRODUCTION CHECKLIST
 
 ```text
-
 BEFORE DEPLOY:
 Run all tests
 Review in staging
@@ -11011,7 +10512,7 @@ Ready to rollback if needed
 
 ---
 
-## SESSION COMPLETE: BRAIN CROSSED 10%
+## SESSION COMPLETE: BRAIN CROSSED 10%!
 
 ## This session added comprehensive 24K Gold tribal knowledge across
 
@@ -11049,7 +10550,6 @@ Ready to rollback if needed
 ## VALIDATION CHECKLIST
 
 ```text
-
 SERVER-SIDE (Required!):
 Validate file type (magic bytes, not just extension)
 Enforce file size limits
@@ -11069,7 +10569,6 @@ Progress indicator
 ## FILE TYPE VALIDATION
 
 ```javascript
-
 // BAD: Check extension only
 const isValid = file.name.endsWith('.jpg');
 
@@ -11085,7 +10584,6 @@ const isJPEG = bytes[0] === 0xFF && bytes[1] === 0xD8;
 ## SECURE STORAGE PATTERN
 
 ```text
-
 1. Generate random filename (UUID)
 2. Store original name in database
 3. Save file outside web root (/uploads not /public)
@@ -11096,23 +10594,26 @@ const isJPEG = bytes[0] === 0xFF && bytes[1] === 0xD8;
 
 ---
 
-## PAGINATION TRIBAL KNOWLEDGE 2
+## PAGINATION TRIBAL KNOWLEDGE
 
 > **The patterns that handle large datasets**
 
-## OFFSET VS CURSOR 2
+---
+
+## OFFSET VS CURSOR
 
 | ASPECT | OFFSET | CURSOR |
-| -------- | -------- | --------  |
+|--------|--------|--------|
 | Performance | Degrades at depth | Constant O(1) |
 | Consistency | Data shift issues | Stable |
 | Random access | Jump to page 50 | Sequential only |
 | Use case | Admin dashboards | Infinite scroll |
 
+---
+
 ## OFFSET PAGINATION
 
 ```sql
-
 -- Simple but SLOW for large offsets
 SELECT * FROM products
 ORDER BY id
@@ -11127,7 +10628,6 @@ LIMIT 20 OFFSET 10000;
 ## CURSOR PAGINATION
 
 ```sql
-
 -- Fast at any depth
 SELECT * FROM products
 WHERE id > :last_seen_id
@@ -11143,7 +10643,6 @@ LIMIT 20;
 ## PAGINATION DECISION
 
 ```text
-
 Use OFFSET when:
 < 10,000 total records
 Users need page numbers
@@ -11168,7 +10667,6 @@ Performance critical
 ## STRUCTURED VS UNSTRUCTURED
 
 ```text
-
 UNSTRUCTURED:
 "User 123 logged in from 192.168.1.1 at 2024-01-01"
 
@@ -11184,8 +10682,9 @@ STRUCTURED (JSON):
 
 ---
 
-## LOG LEVELS 3
+## LOG LEVELS
 
+```text
 FATAL: System unusable, immediate action
 ERROR: Operation failed, needs attention
 WARN: Unexpected but handled
@@ -11193,8 +10692,13 @@ INFO: Normal operations (default in prod)
 DEBUG: Detailed troubleshooting
 TRACE: Very verbose (dev only)
 
-## WHAT TO LOG 2
+```text
 
+---
+
+## WHAT TO LOG
+
+```text
 ALWAYS LOG:
 Request ID (correlation)
 Timestamp (ISO 8601)
@@ -11208,10 +10712,13 @@ API keys / tokens
 Credit card numbers
 PII without consent
 
+```text
+
+---
+
 ## LOGGING CHECKLIST
 
 ```text
-
 Use structured JSON format
 Include correlation/request IDs
 Set appropriate log levels
@@ -11233,7 +10740,6 @@ Add context to errors
 ## RETRY WITH EXPONENTIAL BACKOFF
 
 ```javascript
-
 async function retryWithBackoff(fn, maxRetries = 3) {
 for (let attempt = 0; attempt < maxRetries; attempt++) {
 try {
@@ -11257,7 +10763,6 @@ await sleep(delay + jitter);
 ## CIRCUIT BREAKER STATES
 
 ```text
-
 CLOSED Requests pass through
 (failures exceed threshold)
 OPEN Requests fail immediately (fast fail)
@@ -11273,7 +10778,6 @@ CLOSED (recovered)
 ## WHEN TO USE EACH
 
 ```text
-
 RETRY:
 Transient errors (network blip)
 Idempotent operations
@@ -11288,8 +10792,9 @@ Protect resources
 
 ---
 
-## RESILIENCE CHECKLIST 2
+## RESILIENCE CHECKLIST
 
+```text
 Retry transient errors
 Use exponential backoff
 Add jitter to prevent thundering herd
@@ -11299,20 +10804,25 @@ Add timeouts to all calls
 Log retry attempts
 Monitor failure rates
 
+```text
+
+---
+
 ## [24K GOLD: FILE UPLOAD + PAGINATION + LOGGING + RESILIENCE]
 
 ### The patterns that build bulletproof systems
 
 ---
 
-## DRIVEN ARCHITECTURE TRIBAL KNOWLEDGE 2
+## DRIVEN ARCHITECTURE TRIBAL KNOWLEDGE
 
 > **The patterns that decouple systems**
+
+---
 
 ## EDA CORE CONCEPTS
 
 ```text
-
 EVENT: Immutable fact that happened
 PRODUCER: Publishes events
 CONSUMER: Subscribes to events
@@ -11327,14 +10837,15 @@ Key: Producers don't know about consumers!
 ## EVENT VS COMMAND
 
 | TYPE | DIRECTION | EXAMPLE |
-| ------ | ----------- | ---------  |
+|------|-----------|---------|
 | Command | Please do X | CreateOrder |
 | Event | X happened | OrderCreated |
+
+---
 
 ## CQRS PATTERN
 
 ```text
-
 COMMAND SIDE:
 Write operations
 Complex validation
@@ -11354,12 +10865,10 @@ BENEFIT: Scale reads and writes independently
 ## EVENT SOURCING
 
 ```text
-
 Traditional: Store current state
 Event Sourcing: Store all events
 
 Events:
-
 1. AccountCreated { id: 123 }
 2. MoneyDeposited { amount: 100 }
 3. MoneyWithdrawn { amount: 30 }
@@ -11372,33 +10881,41 @@ BENEFIT: Full audit trail, time travel
 
 ---
 
-## FEATURE FLAGS TRIBAL KNOWLEDGE 2
+## FEATURE FLAGS TRIBAL KNOWLEDGE
 
 > **The patterns that decouple deploy from release**
+
+---
 
 ## FEATURE FLAG TYPES
 
 | TYPE | LIFESPAN | USE CASE |
-| ------ | ---------- | ----------  |
+|------|----------|----------|
 | Release | Short | New feature rollout |
 | Experiment | Medium | A/B testing |
 | Ops | Permanent | Kill switches |
 | Permission | Permanent | User entitlements |
 
-## PROGRESSIVE ROLLOUT 2
+---
 
+## PROGRESSIVE ROLLOUT
+
+```text
 1. Deploy code with flag OFF
-1. Enable for 5 percent of users
-1. Monitor metrics, errors
-1. Expand to 25, 50, 100 percent
-1. If issues -> Instantly disable
+2. Enable for 5 percent of users
+3. Monitor metrics, errors
+4. Expand to 25, 50, 100 percent
+5. If issues -> Instantly disable
 
 BENEFIT: Reduce blast radius of bugs
+
+```text
+
+---
 
 ## FEATURE FLAG CHECKLIST
 
 ```text
-
 [ ] Use descriptive flag names
 [ ] Set expiration dates
 [ ] Log flag decisions
@@ -11417,26 +10934,32 @@ BENEFIT: Reduce blast radius of bugs
 
 ---
 
-## ACID PROPERTIES 2
+## ACID PROPERTIES
 
+```text
 A - Atomicity:    All or nothing
 C - Consistency:  Valid state to valid state
 I - Isolation:    Concurrent txns don't interfere
 D - Durability:   Committed = permanent
 
-## ISOLATION LEVELS 2
+```text
+
+---
+
+## ISOLATION LEVELS
 
 | LEVEL | DIRTY READ | NON-REPEATABLE | PHANTOM |
-| ------- | ------------ | ---------------- | ---------  |
+|-------|------------|----------------|---------|
 | Read Uncommitted | Possible | Possible | Possible |
 | Read Committed | Prevented | Possible | Possible |
 | Repeatable Read | Prevented | Prevented | Possible |
 | Serializable | Prevented | Prevented | Prevented |
 
+---
+
 ## TRANSACTION CHECKLIST
 
 ```text
-
 [ ] Choose appropriate isolation level
 [ ] Keep transactions short
 [ ] Use consistent lock ordering (prevent deadlock)
@@ -11458,18 +10981,18 @@ D - Durability:   Committed = permanent
 ## HLS VS DASH
 
 | ASPECT | HLS | DASH |
-| -------- | ----- | ------  |
+|--------|-----|------|
 | Creator | Apple | Industry standard |
 | Support | Universal | Most modern players |
 | Latency | Higher (can use LL-HLS) | Lower |
 | DRM | FairPlay | Widevine, PlayReady |
 
+---
+
 ## ADAPTIVE BITRATE STREAMING
 
 ```text
-
 How it works:
-
 1. Encode video at multiple bitrates
 2. Divide into small segments (6 sec)
 3. Client detects network speed
@@ -11485,7 +11008,6 @@ BENEFIT: No buffering on slow connections!
 ## BITRATE LADDER EXAMPLE
 
 ```text
-
 | RESOLUTION | BITRATE | USE CASE |
 |------------|---------|----------|
 | 360p | 400 Kbps | Mobile 3G |
@@ -11501,7 +11023,6 @@ BENEFIT: No buffering on slow connections!
 ## STREAMING CHECKLIST
 
 ```text
-
 [ ] Use CDN for delivery
 [ ] Provide multiple bitrates
 [ ] Set segment duration (6s recommended)
@@ -11530,16 +11051,17 @@ BENEFIT: No buffering on slow connections!
 ## API KEY VS OAUTH
 
 | ASPECT | API Key | OAuth 2.0 |
-| -------- | --------- | -----------  |
+|--------|---------|-----------|
 | Complexity | Simple | Complex |
 | User context | No | Yes |
 | Scopes | No | Yes |
 | Use case | Server-to-server | User authorization |
 
+---
+
 ## API KEY BEST PRACTICES
 
 ```text
-
 [ ] Never expose in client-side code
 [ ] Use environment variables
 [ ] Rotate keys regularly
@@ -11555,7 +11077,6 @@ BENEFIT: No buffering on slow connections!
 ## FLOWS
 
 ```text
-
 Authorization Code: Web apps (safest)
 PKCE: Mobile/SPA (no client secret)
 Client Credentials: Server-to-server
@@ -11571,8 +11092,9 @@ Implicit: DEPRECATED (don't use!)
 
 ---
 
-## TESTING PYRAMID 2
+## TESTING PYRAMID
 
+```text
         /\
 / \
 / E2E\  (Few, slow, expensive)
@@ -11582,18 +11104,23 @@ Implicit: DEPRECATED (don't use!)
 / Unit  \ (Many, fast, cheap)
      /_____________\
 
+```text
+
+---
+
 ## TEST TYPES
 
 | TYPE | TESTS | SPEED | COVERAGE |
-| ------ | ------- | ------- | ----------  |
+|------|-------|-------|----------|
 | Unit | Functions | Fast | Logic |
 | Integration | Components | Medium | Interactions |
 | E2E | Full flows | Slow | User journeys |
 
+---
+
 ## TESTING CHECKLIST
 
 ```text
-
 [ ] Aim for 80% unit test coverage
 [ ] Test edge cases and error paths
 [ ] Use mocks for external services
@@ -11615,16 +11142,17 @@ Implicit: DEPRECATED (don't use!)
 ## PLATFORM OPTIONS
 
 | FRAMEWORK | LANGUAGE | PERFORMANCE |
-| ----------- | ---------- | -------------  |
+|-----------|----------|-------------|
 | React Native | JavaScript | Good |
 | Flutter | Dart | Excellent |
 | Native | Swift/Kotlin | Best |
 | Capacitor | JS/Web | Good for web devs |
 
+---
+
 ## MOBILE PERFORMANCE
 
 ```text
-
 [ ] Minimize bundle size
 [ ] Lazy load screens
 [ ] Optimize images (WebP)
@@ -11640,7 +11168,6 @@ Implicit: DEPRECATED (don't use!)
 ## MOBILE CHECKLIST
 
 ```text
-
 [ ] Handle offline state
 [ ] Implement deep linking
 [ ] Request permissions properly
@@ -11662,16 +11189,17 @@ Implicit: DEPRECATED (don't use!)
 ## SEARCH OPTIONS
 
 | SOLUTION | USE CASE | FEATURES |
-| ---------- | ---------- | ----------  |
+|----------|----------|----------|
 | PostgreSQL FTS | Simple search | Built-in, good enough |
 | Elasticsearch | Complex search | Full-text, analytics |
 | Algolia | Instant search | Fast, managed |
 | Typesense | Self-hosted | Open source |
 
+---
+
 ## SEARCH BEST PRACTICES
 
 ```text
-
 [ ] Debounce search input (300ms)
 [ ] Implement autocomplete
 [ ] Highlight matching terms
@@ -11687,7 +11215,6 @@ Implicit: DEPRECATED (don't use!)
 ## ELASTICSEARCH BASICS
 
 ```text
-
 INDEX: Like a database
 DOCUMENT: Like a row (JSON)
 MAPPING: Like a schema
@@ -11708,7 +11235,6 @@ Index -> Type -> Document
 ## DESIGN TOKEN HIERARCHY
 
 ```text
-
 PRIMITIVE: Blue-500 = #3B82F6
 SEMANTIC: Primary = Blue-500
 COMPONENT: Button-background = Primary
@@ -11722,7 +11248,6 @@ BENEFIT: Change one value, update everywhere
 ## COMPONENT CATEGORIES
 
 ```text
-
 ATOMS: Button, Input, Icon
 MOLECULES: SearchBar, Card, MenuItem
 ORGANISMS: Header, Sidebar, DataTable
@@ -11736,7 +11261,6 @@ PAGES: HomePage, SettingsPage
 ## DESIGN SYSTEM CHECKLIST
 
 ```text
-
 [ ] Define color palette
 [ ] Establish typography scale
 [ ] Create spacing system (4px grid)
@@ -11764,7 +11288,6 @@ PAGES: HomePage, SettingsPage
 ## FOUR GOLDEN SIGNALS
 
 ```text
-
 LATENCY: How long requests take
 TRAFFIC: Requests per second
 ERRORS: Error rate percentage
@@ -11779,20 +11302,16 @@ Monitor these for any service!
 ## ALERTING RULES
 
 ```text
-
 CRITICAL: Page on-call immediately
-
 - Service down
 - Error rate > 10%
 - Latency p99 > 5s
 
 WARNING: Notify but don't page
-
 - Error rate > 1%
 - Disk > 80%
 
 INFO: Log for review
-
 - Unusual patterns
 
 ```text
@@ -11802,7 +11321,6 @@ INFO: Log for review
 ## MONITORING CHECKLIST
 
 ```text
-
 [ ] Set up health check endpoints
 [ ] Monitor the four golden signals
 [ ] Create dashboards per service
@@ -11824,12 +11342,10 @@ INFO: Log for review
 ## N BASICS
 
 ```text
-
 I18N: Internationalization (code structure)
 L10N: Localization (actual translations)
 
 KEY CONCEPTS:
-
 - Translation keys, not hardcoded strings
 - Date/number formatting per locale
 - RTL layout support
@@ -11839,8 +11355,9 @@ KEY CONCEPTS:
 
 ---
 
-## N CHECKLIST 2
+## N CHECKLIST
 
+```text
 [ ] Extract all strings to translation files
 [ ] Use ICU message format for plurals
 [ ] Never concatenate translated strings
@@ -11849,10 +11366,13 @@ KEY CONCEPTS:
 [ ] Test with long German strings
 [ ] Use context for homonyms
 
+```text
+
+---
+
 ## TRANSLATION KEY PATTERN
 
 ```text
-
 // BAD: Concatenation
 t('Hello') + ' ' + userName
 
@@ -11877,7 +11397,6 @@ t('items', { count: 5 })
 ## DEBUG CHECKLIST
 
 ```text
-
 1. Check logs for errors
 2. Look at recent deployments
 3. Compare metrics to baseline
@@ -11893,7 +11412,6 @@ t('items', { count: 5 })
 ## COMMON PRODUCTION ISSUES
 
 ```text
-
 MEMORY LEAK:
 Symptoms: Gradual slowdown, OOM
 Debug: Memory profiler, heap dumps
@@ -11916,7 +11434,6 @@ Fix: Add indexes, optimize
 ## INCIDENT TIMELINE
 
 ```text
-
 T+0: Alert fires
 T+5: Acknowledge, start investigating
 T+15: Identify probable cause
@@ -11937,7 +11454,6 @@ T+24h: Blameless postmortem
 ## CAPACITY ESTIMATION
 
 ```text
-
 USERS: 1M daily active users (DAU)
 READS: 10 reads/user/day = 10M reads
 WRITES: 1 write/user/day = 1M writes
@@ -11952,7 +11468,6 @@ Read:Write ratio = 10:1 -> Optimize for reads
 ## COMMON ARCHITECTURES
 
 ```text
-
 MONOLITH:
 Single deployable unit
 Good for: Small teams, MVPs
@@ -11972,7 +11487,6 @@ Good for: Event-driven, variable load
 ## SCALING PATTERNS
 
 ```text
-
 VERTICAL: Bigger machine (limited)
 HORIZONTAL: More machines (preferred)
 CACHING: Redis for hot data
@@ -11987,7 +11501,6 @@ CDN: Static assets at edge
 ## SYSTEM DESIGN CHECKLIST
 
 ```text
-
 [ ] Clarify requirements and constraints
 [ ] Estimate capacity and scale
 [ ] Design high-level architecture
@@ -12015,12 +11528,14 @@ CDN: Static assets at edge
 ## DOCUMENTATION TYPES
 
 | TYPE | AUDIENCE | CONTENT |
-| ------ | ---------- | ---------  |
+|------|----------|---------|
 | README | New developers | Quick start |
 | API Docs | Consumers | Endpoints, params |
 | Architecture | Team | Design decisions |
 | Runbooks | On-call | How to fix issues |
 | ADRs | Future team | Why decisions made |
+
+---
 
 ## README TEMPLATE
 
@@ -12077,23 +11592,26 @@ Cons: ...
 
 ---
 
-## RATE LIMITING TRIBAL KNOWLEDGE 3
+## RATE LIMITING TRIBAL KNOWLEDGE
 
 > **The patterns that protect APIs**
+
+---
 
 ## RATE LIMITING ALGORITHMS
 
 | ALGORITHM | DESCRIPTION | PROS |
-| ----------- | ------------- | ------  |
+|-----------|-------------|------|
 | Fixed Window | Count per time window | Simple |
 | Sliding Window | Rolling time window | Smoother |
 | Token Bucket | Refill tokens over time | Allows bursts |
 | Leaky Bucket | Fixed rate drain | Smooth output |
 
+---
+
 ## RATE LIMIT HEADERS
 
 ```text
-
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 45
 X-RateLimit-Reset: 1609459200
@@ -12108,7 +11626,6 @@ Return 429 Too Many Requests when exceeded
 ## RATE LIMIT CHECKLIST
 
 ```text
-
 [ ] Set limits per user/API key
 [ ] Use Redis for distributed tracking
 [ ] Return clear rate limit headers
@@ -12130,7 +11647,6 @@ Return 429 Too Many Requests when exceeded
 ## CONCURRENCY ISSUES
 
 ```text
-
 RACE CONDITION:
 Multiple threads modifying shared state
 Result depends on execution order
@@ -12149,7 +11665,6 @@ Thread never gets access to resource
 ## CONCURRENCY SOLUTIONS
 
 ```text
-
 MUTEX/LOCK:
 Only one thread at a time
 
@@ -12169,7 +11684,6 @@ No shared state (channels)
 ## CONCURRENCY CHECKLIST
 
 ```text
-
 [ ] Identify shared mutable state
 [ ] Use immutable data when possible
 [ ] Prefer message passing over locks
@@ -12191,7 +11705,6 @@ No shared state (channels)
 ## PAYMENT FLOW
 
 ```text
-
 1. Client submits payment intent
 2. Server creates session (Stripe/PayPal)
 3. Redirect to payment page
@@ -12207,7 +11720,6 @@ No shared state (channels)
 ## PAYMENT CHECKLIST
 
 ```text
-
 [ ] Never handle raw card numbers
 [ ] Use webhooks, not client callbacks
 [ ] Store payment IDs (not card data)
@@ -12224,7 +11736,6 @@ No shared state (channels)
 ## COMMON PAYMENT ISSUES
 
 ```text
-
 DOUBLE CHARGE:
 Cause: Not idempotent
 Fix: Use idempotency keys
@@ -12250,9 +11761,7 @@ Fix: Always use smallest unit (cents)
 ## WHEN TO USE BACKGROUND JOBS
 
 ```text
-
 USE JOBS FOR:
-
 - Email sending
 - Image processing
 - Report generation
@@ -12260,7 +11769,6 @@ USE JOBS FOR:
 - Scheduled tasks
 
 DON'T BLOCK:
-
 - API responses
 - User interactions
 
@@ -12271,16 +11779,17 @@ DON'T BLOCK:
 ## JOB QUEUE OPTIONS
 
 | SOLUTION | USE CASE |
-| ---------- | ----------  |
+|----------|----------|
 | Redis + Bull | Node.js, simple |
 | Sidekiq | Ruby |
 | Celery | Python |
 | AWS SQS + Lambda | Serverless |
 
+---
+
 ## BACKGROUND JOB CHECKLIST
 
 ```text
-
 [ ] Make jobs idempotent
 [ ] Set appropriate timeouts
 [ ] Implement retry with backoff
@@ -12305,10 +11814,10 @@ DON'T BLOCK:
 
 ---
 
-## HTTP STATUS CODES 2
+## HTTP STATUS CODES
 
 | CODE | MEANING | USE |
-| ------ | --------- | -----  |
+|------|---------|-----|
 | 200 | OK | Success |
 | 201 | Created | POST success |
 | 204 | No Content | DELETE success |
@@ -12320,10 +11829,11 @@ DON'T BLOCK:
 | 500 | Server Error | Our fault |
 | 503 | Unavailable | Overloaded |
 
+---
+
 ## DNS BASICS
 
 ```text
-
 A Record:    Domain -> IPv4
 AAAA Record: Domain -> IPv6
 CNAME: Domain -> Domain (alias)
@@ -12338,11 +11848,13 @@ TTL: Cache duration
 ## TCP VS UDP
 
 | ASPECT | TCP | UDP |
-| -------- | ----- | -----  |
+|--------|-----|-----|
 | Reliability | Guaranteed | Best effort |
 | Ordering | Preserved | Not guaranteed |
 | Speed | Slower | Faster |
 | Use case | Web, APIs | Gaming, video |
+
+---
 
 ## [24K GOLD: NETWORKING FUNDAMENTALS]
 
@@ -12359,19 +11871,15 @@ TTL: Cache duration
 ### Memory Leak
 
 ```text
-
 Symptoms:
-
 - Gradual performance degradation
 - OOM crashes after hours/days
 
 Investigation:
-
 - Take heap snapshots over time
 - Compare object counts
 
 Common Causes:
-
 - Growing arrays/caches without limits
 - Event listeners not removed
 - Closures holding references
@@ -12383,19 +11891,15 @@ Common Causes:
 ### Connection Pool Exhaustion
 
 ```text
-
 Symptoms:
-
 - "Connection timeout" errors
 - Sudden failure under load
 
 Investigation:
-
 - Monitor active connections
 - Check for connection leaks
 
 Fixes:
-
 - Use connection pooling
 - Set connection timeouts
 - Always release connections (finally block)
@@ -12407,14 +11911,11 @@ Fixes:
 ### Cascading Failure
 
 ```text
-
 Symptoms:
-
 - One service failure brings down others
 - Error propagation across system
 
 Prevention:
-
 - Circuit breakers
 - Timeouts on all calls
 - Bulkhead isolation
@@ -12427,14 +11928,11 @@ Prevention:
 ### Thundering Herd
 
 ```text
-
 Symptoms:
-
 - Cache key expires
 - All servers hit database simultaneously
 
 Prevention:
-
 - Stagger TTLs with jitter
 - Lock during cache regeneration
 - Background cache refresh
@@ -12451,10 +11949,9 @@ Prevention:
 
 ## Query Analysis
 
-### EXPLAIN ANALYZE 2
+### EXPLAIN ANALYZE
 
 ```sql
-
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT * FROM orders
 WHERE user_id = 123
@@ -12474,7 +11971,6 @@ AND created_at > '2024-01-01';
 ### B-tree (Default)
 
 ```sql
-
 -- Most common, good for: =, <, >, BETWEEN
 CREATE INDEX idx_orders_user ON orders(user_id);
 
@@ -12483,7 +11979,6 @@ CREATE INDEX idx_orders_user ON orders(user_id);
 ### Composite Index
 
 ```sql
-
 -- Column order matters!
 CREATE INDEX idx_orders_user_date ON orders(user_id, created_at DESC);
 
@@ -12496,7 +11991,6 @@ CREATE INDEX idx_orders_user_date ON orders(user_id, created_at DESC);
 ### Partial Index
 
 ```sql
-
 -- Index only relevant rows
 CREATE INDEX idx_active_users ON users(email)
 WHERE is_active = true;
@@ -12510,7 +12004,6 @@ WHERE is_active = true;
 ### PgBouncer Config
 
 ```text
-
 pool_mode = transaction
 max_client_conn = 1000
 default_pool_size = 20
@@ -12522,7 +12015,6 @@ default_pool_size = 20
 ## Vacuum and Analyze
 
 ```sql
-
 -- Update statistics
 ANALYZE orders;
 
@@ -12546,19 +12038,20 @@ autovacuum_analyze_scale_factor = 0.05
 ## Data Types
 
 | Type | Use Case |
-| ------ | ----------  |
+|------|----------|
 | String | Cache, counters |
 | Hash | Objects with fields |
 | List | Queues, recent items |
 | Set | Unique collections |
 | Sorted Set | Leaderboards, ranges |
 
-## Common Patterns 2
+---
+
+## Common Patterns
 
 ### Cache with TTL
 
 ```text
-
 SET user:123 "json_data" EX 3600
 GET user:123
 
@@ -12567,7 +12060,6 @@ GET user:123
 ### Rate Limiting
 
 ```lua
-
 -- Sliding window rate limit
 local key = KEYS[1]
 local limit = tonumber(ARGV[1])
@@ -12587,7 +12079,6 @@ return current <= limit
 ### Session Storage
 
 ```text
-
 HSET session:abc123 userId 456 role admin
 EXPIRE session:abc123 86400
 HGETALL session:abc123
@@ -12599,7 +12090,6 @@ HGETALL session:abc123
 ### Pub/Sub
 
 ```text
-
 SUBSCRIBE chat:room1
 PUBLISH chat:room1 "Hello everyone!"
 
@@ -12610,7 +12100,6 @@ PUBLISH chat:room1 "Hello everyone!"
 ### Leaderboard
 
 ```text
-
 ZADD leaderboard 1000 user:123
 ZADD leaderboard 2500 user:456
 ZREVRANGE leaderboard 0 9 WITHSCORES
@@ -12619,14 +12108,15 @@ ZREVRANGE leaderboard 0 9 WITHSCORES
 
 ---
 
-## SQL INJECTION PREVENTION 2
+## SQL INJECTION PREVENTION
 
 > **The tribal knowledge that prevents breaches**
+
+---
 
 ## The Vulnerability
 
 ```javascript
-
 // VULNERABLE
 const query = `SELECT * FROM users WHERE id = ${userId}`;
 
@@ -12640,7 +12130,6 @@ const query = `SELECT * FROM users WHERE id = ${userId}`;
 ## Prevention: Parameterized Queries
 
 ```javascript
-
 // SAFE - Node.js pg
 const result = await pool.query(
 'SELECT * FROM users WHERE id = $1',
@@ -12676,37 +12165,54 @@ But raw queries can still be vulnerable!
 
 ---
 
-## MIGRATION DISASTERS 2
+## MIGRATION DISASTERS
 
->**The tribal knowledge that prevents data loss**
+> **The tribal knowledge that prevents data loss**
 
-## Common Mistakes 2
+---
+
+## Common Mistakes
 
 ### Adding NOT NULL without default
 
+```sql
 -- DISASTER: Fails if table has data
 ALTER TABLE users ADD COLUMN status TEXT NOT NULL;
 
 -- SAFE: Add with default
 ALTER TABLE users ADD COLUMN status TEXT NOT NULL DEFAULT 'active';
 
+```text
+
+---
+
 ### Changing column type
 
+```sql
 -- RISKY: May fail or lose data
 ALTER TABLE orders ALTER COLUMN price TYPE INTEGER;
 
 -- SAFE: Add new column, migrate, drop old
 ALTER TABLE orders ADD COLUMN price_cents INTEGER;
-UPDATE orders SET price_cents = price *100;
+UPDATE orders SET price_cents = price * 100;
 ALTER TABLE orders DROP COLUMN price;
+
+```text
+
+---
 
 ### Large table migration
 
+```sql
 -- DANGEROUS: Locks table
 ALTER TABLE large_table ADD COLUMN new_col TEXT;
 
 -- SAFER: Create concurrently (PostgreSQL)
 CREATE INDEX CONCURRENTLY idx_new ON large_table(new_col);
+
+```text
+
+---
 
 ## Safe Migration Steps
 
@@ -12726,73 +12232,55 @@ CREATE INDEX CONCURRENTLY idx_new ON large_table(new_col);
 
 ## Common Causes
 
-### N+1 Queries
+### Growing Arrays
 
 ```javascript
+// LEAK: Array grows forever
+const cache = [];
 
-// SLOW: 1 + N queries
-const users = await User.findAll();
-for (const user of users) {
-user.posts = await Post.findByUserId(user.id);
+app.get('/data', (req, res) => {
+  cache.push(processData(req.body));
+res.json({ success: true });
+});
+
+// FIX: Limit size or use LRU cache
+import LRU from 'lru-cache';
+const cache = new LRU({ max: 1000 });
+
+```text
+
+---
+
+### Event Listeners
+
+```javascript
+// LEAK: Listeners accumulate
+class DataHandler {
+constructor() {
+eventEmitter.on('data', this.handleData);
+  }
+// Never removes listener!
 }
 
-// FAST: 1 query with join
-const users = await User.findAll({ include: [Post] });
-
-```text
-
----
-
-### Missing Indexes
-
-```sql
-
--- Check for slow queries
-SELECT * FROM pg_stat_statements
-ORDER BY mean_time DESC LIMIT 10;
-
--- Add index
-CREATE INDEX idx_posts_user_id ON posts(user_id);
-
-```text
-
----
-
-### Synchronous Operations
-
-```javascript
-
-// SLOW: Sequential
-const user = await getUser(id);
-const orders = await getOrders(id);
-const products = await getProducts();
-
-// FAST: Parallel
-const [user, orders, products] = await Promise.all([
-  getUser(id),
-  getOrders(id),
-  getProducts()
-]);
-
-```text
-
----
-
-### No Caching
-
-```javascript
-
-// SLOW: DB hit every time
-async function getConfig() {
-return db.config.findFirst();
+// FIX: Remove on cleanup
+cleanup() {
+eventEmitter.off('data', this.handleData);
 }
 
-// FAST: Cache it
-const cached = await redis.get('config');
-if (cached) return JSON.parse(cached);
-const config = await db.config.findFirst();
-await redis.setex('config', 3600, JSON.stringify(config));
-return config;
+```text
+
+---
+
+### Closures
+
+```javascript
+// LEAK: Closure holds reference
+function processLargeData(data) {
+return function() {
+// data stays in memory!
+return data.length;
+  };
+}
 
 ```text
 
@@ -12805,6 +12293,8 @@ return config;
 - Compare object counts
 - Look for growing collections
 
+---
+
 ## REACT PERFORMANCE ISSUES
 
 > **The tribal knowledge that prevents jank**
@@ -12816,7 +12306,6 @@ return config;
 ### Problem: Parent re-render cascades
 
 ```jsx
-
 // PROBLEM: Button re-renders on every count change
 function Parent() {
 const [count, setCount] = useState(0);
@@ -12840,7 +12329,6 @@ const ExpensiveChild = memo(() => {
 ### Problem: Creating objects in render
 
 ```jsx
-
 // PROBLEM: New object every render
 <Child style={{ color: 'red' }} />
 
@@ -12855,7 +12343,6 @@ const style = useMemo(() => ({ color: 'red' }), []);
 ## Large Lists
 
 ```jsx
-
 // PROBLEM: Renders 10000 items
 {items.map(item => <Item key={item.id} />)}
 
@@ -12886,9 +12373,8 @@ import { useVirtualizer } from '@tanstack/react-virtual';
 ### "No Access-Control-Allow-Origin"
 
 ```text
-
-Access to fetch at '<https://api.example.com'> from origin
-'<https://app.example.com'> has been blocked by CORS policy
+Access to fetch at 'https://api.example.com' from origin
+'https://app.example.com' has been blocked by CORS policy
 
 ```text
 
@@ -12900,7 +12386,6 @@ Access to fetch at '<https://api.example.com'> from origin
 ### "Preflight response fails"
 
 ```text
-
 Response to preflight request doesnt pass access control check
 
 ```text
@@ -12913,7 +12398,6 @@ Response to preflight request doesnt pass access control check
 ### "Credentials not supported"
 
 ```text
-
 The value of the 'Access-Control-Allow-Origin' header must not be '*'
 when the credentials mode is 'include'
 
@@ -12944,12 +12428,11 @@ when the credentials mode is 'include'
 ### Check logs
 
 ```bash
-
 docker logs container_name
 
 ```text
 
-### Common causes 2
+### Common causes
 
 - Missing environment variables
 - Port already in use
@@ -12963,7 +12446,6 @@ docker logs container_name
 ### Cache issues
 
 ```bash
-
 docker build --no-cache .
 
 ```text
@@ -12979,7 +12461,6 @@ Make sure Dockerfile can access needed files
 ### Shell into container
 
 ```bash
-
 docker exec -it container_name sh
 
 ```text
@@ -12987,7 +12468,6 @@ docker exec -it container_name sh
 ### Check process
 
 ```bash
-
 ps aux
 
 ```text
@@ -12995,38 +12475,20 @@ ps aux
 ### Check networking
 
 ```bash
-
 curl localhost:3000
 
 ```text
 
 ---
 
-## Common Fixes 2
+## Common Fixes
 
-```javascript
-
-// BAD: Global cache that grows forever
-const cache = {};
-function addToCache(key, value) {
-cache[key] = value;  // Never cleaned!
-}
-
-// GOOD: Use LRU cache with max size
-import LRU from 'lru-cache';
-const cache = new LRU({ max: 500 });
-
-// BAD: Event listener not removed
-element.addEventListener('click', handler);
-// Component unmounts, handler still attached!
-
-// GOOD: Remove listener
-useEffect(() => {
-element.addEventListener('click', handler);
-return () => element.removeEventListener('click', handler);
-}, []);
-
-```text
+| Issue | Solution |
+|-------|----------|
+| Port not accessible | Check port mapping (-p 3000:3000) |
+| File changes not reflected | Rebuild image |
+| Cannot connect to DB | Check network, use service name |
+| Permission denied | Check file permissions, user |
 
 ---
 
@@ -13039,7 +12501,6 @@ return () => element.removeEventListener('click', handler);
 ## Algorithm Confusion
 
 ```javascript
-
 // VULNERABLE: Accepts any algorithm
 jwt.verify(token, secret);
 
@@ -13055,7 +12516,6 @@ Attacker can change algorithm from RS256 to HS256 and use public key as secret!
 ## Weak Secrets
 
 ```javascript
-
 // VULNERABLE
 const secret = 'password123';
 
@@ -13069,7 +12529,6 @@ const secret = crypto.randomBytes(32).toString('hex');
 ## No Expiration
 
 ```javascript
-
 // VULNERABLE: Token lives forever
 { sub: userId }
 
@@ -13083,7 +12542,6 @@ const secret = crypto.randomBytes(32).toString('hex');
 ## Sensitive Data in Payload
 
 ```javascript
-
 // VULNERABLE: Anyone can decode JWT
 { password: 'secret123' }
 
@@ -13094,7 +12552,7 @@ const secret = crypto.randomBytes(32).toString('hex');
 
 ---
 
-## Best Practices 2
+## Best Practices
 
 - Use short expiration (15 min)
 - Implement refresh token rotation
@@ -13102,16 +12560,19 @@ const secret = crypto.randomBytes(32).toString('hex');
 - Use RS256 for public verification
 - Validate all claims server-side
 
+---
+
 ## SLOW API RESPONSES
 
 > **The tribal knowledge for performance debugging**
 
 ---
 
-## Common Causes 2 2
+## Common Causes
 
-### N+1 Queries 2
+### N+1 Queries
 
+```javascript
 // SLOW: 1 + N queries
 const users = await User.findAll();
 for (const user of users) {
@@ -13121,17 +12582,27 @@ user.posts = await Post.findByUserId(user.id);
 // FAST: 1 query with join
 const users = await User.findAll({ include: [Post] });
 
-### Missing Indexes 2
+```text
 
+---
+
+### Missing Indexes
+
+```sql
 -- Check for slow queries
-SELECT *FROM pg_stat_statements
+SELECT * FROM pg_stat_statements
 ORDER BY mean_time DESC LIMIT 10;
 
 -- Add index
 CREATE INDEX idx_posts_user_id ON posts(user_id);
 
-### Synchronous Operations 2
+```text
 
+---
+
+### Synchronous Operations
+
+```javascript
 // SLOW: Sequential
 const user = await getUser(id);
 const orders = await getOrders(id);
@@ -13144,8 +12615,13 @@ const [user, orders, products] = await Promise.all([
   getProducts()
 ]);
 
-### No Caching 2
+```text
 
+---
+
+### No Caching
+
+```javascript
 // SLOW: DB hit every time
 async function getConfig() {
 return db.config.findFirst();
@@ -13158,6 +12634,10 @@ const config = await db.config.findFirst();
 await redis.setex('config', 3600, JSON.stringify(config));
 return config;
 
+```text
+
+---
+
 ## CONFIGURATION MISTAKES
 
 > **The tribal knowledge that prevents env disasters**
@@ -13167,7 +12647,6 @@ return config;
 ## Hardcoded Secrets
 
 ```javascript
-
 // DISASTER
 const apiKey = 'sk_live_abc123';
 
@@ -13181,7 +12660,6 @@ const apiKey = process.env.API_KEY;
 ## Missing Env Validation
 
 ```javascript
-
 // PROBLEM: Silent failures
 const dbUrl = process.env.DATABASE_URL; // undefined!
 
@@ -13202,7 +12680,6 @@ const env = envSchema.parse(process.env);
 ## Wrong Environment
 
 ```javascript
-
 // DISASTER: Prod config in test
 if (isProduction) {
 // Meant to check env variable, not constant
@@ -13220,7 +12697,6 @@ if (process.env.NODE_ENV === 'production') {
 ## Sensitive Data in Logs
 
 ```javascript
-
 // DISASTER: Logs passwords
 logger.info('User login', { email, password });
 
@@ -13263,11 +12739,9 @@ logger.info('User login', { email, password: '[REDACTED]' });
 ## Alert Fatigue
 
 ```text
-
 PROBLEM: Too many alerts, all ignored
 
 FIX:
-
 - Only alert on actionable issues
 - Include runbook link
 - Group related alerts
@@ -13280,7 +12754,6 @@ FIX:
 ## Missing Traces
 
 ```javascript
-
 // PROBLEM: Cant correlate logs
 logger.info('Order created');
 
@@ -13304,14 +12777,15 @@ userId: user.id
 
 ---
 
-## PATTERNS 22
+## PATTERNS
 
 > **The tribal knowledge for better tests**
+
+---
 
 ## Flaky Tests
 
 ```javascript
-
 // FLAKY: Depends on timing
 await waitFor(() => expect(element).toBeVisible());
 
@@ -13325,7 +12799,6 @@ await waitFor(() => expect(screen.getByText('Loaded')).toBeInTheDocument());
 ## Testing Implementation
 
 ```javascript
-
 // BAD: Tests internal state
 expect(component.state.isLoading).toBe(false);
 
@@ -13339,7 +12812,6 @@ expect(screen.getByText('Data loaded')).toBeInTheDocument();
 ## No Isolation
 
 ```javascript
-
 // BAD: Tests depend on each other
 let testUser;
 test('create user', () => { testUser = createUser(); });
@@ -13358,7 +12830,6 @@ await deleteUser(user);
 ## Mocking Wrong Layer
 
 ```javascript
-
 // BAD: Mock implementation details
 jest.mock('./userService');
 
@@ -13406,7 +12877,7 @@ dig api.example.com
 
 openssl s_client -connect api.example.com:443
 
-## Common issues 2
+## Common issues
 
 ## - Certificate expired
 
@@ -13423,10 +12894,12 @@ openssl s_client -connect api.example.com:443
 ## Timeout Root Causes
 
 | Symptom | Likely Cause |
-| --------- | --------------  |
+|---------|--------------|
 | Connection timeout | Firewall / Network |
 | Read timeout | Server overloaded |
 | DNS timeout | DNS server issue |
+
+---
 
 ## Debugging Tools
 
@@ -13434,7 +12907,7 @@ openssl s_client -connect api.example.com:443
 
 ## Test connectivity
 
-curl -v <<<<<<https://api.example.com>>>>>>
+curl -v https://api.example.com
 
 ## Check open ports
 
@@ -13463,7 +12936,6 @@ traceroute api.example.com
 ### Autovacuum Blocked by Long Transactions
 
 ```text
-
 SYMPTOM: Table bloat grows, queries slow over weeks
 ROOT CAUSE: Analytics query holding transaction open for hours
 WHY LLMS MISS IT: Looks like index problem, is vacuum problem
@@ -13476,7 +12948,6 @@ DETECTION: SELECT * FROM pg_stat_activity WHERE state = 'idle in transaction'
 ### Prepared Statement Explosion
 
 ```text
-
 SYMPTOM: "FATAL: too many connections" despite low traffic
 ROOT CAUSE: Each unique parameterized query creates prepared statement in pgbouncer
 WHY ITS OBSCURE: Only happens with transaction pooling mode
@@ -13488,7 +12959,6 @@ FIX: Use statement pooling OR set prepared_statements = false
 ### Integer Overflow at 2.1B Rows
 
 ```text
-
 SYMPTOM: "ERROR: integer out of range"
 ROOT CAUSE: Serial type is INTEGER, max 2,147,483,647
 WHY DEVS MISS IT: Works for years, fails suddenly
@@ -13504,7 +12974,6 @@ FIX: ALTER COLUMN id TYPE BIGINT (requires careful migration)
 ### Event Loop Starvation
 
 ```text
-
 SYMPTOM: Health checks pass, but requests timeout
 ROOT CAUSE: CPU-bound code blocks event loop
 INVISIBLE BECAUSE: Process isnt crashing, just unresponsive
@@ -13520,7 +12989,6 @@ FIX: Move to worker threads OR use setImmediate to yield
 ### Memory Leak via Console.log
 
 ```text
-
 SYMPTOM: Memory grows in production, stable in dev
 ROOT CAUSE: Console keeps references in some logging libs
 OBSCURE BECAUSE: Nobody suspects console.log
@@ -13532,7 +13000,6 @@ FIX: Use proper logger (pino) that doesnt hold refs
 ### DNS Resolution Caching
 
 ```text
-
 SYMPTOM: App keeps hitting old IP after DNS change
 ROOT CAUSE: Node caches DNS indefinitely by default
 INVISIBLE: DNS TTL is ignored
@@ -13549,7 +13016,6 @@ OR use lookup: false in http agent
 ### State Update on Unmounted Component
 
 ```text
-
 SYMPTOM: "Cant update unmounted component" warning
 REAL PROBLEM: Not the warning, its the missing cleanup
 COMMON WRONG FIX: isMounted flag (antipattern!)
@@ -13566,7 +13032,6 @@ return () => controller.abort();
 ### useEffect Firing Twice (Strict Mode)
 
 ```text
-
 SYMPTOM: API called twice in development
 CAUSE: React 18 Strict Mode intentionally double-invokes
 WHY CONFUSING: Only happens in dev, not prod
@@ -13579,7 +13044,6 @@ FIX: Make effects idempotent, not avoiding double-call
 ### Closure Over Stale State
 
 ```text
-
 // BROKEN: Always logs 0
 const [count, setCount] = useState(0);
 useEffect(() => {
@@ -13604,16 +13068,13 @@ return () => clearInterval(id);
 ### UTC vs Local Murder
 
 ```text
-
 SYMPTOM: Events appear on wrong day for some users
 ROOT CAUSE: new Date() uses local time, stored as UTC, displayed wrong
 
 THE TRAP:
-
 - Dev machine: UTC-5
 - Server: UTC
 - User: UTC+9
-
 = 3 different days for same moment
 
 ONLY FIX: Store as UTC, convert at display time ALWAYS
@@ -13624,7 +13085,6 @@ NEVER: new Date().toDateString() for comparison
 ### Daylight Saving Edge Case
 
 ```text
-
 SYMPTOM: Scheduled job runs twice OR skips
 WHEN: DST transition days only
 ROOT CAUSE: 2:30 AM doesnt exist OR exists twice
@@ -13641,7 +13101,6 @@ NEVER: Schedule at 2:00-3:00 AM local time
 ### Money Math Disaster
 
 ```text
-
 // WRONG: 0.1 + 0.2 = 0.30000000000000004
 const total = 0.1 + 0.2; // NEVER for money!
 
@@ -13657,7 +13116,6 @@ const display = (totalCents / 100).toFixed(2);
 ### JSON.stringify Loses Precision
 
 ```text
-
 // DISASTER: Large IDs corrupted
 const id = 9007199254740993; // > MAX_SAFE_INTEGER
 JSON.stringify({ id }); // "9007199254740992" WRONG!
@@ -13673,7 +13131,6 @@ FIX: Use string IDs for anything > 2^53
 ### UTF-8 BOM Kills JSON Parse
 
 ```text
-
 SYMPTOM: "Unexpected token" parsing valid JSON
 ROOT CAUSE: File has invisible BOM character at start
 EDITORS HIDE IT: Looks completely normal
@@ -13686,7 +13143,6 @@ FIX: Save as UTF-8 without BOM
 ### Base64 URL-Safe vs Standard
 
 ```text
-
 SYMPTOM: Signature validation fails randomly
 ROOT CAUSE: + and / in standard, - and _ in URL-safe
 RANDOM BECAUSE: Only fails when content has those chars
@@ -13702,7 +13158,6 @@ ALWAYS: Be explicit about which encoding
 ### Database Optimistic Lock Lost Update
 
 ```text
-
 SYMPTOM: Inventory goes negative under load
 ROOT CAUSE: Read-modify-write without locking
 
@@ -13718,7 +13173,6 @@ FIX: SELECT FOR UPDATE or version column check
 ### Redis INCR vs GET+SET Race
 
 ```text
-
 // BROKEN: Race condition
 const count = await redis.get('count');
 await redis.set('count', count + 1);
@@ -13739,7 +13193,6 @@ await redis.incr('count');
 ## Kubernetes Secrets in Plain Text
 
 ```text
-
 SYMPTOM: Security audit fails
 WHAT DEVS THINK: Secrets are encrypted
 REALITY: Base64 encoded, NOT encrypted!
@@ -13747,7 +13200,6 @@ REALITY: Base64 encoded, NOT encrypted!
 | cat secret.yaml | base64 -d  # Readable! |
 
 REAL FIX:
-
 - Enable encryption at rest
 - Use external secrets operator
 - Never commit secrets to git
@@ -13759,7 +13211,6 @@ REAL FIX:
 ## Docker Build Cache Invalidation
 
 ```text
-
 SYMPTOM: Build takes 10 minutes, should be cached
 ROOT CAUSE: COPY . . early in Dockerfile
 
@@ -13781,13 +13232,11 @@ COPY . .
 ## Load Balancer Sticky Sessions Break Deploys
 
 ```text
-
 SYMPTOM: Some users stuck on old version
 ROOT CAUSE: Sticky sessions + rolling deploy
 USER STUCK ON: Old pod until session expires
 
 FIX OPTIONS:
-
 - Externalize session state (Redis)
 - Drain connections before pod termination
 - Accept temporary inconsistency
@@ -13799,16 +13248,13 @@ FIX OPTIONS:
 ## AWS Lambda Cold Start Stack
 
 ```text
-
 COLD START CONTRIBUTORS (additive):
-
 - VPC: +1-5 seconds (worst offender)
 - Package size: +100ms per 10MB
 - Initialization code: varies
 - Provisioned concurrency: eliminates cold start
 
 OPTIMIZATIONS:
-
 - Avoid VPC unless required
 - Lazy-load dependencies
 - Use provisioned concurrency for critical paths
@@ -13821,7 +13267,6 @@ OPTIMIZATIONS:
 ## Rate Limit Headers Nobody Reads
 
 ```text
-
 SYMPTOM: App gets rate limited, retries immediately
 ROOT CAUSE: Ignoring Retry-After header
 
@@ -13845,7 +13290,6 @@ return retry();
 ## Mass Assignment Attack
 
 ```javascript
-
 // VULNERABLE: Accepts any field
 app.put('/user', async (req, res) => {
 await User.update(req.body);  // Can set isAdmin: true!
@@ -13862,7 +13306,6 @@ await User.update({ name, email });
 ## Regex DoS (ReDoS)
 
 ```javascript
-
 // VULNERABLE: Exponential backtracking
 const regex = /^(a+)+$/;
 regex.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaX'); // Hangs!
@@ -13877,7 +13320,6 @@ FIX: Use safe-regex package to validate patterns
 ## JWT None Algorithm Attack
 
 ```javascript
-
 // VULNERABLE: Accepts alg: none
 jwt.verify(token, secret);
 
@@ -13920,11 +13362,10 @@ FIX: graphql-depth-limit middleware
 ## SSRF via PDF Generation
 
 ```javascript
-
 // VULNERABLE: User controls URL in PDF
 const pdf = await generatePDF(`<img src="${userUrl}">`);
 
-// Attacker provides: <http://169.254.169.254/latest/meta-data/>
+// Attacker provides: http://169.254.169.254/latest/meta-data/
 // PDF generator fetches AWS metadata!
 
 FIX: URL whitelist, block internal ranges
@@ -13936,7 +13377,6 @@ FIX: URL whitelist, block internal ranges
 ## Timing Attack on String Compare
 
 ```javascript
-
 // VULNERABLE: Early exit reveals info
 if (providedToken === secretToken) { ... }
 
@@ -13961,7 +13401,6 @@ if (a.length === b.length && timingSafeEqual(a, b)) { ... }
 ## "More Indexes = Faster" IS WRONG
 
 ```text
-
 REALITY: Each index slows writes
 PRODUCTION IMPACT: 10 indexes = 10x write overhead
 
@@ -13977,7 +13416,6 @@ RULE: Profile before adding, remove unused
 ## "Async = Faster" IS WRONG
 
 ```javascript
-
 // SLOWER: Async overhead for simple ops
 await Promise.all(items.map(async i => i + 1));
 
@@ -13994,16 +13432,13 @@ SYNC WINS: CPU bound, small operations
 ## "Caching Everything = Fast" IS WRONG
 
 ```text
-
 CACHE OVERHEAD:
-
 - Serialization cost
 - Network round trip
 - Memory pressure
 - Invalidation complexity
 
 DONT CACHE:
-
 - Cheap computations
 - Rarely accessed data
 - Rapidly changing data
@@ -14018,9 +13453,7 @@ CACHE MATH: Cache hit must be 10x faster than compute
 ## "Connection Pooling Always Helps" IS WRONG
 
 ```text
-
 SCENARIO THAT BREAKS:
-
 - Pool size: 20
 - DB max connections: 100
 - Pods: 10
@@ -14036,9 +13469,7 @@ ALSO: Idle connections consume memory
 ## "Microservices = Better" IS WRONG
 
 ```text
-
 MICROSERVICES ADD:
-
 - Network latency
 - Deployment complexity
 - Debugging difficulty
@@ -14046,7 +13477,6 @@ MICROSERVICES ADD:
 - Operational overhead
 
 MONOLITH WINS WHEN:
-
 - Team < 10 engineers
 - Domain boundaries unclear
 - Rapid iteration needed
@@ -14065,7 +13495,6 @@ MONOLITH WINS WHEN:
 ## Works Locally, Fails in Production
 
 ```text
-
 CHECKLIST (in order of likelihood):
 
 1. Environment variables missing/different
@@ -14086,7 +13515,6 @@ CHECKLIST (in order of likelihood):
 ## Works Yesterday, Fails Today
 
 ```text
-
 CHECKLIST:
 
 1. What deploys happened? (check git, CI)
@@ -14105,7 +13533,6 @@ CHECKLIST:
 ## Fails Randomly
 
 ```text
-
 USUALLY CONCURRENCY:
 
 1. Race conditions
@@ -14117,7 +13544,6 @@ USUALLY CONCURRENCY:
 7. Load-dependent only
 
 DEBUGGING:
-
 - Increase logging around failure
 - Add request IDs to trace
 - Check timestamps for patterns
@@ -14130,7 +13556,6 @@ DEBUGGING:
 ## Error Message Lies
 
 ```text
-
 COMMON LIARS:
 
 "Connection refused"
@@ -14161,12 +13586,10 @@ COMMON LIARS:
 ## Node.js 18 Fetch
 
 ```text
-
 NEW IN 18: Built-in fetch (finally!)
 GOTCHA: Different from node-fetch
 
 BREAKS:
-
 - No agent option (different keepalive)
 - Different timeout handling
 - Response.body handling differs
@@ -14180,7 +13603,6 @@ MIGRATION: Check all fetch wrappers
 ## React 18 Auto Batching
 
 ```text
-
 CHANGED: All updates batched by default
 BREAKS: Code relying on immediate state
 
@@ -14201,9 +13623,7 @@ ESCAPE HATCH: flushSync() for immediate
 ## Next.js 13+ App Router
 
 ```text
-
 MASSIVE CHANGES:
-
 - pages/ -> app/
 - getServerSideProps -> Server Components
 - API routes -> route.ts
@@ -14218,7 +13638,6 @@ MIGRATION TRAP: Mixing paradigms breaks
 ## TypeScript 5 Decorators
 
 ```text
-
 CHANGED: Standard decorators, not experimental
 BREAKS: All existing experimentalDecorators code
 
@@ -14234,7 +13653,6 @@ MIGRATION: Enable experimentalDecorators to keep old
 ## PostgreSQL 14+ Idle Transaction Timeout
 
 ```text
-
 NEW DEFAULT: No timeout (dangerous!)
 PRODUCTION ISSUE: One bad query blocks vacuum
 
@@ -14255,7 +13673,6 @@ statement_timeout = '30s'
 ## LATENCY COMPARISON
 
 ```text
-
 L1 cache reference:  0.5 ns
 L2 cache reference:  7 ns
 Main memory reference:  100 ns
@@ -14271,7 +13688,6 @@ Network round trip cross-country:   150,000,000 ns (150 ms)
 ## BACK OF ENVELOPE
 
 ```text
-
 Reads per second per server:  10,000-50,000
 Writes per second per server:  1,000-10,000
 Redis ops per second:  100,000+
@@ -14287,11 +13703,9 @@ RULE: If > 1000 rows returned, paginate
 ## REQUEST BUDGET
 
 ```text
-
 Total request time target: 200ms
 
 TYPICAL BREAKDOWN:
-
 - DNS:  5ms (cached after first)
 - TCP handshake: 10ms
 - TLS handshake: 20ms
@@ -14309,7 +13723,6 @@ EVERY DB QUERY:  Budget 5-20ms
 ## MEMORY MATH
 
 ```text
-
 JavaScript object overhead: ~80 bytes base
 1M strings (100 chars each): ~200MB
 1M objects (10 fields):  ~500MB
@@ -14332,26 +13745,21 @@ TRAP: Array of objects vs columnar
 ## Breaking Changes Hall of Shame
 
 ```text
-
 SILENTLY BREAKING:
 
 1. Changing null to empty array []
-
 -> Client: if (response.items === null)
 -> BREAKS
 
-1. Changing field type
-
+2. Changing field type
 -> price: "10.00" to price: 10.00
 -> BREAKS JSON parsing
 
-1. Changing date format
-
+3. Changing date format
 -> "2024-01-01" to "2024-01-01T00:00:00Z"
 -> BREAKS date parsing
 
-1. Removing enum value
-
+4. Removing enum value
 | -> status: "pending" | "active" | "archived" |
 -> Remove "archived"
 -> BREAKS old data display
@@ -14363,7 +13771,6 @@ SILENTLY BREAKING:
 ## Pagination Disasters
 
 ```text
-
 OFFSET PAGINATION FAILURE:
 
 Page 1: items 1-10
@@ -14384,21 +13791,17 @@ Use offset only for admin/internal
 ## ID Design Mistakes
 
 ```text
-
 SEQUENTIAL IDs:
-
 - Leak total count
 - Predictable (security risk)
 - Show creation order
 
 UUID v4:
-
 - No ordering
 - Bad for database (random insert)
 - Hard to debug
 
 UUID v7 / ULID:
-
 - Time-ordered (good for DB)
 - No info leak
 - Sortable
@@ -14410,13 +13813,11 @@ UUID v7 / ULID:
 ## Null vs Undefined vs Omitted
 
 ```text
-
 API CONTRACT NIGHTMARE:
 
 {} vs {"name": null} vs {"name": undefined}
 
 RULE: Pick one and document:
-
 - Omitted: field not requested
 - null: explicitly no value
 - Never send undefined in JSON
@@ -14429,14 +13830,15 @@ DOCUMENT THIS!
 
 ---
 
-## PATTERNS 23
+## PATTERNS
 
 > **The schemas that fail at scale**
+
+---
 
 ## EAV Pattern Disaster
 
 ```sql
-
 -- Entity-Attribute-Value (looks flexible, is nightmare)
 CREATE TABLE attributes (
 entity_id INT,
@@ -14445,7 +13847,6 @@ attribute_value VARCHAR
 );
 
 PROBLEMS:
-
 - No type safety
 - Complex queries
 - No referential integrity
@@ -14462,22 +13863,17 @@ ALTERNATIVE: JSONB column in PostgreSQL
 ## Soft Delete Gotcha
 
 ```sql
-
 -- Soft delete looks safe
 UPDATE users SET deleted_at = NOW() WHERE id = 1;
 
 TRAPS:
-
 1. Unique constraint fails
-
 -- Cant create new user with deleted email!
 
-1. Foreign keys break
-
+2. Foreign keys break
 -- Orders still reference deleted user
 
-1. Queries forget filter
-
+3. Queries forget filter
 -- SELECT * FROM users -- includes deleted!
 
 BETTER: Archive table OR include deleted_at in unique
@@ -14490,7 +13886,6 @@ CREATE UNIQUE INDEX ON users (email) WHERE deleted_at IS NULL;
 ## JSON Column Abuse
 
 ```sql
-
 -- Store everything as JSON (tempting, terrible)
 CREATE TABLE orders (
 id INT,
@@ -14498,7 +13893,6 @@ data JSONB
 );
 
 PROBLEMS:
-
 - No schema validation
 - No foreign keys
 - Complex indexing
@@ -14506,7 +13900,6 @@ PROBLEMS:
 - Reporting nightmare
 
 WHEN JSON IS OK:
-
 - Truly schema-less data
 - External API payloads
 - Rarely queried fields
@@ -14518,7 +13911,6 @@ WHEN JSON IS OK:
 ## Missing Partial Index
 
 ```sql
-
 -- Full index on status column
 CREATE INDEX idx_status ON orders(status);
 -- 99% of orders are 'completed'
@@ -14542,7 +13934,6 @@ WHERE status IN ('pending', 'processing');
 ## Backward Compatibility Window
 
 ```text
-
 PRODUCTION REALITY:
 
 Old pods: version N
@@ -14550,13 +13941,11 @@ New pods: version N+1
 Both running during deploy: 5-10 minutes
 
 BREAKS:
-
 - Database column removed (old code uses it)
 - API field removed (old frontend uses it)
 - Message format changed (old consumers fail)
 
 RULE: 2-phase deploy
-
 1. Deploy code that handles both
 2. Make breaking change
 3. Remove old handling
@@ -14568,7 +13957,6 @@ RULE: 2-phase deploy
 ## Database Migration Lock
 
 ```text
-
 DISASTER SCENARIO:
 
 ALTER TABLE large_table ADD COLUMN x INT;
@@ -14594,7 +13982,6 @@ UPDATE large_table SET x = 0 WHERE x IS NULL LIMIT 1000;
 ## Feature Flag Explosion
 
 ```text
-
 TECHNICAL DEBT EXPLOSION:
 
 Year 1: 10 flags, manageable
@@ -14602,7 +13989,6 @@ Year 2: 50 flags, confusing
 Year 3: 200 flags, nightmare
 
 SYMPTOMS:
-
 - if (flagA && !flagB && flagC) ???
 - Testing all combinations impossible
 - Orphaned flags everywhere
@@ -14619,7 +14005,6 @@ RULE: Regular cleanup sprints
 ## Zero Downtime Deploy Checklist
 
 ```text
-
 PRE-DEPLOY:
 [ ] Database migrations safe (no locks)?
 [ ] New code handles old data?
@@ -14652,7 +14037,6 @@ POST-DEPLOY:
 ## Split Brain Scenario
 
 ```text
-
 SETUP: 3-node cluster, network partition
 
 Node A: Thinks its leader
@@ -14664,7 +14048,6 @@ Data diverges
 Merge on recovery = nightmare
 
 PREVENTION:
-
 - Quorum requirements (majority)
 - Fencing tokens
 - Partition detection + read-only mode
@@ -14676,12 +14059,10 @@ PREVENTION:
 ## Clock Skew Disasters
 
 ```text
-
 ASSUMPTION: Server times are synchronized
 REALITY: Up to seconds of drift possible
 
 BREAKS:
-
 - Event ordering
 - Cache TTLs
 - Token expiry
@@ -14697,7 +14078,6 @@ FIX: Use logical clocks (vector clocks, Lamport)
 ## Eventually Consistent Reads
 
 ```text
-
 SCENARIO:
 
 1. User updates profile (goes to primary)
@@ -14708,7 +14088,6 @@ SCENARIO:
 6. Duplicate updates!
 
 FIXES:
-
 - Read-your-writes consistency
 - Sticky sessions to primary
 - Show optimistic UI
@@ -14720,7 +14099,6 @@ FIXES:
 ## The Two Generals Problem
 
 ```text
-
 IMPOSSIBILITY THEOREM:
 
 General A: "Attack at dawn?"
@@ -14731,7 +14109,6 @@ General B: "Did A get my ack?"
 INFINITE LOOP: Neither can be certain
 
 REAL IMPACT:
-
 - You can NEVER guarantee both sides agree
 - Design for idempotency
 - Accept uncertainty
@@ -14740,10 +14117,9 @@ REAL IMPACT:
 
 ---
 
-## Thundering Herd 2
+## Thundering Herd
 
 ```text
-
 SCENARIO:
 
 1. Cache key expires
@@ -14753,7 +14129,6 @@ SCENARIO:
 5. Cascade failure
 
 PREVENTION:
-
 - Cache stampede lock
 - Probabilistic early expiration
 - Background refresh before expiry
@@ -14772,18 +14147,15 @@ PREVENTION:
 ## DNS Resolution Per Request
 
 ```text
-
 HIDDEN COST: 20-100ms per DNS lookup
 DEFAULT BEHAVIOR: Node.js resolves every request
 
 SYMPTOMS:
-
 - High p99 latency
 - Random slow requests
 - Works fine under low load
 
 FIX: DNS caching
-
 - Use keepAlive connections
 - Set dns.lookup caching
 - Use IP addresses for internal services
@@ -14795,7 +14167,6 @@ FIX: DNS caching
 ## Connection Establishment Overhead
 
 ```text
-
 NEW TCP: 3-way handshake (1 RTT)
 NEW TLS: 2 more round trips (2 RTT)
 TOTAL: 3 round trips before first byte
@@ -14812,7 +14183,6 @@ VERIFY: Check 'Connection: keep-alive' header
 ## GC Pause Spikes
 
 ```text
-
 SYMPTOM: Random p99 spikes to 500ms+
 CAUSE: Garbage collector stop-the-world
 
@@ -14823,7 +14193,6 @@ INVESTIGATION:
 node --gc-trace app.js
 
 FIX:
-
 - Reduce object allocation
 - Use object pools
 - Consider incremental GC settings
@@ -14835,7 +14204,6 @@ FIX:
 ## Database Connection Pool Starvation
 
 ```text
-
 SYMPTOM: Request timeout under load
 HIDDEN ROOT CAUSE:
 
@@ -14847,7 +14215,6 @@ RPS: 3 requests/second
 10 available = WAITING
 
 FIX:
-
 - Optimize slow queries first
 - Then increase pool
 - Set connection timeout
@@ -14859,22 +14226,18 @@ FIX:
 ## JSON Parse/Stringify Cost
 
 ```text
-
 HIDDEN CPU HOG:
 
 const data = JSON.parse(largeString);
 // 100MB string = ~1 second block!
 
 EVERY REQUEST:
-
 - Parse body
 - Stringify response
 - Stringify for cache
-
 = Multiple parses per request
 
 FIX:
-
 - Stream parsing for large data
 - Avoid re-serializing
 - Use binary protocols for performance
@@ -14892,7 +14255,6 @@ FIX:
 ## Array Sort Mutates
 
 ```javascript
-
 const original = [3, 1, 2];
 const sorted = original.sort();
 // original IS NOW [1, 2, 3]!
@@ -14907,7 +14269,6 @@ FIX: const sorted = [...original].sort();
 ## typeof null === 'object'
 
 ```javascript
-
 function process(value) {
 if (typeof value === 'object') {
 return value.property; // CRASH if null!
@@ -14923,7 +14284,6 @@ FIX: if (value && typeof value === 'object')
 ## Array Holes
 
 ```javascript
-
 const arr = [1, 2, 3];
 delete arr[1];
 console.log(arr); // [1, empty, 3]
@@ -14938,7 +14298,6 @@ arr.map(x => x * 2); // [2, empty, 6]
 ## parseInt Gotchas
 
 ```javascript
-
 parseInt('08'); // 0 in old JS (octal)!
 parseInt('1e10'); // 1 (stops at 'e')
 parseInt(0.0000001); // 1 (converts to '1e-7', parses '1')
@@ -14952,7 +14311,6 @@ FIX: Number() or explicit radix
 ## Implicit Type Coercion
 
 ```javascript
-
 [] == false  // true
 [] == ![]  // true (WTF)
 {} + []  // 0 (block + array = number)
@@ -14968,7 +14326,6 @@ RULE: Always use === and !==
 ## Floating Point Comparison
 
 ```javascript
-
 0.1 + 0.2 === 0.3  // false!
 
 FIX: Math.abs(a - b) < Number.EPSILON
@@ -14987,7 +14344,6 @@ OR: Use integer math for money
 ## Token Revocation Gap
 
 ```text
-
 SCENARIO:
 
 1. User logs in, gets JWT (1 hour expiry)
@@ -14996,7 +14352,6 @@ SCENARIO:
 4. Attacker with stolen JWT has access
 
 FIXES:
-
 - Short token lifetime (15 min)
 - Token versioning in payload
 - Blacklist on logout
@@ -15009,7 +14364,6 @@ FIXES:
 ## OAuth State Mismatch
 
 ```text
-
 VULNERABILITY:
 
 1. Attacker starts OAuth flow, gets code
@@ -15026,7 +14380,6 @@ VERIFY: state matches on callback
 ## Password Reset Token Replay
 
 ```text
-
 SCENARIO:
 
 1. User requests password reset
@@ -15046,7 +14399,6 @@ FIX: Token expires with password change
 ## Session Fixation
 
 ```text
-
 ATTACK:
 
 1. Attacker visits site, gets session ID
@@ -15064,7 +14416,6 @@ FIX: Dont accept session ID from URL
 ## Insecure Remember Me
 
 ```text
-
 BAD: Cookie value = userID
 (anyone can set any user!)
 
@@ -15088,18 +14439,17 @@ Store hashed in DB (like password)
 ## Immediate Actions (First 5 Minutes)
 
 ```text
-
 1. DONT PANIC
 2. Check: Is it really broken?
 - Try from different network
 - Check status page
 - Ask coworker to confirm
 
-1. Communicate:
+3. Communicate:
 - "Investigating issue with X"
 - Update every 15 min
 
-1. Assess impact:
+4. Assess impact:
 - Users affected?
 - Data at risk?
 - Revenue impact?
@@ -15111,7 +14461,6 @@ Store hashed in DB (like password)
 ## Mitigation Hierarchy
 
 ```text
-
 FASTEST TO SLOWEST:
 
 1. Kill switch / Feature flag OFF (seconds)
@@ -15130,7 +14479,6 @@ RULE: Rollback is not defeat
 ## Post-Incident Checklist
 
 ```text
-
 IMMEDIATE (within 24h):
 [ ] Timeline documented
 [ ] Root cause identified
@@ -15173,7 +14521,7 @@ What happened in 1-2 sentences
 - 14:15 - Rollback initiated
 - 14:20 - Service restored
 
-## Root Cause 2
+## Root Cause
 
 Why it happened (not who)
 
@@ -15195,7 +14543,6 @@ Why it happened (not who)
 ## Mapping Explosion
 
 ```text
-
 SYMPTOM: Cluster refuses writes, high memory
 CAUSE: Dynamic mapping + user-controlled keys
 
@@ -15204,7 +14551,6 @@ CAUSE: Dynamic mapping + user-controlled keys
 // 10000 users = 10 million mappings = DEAD
 
 FIX:
-
 - Disable dynamic mapping
 - Use nested objects instead of dynamic keys
 - Set index.mapping.total_fields.limit
@@ -15216,18 +14562,15 @@ FIX:
 ## Refresh Interval vs Real-Time
 
 ```text
-
 EXPECTATION: Document indexed, immediately searchable
 REALITY: Up to 1 second delay (refresh_interval)
 
 VISIBLE BUG:
-
 1. Create comment
 2. Immediately search for it
 3. Not found!
 
 FIX:
-
 - ?refresh=true on write (slow!)
 - Set expectation in UI
 - Use _id lookup instead of search
@@ -15239,7 +14582,6 @@ FIX:
 ## Deep Pagination Disaster
 
 ```text
-
 QUERY: from: 10000, size: 10
 
 INTERNAL: ES reads 10010 documents THEN skips 10000
@@ -15248,7 +14590,6 @@ COST: O(from + size) not O(size)
 AT SCALE: from: 100000 = timeout/crash
 
 FIX:
-
 - search_after for deep pagination
 - Limit from + size < 10000
 - Use scroll API for exports
@@ -15260,7 +14601,6 @@ FIX:
 ## Analyzer Mismatch
 
 ```text
-
 SYMPTOM: Exact terms dont match!
 
 INDEX TIME: "iPhone 15" -> ["iphone", "15"]
@@ -15284,7 +14624,6 @@ DEBUG: _analyze API to see tokens
 ## Resource Limits Gotcha
 
 ```text
-
 SCENARIO:
 
 limits:
@@ -15292,7 +14631,6 @@ memory: 512Mi
 cpu: 500m
 
 POD BEHAVIOR:
-
 - Exceeds memory: KILLED (OOMKilled)
 - Exceeds CPU: THROTTLED (not killed)
 
@@ -15309,7 +14647,6 @@ FIX: Increase CPU limit or request
 ## Liveness Probe Suicide
 
 ```text
-
 BAD PROBE:
 
 livenessProbe:
@@ -15332,15 +14669,12 @@ BETTER: Use startupProbe for slow starters
 ## Pod Affinity Hell
 
 ```text
-
 SYMPTOM: Pending pods, capacity available
 CAUSE: Affinity rules unsatisfiable
 
 COMMON TRAP:
-
 - Require zone: us-east-1a
 - Only us-east-1b has capacity
-
 = Stuck forever
 
 DEBUG: kubectl describe pod
@@ -15353,9 +14687,7 @@ LOOK FOR: "FailedScheduling"
 ## ConfigMap Propagation Delay
 
 ```text
-
 SCENARIO:
-
 1. Update ConfigMap
 2. Expect pods to use new config
 3. Nothing happens!
@@ -15364,7 +14696,6 @@ REASON: Mounted ConfigMaps cached (TTL ~1 min)
 WORSE: Pods dont auto-restart on change
 
 FIX OPTIONS:
-
 1. Restart pods manually
 2. Use Reloader controller
 3. Reference by hash in name
@@ -15376,7 +14707,6 @@ FIX OPTIONS:
 ## Service Mesh Latency
 
 ```text
-
 HIDDEN COST:
 
 Without mesh: Client -> Server
@@ -15386,7 +14716,6 @@ ADDED LATENCY: 2-5ms per hop
 AT SCALE: 10 service calls = 50ms overhead
 
 BEFORE ADOPTING:
-
 - Measure baseline
 - Consider if benefits > cost
 
@@ -15403,7 +14732,6 @@ BEFORE ADOPTING:
 ## Cache Key Collision
 
 ```text
-
 DISASTER SCENARIO:
 
 cache.set(`user_${userId}`, userData);
@@ -15421,7 +14749,6 @@ cache.set(`${tenantId}:user:${userId}`, userData);
 ## Negative Caching Poison
 
 ```text
-
 ATTACK:
 
 1. Request nonexistent user_999999
@@ -15430,7 +14757,6 @@ ATTACK:
 4. Cache serves null forever!
 
 FIX:
-
 - Short TTL for negative cache
 - Invalidate on create
 - Use separate keys for "does not exist"
@@ -15442,7 +14768,6 @@ FIX:
 ## Stale Read After Write
 
 ```text
-
 SEQUENCE:
 
 1. UPDATE database
@@ -15452,7 +14777,6 @@ SEQUENCE:
 5. Stale data cached again!
 
 FIX:
-
 - Read from primary after writes
 - Cache-aside with write-through
 - Accept eventual consistency
@@ -15464,7 +14788,6 @@ FIX:
 ## Serialization Version Mismatch
 
 ```text
-
 SCENARIO:
 
 v1: { name: "John" }
@@ -15475,7 +14798,6 @@ v2: { fullName: "John Doe" }
 // CRASH!
 
 FIX:
-
 - Version in cache key
 - Clear cache on deploy
 - Backwards-compatible reads
@@ -15487,7 +14809,6 @@ FIX:
 ## TTL Synchronization Storm
 
 ```text
-
 PROBLEM: All cache expires at same time
 
 00:00 - Cache populated
@@ -15511,7 +14832,6 @@ const ttl = BASE_TTL + random(0, JITTER);
 ## Type Narrowing Reset
 
 ```typescript
-
 // BUG: Type narrowing lost in callback
 
 | function process(value: string | null) { |
@@ -15535,7 +14855,6 @@ FIX: const localValue = value; // Capture in const
 ## Object.keys Returns string[]
 
 ```typescript
-
 const obj = { a: 1, b: 2 } as const;
 | const keys = Object.keys(obj); // string[], not ('a' | 'b')[] |
 
@@ -15552,7 +14871,6 @@ OR: Use Object.entries instead
 ## Excess Property Checking Workaround
 
 ```typescript
-
 interface User { name: string }
 
 // Error: 'extra' does not exist
@@ -15571,7 +14889,6 @@ const user2: User = data; // Works!
 ## Enums Are Not Type-Safe
 
 ```typescript
-
 enum Status { Active = 0, Inactive = 1 }
 
 function process(s: Status) {}
@@ -15588,7 +14905,6 @@ FIX: Use union types instead
 ## Optional Chaining Precedence
 
 ```typescript
-
 // What you think:
 obj.method?.()
 
@@ -15614,7 +14930,6 @@ FIX: Use parentheses or separate checks
 ## Circular Dependency Crash
 
 ```text
-
 SYMPTOM: "Cannot read property of undefined"
 But import clearly exists!
 
@@ -15631,12 +14946,10 @@ FIX: Extract shared code to third module
 ## Tree Shaking Failure
 
 ```text
-
 EXPECTATION: Unused code removed
 REALITY: Entire library included
 
 CAUSES:
-
 1. Side effects in module (import runs code)
 2. Dynamic imports (import(variable))
 3. Re-exports hiding dead code
@@ -15652,7 +14965,6 @@ FIX: Use ESM imports
 ## Dev vs Prod Mismatch
 
 ```text
-
 WORKS IN DEV, BREAKS IN PROD:
 
 1. Different chunking (code split differently)
@@ -15671,7 +14983,6 @@ npm run build && npm run preview
 ## CSS Ordering Issue
 
 ```text
-
 SYMPTOM: Styles work in dev, wrong in prod
 
 CAUSE: CSS chunk order non-deterministic
@@ -15679,7 +14990,6 @@ a.css before b.css in dev
 b.css before a.css in prod!
 
 FIX:
-
 - Higher specificity
 - CSS Modules
 - Explicit import order dependency
@@ -15691,7 +15001,6 @@ FIX:
 ## Dynamic Import Path
 
 ```text
-
 // BROKEN: Cant be statically analyzed
 const path = `./components/${name}`;
 const Component = await import(path);
@@ -15700,8 +15009,11 @@ const Component = await import(path);
 
 // FIXED: Magic comment
 const Component = await import(
-/*webpackChunkName: "[request]"*/
-  `./components/${name}`);```text
+/* webpackChunkName: "[request]" */
+  `./components/${name}`
+);
+
+```text
 
 ---
 
@@ -15714,14 +15026,12 @@ const Component = await import(
 ## Alpine + Node.js DNS Issue
 
 ```text
-
 SYMPTOM: DNS resolution fails randomly in Alpine
 CAUSE: Alpine uses musl libc, not glibc
 Different DNS resolver behavior
 
 DEBUG: Works in ubuntu, fails in alpine
 FIX:
-
 - Use node:20-slim (debian-based)
 - Set dns resolver options
 - RUN npm config set dns-result-order=ipv4first
@@ -15761,7 +15071,6 @@ COPY --from=deps /app/node_modules ./node_modules
 ## Zombie Processes
 
 ```text
-
 SYMPTOM: Container memory grows forever
 CAUSE: Node.js doesnt forward signals to children
 
@@ -15770,7 +15079,6 @@ exec('long-running-command');
 // Parent dies, child orphaned
 
 FIX:
-
 - Use --init flag (docker run --init)
 - Use dumb-init or tini as entrypoint
 - Handle SIGTERM properly
@@ -15790,22 +15098,24 @@ RUN npm install # Uses ARG
 
 ## RUN TIME: ENV
 
-ENV API_URL=<<<<<http://api>>>>>
+ENV API_URL=http://api
 CMD ["node", "index.js"] # Uses ENV
 
 COMMON MISTAKE:
 ARG API_URL  # Set at build time
 
-## Cannot change without rebuild
+## Cannot change without rebuild!
+
+```text
+
+---
 
 ## .dockerignore Forgotten
 
 ```text
-
 SYMPTOM: Build slow, context huge, secrets leaked
 
 PROBLEM: Sending everything to daemon
-
 - node_modules/
 - .git/
 - .env  # SECRETS!
@@ -15830,12 +15140,10 @@ dist
 ## ECB Mode Pattern Leak
 
 ```text
-
 ECB encrypts blocks independently
 Same plaintext -> Same ciphertext
 
 VISIBLE IN:
-
 - Images: Pattern still visible!
 - Data: Identical blocks reveal structure
 
@@ -15849,7 +15157,6 @@ ALWAYS USE: AES-GCM or AES-CBC with random IV
 ## IV Reuse Disaster
 
 ```text
-
 VULNERABILITY:
 
 Same Key + Same IV = Predictable output
@@ -15866,7 +15173,6 @@ STORE: IV alongside ciphertext (not secret)
 ## Weak Random for Crypto
 
 ```text
-
 // INSECURE
 Math.random() // Predictable!
 Date.now() // Guessable!
@@ -15884,7 +15190,6 @@ RULE: If it affects security, use crypto random
 ## Timing Attack on Comparison
 
 ```text
-
 // VULNERABLE
 if (userToken === secretToken) { ... }
 
@@ -15904,7 +15209,6 @@ crypto.timingSafeEqual(a, b);
 ## Password Hash Too Fast
 
 ```text
-
 // INSECURE: GPU can crack billions/second
 crypto.createHash('sha256').update(password)
 
@@ -15927,7 +15231,6 @@ RULE: Password hash MUST be slow
 ## TCP Keepalive vs HTTP Keepalive
 
 ```text
-
 DIFFERENT THINGS:
 
 TCP Keepalive: OS-level, probes connection
@@ -15947,7 +15250,6 @@ HTTP: Connection: keep-alive header
 ## Load Balancer Connection Reuse
 
 ```text
-
 SCENARIO:
 
 LB -> Server A (connection pooled)
@@ -15956,7 +15258,6 @@ LB still sends to pooled connection
 SILENT FAILURES
 
 FIX:
-
 - Health checks
 - Connection timeouts
 - Shorter keepalive
@@ -15968,7 +15269,6 @@ FIX:
 ## NAT Timeout vs Keepalive
 
 ```text
-
 PROBLEM:
 
 NAT gateway: Drops idle connections after X minutes
@@ -15989,11 +15289,9 @@ AWS NAT: 350 seconds
 ## TLS Cipher Mismatch
 
 ```text
-
 SYMPTOM: "No common cipher suites"
 
 CAUSES:
-
 1. Server only allows TLS 1.3
 2. Client only supports TLS 1.2
 3. Cipher suite intersection = empty
@@ -16009,17 +15307,14 @@ openssl s_client -connect host:443 -tls1_3
 ## MTU Black Hole
 
 ```text
-
 SYMPTOM: Small requests work, large fail
 
 CAUSE:
-
 - Packet too big for network path
 - ICMP "fragmentation needed" blocked
 - Sender never knows to shrink packets
 
 FIX:
-
 - Test with different packet sizes
 - Enable PMTUD (Path MTU Discovery)
 - Reduce MSS if needed
@@ -16037,9 +15332,7 @@ FIX:
 ## Distributed Monolith
 
 ```text
-
 SYMPTOMS:
-
 - All services must deploy together
 - Change to one breaks others
 - Shared database
@@ -16059,7 +15352,6 @@ Async communication
 ## Chatty Services
 
 ```text
-
 PROBLEM:
 
 For one user request:
@@ -16071,7 +15363,6 @@ Service A -> E (10ms)
 TOTAL: 40ms network latency alone!
 
 FIX:
-
 - Batch calls
 - Denormalize data
 - Edge aggregation
@@ -16084,7 +15375,6 @@ FIX:
 ## Distributed Transaction Fail
 
 ```text
-
 ATTEMPT: Two-phase commit across services
 
 Service A commits
@@ -16096,7 +15386,6 @@ RESULT: Inconsistent state!
 REALITY: Distributed transactions dont work reliably
 
 FIX:
-
 - Saga pattern with compensation
 - Eventual consistency
 - Idempotent operations
@@ -16109,7 +15398,6 @@ FIX:
 ## Service Discovery Stale
 
 ```text
-
 SCENARIO:
 
 1. Service B instance dies
@@ -16121,7 +15409,6 @@ SCENARIO:
 USER EXPERIENCE: Random slow requests
 
 FIX:
-
 - Shorter TTL on discovery
 - Health checks from client
 - Circuit breaker per instance
@@ -16133,7 +15420,6 @@ FIX:
 ## Correlated Failures
 
 ```text
-
 DISASTER:
 
 Service A depends on B
@@ -16143,7 +15429,6 @@ C fails -> B calls timeout -> A calls timeout
 ALL THREE APPEAR DOWN!
 
 FIX:
-
 - Timeouts on everything
 - Circuit breakers
 - Fallback responses
@@ -16162,7 +15447,6 @@ FIX:
 ## Connection Limit Per Server
 
 ```text
-
 LIMIT: ~65K connections per IP:port pair
 REALITY: Memory runs out first (~30K typical)
 
@@ -16179,7 +15463,6 @@ FIX: More servers, load balance connections
 ## Ping/Pong Missed
 
 ```text
-
 SCENARIO:
 
 Browser: Thinks connection alive
@@ -16189,7 +15472,6 @@ No traffic = nobody knows!
 RESULT: Messages to dead connection = lost
 
 FIX:
-
 - Application-level ping/pong
 - Both sides implement heartbeat
 - Reconnection logic on client
@@ -16201,7 +15483,6 @@ FIX:
 ## Message Ordering Lost
 
 ```text
-
 ASSUMPTION: Messages arrive in order
 REALITY: With multiple servers, NO!
 
@@ -16210,7 +15491,6 @@ Load balancer delivers msg2 first
 Client gets wrong order!
 
 FIX:
-
 - Sequence numbers
 - Client-side ordering
 - Single server per session
@@ -16222,7 +15502,6 @@ FIX:
 ## Reconnection Thunder
 
 ```text
-
 SCENARIO:
 
 1. Server restarts
@@ -16233,7 +15512,6 @@ SCENARIO:
 6. Cascade failure
 
 FIX:
-
 - Exponential backoff with jitter
 - Connection rate limiting
 - Graceful reconnection
@@ -16245,9 +15523,7 @@ FIX:
 ## Memory Per Connection
 
 ```text
-
 EACH CONNECTION COSTS:
-
 - Socket buffers: ~100KB
 - Application state: varies
 - Messages: unbounded!
@@ -16255,7 +15531,6 @@ EACH CONNECTION COSTS:
 10K connections * 100KB = 1GB minimum
 
 UNBOUNDED DANGER:
-
 - Slow client
 - Messages queue
 - Memory exhausts
@@ -16276,7 +15551,6 @@ FIX: Per-connection message limits
 ## Horizontal Privilege Escalation
 
 ```text
-
 BAD:
 GET /api/orders/123
 // Only checks: is user logged in?
@@ -16298,7 +15572,6 @@ throw new ForbiddenError();
 ## IDOR in File Paths
 
 ```text
-
 BAD:
 GET /files?path=user_1/doc.pdf
 
@@ -16307,7 +15580,6 @@ GET /files?path=../user_2/doc.pdf  // Path traversal!
 GET /files?path=user_2/doc.pdf  // Direct reference!
 
 FIX:
-
 - Dont use user input in paths
 - Use opaque file IDs
 - Verify ownership in DB
@@ -16319,14 +15591,12 @@ FIX:
 ## Insecure Direct Object Reference
 
 ```text
-
 BAD:
 DELETE /api/comments/789
 // Checks: can user delete comments?
 // Misses: can user delete THIS comment?
 
 EVERY OPERATION must check:
-
 1. Has permission for action type
 2. Has permission for THIS resource
 
@@ -16337,7 +15607,6 @@ EVERY OPERATION must check:
 ## Role Check At Wrong Layer
 
 ```text
-
 BAD:
 // Only checked in UI
 if (user.role === 'admin') {
@@ -16357,16 +15626,13 @@ UI is only for UX, not security
 ## JWT Role Cached
 
 ```text
-
 SCENARIO:
-
 1. User gets JWT with role: "user"
 2. Admin promotes to role: "admin"
 3. User still has old JWT
 4. JWT says "user" for next hour!
 
 FIX:
-
 - Short JWT lifetimes
 - Fetch roles from DB on sensitive ops
 - Immediate refresh mechanism
@@ -16384,7 +15650,6 @@ FIX:
 ## Log Missing When Needed
 
 ```text
-
 DEBUG: Shows issue
 INFO: Hides issue
 
@@ -16393,7 +15658,6 @@ INCIDENT: Need DEBUG level
 RESULT: Cant reproduce!
 
 FIX:
-
 - Critical paths: INFO level minimum
 - Request IDs in all logs
 - Dynamic log level changes
@@ -16406,11 +15670,9 @@ FIX:
 ## Log Explosion
 
 ```text
-
 SYMPTOM: 100GB logs per day, $$$$$
 
 CAUSES:
-
 - Logging in tight loops
 - Full request/response bodies
 - Verbose health checks
@@ -16427,13 +15689,11 @@ RULE: Sample verbose logs
 ## PII in Logs
 
 ```text
-
 GDPR VIOLATION:
 
 log.info("User registered", { email, password });
 
 ALSO ILLEGAL:
-
 - Credit card numbers
 - Social security numbers
 - Personal addresses
@@ -16450,7 +15710,6 @@ Audit log content
 ## Timestamp Without Timezone
 
 ```text
-
 LOG: 2024-01-15T10:00:00
 
 SERVER: UTC
@@ -16468,7 +15727,6 @@ Or: 2024-01-15T10:00:00+00:00
 ## Missing Request Context
 
 ```text
-
 BAD LOG:
 "Database query failed"
 
@@ -16495,7 +15753,6 @@ GOOD LOG:
 ## Deadlock Spiral
 
 ```text
-
 Transaction A: Lock row 1, then lock row 2
 Transaction B: Lock row 2, then lock row 1
 
@@ -16512,7 +15769,6 @@ Sort resources before locking
 ## Gap Lock Surprise (MySQL InnoDB)
 
 ```text
-
 QUERY: SELECT * FROM orders
 WHERE status = 'pending'
 FOR UPDATE;
@@ -16533,7 +15789,6 @@ Consider READ COMMITTED
 ## Advisory Lock Forgotten
 
 ```text
-
 PATTERN:
 pg_advisory_lock(1234); // Acquired
 // Process
@@ -16557,7 +15812,6 @@ try {
 ## Long Transaction Blocks Vacuum
 
 ```text
-
 SYMPTOM: Table size growing, queries slowing
 
 Transaction started 2 hours ago
@@ -16577,7 +15831,6 @@ FIX: statement_timeout, idle_in_transaction_timeout
 ## SELECT FOR UPDATE SKIP LOCKED
 
 ```text
-
 QUEUE PROCESSING TRAP:
 
 Without SKIP LOCKED:
@@ -16607,9 +15860,7 @@ LIMIT 1;
 ## Double Charge on Retry
 
 ```text
-
 SCENARIO:
-
 1. Charge request sent
 2. Network timeout (charge succeeded!)
 3. Code retries
@@ -16618,7 +15869,10 @@ SCENARIO:
 
 FIX: Idempotency keys (Stripe)
 await stripe.charges.create({...}, {
-idempotencyKey: `order-${orderId}`});```text
+idempotencyKey: `order-${orderId}`
+});
+
+```text
 
 ---
 
@@ -16801,7 +16055,7 @@ function hybrid(callback) {
   doAsync()
 .then(result => callback(null, result))
 // Error never reaches callback!
-.catch(err => {/*swallowed!*/});
+.catch(err => {/* swallowed! */});
 }
 
 // FIX: Proper error forwarding
@@ -16821,13 +16075,12 @@ function hybrid(callback) {
 
 ---
 
-## Connection Pool Exhaustion 2
+## Connection Pool Exhaustion
 
 ```text
 SYMPTOM: Random timeouts under load
 
 CAUSE:
-
 - Default: 5 connections per host
 - 10 parallel requests
 - 5 wait for pool!
@@ -16916,7 +16169,6 @@ Timeout
 Retry POST /orders  // CREATES DUPLICATE!
 
 SAFE TO RETRY:
-
 - GET, HEAD, OPTIONS (always)
 - PUT, DELETE (idempotent by design)
 - POST (only with idempotency key!)
@@ -16931,7 +16183,7 @@ Idempotency-Key: order-abc123
 
 ## JS PRODUCTION GOTCHAS
 
-> **The patterns that break in production**
+> **The framework traps that break at scale**
 
 ---
 
@@ -16939,14 +16191,12 @@ Idempotency-Key: order-abc123
 
 ```text
 SCENARIO:
-
 1. ISR page cached with old content
 2. Deploy new version
 3. Cache still serves old page!
 4. Only refreshes after revalidate
 
 FIX:
-
 - On-demand revalidation
 - Purge CDN on deploy
 - Accept temporary staleness
@@ -16961,13 +16211,11 @@ FIX:
 SYMPTOM: First API request slow
 
 CAUSE:
-
 - Serverless cold start
 - Database connection
 - Module loading
 
 MITIGATION:
-
 - Connection pooling
 - Warm-up endpoint
 - Edge runtime for fast routes
@@ -16979,23 +16227,18 @@ MITIGATION:
 ## Hydration Mismatch
 
 ```text
-ERROR: Hydration failed because the initial UI
-does not match what was rendered on the server.
+ERROR: Text content does not match
+
+CAUSE: Server HTML differs from client
 
 COMMON CAUSES:
+- Using Date.now() in render
+- browser-only APIs (window.location)
+- Random values
+- Locale differences
 
-1. Using Date.now() or Math.random()
-2. Browser-only APIs (localStorage, window)
-3. Different content for logged-in users
-4. CSS-in-JS libraries not configured
-
-FIX:
-// Wrap browser-only code
-const [isMounted, setIsMounted] = useState(false);
-useEffect(() => setIsMounted(true), []);
-
-if (!isMounted) return null;
-return <ComponentUsingBrowserAPIs />;
+FIX: useEffect for browser-specific
+suppressHydrationWarning={true} (last resort)
 
 ```text
 
@@ -17028,20 +16271,23 @@ const [user, products, reviews] = await Promise.all([
 
 ## Image Optimization Limits
 
+```text
 VERCEL LIMIT: 1000 images/month on free
 SELF-HOSTED: Needs sharp, memory for resizing
 
 SYMPTOMS:
-
 - 429 errors
 - Blurry images
 - Timeouts
 
 FIX:
-
 - External image optimization (Cloudinary)
 - Pre-generate sizes at build
 - Increase Vercel plan
+
+```text
+
+---
 
 ## PRODUCTION SECRETS MANAGEMENT
 
@@ -17053,14 +16299,12 @@ FIX:
 
 ```text
 DISASTER TIMELINE:
-
 1. .env committed to git
 2. Repo made public (or leaked)
 3. Secrets scraped by bots (minutes!)
 4. AWS bill: $50,000
 
 PREVENTION:
-
 - .gitignore: .env*
 - Pre-commit hook to check
 - Git history scrub if exposed
@@ -17078,20 +16322,22 @@ ENV DATABASE_URL=postgres://user:pass@host
 IMAGE INSPECTION:
 | docker inspect image | grep DATABASE_URL |
 
-## SECRET VISIBLE
+## SECRET VISIBLE!
 
 ALSO BAD: Build ARG for secrets
 
 FIX:
-
 - Runtime environment injection
 - Docker secrets
 - External secret manager
 
+```text
+
+---
+
 ## Logging Secrets
 
 ```text
-
 COMMON ACCIDENTS:
 
 console.log(config); // Includes API keys!
@@ -17099,7 +16345,6 @@ console.log(request); // Auth headers!
 console.error(error); // Connection strings!
 
 FIX:
-
 - Redact sensitive fields
 - Structured logging with filters
 - Never log full objects
@@ -17111,7 +16356,6 @@ FIX:
 ## Hardcoded in Frontend
 
 ```text
-
 VISIBLE:
 
 const STRIPE_KEY = 'sk_live_abc123';
@@ -17129,16 +16373,13 @@ Secret keys: NEVER
 ## Rotation Without Downtime
 
 ```text
-
 CHALLENGE:
-
 1. Generate new key
 2. Deploy with new key
 3. Old key still in use during rollout!
 4. Invalidating old = downtime
 
 FIX:
-
 1. Deploy supporting BOTH keys
 2. Switch to new key
 3. Wait for all pods updated
@@ -17158,9 +16399,7 @@ FIX:
 ## Poison Message Loop
 
 ```text
-
 SCENARIO:
-
 1. Message arrives
 2. Processing throws
 3. Message returned to queue
@@ -17172,7 +16411,6 @@ CPU: 100%
 Other messages: BLOCKED
 
 FIX:
-
 - Dead letter queue after N retries
 - Exponential backoff
 - Error categorization (skip/retry)
@@ -17184,12 +16422,10 @@ FIX:
 ## At-Least-Once Surprise
 
 ```text
-
 ASSUMPTION: Each message processed once
 REALITY: At-least-once delivery!
 
 CAUSES:
-
 - Worker crashes after processing before ack
 - Network issues
 - Timeout before ack
@@ -17197,7 +16433,6 @@ CAUSES:
 RESULT: Duplicate processing
 
 FIX: Idempotent handlers!
-
 - Check if already processed
 - Use unique message ID
 - Dedupe in database
@@ -17209,7 +16444,6 @@ FIX: Idempotent handlers!
 ## Job Priority Starvation
 
 ```text
-
 SETUP:
 High priority queue: 100 messages
 Low priority queue: 10,000 messages
@@ -17220,7 +16454,6 @@ PROBLEM: What if high priority never empty?
 Low priority NEVER processed!
 
 FIX:
-
 - Weighted fair queuing
 - Separate workers per priority
 - Timeout on priority privilege
@@ -17232,9 +16465,7 @@ FIX:
 ## Invisible Message After Crash
 
 ```text
-
 SCENARIO:
-
 1. Worker takes message (invisible)
 2. Worker crashes
 3. Visibility timeout: 30 min
@@ -17242,7 +16473,6 @@ SCENARIO:
 5. User waits 30 min for email!
 
 FIX:
-
 - Shorter visibility timeout
 - Heartbeat to extend
 - Dead letter quick for crashes
@@ -17254,7 +16484,6 @@ FIX:
 ## Backpressure Ignored
 
 ```text
-
 PRODUCER: Adds 1000 jobs/sec
 CONSUMER: Processes 100 jobs/sec
 
@@ -17263,7 +16492,6 @@ MEMORY: Exhausted
 SYSTEM: CRASH
 
 FIX:
-
 - Rate limit producers
 - Queue length monitoring
 - Backpressure signals
@@ -17282,14 +16510,12 @@ FIX:
 ## File Descriptor Exhaustion
 
 ```text
-
 SYMPTOM: "Too many open files"
 
 PROCESS THINKS: Out of files
 REALITY: Out of file descriptors
 
 INCLUDES:
-
 - Network sockets
 - Database connections
 - Open files
@@ -17306,7 +16532,6 @@ PERMANENT: /etc/security/limits.conf
 ## OOM Killer
 
 ```text
-
 SYMPTOM: Process randomly dies, no error log
 
 CAUSE: Kernel killed it to free memory
@@ -17314,7 +16539,6 @@ CAUSE: Kernel killed it to free memory
 | DETECTION: dmesg | grep -i "killed process" |
 
 PREVENTION:
-
 - Set memory limits in container
 - Monitor memory usage
 - Adjust OOM score: echo -17 > /proc/pid/oom_adj
@@ -17326,7 +16550,6 @@ PREVENTION:
 ## Ephemeral Port Exhaustion
 
 ```text
-
 SYMPTOM: "Cannot assign requested address"
 
 CAUSE: Too many outbound connections
@@ -17334,7 +16557,6 @@ Ports 32768-60999 exhausted
 TIME_WAIT takes 2 mins!
 
 FIX:
-
 - Connection pooling
 - Reduce TIME_WAIT: sysctl net.ipv4.tcp_tw_reuse=1
 - Increase range: net.ipv4.ip_local_port_range
@@ -17346,16 +16568,13 @@ FIX:
 ## Disk Full Silent Failures
 
 ```text
-
 SCENARIO:
-
 1. Log disk fills
 2. App tries to log
 3. Write fails silently
 4. No logs during incident!
 
 ALSO BREAKS:
-
 - Database transactions
 - File uploads
 - Session storage
@@ -17370,7 +16589,6 @@ RESERVE: Leave 20% free always
 ## Clock Drift
 
 ```text
-
 SYMPTOM: Token validation fails, cache expires wrong
 
 CAUSE: Server clock drifted
@@ -17379,7 +16597,6 @@ AT SCALE: Distributed systems confused
 "This message from the future!"
 
 FIX:
-
 - NTP daemon always running
 - Monitor clock skew
 - Use chrony for VMs
@@ -17397,9 +16614,7 @@ FIX:
 ## Cache Poisoning
 
 ```text
-
 SCENARIO:
-
 1. Build fails, partially caches
 2. Next build: uses poisoned cache
 3. All builds fail mysteriously!
@@ -17407,7 +16622,6 @@ SCENARIO:
 SYMPTOM: "Works on fresh build"
 
 FIX:
-
 - Cache key includes lockfile hash
 - Clear cache on structural changes
 - Version cache keys
@@ -17419,7 +16633,6 @@ FIX:
 ## Flaky Tests Block Deploy
 
 ```text
-
 REALITY: Test passes 95% of time
 
 AT SCALE: 100 tests, 95% each
@@ -17428,7 +16641,6 @@ AT SCALE: 100 tests, 95% each
 RESULT: Pipeline almost never green
 
 FIX:
-
 - Quarantine flaky tests
 - Retry mechanism
 - Fix root cause (usually timing)
@@ -17440,7 +16652,6 @@ FIX:
 ## Parallel Job Race Conditions
 
 ```text
-
 JOB A: Deploy to staging
 JOB B: Run E2E tests
 
@@ -17448,7 +16659,6 @@ PROBLEM: B starts before A done!
 SYMPTOMS: Random test failures
 
 FIX:
-
 - Explicit dependencies
 - Wait for health check
 - Sequential stages
@@ -17460,29 +16670,29 @@ FIX:
 ## Secret in Build Logs
 
 ```text
-
 LEAK:
 echo "Deploying with token: $SECRET"
 
-## Visible in CI logs
+## Visible in CI logs!
 
 ALSO LEAKING:
-
 - Debug mode printing env
 - Error messages with config
 - npm install with token in URL
 
 FIX:
-
 - Secret masking in CI
 - Never echo secrets
 - Review log output
+
+```text
+
+---
 
 ## Rollback Fails When Needed
 
 ```text
 SCENARIO:
-
 1. Deploy breaks production
 2. "Just rollback!"
 3. Rollback includes DB migration
@@ -17490,7 +16700,6 @@ SCENARIO:
 5. STUCK!
 
 FIX:
-
 - Backwards-compatible migrations
 - Database versioning
 - Tested rollback procedure
@@ -17538,7 +16747,6 @@ BEFORE GO-LIVE:
 ## Debug Order for Unknown Issues
 
 ```text
-
 1. CAN YOU REPRODUCE?
 Yes -> Debug locally
 No -> Add logging, wait for next occurrence
@@ -17731,6 +16939,7 @@ TRANSITIONS:
 
 ## Implementation
 
+```typescript
 type AuthState =
 | { status: 'unknown' } |
 | { status: 'logged_out' } |
@@ -17751,6 +16960,10 @@ return { status: 'error', error: action.error };
   }
 }
 
+```text
+
+---
+
 ## ENVIRONMENT VARIABLE GOTCHAS
 
 > **The config mistakes that cause outages**
@@ -17768,7 +16981,7 @@ if (process.env.DEBUG === 'true') {
 
 // BETTER: Parse properly
 const debug = process.env.DEBUG === 'true'
-|  | process.env.DEBUG === '1'; |
+| | process.env.DEBUG === '1'; |
 
 ```text
 
@@ -17803,13 +17016,11 @@ LOCAL: .env file loaded
 DOCKER: .env file NOT in container!
 
 SYMPTOMS:
-
 - Works locally
 - Fails in container
 - "undefined" for all vars
 
 FIX:
-
 - docker-compose: env_file or environment
 - docker run: --env-file or -e
 
@@ -17827,10 +17038,14 @@ PRIVATE_KEY="-----BEGIN KEY-----
 fjsdfjsd
 -----END KEY-----"
 
-## Problem: Many parsers break on newlines
+## Problem: Many parsers break on newlines!
 
 FIX: Base64 encode
 PRIVATE_KEY=LS0tLS1CRUdJTiBLRVktLS0tLQ==
+
+```text
+
+---
 
 ## DEPENDENCY UPGRADE DISASTERS
 
@@ -17841,20 +17056,17 @@ PRIVATE_KEY=LS0tLS1CRUdJTiBLRVktLS0tLQ==
 ## Major Version Trap
 
 ```text
-
 package.json: "lodash": "^4.0.0"
 
 EXPECTATION: Only minor updates
 REALITY: ^4.0.0 includes 4.17.21
 
 MAJOR VERSION BREAKS:
-
 - API changes
 - Removed functions
 - Different behavior
 
 FIX:
-
 - Lock files committed
 - npm ci not npm install
 - Test before deploy
@@ -17866,9 +17078,7 @@ FIX:
 ## Transitive Dependency Nightmare
 
 ```text
-
 SCENARIO:
-
 - You use library-a@2.0.0
 - library-a depends on util@1.5.0
 - util@1.6.0 released with bug
@@ -17876,7 +17086,6 @@ SCENARIO:
 - YOUR app breaks!
 
 FIX:
-
 - Use npm ci
 - Check npm audit
 - Resolution overrides if needed
@@ -17888,18 +17097,15 @@ FIX:
 ## Breaking in Minor Version
 
 ```text
-
 SEMANTIC VERSIONING ASSUMPTION:
 Minor = backwards compatible
 
 REALITY:
-
 - Many libraries break in minor
 - TypeScript types can break
 - Behavioral changes
 
 RULE:
-
 - Read changelogs before upgrading
 - Test thoroughly
 - Upgrade one at a time
@@ -17911,17 +17117,14 @@ RULE:
 ## Peer Dependency Hell
 
 ```text
-
 ERROR: npm WARN peer react@18 required
 
 SCENARIO:
-
 - Package A wants React 17
 - Package B wants React 18
 - Cant satisfy both!
 
 FIX:
-
 - Check compatibility before upgrading
 - Use --legacy-peer-deps (temporary!)
 - Wait for library updates
@@ -17940,11 +17143,11 @@ FIX:
 
 ```bash
 
-## View logs 2
+## View logs
 
 docker logs -f container_name
 
-## Shell into container 2
+## Shell into container
 
 docker exec -it container_name sh
 
@@ -17966,13 +17169,7 @@ docker stats
 
 ## Kubernetes
 
-spec:
-replicas: 3
-  strategy:
-type: RollingUpdate
-    rollingUpdate:
-maxUnavailable: 1
-maxSurge: 1
+```bash
 
 ## Pod logs
 
@@ -18080,7 +17277,6 @@ openssl verify -CAfile ca.pem -untrusted intermediate.pem cert.pem
 
 ```text
 CORRECT ORDER in chain file:
-
 1. Your certificate (leaf)
 2. Intermediate certificate(s)
 3. Root certificate (optional)
@@ -18123,7 +17319,6 @@ SELECT * FROM orders WHERE created_at > '2024-01-01'
 If sharded by user_id: Query ALL shards!
 
 MITIGATION:
-
 - Design queries around shard key
 - Denormalize to avoid joins
 - Accept eventual consistency for analytics
@@ -18138,13 +17333,11 @@ MITIGATION:
 STARTING: 4 shards
 GROWING: Need 8 shards
 PROBLEM:
-
 - Hash changes, data moves
 - Must copy while live
 - Hours of migration
 
 PREVENTION:
-
 - Start with more shards than needed
 - Use consistent hashing
 - Plan for growth
@@ -18162,16 +17355,12 @@ PREVENTION:
 ## Core Concepts
 
 ```text
-TRADITIONAL:
-Store current state
-UPDATE user SET balance = 100
+TRACE: End-to-end request
+SPAN: Single operation within trace
+CONTEXT: Propagated across services
 
-EVENT SOURCING:
-Store events that happened
-BalanceDebited { amount: 50 }
-BalanceCredited { amount: 150 }
-
-Current state = replay all events
+Request -> Service A (span) -> Service B (span) -> DB (span)
+| __________ Trace ID carried through ___________ |
 
 ```text
 
@@ -18194,13 +17383,18 @@ provider.register();
 
 ---
 
-## Best Practices 3
+## Best Practices
 
+```text
 [ ] Add trace ID to all logs
 [ ] Sample high-traffic endpoints
 [ ] Include business context in spans
 [ ] Set appropriate span names
 [ ] Add error details to failed spans
+
+```text
+
+---
 
 ## LOAD BALANCING STRATEGIES
 
@@ -18261,13 +17455,11 @@ Cookie: AWSALB=xxx
 Same user -> same backend
 
 PROBLEMS:
-
 - Uneven load distribution
 - Rolling updates harder
 - Server failure loses state
 
 BETTER:
-
 - Externalize state (Redis)
 - JWT tokens (stateless)
 
@@ -18281,8 +17473,9 @@ BETTER:
 
 ---
 
-## Flag Types 2
+## Flag Types
 
+```text
 RELEASE FLAGS:
 Trunk-based development
 Hide unfinished features
@@ -18303,8 +17496,13 @@ Feature entitlements
 Premium features
 Beta access
 
-## Implementation 2
+```text
 
+---
+
+## Implementation
+
+```javascript
 // Simple implementation
 const flags = {
 newCheckout: {
@@ -18324,10 +17522,13 @@ const hash = hashCode(userId + flagName);
 return (hash % 100) < flag.percentage;
 }
 
+```text
+
+---
+
 ## Flag Lifecycle
 
 ```text
-
 1. CREATE flag (disabled)
 2. ENABLE for internal users
 3. ROLLOUT to percentage
@@ -18346,8 +17547,9 @@ return (hash % 100) < flag.percentage;
 
 ---
 
-## Core Concepts 2
+## Core Concepts
 
+```text
 TRADITIONAL:
 Store current state
 UPDATE user SET balance = 100
@@ -18358,6 +17560,10 @@ BalanceDebited { amount: 50 }
 BalanceCredited { amount: 150 }
 
 Current state = replay all events
+
+```text
+
+---
 
 ## Event Store Structure
 
@@ -18393,7 +17599,6 @@ UserNameChanged { id, name }  -> users table
 OrderPlaced { userId, ... }   -> orders table
 
 READ MODELS:
-
 - Optimized for queries
 - Can be rebuilt from events
 - Multiple projections per aggregate
@@ -18468,7 +17673,9 @@ return function() {
 
 ---
 
-## Detection 2
+## Detection
+
+```bash
 
 ## Monitor RSS over time
 
@@ -18496,7 +17703,6 @@ npx clinic doctor -- node app.js
 ## Fallback Strategies
 
 ```javascript
-
 async function getProductRecommendations(userId) {
 try {
 // Primary: Personalized recommendations
@@ -18519,7 +17725,6 @@ return await cache.get('recommendations:popular');
 ## Feature Toggles for Degradation
 
 ```javascript
-
 const features = {
 search: { enabled: true, fallback: 'basic' },
 recommendations: { enabled: false, fallback: 'popular' },
@@ -18544,7 +17749,6 @@ where: { name: { contains: query } }
 ## Load Shedding
 
 ```javascript
-
 const HIGH_LOAD_THRESHOLD = 0.8;
 
 app.use((req, res, next) => {
@@ -18571,8 +17775,9 @@ error: 'Service temporarily unavailable'
 
 ---
 
-## Error Response Format 3
+## Error Response Format
 
+```typescript
 interface ErrorResponse {
 error: {
 code: string;  // Machine-readable
@@ -18598,8 +17803,13 @@ timestamp: string;  // When it happened
   }
 }
 
-## HTTP Status Codes 3
+```text
 
+---
+
+## HTTP Status Codes
+
+```text
 400 Bad Request  - Client sent invalid data
 401 Unauthorized  - Authentication required
 403 Forbidden  - Authenticated but not allowed
@@ -18612,10 +17822,13 @@ timestamp: string;  // When it happened
 503 Unavailable  - Temporarily down
 504 Gateway Timeout  - Upstream timeout
 
+```text
+
+---
+
 ## Error Middleware
 
 ```typescript
-
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 const requestId = req.id;
 
@@ -18654,23 +17867,22 @@ message: 'An unexpected error occurred',
 ## Remote Debugging Checklist
 
 ```text
-
 1. CHECK METRICS
 - Error rate spike?
 - Latency increase?
 - Resource saturation?
 
-1. CHECK LOGS
+2. CHECK LOGS
 - Search by error code
 - Filter by timeframe
 - Look for patterns
 
-1. CHECK RECENT CHANGES
+3. CHECK RECENT CHANGES
 - Deployments in last 24h?
 - Config changes?
 - Traffic patterns different?
 
-1. CHECK DEPENDENCIES
+4. CHECK DEPENDENCIES
 - External service status?
 - Database load?
 - Network issues?
@@ -18682,7 +17894,6 @@ message: 'An unexpected error occurred',
 ## Dynamic Log Levels
 
 ```javascript
-
 // Change log level without restart
 const logLevel = new Map();
 
@@ -18705,7 +17916,6 @@ return LEVELS[level] >= LEVELS[configuredLevel];
 ## Feature Flags for Debugging
 
 ```javascript
-
 // Enable verbose logging per request
 app.use((req, res, next) => {
 if (req.headers['x-debug-key'] === process.env.DEBUG_KEY) {
@@ -18730,7 +17940,6 @@ req.log = () => {};
 ## Connection Management
 
 ```javascript
-
 const connections = new Map();
 
 wss.on('connection', (ws, req) => {
@@ -18764,25 +17973,29 @@ ws.isAlive = false;
 
 ---
 
-## Scaling WebSockets 2
+## Scaling WebSockets
 
+```text
 PROBLEM: Multiple server instances
 
 SOLUTION: Redis Pub/Sub
 
 Server 1 <--> Redis <--> Server 2
+| |
 Clients Clients
 
 Each server:
-
 - Publishes messages to Redis
 - Subscribes to relevant channels
 - Forwards to local WebSocket clients
 
+```text
+
+---
+
 ## Reconnection Strategy
 
 ```javascript
-
 class ReconnectingWebSocket {
 constructor(url) {
 this.url = url;
@@ -18814,24 +18027,23 @@ this.reconnectDelay = 1000; // Reset on success
 
 ---
 
-## CACHE INVALIDATION STRATEGIES 2
+## CACHE INVALIDATION STRATEGIES
 
->**The hardest problem in computer science**
+> **The hardest problem in computer science**
+
+---
 
 ## TTL-Based
 
 ```javascript
-
 // Simple: Expire after time
 await redis.setex('user:1', 3600, JSON.stringify(user));
 
 PROS:
-
 - Simple to implement
 - Eventual consistency guaranteed
 
 CONS:
-
 - Stale data until expiry
 - Thundering herd on popular keys
 
@@ -18842,7 +18054,6 @@ CONS:
 ## Write-Through
 
 ```javascript
-
 async function updateUser(id, data) {
 // Update database
 const user = await db.user.update({ where: { id }, data });
@@ -18854,12 +18065,10 @@ return user;
 }
 
 PROS:
-
 - Cache always fresh after writes
 - No stale reads for updated data
 
 CONS:
-
 - Write latency increased
 - Complex for multiple caches
 
@@ -18870,7 +18079,6 @@ CONS:
 ## Event-Driven Invalidation
 
 ```javascript
-
 // On update
 eventBus.emit('user.updated', { userId: id });
 
@@ -18882,12 +18090,10 @@ await redis.del(`user-sessions:${userId}`);
 });
 
 PROS:
-
 - Decoupled invalidation
 - Can invalidate related caches
 
 CONS:
-
 - Eventual consistency
 - Need reliable event delivery
 
@@ -18898,7 +18104,6 @@ CONS:
 ## Cache-Aside Pattern
 
 ```javascript
-
 async function getUser(id) {
 // Check cache first
 let user = await redis.get(`user:${id}`);
@@ -18923,9 +18128,11 @@ return user;
 
 ---
 
-## Rolling Update 2
+## Rolling Update
 
-## Kubernetes 2
+```yaml
+
+## Kubernetes
 
 spec:
 replicas: 3
@@ -18965,7 +18172,6 @@ Keep blue as rollback
 ## Canary
 
 ```text
-
 1. Deploy canary (1% traffic)
 2. Monitor metrics
 3. Increase to 10% if healthy
@@ -19081,25 +18287,21 @@ const user = UserSchema.parse(unknownData);
 
 ```text
 LATENCY:
-
 - P50, P95, P99 response times
 - By endpoint
 - Alert on degradation
 
 TRAFFIC:
-
 - Requests per second
 - By endpoint, status code
 - Compare to baseline
 
 ERRORS:
-
 - Error rate percentage
 - By type (4xx, 5xx)
 - Alert on spikes
 
 SATURATION:
-
 - CPU, memory, disk usage
 - Connection pool usage
 - Queue depths
@@ -19108,25 +18310,27 @@ SATURATION:
 
 ---
 
-## Alerting Rules 2
+## Alerting Rules
 
+```text
 CRITICAL (Page immediately):
-
 - Error rate > 5%
 - P99 latency > 5s
 - Service down
 
 WARNING (Slack/ticket):
-
 - Error rate > 1%
 - P99 latency > 2s
 - High CPU/memory
 
 INFO (Dashboard only):
-
 - Traffic anomalies
 - Deployment events
 - Dependency updates
+
+```text
+
+---
 
 ## Dashboard Essentials
 
@@ -19152,7 +18356,6 @@ INFO (Dashboard only):
 
 ```text
 If a change can break production at 3 AM:
-
 1. Is there monitoring to detect it?
 2. Is there a runbook to fix it?
 3. Is there a rollback plan?
@@ -19183,7 +18386,6 @@ If no to any: Dont deploy Friday evening.
 ## When Things Break
 
 ```text
-
 1. BREATHE
 2. Assess impact
 3. Communicate status
@@ -19200,7 +18402,6 @@ If no to any: Dont deploy Friday evening.
 ## Career-Saving Facts
 
 ```text
-
 - Always have backups
 - Test your backups (or they dont exist)
 - Automate everything you do twice
@@ -19234,13 +18435,11 @@ If no to any: Dont deploy Friday evening.
 PROBLEM: First request takes 5-10 seconds
 
 CAUSES:
-
 - Large bundle size
 - Too many dependencies
 - Database connection on cold start
 
 FIXES:
-
 1. Keep bundle under 1MB
 2. Use connection pooling (Prisma Data Proxy)
 3. Pre-warm with scheduled pings
@@ -19258,7 +18457,6 @@ SYMPTOM: Function crashes silently
 CAUSE: Exceeded 128MB/256MB limit
 
 FIX:
-
 1. Stream large files (dont load in memory)
 2. Paginate database queries
 3. Increase memory limit in config
@@ -19271,22 +18469,18 @@ FIX:
 ## Timeout Trap
 
 ```text
-SYMPTOM: Function times out inconsistently
+VERCEL LIMITS:
+- Hobby: 10 seconds
+- Pro: 60 seconds
+- Enterprise: 900 seconds
 
-CAUSE: Default timeout too short (3s)
+TRAP: Database query takes 15 seconds
+RESULT: Timeout, no error logged!
 
-CHECK: Look for "Task timed out" in CloudWatch
-
-FIXES:
-
-1. Increase timeout (max 15 min for Lambda)
-2. Use Step Functions for long workflows
-3. Add timeouts to external calls
-
-// Always set timeout on external calls
-const response = await axios.get(url, {
-timeout: 5000  // 5 second timeout
-});
+FIX:
+- Add timeout handling in code
+- Use shorter database timeouts
+- Move long operations to queues
 
 ```text
 
@@ -19296,13 +18490,11 @@ timeout: 5000  // 5 second timeout
 
 ```text
 EDGE FUNCTION:
-
 - Location: CDN edge (fast)
 - Runtime: V8 (limited APIs)
 - No Node.js modules (fs, net, etc.)
 
 SERVERLESS:
-
 - Location: Single region
 - Runtime: Full Node.js
 - All APIs available
@@ -19311,17 +18503,19 @@ SERVERLESS:
 
 ---
 
-## JS PRODUCTION GOTCHAS 2
+## JS PRODUCTION GOTCHAS
 
 > **The patterns that break in production**
 
-## Hydration Mismatch 2
+---
 
+## Hydration Mismatch
+
+```text
 ERROR: Hydration failed because the initial UI
 does not match what was rendered on the server.
 
 COMMON CAUSES:
-
 1. Using Date.now() or Math.random()
 2. Browser-only APIs (localStorage, window)
 3. Different content for logged-in users
@@ -19334,6 +18528,10 @@ useEffect(() => setIsMounted(true), []);
 
 if (!isMounted) return null;
 return <ComponentUsingBrowserAPIs />;
+
+```text
+
+---
 
 ## Dynamic Import Issues
 
@@ -19354,23 +18552,25 @@ const components = { A: ComponentA, B: ComponentB };
 
 ---
 
-## Image Optimization Limits 2
+## Image Optimization Limits
 
+```text
 VERCEL LIMITS:
-
 - Hobby: 1,000 images/month
 - Pro: 5,000 images/month
 
 SYMPTOMS:
-
 - Images return 500 error
 - Optimization disabled silently
 
 FIX:
-
 1. Use external CDN (Cloudinary)
 2. Self-host images
 3. Upgrade plan
+
+```text
+
+---
 
 ## ISR Revalidation
 
@@ -19407,13 +18607,11 @@ ERROR: Timed out fetching a new connection from the pool
 CAUSE: All connections in use, none available
 
 RECOGNITION KEYS:
-
 - P2024
 - connection pool
 - Timed out fetching
 
 FIX:
-
 1. Reduce connection limit
    DATABASE_URL="...?connection_limit=5"
 
@@ -19498,7 +18696,7 @@ return next(params);
 
 ## TLS GOTCHAS
 
-> **The HTTPS patterns that fail**
+> **The certificate patterns**
 
 ---
 
@@ -19510,7 +18708,6 @@ SYMPTOM: NET::ERR_CERT_DATE_INVALID
 CAUSE: Certificate expired
 
 PREVENTION:
-
 1. Use auto-renewal (Let's Encrypt)
 2. Set up expiry monitoring
 3. Calendar reminder 30 days before
@@ -19523,20 +18720,24 @@ openssl x509 -noout -enddate
 
 ---
 
-## Mixed Content 2
+## Mixed Content
 
+```text
 SYMPTOM: Some resources blocked in HTTPS
 
 CAUSE: Loading HTTP resources on HTTPS page
 
 FIX:
-
 1. Use protocol-relative URLs: //example.com/image.jpg
-2. Or always HTTPS: <<<<<<https://example.com/image.jpg>>>>>>
+2. Or always HTTPS: https://example.com/image.jpg
 3. Add CSP header: upgrade-insecure-requests
 
 <meta http-equiv="Content-Security-Policy"
       content="upgrade-insecure-requests">
+
+```text
+
+---
 
 ## Certificate Chain Issues
 
@@ -19546,7 +18747,6 @@ SYMPTOM: Works in browser, fails in API calls
 CAUSE: Intermediate certificate missing
 
 FIX:
-
 1. Include full chain in certificate file
 2. Order: Your cert Intermediate Root
 3. Verify: openssl s_client -connect host:443 -showcerts
@@ -19559,7 +18759,6 @@ FIX:
 
 ```text
 ONCE PRELOADED:
-
 - Cannot go back to HTTP
 - Takes months to remove
 - All subdomains forced to HTTPS
@@ -19683,7 +18882,7 @@ validationRules: [depthLimit(5)]
 
 ---
 
-## Missing Indexes 3
+## Missing Indexes
 
 ```text
 SYMPTOM: Query takes 30 seconds
@@ -19738,7 +18937,6 @@ JOIN pg_catalog.pg_locks blocking_locks
 ON blocking_locks.locktype = blocked_locks.locktype;
 
 FIX:
-
 1. Use shorter transactions
 2. Use NOWAIT: SELECT FOR UPDATE NOWAIT
 3. Use advisory locks for app-level locking
@@ -19758,7 +18956,6 @@ CHECK:
 SELECT count(*) FROM pg_stat_activity;
 
 FIX:
-
 1. Use connection pooler (PgBouncer)
 2. Close connections properly
 3. Set connection timeout
@@ -19781,7 +18978,6 @@ SYMPTOM: First request takes 5+ seconds
 CAUSE: Lambda initializing new container
 
 FIXES:
-
 1. Provisioned Concurrency (costs $$)
 2. Keep functions small (< 50MB)
 3. Move init code outside handler
@@ -19803,8 +18999,9 @@ return (await db).query(...);
 
 ---
 
-## Timeout Trap 2
+## Timeout Trap
 
+```text
 SYMPTOM: Function times out inconsistently
 
 CAUSE: Default timeout too short (3s)
@@ -19812,7 +19009,6 @@ CAUSE: Default timeout too short (3s)
 CHECK: Look for "Task timed out" in CloudWatch
 
 FIXES:
-
 1. Increase timeout (max 15 min for Lambda)
 2. Use Step Functions for long workflows
 3. Add timeouts to external calls
@@ -19821,6 +19017,10 @@ FIXES:
 const response = await axios.get(url, {
 timeout: 5000  // 5 second timeout
 });
+
+```text
+
+---
 
 ## Memory = CPU
 
@@ -19832,7 +19032,6 @@ SECRET: Lambda CPU scales with memory
 Sometimes: More memory = faster = CHEAPER
 
 TEST: Same function at different memory levels
-
 - 128 MB: 10s execution = $0.002
 - 1024 MB: 1.5s execution = $0.0015 (cheaper!)
 
@@ -19848,7 +19047,6 @@ SYMPTOM: 10-30 second cold starts
 CAUSE: Lambda in VPC needs ENI
 
 FIX: Use VPC Lambda only when necessary
-
 - Need RDS? Use RDS Proxy instead
 - Need internal service? Consider API Gateway private
 
@@ -19916,7 +19114,6 @@ DETECTION:
 npx madge --circular src/
 
 FIX:
-
 1. Extract shared code to third package
 2. Use dependency injection
 3. Restructure imports
@@ -20003,7 +19200,6 @@ NOTE: Changes take 5-10 minutes to propagate!
 PROBLEM: S3 costs exploding
 
 CHECKS:
-
 1. Are you using right storage class?
 - Frequent access Standard
 - Occasional Intelligent-Tiering
@@ -20040,7 +19236,6 @@ FIX:
 terraform force-unlock LOCK_ID
 
 PREVENTION:
-
 - Use remote state with locking (S3 + DynamoDB)
 - Set timeout in backend config
 
@@ -20059,7 +19254,7 @@ count = length(var.names)
 name = var.names[count.index]
 }
 
-## Remove item from middle DESTROYS everything after it
+## Remove item from middle DESTROYS everything after it!
 
 ## GOOD: for_each - key based (order doesn't matter)
 
@@ -20082,7 +19277,6 @@ PROBLEM: Someone changed resource manually in console
 SYMPTOM: "Plan shows changes you didn't make"
 
 FIX:
-
 1. terraform refresh  # Update state from reality
 
 2. terraform plan  # See what actually differs
@@ -20092,7 +19286,6 @@ FIX:
 - Or let Terraform overwrite: terraform apply
 
 PREVENTION:
-
 - Lock down console access
 - Use CI/CD for all changes
 - Regular drift detection runs
@@ -20101,21 +19294,21 @@ PREVENTION:
 
 ---
 
-## MEMORY LEAK DEBUGGING 2
+## MEMORY LEAK DEBUGGING
 
 > **The patterns for finding memory issues**
+
+---
 
 ## Node.js Memory Leaks
 
 ```text
 SYMPTOMS:
-
 - Memory usage grows over time
 - Process eventually crashes with OOM
 - Performance degrades
 
 COMMON CAUSES:
-
 1. Global variables accumulating data
 2. Event listeners not removed
 3. Closures holding references
@@ -20151,8 +19344,9 @@ heap: Math.round(used.heapUsed / 1024 / 1024) + 'MB'
 
 ---
 
-## Common Fixes 2 2
+## Common Fixes
 
+```javascript
 // BAD: Global cache that grows forever
 const cache = {};
 function addToCache(key, value) {
@@ -20173,6 +19367,10 @@ element.addEventListener('click', handler);
 return () => element.removeEventListener('click', handler);
 }, []);
 
+```text
+
+---
+
 ## DATABASE MIGRATIONS GOTCHAS
 
 > **The migration patterns that cause outages**
@@ -20183,17 +19381,14 @@ return () => element.removeEventListener('click', handler);
 
 ```text
 RULE 1: Always backwards compatible
-
 - Old code must work with new schema
 - Deploy schema, then deploy code
 
 RULE 2: No locks on big tables
-
 - Don't ALTER TABLE on millions of rows
 - Use pt-online-schema-change or gh-ost
 
 RULE 3: Small, atomic changes
-
 - One change per migration
 - Easy to rollback
 
@@ -20277,7 +19472,6 @@ const client = new RDSData({});
 SYMPTOM: Occasional query timeouts
 
 CHECK:
-
 1. Enable Performance Insights
 2. Check wait events:
 - IO:DataFileRead = need bigger instance
@@ -20285,7 +19479,6 @@ CHECK:
 - Lock:relation = app-level lock contention
 
 FIX:
-
 - Read replicas for read-heavy
 - Upgrade instance class
 - Better indexes
@@ -20302,7 +19495,6 @@ SYMPTOM: App errors during failover
 CAUSE: DNS caching, connections not closed
 
 FIX:
-
 1. Use RDS Proxy (handles failover)
 2. Set DNS TTL low in app
 3. Implement connection retry logic
@@ -20388,7 +19580,7 @@ proxy_read_timeout 86400;  # Long timeout for WS
 
 ---
 
-## Rate Limiting 2
+## Rate Limiting
 
 ```nginx
 
@@ -20424,16 +19616,13 @@ services:
   app:
 build: .
     ports:
-
 - "3000:3000"
     networks:
-
 - mynetwork
 
   db:
 image: postgres:15
     networks:
-
 - mynetwork
 
 networks:
@@ -20455,8 +19644,8 @@ driver: bridge
 
 ## Uses host's network directly (Linux only)
 
-    services:
-      app:
+services:
+  app:
 network_mode: host
 
 ## No port mapping needed
@@ -20464,23 +19653,28 @@ network_mode: host
 ```text
 ---
 
-## Common Issues 3
+## Common Issues
+
+```yaml
 
 SYMPTOM: Container can't reach other container
 
-    CHECK:
+CHECK:
 
 1. Same network? docker network inspect mynetwork
-1. Using service name? (not localhost)
-1. Container running? docker ps
+2. Using service name? (not localhost)
+3. Container running? docker ps
 
 SYMPTOM: Host can't reach container
 
-    CHECK:
+CHECK:
 
 1. Port exposed? -p 3000:3000
-1. App binding to 0.0.0.0? (not 127.0.0.1)
-1. Firewall blocking?
+2. App binding to 0.0.0.0? (not 127.0.0.1)
+3. Firewall blocking?
+
+```text
+---
 
 ## DNS Resolution
 
@@ -20659,9 +19853,11 @@ SOLUTION: Token bucket or sliding window
 ```text
 ---
 
-## TLS GOTCHAS 2
+## TLS GOTCHAS
 
->**The HTTPS patterns that fail**
+> **The HTTPS patterns that fail**
+
+---
 
 ## Certificate Issues
 
@@ -20688,25 +19884,30 @@ FIX:
 ```text
 ---
 
-## Mixed Content 3
+## Mixed Content
+
+```yaml
 
 SYMPTOM: Some resources not loading on HTTPS
 
 CAUSE: HTTP resources on HTTPS page
 
-    DETECTION:
+DETECTION:
 
 - Browser console shows "Mixed Content" errors
 
-    FIX:
+FIX:
 // Use protocol-relative URLs
 <script src="//cdn.example.com/script.js"></script>
 
 // Or always HTTPS
-<script src="<<<<<https://cdn.example.com/script.js">>>>></script>>
+<script src="https://cdn.example.com/script.js"></script>
 
 // CSP header to block insecure
 Content-Security-Policy: upgrade-insecure-requests
+
+```text
+---
 
 ## HSTS
 
@@ -20833,355 +20034,3 @@ duration: 60000
 ```text
 
 ---
-
-## PRISMA P2024: Connection Pool Exhaustion
-
-**Source:** GitHub Issues #prisma, Prisma Documentation, Real production incidents
-
-### The EXACT Error 5
-
-```text
-PrismaClientKnownRequestError:
-Timed out fetching a new connection from the connection pool.
-Please consider reducing the number of requests or increasing
-the `connection_limit` parameter.
-Error Code: P2024
-
-```text
-
-### Real Incident Reports 2
-
-- **GitHub Issue Pattern:** Workers hit P1001, web server hits P2024, server becomes unresponsive, requires restart
-- **Prisma v6 Upgrade:** Users report connection pool exhaustion after upgrading, especially with `@prisma/adapter-mssql`
-- **Serverless flood:** Each Lambda/Vercel function has own pool, multiplied connections exhaust DB
-
-### KEYWORDS that trigger this 4
-
-```text
-P2024
-Timed out fetching
-connection pool
-connection_limit
-pool_timeout
-serverless connections
-too many clients already
-
-```text
-
-### Real Fix From Production 2
-
-```typescript
-// CONNECTION STRING FIX (Prisma docs)
-DATABASE_URL="postgresql://user:pass@host:5432/db?connection_limit=5&pool_timeout=10"
-
-// SERVERLESS FIX: Use Prisma Accelerate or PgBouncer
-// Don't create new PrismaClient every request
-// lib/prisma.ts
-import { PrismaClient } from '@prisma/client'
-
-const globalForPrisma = globalThis as unknown as { prisma: PrismaClient }
-
-| export const prisma = globalForPrisma.prisma |  | new PrismaClient() |
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
-
-```text
-
----
-
-## Authentication Errors 2 2
-
-| Error | Keyword Trigger | Root Cause | Fix |
-|-------|-----------------|------------|-----|
-| Auth session missing | `AuthSessionMissingError`, session null | Email link pre-fetched by provider | Add CAPTCHA, use redirect button |
-| Database error email link | `AuthApiError database error` | Misconfigured user table | Check auth schema, user table |
-| 500 auth errors | `500`, auth, SMTP | SMTP misconfigured or DB constraint | Check SMTP settings, DB logs |
-| Email not authorized | `Email address cannot be used` | No SMTP configured (2024 change) | Configure custom SMTP server |
-
----
-
-## SESSION COMPLETE: BRAIN CROSSED 10% 2
-
-## Common Mistakes 2 2
-
-### Adding NOT NULL without default 2
-
-```sql
--- DISASTER: Fails if table has data
-ALTER TABLE users ADD COLUMN status TEXT NOT NULL;
-
--- SAFE: Add with default
-ALTER TABLE users ADD COLUMN status TEXT NOT NULL DEFAULT 'active';
-
-```text
-
----
-
-### Changing column type 2
-
-```sql
--- RISKY: May fail or lose data
-ALTER TABLE orders ALTER COLUMN price TYPE INTEGER;
-
--- SAFE: Add new column, migrate, drop old
-ALTER TABLE orders ADD COLUMN price_cents INTEGER;
-UPDATE orders SET price_cents = price * 100;
-ALTER TABLE orders DROP COLUMN price;
-
-```text
-
----
-
-### Large table migration 2
-
-```sql
--- DANGEROUS: Locks table
-ALTER TABLE large_table ADD COLUMN new_col TEXT;
-
--- SAFER: Create concurrently (PostgreSQL)
-CREATE INDEX CONCURRENTLY idx_new ON large_table(new_col);
-
-```text
-
----
-
-## Best Practices 2 2
-
-```text
-[ ] Add trace ID to all logs
-[ ] Sample high-traffic endpoints
-[ ] Include business context in spans
-[ ] Set appropriate span names
-[ ] Add error details to failed spans
-
-```text
-
----
-
-## Cannot change without rebuild 2
-
-```text
-
----
-
-## SECRET VISIBLE 2
-
-ALSO BAD: Build ARG for secrets
-
-FIX:
-
-- Runtime environment injection
-- Docker secrets
-- External secret manager
-
-```text
-
----
-
-## Visible in CI logs 2
-
-ALSO LEAKING:
-
-- Debug mode printing env
-- Error messages with config
-- npm install with token in URL
-
-FIX:
-
-- Secret masking in CI
-- Never echo secrets
-- Review log output
-
-```text
-
----
-
-## Problem: Many parsers break on newlines 2
-
-FIX: Base64 encode
-PRIVATE_KEY=LS0tLS1CRUdJTiBLRVktLS0tLQ==
-
-```text
-
----
-
-## Flag Types 2 2
-
-```text
-RELEASE FLAGS:
-Trunk-based development
-Hide unfinished features
-Short-lived (remove after launch)
-
-EXPERIMENT FLAGS:
-A/B testing
-Measure impact
-Data-driven decisions
-
-OPS FLAGS:
-Circuit breakers
-Graceful degradation
-Kill switches
-
-PERMISSION FLAGS:
-Feature entitlements
-Premium features
-Beta access
-
-```text
-
----
-
-## Error Response Format 2 2
-
-```typescript
-interface ErrorResponse {
-error: {
-code: string;  // Machine-readable
-message: string;  // Human-readable
-details?: object;  // Additional context
-requestId: string;  // For support
-timestamp: string;  // When it happened
-  };
-}
-
-// Example
-{
-"error": {
-"code": "VALIDATION_ERROR",
-"message": "Invalid email format",
-"details": {
-"field": "email",
-"value": "not-an-email",
-"constraint": "email"
-    },
-"requestId": "req-abc123",
-"timestamp": "2024-01-15T10:00:00Z"
-  }
-}
-
-```text
-
----
-
-## HTTP Status Codes 2 2
-
-```text
-400 Bad Request  - Client sent invalid data
-401 Unauthorized  - Authentication required
-403 Forbidden  - Authenticated but not allowed
-404 Not Found  - Resource doesn't exist
-409 Conflict  - State conflict (duplicate, etc)
-422 Unprocessable    - Validation failed
-429 Too Many  - Rate limited
-500 Internal Error   - Server bug
-502 Bad Gateway  - Upstream service failed
-503 Unavailable  - Temporarily down
-504 Gateway Timeout  - Upstream timeout
-
-```text
-
----
-
-## Scaling WebSockets 2 2
-
-```text
-PROBLEM: Multiple server instances
-
-SOLUTION: Redis Pub/Sub
-
-Server 1 <--> Redis <--> Server 2
-| |
-Clients Clients
-
-Each server:
-
-- Publishes messages to Redis
-- Subscribes to relevant channels
-- Forwards to local WebSocket clients
-
-```text
-
----
-
-## Rolling Update 2 2
-
-```yaml
-
-## Alerting Rules 2 2
-
-```text
-
-CRITICAL (Page immediately):
-
-- Error rate > 5%
-- P99 latency > 5s
-- Service down
-
-WARNING (Slack/ticket):
-
-- Error rate > 1%
-- P99 latency > 2s
-- High CPU/memory
-
-INFO (Dashboard only):
-
-- Traffic anomalies
-- Deployment events
-- Dependency updates
-
-```text
-
----
-
-## Mixed Content 2 2
-
-```yaml
-
-SYMPTOM: Some resources not loading on HTTPS
-
-CAUSE: HTTP resources on HTTPS page
-
-DETECTION:
-
-- Browser console shows "Mixed Content" errors
-
-FIX:
-// Use protocol-relative URLs
-<script src="//cdn.example.com/script.js"></script>
-
-// Or always HTTPS
-<script src="<https://cdn.example.com/script.js">></script>
-
-// CSP header to block insecure
-Content-Security-Policy: upgrade-insecure-requests
-
-```text
----
-
-## Remove item from middle DESTROYS everything after it 2
-
-## Common Issues 2 2
-
-```yaml
-
-SYMPTOM: Container can't reach other container
-
-CHECK:
-
-1. Same network? docker network inspect mynetwork
-2. Using service name? (not localhost)
-3. Container running? docker ps
-
-SYMPTOM: Host can't reach container
-
-CHECK:
-
-1. Port exposed? -p 3000:3000
-2. App binding to 0.0.0.0? (not 127.0.0.1)
-3. Firewall blocking?
-
-```text
----
-
-```text

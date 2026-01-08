@@ -1,85 +1,17 @@
 # CHECKLISTS
 
-## Table of Contents
+## TABLE OF CONTENTS
 
-- [Table of Contents](#table-of-contents)
 - [SECTION A: VACCINE CHECKLISTS (Preventive)](#section-a-vaccine-checklists-preventive)
 - [DEPLOYMENT MASTER CHECKLIST](#deployment-master-checklist)
 - [Check EVERY Time Before Deploying](#check-every-time-before-deploying)
-- [CUTTING CHANGE CHECKLISTS](#cutting-change-checklists)
-- [When You CHANGE Authentication System](#when-you-change-authentication-system)
-- [When You CHANGE Database Schema](#when-you-change-database-schema)
-- [When You ADD New API Route](#when-you-add-new-api-route)
-- [When You ADD New Page Route](#when-you-add-new-page-route)
-- [When You CHANGE: Environment Variables](#when-you-change-environment-variables)
-- [SPECIFIC CHECKLISTS](#specific-checklists)
-- [Next.js 14 App Router Checklist](#nextjs-14-app-router-checklist)
-- [Prisma ORM Checklist](#prisma-orm-checklist)
-- [Tailwind CSS Checklist](#tailwind-css-checklist)
-- [QUICK REFERENCE CHECKLISTS](#quick-reference-checklists)
-- [Before EVERY Commit](#before-every-commit)
-- [Before EVERY PR](#before-every-pr)
-- [Before EVERY Release](#before-every-release)
-- [SECTION B: INJECTION CHECKLISTS (Post-Fix)](#section-b-injection-checklists-post-fix)
-- [FIX VERIFICATION CHECKLIST](#fix-verification-checklist)
-- [After Fixing Any Bug](#after-fixing-any-bug)
-- [CRITERIA](#criteria)
-- [Form Works When](#form-works-when)
-- [API Endpoint Works When](#api-endpoint-works-when)
-- [Authentication Works When](#authentication-works-when)
-- [List Table Works When](#list-table-works-when)
-  - [This is your SAFETY NET](#this-is-your-safety-net)
-  - [Never forget what else to check](#never-forget-what-else-to-check)
-- [SPECIFIC CHECKLISTS 2](#specific-checklists-2)
-- [E-Commerce Feature Checklists](#e-commerce-feature-checklists)
-  - [Adding Payment Integration](#adding-payment-integration)
-  - [Adding Shopping Cart](#adding-shopping-cart)
-- [User Management Checklists](#user-management-checklists)
-  - [Adding User Profile](#adding-user-profile)
-  - [Adding User Roles Permissions](#adding-user-roles-permissions)
-- [Notification Checklists](#notification-checklists)
-  - [Adding Email Notifications](#adding-email-notifications)
-  - [Adding Push Notifications](#adding-push-notifications)
-- [File Upload Checklists](#file-upload-checklists)
-  - [Adding File Image Upload](#adding-file-image-upload)
-- [Search Feature Checklists](#search-feature-checklists)
-  - [Adding Search Functionality](#adding-search-functionality)
-- [SECURITY CHECKLISTS](#security-checklists)
-- [Authentication Security Checklist](#authentication-security-checklist)
-- [API Security Checklist](#api-security-checklist)
-- [Frontend Security Checklist](#frontend-security-checklist)
-- [Data Security Checklist](#data-security-checklist)
-- [DEPLOYMENT CHECKLISTS](#deployment-checklists)
-- [Vercel Deployment Checklist](#vercel-deployment-checklist)
-- [Docker Deployment Checklist](#docker-deployment-checklist)
-- [CI CD Pipeline Checklist](#ci-cd-pipeline-checklist)
-  - [[TARGET: 10,000 LINES OF CHECKLISTS]](#target-10000-lines-of-checklists)
-  - [Current: ~700 lines - Expanding systematically](#current-700-lines---expanding-systematically)
-  - [Coverage: E-commerce, User Management, Notifications, Files, Search, Security, Deployment](#coverage-e-commerce-user-management-notifications-files-search-security-deployment)
-  - [This is your COMPREHENSIVE SAFETY NET](#this-is-your-comprehensive-safety-net)
-  - [VACCINE for prevention, INJECTION for fixing](#vaccine-for-prevention-injection-for-fixing)
-  - [Never forget what else to check 2](#never-forget-what-else-to-check-2)
-- [PRODUCTION CHECKLISTS](#production-checklists)
-- [Pre-Deploy Checklist](#pre-deploy-checklist)
-- [New Service Checklist](#new-service-checklist)
-- [Security Review Checklist](#security-review-checklist)
-- [Post-Incident Checklist](#post-incident-checklist)
-- [API SECURITY CHECKLIST 2](#api-security-checklist-2)
-- [Authentication Checklist](#authentication-checklist)
-- [JWT Checklist](#jwt-checklist)
-- [Input Validation Checklist](#input-validation-checklist)
-- [DATABASE MIGRATION CHECKLIST](#database-migration-checklist)
-- [Pre-Migration](#pre-migration)
-- [During Migration](#during-migration)
-- [Safe Migration Patterns](#safe-migration-patterns)
-- [Post-Migration](#post-migration)
-- [CODE REVIEW CHECKLIST](#code-review-checklist)
-- [Functionality](#functionality)
-- [Security](#security)
-- [Performance](#performance)
-- [Maintainability](#maintainability)
-- [Common Issues](#common-issues)
-- [API SECURITY CHECKLIST 2 2](#api-security-checklist-2-2)
+
+---
+> **The Safety Net: What Else to Check**
+> Never forget to update connected systems.
+> Use VACCINE checklists BEFORE problems happen.
+
+---
 
 ## SECTION A: VACCINE CHECKLISTS (Preventive)
 
@@ -89,6 +21,7 @@
 
 ## Check EVERY Time Before Deploying
 
+```text
 ENVIRONMENT VARIABLES
 All required vars set in production
 DATABASE_URL is production URL
@@ -96,69 +29,74 @@ API keys are production (not test/dev)
 Secrets are strong and unique
 No localhost anywhere
 
-    DATABASE
+DATABASE
 prisma migrate status shows no pending
 Database is accessible
 Connection pooling configured (if serverless)
 Seed data applied (if needed)
 
-    AUTHENTICATION
+AUTHENTICATION
 Auth secrets set and secure
 Cookie settings correct (secure, httpOnly)
 CORS origins include production domain
 Session expiration configured
 
-    BUILD
+BUILD
 npm run build succeeds locally
 No TypeScript errors
 No ESLint errors/warnings
 Bundle size acceptable
 
-    TESTING
+TESTING
 All tests pass
 Critical flows tested manually
 Mobile responsive verified
 Forms submit correctly
 Error states display properly
 
-    SECURITY
+SECURITY
 No sensitive data in console.log
 No API keys in frontend code
 Rate limiting configured
 Input validation on all endpoints
 
+```text
+
 ## CUTTING CHANGE CHECKLISTS
 
 ## When You CHANGE Authentication System
 
+```text
 CHANGED AUTH? ALSO UPDATE:
 
-    Frontend
+Frontend
 Login component/page
 Logout functionality
 Auth context/provider
 Protected route wrapper
 Token/session storage logic
 
-    Backend
+Backend
 Auth API routes
 Middleware (middleware.ts)
 Protected API routes
 Session configuration
 
-    Configuration
+Configuration
 Environment variables
 CORS settings
 Cookie settings
 
-    Tests
+Tests
 Auth flow tests
 Protected route tests
 Mock auth in other tests
 
-    Documentation
+Documentation
 Auth flow documented
 ENV example updated
+
+```text
 
 ## When You CHANGE Database Schema
 
@@ -230,14 +168,15 @@ Tests for the endpoint
 
 ## When You ADD New Page Route
 
+```text
 NEW PAGE? ENSURE IT HAS:
 
-    SEO
+SEO
 Title tag (metadata)
 Meta description
 OpenGraph tags (if shared)
 
-    UX
+UX
 Loading state
 Error state
 Empty state
@@ -249,18 +188,20 @@ Error boundary
 Try-catch for data fetching
 Graceful degradation
 
-    Security
+Security
 Auth check (if protected)
 Redirect for unauthorized
 
-    Navigation
+Navigation
 Link added to nav/menu
 Breadcrumbs updated
 Back navigation works
 
-    Testing
+Testing
 Unit tests
 E2E tests for critical paths
+
+```text
 
 ## When You CHANGE: Environment Variables
 
@@ -287,8 +228,6 @@ Type definitions for env
 ```text
 
 ## SPECIFIC CHECKLISTS
-
----
 
 ## Next.js 14 App Router Checklist
 
@@ -492,7 +431,9 @@ Actions (edit, delete) work
 
 ---
 
-## SPECIFIC CHECKLISTS 2
+## SPECIFIC CHECKLISTS
+
+---
 
 ## E-Commerce Feature Checklists
 
@@ -698,20 +639,21 @@ Click tracking
 
 ### Adding File Image Upload
 
+```text
 STORAGE SETUP
 Storage provider (S3, Cloudinary, etc.)
 Credentials in environment
 Bucket/folder structure
 CORS configured
 
-    BACKEND
+BACKEND
 Upload endpoint
 File type validation
 File size limits
 Virus scanning (if needed)
 Presigned URLs (if direct upload)
 
-    FRONTEND
+FRONTEND
 File input component
 Drag and drop
 Preview before upload
@@ -719,48 +661,53 @@ Upload progress
 Error handling
 File type restrictions
 
-    IMAGE-SPECIFIC
+IMAGE-SPECIFIC
 Resize on upload
 Multiple sizes generated
 Lazy loading
-      Placeholder/blur
+  Placeholder/blur
 
-    SECURITY
+SECURITY
 No executable uploads
 Content-Type validation
 Authenticated uploads
 Private bucket settings
 
+```text
+
 ## Search Feature Checklists
 
 ### Adding Search Functionality
 
+```text
 SEARCH BACKEND
 Search method chosen (DB, Elasticsearch, Algolia)
 Indexing strategy
 Full-text search enabled
 Relevance tuning
 
-    API
+API
 Search endpoint
-      Pagination
-      Filters
+  Pagination
+  Filters
 Sorting options
 Debounced requests
 
-    FRONTEND
+FRONTEND
 Search input
-      Autocomplete/suggestions
+  Autocomplete/suggestions
 Results display
 Loading state
 No results state
 Pagination controls
 
-    PERFORMANCE
+PERFORMANCE
 Index created on search fields
 Response time < 200ms
 Caching for common queries
 Rate limiting
+
+```text
 
 ## SECURITY CHECKLISTS
 
@@ -1010,7 +957,7 @@ Rollback ready
 
 ### VACCINE for prevention, INJECTION for fixing
 
-### Never forget what else to check 2
+### Never forget what else to check
 
 ---
 
@@ -1090,9 +1037,11 @@ AFTER INCIDENT:
 
 ---
 
-## API SECURITY CHECKLIST 2
+## API SECURITY CHECKLIST
 
 > **Comprehensive API security review**
+
+---
 
 ## Authentication Checklist
 
@@ -1261,9 +1210,3 @@ ADDING INDEX:
 [ ] Migration reversible
 
 ```text
-
-## API SECURITY CHECKLIST 2 2
-
-> **Comprehensive API security review**
-
----

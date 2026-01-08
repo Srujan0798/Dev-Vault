@@ -1,45 +1,43 @@
 # LOCALIZATION
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [21_LOCALIZATION.MD: THE TITAN GUIDE (50K TARGET)](#21_localizationmd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade i18n, L10n, and Cultural Adaptation](#production-grade-i18n-l10n-and-cultural-adaptation)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. THE "OFFICE SPACE" ROUNDING ERROR](#1-the-office-space-rounding-error)
-  - [JPY Has No Decimals](#jpy-has-no-decimals)
-- [2. THE "GERMAN" LAYOUT BREAK](#2-the-german-layout-break)
-  - [Long Words](#long-words)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [8. ICU MESSAGE FORMAT](#8-icu-message-format)
-  - [Plurals & Gender](#plurals-gender)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [9. RTL SUPPORT](#9-rtl-support)
-  - [Logical Properties](#logical-properties)
-- [10. DYNAMIC CONTENT TRANSLATION](#10-dynamic-content-translation)
-  - [Database i18n](#database-i18n)
-- [VOLUME 4: THE EXPERT (THE "SCALE") 2](#volume-4-the-expert-the-scale-2)
-- [14. CI/CD TRANSLATION PIPELINE](#14-cicd-translation-pipeline)
-  - [Automated Sync](#automated-sync)
-- [VOLUME 5: THE TITAN (THE "KERNEL") 2](#volume-5-the-titan-the-kernel-2)
-- [16. PSEUDO-LOCALIZATION](#16-pseudo-localization)
-  - [Testing Strategy](#testing-strategy)
-- [17. AI TRANSLATION PIPELINE](#17-ai-translation-pipeline)
-  - [Context-Aware GPT-4](#context-aware-gpt-4)
-- [VOLUME 6: THE INFINITE (THE "FUTURE") 2](#volume-6-the-infinite-the-future-2)
-- [19. REAL-TIME VOICE TRANSLATION](#19-real-time-voice-translation)
-  - [Whisper & SeamlessM4T](#whisper-seamlessm4t)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. THE "OFFICE SPACE" ROUNDING ERROR](#1-the-office-space-rounding-error)
+    - [JPY Has No Decimals](#jpy-has-no-decimals)
+  - [2. THE "GERMAN" LAYOUT BREAK](#2-the-german-layout-break)
+    - [Long Words](#long-words)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [8. ICU MESSAGE FORMAT](#8-icu-message-format)
+    - [Plurals & Gender](#plurals-gender)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [9. RTL SUPPORT](#9-rtl-support)
+    - [Logical Properties](#logical-properties)
+  - [10. DYNAMIC CONTENT TRANSLATION](#10-dynamic-content-translation)
+    - [Database i18n](#database-i18n)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [14. CI/CD TRANSLATION PIPELINE](#14-cicd-translation-pipeline)
+    - [Automated Sync](#automated-sync)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [16. PSEUDO-LOCALIZATION](#16-pseudo-localization)
+    - [Testing Strategy](#testing-strategy)
+  - [17. AI TRANSLATION PIPELINE](#17-ai-translation-pipeline)
+    - [Context-Aware GPT-4](#context-aware-gpt-4)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [19. REAL-TIME VOICE TRANSLATION](#19-real-time-voice-translation)
+    - [Whisper & SeamlessM4T](#whisper-seamlessm4t)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE ULTIMATE NEXT.JS I18N CONFIG](#a-the-ultimate-nextjs-i18n-config)
-- [B. THE CULTURAL CHECKLIST](#b-the-cultural-checklist)
+  - [A. THE ULTIMATE NEXT.JS I18N CONFIG](#a-the-ultimate-nextjs-i18n-config)
+  - [B. THE CULTURAL CHECKLIST](#b-the-cultural-checklist)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-- [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
 - [N FUNDAMENTALS](#n-fundamentals)
 - [TRANSLATION MANAGEMENT](#translation-management)
 - [TOOLING](#tooling)
@@ -47,51 +45,49 @@
 - [LAYOUT](#layout)
 - [TESTING](#testing)
 - [DELIVERY](#delivery)
-- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [TRANSLATION MANAGEMENT DEEP ATLAS](#translation-management-deep-atlas)
-- [Each keyword = expandable workflow](#each-keyword-expandable-workflow)
-- [TMS Platforms](#tms-platforms)
-- [Workflow](#workflow)
-- [Quality](#quality)
+  - [Each keyword = expandable workflow](#each-keyword-expandable-workflow)
+  - [TMS Platforms](#tms-platforms)
+  - [Workflow](#workflow)
+  - [Quality](#quality)
 - [UNICODE DEEP ATLAS](#unicode-deep-atlas)
-- [Each keyword = expandable standard](#each-keyword-expandable-standard)
-- [Encoding](#encoding)
-- [Text Processing](#text-processing)
-- [Complex Scripts](#complex-scripts)
+  - [Each keyword = expandable standard](#each-keyword-expandable-standard)
+  - [Encoding](#encoding)
+  - [Text Processing](#text-processing)
+  - [Complex Scripts](#complex-scripts)
 - [MOBILE LOCALIZATION DEEP ATLAS](#mobile-localization-deep-atlas)
-- [Each keyword = expandable practice](#each-keyword-expandable-practice)
-- [iOS](#ios)
-- [Android](#android)
-- [React Native](#react-native)
-  - [END OF MEGA LOCALIZATION EXPANSION](#end-of-mega-localization-expansion)
-- [LOCALIZATION CODE EXAMPLES](#localization-code-examples)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice)
+  - [iOS](#ios)
+  - [Android](#android)
+  - [React Native](#react-native)
+    - [END OF MEGA LOCALIZATION EXPANSION](#end-of-mega-localization-expansion)
 - [NEXT SETUP](#next-setup)
-- [Configuration](#configuration)
+  - [Configuration](#configuration)
 - [NUMBER FORMATTING](#number-formatting)
-- [Intl API Patterns](#intl-api-patterns)
+  - [Intl API Patterns](#intl-api-patterns)
 - [RTL SUPPORT](#rtl-support)
-- [Bidirectional Layout](#bidirectional-layout)
-  - [CONTINUED: MORE LOCALIZATION PATTERNS](#continued-more-localization-patterns)
+  - [Bidirectional Layout](#bidirectional-layout)
+    - [CONTINUED: MORE LOCALIZATION PATTERNS](#continued-more-localization-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - I18N PRODUCTION FAILURES](#volume-8-titan-gemini-research---i18n-production-failures)
-- [MISSING TRANSLATION DETECTION](#missing-translation-detection)
-  - [The Scar](#the-scar)
-- [AI TRANSLATION PIPELINE](#ai-translation-pipeline)
-  - [The Scar 4](#the-scar-4)
-  - [END OF VOLUME 8: TITAN GEMINI RESEARCH - I18N PRODUCTION FAILURES](#end-of-volume-8-titan-gemini-research---i18n-production-failures)
+  - [MISSING TRANSLATION DETECTION](#missing-translation-detection)
+    - [The Scar](#the-scar)
+  - [DYNAMIC CONTENT TRANSLATION](#dynamic-content-translation)
+    - [The Scar](#the-scar-1)
+    - [END OF VOLUME 8: TITAN GEMINI RESEARCH - I18N PRODUCTION FAILURES](#end-of-volume-8-titan-gemini-research---i18n-production-failures)
 - [VOLUME 2: PRODUCTION LOCALIZATION PATTERNS](#volume-2-production-localization-patterns)
-- [I18N INFRASTRUCTURE AT SCALE](#i18n-infrastructure-at-scale)
-  - [Message Extraction Pipeline](#message-extraction-pipeline)
-- [RTL (RIGHT-TO-LEFT) SUPPORT](#rtl-right-to-left-support)
-  - [Bidirectional Text Handling](#bidirectional-text-handling)
-- [PLURALIZATION RULES](#pluralization-rules)
-  - [ICU MessageFormat for Complex Plurals](#icu-messageformat-for-complex-plurals)
-  - [END OF LOCALIZATION VOLUME 2](#end-of-localization-volume-2)
-  - [Lines: ~200+ added](#lines-200-added)
+  - [I18N INFRASTRUCTURE AT SCALE](#i18n-infrastructure-at-scale)
+    - [Message Extraction Pipeline](#message-extraction-pipeline)
+  - [RTL (RIGHT-TO-LEFT) SUPPORT](#rtl-right-to-left-support)
+    - [Bidirectional Text Handling](#bidirectional-text-handling)
+  - [PLURALIZATION RULES](#pluralization-rules)
+    - [ICU MessageFormat for Complex Plurals](#icu-messageformat-for-complex-plurals)
+    - [END OF LOCALIZATION VOLUME 2](#end-of-localization-volume-2)
+    - [Lines: ~200+ added](#lines-200-added)
 - [REAL I18N PATTERNS 2024](#real-i18n-patterns-2024)
-- [next-intl Setup](#next-intl-setup)
-- [Message Files Structure](#message-files-structure)
-  - [END OF LOCALIZATION PATTERNS](#end-of-localization-patterns)
-- [VOLUME 2: TITAN UPGRADE (APPENDED)](#volume-2-titan-upgrade-appended)
+  - [next-intl Setup](#next-intl-setup)
+  - [Message Files Structure](#message-files-structure)
+    - [END OF LOCALIZATION PATTERNS](#end-of-localization-patterns)
 - [1. THE SCARS](#1-the-scars)
 - [2. THE FOUNDATION](#2-the-foundation)
 - [3. TITAN PATTERNS](#3-titan-patterns)
@@ -112,7 +108,6 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
-
 1. The "Office Space" Rounding Error (JPY)
 2. The "German" Layout Break (Long Words)
 3. The "Red" Stock Market (Cultural Colors)
@@ -121,48 +116,42 @@
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. Next-Intl Setup (Server Components)
-2. Multi-Currency Display (Intl.NumberFormat)
-3. Date & Time Formatting (Intl.DateTimeFormat)
-4. ICU Message Format (Plurals & Gender)
+5. Next-Intl Setup (Server Components)
+6. Multi-Currency Display (Intl.NumberFormat)
+7. Date & Time Formatting (Intl.DateTimeFormat)
+8. ICU Message Format (Plurals & Gender)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. RTL Support (Arabic/Hebrew CSS Logic)
-2. Dynamic Content Translation (Database i18n)
-3. Timezone Handling (UTC vs Local)
-4. SEO Localization (Hreflang Tags)
+9. RTL Support (Arabic/Hebrew CSS Logic)
+10. Dynamic Content Translation (Database i18n)
+11. Timezone Handling (UTC vs Local)
+12. SEO Localization (Hreflang Tags)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. Translation Management Systems (Locize/Phrase)
-2. CI/CD Translation Pipeline (Automated Sync)
-3. CDN Edge Localization
+13. Translation Management Systems (Locize/Phrase)
+14. CI/CD Translation Pipeline (Automated Sync)
+15. CDN Edge Localization
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. Pseudo-Localization (Testing Strategy)
-2. AI Translation Pipeline (GPT-4 Context Awareness)
-3. Font Subsetting (Performance Optimization)
+16. Pseudo-Localization (Testing Strategy)
+17. AI Translation Pipeline (GPT-4 Context Awareness)
+18. Font Subsetting (Performance Optimization)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. Real-Time Voice Translation (Whisper)
-2. Cultural AI Adaptation (Generative UI)
-3. Universal Translator (Star Trek)
+19. Real-Time Voice Translation (Whisper)
+20. Cultural AI Adaptation (Generative UI)
+21. Universal Translator (Star Trek)
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. THE "OFFICE SPACE" ROUNDING ERROR
 
@@ -183,7 +172,6 @@ new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(10
 //
 
 ```text
-
 ---
 
 ## 2. THE "GERMAN" LAYOUT BREAK
@@ -202,7 +190,7 @@ Text overflowed. Layout shattered. Button unclickable.
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 8. ICU MESSAGE FORMAT
 
@@ -218,10 +206,9 @@ ICU Format handles complex pluralization rules automatically.
 "cart_items": "{count, plural, =0 {No items} one {1 item} other {# items}}"
 
 ```text
-
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 9. RTL SUPPORT
 
@@ -235,8 +222,7 @@ Don't use `margin-left`. Use `margin-inline-start`.
 - LTR: `margin-inline-start` = Left.
 
 - RTL: `margin-inline-start` = Right.
-
-**Tailwind**: Use `ms-2`(Margin Start) instead of`ml-2`.
+**Tailwind**: Use `ms-2` (Margin Start) instead of `ml-2`.
 
 ---
 
@@ -259,18 +245,18 @@ Don't use `margin-left`. Use `margin-inline-start`.
 - **Cons**: Complex indexing.
 
 **Strategy 3: Translation Table (Standard)**:
-`products`table +`product_translations`table.`SELECT * FROM product_translations WHERE product_id = 1 AND lang = 'fr'`.
+`products` table + `product_translations` table.
+`SELECT * FROM product_translations WHERE product_id = 1 AND lang = 'fr'`.
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 14. CI/CD TRANSLATION PIPELINE
 
 ### Automated Sync
 
 **Workflow**:
-
 1. Developer pushes code with new key: `t('new_feature')`.
 2. **Extraction Script**: Scans code, finds missing keys, uploads to TMS (Translation Management System).
 3. **TMS**: Notifies translators (or AI).
@@ -279,7 +265,7 @@ Don't use `margin-left`. Use `margin-inline-start`.
 
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 16. PSEUDO-LOCALIZATION
 
@@ -288,11 +274,9 @@ Don't use `margin-left`. Use `margin-inline-start`.
 **Concept**:
 How do you test i18n without waiting for translations?
 **Pseudo-Loc**: Automatically transform English strings.
-
 1. **Accents**: "Account" -> (Tests encoding).
 2. **Expansion**: Add 30% length. "Name" -> "Name [!!! !!!]". (Tests layout).
 3. **Brackets**: "[String]". (Tests concatenation).
-
 **Benefit**: Developers see i18n bugs immediately.
 
 ---
@@ -312,7 +296,7 @@ Pass context to LLM.
 
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 19. REAL-TIME VOICE TRANSLATION
 
@@ -321,11 +305,9 @@ Pass context to LLM.
 **Concept**:
 Speak in English -> Hear in Japanese (with your own voice cloned).
 **Tech Stack**:
-
 1. **ASR**: OpenAI Whisper (Speech to Text).
 2. **MT**: NLLB (Translation).
 3. **TTS**: ElevenLabs (Text to Speech with Voice Cloning).
-
 **Latency**: The battle is getting this under 200ms.
 
 ---
@@ -608,17 +590,18 @@ defaultLocale: 'fr',
 
 **Why it exists:** Scalable internationalization
 
+```typescript
 // lib/i18n.ts
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-    i18n
-      .use(Backend)
-      .use(LanguageDetector)
-      .use(initReactI18next)
-      .init({
+i18n
+  .use(Backend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
 fallbackLng: 'en',
 supportedLngs: ['en', 'es', 'fr', 'de', 'ja', 'zh'],
 ns: ['common', 'home', 'product'],
@@ -627,11 +610,11 @@ interpolation: { escapeValue: false },
 detection: {
 order: ['cookie', 'localStorage', 'navigator'],
 caches: ['cookie'],
-        },
+    },
 backend: {
 loadPath: '/locales/{{lng}}/{{ns}}.json',
-        },
-      });
+    },
+  });
 
 export default i18n;
 
@@ -644,16 +627,19 @@ const { t, i18n } = useTranslation('product');
 const formattedPrice = new Intl.NumberFormat(i18n.language, {
 style: 'currency',
 currency: product.currency,
-      }).format(product.price);
+  }).format(product.price);
 
 return (
-        <div>
-        <h2>{product.name}</h2>
-        <p>{formattedPrice}</p>
-        <button>{t('addToCart')}</button>
-        </div>
-      );
-    }
+    <div>
+      <h2>{product.name}</h2>
+      <p>{formattedPrice}</p>
+      <button>{t('addToCart')}</button>
+    </div>
+  );
+}
+
+```text
+---
 
 ## NUMBER FORMATTING
 
@@ -701,7 +687,6 @@ return messages[rule];
 }
 
 ```text
-
 ---
 
 ## RTL SUPPORT
@@ -730,7 +715,6 @@ return { isRTL, direction: isRTL ? 'rtl' : 'ltr' };
 }
 
 ```text
-
 ---
 
 ### CONTINUED: MORE LOCALIZATION PATTERNS
@@ -757,7 +741,6 @@ return <h1>{t('user.profile.settings')}</h1>;
 // Shows 'user.profile.settings' if translation missing
 
 ```typescript
-
 // TITAN: Comprehensive missing translation detection
 import i18n from 'i18next';
 
@@ -875,13 +858,14 @@ extractKeysRecursive(value, fullKey, keys);
 
 ## TIMEZONE HANDLING EDGE CASES
 
-### The Scar 2
+### The Scar
 
 > "User in Tokyo schedules meeting for 'Monday 9 AM'.
 > Server stores as UTC. Displays as 'Sunday 11 PM' in Tokyo.
 > Off by one day. Meeting missed.
 > Didn't account for timezone in date-only operations."
 
+```typescript
 // VIBE: Naive date handling
 function scheduleEvent(date: string, time: string) {
 const dateTime = new Date(`${date}T${time}`);
@@ -891,6 +875,7 @@ return dateTime.toISOString();  // Loses timezone context
 // Gets saved as "Sunday 11 PM UTC"
 // Displays as "Sunday 11 PM" to other Tokyo users
 
+```typescript
 // TITAN: Timezone-aware date handling with Temporal API
 // Note: Using date-fns-tz until Temporal is fully supported
 
@@ -901,15 +886,13 @@ interface ScheduledEvent {
 utcDateTime: string;  // Stored in UTC
 originTimezone: string;  // User's timezone when created
 | displayPreference: 'local' | 'origin'; |
-    }
+}
 
 class TimezoneAwareScheduler {
-        /**
-
+    /**
 - Schedule event preserving timezone context.
-
-         */
-        scheduleEvent(
+     */
+    scheduleEvent(
 date: string,  // "2024-01-15"
 time: string,  // "09:00"
 userTimezone: string    // "Asia/Tokyo"
@@ -925,14 +908,12 @@ utcDateTime: utcDate.toISOString(),
 originTimezone: userTimezone,
 displayPreference: 'local'
         };
-        }
+    }
 
-        /**
-
+    /**
 - Display event to user in their timezone.
-
-         */
-        displayEvent(
+     */
+    displayEvent(
 event: ScheduledEvent,
 viewerTimezone: string,
 locale: string = 'en-US'
@@ -957,16 +938,14 @@ date: format(localDate, 'PPP', { locale: getLocale(locale) }),
 time: format(localDate, 'p', { locale: getLocale(locale) }),
         note
         };
-        }
+    }
 
-        /**
-
+    /**
 - Get "wall clock" date without timezone conversion.
 - For events like "Company holiday on January 1st" that should be
 - the same date regardless of timezone.
-
-         */
-        getWallClockDate(
+     */
+    getWallClockDate(
 isoDate: string,  // "2024-01-01"
 locale: string
 ): string {
@@ -979,8 +958,8 @@ year: 'numeric',
 month: 'long',
 day: 'numeric'
         }).format(date);
-        }
     }
+}
 
 // Edge cases to always test:
 // 1. DST transitions (2 AM doesn't exist, 1 AM happens twice)
@@ -988,9 +967,11 @@ day: 'numeric'
 // 3. Timezones with 30/45 minute offsets (India, Nepal)
 // 4. Leap seconds (rare but exist)
 
+```text
+
 ## DYNAMIC CONTENT TRANSLATION
 
-### The Scar 2 2
+### The Scar
 
 > "Product names in database: English only.
 > German user sees 'Leather Wallet' not
@@ -998,12 +979,11 @@ day: 'numeric'
 > 60% of user-facing text still in English."
 
 ```typescript
-
 // VIBE: Only translate static UI
 return (
     <div>
         <h1>{t('product.title')}</h1>
-<p>{product.name}</p> {/*Always English!*/}
+<p>{product.name}</p> {/* Always English! */}
     </div>
 );
 
@@ -1026,7 +1006,6 @@ private cache: Redis
 ) {}
 
     /**
-
 - Get translated content with fallback chain.
      */
 async getTranslatedContent(
@@ -1082,7 +1061,6 @@ return translation;
     }
 
     /**
-
 - Context-aware AI translation.
      */
 private async generateTranslation(
@@ -1096,7 +1074,6 @@ Translate the following ${context.type} ${context.field} from English to ${targe
 Context: This is a ${context.type} name/description for an e-commerce site.
 
         Rules:
-
 1. Keep brand names unchanged
 2. Maintain product specifications (sizes, numbers)
 3. Use formal/professional tone
@@ -1145,13 +1122,14 @@ updatedAt DateTime @updatedAt
 
 ## AI TRANSLATION PIPELINE
 
-### The Scar 4
+### The Scar
 
 > "Used Google Translate API for 10,000 strings.
 > UI text: 'Add to Cart' became al Carro' (Add to Car).
 > Context lost. Multiple embarrassing mistranslations.
 > Had to hire translators to fix anyway."
 
+```typescript
 // VIBE: Naive machine translation
 async function translateAll(strings: string[], targetLang: string) {
 return Promise.all(
@@ -1160,6 +1138,7 @@ strings.map(s => googleTranslate(s, 'en', targetLang))
 }
 // No context = bad translations
 
+```typescript
 // TITAN: Context-aware translation pipeline
 interface TranslationContext {
 key: string;  // 'button.add_to_cart'
@@ -1169,10 +1148,10 @@ maxLength?: number;  // 20 (for UI constraints)
 screenshot?: string;  // URL to screenshot showing context
 pluralForms?: boolean;  // Does this have plural variations?
 variables?: string[];  // ['count', 'productName']
-    }
+}
 
 class AITranslationPipeline {
-        constructor(
+    constructor(
 private llm: LLMClient,
 private translationMemory: TranslationMemory,
 private glossary: Glossary
@@ -1218,7 +1197,7 @@ results.set(key, translation);
         }
 
 return results;
-        }
+    }
 
 private async translateWithContext(
 items: TranslationContext[],
@@ -1229,14 +1208,14 @@ const glossaryText = Array.from(glossary.entries())
 .map(([en, local]) => `"${en}" "${local}"`)
         .join('\n');
 
-const prompt = `You are a professional translator for a software application.
+const prompt = `
+You are a professional translator for a software application.
 Translate the following UI strings from English to ${this.getLanguageName(targetLocale)}.
 
 GLOSSARY (always use these translations):
-    ${glossaryText}
+${glossaryText}
 
-    RULES:
-
+RULES:
 1. Maintain the same tone (formal/informal) as the source
 2. Keep variable placeholders exactly as-is: {variable}
 3. Respect maxLength constraints (abbreviate if needed)
@@ -1245,20 +1224,20 @@ GLOSSARY (always use these translations):
 6. Never translate brand names, technical terms in glossary
 
 STRINGS TO TRANSLATE:
-${items.map(item =>`
-
+${items.map(item => `
+---
 Key: ${item.key}
 Source: "${item.source}"
 | Description: ${item.description |  | 'N/A'} |
 | Max Length: ${item.maxLength |  | 'No limit'} |
 | Variables: ${item.variables?.join(', ') |  | 'None'} |
-    `).join('\n')}
+`).join('\n')}
 
 Respond in JSON format:
-    {
+{
 "${items[0].key}": "translation",
-        ...
-    }
+    ...
+}
         `.trim();
 
 const response = await this.llm.complete(prompt, {
@@ -1266,13 +1245,11 @@ temperature: 0.3  // Lower temp for consistency
         });
 
 return new Map(Object.entries(JSON.parse(response)));
-        }
+    }
 
-        /**
-
+    /**
 - Validate translations before saving.
-
-         */
+     */
 async validateTranslations(
 translations: Map<string, string>,
 items: TranslationContext[]
@@ -1297,7 +1274,8 @@ for (const variable of item.variables) {
 if (!translation.includes(`{${variable}}`)) {
         issues.push({
 key: item.key,
-issue: `Missing variable: {${variable}}`});
+issue: `Missing variable: {${variable}}`
+        });
         }
         }
         }
@@ -1310,16 +1288,20 @@ const preserved = englishWords.filter(w => translatedWords.includes(w) && w.leng
 if (preserved.length > 2) {
         issues.push({
 key: item.key,
-issue:`Possible untranslated words: ${preserved.join(', ')}`
+issue: `Possible untranslated words: ${preserved.join(', ')}`
         });
         }
         }
 
 return issues;
-        }
     }
+}
+
+```text
 
 ### END OF VOLUME 8: TITAN GEMINI RESEARCH - I18N PRODUCTION FAILURES
+
+---
 
 ## VOLUME 2: PRODUCTION LOCALIZATION PATTERNS
 
@@ -1329,6 +1311,7 @@ return issues;
 
 **The Scar**: Airbnb lost \ in bookings when a translation key was missing in Japanese, causing booking button to disappear
 
+```typescript
 // ? TITAN: Production i18n with fallback chains and error handling
 import { IntlMessageFormat } from 'intl-messageformat';
 
@@ -1336,7 +1319,7 @@ interface TranslationConfig {
 defaultLocale: string;
 fallbackChain: Record<string, string[]>;
 | missingKeyBehavior: 'fallback' | 'key' | 'empty'; |
-    }
+}
 
 class ProductionI18n {
 private messages: Map<string, Record<string, string>> = new Map();
@@ -1345,7 +1328,7 @@ private config: TranslationConfig;
 
 constructor(config: TranslationConfig) {
 this.config = config;
-      }
+  }
 
 async loadLocale(locale: string): Promise<void> {
 try {
@@ -1355,8 +1338,8 @@ this.messages.set(locale, messages);
 } catch (error) {
 console.error(\Failed to load locale \\, error);
 // Don't crash - use fallback
-        }
-      }
+    }
+  }
 
 t(key: string, locale: string, values?: Record<string, unknown>): string {
 // 1. Try requested locale
@@ -1372,28 +1355,28 @@ if (message) {
 this.logFallback(key, locale, fallbackLocale);
         break;
         }
-        }
-        }
+      }
+    }
 
 // 3. Try default locale
 if (!message) {
 message = this.getMessage(key, this.config.defaultLocale);
-        }
+    }
 
 // 4. Handle missing key
 if (!message) {
 this.logMissingKey(key, locale);
 return this.handleMissingKey(key);
-        }
+    }
 
 // 5. Format with ICU MessageFormat
 return this.formatMessage(message, locale, values);
-      }
+  }
 
 | private getMessage(key: string, locale: string): string | undefined { |
 const localeMessages = this.messages.get(locale);
 return localeMessages?.[key];
-      }
+  }
 
 private formatMessage(
 message: string,
@@ -1406,10 +1389,10 @@ let formatter = this.formatCache.get(cacheKey);
 if (!formatter) {
 formatter = new IntlMessageFormat(message, locale);
 this.formatCache.set(cacheKey, formatter);
-        }
+    }
 
 return formatter.format(values) as string;
-      }
+  }
 
 private handleMissingKey(key: string): string {
 switch (this.config.missingKeyBehavior) {
@@ -1419,8 +1402,8 @@ case 'key':
 return \[[\]]\;  // Clearly visible in UI
 case 'empty':
 return '';
-        }
-      }
+    }
+  }
 
 private logMissingKey(key: string, locale: string): void {
 // Alert monitoring when keys are missing in production
@@ -1428,8 +1411,8 @@ fetch('/api/i18n/missing', {
 method: 'POST',
 body: JSON.stringify({ key, locale, timestamp: Date.now() })
 }).catch(() => {});
-      }
-    }
+  }
+}
 
 // Usage
 const i18n = new ProductionI18n({
@@ -1439,89 +1422,92 @@ fallbackChain: {
 'es-MX': ['es-ES', 'en-US'],
 'zh-HK': ['zh-TW', 'zh-CN', 'en-US'],
 'pt-BR': ['pt-PT', 'en-US']
-      },
+  },
 missingKeyBehavior: 'fallback'
-    });
+});
+
+```text
+---
 
 ## RTL (RIGHT-TO-LEFT) SUPPORT
 
 ### Bidirectional Text Handling
 
 ```css
-/*? TITAN: Production RTL support with CSS logical properties*/
+/* ? TITAN: Production RTL support with CSS logical properties */
 .card {
-/*Use logical properties instead of physical*/
-margin-inline-start: 1rem;  /*Instead of margin-left*/
-margin-inline-end: 1rem;    /*Instead of margin-right*/
-padding-block: 1rem;  /*Instead of padding-top/bottom*/
-padding-inline: 1.5rem;  /*Instead of padding-left/right*/
+/* Use logical properties instead of physical */
+margin-inline-start: 1rem;  /* Instead of margin-left */
+margin-inline-end: 1rem;    /* Instead of margin-right */
+padding-block: 1rem;  /* Instead of padding-top/bottom */
+padding-inline: 1.5rem;  /* Instead of padding-left/right */
 
-/*Border radius uses logical properties in newer browsers*/
-border-start-start-radius: 8px;  /*top-left in LTR, top-right in RTL*/
+/* Border radius uses logical properties in newer browsers */
+border-start-start-radius: 8px;  /* top-left in LTR, top-right in RTL */
 border-start-end-radius: 8px;
 border-end-start-radius: 8px;
 border-end-end-radius: 8px;
 
-/*Text alignment*/
-text-align: start;  /*Instead of left*/
+/* Text alignment */
+text-align: start;  /* Instead of left */
 }
 
-/*Flexbox direction automatically flips in RTL*/
+/* Flexbox direction automatically flips in RTL */
 .horizontal-list {
 display: flex;
-flex-direction: row;  /*Becomes row-reverse in RTL*/
+flex-direction: row;  /* Becomes row-reverse in RTL */
 gap: 1rem;
 }
 
-/*For icons that should NOT flip*/
+/* For icons that should NOT flip */
 .icon-checkmark,
 .icon-arrow-up,
 .icon-arrow-down {
-/*These are universal, don't flip*/
+/* These are universal, don't flip */
 }
 
-/*For icons that SHOULD flip*/
+/* For icons that SHOULD flip */
 [dir="rtl"] .icon-arrow-right {
 transform: scaleX(-1);
 }
 
-/*Float handling*/
+/* Float handling */
 .sidebar {
-float: inline-start;  /*left in LTR, right in RTL*/
+float: inline-start;  /* left in LTR, right in RTL */
 width: 250px;
 }
 
 ```text
-
 ---
 
 ## PLURALIZATION RULES
 
 ### ICU MessageFormat for Complex Plurals
 
+```typescript
 // ? TITAN: Production plural handling
 const messages = {
 'en-US': {
 'cart.items': '{count, plural, =0 {No items} one {# item} other {# items}} in cart',
 'notification.messages': '{count, plural, =0 {No new messages} one {You have # new message} other {You have # new messages}}'
-      },
+  },
 'ar-SA': {
 // Arabic has 6 plural forms!
 'cart.items': '{count, plural, =0 {?? ???? ?????} one {???? ????} two {??????} few {# ?????} many {# ?????} other {# ????}} ?? ?????'
-      },
+  },
 'ru-RU': {
 // Russian has complex plural rules
 'cart.items': '{count, plural, =0 {??? ???????} one {# ?????} few {# ??????} many {# ???????} other {# ??????}} ? ???????'
-      }
-    };
+  }
+};
 
 // Date/Time formatting with locale awareness
 | function formatDateTime(date: Date, locale: string, style: 'full' | 'long' | 'medium' | 'short' = 'medium'): string { |
 return new Intl.DateTimeFormat(locale, {
 dateStyle: style,
 timeStyle: style
-      }).format(date);
-    }
+  }).format(date);
+}
 
 // Currency formatting
 function formatCurrency(amount: number, currency: string, locale: string): string {
@@ -1529,28 +1515,34 @@ return new Intl.NumberFormat(locale, {
 style: 'currency',
 currency: currency,
 minimumFractionDigits: 2
-      }).format(amount);
-    }
+  }).format(amount);
+}
 
 // Usage
 formatCurrency(1234.56, 'USD', 'en-US');  // "\,234.56"
 formatCurrency(1234.56, 'JPY', 'ja-JP');  // "?1,235" (no decimals for yen)
 formatCurrency(1234.56, 'EUR', 'de-DE');  // "1.234,56 (German format)
 
+```text
+---
+
 ### END OF LOCALIZATION VOLUME 2
 
 ### Lines: ~200+ added
+
+---
 
 ## REAL I18N PATTERNS 2024
 
 ## next-intl Setup
 
+```typescript
 // i18n.ts
 import { getRequestConfig } from 'next-intl/server';
 
 export default getRequestConfig(async ({ locale }) => ({
 messages: (await import(`./messages/${locale}.json`)).default,
-    }));
+}));
 
 // middleware.ts
 import createMiddleware from 'next-intl/middleware';
@@ -1558,11 +1550,11 @@ import createMiddleware from 'next-intl/middleware';
 export default createMiddleware({
 locales: ['en', 'es', 'fr', 'de', 'ja'],
 defaultLocale: 'en',
-    });
+});
 
 export const config = {
 | matcher: ['/((?!api | _next | .*\\..*).*)'], |
-    };
+};
 
 // Component usage
 import { useTranslations } from 'next-intl';
@@ -1571,13 +1563,16 @@ function WelcomePage() {
 const t = useTranslations('HomePage');
 
 return (
-        <div>
-        <h1>{t('title')}</h1>
+    <div>
+      <h1>{t('title')}</h1>
 <p>{t('description', { name: 'John' })}</p>
 <p>{t('items', { count: 5 })}</p>
-        </div>
-      );
-    }
+    </div>
+  );
+}
+
+```text
+---
 
 ## Message Files Structure
 
@@ -1597,7 +1592,6 @@ return (
 }
 
 ```text
-
 ---
 
 ### END OF LOCALIZATION PATTERNS
@@ -1605,16 +1599,13 @@ return (
 ## VOLUME 2: TITAN UPGRADE (APPENDED)
 
 ## 1. THE SCARS
-
 - **The 'Turkish I'**: String upper-casing bug caused crash. Lesson: Locale-aware string functions.
 - **The 'Layout Break'**: German text is 30% longer than English. UI overflow.
 
 ## 2. THE FOUNDATION
-
 - **i18n vs l10n**: Internationalization (Code) vs Localization (Content).
 - **RTL Support**: Right-to-Left for Arabic/Hebrew. CSS `direction: rtl`.
 
 ## 3. TITAN PATTERNS
-
 - **ICU Message Format**: Handling plurals and gender in translations.
 - **Pseudo-Localization**: Test with "L?r?m ?ps?m" to spot hardcoded strings.

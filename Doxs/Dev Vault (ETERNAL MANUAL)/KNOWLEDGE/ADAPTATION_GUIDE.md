@@ -1,66 +1,62 @@
-# Phase 1: Project Analysis
+# Dev Vault Adaptation Guide
 
-## Table of Contents
+> **Purpose**: This guide enables the Dev Vault to adapt to ANY project, transforming universal knowledge into project-specific intelligence.
 
-- [Table of Contents](#table-of-contents)
-- [Steps](#steps)
-- [Phase 2: Environment Integration](#phase-2-environment-integration)
-- [Mapping Examples](#mapping-examples)
-- [Phase 3: Checklist Generation](#phase-3-checklist-generation)
-- [Auto-Generated Checklists](#auto-generated-checklists)
-- [When to Add New Domain](#when-to-add-new-domain)
-- [Tier 1: Always Include (Core)](#tier-1-always-include-core)
-- [Tier 2: Usually Include (Common)](#tier-2-usually-include-common)
-- [Tier 3: Specialized (As Needed)](#tier-3-specialized-as-needed)
-- [Tier 4: Niche (Rare)](#tier-4-niche-rare)
-- [TypeScript/JavaScript](#typescriptjavascript)
-- [Python](#python)
-- [Step 2: Cross-Cutting Verification](#step-2-cross-cutting-verification)
-- [Step 3: Pre-Deploy Checklist](#step-3-pre-deploy-checklist)
-- [Step 1: Symptom Matching](#step-1-symptom-matching)
-- [Step 2: Root Cause Investigation](#step-2-root-cause-investigation)
-- [Step 3: Fix Application](#step-3-fix-application)
-- [LLM/Agent Integration Prompt](#llmagent-integration-prompt)
-- [Adaptation Prompt Template](#adaptation-prompt-template)
-- [For BRAIN Section](#for-brain-section)
+---
 
-## Steps
+## Adaptation Process
+
+## Phase 1: Project Analysis
+
+```text
+
+Project → Tech Stack Detection → Domain Identification → Relevant Patterns
+
+```text
+
+### Steps
 
 1. **Identify Tech Stack**
 
-- Frontend: React/Vue/Svelte/Angular/Vanilla
+   * Frontend: React/Vue/Svelte/Angular/Vanilla
 
-- Backend: Node/Python/Go/Rust/Java
+   * Backend: Node/Python/Go/Rust/Java
 
-- Database: PostgreSQL/MongoDB/MySQL/Redis
+   * Database: PostgreSQL/MongoDB/MySQL/Redis
 
-- Hosting: Vercel/AWS/GCP/Azure/Cloudflare
+   * Hosting: Vercel/AWS/GCP/Azure/Cloudflare
 
-1. **Identify Domains**
+2. **Identify Domains**
 
-- From 22 available domains, select relevant ones
+   * From 22 available domains, select relevant ones
 
-- Core domains (always needed): Frontend, Backend, Database, Testing, Security, DevOps
+   * Core domains (always needed): Frontend, Backend, Database, Testing, Security, DevOps
 
-- Specialized domains (project-specific): Choose from remaining 16
+   * Specialized domains (project-specific): Choose from remaining 16
 
-1. **Generate Project-Specific Vault**
+3. **Generate Project-Specific Vault**
 
-- Extract relevant patterns from universal vault
+   * Extract relevant patterns from universal vault
 
-- Add project-specific configurations
+   * Add project-specific configurations
 
-- Create decision trees for this tech stack
+   * Create decision trees for this tech stack
 
 ## Phase 2: Environment Integration
 
+```text
+
 Universal Patterns → Tech Stack Mapping → Local Configuration → Verified Setup
 
-## Mapping Examples
+```text
+
+### Mapping Examples
 
 | Universal Pattern | Next.js Implementation | FastAPI Implementation |
 
-| Auth middleware | `middleware.ts`+ next-auth | `Depends()`+ FastAPI-users |
+|-------------------|------------------------|------------------------|
+
+| Auth middleware | `middleware.ts` + next-auth | `Depends()` + FastAPI-users |
 
 | API routes | `app/api/[...]/route.ts` | `@router.get("/...")` |
 
@@ -72,37 +68,45 @@ Universal Patterns → Tech Stack Mapping → Local Configuration → Verified S
 
 ## Phase 3: Checklist Generation
 
+```text
+
 Project Domains → Pre-deploy Checklist → Post-deploy Monitoring → Runbook
 
-## Auto-Generated Checklists
+```text
 
-For **Next.js + Prisma + Vercel**project:
+### Auto-Generated Checklists
 
-- [ ] Run`prisma generate` before build
+For **Next.js + Prisma + Vercel** project:
 
-- [ ] Check ISR cache invalidation
+* [ ] Run `prisma generate` before build
 
-- [ ] Verify Edge Functions limits
+* [ ] Check ISR cache invalidation
 
-- [ ] Test middleware chain order
+* [ ] Verify Edge Functions limits
 
-- [ ] Validate environment variables
+* [ ] Test middleware chain order
 
-- [ ] Check Prisma connection pooling for serverless
+* [ ] Validate environment variables
 
-For**FastAPI + PostgreSQL + AWS** project:
+* [ ] Check Prisma connection pooling for serverless
 
-- [ ] Run Alembic migrations
+For **FastAPI + PostgreSQL + AWS** project:
 
-- [ ] Check connection pool settings
+* [ ] Run Alembic migrations
 
-- [ ] Verify Lambda cold start handling
+* [ ] Check connection pool settings
 
-- [ ] Test API Gateway timeouts
+* [ ] Verify Lambda cold start handling
 
-- [ ] Validate secrets in AWS Secrets Manager
+* [ ] Test API Gateway timeouts
 
-- [ ] Check Pydantic model serialization
+* [ ] Validate secrets in AWS Secrets Manager
+
+* [ ] Check Pydantic model serialization
+
+---
+
+## Domain Adaptation Rules
 
 ## When to Add New Domain
 
@@ -114,21 +118,33 @@ Add a new domain when:
 
 3. The patterns cannot be merged into existing domains
 
-## Tier 1: Always Include (Core)
+## Domain Priority Tiers
 
-- Frontend, Backend, Database, DevOps, Security, Testing
+### Tier 1: Always Include (Core)
 
-## Tier 2: Usually Include (Common)
+* Frontend, Backend, Database, DevOps, Security, Testing
 
-- System Design, Cloud, Mobile
+### Tier 2: Usually Include (Common)
 
-## Tier 3: Specialized (As Needed)
+* System Design, Cloud, Mobile
 
-- Payments, Search, Real-time, ML/AI, Blockchain, IoT, VR/AR
+### Tier 3: Specialized (As Needed)
 
-## Tier 4: Niche (Rare)
+* Payments, Search, Real-time, ML/AI, Blockchain, IoT, VR/AR
 
-- Climate, Legal Docs, Localization, Ancient Wisdom, Investment
+### Tier 4: Niche (Rare)
+
+* Climate, Legal Docs, Localization, Ancient Wisdom, Investment
+
+---
+
+## Vaccine System Integration
+
+## Pre-Deployment Verification Protocol
+
+### Step 1: Static Analysis
+
+```bash
 
 ## TypeScript/JavaScript
 
@@ -144,41 +160,49 @@ mypy .
 
 ruff check .
 
-    pytest
+pytest
 
-## Step 2: Cross-Cutting Verification
+```text
+
+### Step 2: Cross-Cutting Verification
+
+```text
 
 If changed: AUTH
 
-→ Verify: Protected routes
+  → Verify: Protected routes
 
-→ Verify: API middleware
+  → Verify: API middleware
 
-→ Verify: Token refresh
+  → Verify: Token refresh
 
-→ Verify: Session handling
+  → Verify: Session handling
 
 If changed: DATABASE_SCHEMA
 
-→ Verify: Migrations
+  → Verify: Migrations
 
-→ Verify: Seed data
+  → Verify: Seed data
 
-→ Verify: Foreign keys
+  → Verify: Foreign keys
 
-→ Verify: Indexes
+  → Verify: Indexes
 
 If changed: API_ROUTES
 
-→ Verify: Auth middleware
+  → Verify: Auth middleware
 
-→ Verify: Rate limiting
+  → Verify: Rate limiting
 
-→ Verify: Input validation
+  → Verify: Input validation
 
-→ Verify: Error handling
+  → Verify: Error handling
 
-## Step 3: Pre-Deploy Checklist
+```text
+
+### Step 3: Pre-Deploy Checklist
+
+```text
 
 [ ] All tests pass
 
@@ -192,49 +216,73 @@ If changed: API_ROUTES
 
 [ ] Rollback plan ready
 
-## Step 1: Symptom Matching
+```text
+
+---
+
+## Injection System Integration
+
+## Error Response Protocol
+
+### Step 1: Symptom Matching
+
+```text
 
 Error: "ECONNREFUSED"
 
-→ Database not running
+  → Database not running
 
-→ Wrong host/port
+  → Wrong host/port
 
-→ Firewall blocking
+  → Firewall blocking
 
-→ Connection pool exhausted
+  → Connection pool exhausted
 
 Error: "Invalid token"
 
-→ Token expired
+  → Token expired
 
-→ Wrong algorithm
+  → Wrong algorithm
 
-→ Secret mismatch
+  → Secret mismatch
 
-→ Token malformed
+  → Token malformed
 
 Error: "hydration mismatch"
 
-→ Server/client state differ
+  → Server/client state differ
 
-→ Date/time issues
+  → Date/time issues
 
-→ Dynamic content in SSR
+  → Dynamic content in SSR
 
-→ Browser extensions
+  → Browser extensions
 
-## Step 2: Root Cause Investigation
+```text
+
+### Step 2: Root Cause Investigation
+
+```text
 
 Symptom → Check logs → Check network → Check database → Check code
 
-## Step 3: Fix Application
+```text
+
+### Step 3: Fix Application
+
+```text
 
 Root Cause → Pattern Match → Apply Fix → Verify → Document
+
+```text
+
+---
 
 ## LLM/Agent Integration Prompt
 
 When an LLM/Agent receives this Dev Vault, it should:
+
+```text
 
 1. ANALYZE the project structure
 
@@ -252,7 +300,11 @@ When an LLM/Agent receives this Dev Vault, it should:
 
 8. APPLY fixes with verification protocols
 
+```text
+
 ## Adaptation Prompt Template
+
+```text
 
 You are using Dev Vault for project: [PROJECT_NAME]
 
@@ -276,6 +328,10 @@ Before deployments:
 
 3. Confirm rollback plan
 
+```text
+
+---
+
 ## For BRAIN Section
 
 The BRAIN should adapt similarly:
@@ -287,5 +343,7 @@ The BRAIN should adapt similarly:
 3. Generate quick-reference flows for this project
 
 4. Create project-specific root cause maps
+
+---
 
 *This guide ensures the Dev Vault transforms from universal knowledge to project-specific intelligence, making any LLM/Agent using it capable of senior developer-level troubleshooting.*

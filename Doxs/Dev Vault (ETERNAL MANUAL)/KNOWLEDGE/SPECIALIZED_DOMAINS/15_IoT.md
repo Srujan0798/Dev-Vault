@@ -1,82 +1,114 @@
 # IOT
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [15_IOT.MD: THE TITAN GUIDE (50K TARGET)](#15_iotmd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade Sensor Networks, Edge AI, and MQTT](#production-grade-sensor-networks-edge-ai-and-mqtt)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. THE MIRAI BOTNET](#1-the-mirai-botnet)
-  - [The Default Password Disaster](#the-default-password-disaster)
-- [3. THE $50K 4G BILL](#3-the-50k-4g-bill)
-  - [Chatty Devices](#chatty-devices)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [6. MQTT PROTOCOL](#6-mqtt-protocol)
-  - [Lightweight Messaging](#lightweight-messaging)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [9. EDGE COMPUTING](#9-edge-computing)
-  - [Don't Send Raw Data](#dont-send-raw-data)
-- [10. OTA UPDATES](#10-ota-updates)
-  - [A/B Partitioning](#ab-partitioning)
-- [VOLUME 4: THE EXPERT (THE "SCALE") 2](#volume-4-the-expert-the-scale-2)
-- [13. LORAWAN MESH NETWORKS](#13-lorawan-mesh-networks)
-  - [Long Range, Low Power](#long-range-low-power)
-- [14. DIGITAL TWINS](#14-digital-twins)
-  - [Virtual Replicas](#virtual-replicas)
-- [VOLUME 5: THE TITAN (THE "KERNEL") 2](#volume-5-the-titan-the-kernel-2)
-- [16. REAL-TIME OS (FREERTOS)](#16-real-time-os-freertos)
-  - [Multitasking on a Chip](#multitasking-on-a-chip)
-- [17. CUSTOM PCB DESIGN](#17-custom-pcb-design)
-  - [KiCad & Manufacturing](#kicad-manufacturing)
-- [VOLUME 6: THE INFINITE (THE "FUTURE") 2](#volume-6-the-infinite-the-future-2)
-- [19. TINYML](#19-tinyml)
-  - [AI on Microcontrollers](#ai-on-microcontrollers)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. THE MIRAI BOTNET](#1-the-mirai-botnet)
+    - [The Default Password Disaster](#the-default-password-disaster)
+  - [3. THE $50K 4G BILL](#3-the-50k-4g-bill)
+    - [Chatty Devices](#chatty-devices)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [6. MQTT PROTOCOL](#6-mqtt-protocol)
+    - [Lightweight Messaging](#lightweight-messaging)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [9. EDGE COMPUTING](#9-edge-computing)
+    - [Don't Send Raw Data](#dont-send-raw-data)
+  - [10. OTA UPDATES](#10-ota-updates)
+    - [A/B Partitioning](#ab-partitioning)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [13. LORAWAN MESH NETWORKS](#13-lorawan-mesh-networks)
+    - [Long Range, Low Power](#long-range-low-power)
+  - [14. DIGITAL TWINS](#14-digital-twins)
+    - [Virtual Replicas](#virtual-replicas)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [16. REAL-TIME OS (FREERTOS)](#16-real-time-os-freertos)
+    - [Multitasking on a Chip](#multitasking-on-a-chip)
+  - [17. CUSTOM PCB DESIGN](#17-custom-pcb-design)
+    - [KiCad & Manufacturing](#kicad-manufacturing)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [19. TINYML](#19-tinyml)
+    - [AI on Microcontrollers](#ai-on-microcontrollers)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE ULTIMATE ESP32 CONFIG](#a-the-ultimate-esp32-config)
-- [include <WiFi.h> 2](#include-wifih-2)
-- [include <PubSubClient.h>](#include-pubsubclienth)
-- [OTA UPDATE ATOMIC PATCHING](#ota-update-atomic-patching)
-- [The Scar 2](#the-scar-2)
-- [include "esp_ota_ops.h"](#include-espotaopsh)
+  - [A. THE ULTIMATE ESP32 CONFIG](#a-the-ultimate-esp32-config)
+- [KEYWORD REFERENCE INDEX](#keyword-reference-index)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+- [EMBEDDED SYSTEMS](#embedded-systems)
+- [CONNECTIVITY](#connectivity)
+- [IOT PLATFORMS](#iot-platforms)
+- [SECURITY](#security)
+- [POWER OPTIMIZATION](#power-optimization)
+- [DATA PROCESSING](#data-processing)
+- [INDUSTRIAL IOT](#industrial-iot)
+- [DEVELOPMENT](#development)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+- [COMMUNICATION PROTOCOLS DEEP ATLAS](#communication-protocols-deep-atlas)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
+  - [MQTT](#mqtt)
+  - [CoAP](#coap)
+  - [LoRaWAN](#lorawan)
+  - [Cellular IoT](#cellular-iot)
+- [IOT SECURITY DEEP ATLAS](#iot-security-deep-atlas)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice)
+  - [Device Identity](#device-identity)
+  - [OTA Updates](#ota-updates)
+  - [Network Security](#network-security)
+- [INDUSTRIAL IOT DEEP ATLAS](#industrial-iot-deep-atlas)
+  - [Each keyword = expandable protocol](#each-keyword-expandable-protocol)
+  - [OPC-UA](#opc-ua)
+  - [SCADA](#scada)
+  - [Edge Computing](#edge-computing)
+    - [END OF MEGA IOT EXPANSION](#end-of-mega-iot-expansion)
+- [DEVICE MANAGEMENT DEEP ATLAS](#device-management-deep-atlas)
+  - [Each keyword = expandable capability](#each-keyword-expandable-capability)
+  - [Provisioning](#provisioning)
+  - [Lifecycle](#lifecycle)
+  - [Platforms](#platforms)
+  - [Security](#security-1)
+- [TIME SERIES DEEP ATLAS](#time-series-deep-atlas)
+  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern)
+  - [Databases](#databases)
+  - [Data Model](#data-model)
+  - [Queries](#queries)
+  - [Optimization](#optimization)
+- [FLEET MANAGEMENT DEEP ATLAS](#fleet-management-deep-atlas)
+  - [Each keyword = expandable feature](#each-keyword-expandable-feature)
+  - [Tracking](#tracking)
+  - [Maintenance](#maintenance)
+  - [Telematics](#telematics)
+  - [Analytics](#analytics)
+- [ENERGY IOT DEEP ATLAS](#energy-iot-deep-atlas)
+  - [Each keyword = expandable application](#each-keyword-expandable-application)
+  - [Smart Metering](#smart-metering)
+  - [Grid Integration](#grid-integration)
+  - [Protocols](#protocols)
+  - [Analytics](#analytics-1)
+    - [END OF ULTRA IOT EXPANSION](#end-of-ultra-iot-expansion)
+    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+- [MQTT PATTERNS](#mqtt-patterns)
+  - [MQTT Client](#mqtt-client)
+- [DEVICE FIRMWARE](#device-firmware)
+  - [ESP32/Arduino Pattern](#esp32arduino-pattern)
+- [TIME SERIES STORAGE](#time-series-storage)
+  - [InfluxDB Integration](#influxdb-integration)
+    - [CONTINUED: MORE IOT PATTERNS](#continued-more-iot-patterns)
+- [VOLUME 8: TITAN GEMINI RESEARCH - IOT PRODUCTION FAILURES](#volume-8-titan-gemini-research---iot-production-failures)
+  - [FREERTOS STACK OVERFLOW DEBUGGING](#freertos-stack-overflow-debugging)
+    - [The Scar](#the-scar)
 - [SENSOR CALIBRATION DRIFT](#sensor-calibration-drift)
-- [The Scar 2 2](#the-scar-2-2)
-- [MQTT PERSISTENT SESSION HANDLING](#mqtt-persistent-session-handling)
-  - [The Scar 3](#the-scar-3)
-- [include <PubSubClient.h> 2](#include-pubsubclienth-2)
+  - [The Scar](#the-scar-1)
 - [TINYML INFERENCE OPTIMIZATION](#tinyml-inference-optimization)
-- [The Scar 3 2](#the-scar-3-2)
-- [Full integer quantization](#full-integer-quantization)
-- [Model: 125KB, Inference: 50ms (10x faster!)](#model-125kb-inference-50ms-10x-faster)
-- [include "tensorflow/lite/micro/micro_interpreter.h"](#include-tensorflowlitemicromicrointerpreterh)
-- [include "esp_nn.h"](#include-espnnh)
-- [TITAN: EMQX cluster with auto-scaling](#titan-emqx-cluster-with-auto-scaling)
-- [docker-compose.yml for EMQX cluster](#docker-composeyml-for-emqx-cluster)
-- [Rate limiting to prevent reconnect storms](#rate-limiting-to-prevent-reconnect-storms)
-- [... same config](#-same-config)
-- [END OF VOLUME 9: TITAN GEMINI RESEARCH - IOT FLEET MANAGEMENT](#end-of-volume-9-titan-gemini-research---iot-fleet-management)
-- [VOLUME 2: PRODUCTION IOT PATTERNS](#volume-2-production-iot-patterns)
-- [MQTT AT SCALE (1 Million Devices)](#mqtt-at-scale-1-million-devices)
-  - [Production MQTT Broker Configuration](#production-mqtt-broker-configuration)
-- [TIME-SERIES DATA INGESTION](#time-series-data-ingestion)
-- [InfluxDB Production Patterns](#influxdb-production-patterns)
-- [EDGE COMPUTING PATTERNS](#edge-computing-patterns)
-- [Local Processing with Cloud Sync](#local-processing-with-cloud-sync)
-- [END OF IOT VOLUME 2](#end-of-iot-volume-2)
-- [Lines: ~250+ added](#lines-250-added)
-- [REAL IOT PATTERNS 2024](#real-iot-patterns-2024)
-- [MQTT Integration](#mqtt-integration)
-- [Device Provisioning](#device-provisioning)
-  - [END OF IOT PATTERNS](#end-of-iot-patterns)
-- [VOLUME 2: TITAN UPGRADE (APPENDED)](#volume-2-titan-upgrade-appended)
-- [1. THE SCARS (WHY WE DO THIS)](#1-the-scars-why-we-do-this)
-- [2. THE FOUNDATION](#2-the-foundation)
-- [3. TITAN PATTERNS](#3-titan-patterns)
+  - [The Scar](#the-scar-2)
+- [MQTT BROKER SCALING](#mqtt-broker-scaling)
+  - [The Scar](#the-scar-3)
+- [DEVICE PROVISIONING AT SCALE](#device-provisioning-at-scale)
+  - [The Scar](#the-scar-4)
 
 ## 15_IOT.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -94,7 +126,6 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
-
 1. Mirai Botnet (Default Passwords) - The DDoS King
 2. The "Toxic" Office (Sensor Drift) - Bad Data = Bad Decisions
 3. The $50k 4G Bill (Chatty Devices) - JSON Overhead
@@ -103,55 +134,49 @@
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. Sensor Selection (PM2.5, CO2, VOC) - Accuracy vs Cost
-2. MQTT Protocol (Topics, QoS, Retain)
-3. Hardware Setup (ESP32 vs Raspberry Pi)
-4. Power Management (Deep Sleep & Interrupts)
+5. Sensor Selection (PM2.5, CO2, VOC) - Accuracy vs Cost
+6. MQTT Protocol (Topics, QoS, Retain)
+7. Hardware Setup (ESP32 vs Raspberry Pi)
+8. Power Management (Deep Sleep & Interrupts)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. Edge Computing (Filtering Data Locally)
-2. OTA Updates (Over-The-Air) - A/B Partitioning
-3. Security (mTLS & Secure Boot)
-4. Data Serialization (Protobuf vs JSON)
+9. Edge Computing (Filtering Data Locally)
+10. OTA Updates (Over-The-Air) - A/B Partitioning
+11. Security (mTLS & Secure Boot)
+12. Data Serialization (Protobuf vs JSON)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. LoRaWAN Mesh Networks (The Things Network)
-2. Digital Twins (Virtual Replicas)
-3. Time-Series Databases (TimescaleDB vs InfluxDB)
+13. LoRaWAN Mesh Networks (The Things Network)
+14. Digital Twins (Virtual Replicas)
+15. Time-Series Databases (TimescaleDB vs InfluxDB)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. Real-Time OS (FreeRTOS Tasks & Queues)
-2. Custom PCB Design (KiCad)
-3. Signal Processing (FFT on MCU)
+16. Real-Time OS (FreeRTOS Tasks & Queues)
+17. Custom PCB Design (KiCad)
+18. Signal Processing (FFT on MCU)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. TinyML (AI on Microcontrollers)
-2. Energy Harvesting (Solar/Piezo/RF)
-3. Swarm Intelligence (Boids Algorithm)
+19. TinyML (AI on Microcontrollers)
+20. Energy Harvesting (Solar/Piezo/RF)
+21. Swarm Intelligence (Boids Algorithm)
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. THE MIRAI BOTNET
 
 ### The Default Password Disaster
 
 **The Context**:
-Millions of IoT devices (cameras, routers) shipped with default credentials `admin/admin`or`root/12345`.
+Millions of IoT devices (cameras, routers) shipped with default credentials `admin/admin` or `root/12345`.
 **The Attack**:
 A botnet scanned the internet for open Telnet ports. It logged in using a dictionary of 60 default passwords.
 **The Result**:
@@ -175,14 +200,13 @@ Plus HTTP overhead (Headers, Handshake).
 **The Result**:
 Each device used 1GB/month. Overage charges.
 **The Fix**:
-
 1. **Protobuf**: Binary format. 10 bytes.
 2. **Batching**: Store data locally. Send once per hour.
 3. **MQTT**: Lower overhead than HTTP.
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 6. MQTT PROTOCOL
 
@@ -203,7 +227,7 @@ New subscribers get it immediately.
 
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 9. EDGE COMPUTING
 
@@ -227,7 +251,6 @@ Send only the anomaly: "Vibration exceeded threshold".
 If power fails during an update, the device is bricked.
 **The Solution**:
 Flash memory has two partitions: **App A**and**App B**.
-
 1. Device running on A.
 2. Download update to B.
 3. Verify checksum.
@@ -237,7 +260,7 @@ Flash memory has two partitions: **App A**and**App B**.
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 13. LORAWAN MESH NETWORKS
 
@@ -252,7 +275,6 @@ WiFi range = 50m. LTE = Expensive power.
 - Battery: 5-10 years.
 
 - Data Rate: Very low (bytes per hour).
-
 **The Things Network**:
 Community-owned gateways. Free to use.
 
@@ -276,7 +298,7 @@ A 3D model of the physical device in the cloud.
 
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 16. REAL-TIME OS (FREERTOS)
 
@@ -287,10 +309,8 @@ Microcontrollers have 1 core. How to do WiFi and Sensing at the same time?
 **FreeRTOS**:
 Scheduler switches tasks every 1ms.
 **Tasks**:
-
 1. `vTaskSensor`: Read sensor (High Priority).
 2. `vTaskWiFi`: Upload data (Low Priority).
-
 **Queues**:
 Safe communication between tasks.
 
@@ -301,7 +321,6 @@ Safe communication between tasks.
 ### KiCad & Manufacturing
 
 **Process**:
-
 1. **Schematic**: Logical connections.
 2. **Layout**: Physical placement. Trace routing.
 3. **Gerber Files**: Send to Fab (JLCPCB).
@@ -310,7 +329,7 @@ Safe communication between tasks.
 
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 19. TINYML
 
@@ -349,8 +368,11 @@ WiFi.begin("SSID", "PASSWORD");
 
 // Deep Sleep for 1 hour
 esp_sleep_enable_timer_wakeup(3600 * 1000000ULL);
-      esp_deep_sleep_start();
-    }
+  esp_deep_sleep_start();
+}
+
+```text
+---
 
 ## KEYWORD REFERENCE INDEX
 
@@ -655,7 +677,7 @@ esp_sleep_enable_timer_wakeup(3600 * 1000000ULL);
 
 - Particle: cellular
 
-## Security 2
+## Security
 
 - Device attestation: TPM
 
@@ -666,6 +688,8 @@ esp_sleep_enable_timer_wakeup(3600 * 1000000ULL);
 - Anomaly detection: ML
 
 - Revocation: CRL, OCSP
+
+---
 
 ## TIME SERIES DEEP ATLAS
 
@@ -763,23 +787,15 @@ esp_sleep_enable_timer_wakeup(3600 * 1000000ULL);
 
 ## Analytics
 
-- Load forecasting: ML
+- Utilization: usage patterns
 
-- Anomaly detection: theft
+- Efficiency: fuel, route
 
-- Power quality: harmonics
+- Driver behavior: scoring
 
-- Outage management: restoration
+- Compliance: regulations
 
-- Carbon tracking: emissions
-
----
-
-### END OF ULTRA IOT EXPANSION
-
-| #### Total Lines: ~600+ | Target: 15,000 |
-
-### Continuing expansion in next iteration
+- Reporting: dashboards
 
 ---
 
@@ -823,7 +839,7 @@ esp_sleep_enable_timer_wakeup(3600 * 1000000ULL);
 
 - DNP3: SCADA
 
-## Analytics 2
+## Analytics
 
 - Load forecasting: ML
 
@@ -835,11 +851,15 @@ esp_sleep_enable_timer_wakeup(3600 * 1000000ULL);
 
 - Carbon tracking: emissions
 
-### END OF ULTRA IOT EXPANSION 2
+---
+
+### END OF ULTRA IOT EXPANSION
 
 | #### Total Lines: ~600+ | Target: 15,000 |
 
-### Continuing expansion in next iteration 2
+### Continuing expansion in next iteration
+
+---
 
 ## IOT CODE EXAMPLES
 
@@ -849,6 +869,7 @@ esp_sleep_enable_timer_wakeup(3600 * 1000000ULL);
 
 **Why it exists:** Lightweight pub/sub messaging
 
+```typescript
 // lib/mqtt.ts
 import mqtt from 'mqtt';
 
@@ -858,13 +879,13 @@ password: process.env.MQTT_PASSWORD,
 clientId: `server-${process.pid}`,
 clean: true,
 reconnectPeriod: 1000,
-    });
+});
 
 client.on('connect', () => {
 console.log('Connected to MQTT broker');
 client.subscribe('devices/+/telemetry', { qos: 1 });
 client.subscribe('devices/+/status', { qos: 1 });
-    });
+});
 
 client.on('message', async (topic, message) => {
 const [, deviceId, type] = topic.split('/');
@@ -874,17 +895,20 @@ if (type === 'telemetry') {
 await processTelemetry(deviceId, data);
 } else if (type === 'status') {
 await updateDeviceStatus(deviceId, data);
-      }
-    });
+  }
+});
 
 // Publish command to device
 export function sendCommand(deviceId: string, command: object) {
-      client.publish(
-        `devices/${deviceId}/commands`,
-        JSON.stringify(command),
+  client.publish(
+    `devices/${deviceId}/commands`,
+    JSON.stringify(command),
 { qos: 1, retain: false }
-      );
-    }
+  );
+}
+
+```text
+---
 
 ## DEVICE FIRMWARE
 
@@ -893,66 +917,11 @@ export function sendCommand(deviceId: string, command: object) {
 **Why it exists:** Edge device programming
 
 ```cpp
-
 // firmware/main.cpp
 
-## include <WiFi.h> 2
+## include <WiFi.h>
 
 ## include <PubSubClient.h>
-
-const char* clientId = "device-12345";
-bool persistentSession = false;  // Track session state
-
-void connectMQTT() {
-while (!client.connected()) {
-// cleanSession=false: broker remembers subscriptions + queued messages
-if (client.connect(clientId, user, pass, false)) {
-// Check if session was recovered
-bool sessionPresent = client.sessionPresent();
-
-if (!sessionPresent) {
-// New session - must resubscribe
-Serial.println("New session, resubscribing...");
-client.subscribe("devices/device-12345/commands", 1);
-client.subscribe("devices/device-12345/config", 1);
-} else {
-// Existing session restored
-// Queued QoS 1/2 messages will be delivered automatically
-Serial.println("Session restored, receiving queued messages...");
-        }
-
-persistentSession = true;
-} else {
-Serial.printf("MQTT connect failed, rc=%d\n", client.state());
-        delay(5000);
-        }
-    }
-}
-
-// TITAN: Last Will Testament for offline detection
-void setupMQTT() {
-// Broker publishes this when device disconnects unexpectedly
-const char* willTopic = "devices/device-12345/status";
-const char* willMessage = "{\"status\":\"offline\"}";
-
-client.setServer(broker, 1883);
-    client.setCallback(messageHandler);
-client.setKeepAlive(60); // Ping every 60 seconds
-
-// Set LWT before connecting
-    client.setBufferSize(512);
-}
-
-void publishOnline() {
-// Publish with retain so new subscribers see current status
-    client.publish(
-        "devices/device-12345/status",
-        "{\"status\":\"online\",\"timestamp\":1234567890}",
-true // retained
-    );
-}
-
-```text
 
 ## include <ArduinoJson.h>
 
@@ -971,25 +940,25 @@ unsigned long lastReport = 0;
 const int reportInterval = 30000; // 30 seconds
 
 void setup() {
-      Serial.begin(115200);
-      dht.begin();
+  Serial.begin(115200);
+  dht.begin();
 
 WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 while (WiFi.status() != WL_CONNECTED) delay(500);
 
 mqtt.setServer(MQTT_SERVER, 1883);
-      mqtt.setCallback(handleCommand);
-    }
+  mqtt.setCallback(handleCommand);
+}
 
 void loop() {
 if (!mqtt.connected()) reconnect();
-      mqtt.loop();
+  mqtt.loop();
 
 if (millis() - lastReport > reportInterval) {
-        sendTelemetry();
+    sendTelemetry();
 lastReport = millis();
-      }
-    }
+  }
+}
 
 void sendTelemetry() {
 StaticJsonDocument<200> doc;
@@ -1003,7 +972,10 @@ serializeJson(doc, buffer);
 char topic[50];
 sprintf(topic, "devices/%s/telemetry", deviceId);
 mqtt.publish(topic, buffer);
-    }
+}
+
+```text
+---
 
 ## TIME SERIES STORAGE
 
@@ -1012,7 +984,6 @@ mqtt.publish(topic, buffer);
 **Why it exists:** Efficient sensor data storage
 
 ```typescript
-
 // lib/influx.ts
 import { InfluxDB, Point } from '@influxdata/influxdb-client';
 
@@ -1054,7 +1025,6 @@ return result;
 }
 
 ```text
-
 ---
 
 ### CONTINUED: MORE IOT PATTERNS
@@ -1073,17 +1043,19 @@ return result;
 > Stack overflow in WiFi task. 512 bytes wasn't enough.
 > Stack overflow corrupts heap. Other tasks crash randomly."
 
+```cpp
 // VIBE: Insufficient stack size
-    xTaskCreate(
-        wifiTask,
-        "WiFi",
+xTaskCreate(
+    wifiTask,
+    "WiFi",
 512, // 512 bytes = NOT enough for SSL/TLS!
-        NULL,
-        1,
-        NULL
-    );
+    NULL,
+    1,
+    NULL
+);
 // Task uses 600 bytes. Stack overflow. Random crashes.
 
+```cpp
 // TITAN: Proper stack sizing with monitoring
 
 ## include "FreeRTOS.h"
@@ -1146,12 +1118,13 @@ esp_restart(); // Restart cleanly
 
 ## OTA UPDATE ATOMIC PATCHING
 
-## The Scar 2
+## The Scar
 
 > "OTA update interrupted at 80%. Device bricked.
 > User has to return device. 50,000 truck rolls at $200 each.
 > $10M loss because update wasn't atomic."
 
+```cpp
 // VIBE: Direct flash write without fallback
 void updateFirmware(uint8_t* data, size_t len) {
 ESP.flashWrite(0x10000, data, len);  // Direct write
@@ -1159,19 +1132,20 @@ ESP.flashWrite(0x10000, data, len);  // Direct write
 // Power loss during write = bricked device
 }
 
+```cpp
 // TITAN: A/B partition with validation
 
 ## include "esp_ota_ops.h"
 
-esp_err_t performOTA(const char*url) {
+esp_err_t performOTA(const char* url) {
 esp_http_client_config_t config = {
 .url = url,
 .cert_pem = server_cert,  // Verify server identity
-        };
+    };
 
 esp_https_ota_config_t ota_config = {
 .http_config = &config,
-        };
+    };
 
 // Begin OTA to inactive partition
 esp_https_ota_handle_t handle;
@@ -1183,15 +1157,15 @@ while (1) {
 err = esp_https_ota_perform(handle);
 if (err != ESP_ERR_HTTPS_OTA_IN_PROGRESS) break;
 
-int progress = esp_https_ota_get_image_len_read(handle)* 100 /
+int progress = esp_https_ota_get_image_len_read(handle) * 100 /
         esp_https_ota_get_image_size(handle);
 Serial.printf("OTA Progress: %d%%\n", progress);
-        }
+    }
 
 if (err != ESP_OK) {
         esp_https_ota_abort(handle);
 return err;
-        }
+    }
 
 // Validate image before switching
 err = esp_https_ota_finish(handle);
@@ -1199,9 +1173,9 @@ if (err != ESP_OK) return err;
 
 // Mark new partition as bootable
 // If new firmware fails 3 times, rollback automatically
-        ESP.restart();
+    ESP.restart();
 return ESP_OK;
-    }
+}
 
 // TITAN: Rollback on crash detection
 void setup() {
@@ -1219,23 +1193,27 @@ Serial.println("OTA validated successfully");
         );
 xTimerStart(validationTimer, 0);
         }
-        }
     }
+}
+
+```text
 
 ## SENSOR CALIBRATION DRIFT
 
-## The Scar 2 2
+## The Scar
 
 > "CO2 sensor reads 800ppm constantly. Building evacuated.
 > Sensor drifted. No recalibration for 2 years.
 > Baseline shifted by 400ppm. False alarms daily."
 
+```cpp
 // VIBE: Use raw sensor value
 float getCO2() {
-return analogRead(CO2_PIN) *5000.0 / 4095.0;  // Raw conversion
+return analogRead(CO2_PIN) * 5000.0 / 4095.0;  // Raw conversion
 // No calibration = drift over time
-    }
+}
 
+```cpp
 // TITAN: Automatic baseline calibration
 class CalibratedSensor {
 private:
@@ -1246,7 +1224,7 @@ float calibrationOffset = 0;
 
 public:
 float readCO2() {
-float rawPPM = analogRead(CO2_PIN)* 5000.0 / 4095.0;
+float rawPPM = analogRead(CO2_PIN) * 5000.0 / 4095.0;
 
 // Apply calibration offset
 float calibratedPPM = rawPPM - calibrationOffset;
@@ -1296,9 +1274,11 @@ calibrationOffset = avgRaw - knownPPM;
 nvs_set_float(nvs_handle, "factory_cal", calibrationOffset);
 }
 
+```text
+
 ## MQTT PERSISTENT SESSION HANDLING
 
-### The Scar 3
+### The Scar
 
 > "Device loses WiFi for 30 seconds. Reconnects.
 > Misses all commands sent during disconnect.
@@ -1312,10 +1292,9 @@ client.connect("device123", user, pass, true);  // cleanSession=true
 }
 
 ```cpp
-
 // TITAN: Persistent session with message recovery
 
-## include <PubSubClient.h> 2
+## include <PubSubClient.h>
 
 const char* clientId = "device-12345";
 bool persistentSession = false;  // Track session state
@@ -1343,8 +1322,8 @@ persistentSession = true;
 Serial.printf("MQTT connect failed, rc=%d\n", client.state());
         delay(5000);
         }
-        }
     }
+}
 
 // TITAN: Last Will Testament for offline detection
 void setupMQTT() {
@@ -1353,34 +1332,38 @@ const char* willTopic = "devices/device-12345/status";
 const char* willMessage = "{\"status\":\"offline\"}";
 
 client.setServer(broker, 1883);
-        client.setCallback(messageHandler);
+    client.setCallback(messageHandler);
 client.setKeepAlive(60); // Ping every 60 seconds
 
 // Set LWT before connecting
-        client.setBufferSize(512);
-    }
+    client.setBufferSize(512);
+}
 
 void publishOnline() {
 // Publish with retain so new subscribers see current status
-        client.publish(
+    client.publish(
         "devices/device-12345/status",
         "{\"status\":\"online\",\"timestamp\":1234567890}",
 true // retained
-        );
-    }
+    );
+}
+
+```text
 
 ## TINYML INFERENCE OPTIMIZATION
 
-## The Scar 3 2
+## The Scar
 
 > "ML model runs at 2 FPS on ESP32. Need 10 FPS for real-time.
 > Model too large. Inference too slow.
 > Quantization reduced accuracy to 60%. Unusable."
 
+```cpp
 // VIBE: Float32 model = slow inference
 // Model: 500KB, Inference: 500ms
-    interpreter->Invoke();
+interpreter->Invoke();
 
+```cpp
 // TITAN: INT8 quantization with proper calibration
 // TensorFlow Lite converter:
 /*
@@ -1458,7 +1441,7 @@ esp_nn_conv_s8(input, filter, bias, output, ...);
 
 ## OTA UPDATE FAILURES
 
-### The Scar 4
+### The Scar
 
 > "Pushed firmware update to 10,000 devices.
 > Bug in update: devices boot loop.
@@ -1466,7 +1449,6 @@ esp_nn_conv_s8(input, filter, bias, output, ...);
 > 10,000 bricked devices. Shipping replacements."
 
 ```c
-
 // VIBE: Single partition, no rollback
 void update_firmware(const uint8_t* firmware, size_t size) {
 // Erase and write directly to boot partition
@@ -1478,7 +1460,7 @@ esp_restart(); // If this fails, device is bricked
 ```c
 // TITAN: A/B partitions with verified boot
 
-## include "esp_ota_ops.h" 2
+## include "esp_ota_ops.h"
 
 ## include "esp_https_ota.h"
 
@@ -1497,14 +1479,14 @@ if (!manifest->force_update &&
 (device_hash % 100) >= manifest->rollout_percentage) {
 ESP_LOGI(TAG, "Device not in rollout group, skipping");
 return ESP_OK;
-        }
+    }
 
 // 2. Get next OTA partition (A/B scheme)
-const esp_partition_t*update_partition = esp_ota_get_next_update_partition(NULL);
+const esp_partition_t* update_partition = esp_ota_get_next_update_partition(NULL);
 if (!update_partition) {
 ESP_LOGE(TAG, "No OTA partition found");
 return ESP_ERR_NOT_FOUND;
-        }
+    }
 
 // 3. Configure HTTPS OTA with certificate pinning
 esp_http_client_config_t config = {
@@ -1512,19 +1494,19 @@ esp_http_client_config_t config = {
 .cert_pem = server_root_cert_pem,  // Certificate pinning
 .timeout_ms = 60000,
 .keep_alive_enable = true,
-        };
+    };
 
 esp_https_ota_config_t ota_config = {
 .http_config = &config,
 .partial_http_download = true,
-.max_http_request_size = 64* 1024,
-        };
+.max_http_request_size = 64 * 1024,
+    };
 
 esp_https_ota_handle_t ota_handle;
 esp_err_t err = esp_https_ota_begin(&ota_config, &ota_handle);
 if (err != ESP_OK) {
 return err;
-        }
+    }
 
 // 4. Download with progress reporting
 size_t total_size = esp_https_ota_get_image_size(ota_handle);
@@ -1539,12 +1521,12 @@ report_ota_progress(downloaded, total_size);
 
 // Allow other tasks to run
         vTaskDelay(pdMS_TO_TICKS(10));
-        }
+    }
 
 if (err != ESP_OK) {
         esp_https_ota_abort(ota_handle);
 return err;
-        }
+    }
 
 // 5. Verify SHA256 before committing
 char computed_sha256[65];
@@ -1554,26 +1536,26 @@ if (strcmp(computed_sha256, manifest->sha256) != 0) {
 ESP_LOGE(TAG, "SHA256 mismatch!");
         esp_https_ota_abort(ota_handle);
 return ESP_ERR_INVALID_CRC;
-        }
+    }
 
 // 6. Finish and set new partition as boot
 err = esp_https_ota_finish(ota_handle);
 if (err != ESP_OK) {
 return err;
-        }
+    }
 
 // 7. Mark as pending verification (will rollback on next boot if not confirmed)
-        esp_ota_mark_app_pending_verify();
+    esp_ota_mark_app_pending_verify();
 
 ESP_LOGI(TAG, "OTA successful, restarting...");
-        esp_restart();
+    esp_restart();
 
 return ESP_OK;
-    }
+}
 
 // On successful boot, confirm the update
 void confirm_ota_on_successful_boot() {
-const esp_partition_t*running = esp_ota_get_running_partition();
+const esp_partition_t* running = esp_ota_get_running_partition();
 esp_ota_img_states_t state;
 
 if (esp_ota_get_state_partition(running, &state) == ESP_OK) {
@@ -1587,17 +1569,21 @@ ESP_LOGE(TAG, "Self-test failed, rolling back...");
         esp_ota_mark_app_invalid_rollback_and_reboot();
         }
         }
-        }
     }
+}
+
+```text
 
 ## MQTT BROKER SCALING
 
-## The Scar 4 2
+## The Scar
 
 > "Single EMQX broker. 50,000 device connections.
 > Broker crashed. All devices disconnected.
 > Reconnect storm: 50k devices reconnecting at once.
 > Broker crashed again. Loop of death."
+
+```python
 
 ## VIBE: All devices connect to single broker
 
@@ -1615,18 +1601,15 @@ services:
   emqx1:
 image: emqx/emqx:5.3
     environment:
-
 - EMQX_NAME=emqx
 - EMQX_CLUSTER__DISCOVERY_STRATEGY=static
-- EMQX_CLUSTER**STATIC**SEEDS=[emqx@emqx1,emqx@emqx2,emqx@emqx3]
-- EMQX_LISTENER**TCP**EXTERNAL__ACCEPTORS=64
-- EMQX_LISTENER**TCP**EXTERNAL__MAX_CONNECTIONS=500000
+- EMQX_CLUSTER__STATIC__SEEDS=[emqx@emqx1,emqx@emqx2,emqx@emqx3]
+- EMQX_LISTENER__TCP__EXTERNAL__ACCEPTORS=64
+- EMQX_LISTENER__TCP__EXTERNAL__MAX_CONNECTIONS=500000
 
 ## Rate limiting to prevent reconnect storms
-
-- EMQX_ZONE**EXTERNAL**PUBLISH_LIMIT=100,10s
-- EMQX_ZONE**EXTERNAL**CONN_RATE_LIMIT=500,1s
-
+- EMQX_ZONE__EXTERNAL__PUBLISH_LIMIT=100,10s
+- EMQX_ZONE__EXTERNAL__CONN_RATE_LIMIT=500,1s
     deploy:
       resources:
         limits:
@@ -1637,31 +1620,20 @@ image: emqx/emqx:5.3
 
 ## ... same config
 
+  emqx3:
+image: emqx/emqx:5.3
+
+## ... same config
+
   haproxy:
 image: haproxy:2.8
     ports:
-
 - "1883:1883"
 - "8883:8883"
-
     volumes:
-
 - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
 
 ```python
-
-## ... same config 2
-
-  haproxy:
-image: haproxy:2.8
-    ports:
-
-- "1883:1883"
-- "8883:8883"
-
-    volumes:
-
-- ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
 
 ## TITAN: Client with exponential backoff reconnection
 
@@ -1670,7 +1642,7 @@ import random
 import time
 
 class ResilientMQTTClient:
-def **init**(self, brokers: list[str]):
+def __init__(self, brokers: list[str]):
 self.brokers = brokers
 self.client = mqtt.Client(
         protocol=mqtt.MQTTv5,
@@ -1689,7 +1661,6 @@ print("Connected successfully")
 self.reconnect_delay = 1  # Reset delay on success
 
 ## Resubscribe to all topics
-
         self._resubscribe()
         else:
 print(f"Connection failed: {rc}")
@@ -1703,15 +1674,13 @@ def _reconnect_with_backoff(self):
 while True:
 
 ## Add jitter: delay 20%
-
 jitter = random.uniform(0.8, 1.2)
-delay = self.reconnect_delay* jitter
+delay = self.reconnect_delay * jitter
 
 print(f"Reconnecting in {delay:.1f}s...")
         time.sleep(delay)
 
 ## Try next broker in round-robin
-
 self.current_broker_idx = (self.current_broker_idx + 1) % len(self.brokers)
 broker = self.brokers[self.current_broker_idx]
 
@@ -1723,7 +1692,6 @@ except Exception as e:
 print(f"Reconnect failed: {e}")
 
 ## Exponential backoff with cap
-
 self.reconnect_delay = min(
 self.reconnect_delay * 2,
         self.max_reconnect_delay
@@ -1732,24 +1700,28 @@ self.reconnect_delay * 2,
 ## Usage with multiple brokers
 
 client = ResilientMQTTClient([
-        "mqtt1.example.com",
-        "mqtt2.example.com",
-        "mqtt3.example.com"
-    ])
+    "mqtt1.example.com",
+    "mqtt2.example.com",
+    "mqtt3.example.com"
+])
+
+```text
 
 ## DEVICE PROVISIONING AT SCALE
 
-## The Scar 5
+## The Scar
 
 > "Hardcoded WiFi credentials in firmware.
 > Customer changed WiFi password.
 > Devices can't connect. No way to reconfigure.
 > Shipped 5,000 devices with wrong credentials."
 
+```c
 // VIBE: Hardcoded credentials
 const char* ssid = "FactoryWiFi";
 const char* password = "factory123";
 
+```c
 // TITAN: Provisioning with BLE and cloud registration
 
 ## include "wifi_provisioning/manager.h"
@@ -1810,7 +1782,8 @@ cJSON* response = cJSON_CreateObject();
 cJSON_AddStringToObject(response, "csr", csr);
 cJSON_AddStringToObject(response, "deviceId", get_device_id());
 
-char*resp_str = cJSON_PrintUnformatted(response);*outlen = strlen(resp_str);
+char* resp_str = cJSON_PrintUnformatted(response);
+*outlen = strlen(resp_str);
 *outbuf = (uint8_t*)resp_str;
 
     cJSON_Delete(root);
@@ -1835,7 +1808,7 @@ return ESP_OK;
 
 ```python
 
-## TITAN: Production MQTT client with exponential backoff
+## ? TITAN: Production MQTT client with exponential backoff
 
 import paho.mqtt.client as mqtt
 import json
@@ -1844,7 +1817,7 @@ import random
 from threading import Thread, Event
 
 class ProductionMQTTClient:
-def **init**(self, broker: str, port: int, device_id: str):
+def __init__(self, broker: str, port: int, device_id: str):
 self.client = mqtt.Client(
         client_id=device_id,
 clean_session=False, # Persistent sessions for QoS 1/2
@@ -1858,13 +1831,11 @@ self.base_retry_delay = 1
 self.max_retry_delay = 300
 
 ## Callbacks
-
 self.client.on_connect = self._on_connect
 self.client.on_disconnect = self._on_disconnect
 self.client.on_message = self._on_message
 
 ## TLS for production
-
         self.client.tls_set(
         ca_certs='/certs/root-CA.crt',
         certfile=f'/certs/{device_id}.crt',
@@ -1877,7 +1848,6 @@ if rc == 0:
 self.base_retry_delay = 1  # Reset retry delay
 
 ## Subscribe with QoS 1 for at-least-once delivery
-
 self.client.subscribe(f'devices/{self.device_id}/commands', qos=1)
 self.client.subscribe(f'devices/{self.device_id}/config', qos=1)
         else:
@@ -1888,7 +1858,6 @@ def _on_disconnect(self, client, userdata, rc, properties=None):
 if rc != 0:
 
 ## Unexpected disconnect - reconnect with backoff
-
         Thread(target=self._reconnect_with_backoff).start()
 
 def _reconnect_with_backoff(self):
@@ -1914,7 +1883,6 @@ payload = json.dumps({
         })
 
 ## QoS 1 = at-least-once delivery
-
 result = self.client.publish(
         f'telemetry/{self.device_id}',
         payload,
@@ -1927,7 +1895,6 @@ result = self.client.publish(
 return result.is_published()
 
 ```text
-
 ---
 
 ## TIME-SERIES DATA INGESTION
@@ -1936,7 +1903,7 @@ return result.is_published()
 
 ```python
 
-## TITAN: High-throughput InfluxDB ingestion
+## ? TITAN: High-throughput InfluxDB ingestion
 
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS, ASYNCHRONOUS, WriteOptions
@@ -1945,11 +1912,10 @@ import queue
 import threading
 
 class TimeSeriesIngester:
-def **init**(self, url: str, token: str, org: str, bucket: str):
+def __init__(self, url: str, token: str, org: str, bucket: str):
 self.client = InfluxDBClient(url=url, token=token, org=org)
 
 ## Async write with batching for high throughput
-
 self.write_api = self.client.write_api(write_options=WriteOptions(
 batch_size=5000, # Points per batch
 flush_interval=1000, # ms
@@ -1993,7 +1959,6 @@ result = self.client.query_api().query(org=self.org, query=query)
 return result
 
 ```text
-
 ---
 
 ## EDGE COMPUTING PATTERNS
@@ -2002,7 +1967,7 @@ return result
 
 ```python
 
-## TITAN: Edge device with offline-first architecture
+## ? TITAN: Edge device with offline-first architecture
 
 import sqlite3
 import json
@@ -2011,7 +1976,7 @@ from collections import deque
 from threading import Thread, Lock
 
 class EdgeProcessor:
-def **init**(self, local_db_path: str, cloud_sync_interval: int = 60):
+def __init__(self, local_db_path: str, cloud_sync_interval: int = 60):
 self.db = sqlite3.connect(local_db_path, check_same_thread=False)
 self.db_lock = Lock()
 self.pending_sync = deque(maxlen=10000)  # Buffer for cloud sync
@@ -2037,11 +2002,9 @@ self.db.execute('CREATE INDEX IF NOT EXISTS idx_synced ON sensor_data(synced)')
 def process_and_store(self, device_id: str, raw_data: dict):
 
 ## 1. Local processing (filtering, aggregation)
-
 processed = self._process_locally(raw_data)
 
 ## 2. Store locally (always works, even offline)
-
 with self.db_lock:
         self.db.execute(
 'INSERT INTO sensor_data (device_id, timestamp, data) VALUES (?, ?, ?)',
@@ -2050,7 +2013,6 @@ with self.db_lock:
         self.db.commit()
 
 ## 3. Queue for cloud sync
-
         self.pending_sync.append({
 'device_id': device_id,
 'timestamp': int(time.time()),
@@ -2060,11 +2022,9 @@ with self.db_lock:
 def _process_locally(self, data: dict) -> dict:
 
 ## Edge processing: anomaly detection, aggregation
-
 processed = data.copy()
 
 ## Simple anomaly detection
-
 if 'temperature' in data:
 if data['temperature'] > 100 or data['temperature'] < -50:
 processed['anomaly'] = True
@@ -2081,7 +2041,6 @@ def _sync_to_cloud(self):
 with self.db_lock:
 
 ## Get unsynced records
-
 cursor = self.db.execute(
 'SELECT id, device_id, timestamp, data FROM sensor_data WHERE synced = 0 LIMIT 1000'
         )
@@ -2093,14 +2052,12 @@ if not records:
         try:
 
 ## Batch upload to cloud
-
 cloud_payload = [
 {'id': r[0], 'device_id': r[1], 'timestamp': r[2], 'data': json.loads(r[3])}
 for r in records
         ]
 
 ## Cloud API call (would be actual HTTP request)
-
 success = self._upload_to_cloud(cloud_payload)
 
 if success:
@@ -2117,7 +2074,6 @@ except Exception as e:
 print(f"Cloud sync failed: {e}")
 
 ```text
-
 ---
 
 ## END OF IOT VOLUME 2
@@ -2168,7 +2124,6 @@ async function sendCommand(deviceId: string, command: any) {
 }
 
 ```text
-
 ---
 
 ## Device Provisioning
@@ -2201,7 +2156,6 @@ mqttPassword: apiKey,
 }
 
 ```text
-
 ---
 
 ### END OF IOT PATTERNS
@@ -2209,102 +2163,15 @@ mqttPassword: apiKey,
 ## VOLUME 2: TITAN UPGRADE (APPENDED)
 
 ## 1. THE SCARS (WHY WE DO THIS)
-
 - **The 'Zombie Botnet'**: Default passwords on 1M cameras caused a DDoS. Lesson: Unique keys per device.
 - **The 'Brick' Update**: OTA update failed mid-write. 50k devices dead. Lesson: A/B partition updates.
 
 ## 2. THE FOUNDATION
-
 - **MQTT vs HTTP**: MQTT for low bandwidth/battery. Pub/Sub model.
 - **Edge Computing**: Process data on device (TensorFlow Lite) to save bandwidth.
 
 ## 3. TITAN PATTERNS
-
 - **Shadow Device**: Cloud state matches device state. Sync when online (AWS IoT Shadow).
 - **Cert Rotation**: Automated mTLS certificate rotation for security.
-
-```text
-
-## Security 2 2
-
-- Device attestation: TPM
-
-- Mutual TLS: authentication
-
-- Policy enforcement: rules
-
-- Anomaly detection: ML
-
-- Revocation: CRL, OCSP
-
----
-
-## ? TITAN: Production MQTT client with exponential backoff 2
-
-import paho.mqtt.client as mqtt
-import json
-import time
-import random
-from threading import Thread, Event
-
-class ProductionMQTTClient:
-def **init**(self, broker: str, port: int, device_id: str):
-self.client = mqtt.Client(
-        client_id=device_id,
-clean_session=False, # Persistent sessions for QoS 1/2
-        protocol=mqtt.MQTTv5
-        )
-self.device_id = device_id
-self.broker = broker
-self.port = port
-self.connected = Event()
-self.base_retry_delay = 1
-self.max_retry_delay = 300
-
-## ? TITAN: High-throughput InfluxDB ingestion 2
-
-from influxdb_client import InfluxDBClient, Point
-from influxdb_client.client.write_api import SYNCHRONOUS, ASYNCHRONOUS, WriteOptions
-from datetime import datetime, timezone
-import queue
-import threading
-
-class TimeSeriesIngester:
-def **init**(self, url: str, token: str, org: str, bucket: str):
-self.client = InfluxDBClient(url=url, token=token, org=org)
-
-## ? TITAN: Edge device with offline-first architecture 2
-
-import sqlite3
-import json
-import time
-from collections import deque
-from threading import Thread, Lock
-
-class EdgeProcessor:
-def **init**(self, local_db_path: str, cloud_sync_interval: int = 60):
-self.db = sqlite3.connect(local_db_path, check_same_thread=False)
-self.db_lock = Lock()
-self.pending_sync = deque(maxlen=10000)  # Buffer for cloud sync
-self.cloud_sync_interval = cloud_sync_interval
-
-        self._init_db()
-Thread(target=self._sync_worker, daemon=True).start()
-
-def _init_db(self):
-with self.db_lock:
-        self.db.execute('''
-CREATE TABLE IF NOT EXISTS sensor_data (
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-device_id TEXT NOT NULL,
-timestamp INTEGER NOT NULL,
-data TEXT NOT NULL,
-synced INTEGER DEFAULT 0
-        )
-        ''')
-self.db.execute('CREATE INDEX IF NOT EXISTS idx_synced ON sensor_data(synced)')
-        self.db.commit()
-
-def process_and_store(self, device_id: str, raw_data: dict):
 
 ```text

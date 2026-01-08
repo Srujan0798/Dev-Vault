@@ -1,45 +1,43 @@
 # CLIMATE
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [19_CLIMATE.MD: THE TITAN GUIDE (50K TARGET)](#19_climatemd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade Climate Risk, Insurance Modeling, and ESG](#production-grade-climate-risk-insurance-modeling-and-esg)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. THE "100-YEAR FLOOD" FALLACY](#1-the-100-year-flood-fallacy)
-  - [**The Historical Data Trap**](#the-historical-data-trap)
-- [2. THE INSURANCE EXODUS](#2-the-insurance-exodus)
-  - [Uninsurable Assets](#uninsurable-assets)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [5. CLIMATE DATA SOURCES](#5-climate-data-sources)
-  - [**The Big Three**1.**NOAA (USA)**:](#the-big-three1noaa-usa)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [9. SEA LEVEL RISE MODELING](#9-sea-level-rise-modeling)
-  - [Bathtub vs Hydrodynamic](#bathtub-vs-hydrodynamic)
-- [10. WILDFIRE RISK ZONES](#10-wildfire-risk-zones)
-  - [Vegetation Density & Wind](#vegetation-density-wind)
-- [VOLUME 4: THE EXPERT (THE "SCALE") 2](#volume-4-the-expert-the-scale-2)
-- [13. SATELLITE INTELLIGENCE](#13-satellite-intelligence)
-  - [Sentinel-2 Analysis](#sentinel-2-analysis)
-- [VOLUME 5: THE TITAN (THE "KERNEL") 2](#volume-5-the-titan-the-kernel-2)
-- [16. CARBON FOOTPRINT CALCULATOR](#16-carbon-footprint-calculator)
-  - [Scope 1, 2, 3](#scope-1-2-3)
-- [17. ENERGY MODELING](#17-energy-modeling)
-  - [Physics of Efficiency](#physics-of-efficiency)
-- [VOLUME 6: THE INFINITE (THE "FUTURE") 2](#volume-6-the-infinite-the-future-2)
-- [19. GEO-ENGINEERING IMPACT](#19-geo-engineering-impact)
-  - [Solar Radiation Management](#solar-radiation-management)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. THE "100-YEAR FLOOD" FALLACY](#1-the-100-year-flood-fallacy)
+    - [**The Historical Data Trap**](#the-historical-data-trap)
+  - [2. THE INSURANCE EXODUS](#2-the-insurance-exodus)
+    - [Uninsurable Assets](#uninsurable-assets)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [5. CLIMATE DATA SOURCES](#5-climate-data-sources)
+    - [**The Big Three**](#the-big-three)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [9. SEA LEVEL RISE MODELING](#9-sea-level-rise-modeling)
+    - [Bathtub vs Hydrodynamic](#bathtub-vs-hydrodynamic)
+  - [10. WILDFIRE RISK ZONES](#10-wildfire-risk-zones)
+    - [Vegetation Density & Wind](#vegetation-density-wind)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [13. SATELLITE INTELLIGENCE](#13-satellite-intelligence)
+    - [Sentinel-2 Analysis](#sentinel-2-analysis)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [16. CARBON FOOTPRINT CALCULATOR](#16-carbon-footprint-calculator)
+    - [Scope 1, 2, 3](#scope-1-2-3)
+  - [17. ENERGY MODELING](#17-energy-modeling)
+    - [Physics of Efficiency](#physics-of-efficiency)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [19. GEO-ENGINEERING IMPACT](#19-geo-engineering-impact)
+    - [Solar Radiation Management](#solar-radiation-management)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE ULTIMATE ESG CHECKLIST](#a-the-ultimate-esg-checklist)
-- [B. THE CLIMATE API LIST](#b-the-climate-api-list)
+  - [A. THE ULTIMATE ESG CHECKLIST](#a-the-ultimate-esg-checklist)
+  - [B. THE CLIMATE API LIST](#b-the-climate-api-list)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-- [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
 - [CARBON ACCOUNTING](#carbon-accounting)
 - [CLIMATE RISKS](#climate-risks)
 - [GREEN BUILDING](#green-building)
@@ -47,86 +45,62 @@
 - [WASTE](#waste)
 - [ESG REPORTING](#esg-reporting)
 - [CLIMATE TECH](#climate-tech)
-- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [CARBON ACCOUNTING DEEP ATLAS](#carbon-accounting-deep-atlas)
-- [Each keyword = expandable methodology](#each-keyword-expandable-methodology)
-- [Scope Categories](#scope-categories)
-- [Calculation](#calculation)
-- [Reporting](#reporting)
+  - [Each keyword = expandable methodology](#each-keyword-expandable-methodology)
+  - [Scope Categories](#scope-categories)
+  - [Calculation](#calculation)
+  - [Reporting](#reporting)
 - [RENEWABLE ENERGY DEEP ATLAS](#renewable-energy-deep-atlas)
-- [Each keyword = expandable technology](#each-keyword-expandable-technology)
-- [Solar](#solar)
-- [Wind](#wind)
-- [Storage](#storage)
+  - [Each keyword = expandable technology](#each-keyword-expandable-technology)
+  - [Solar](#solar)
+  - [Wind](#wind)
+  - [Storage](#storage)
 - [CLIMATE TECH DEEP ATLAS](#climate-tech-deep-atlas)
-- [Each keyword = expandable solution](#each-keyword-expandable-solution)
-- [Carbon Removal](#carbon-removal)
-- [Decarbonization](#decarbonization)
-- [Adaptation](#adaptation)
-  - [END OF MEGA CLIMATE EXPANSION](#end-of-mega-climate-expansion)
+  - [Each keyword = expandable solution](#each-keyword-expandable-solution)
+  - [Carbon Removal](#carbon-removal)
+  - [Decarbonization](#decarbonization)
+  - [Adaptation](#adaptation)
+    - [END OF MEGA CLIMATE EXPANSION](#end-of-mega-climate-expansion)
 - [ESG DATA DEEP ATLAS](#esg-data-deep-atlas)
-- [Each keyword = expandable framework](#each-keyword-expandable-framework)
-- [Environmental](#environmental)
-- [Social](#social)
-- [Governance](#governance)
-- [Platforms](#platforms)
+  - [Each keyword = expandable framework](#each-keyword-expandable-framework)
+  - [Environmental](#environmental)
+  - [Social](#social)
+  - [Governance](#governance)
+  - [Platforms](#platforms)
 - [CARBON MARKETS DEEP ATLAS](#carbon-markets-deep-atlas)
-- [Each keyword = expandable mechanism](#each-keyword-expandable-mechanism)
-- [Compliance Markets](#compliance-markets)
-- [Voluntary Markets](#voluntary-markets)
-- [Project Types](#project-types)
-- [Integrity](#integrity)
+  - [Each keyword = expandable mechanism](#each-keyword-expandable-mechanism)
+  - [Compliance Markets](#compliance-markets)
+  - [Voluntary Markets](#voluntary-markets)
+  - [Project Types](#project-types)
+  - [Integrity](#integrity)
 - [SUSTAINABILITY REPORTING DEEP ATLAS](#sustainability-reporting-deep-atlas)
-- [Each keyword = expandable standard](#each-keyword-expandable-standard)
-- [Frameworks](#frameworks)
-- [Assurance](#assurance)
-- [Materiality](#materiality)
-- [Integration](#integration)
+  - [Each keyword = expandable standard](#each-keyword-expandable-standard)
+  - [Frameworks](#frameworks)
+  - [Assurance](#assurance)
+  - [Materiality](#materiality)
+  - [Integration](#integration)
 - [GREEN SOFTWARE DEEP ATLAS](#green-software-deep-atlas)
-- [Each keyword = expandable practice](#each-keyword-expandable-practice)
-- [Efficiency](#efficiency)
-- [Measurement](#measurement)
-- [Practices](#practices)
-- [Tools](#tools)
-  - [END OF ULTRA CLIMATE EXPANSION](#end-of-ultra-climate-expansion)
-  - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice)
+  - [Efficiency](#efficiency)
+  - [Measurement](#measurement)
+  - [Practices](#practices)
+  - [Tools](#tools)
+    - [END OF ULTRA CLIMATE EXPANSION](#end-of-ultra-climate-expansion)
+    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
 - [CLIMATE CODE EXAMPLES](#climate-code-examples)
 - [CARBON CALCULATIONS](#carbon-calculations)
-- [Emissions Calculator](#emissions-calculator)
+  - [Emissions Calculator](#emissions-calculator)
 - [ESG METRICS](#esg-metrics)
-- [Sustainability Scoring](#sustainability-scoring)
-  - [CONTINUED: MORE CLIMATE PATTERNS](#continued-more-climate-patterns)
+  - [Sustainability Scoring](#sustainability-scoring)
+    - [CONTINUED: MORE CLIMATE PATTERNS](#continued-more-climate-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - CLIMATE TECH PRODUCTION](#volume-8-titan-gemini-research---climate-tech-production)
-- [CARBON-AWARE JOB SCHEDULING](#carbon-aware-job-scheduling)
-  - [**The Scar:**](#the-scar)
-- [TITAN: Carbon-aware job scheduler](#titan-carbon-aware-job-scheduler)
-- [Filter to windows before deadline](#filter-to-windows-before-deadline)
-- [Find lowest carbon window](#find-lowest-carbon-window)
-- [All windows above threshold - pick the best anyway but warn](#all-windows-above-threshold---pick-the-best-anyway-but-warn)
-- [TITAN: Kubernetes carbon-aware autoscaler](#titan-kubernetes-carbon-aware-autoscaler)
-- [Scale down non-critical workloads during high carbon periods](#scale-down-non-critical-workloads-during-high-carbon-periods)
-- [VIBE: Trust sensor readings blindly](#vibe-trust-sensor-readings-blindly)
-- [No validation, calibration, or anomaly detection](#no-validation-calibration-or-anomaly-detection)
-- [SATELLITE IMAGERY ANALYSIS FOR CLIMATE](#satellite-imagery-analysis-for-climate)
-- [**The Scar:**2](#the-scar2)
-- [VIBE: Raw satellite analysis](#vibe-raw-satellite-analysis)
-- [No cloud masking, no atmospheric correction](#no-cloud-masking-no-atmospheric-correction)
+  - [CARBON-AWARE JOB SCHEDULING](#carbon-aware-job-scheduling)
+    - [**The Scar:**](#the-scar)
+- [REAL-TIME CLIMATE SENSOR NETWORKS](#real-time-climate-sensor-networks)
+  - [**The Scar:**](#the-scar-1)
 - [ESG DATA PIPELINE](#esg-data-pipeline)
-- [**The Scar:**3](#the-scar3)
-- [VIBE: Manual ESG data collection](#vibe-manual-esg-data-collection)
-- [Error-prone, not auditable](#error-prone-not-auditable)
-- [END OF VOLUME 8: TITAN GEMINI RESEARCH - CLIMATE TECH PRODUCTION](#end-of-volume-8-titan-gemini-research---climate-tech-production)
-- [VOLUME 2: PRODUCTION CLIMATE PATTERNS](#volume-2-production-climate-patterns)
-- [CARBON FOOTPRINT CALCULATION ENGINE](#carbon-footprint-calculation-engine)
-  - [Scope 1, 2, 3 Emissions Calculator](#scope-1-2-3-emissions-calculator)
-- [ENVIRONMENTAL DATA API](#environmental-data-api)
-  - [Real-time Air Quality Monitoring](#real-time-air-quality-monitoring)
-- [END OF CLIMATE VOLUME 2](#end-of-climate-volume-2)
-- [Lines: ~180+ added](#lines-180-added)
-- [VOLUME 2: TITAN UPGRADE (APPENDED)](#volume-2-titan-upgrade-appended)
-- [1. THE SCARS](#1-the-scars)
-- [2. THE FOUNDATION](#2-the-foundation)
-- [3. TITAN PATTERNS](#3-titan-patterns)
+  - [**The Scar:**](#the-scar-2)
 
 ## 19_CLIMATE.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -144,7 +118,6 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
-
 1. The "100-Year Flood" Fallacy (Houston)
 2. The Insurance Exodus (Uninsurable Assets)
 3. The Zillow "Climate Score" Backlash
@@ -153,48 +126,42 @@
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. Climate Data Sources (NOAA, NASA, Copernicus)
-2. Risk Scoring Algorithm (0-100 Scale)
-3. Insurance Cost Projection (Actuarial Science)
-4. ESG Reporting Standards (GRI, SASB)
+5. Climate Data Sources (NOAA, NASA, Copernicus)
+6. Risk Scoring Algorithm (0-100 Scale)
+7. Insurance Cost Projection (Actuarial Science)
+8. ESG Reporting Standards (GRI, SASB)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. Sea Level Rise Modeling (Bathtub vs Hydrodynamic)
-2. Wildfire Risk Zones (Vegetation Density & Wind)
-3. Flood Plain Evolution (Impervious Surface Impact)
-4. Heat Island Effect (Urban Planning)
+9. Sea Level Rise Modeling (Bathtub vs Hydrodynamic)
+10. Wildfire Risk Zones (Vegetation Density & Wind)
+11. Flood Plain Evolution (Impervious Surface Impact)
+12. Heat Island Effect (Urban Planning)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. Satellite Intelligence (Sentinel-2 Analysis)
-2. Real-Time Environmental Monitoring (IoT Integration)
-3. Biodiversity Assessment (eDNA)
+13. Satellite Intelligence (Sentinel-2 Analysis)
+14. Real-Time Environmental Monitoring (IoT Integration)
+15. Biodiversity Assessment (eDNA)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. Carbon Footprint Calculator (Scope 1, 2, 3 Math)
-2. Energy Modeling (HVAC Efficiency Physics)
-3. Water Scarcity Prediction (Aquifer Depletion)
+16. Carbon Footprint Calculator (Scope 1, 2, 3 Math)
+17. Energy Modeling (HVAC Efficiency Physics)
+18. Water Scarcity Prediction (Aquifer Depletion)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. Geo-Engineering Impact (Solar Radiation Management)
-2. Climate Gentrification Models
-3. Regenerative Real Estate (Net Positive)
+19. Geo-Engineering Impact (Solar Radiation Management)
+20. Climate Gentrification Models
+21. Regenerative Real Estate (Net Positive)
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. THE "100-YEAR FLOOD" FALLACY
 
@@ -203,7 +170,8 @@
 **The Context**:
 FEMA Flood Maps define a "100-Year Flood Zone" as having a 1% chance of flooding in any given year.
 **The Error**:
-These maps rely on historical data (1900-2000). They assume the climate is **Stationary**(stable).**The Reality**:
+These maps rely on historical data (1900-2000). They assume the climate is **Stationary** (stable).
+**The Reality**:
 Climate change makes extreme weather more frequent. Houston experienced three "500-year floods" in 3 years (2015, 2016, 2017).
 **The Result**:
 New developments built in "safe" zones were destroyed. Homeowners had no flood insurance.
@@ -225,24 +193,25 @@ Real Estate transactions froze. You can't get a mortgage without insurance.
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 5. CLIMATE DATA SOURCES
 
-### **The Big Three**1.**NOAA (USA)**:
+### **The Big Three**
 
+1. **NOAA (USA)**:
 - **NEXRAD**: Real-time radar (Rain/Hail).
 - **SLR Viewer**: Sea Level Rise scenarios.
-1. **NASA (Global)**:
+2. **NASA (Global)**:
 - **GISS**: Surface temperature analysis.
 - **GRACE**: Groundwater depletion (Gravity satellites).
-1. **Copernicus (EU)**:
+3. **Copernicus (EU)**:
 - **Sentinel Satellites**: High-res imagery for vegetation and moisture.
 - **C3S**: Climate Change Service API.
 
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 9. SEA LEVEL RISE MODELING
 
@@ -269,7 +238,6 @@ Simulates the physics of water movement.
 **WUI (Wildland-Urban Interface)**:
 The danger zone where houses meet forests.
 **Risk Factors**:
-
 1. **Fuel Load**: Dry vegetation (NDVI).
 2. **Slope**: Fire travels faster uphill.
 3. **Wind**: Santa Ana winds spread embers miles ahead of the fire.
@@ -277,7 +245,7 @@ The danger zone where houses meet forests.
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 13. SATELLITE INTELLIGENCE
 
@@ -291,13 +259,12 @@ Download multi-spectral imagery.
 - **High NDVI**: Healthy, dense vegetation (High Fire Fuel).
 
 - **Low NDVI**: Concrete or dead vegetation.
-
 **Use Case**:
 Map wildfire risk zones dynamically based on current vegetation dryness.
 
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 16. CARBON FOOTPRINT CALCULATOR
 
@@ -335,7 +302,7 @@ Upgrade windows (R-1 -> R-3) reduces heat loss by 66%.
 
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 19. GEO-ENGINEERING IMPACT
 
@@ -883,19 +850,19 @@ const gridIntensity = await getGridIntensity(region);
 const powerUsage = cpuHours * 0.012; // kWh per vCPU-hour
 const pue = 1.1; // Power Usage Effectiveness
 
-return powerUsage *pue* gridIntensity;
+return powerUsage * pue * gridIntensity;
 }
 
 ```text
-
 ---
 
 ## ESG METRICS
 
 ## Sustainability Scoring
 
-**Why it exists:**ESG compliance tracking
+**Why it exists:** ESG compliance tracking
 
+```typescript
 // services/esg.ts
 interface ESGMetrics {
 environmental: {
@@ -903,18 +870,18 @@ carbonIntensity: number;
 renewableEnergy: number;
 wasteRecycled: number;
 waterUsage: number;
-      };
+  };
 social: {
 diversityScore: number;
 employeeSatisfaction: number;
 communityInvestment: number;
-      };
+  };
 governance: {
 boardDiversity: number;
 ethicsViolations: number;
 executivePayRatio: number;
-      };
-    }
+  };
+}
 
 export function calculateESGScore(metrics: ESGMetrics): {
 environmental: number;
@@ -923,35 +890,40 @@ governance: number;
 total: number;
 } {
 const environmental = (
-(1 - metrics.environmental.carbonIntensity / 100)* 25 +
-metrics.environmental.renewableEnergy *25 +
-metrics.environmental.wasteRecycled* 25 +
-(1 - metrics.environmental.waterUsage / 100) *25
-      );
+(1 - metrics.environmental.carbonIntensity / 100) * 25 +
+metrics.environmental.renewableEnergy * 25 +
+metrics.environmental.wasteRecycled * 25 +
+(1 - metrics.environmental.waterUsage / 100) * 25
+  );
 
 const social = (
-metrics.social.diversityScore* 33.3 +
-metrics.social.employeeSatisfaction *33.3 +
-metrics.social.communityInvestment* 33.4
-      );
+metrics.social.diversityScore * 33.3 +
+metrics.social.employeeSatisfaction * 33.3 +
+metrics.social.communityInvestment * 33.4
+  );
 
 const governance = (
-metrics.governance.boardDiversity *33.3 +
-(1 - metrics.governance.ethicsViolations / 10)* 33.3 +
-(1 - Math.min(metrics.governance.executivePayRatio / 300, 1)) *33.4
-      );
+metrics.governance.boardDiversity * 33.3 +
+(1 - metrics.governance.ethicsViolations / 10) * 33.3 +
+(1 - Math.min(metrics.governance.executivePayRatio / 300, 1)) * 33.4
+  );
 
 return {
-        environmental,
-        social,
-        governance,
+    environmental,
+    social,
+    governance,
 total: (environmental + social + governance) / 3,
-      };
-    }
+  };
+}
+
+```text
+---
 
 ### CONTINUED: MORE CLIMATE PATTERNS
 
 | #### Total Lines: ~650+ | Target: 10,000 |
+
+---
 
 ## VOLUME 8: TITAN GEMINI RESEARCH - CLIMATE TECH PRODUCTION
 
@@ -971,7 +943,6 @@ total: (environmental + social + governance) / 3,
 def train_model():
 
 ## Just run immediately
-
 trainer.fit(model, data)
 
 ## Peak grid = peak carbon intensity
@@ -991,9 +962,9 @@ timestamp: datetime
 region: str
 
 class CarbonAwareScheduler:
-def **init**(self, region: str = 'US-CAL-CISO'):
+def __init__(self, region: str = 'US-CAL-CISO'):
 self.region = region
-self.electricitymap_api = '<<<<<<https://api.electricitymap.org/v3'>>>>>>
+self.electricitymap_api = 'https://api.electricitymap.org/v3'
 self.api_key = os.environ['ELECTRICITYMAP_API_KEY']
 
 async def get_current_intensity(self) -> CarbonIntensity:
@@ -1041,7 +1012,6 @@ max_intensity: float = 200  # g CO2/kWh threshold
 forecast = await self.get_forecast(hours=48)
 
 ## Filter to windows before deadline
-
 valid_windows = [
 f for f in forecast
 if f.timestamp + timedelta(hours=duration_hours) <= deadline
@@ -1051,14 +1021,12 @@ if not valid_windows:
 return None
 
 ## Find lowest carbon window
-
 best = min(valid_windows, key=lambda x: x.grams_co2_per_kwh)
 
 if best.grams_co2_per_kwh <= max_intensity:
 return best.timestamp
 
 ## All windows above threshold - pick the best anyway but warn
-
 print(f"Warning: Best available intensity is {best.grams_co2_per_kwh} g/kWh")
 return best.timestamp
 
@@ -1072,52 +1040,48 @@ return best.timestamp
 
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
-    metadata:
+metadata:
 name: carbon-aware-ml-training
-    spec:
-      scaleTargetRef:
+spec:
+  scaleTargetRef:
 apiVersion: batch/v1
 kind: Job
 name: ml-training
 minReplicas: 0  # Can scale to zero
 maxReplicas: 10
-      metrics:
-
+  metrics:
 - type: External
-
-        external:
-        metric:
+    external:
+      metric:
 name: carbon_intensity_grams_per_kwh
         selector:
         matchLabels:
 region: us-west-1
-        target:
+      target:
 type: Value
 value: "200"  # Scale down if > 200g CO2/kWh
-      behavior:
-        scaleDown:
-        policies:
-
+  behavior:
+    scaleDown:
+      policies:
 - type: Pods
-
 value: 10
 periodSeconds: 300  # 5 minute grace period
-        scaleUp:
-        policies:
-
+    scaleUp:
+      policies:
 - type: Percent
-
 value: 100
 periodSeconds: 60
 
+```text
+
 ## REAL-TIME CLIMATE SENSOR NETWORKS
 
-## **The Scar:** 2
+## **The Scar:**
 
-> "ESG report due in 2 weeks. Data scattered across 50 systems.
-> Manual Excel aggregation. Took 200 person-hours.
-> Found calculation error after submission. Restated numbers.
-> Regulators not happy. Stock dropped 3%."
+> "50 air quality sensors deployed across city.
+> 10 sensors drifted over 6 months. Readings off by 40%.
+> Policy decisions made on bad data.
+> No automatic calibration or anomaly detection."
 
 ```python
 
@@ -1149,7 +1113,7 @@ humidity: float
 raw_values: dict
 
 class ClimateMonitoringNetwork:
-def **init**(self, db: Database):
+def __init__(self, db: Database):
 self.db = db
 self.reference_sensors = ['REF_001', 'REF_002']  # Calibrated reference
 
@@ -1157,14 +1121,12 @@ async def process_reading(self, reading: SensorReading) -> dict:
 """Process sensor reading with validation and calibration."""
 
 ## 1. Range validation
-
 validation = self.validate_ranges(reading)
 if not validation['valid']:
 await self.log_invalid_reading(reading, validation['reason'])
 return {'status': 'rejected', 'reason': validation['reason']}
 
 ## 2. Spatial consistency check
-
 nearby_sensors = await self.get_nearby_readings(
         reading.sensor_id,
         reading.timestamp,
@@ -1179,17 +1141,14 @@ if deviation > 0.5:  # 50% deviation from neighbors
 await self.flag_for_review(reading, 'spatial_anomaly')
 
 ## 3. Apply calibration
-
 calibrated = await self.apply_calibration(reading)
 
 ## 4. Temporal anomaly detection
-
 anomaly = await self.detect_temporal_anomaly(reading)
 if anomaly:
 await self.flag_for_review(reading, 'temporal_anomaly')
 
 ## 5. Store processed reading
-
 await self.db.readings.create({
         **calibrated,
 'quality_score': self.calculate_quality_score(reading, calibrated)
@@ -1233,7 +1192,6 @@ async def detect_temporal_anomaly(self, reading: SensorReading) -> bool:
 """Detect sudden spikes that don't match expected patterns."""
 
 ## Get last hour of readings
-
 history = await self.db.readings.find({
 'sensor_id': reading.sensor_id,
 'timestamp': {'$gte': reading.timestamp - timedelta(hours=1)}
@@ -1251,7 +1209,6 @@ async def run_calibration_check(self, sensor_id: str):
 """Compare sensor to reference and update calibration."""
 
 ## Get co-located readings from sensor and reference
-
 sensor_data = await self.get_recent_readings(sensor_id, hours=168)
 ref_data = await self.get_reference_readings(sensor_id, hours=168)
 
@@ -1259,12 +1216,10 @@ if len(sensor_data) < 100 or len(ref_data) < 100:
 return {'status': 'insufficient_data'}
 
 ## Align timestamps
-
 aligned = self.align_timeseries(sensor_data, ref_data)
 
 ## Linear regression to find calibration factors
-
-slope, intercept, r_value, *, * = stats.linregress(
+slope, intercept, r_value, _, _ = stats.linregress(
 [a['sensor'] for a in aligned],
 [a['reference'] for a in aligned]
         )
@@ -1272,7 +1227,6 @@ slope, intercept, r_value, *, * = stats.linregress(
 if r_value < 0.8:
 
 ## Poor correlation - sensor may be faulty
-
 await self.flag_sensor_faulty(sensor_id, r_value)
 return {'status': 'faulty_sensor', 'r_squared': r_value **2}
 
@@ -1291,12 +1245,14 @@ return {'status': 'calibrated', 'r_squared': r_value**2}
 
 ## SATELLITE IMAGERY ANALYSIS FOR CLIMATE
 
-## **The Scar:**2
+## **The Scar:**
 
 > "Downloaded 10TB of Sentinel-2 imagery for wildfire analysis.
 > Processed at 10m resolution. Took 2 weeks on local servers.
 > Cloud masking failed. 30% of 'fires' were actually clouds.
 > No proper atmospheric correction applied."
+
+```python
 
 ## VIBE: Raw satellite analysis
 
@@ -1322,9 +1278,9 @@ import xarray as xr
 from dask.distributed import Client
 
 class SatelliteAnalysisPipeline:
-def **init**(self):
+def __init__(self):
 self.catalog = pystac_client.Client.open(
-        "<<<<<https://planetarycomputer.microsoft.com/api/stac/v1",>>>>>
+        "https://planetarycomputer.microsoft.com/api/stac/v1",
         modifier=pc.sign_inplace
         )
 
@@ -1337,7 +1293,6 @@ cloud_cover_max: float = 20
 """Analyze vegetation health with proper preprocessing."""
 
 ## 1. Search for imagery
-
 search = self.catalog.search(
 collections=["sentinel-2-l2a"], # Already atmospherically corrected
         bbox=bbox,
@@ -1350,7 +1305,6 @@ if not items:
 raise ValueError("No imagery found for criteria")
 
 ## 2. Load as lazy dask array
-
 stack = stackstac.stack(
         items,
 assets=['B04', 'B08', 'SCL'],  # Red, NIR, Scene Classification
@@ -1362,12 +1316,10 @@ chunksize=(1, 1, 2048, 2048)  # Chunk for parallel processing
 ## 3. Cloud masking using Scene Classification Layer
 
 ## SCL values: 3=cloud shadow, 8=cloud medium, 9=cloud high, 10=cirrus
-
 scl = stack.sel(band='SCL')
 cloud_mask = ~scl.isin([3, 8, 9, 10])
 
 ## 4. Calculate NDVI
-
 red = stack.sel(band='B04').astype('float32')
 nir = stack.sel(band='B08').astype('float32')
 
@@ -1375,11 +1327,9 @@ ndvi = (nir - red) / (nir + red + 1e-8)
 ndvi = ndvi.where(cloud_mask)  # Apply cloud mask
 
 ## 5. Temporal median composite (reduce noise)
-
 ndvi_composite = ndvi.median(dim='time')
 
 ## 6. Classify vegetation health
-
 health_classes = xr.where(
 ndvi_composite > 0.6, 4,  # Very healthy
 xr.where(ndvi_composite > 0.4, 3,  # Healthy
@@ -1398,7 +1348,6 @@ hours_lookback: int = 24
 """Detect active fires using thermal bands."""
 
 ## Use Landsat 8/9 thermal bands or VIIRS
-
 search = self.catalog.search(
         collections=["landsat-c2-l2"],
         bbox=bbox,
@@ -1410,16 +1359,13 @@ fires = []
 for item in search.items():
 
 ## Load thermal band (Band 10)
-
 thermal = stackstac.stack([item], assets=['ST_B10'])
 
 ## Convert to temperature (Kelvin to Celsius)
-
-temp_kelvin = thermal* 0.00341802 + 149.0
+temp_kelvin = thermal * 0.00341802 + 149.0
 temp_celsius = temp_kelvin - 273.15
 
 ## Fire detection threshold
-
 fire_pixels = (temp_celsius > 350).values  # = likely fire
 
 if fire_pixels.any():
@@ -1442,12 +1388,14 @@ return fires
 
 ## ESG DATA PIPELINE
 
-## **The Scar:**3
+## **The Scar:**
 
 > "ESG report due in 2 weeks. Data scattered across 50 systems.
 > Manual Excel aggregation. Took 200 person-hours.
 > Found calculation error after submission. Restated numbers.
 > Regulators not happy. Stock dropped 3%."
+
+```python
 
 ## VIBE: Manual ESG data collection
 
@@ -1486,7 +1434,7 @@ raw_data_hash: str  # For audit trail
 methodology: str
 
 class ESGDataPipeline:
-def **init**(self, db: Database):
+def __init__(self, db: Database):
 self.db = db
 self.sources = {
 'sap': SAPConnector(),
@@ -1502,24 +1450,20 @@ results = {}
 audit_log = []
 
 ## Scope 1: Direct emissions (fuel combustion)
-
 scope_1 = await self.collect_scope_1(reporting_period)
 results['scope_1'] = scope_1
         audit_log.extend(scope_1['audit_entries'])
 
 ## Scope 2: Indirect emissions (purchased electricity)
-
 scope_2 = await self.collect_scope_2(reporting_period)
 results['scope_2'] = scope_2
         audit_log.extend(scope_2['audit_entries'])
 
 ## Water usage
-
 water = await self.collect_water_usage(reporting_period)
 results['water'] = water
 
 ## Store with audit trail
-
 await self.db.esg_reports.create({
 'reporting_period': reporting_period,
 'collected_at': datetime.now(),
@@ -1537,22 +1481,19 @@ audit_entries = []
 total_emissions = 0
 
 ## Get electricity consumption from all facilities
-
 utilities = await self.sources['utility_api'].get_consumption(period)
 
 for facility in utilities:
 
 ## Get grid emission factor for location
-
 emission_factor = await self.get_grid_emission_factor(
         facility['location'],
         period
         )
 
 ## Calculate emissions
-
 kwh = facility['electricity_kwh']
-emissions_kg = kwh* emission_factor['kg_co2_per_kwh']
+emissions_kg = kwh * emission_factor['kg_co2_per_kwh']
 
 total_emissions += emissions_kg
 
@@ -1582,7 +1523,6 @@ async def get_grid_emission_factor(self, location: str, period: str) -> dict:
 if location.startswith('US-'):
 
 ## eGRID subregion factors
-
 egrid_factors = await self.db.egrid_factors.get(location, period)
 return {
 'kg_co2_per_kwh': egrid_factors['co2_rate'],
@@ -1672,7 +1612,7 @@ total += activity.hours *
         break;
 
 case 'employee_commute':
-total += activity.distance *0.21* activity.days;
+total += activity.distance * 0.21 * activity.days;
         break;
 
 case 'supply_chain':
@@ -1715,7 +1655,6 @@ recommendations: this.generateRecommendations(scope1, scope2, scope3)
 }
 
 ```text
-
 ---
 
 ## ENVIRONMENTAL DATA API
@@ -1724,7 +1663,7 @@ recommendations: this.generateRecommendations(scope1, scope2, scope3)
 
 ```python
 
-## TITAN: Air Quality Index (AQI) calculation and monitoring
+## ? TITAN: Air Quality Index (AQI) calculation and monitoring
 
 from enum import Enum
 from dataclasses import dataclass
@@ -1750,7 +1689,6 @@ co: float  # ppm
 class AQICalculator:
 
 ## EPA breakpoints for each pollutant
-
 BREAKPOINTS = {
 'pm25': [
 (0, 12.0, 0, 50),
@@ -1809,7 +1747,6 @@ return category
 return AQICategory.HAZARDOUS
 
 ```text
-
 ---
 
 ## END OF CLIMATE VOLUME 2
@@ -1819,44 +1756,14 @@ return AQICategory.HAZARDOUS
 ## VOLUME 2: TITAN UPGRADE (APPENDED)
 
 ## 1. THE SCARS
-
 - **The 'Coordinate' Mixup**: Lat/Long swapped. Data plotted in Antarctica. Lesson: GeoJSON standard.
 
 ## 2. THE FOUNDATION
-
 - **H3 Indexing**: Uber's hexagonal grid system for spatial indexing.
 - **Raster vs Vector**: Satellite images (Raster) vs Shapes (Vector).
 
 ## 3. TITAN PATTERNS
-
 - **Tile Server**: Serve map data in XYZ tiles for performance.
 - **PostGIS**: The gold standard for SQL spatial queries.
-
-```text
-
-## ? TITAN: Air Quality Index (AQI) calculation and monitoring 2
-
-from enum import Enum
-from dataclasses import dataclass
-from typing import Dict, Optional
-
-class AQICategory(Enum):
-GOOD = (0, 50, "green")
-MODERATE = (51, 100, "yellow")
-UNHEALTHY_SENSITIVE = (101, 150, "orange")
-UNHEALTHY = (151, 200, "red")
-VERY_UNHEALTHY = (201, 300, "purple")
-HAZARDOUS = (301, 500, "maroon")
-
-@dataclass
-class PollutantReading:
-pm25: float    #
-pm10: float    #
-o3: float  # ppb
-no2: float  # ppb
-so2: float  # ppb
-co: float  # ppm
-
-class AQICalculator:
 
 ```text

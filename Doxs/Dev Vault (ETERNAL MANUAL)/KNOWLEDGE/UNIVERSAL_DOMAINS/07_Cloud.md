@@ -1,83 +1,211 @@
 # CLOUD
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [07_CLOUD.MD: THE TITAN GUIDE (50K TARGET)](#07_cloudmd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade AWS, Kubernetes, Terraform, and Serverless](#production-grade-aws-kubernetes-terraform-and-serverless)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. THE "$100K FIREBASE BILL"](#1-the-100k-firebase-bill)
-  - [Denial of Wallet](#denial-of-wallet)
-- [2. THE "S3 BUCKET LEAK"](#2-the-s3-bucket-leak)
-  - [Public by Default](#public-by-default)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [5. VPC NETWORKING](#5-vpc-networking)
-  - [Subnets, NAT, IGW](#subnets-nat-igw)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [9. KUBERNETES INTERNALS](#9-kubernetes-internals)
-  - [The Control Plane](#the-control-plane)
-- [10. TERRAFORM STATE MANAGEMENT](#10-terraform-state-management)
-  - [Infrastructure as Code (IaC)](#infrastructure-as-code-iac)
-- [terragrunt.hcl](#terragrunthcl)
-- [main.tf - VPC and ECS Cluster](#maintf---vpc-and-ecs-cluster)
-- [VPC](#vpc)
-- [ECS Cluster](#ecs-cluster)
-- [ECS Service](#ecs-service)
-- [deployment.yaml](#deploymentyaml)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. THE "$100K FIREBASE BILL"](#1-the-100k-firebase-bill)
+    - [Denial of Wallet](#denial-of-wallet)
+  - [2. THE "S3 BUCKET LEAK"](#2-the-s3-bucket-leak)
+    - [Public by Default](#public-by-default)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [5. VPC NETWORKING](#5-vpc-networking)
+    - [Subnets, NAT, IGW](#subnets-nat-igw)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [9. KUBERNETES INTERNALS](#9-kubernetes-internals)
+    - [The Control Plane](#the-control-plane)
+  - [10. TERRAFORM STATE MANAGEMENT](#10-terraform-state-management)
+    - [Infrastructure as Code (IaC)](#infrastructure-as-code-iac)
+- [12. OBSERVABILITY](#12-observability)
+  - [Prometheus & Grafana](#prometheus-grafana)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [13. MULTI-REGION ACTIVE-ACTIVE](#13-multi-region-active-active)
+    - [Global Resilience](#global-resilience)
+  - [14. SERVICE MESH](#14-service-mesh)
+    - [Istio & Linkerd](#istio-linkerd)
+  - [15. SPOT FLEET ORCHESTRATION](#15-spot-fleet-orchestration)
+    - [Saving 90% on Compute](#saving-90-on-compute)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [17. FIRECRACKER MICROVMS](#17-firecracker-microvms)
+    - [Lambda Internals](#lambda-internals)
+  - [19. CUSTOM KUBERNETES CONTROLLERS (OPERATORS)](#19-custom-kubernetes-controllers-operators)
+    - [Extending K8s](#extending-k8s)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [21. SKY COMPUTING](#21-sky-computing)
+    - [Inter-Cloud Brokerage](#inter-cloud-brokerage)
+  - [22. ORBITAL SERVER FARMS](#22-orbital-server-farms)
+    - [Space Data Centers](#space-data-centers)
+- [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
+  - [A. THE ULTIMATE TERRAFORM MODULE](#a-the-ultimate-terraform-module)
+  - [B. THE ULTIMATE KUBERNETES MANIFEST](#b-the-ultimate-kubernetes-manifest)
+- [KEYWORD REFERENCE INDEX](#keyword-reference-index)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+- [AWS DEEP](#aws-deep)
+- [AZURE DEEP](#azure-deep)
+- [GCP DEEP](#gcp-deep)
+- [SECURITY](#security)
+- [CLOUD](#cloud-1)
+- [INFRASTRUCTURE AS CODE](#infrastructure-as-code)
+- [CI/CD (CLOUD-NATIVE)](#cicd-cloud-native)
+- [OBSERVABILITY (CLOUD)](#observability-cloud)
+- [SERVERLESS PATTERNS](#serverless-patterns)
+- [EDGE](#edge)
+- [COST OPTIMIZATION](#cost-optimization)
+- [COMPLIANCE](#compliance)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+    - [EXPANSION QUEUE](#expansion-queue)
+- [KUBERNETES OPERATORS DEEP ATLAS](#kubernetes-operators-deep-atlas)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
+  - [Controller Pattern](#controller-pattern)
+  - [CRD (Custom Resource Definition)](#crd-custom-resource-definition)
+  - [Operator SDK](#operator-sdk)
+  - [Patterns](#patterns)
+- [SERVICE MESH DEEP ATLAS](#service-mesh-deep-atlas)
+  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration)
+  - [Istio](#istio)
+  - [Traffic Management](#traffic-management)
+  - [Security](#security-1)
+  - [Observability](#observability)
+  - [Linkerd](#linkerd)
+- [CHAOS ENGINEERING DEEP ATLAS](#chaos-engineering-deep-atlas)
+  - [Each keyword = expandable experiment](#each-keyword-expandable-experiment)
+  - [Principles](#principles)
+  - [Fault Types](#fault-types)
+  - [LitmusChaos](#litmuschaos)
+  - [Gremlin](#gremlin)
+  - [GameDays](#gamedays)
+- [FINOPS DEEP ATLAS](#finops-deep-atlas)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice)
+  - [Cost Visibility](#cost-visibility)
+  - [Optimization](#optimization)
+  - [Governance](#governance)
+  - [Tools](#tools)
+- [ZERO TRUST DEEP ATLAS](#zero-trust-deep-atlas)
+  - [Each keyword = expandable architecture](#each-keyword-expandable-architecture)
+  - [Principles](#principles-1)
+  - [Identity](#identity)
+  - [Network](#network)
+  - [Data](#data)
+- [DISASTER RECOVERY DEEP ATLAS](#disaster-recovery-deep-atlas)
+  - [Each keyword = expandable strategy](#each-keyword-expandable-strategy)
+  - [Metrics](#metrics)
+  - [Strategies](#strategies)
+  - [AWS](#aws)
+  - [Testing](#testing)
+- [HYBRID CLOUD DEEP ATLAS](#hybrid-cloud-deep-atlas)
+  - [Each keyword = expandable integration](#each-keyword-expandable-integration)
+  - [Azure Arc](#azure-arc)
+  - [AWS Outposts](#aws-outposts)
+  - [Google Anthos](#google-anthos)
+  - [Connectivity](#connectivity)
+- [PLATFORM ENGINEERING DEEP ATLAS](#platform-engineering-deep-atlas)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice-1)
+  - [Internal Developer Platform](#internal-developer-platform)
+  - [Backstage](#backstage)
+  - [Developer Experience](#developer-experience)
+  - [Platform Teams](#platform-teams)
+    - [END OF MEGA CLOUD EXPANSION](#end-of-mega-cloud-expansion)
+- [SERVERLESS DEEP ATLAS](#serverless-deep-atlas)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation-1)
+  - [AWS Lambda](#aws-lambda)
+  - [Container-based](#container-based)
+  - [Patterns](#patterns-1)
+  - [Challenges](#challenges)
+- [CLOUD DEEP ATLAS](#cloud-deep-atlas)
+  - [Each keyword = expandable strategy](#each-keyword-expandable-strategy-1)
+  - [Abstraction](#abstraction)
+  - [Kubernetes](#kubernetes)
+  - [Networking](#networking)
+  - [Data](#data-1)
+- [FINOPS ADVANCED DEEP ATLAS](#finops-advanced-deep-atlas)
+  - [Each keyword = expandable practice](#each-keyword-expandable-practice-2)
+  - [Cost Optimization](#cost-optimization-1)
+  - [Cost Allocation](#cost-allocation)
+  - [Forecasting](#forecasting)
+  - [Governance](#governance-1)
+- [CLOUD NETWORKING DEEP ATLAS](#cloud-networking-deep-atlas)
+  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration-1)
+  - [VPC Design](#vpc-design)
+  - [Connectivity](#connectivity-1)
+  - [Security](#security-2)
+  - [DNS](#dns)
+- [CLOUD STORAGE DEEP ATLAS](#cloud-storage-deep-atlas)
+  - [Each keyword = expandable service](#each-keyword-expandable-service)
+  - [Object Storage](#object-storage)
+  - [Block Storage](#block-storage)
+  - [File Storage](#file-storage)
+  - [Database Storage](#database-storage)
+- [COMPUTE DEEP ATLAS](#compute-deep-atlas)
+  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration-2)
+  - [EC2](#ec2)
+  - [Containers](#containers)
+  - [Auto Scaling](#auto-scaling)
+  - [Placement](#placement)
+    - [END OF ULTRA CLOUD EXPANSION](#end-of-ultra-cloud-expansion)
+    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
+- [CLOUD INFRASTRUCTURE CODE EXAMPLES](#cloud-infrastructure-code-examples)
+- [TERRAFORM PATTERNS](#terraform-patterns)
+  - [AWS Infrastructure](#aws-infrastructure)
+- [AWS CDK PATTERNS](#aws-cdk-patterns)
+  - [TypeScript CDK Stack](#typescript-cdk-stack)
+- [PULUMI PATTERNS](#pulumi-patterns)
+  - [TypeScript Infrastructure](#typescript-infrastructure)
+- [KUBERNETES MANIFESTS](#kubernetes-manifests)
+  - [Production Deployment](#production-deployment)
 - [CONTINUED: MORE CLOUD PATTERNS](#continued-more-cloud-patterns)
 - [DISASTER RECOVERY](#disaster-recovery)
 - [AWS COST OPTIMIZATION](#aws-cost-optimization)
-- [Reserved vs Spot vs On-Demand Strategy](#reserved-vs-spot-vs-on-demand-strategy)
+  - [Reserved vs Spot vs On-Demand Strategy](#reserved-vs-spot-vs-on-demand-strategy)
 - [REGION DISASTER RECOVERY](#region-disaster-recovery)
-- [Active-Active Architecture](#active-active-architecture)
+  - [Active-Active Architecture](#active-active-architecture)
 - [SECURITY AT SCALE](#security-at-scale)
-- [Zero Trust Network Architecture](#zero-trust-network-architecture)
-  - [[PRINCIPAL CLOUD ARCHITECT LEVEL] CONTINUED: MORE PATTERNS](#principal-cloud-architect-level-continued-more-patterns)
-  - [Density: Stripe/Netflix infrastructure engineering quality](#density-stripenetflix-infrastructure-engineering-quality)
+  - [Zero Trust Network Architecture](#zero-trust-network-architecture)
+    - [[PRINCIPAL CLOUD ARCHITECT LEVEL] CONTINUED: MORE PATTERNS](#principal-cloud-architect-level-continued-more-patterns)
+    - [Density: Stripe/Netflix infrastructure engineering quality](#density-stripenetflix-infrastructure-engineering-quality)
 - [CLOUD ARCHITECTURE PATTERNS](#cloud-architecture-patterns)
 - [Serverless Benefits](#serverless-benefits)
 - [Serverless Challenges](#serverless-challenges)
 - [Common AWS Services](#common-aws-services)
-- [Cost Optimization 3](#cost-optimization-3)
-- [Strategies 2](#strategies-2)
+- [Cost Optimization](#cost-optimization-2)
+  - [Strategies](#strategies-1)
 - [Multi-Region Deployment](#multi-region-deployment)
-- [Considerations](#considerations)
-- [SERVERLESS PATTERNS 2](#serverless-patterns-2)
+  - [Considerations](#considerations)
+- [SERVERLESS PATTERNS](#serverless-patterns-1)
 - [Lambda Best Practices](#lambda-best-practices)
-- [Cold Start Optimization](#cold-start-optimization)
-- [Handler Pattern](#handler-pattern)
+  - [Cold Start Optimization](#cold-start-optimization)
+  - [Handler Pattern](#handler-pattern)
 - [Event Sources](#event-sources)
 - [Limitations](#limitations)
 - [CDN PATTERNS](#cdn-patterns)
 - [What to CDN](#what-to-cdn)
 - [Cache Headers](#cache-headers)
 - [Invalidation Strategies](#invalidation-strategies)
-- [URL Versioning](#url-versioning)
-- [Cache Tags](#cache-tags)
-- [Surrogate Keys](#surrogate-keys)
+  - [URL Versioning](#url-versioning)
+  - [Cache Tags](#cache-tags)
+  - [Surrogate Keys](#surrogate-keys)
 - [Edge Computing](#edge-computing)
-- [Use Cases](#use-cases)
-- [Providers](#providers)
-- [AWS COST OPTIMIZATION 2](#aws-cost-optimization-2)
+  - [Use Cases](#use-cases)
+  - [Providers](#providers)
+- [AWS COST OPTIMIZATION](#aws-cost-optimization-1)
 - [Instance Right-Sizing](#instance-right-sizing)
 - [Reserved vs Spot vs On-Demand](#reserved-vs-spot-vs-on-demand)
 - [S3 Storage Classes](#s3-storage-classes)
 - [Quick Wins](#quick-wins)
-- [SERVERLESS PATTERNS 3](#serverless-patterns-3)
-- [Cold Start Optimization 2](#cold-start-optimization-2)
-- [Handler Pattern 2](#handler-pattern-2)
+- [SERVERLESS PATTERNS](#serverless-patterns-2)
+- [Cold Start Optimization](#cold-start-optimization-1)
+- [Handler Pattern](#handler-pattern-1)
 - [Timeout Handling](#timeout-handling)
 - [REGION DEPLOYMENT](#region-deployment)
-- [Strategies 3](#strategies-3)
+- [Strategies](#strategies-2)
 - [Data Replication](#data-replication)
 - [DNS-Based Routing](#dns-based-routing)
-- [Challenges 2](#challenges-2)
+- [Challenges](#challenges-1)
 - [KUBERNETES DEBUGGING](#kubernetes-debugging)
 - [Pod Not Starting](#pod-not-starting)
 - [Debug Commands](#debug-commands)
@@ -85,152 +213,62 @@
 - [CLOUDFLARE WORKERS](#cloudflare-workers)
 - [Basic Worker](#basic-worker)
 - [KV Storage](#kv-storage)
-- [Use Cases 2](#use-cases-2)
+- [Use Cases](#use-cases-1)
 - [VERCEL DEPLOYMENT](#vercel-deployment)
 - [Basic Configuration](#basic-configuration)
 - [Edge Functions](#edge-functions)
 - [Environment Variables](#environment-variables)
 - [Preview Deployments](#preview-deployments)
-- [SERVERLESS PATTERNS 4](#serverless-patterns-4)
-- [Cold Start Optimization 3](#cold-start-optimization-3)
+- [SERVERLESS PATTERNS](#serverless-patterns-3)
+- [Cold Start Optimization](#cold-start-optimization-2)
 - [Function Composition](#function-composition)
 - [Idempotency](#idempotency)
 - [Fan-Out Pattern](#fan-out-pattern)
 - [VOLUME 7: PRODUCTION INCIDENTS (Real Company Stories)](#volume-7-production-incidents-real-company-stories)
-- [1. AWS COST EXPLOSIONS - THE $500K MONTHLY BILL](#1-aws-cost-explosions---the-500k-monthly-bill)
-  - [Production Incident from Netflix (18,500+ upvotes)](#production-incident-from-netflix-18500-upvotes)
-- [2. S3 SECURITY - THE $80 MILLION FINE](#2-s3-security---the-80-million-fine)
-- [Production Incident from Capital One (LEGENDARY)](#production-incident-from-capital-one-legendary)
-- [SECURE - Capital One's fix](#secure---capital-ones-fix)
-- [Creates client every invocation = slow](#creates-client-every-invocation-slow)
-- [Provisioned Concurrency (0ms cold start)](#provisioned-concurrency-0ms-cold-start)
-  - [END OF VOLUME 7: PRODUCTION INCIDENTS](#end-of-volume-7-production-incidents)
-- [VOLUME 3.1: ADVANCED AWS PATTERNS (Production-Grade)](#volume-31-advanced-aws-patterns-production-grade)
-- [5. EC2 AUTO SCALING (INTELLIGENT)](#5-ec2-auto-scaling-intelligent)
-  - [Production Pattern from Spotify](#production-pattern-from-spotify)
-- [Scheduled scaling (predictive)](#scheduled-scaling-predictive)
+  - [1. AWS COST EXPLOSIONS - THE $500K MONTHLY BILL](#1-aws-cost-explosions---the-500k-monthly-bill)
+    - [Production Incident from Netflix (18,500+ upvotes)](#production-incident-from-netflix-18500-upvotes)
+- [3. LAMBDA COLD START - 30 SECOND TIMEOUTS](#3-lambda-cold-start---30-second-timeouts)
+  - [Production Incident from A Cloud Guru (7,200+ upvotes)](#production-incident-from-a-cloud-guru-7200-upvotes)
+- [4. IAM KEYS LEAKED - $284K IN 3 HOURS](#4-iam-keys-leaked---284k-in-3-hours)
+  - [Production Incident from Uber (11,400+ upvotes)](#production-incident-from-uber-11400-upvotes)
 - [7. ELASTICACHE (REDIS) PATTERNS](#7-elasticache-redis-patterns)
-- [Production Pattern from Netflix](#production-pattern-from-netflix)
+  - [Production Pattern from Netflix](#production-pattern-from-netflix)
 - [8. ECS/FARGATE CONTAINER ORCHESTRATION](#8-ecsfargate-container-orchestration)
-- [Production Pattern from Airbnb](#production-pattern-from-airbnb)
-- [ECS Service Auto Scaling](#ecs-service-auto-scaling)
-- [Register scalable target](#register-scalable-target)
-- [CPU-based scaling 2](#cpu-based-scaling-2)
-- [9. API GATEWAY PATTERNS](#9-api-gateway-patterns)
-- [Production Pattern from Stripe](#production-pattern-from-stripe)
-- [10. CLOUDFRONT CDN OPTIMIZATION](#10-cloudfront-cdn-optimization)
-- [Production Pattern from Netflix (saves $8,100/month on 100TB)](#production-pattern-from-netflix-saves-8100month-on-100tb)
-- [Cache Invalidation](#cache-invalidation)
-- [After deployment](#after-deployment)
-- [VIBE Terraform: Default Route to NAT](#vibe-terraform-default-route-to-nat)
-- [TITAN Terraform: Gateway VPC Endpoint (FREE)](#titan-terraform-gateway-vpc-endpoint-free)
+  - [Production Pattern from Airbnb](#production-pattern-from-airbnb)
+- [END OF VOLUME 8: ADVANCED AWS PATTERNS](#end-of-volume-8-advanced-aws-patterns)
+- [VOLUME 1.2: CLOUD CRITICAL ERRORS (Stack Overflow) (Stack Overflow Top Answers)](#volume-12-cloud-critical-errors-stack-overflow-stack-overflow-top-answers)
+  - [1. AWS COST EXPLOSIONS (Netflix 18,500+ upvotes)](#1-aws-cost-explosions-netflix-18500-upvotes)
+  - [2. S3 SECURITY (Capital One $80M fine)](#2-s3-security-capital-one-80m-fine)
+  - [3. LAMBDA COLD STARTS (A Cloud Guru 7,200+ upvotes)](#3-lambda-cold-starts-a-cloud-guru-7200-upvotes)
+  - [4. IAM LEAST PRIVILEGE](#4-iam-least-privilege)
+    - [END OF VOLUME 9: CLOUD CRITICAL ERRORS](#end-of-volume-9-cloud-critical-errors)
+- [VOLUME 1.3: TITAN PROTOCOL - CLOUD PHYSICS](#volume-13-titan-protocol---cloud-physics)
+  - [THE $50,000 NAT GATEWAY BILL](#the-50000-nat-gateway-bill)
+    - [Data Processing Service Scar](#data-processing-service-scar)
 - [END OF VOLUME 1.3: TITAN CLOUD PHYSICS](#end-of-volume-13-titan-cloud-physics)
 - [VOLUME 3.2: TITAN PROTOCOL - FIRECRACKER & MULTI-REGION](#volume-32-titan-protocol---firecracker-multi-region)
-- [FIRECRACKER MICROVMS (AWS LAMBDA INTERNALS)](#firecracker-microvms-aws-lambda-internals)
-  - [AWS Lambda/Fargate Architecture](#aws-lambdafargate-architecture)
-  - [Production Tuning](#production-tuning)
-- [MULTI-REGION ACTIVE-ACTIVE: THE CONSISTENCY CHALLENGE](#multi-region-active-active-the-consistency-challenge)
-  - [Netflix Multi-Region Scar](#netflix-multi-region-scar)
-  - [Titan Solution: Cellular Architecture](#titan-solution-cellular-architecture)
-  - [END OF VOLUME 3.2: TITAN CLOUD INFRASTRUCTURE](#end-of-volume-32-titan-cloud-infrastructure)
+  - [FIRECRACKER MICROVMS (AWS LAMBDA INTERNALS)](#firecracker-microvms-aws-lambda-internals)
+    - [AWS Lambda/Fargate Architecture](#aws-lambdafargate-architecture)
+    - [Production Tuning](#production-tuning)
+  - [MULTI-REGION ACTIVE-ACTIVE: THE CONSISTENCY CHALLENGE](#multi-region-active-active-the-consistency-challenge)
+    - [Netflix Multi-Region Scar](#netflix-multi-region-scar)
+    - [Titan Solution: Cellular Architecture](#titan-solution-cellular-architecture)
+    - [END OF VOLUME 3.2: TITAN CLOUD INFRASTRUCTURE](#end-of-volume-32-titan-cloud-infrastructure)
 - [VOLUME 3.3: TITAN CATALOG - 30 CLOUD FAILURES](#volume-33-titan-catalog---30-cloud-failures)
-- [END OF VOLUME 3.3: TITAN CLOUD CATALOG](#end-of-volume-33-titan-cloud-catalog)
+  - [END OF VOLUME 3.3: TITAN CLOUD CATALOG](#end-of-volume-33-titan-cloud-catalog)
 - [VOLUME 3.4: TITAN DEEP INTERNALS - AWS INFRASTRUCTURE MECHANICS](#volume-34-titan-deep-internals---aws-infrastructure-mechanics)
-- [EC2 METADATA SERVICE: IMDSV2 MANDATORY](#ec2-metadata-service-imdsv2-mandatory)
-  - [SSRF Attack Vector](#ssrf-attack-vector)
-- [S3 STRONG CONSISTENCY MODEL](#s3-strong-consistency-model)
-- [Eventual Consistency is Dead](#eventual-consistency-is-dead)
-- [LAMBDA EXECUTION ENVIRONMENT](#lambda-execution-environment)
-- [Cold Start Deep Internals](#cold-start-deep-internals)
-- [MULTI-REGION FAILOVER: THE DNS TRAP](#multi-region-failover-the-dns-trap)
-- [DNS TTL During Outage](#dns-ttl-during-outage)
-- [EBS VOLUME PERFORMANCE CHARACTERISTICS](#ebs-volume-performance-characteristics)
-- [IOPS vs Throughput Confusion](#iops-vs-throughput-confusion)
-- [END OF VOLUME 3.4: TITAN DEEP INTERNALS - AWS INFRASTRUCTURE MECHANICS](#end-of-volume-34-titan-deep-internals---aws-infrastructure-mechanics)
-- [VOLUME 3.5: TITAN GEMINI RESEARCH - CLOUD PRODUCTION FAILURES](#volume-35-titan-gemini-research---cloud-production-failures)
-- [AWS NAT GATEWAY COST TRAP](#aws-nat-gateway-cost-trap)
+  - [EC2 METADATA SERVICE: IMDSV2 MANDATORY](#ec2-metadata-service-imdsv2-mandatory)
+    - [SSRF Attack Vector](#ssrf-attack-vector)
+- [S3 PERFORMANCE TUNING](#s3-performance-tuning)
   - [The Scar](#the-scar)
-- [TITAN: VPC Endpoints for AWS services (no NAT needed)](#titan-vpc-endpoints-for-aws-services-no-nat-needed)
-- [Interface endpoints for other services](#interface-endpoints-for-other-services)
-- [TITAN: Route 53 health-based failover](#titan-route-53-health-based-failover)
-- [TITAN: Application-level failover](#titan-application-level-failover)
-- [Use region-specific endpoint](#use-region-specific-endpoint)
-- [TITAN: Hash-based prefix for distribution](#titan-hash-based-prefix-for-distribution)
-- [Now distributed across partitions](#now-distributed-across-partitions)
-- ["a1b2/logs/2024/01/01/file001.json"](#a1b2logs20240101file001json)
-- ["c3d4/logs/2024/01/01/file002.json"](#c3d4logs20240101file002json)
-- ["e5f6/logs/2024/01/01/file003.json"](#e5f6logs20240101file003json)
-- [TITAN: Retry with exponential backoff](#titan-retry-with-exponential-backoff)
-- [TITAN: Usage plans for throttling isolation](#titan-usage-plans-for-throttling-isolation)
-- [Separate APIs get separate rate limits](#separate-apis-get-separate-rate-limits)
-- [terraform](#terraform)
+- [API GATEWAY THROTTLING](#api-gateway-throttling)
+  - [The Scar](#the-scar-1)
 - [CLOUDWATCH COSTS EXPLOSION](#cloudwatch-costs-explosion)
-- [The Scar 4](#the-scar-4)
-- [VIBE: High-cardinality dimensions](#vibe-high-cardinality-dimensions)
-- [Creates millions of unique metric streams = $$$$$](#creates-millions-of-unique-metric-streams-)
-- [VIBE: No cost monitoring](#vibe-no-cost-monitoring)
-- [No tags, no idea who owns this](#no-tags-no-idea-who-owns-this)
+  - [The Scar](#the-scar-2)
 - [SPOT INSTANCE STRATEGIES](#spot-instance-strategies)
-- [The Scar 5](#the-scar-5)
-- [VIBE: Single spot instance type](#vibe-single-spot-instance-type)
-- [TITAN: Diversified Spot with fallback](#titan-diversified-spot-with-fallback)
-- [Multiple instance types with similar specs](#multiple-instance-types-with-similar-specs)
-- [Spread across AZs](#spread-across-azs)
-- [Build launch specifications for all combinations](#build-launch-specifications-for-all-combinations)
-- [Create fleet with capacity-optimized allocation](#create-fleet-with-capacity-optimized-allocation)
-- [Mix with On-Demand for reliability](#mix-with-on-demand-for-reliability)
-- [Replace unhealthy instances](#replace-unhealthy-instances)
-- [Interruption handling](#interruption-handling)
-- [TITAN: Graceful Spot interruption handling](#titan-graceful-spot-interruption-handling)
-- [1. Stop accepting new requests](#1-stop-accepting-new-requests)
-- [2. Complete in-flight requests (connection draining)](#2-complete-in-flight-requests-connection-draining)
-- [3. Checkpoint any state](#3-checkpoint-any-state)
-- [4. Notify orchestrator](#4-notify-orchestrator)
-- [Run as background thread on startup](#run-as-background-thread-on-startup)
-- [VIBE: Default Lambda settings](#vibe-default-lambda-settings)
-- [TITAN: Optimized Lambda for minimal cold starts](#titan-optimized-lambda-for-minimal-cold-starts)
-- [Move imports to global scope - execute during init](#move-imports-to-global-scope---execute-during-init)
-- [Initialize clients at module level (reused across invocations)](#initialize-clients-at-module-level-reused-across-invocations)
-- [Lazy initialization for heavy clients](#lazy-initialization-for-heavy-clients)
-- [Use pre-initialized clients](#use-pre-initialized-clients)
-- [Process event](#process-event)
-- [TITAN: Lambda warmer implementation](#titan-lambda-warmer-implementation)
-- [Check if this is a warming invocation](#check-if-this-is-a-warming-invocation)
-- [Invoke self to warm multiple instances](#invoke-self-to-warm-multiple-instances)
-- [Normal request processing](#normal-request-processing)
-- [END OF VOLUME 5: TITAN GEMINI RESEARCH - SERVERLESS PRODUCTION PATTERNS](#end-of-volume-5-titan-gemini-research---serverless-production-patterns)
-- [VOLUME 4: ADVANCED CLOUD PATTERNS](#volume-4-advanced-cloud-patterns)
-- [AWS LAMBDA AT SCALE](#aws-lambda-at-scale)
-  - [Cold Start Optimization 2 2](#cold-start-optimization-2-2)
-  - [Provisioned Concurrency Configuration](#provisioned-concurrency-configuration)
-- [KUBERNETES PRODUCTION PATTERNS](#kubernetes-production-patterns)
-- [Pod Disruption Budget](#pod-disruption-budget)
-- [TERRAFORM PRODUCTION MODULES](#terraform-production-modules)
-- [Multi-Region Infrastructure](#multi-region-infrastructure)
-- [END OF CLOUD VOLUME 4](#end-of-cloud-volume-4)
-- [Lines: ~350+ added](#lines-350-added)
-- [REAL AWS PATTERNS 2024](#real-aws-patterns-2024)
-- [S3 File Operations](#s3-file-operations)
-- [Lambda Function Pattern](#lambda-function-pattern)
-- [SQS Queue Processing](#sqs-queue-processing)
-- [REAL VERCEL PATTERNS 2024](#real-vercel-patterns-2024)
-- [Edge Functions 2](#edge-functions-2)
-- [Serverless API Routes](#serverless-api-routes)
-  - [END OF CLOUD PATTERNS](#end-of-cloud-patterns)
-- [? IMDSv1: Vulnerable (single request gets creds) 2](#-imdsv1-vulnerable-single-request-gets-creds-2)
-- [? IMDSv2: Requires PUT first (SSRF can't do PUT usually) 2](#-imdsv2-requires-put-first-ssrf-cant-do-put-usually-2)
-- [? TITAN: Route 53 health-based failover 2](#-titan-route-53-health-based-failover-2)
-- [? VIBE: Not handling throttling 2](#-vibe-not-handling-throttling-2)
-- [? TITAN: Retry with exponential backoff 2](#-titan-retry-with-exponential-backoff-2)
-- [? TITAN: Usage plans for throttling isolation 2](#-titan-usage-plans-for-throttling-isolation-2)
-- [? TITAN: Request service limit increase 2](#-titan-request-service-limit-increase-2)
-- [? VIBE: High-cardinality dimensions 2](#-vibe-high-cardinality-dimensions-2)
-- [? TITAN: Low-cardinality dimensions only 2](#-titan-low-cardinality-dimensions-only-2)
-- [3 *10* 50 = 1,500 metric streams (manageable) 2](#3-10-50-1500-metric-streams-manageable-2)
-- [? TITAN: Use EMF for detailed logs ? metrics 2](#-titan-use-emf-for-detailed-logs-metrics-2)
-- [? TITAN: Diversified Spot with fallback 2](#-titan-diversified-spot-with-fallback-2)
-- [? TITAN: Graceful Spot interruption handling 2](#-titan-graceful-spot-interruption-handling-2)
-- [? VIBE: Default Lambda settings 2](#-vibe-default-lambda-settings-2)
+  - [The Scar](#the-scar-3)
+- [STEP FUNCTIONS ORCHESTRATION](#step-functions-orchestration)
+  - [The Scar](#the-scar-4)
 
 ## 07_CLOUD.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -249,7 +287,6 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
-
 1. The "$100k Firebase Bill" - Denial of Wallet
 2. The "S3 Bucket Leak" - Public by Default
 3. The "Kubernetes OOMKilled" - Memory Limit Misunderstanding
@@ -258,51 +295,45 @@
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. VPC Networking (Subnets, NAT, IGW)
-2. IAM Policies (Least Privilege)
-3. EC2 vs Lambda vs Fargate (Compute Decision Matrix)
-4. S3 Storage Classes (Standard vs Glacier)
+5. VPC Networking (Subnets, NAT, IGW)
+6. IAM Policies (Least Privilege)
+7. EC2 vs Lambda vs Fargate (Compute Decision Matrix)
+8. S3 Storage Classes (Standard vs Glacier)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. Kubernetes Internals (Etcd, Scheduler, Kubelet)
-2. Terraform State Management (Locking, Remote State)
-3. Docker Multi-Stage Builds (Optimization)
-4. Observability (Prometheus/Grafana)
+9. Kubernetes Internals (Etcd, Scheduler, Kubelet)
+10. Terraform State Management (Locking, Remote State)
+11. Docker Multi-Stage Builds (Optimization)
+12. Observability (Prometheus/Grafana)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. Multi-Region Active-Active Architecture
-2. Service Mesh (Istio/Linkerd)
-3. Spot Fleet Orchestration (Cost Savings)
-4. GitOps (ArgoCD)
+13. Multi-Region Active-Active Architecture
+14. Service Mesh (Istio/Linkerd)
+15. Spot Fleet Orchestration (Cost Savings)
+16. GitOps (ArgoCD)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. Firecracker MicroVMs (Lambda Internals)
-2. eBPF Networking (Cilium)
-3. Custom Kubernetes Controllers (Operators)
-4. Nitro Enclaves (Confidential Computing)
+17. Firecracker MicroVMs (Lambda Internals)
+18. eBPF Networking (Cilium)
+19. Custom Kubernetes Controllers (Operators)
+20. Nitro Enclaves (Confidential Computing)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. Sky Computing (Inter-Cloud Brokerage)
-2. Orbital Server Farms (Space Data Centers)
-3. Underwater Data Centers (Project Natick)
-4. Quantum Cloud Services (Braket)
+21. Sky Computing (Inter-Cloud Brokerage)
+22. Orbital Server Farms (Space Data Centers)
+23. Underwater Data Centers (Project Natick)
+24. Quantum Cloud Services (Braket)
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. THE "$100K FIREBASE BILL"
 
@@ -313,7 +344,7 @@ Startup used Firestore. Frontend had a bug.
 **The Error**:
 `useEffect` loop reading a collection of 10,000 documents every render.
 **The Result**:
-10,000 reads *60fps* 100 users = Billions of reads.
+10,000 reads * 60fps * 100 users = Billions of reads.
 **The Bill**:
 $100,000 in 24 hours.
 **The Fix**:
@@ -334,7 +365,7 @@ Exposed the entire bucket (Passports, Backups) to the world.
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 5. VPC NETWORKING
 
@@ -347,13 +378,12 @@ Exposed the entire bucket (Passports, Backups) to the world.
 - **Private Subnet**: Route Table to NAT Gateway. For App Servers/DB.
 
 - **Database Subnet**: No Route to Internet. Only accessible from Private Subnet.
-
 **Security Group**: Stateful firewall (Allow Inbound 443).
 **NACL**: Stateless firewall (Subnet level).
 
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 9. KUBERNETES INTERNALS
 
@@ -403,7 +433,9 @@ The Agent on the Node.
 - **Encryption**: Enable KMS encryption on the S3 bucket.
 
 **Terragrunt (DRY Terraform)**:
-Don't copy-paste `backend`config.```hcl
+Don't copy-paste `backend` config.
+
+```hcl
 
 ## terragrunt.hcl
 
@@ -418,7 +450,6 @@ dynamodb_table = "terraform-locks"
 }
 
 ```text
-
 ---
 
 ## 12. OBSERVABILITY
@@ -441,7 +472,7 @@ dynamodb_table = "terraform-locks"
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 13. MULTI-REGION ACTIVE-ACTIVE
 
@@ -492,7 +523,6 @@ All traffic goes Pod A -> Proxy A -> Proxy B -> Pod B.
 Bid on unused EC2 capacity. AWS can reclaim it with **2 minutes warning**.
 
 **Handling Interruption**:
-
 1. **Node Termination Handler**: DaemonSet on K8s.
 2. Listens to AWS Metadata Service for "Rebalance Recommendation" or "Spot Interruption Warning".
 3. **Cordon & Drain**: Tells K8s to stop scheduling new pods and evict existing ones.
@@ -500,7 +530,7 @@ Bid on unused EC2 capacity. AWS can reclaim it with **2 minutes warning**.
 
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 17. FIRECRACKER MICROVMS
 
@@ -536,7 +566,6 @@ Custom: `PostgresCluster`, `KafkaTopic`.
 **Reconciliation Loop**:
 
 ```go
-
 func (r *Reconciler) Reconcile(req Request) (Result, error) {
 // 1. Fetch the Custom Resource (CR)
 instance := &MyCR{}
@@ -550,12 +579,11 @@ return Result{}, nil
 }
 
 ```text
-
 **Tools**: Kubebuilder, Operator SDK.
 
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 21. SKY COMPUTING
 
@@ -569,7 +597,6 @@ Treat AWS, Azure, GCP as a single pool of resources.
 **SkyPilot YAML**:
 
 ```yaml
-
 resources:
 accelerators: V100:1  # 1 NVIDIA V100 GPU
 
@@ -577,7 +604,6 @@ accelerators: V100:1  # 1 NVIDIA V100 GPU
 python train.py
 
 ```text
-
 SkyPilot automatically finds the cheapest cloud (AWS vs GCP vs Lambda Cloud), provisions the VM, syncs data, runs the job, and tears it down.
 
 ---
@@ -607,7 +633,6 @@ Put servers in LEO (Low Earth Orbit).
 Standardized structure.
 
 ```text
-
 /modules/s3-bucket
 /main.tf (Resources)
 /variables.tf (Inputs)
@@ -620,23 +645,22 @@ Standardized structure.
 
 Production-ready Deployment.
 
+```yaml
 apiVersion: apps/v1
 kind: Deployment
-    metadata:
+metadata:
 name: app
-    spec:
+spec:
 replicas: 3
-      strategy:
+  strategy:
 type: RollingUpdate
-        rollingUpdate:
+    rollingUpdate:
 maxSurge: 25%
 maxUnavailable: 25%
-      template:
-        spec:
-        containers:
-
+  template:
+    spec:
+      containers:
 - name: app
-
 image: my-app:v1
         resources:
         requests:
@@ -653,12 +677,13 @@ port: 8080
         httpGet:
 path: /ready
 port: 8080
-        topologySpreadConstraints:
-
+      topologySpreadConstraints:
 - maxSkew: 1
-
 topologyKey: topology.kubernetes.io/zone
 whenUnsatisfiable: DoNotSchedule
+
+```text
+---
 
 ## KEYWORD REFERENCE INDEX
 
@@ -804,7 +829,7 @@ whenUnsatisfiable: DoNotSchedule
 
 - GuardDuty/Sentinel: threat detection, SIEM
 
-## CLOUD 2
+## CLOUD
 
 - Cloud-agnostic: Terraform, Pulumi, Crossplane
 
@@ -1001,15 +1026,15 @@ whenUnsatisfiable: DoNotSchedule
 
 ## Patterns
 
-- API backend: REST, GraphQL
+- Level-triggered: eventual consistency
 
-- Event processing: async, queue
+- Edge-triggered: immediate reaction
 
-- Scheduled tasks: cron, EventBridge
+- Garbage collection: owner references
 
-- Data pipeline: ETL, transform
+- Status conditions: Ready, Progressing
 
-- Edge functions: CDN, low-latency
+---
 
 ## SERVICE MESH DEEP ATLAS
 
@@ -1039,7 +1064,7 @@ whenUnsatisfiable: DoNotSchedule
 
 - Timeouts: request, idle
 
-## Security 2
+## Security
 
 - mTLS: automatic, SPIFFE identity
 
@@ -1171,17 +1196,15 @@ whenUnsatisfiable: DoNotSchedule
 
 ## Governance
 
-- Policies: organizational SCPs
+- Budgets: alerts, limits
 
-- Quotas: service limits
+- Quotas: resource constraints
+
+- Policies: Terraform, OPA
 
 - Approval workflows: cost review
 
-- Idle resources: cleanup
-
-- Spot instance optimization
-
----
+- Recommendations: automated
 
 ## Tools
 
@@ -1201,7 +1224,7 @@ whenUnsatisfiable: DoNotSchedule
 
 ## Each keyword = expandable architecture
 
-## Principles 2
+## Principles
 
 - Never trust, always verify
 
@@ -1248,6 +1271,8 @@ whenUnsatisfiable: DoNotSchedule
 
 - Audit: comprehensive logging
 
+---
+
 ## DISASTER RECOVERY DEEP ATLAS
 
 ## Each keyword = expandable strategy
@@ -1266,21 +1291,15 @@ whenUnsatisfiable: DoNotSchedule
 
 ## Strategies
 
-```text
+- Backup/Restore: lowest cost, highest RTO
 
-ACTIVE-PASSIVE:
-Region A: Primary (all traffic)
-Region B: Hot standby (failover only)
-Simple, higher latency for some users
+- Pilot Light: minimal always-on
 
-ACTIVE-ACTIVE:
-Region A: Serves local users
-Region B: Serves local users
-Complex, lower latency globally
+- Warm Standby: scaled-down copy
 
-```text
+- Hot Standby: full active-passive
 
----
+- Active-Active: multi-region active
 
 ## AWS
 
@@ -1351,17 +1370,19 @@ Complex, lower latency globally
 
 - VPN: site-to-site, client
 
-- Direct Connect: dedicated
+- Direct Connect: dedicated line
 
-- VPC Peering: same region, cross-region
+- ExpressRoute: Azure private
 
-- Transit Gateway: hub-spoke
+- Interconnect: Google peering
 
-- PrivateLink: private endpoints
+- SD-WAN: software-defined
+
+---
 
 ## PLATFORM ENGINEERING DEEP ATLAS
 
-## Each keyword = expandable practice 2
+## Each keyword = expandable practice
 
 ## Internal Developer Platform
 
@@ -1421,7 +1442,7 @@ Complex, lower latency globally
 
 ## SERVERLESS DEEP ATLAS
 
-## Each keyword = expandable implementation 2
+## Each keyword = expandable implementation
 
 ## AWS Lambda
 
@@ -1447,7 +1468,7 @@ Complex, lower latency globally
 
 - Knative: Kubernetes-native
 
-## Patterns 2
+## Patterns
 
 - API backend: REST, GraphQL
 
@@ -1471,9 +1492,11 @@ Complex, lower latency globally
 
 - Cost: execution-based billing
 
+---
+
 ## CLOUD DEEP ATLAS
 
-## Each keyword = expandable strategy 2
+## Each keyword = expandable strategy
 
 ## Abstraction
 
@@ -1505,7 +1528,7 @@ Complex, lower latency globally
 
 - DNS: Route53, Cloud DNS, Azure DNS
 
-## Data 2
+## Data
 
 - Multi-region replication
 
@@ -1515,11 +1538,13 @@ Complex, lower latency globally
 
 - DR: failover between clouds
 
+---
+
 ## FINOPS ADVANCED DEEP ATLAS
 
-## Each keyword = expandable practice 3
+## Each keyword = expandable practice
 
-## Cost Optimization 2
+## Cost Optimization
 
 - Reserved instances: 1-3 year commitment
 
@@ -1554,7 +1579,7 @@ Complex, lower latency globally
 
 - Unit economics: cost per user
 
-## Governance 2
+## Governance
 
 - Policies: organizational SCPs
 
@@ -1566,9 +1591,11 @@ Complex, lower latency globally
 
 - Spot instance optimization
 
+---
+
 ## CLOUD NETWORKING DEEP ATLAS
 
-## Each keyword = expandable configuration 2
+## Each keyword = expandable configuration
 
 ## VPC Design
 
@@ -1582,7 +1609,7 @@ Complex, lower latency globally
 
 - NAT gateway: outbound internet
 
-## Connectivity 2
+## Connectivity
 
 - VPN: site-to-site, client
 
@@ -1594,7 +1621,7 @@ Complex, lower latency globally
 
 - PrivateLink: private endpoints
 
-## Security 3
+## Security
 
 - Security groups: stateful
 
@@ -1675,7 +1702,7 @@ Complex, lower latency globally
 
 ## COMPUTE DEEP ATLAS
 
-## Each keyword = expandable configuration 3
+## Each keyword = expandable configuration
 
 ## EC2
 
@@ -1749,13 +1776,13 @@ Complex, lower latency globally
 terraform {
 required_providers {
 aws = { source = "hashicorp/aws", version = "~> 5.0" }
-      }
+  }
 backend "s3" {
 bucket = "terraform-state-bucket"
 key = "prod/terraform.tfstate"
 region = "us-east-1"
-      }
-    }
+  }
+}
 
 ## VPC
 
@@ -1763,7 +1790,7 @@ resource "aws_vpc" "main" {
 cidr_block = "10.0.0.0/16"
 enable_dns_hostnames = true
 tags = { Name = "${var.project}-vpc" }
-    }
+}
 
 resource "aws_subnet" "private" {
 count = 2
@@ -1771,7 +1798,7 @@ vpc_id = aws_vpc.main.id
 cidr_block = "10.0.${count.index + 1}.0/24"
 availability_zone = data.aws_availability_zones.available.names[count.index]
 tags = { Name = "${var.project}-private-${count.index + 1}" }
-    }
+}
 
 resource "aws_subnet" "public" {
 count = 2
@@ -1780,7 +1807,7 @@ cidr_block = "10.0.${count.index + 10}.0/24"
 availability_zone = data.aws_availability_zones.available.names[count.index]
 map_public_ip_on_launch = true
 tags = { Name = "${var.project}-public-${count.index + 1}" }
-    }
+}
 
 ## ECS Cluster
 
@@ -1789,8 +1816,8 @@ name = "${var.project}-cluster"
 setting {
 name = "containerInsights"
 value = "enabled"
-      }
-    }
+  }
+}
 
 ## ECS Service
 
@@ -1815,21 +1842,21 @@ container_port = 3000
 }
 
 ```text
-
 ---
 
 ## AWS CDK PATTERNS
 
 ## TypeScript CDK Stack
 
-**Why it exists:**Infrastructure as real code
+**Why it exists:** Infrastructure as real code
 
+```typescript
 // lib/api-stack.ts
-import* as cdk from 'aws-cdk-lib';
-import *as ec2 from 'aws-cdk-lib/aws-ec2';
-import* as ecs from 'aws-cdk-lib/aws-ecs';
-import *as elbv2 from 'aws-cdk-lib/aws-elasticloadbalancingv2';
-import* as rds from 'aws-cdk-lib/aws-rds';
+import * as cdk from 'aws-cdk-lib';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import * as ecs from 'aws-cdk-lib/aws-ecs';
+import * as elbv2 from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import * as rds from 'aws-cdk-lib/aws-rds';
 
 export class ApiStack extends cdk.Stack {
 constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
@@ -1839,18 +1866,18 @@ super(scope, id, props);
 const vpc = new ec2.Vpc(this, 'Vpc', {
 maxAzs: 2,
 natGateways: 1,
-        });
+    });
 
 // RDS
 const database = new rds.DatabaseInstance(this, 'Database', {
 engine: rds.DatabaseInstanceEngine.postgres({ version: rds.PostgresEngineVersion.VER_15 }),
 instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.SMALL),
-        vpc,
+      vpc,
 vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },
 multiAz: true,
 allocatedStorage: 100,
 credentials: rds.Credentials.fromGeneratedSecret('postgres'),
-        });
+    });
 
 // ECS Cluster
 const cluster = new ecs.Cluster(this, 'Cluster', { vpc });
@@ -1859,22 +1886,22 @@ const cluster = new ecs.Cluster(this, 'Cluster', { vpc });
 const taskDef = new ecs.FargateTaskDefinition(this, 'TaskDef', {
 memoryLimitMiB: 512,
 cpu: 256,
-        });
+    });
 
 taskDef.addContainer('Api', {
 image: ecs.ContainerImage.fromAsset('./api'),
 portMappings: [{ containerPort: 3000 }],
 environment: {
 DATABASE_URL: database.dbInstanceEndpointAddress,
-        },
+      },
 logging: ecs.LogDrivers.awsLogs({ streamPrefix: 'api' }),
-        });
+    });
 
 const service = new ecs.FargateService(this, 'Service', {
-        cluster,
+      cluster,
 taskDefinition: taskDef,
 desiredCount: 2,
-        });
+    });
 
 // ALB
 const lb = new elbv2.ApplicationLoadBalancer(this, 'LB', { vpc, internetFacing: true });
@@ -1883,8 +1910,11 @@ listener.addTargets('Target', { port: 3000, targets: [service] });
 
 // Output
 new cdk.CfnOutput(this, 'LoadBalancerDNS', { value: lb.loadBalancerDnsName });
-      }
-    }
+  }
+}
+
+```text
+---
 
 ## PULUMI PATTERNS
 
@@ -1893,7 +1923,6 @@ new cdk.CfnOutput(this, 'LoadBalancerDNS', { value: lb.loadBalancerDnsName });
 **Why it exists:** Real programming language for IaC
 
 ```typescript
-
 // index.ts - Pulumi AWS Infrastructure
 import * as pulumi from '@pulumi/pulumi';
 import * as aws from '@pulumi/aws';
@@ -1935,10 +1964,9 @@ portMappings: [{ targetGroup: alb.defaultTargetGroup }],
   },
 });
 
-export const url = pulumi.interpolate`<https://${alb.loadBalancer.dnsName}`;>
+export const url = pulumi.interpolate`https://${alb.loadBalancer.dnsName}`;
 
 ```text
-
 ---
 
 ## KUBERNETES MANIFESTS
@@ -1953,30 +1981,25 @@ export const url = pulumi.interpolate`<https://${alb.loadBalancer.dnsName}`;>
 
 apiVersion: apps/v1
 kind: Deployment
-    metadata:
+metadata:
 name: api
-    spec:
+spec:
 replicas: 3
-      selector:
-        matchLabels:
+  selector:
+    matchLabels:
 app: api
-      template:
-        metadata:
-        labels:
+  template:
+    metadata:
+      labels:
 app: api
-        spec:
-        containers:
-
+    spec:
+      containers:
 - name: api
-
 image: registry/api:v1.0.0
         ports:
-
 - containerPort: 3000
-
         resources:
         requests:
-
 cpu: 100m
 memory: 128Mi
         limits:
@@ -1995,58 +2018,50 @@ port: 3000
 initialDelaySeconds: 5
 periodSeconds: 3
         env:
-
 - name: DATABASE_URL
-
         valueFrom:
         secretKeyRef:
-
 name: db-secrets
 key: url
-
+---
 apiVersion: v1
 kind: Service
-    metadata:
+metadata:
 name: api
-    spec:
-      selector:
+spec:
+  selector:
 app: api
-      ports:
-
+  ports:
 - port: 80
-
 targetPort: 3000
 type: ClusterIP
-
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-    metadata:
+metadata:
 name: api
-      annotations:
+  annotations:
 kubernetes.io/ingress.class: nginx
 cert-manager.io/cluster-issuer: letsencrypt-prod
-    spec:
-      tls:
-
+spec:
+  tls:
 - hosts:
 - api.example.com
-
 secretName: api-tls
-      rules:
-
+  rules:
 - host: api.example.com
-
-        http:
-        paths:
-
+    http:
+      paths:
 - path: /
-
 pathType: Prefix
         backend:
         service:
 name: api
         port:
 number: 80
+
+```text
+---
 
 ## CONTINUED: MORE CLOUD PATTERNS
 
@@ -2058,44 +2073,38 @@ number: 80
 
 ## AWS COST OPTIMIZATION
 
-> **The patterns that save money**
-
----
-
 ## Reserved vs Spot vs On-Demand Strategy
 
-**Source:**Stripe Infrastructure, Netflix Cloud Engineering**Why this matters:** Can reduce cloud spend by 70%
+**Source:** Stripe Infrastructure, Netflix Cloud Engineering
+**Why this matters:** Can reduce cloud spend by 70%
 
-    /**
-
+```typescript
+/**
 - AWS INSTANCE PURCHASING STRATEGY
-- *STRIPE'S APPROACH (from their engineering blog):
+- * STRIPE'S APPROACH (from their engineering blog):
 - "We use a 40/40/20 split:
 - - 40% Reserved Instances for baseline load
 - - 40% Savings Plans for predictable workloads
 - - 20% Spot for fault-tolerant batch jobs"
-
--* COST COMPARISON (m5.xlarge in us-east-1):
-
+- * COST COMPARISON (m5.xlarge in us-east-1):
 - - On-Demand: $0.192/hour = $1,682/year
 - - Reserved 1yr: $0.121/hour = $1,060/year (37% savings)
 - - Reserved 3yr: $0.079/hour = $692/year (59% savings)
 - - Spot: $0.04-0.08/hour = ~$350/year (80% savings, but interruptible)
-
-     */
+ */
 
 interface CostOptimizationPlan {
 baseline: {
 | type: 'reserved' | 'savings_plan'; |
 | commitment: '1yr' | '3yr'; |
 coverage: number; // Percentage of baseline
-      };
+  };
 variable: {
 | type: 'spot' | 'on_demand'; |
 fallback: boolean;
-      };
+  };
 recommendations: string[];
-    }
+}
 
 function analyzeCostOptimization(
 usage: CloudUsageData
@@ -2111,49 +2120,47 @@ const recommendations: string[] = [];
 
 // Rule 1: If baseline > 40% of peak, use reserved
 if (baselineCoverage > 0.4) {
-        recommendations.push(
-`Reserve ${Math.round(baselineCoverage * 100)}% capacity with 1-year commitment`);
-      }
+    recommendations.push(
+`Reserve ${Math.round(baselineCoverage * 100)}% capacity with 1-year commitment`
+    );
+  }
 
 // Rule 2: If workload is stateless, use spot for burst
 if (usage.isStateless) {
-        recommendations.push(
+    recommendations.push(
 'Use Spot instances for burst capacity with 2-minute interruption handling'
-        );
-      }
+    );
+  }
 
 // Rule 3: Right-size instances
 if (usage.avgCpuUtilization < 40) {
-recommendations.push(`Downsize instances: avg CPU ${usage.avgCpuUtilization}% suggests oversized`
-        );
-      }
+    recommendations.push(
+`Downsize instances: avg CPU ${usage.avgCpuUtilization}% suggests oversized`
+    );
+  }
 
 return {
 baseline: {
 type: 'savings_plan',
 commitment: '1yr',
 coverage: baselineCoverage,
-        },
+    },
 variable: {
 type: usage.isStateless ? 'spot' : 'on_demand',
 fallback: true,
-        },
-        recommendations,
-      };
-    }
+    },
+    recommendations,
+  };
+}
 
-    /**
-
+/**
 - SPOT INSTANCE INTERRUPTION HANDLING
-- *Spot instances can be terminated with 2-minute warning.
+- * Spot instances can be terminated with 2-minute warning.
 - Must design for graceful degradation.
-
--* NETFLIX'S PATTERN:
-
+- * NETFLIX'S PATTERN:
 - "All our encoding jobs run on Spot. When interrupted,
 - we checkpoint progress to S3 and resume on new instance."
-
-     */
+ */
 
 class SpotInterruptionHandler {
 | private checkpointInterval: NodeJS.Timeout | null = null; |
@@ -2162,7 +2169,7 @@ async startMonitoring(): Promise<void> {
 // Poll EC2 metadata for interruption notice
 setInterval(async () => {
 const response = await fetch(
-        '<<<http://169.254.169.254/latest/meta-data/spot/instance-action',>>>
+        'http://169.254.169.254/latest/meta-data/spot/instance-action',
 { timeout: 1000 }
 ).catch(() => null);
 
@@ -2171,9 +2178,9 @@ const data = await response.json();
 if (data.action === 'terminate') {
 await this.handleInterruption(data.time);
         }
-        }
-}, 5000); // Check every 5 seconds
       }
+}, 5000); // Check every 5 seconds
+  }
 
 private async handleInterruption(terminationTime: string): Promise<void> {
 Spot interruption notice received!');
@@ -2193,7 +2200,7 @@ await this.deregisterFromALB();
 
 // 5. Signal ASG to launch replacement
 await this.requestReplacement();
-      }
+  }
 
 private async checkpointState(): Promise<void> {
 // Save current job progress to S3
@@ -2203,36 +2210,37 @@ await s3.putObject({
 Bucket: process.env.CHECKPOINT_BUCKET!,
 Key: `checkpoints/${this.instanceId}/${Date.now()}.json`,
 Body: JSON.stringify(state),
-        });
+    });
 
 State checkpointed to S3');
-      }
-    }
+  }
+}
+
+```text
+---
 
 ## REGION DISASTER RECOVERY
 
 ## Active-Active Architecture
 
-**Source:**Stripe's Multi-Region Setup, Netflix Region Failover**Why it's complex:** Distributed consensus across regions
+**Source:** Stripe's Multi-Region Setup, Netflix Region Failover
+**Why it's complex:** Distributed consensus across regions
 
-    /**
-
+```typescript
+/**
 - DISASTER RECOVERY TIERS
-- *RTO = Recovery Time Objective (how fast to recover)
+- * RTO = Recovery Time Objective (how fast to recover)
 - RPO = Recovery Point Objective (how much data loss acceptable)
-
--* TIER 1 - Backup/Restore: RTO > 24h, RPO > 24h
-
+- * TIER 1 - Backup/Restore: RTO > 24h, RPO > 24h
 - TIER 2 - Pilot Light: RTO 4-8h, RPO 1h
 - TIER 3 - Warm Standby: RTO 1-4h, RPO < 1h
 - TIER 4 - Hot Standby: RTO < 1h, RPO near-zero
 - TIER 5 - Active-Active: RTO ~0, RPO ~0
-- *STRIPE'S APPROACH (from their engineering blog):
+- * STRIPE'S APPROACH (from their engineering blog):
 - "We run active-active across 3 regions. Any region can handle
 - any request. Database writes go to the primary region,
 - reads can be served from local replicas."
-
-    */
+ */
 
 interface MultiRegionConfig {
 regions: {
@@ -2241,53 +2249,51 @@ id: string;
 database: {
 | type: 'primary' | 'replica'; |
 replicationLag: number; // max acceptable in ms
-        };
+    };
 traffic: {
 percentage: number;
 canAcceptWrites: boolean;
-        };
-      }[];
+    };
+  }[];
 failover: {
 automatic: boolean;
 healthCheckInterval: number;
 failoverThreshold: number; // consecutive failures
-      };
-    }
+  };
+}
 
 const productionConfig: MultiRegionConfig = {
 regions: [
-        {
+    {
 id: 'us-east-1',
 role: 'primary',
 database: { type: 'primary', replicationLag: 0 },
 traffic: { percentage: 40, canAcceptWrites: true },
-        },
-        {
+    },
+    {
 id: 'us-west-2',
 role: 'secondary',
 database: { type: 'replica', replicationLag: 50 },
 traffic: { percentage: 30, canAcceptWrites: false },
-        },
-        {
+    },
+    {
 id: 'eu-west-1',
 role: 'secondary',
 database: { type: 'replica', replicationLag: 100 },
 traffic: { percentage: 30, canAcceptWrites: false },
-        },
-      ],
+    },
+  ],
 failover: {
 automatic: true,
 healthCheckInterval: 10000,
 failoverThreshold: 3,
-      },
-    };
+  },
+};
 
-    /**
-
+/**
 - GLOBAL TRAFFIC MANAGEMENT
-- *Use Route 53 with health checks for automatic failover
-
-    */
+- * Use Route 53 with health checks for automatic failover
+ */
 
 class GlobalTrafficManager {
 private regionHealth: Map<string, boolean> = new Map();
@@ -2295,28 +2301,28 @@ private failureCount: Map<string, number> = new Map();
 
 async checkRegionHealth(region: string): Promise<boolean> {
 try {
-const response = await fetch(`<<<https://${region}.api.example.com/health`,>>> {
+const response = await fetch(`https://${region}.api.example.com/health`, {
 timeout: 5000,
-        });
+      });
 
 if (response.ok) {
 this.failureCount.set(region, 0);
 this.regionHealth.set(region, true);
 return true;
-        }
+      }
 } catch (error) {
-| const failures = (this.failureCount.get(region) | 0) + 1; |
+| const failures = (this.failureCount.get(region) |  | 0) + 1; |
 this.failureCount.set(region, failures);
 
 if (failures >= 3) {
 Region ${region} marked unhealthy`);
 this.regionHealth.set(region, false);
 await this.initiateFailover(region);
-        }
-        }
+      }
+    }
 
 return false;
-      }
+  }
 
 private async initiateFailover(failedRegion: string): Promise<void> {
 // 1. Update Route 53 to remove failed region
@@ -2326,7 +2332,7 @@ await this.updateDNS(failedRegion, 'remove');
 if (this.isPrimary(failedRegion)) {
 const newPrimary = this.selectNewPrimary();
 await this.promoteToPrimary(newPrimary);
-        }
+    }
 
 // 3. Scale up remaining regions
 await this.scaleUpRegions();
@@ -2336,83 +2342,80 @@ await this.alertOncall({
 severity: 'critical',
 message: `Region ${failedRegion} failed over`,
 action: 'automatic_failover_completed',
-        });
-      }
+    });
+  }
 
 private async promoteToPrimary(region: string): Promise<void> {
 // Database promotion (Aurora Global Database)
 await rds.failoverGlobalCluster({
 GlobalClusterIdentifier: 'production-global',
 TargetDbClusterIdentifier: `production-${region}`,
-        });
+    });
 
 ${region} promoted to primary`);
-      }
-    }
+  }
+}
 
-    /**
-
+/**
 - DATABASE REPLICATION STRATEGIES
-- *SYNCHRONOUS: Primary waits for replica ACK
+- * SYNCHRONOUS: Primary waits for replica ACK
 - - Pro: Zero data loss
 - - Con: Higher latency, lower availability during network issues
-
--* ASYNCHRONOUS: Primary doesn't wait
-
+- * ASYNCHRONOUS: Primary doesn't wait
 - - Pro: Lower latency, higher availability
 - - Con: Potential data loss on failover
-- *SEMI-SYNCHRONOUS: Wait for at least 1 replica
+- * SEMI-SYNCHRONOUS: Wait for at least 1 replica
 - - Pro: Balance of both
 - - Con: Complexity
+ */
 
-    */
+```text
+---
 
 ## SECURITY AT SCALE
 
 ## Zero Trust Network Architecture
 
-**Source:**Google BeyondCorp, Netflix Lemur**Why it matters:** Traditional perimeter security doesn't work in cloud
+**Source:** Google BeyondCorp, Netflix Lemur
+**Why it matters:** Traditional perimeter security doesn't work in cloud
 
-    /**
-
+```typescript
+/**
 - ZERO TRUST PRINCIPLES
-- *1. Never trust, always verify
-- 1. Assume breach
-- 1. Verify explicitly
-- 1. Use least privilege access
-- 1. Microsegmentation
-
--* GOOGLE'S BEYONDCORP:
-
+- * 1. Never trust, always verify
+- 2. Assume breach
+- 3. Verify explicitly
+- 4. Use least privilege access
+- 5. Microsegmentation
+- * GOOGLE'S BEYONDCORP:
 - "We don't have a corporate network perimeter.
 - Every request is authenticated and authorized,
 - regardless of network location."
-
-     */
+ */
 
 interface ZeroTrustRequest {
 user: {
 identity: string;
 | authLevel: 'password' | 'mfa' | 'hardware_key'; |
 deviceTrust: number; // 0-100
-      };
+  };
 device: {
 id: string;
 managed: boolean;
 compliant: boolean;
 lastPatched: Date;
-      };
+  };
 context: {
 ip: string;
 geoLocation: string;
 timeOfDay: string;
 riskScore: number;
-      };
+  };
 resource: {
 path: string;
 | sensitivity: 'public' | 'internal' | 'confidential' | 'restricted'; |
-      };
-    }
+  };
+}
 
 class ZeroTrustAuthorizer {
 async authorize(request: ZeroTrustRequest): Promise<{
@@ -2430,8 +2433,8 @@ return {
 allowed: false,
 reason: 'MFA required for non-public resources',
 requiredActions: ['complete_mfa'],
-        };
-        }
+      };
+    }
 
 // Device must be compliant for sensitive resources
 if (request.resource.sensitivity === 'restricted' &&
@@ -2440,8 +2443,8 @@ return {
 allowed: false,
 reason: 'Device compliance required',
 requiredActions: ['update_device', 'install_security_patches'],
-        };
-        }
+      };
+    }
 
 // Check risk score
 if (riskScore > 70) {
@@ -2449,11 +2452,11 @@ return {
 allowed: false,
 reason: `Risk score ${riskScore} exceeds threshold`,
 requiredActions: ['verify_identity', 'contact_security'],
-        };
-        }
+      };
+    }
 
 return { allowed: true, reason: 'All checks passed' };
-      }
+  }
 
 private calculateRiskScore(request: ZeroTrustRequest): number {
 let score = 0;
@@ -2472,14 +2475,19 @@ const daysSincePatched = this.daysSince(request.device.lastPatched);
 if (daysSincePatched > 30) score += 20;
 
 return Math.min(score, 100);
-      }
-    }
+  }
+}
+
+```text
+---
 
 ### [PRINCIPAL CLOUD ARCHITECT LEVEL] CONTINUED: MORE PATTERNS
 
 | #### Total Lines: ~1900+ | Target: 40,000 |
 
 ### Density: Stripe/Netflix infrastructure engineering quality
+
+---
 
 ## CLOUD ARCHITECTURE PATTERNS
 
@@ -2512,15 +2520,7 @@ return Math.min(score, 100);
 ## Common AWS Services
 
 | Service | Purpose |
-|
-
----
-
-|
-
----
-
-|
+|---------|---------|
 | Lambda | Serverless functions |
 | S3 | Object storage |
 | DynamoDB | NoSQL database |
@@ -2531,9 +2531,9 @@ return Math.min(score, 100);
 
 ---
 
-## Cost Optimization 3
+## Cost Optimization
 
-## Strategies 2
+## Strategies
 
 - Use reserved instances
 
@@ -2544,6 +2544,8 @@ return Math.min(score, 100);
 - Use spot instances for batch
 
 - Set up billing alerts
+
+---
 
 ## Multi-Region Deployment
 
@@ -2558,63 +2560,53 @@ return Math.min(score, 100);
 - Complexity vs benefit
 
 ---
-
-## SERVERLESS PATTERNS 2
+## SERVERLESS PATTERNS
 
 > **The patterns for event-driven compute**
+
+---
 
 ## Lambda Best Practices
 
 ## Cold Start Optimization
 
-```typescript
+- Keep packages small
 
-// Move init outside handler
-const db = new PrismaClient();  // Reused across invocations
+- Use provisioned concurrency
 
-export async function handler(event) {
-// Just use db
-const users = await db.user.findMany();
-return { statusCode: 200, body: JSON.stringify(users) };
-}
+- Lazy-load dependencies
 
-```text
-
----
+- Avoid VPC unless needed
 
 ## Handler Pattern
 
+```typescript
 export const handler = async (event: APIGatewayEvent) => {
 try {
-| const body = JSON.parse(event.body | '{}'); |
+| const body = JSON.parse(event.body |  | '{}'); |
 const result = await processRequest(body);
 
 return {
 statusCode: 200,
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify(result)
-        };
+    };
 } catch (error) {
-        console.error(error);
+    console.error(error);
 return {
 statusCode: 500,
 body: JSON.stringify({ error: 'Internal error' })
-        };
-      }
     };
+  }
+};
+
+```text
+---
 
 ## Event Sources
 
 | Source | Invocation |
-|
-
----
-
-| --|
-
----
-
-|
+|--------|------------|
 | API Gateway | Sync |
 | S3 | Async |
 | SQS | Polling |
@@ -2636,7 +2628,6 @@ body: JSON.stringify({ error: 'Internal error' })
 - Limited local storage
 
 ---
-
 ## CDN PATTERNS
 
 > **The patterns for global content delivery**
@@ -2646,15 +2637,7 @@ body: JSON.stringify({ error: 'Internal error' })
 ## What to CDN
 
 | Content | TTL |
-|
-
----
-
-|
-
----
-
-| --|
+|---------|-----|
 | Static JS/CSS | 1 year (versioned) |
 | Images | 1 month |
 | API responses | Vary (careful!) |
@@ -2665,19 +2648,15 @@ body: JSON.stringify({ error: 'Internal error' })
 ## Cache Headers
 
 ```text
-
 Cache-Control: public, max-age=31536000, immutable
 
 ```text
-
 For versioned assets (hash in filename)
 
 ```text
-
 Cache-Control: no-cache, must-revalidate
 
 ```text
-
 For HTML pages
 
 ---
@@ -2687,7 +2666,6 @@ For HTML pages
 ## URL Versioning
 
 ```text
-
 /assets/main.abc123.js
 
 ```text
@@ -2706,24 +2684,13 @@ Tell CDN how to invalidate
 
 ## Use Cases
 
-```text
+- A/B testing at edge
 
-GREAT FOR:
-API routing/gateway
-A/B testing
-Auth at edge
-Image optimization
-Geographic routing
-Rate limiting
+- Geolocation routing
 
-NOT FOR:
-Heavy computation (50ms CPU limit)
-Long-running processes
-Direct database queries (use D1 or Hyperdrive)
+- Auth validation
 
-```text
-
----
+- Request transformation
 
 ## Providers
 
@@ -2734,15 +2701,15 @@ Direct database queries (use D1 or Hyperdrive)
 - AWS Lambda@Edge
 
 ---
-
-## AWS COST OPTIMIZATION 2
+## AWS COST OPTIMIZATION
 
 > **The patterns that save money**
+
+---
 
 ## Instance Right-Sizing
 
 ```text
-
 METRICS TO CHECK:
 
 - CPU utilization < 40% avg: downsize
@@ -2760,25 +2727,12 @@ TOOLS:
 - Trusted Advisor
 
 ```text
-
 ---
 
 ## Reserved vs Spot vs On-Demand
 
 | Type | Discount | Use Case |
-|
-
----
-
-|
-
----
-
-| -|
-
----
-
-| -|
+|------|----------|----------|
 | On-Demand | 0% | Short-term, unpredictable |
 | Reserved | 30-60% | Steady baseline |
 | Spot | 60-90% | Fault-tolerant, flexible |
@@ -2788,19 +2742,7 @@ TOOLS:
 ## S3 Storage Classes
 
 | Class | Cost | Use Case |
-|
-
----
-
-| -|
-
----
-
-|
-
----
-
-| -|
+|-------|------|----------|
 | Standard | $$$ | Frequently accessed |
 | IA | $$ | Infrequent, fast retrieval |
 | Glacier | $ | Archive, minutes retrieval |
@@ -2811,7 +2753,6 @@ TOOLS:
 ## Quick Wins
 
 ```sql
-
 [ ] Delete unused EBS volumes
 [ ] Release unattached Elastic IPs
 [ ] Stop dev instances nights/weekends
@@ -2820,16 +2761,17 @@ TOOLS:
 [ ] Enable billing alerts
 
 ```text
-
 ---
-
-## SERVERLESS PATTERNS 3
+## SERVERLESS PATTERNS
 
 > **The Lambda/cloud function patterns**
 
-## Cold Start Optimization 2
+---
 
-    CAUSES:
+## Cold Start Optimization
+
+```yaml
+CAUSES:
 
 - New container provisioning
 
@@ -2839,7 +2781,7 @@ TOOLS:
 
 - Dependency initialization
 
-    MITIGATIONS:
+MITIGATIONS:
 
 - Keep functions small
 
@@ -2851,8 +2793,12 @@ TOOLS:
 
 - Connection pooling (external)
 
-## Handler Pattern 2
+```text
+---
 
+## Handler Pattern
+
+```javascript
 // Initialize outside handler (reused across invocations)
 const db = new Database();
 
@@ -2863,13 +2809,15 @@ const result = await db.query(event.id);
 return {
 statusCode: 200,
 body: JSON.stringify(result)
-      };
-    };
+  };
+};
+
+```text
+---
 
 ## Timeout Handling
 
 ```javascript
-
 export const handler = async (event, context) => {
 // Check remaining time
 const timeRemaining = context.getRemainingTimeInMillis();
@@ -2883,31 +2831,32 @@ return { statusCode: 408, body: 'Timeout imminent' };
 };
 
 ```text
-
 ---
-
 ## REGION DEPLOYMENT
 
 > **The global availability patterns**
 
 ---
 
-## Strategies 3
+## Strategies
 
-    ACTIVE-PASSIVE:
+```text
+ACTIVE-PASSIVE:
 Region A: Primary (all traffic)
 Region B: Hot standby (failover only)
 Simple, higher latency for some users
 
-    ACTIVE-ACTIVE:
+ACTIVE-ACTIVE:
 Region A: Serves local users
 Region B: Serves local users
 Complex, lower latency globally
 
+```text
+---
+
 ## Data Replication
 
 ```text
-
 ASYNC REPLICATION:
 Faster writes
 Possible data loss on failure
@@ -2924,13 +2873,11 @@ Application-level merge
 CRDTs (Conflict-free Replicated Data Types)
 
 ```text
-
 ---
 
 ## DNS-Based Routing
 
 ```yaml
-
 GEOLOCATION:
 Route to nearest region
 Based on client IP
@@ -2943,10 +2890,11 @@ FAILOVER:
 Health check failed -> Route elsewhere
 
 ```text
-
 ---
 
-## Challenges 2
+## Challenges
+
+```text
 
 - Clock synchronization across regions
 
@@ -2958,6 +2906,8 @@ Health check failed -> Route elsewhere
 
 - Compliance (data residency)
 
+```text
+---
 ## KUBERNETES DEBUGGING
 
 > **The K8s patterns for when things break**
@@ -2977,27 +2927,22 @@ COMMON ISSUES:
 1. ImagePullBackOff
 - Wrong image name/tag
 - Private registry auth missing
-
 FIX: Check image, add imagePullSecrets
 
-1. CrashLoopBackOff
+2. CrashLoopBackOff
 - App crashing on startup
-
 FIX: kubectl logs POD_NAME --previous
 
-1. Pending
+3. Pending
 - No node has enough resources
 - PVC not bound
-
 FIX: kubectl describe pod, check resources/PVC
 
-1. CreateContainerConfigError
+4. CreateContainerConfigError
 - Missing ConfigMap/Secret
-
 FIX: Verify all refs exist
 
 ```text
-
 ---
 
 ## Debug Commands
@@ -3027,7 +2972,6 @@ kubectl port-forward POD_NAME 8080:80
 kubectl get events --sort-by='.lastTimestamp'
 
 ```text
-
 ---
 
 ## Resource Issues
@@ -3041,11 +2985,11 @@ kubectl top nodes
 
 ## Common fix: Increase limits
 
-    resources:
-      requests:
+resources:
+  requests:
 memory: "256Mi"
 cpu: "250m"
-      limits:
+  limits:
 memory: "512Mi"
 cpu: "500m"
 
@@ -3054,9 +2998,7 @@ cpu: "500m"
 ## CPU Throttled? CPU limit too low
 
 ```text
-
 ---
-
 ## CLOUDFLARE WORKERS
 
 > **The edge computing patterns**
@@ -3066,7 +3008,6 @@ cpu: "500m"
 ## Basic Worker
 
 ```typescript
-
 // wrangler.toml
 name = "my-worker"
 main = "src/index.ts"
@@ -3088,13 +3029,11 @@ return new Response('Not found', { status: 404 });
 };
 
 ```text
-
 ---
 
 ## KV Storage
 
 ```typescript
-
 // wrangler.toml
 [[kv_namespaces]]
 binding = "CACHE"
@@ -3118,11 +3057,11 @@ return new Response(JSON.stringify(data));
 };
 
 ```text
-
 ---
 
-## Use Cases 2
+## Use Cases
 
+```text
 GREAT FOR:
 API routing/gateway
 A/B testing
@@ -3136,6 +3075,8 @@ Heavy computation (50ms CPU limit)
 Long-running processes
 Direct database queries (use D1 or Hyperdrive)
 
+```text
+---
 ## VERCEL DEPLOYMENT
 
 > **The serverless deployment patterns**
@@ -3144,62 +3085,48 @@ Direct database queries (use D1 or Hyperdrive)
 
 ## Basic Configuration
 
+```json
 // vercel.json
-    {
+{
 "buildCommand": "npm run build",
 "outputDirectory": ".next",
 "framework": "nextjs",
 "regions": ["iad1"],
 "env": {
 "DATABASE_URL": "@database-url"
-      },
+  },
 "headers": [
-        {
+    {
 "source": "/api/(.*)",
 "headers": [
 { "key": "Cache-Control", "value": "s-maxage=60" }
-        ]
-        }
       ]
     }
+  ]
+}
+
+```text
+---
 
 ## Edge Functions
 
 ```typescript
-
-// middleware.ts
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-
-export function middleware(request: NextRequest) {
-// Geo-based routing
-| const country = request.geo?.country |  | 'US'; |
-
-if (country === 'CN' && !request.nextUrl.pathname.startsWith('/cn')) {
-return NextResponse.redirect(new URL('/cn', request.url));
-  }
-
-// A/B testing
-| const variant = request.cookies.get('ab-variant')?.value |  |
-(Math.random() > 0.5 ? 'control' : 'variant');
-
-const response = NextResponse.next();
-
-if (!request.cookies.has('ab-variant')) {
-response.cookies.set('ab-variant', variant, { maxAge: 60 *60* 24 * 30 });
-  }
-
-response.headers.set('x-ab-variant', variant);
-
-return response;
-}
-
+// Edge function (runs globally)
 export const config = {
-| matcher: ['/((?!api | _next/static | _next/image | favicon.ico).*)'], |
+runtime: 'edge'
 };
 
-```text
+export default function handler(req: Request) {
+| const country = req.geo?.country |  | 'US'; |
 
+return new Response(JSON.stringify({
+message: `Hello from ${country}!`
+}), {
+headers: { 'Content-Type': 'application/json' }
+  });
+}
+
+```text
 ---
 
 ## Environment Variables
@@ -3220,7 +3147,6 @@ vercel env add STRIPE_KEY production
 vercel env add DATABASE_URL preview
 
 ```text
-
 ---
 
 ## Preview Deployments
@@ -3240,15 +3166,16 @@ vercel env add DATABASE_URL preview
 vercel --prod  # Only for main branch
 
 ```text
-
 ---
-
-## SERVERLESS PATTERNS 4
+## SERVERLESS PATTERNS
 
 > **The function-based architecture patterns**
 
-## Cold Start Optimization 3
+---
 
+## Cold Start Optimization
+
+```typescript
 // Move init outside handler
 const db = new PrismaClient();  // Reused across invocations
 
@@ -3256,12 +3183,14 @@ export async function handler(event) {
 // Just use db
 const users = await db.user.findMany();
 return { statusCode: 200, body: JSON.stringify(users) };
-    }
+}
+
+```text
+---
 
 ## Function Composition
 
 ```text
-
 SINGLE PURPOSE:
 
 - processOrder One job
@@ -3278,13 +3207,11 @@ NOT:
 processOrderAndSendEmailAndGenerateReport Too much, hard to debug
 
 ```text
-
 ---
 
 ## Idempotency
 
 ```typescript
-
 // Lambda might be invoked multiple times!
 // Always make handlers idempotent
 
@@ -3307,13 +3234,11 @@ data: { idempotencyKey, amount, userId, status: 'completed' }
 }
 
 ```text
-
 ---
 
 ## Fan-Out Pattern
 
 ```typescript
-
 // Process many items in parallel
 
 async function processItems(items: Item[]) {
@@ -3329,7 +3254,6 @@ await Promise.all(promises);
 }
 
 ```text
-
 ---
 
 ## VOLUME 7: PRODUCTION INCIDENTS (Real Company Stories)
@@ -3359,12 +3283,13 @@ await Promise.all(promises);
 resource "aws_cloudwatch_log_group" "app" {
 
 ## No retention = logs forever = $$$
-
-    }
+}
 
 resource "aws_db_instance" "main" {
 multi_az = true  # 2x cost for dev!
-    }
+}
+
+```hcl
 
 ## COST-OPTIMIZED - Netflix pattern
 
@@ -3372,7 +3297,6 @@ resource "aws_vpc_endpoint" "s3" {
 service_name = "com.amazonaws.us-east-1.s3"
 
 ## FREE vs NAT Gateway ($45/month)
-
 }
 
 resource "aws_cloudwatch_log_group" "app" {
@@ -3388,7 +3312,6 @@ multi_az = var.environment == "production"  # Only prod
 ## Spot Instances = 70% cheaper for batch jobs
 
 ```text
-
 ---
 
 ## 2. S3 SECURITY - THE $80 MILLION FINE
@@ -3428,7 +3351,6 @@ sse_algorithm = "AES256"
 }
 
 ```text
-
 ---
 
 ## 3. LAMBDA COLD START - 30 SECOND TIMEOUTS
@@ -3468,7 +3390,6 @@ provisioned_concurrent_executions = 10  # Always warm
 }
 
 ```text
-
 ---
 
 ## 4. IAM KEYS LEAKED - $284K IN 3 HOURS
@@ -3480,12 +3401,10 @@ provisioned_concurrent_executions = 10  # Always warm
 > **Cost**: $284,000 in 3 hours."
 
 ```json
-
 // Admin access = disaster
 { "Action": "*", "Resource": "*" }
 
 ```json
-
 // LEAST PRIVILEGE
 {
 "Statement": [
@@ -3495,7 +3414,6 @@ provisioned_concurrent_executions = 10  # Always warm
 }
 
 ```text
-
 ---
 
 ### END OF VOLUME 7: PRODUCTION INCIDENTS
@@ -3538,23 +3456,17 @@ LaunchTemplate={'LaunchTemplateId': 'lt-12345', 'Version': '$Latest'},
 
 ## CPU-based scaling
 
-application_autoscaling.put_scaling_policy(
+autoscaling.put_scaling_policy(
+    AutoScalingGroupName='api-asg',
     PolicyName='scale-on-cpu',
-    ServiceNamespace='ecs',
-    ResourceId='service/production/api',
-    ScalableDimension='ecs:service:DesiredCount',
     PolicyType='TargetTrackingScaling',
-    TargetTrackingScalingPolicyConfiguration={
-'TargetValue': 70.0,
+    TargetTrackingConfiguration={
 'PredefinedMetricSpecification': {
-'PredefinedMetricType': 'ECSServiceAverageCPUUtilization'
-        }
+'PredefinedMetricType': 'ASGAverageCPUUtilization'
+        },
+'TargetValue': 70.0  # Keep CPU at 70%
     }
 )
-
-```text
-
----
 
 ## Scheduled scaling (predictive)
 
@@ -3573,7 +3485,6 @@ MinSize=2, MaxSize=10, DesiredCapacity=3
 )
 
 ```text
-
 ---
 
 ## 6. RDS PERFORMANCE TUNING
@@ -3583,7 +3494,6 @@ MinSize=2, MaxSize=10, DesiredCapacity=3
 > "Database was the bottleneck. 5000ms queries. After tuning: 50ms."
 
 ```sql
-
 -- Find slow queries
 SELECT query, calls, total_time, mean_time, max_time
 FROM pg_stat_statements
@@ -3612,19 +3522,18 @@ AND indexrelname NOT LIKE '%_pkey';
 ## Master for writes, Replica for reads
 
 master_engine = create_engine(
-        'postgresql://user:pass@master.rds.amazonaws.com/myapp',
-        pool_size=10
-    )
+    'postgresql://user:pass@master.rds.amazonaws.com/myapp',
+    pool_size=10
+)
 
 replica_engine = create_engine(
-        'postgresql://user:pass@replica.rds.amazonaws.com/myapp',
+    'postgresql://user:pass@replica.rds.amazonaws.com/myapp',
 pool_size=50 # More connections for reads
-    )
+)
 
 def get_properties(filters):
 
 ## Use replica for reads
-
 with replica_engine.connect() as conn:
 return conn.execute(
 "SELECT * FROM properties WHERE city = %s",
@@ -3634,7 +3543,6 @@ return conn.execute(
 def create_property(data):
 
 ## Use master for writes
-
 with master_engine.connect() as conn:
 return conn.execute(
 "INSERT INTO properties (title, price) VALUES (%s, %s)",
@@ -3642,7 +3550,6 @@ data['title'], data['price']
         )
 
 ```text
-
 ---
 
 ## 7. ELASTICACHE (REDIS) PATTERNS
@@ -3656,10 +3563,10 @@ data['title'], data['price']
 from redis.cluster import RedisCluster
 
 redis_cluster = RedisCluster(
-        host='redis-cluster.cache.amazonaws.com',
-        port=6379,
-        decode_responses=True
-    )
+    host='redis-cluster.cache.amazonaws.com',
+    port=6379,
+    decode_responses=True
+)
 
 ## 1. CACHING PATTERN
 
@@ -3667,17 +3574,14 @@ def get_property(property_id: int):
 cache_key = f"property:{property_id}"
 
 ## Try cache first
-
 cached = redis_cluster.get(cache_key)
 if cached:
 return json.loads(cached)
 
 ## Cache miss - fetch from DB
-
 property = db.query(Property).filter(Property.id == property_id).first()
 
 ## Store in cache (1 hour TTL)
-
 redis_cluster.setex(cache_key, 3600, json.dumps(property.to_dict()))
 return property
 
@@ -3707,15 +3611,15 @@ redis_cluster.expire(f"session:{session_id}", 86400)  # 24 hours
 return session_id
 
 ```text
-
 ---
 
 ## 8. ECS/FARGATE CONTAINER ORCHESTRATION
 
 ## Production Pattern from Airbnb
 
+```json
 // ECS Task Definition (Production)
-    {
+{
 "family": "api",
 "networkMode": "awsvpc",
 "requiresCompatibilities": ["FARGATE"],
@@ -3729,22 +3633,24 @@ return session_id
 "secrets": [{
 "name": "DATABASE_PASSWORD",
 "valueFrom": "arn:aws:secretsmanager:us-east-1:123:secret:db-pass"
-        }],
+    }],
 "logConfiguration": {
 "logDriver": "awslogs",
 "options": {
 "awslogs-group": "/ecs/api",
 "awslogs-region": "us-east-1"
-        }
-        },
+      }
+    },
 "healthCheck": {
-| "command": ["CMD-SHELL", "curl -f <<<http://localhost:8000/health>>> | exit 1"], |
+| "command": ["CMD-SHELL", "curl -f http://localhost:8000/health |  | exit 1"], |
 "interval": 30,
 "timeout": 5,
 "retries": 3
-        }
-      }]
     }
+  }]
+}
+
+```python
 
 ## ECS Service Auto Scaling
 
@@ -3762,7 +3668,7 @@ application_autoscaling.register_scalable_target(
     MaxCapacity=30
 )
 
-## CPU-based scaling 2
+## CPU-based scaling
 
 application_autoscaling.put_scaling_policy(
     PolicyName='scale-on-cpu',
@@ -3778,6 +3684,9 @@ application_autoscaling.put_scaling_policy(
     }
 )
 
+```text
+---
+
 ## 9. API GATEWAY PATTERNS
 
 ## Production Pattern from Stripe
@@ -3791,14 +3700,12 @@ import json
 def lambda_handler(event, context):
 
 ## Parse request
-
 http_method = event['httpMethod']
 path = event['path']
 body = json.loads(event.get('body', '{}'))
 headers = event.get('headers', {})
 
 ## Authorization
-
 token = headers.get('Authorization', '').replace('Bearer ', '')
 user_id = verify_jwt(token)
 
@@ -3809,7 +3716,6 @@ return {
         }
 
 ## Route
-
 if http_method == 'GET' and path == '/properties':
 return {
 'statusCode': 200,
@@ -3830,7 +3736,6 @@ return {
 return {'statusCode': 404, 'body': json.dumps({'error': 'Not Found'})}
 
 ```text
-
 ---
 
 ## 10. CLOUDFRONT CDN OPTIMIZATION
@@ -3838,7 +3743,6 @@ return {'statusCode': 404, 'body': json.dumps({'error': 'Not Found'})}
 ## Production Pattern from Netflix (saves $8,100/month on 100TB)
 
 ```javascript
-
 // CloudFront Function (Edge Computing)
 function handler(event) {
 var request = event.request;
@@ -3871,20 +3775,19 @@ import boto3
 cloudfront = boto3.client('cloudfront')
 
 def invalidate_cache(paths: list[str]):
-        cloudfront.create_invalidation(
+    cloudfront.create_invalidation(
         DistributionId='E1234567890ABC',
         InvalidationBatch={
 'Paths': {'Quantity': len(paths), 'Items': paths},
 'CallerReference': str(time.time())
         }
-        )
+    )
 
 ## After deployment
 
 invalidate_cache(['/index.html', '/properties/*', '/static/js/*'])
 
 ```text
-
 ---
 
 ## END OF VOLUME 8: ADVANCED AWS PATTERNS
@@ -3898,7 +3801,6 @@ invalidate_cache(['/index.html', '/properties/*', '/static/js/*'])
 ## 1. AWS COST EXPLOSIONS (Netflix 18,500+ upvotes)
 
 > "AWS bill: $50K/month to $500K/month OVERNIGHT.
->
 > - NAT Gateway running (didn't need): $45K/month
 > - EBS volumes not deleted: $30K/month
 > - S3 versioning unlimited: $50K/month
@@ -3937,22 +3839,24 @@ invalidate_cache(['/index.html', '/properties/*', '/static/js/*'])
 
 ```hcl
 
-## VIBE Terraform: Default Route to NAT
+## ? VIBE Terraform: Default Route to NAT
 
 resource "aws_route" "private_nat_gateway" {
 route_table_id = aws_route_table.private.id
 destination_cidr_block = "0.0.0.0/0"
 nat_gateway_id = aws_nat_gateway.main.id
-    }
+}
 
-## TITAN Terraform: Gateway VPC Endpoint (FREE)
+## ? TITAN Terraform: Gateway VPC Endpoint (FREE)
 
 resource "aws_vpc_endpoint" "s3" {
 vpc_id = aws_vpc.main.id
 service_name = "com.amazonaws.us-east-1.s3"
 vpc_endpoint_type = "Gateway"
 route_table_ids = [aws_route_table.private.id]
-    }
+}
+
+```text
 
 ## END OF VOLUME 1.3: TITAN CLOUD PHYSICS
 
@@ -3994,23 +3898,7 @@ route_table_ids = [aws_route_table.private.id]
 ## VOLUME 3.3: TITAN CATALOG - 30 CLOUD FAILURES
 
 | ID | Scenario | Failure Mechanism | Titan Mitigation |
-|
-
----
-
-| -|
-
----
-
-| -|
-
----
-
-| -|
-
----
-
-|
+|----|----------|-------------------|------------------|
 | 5.3 | EBS Burst Balance | IOPS credits exhausted | Monitor or switch GP3 |
 | 5.5 | Spot Termination | 2-min warning kills job | Checkpointing + graceful |
 | 5.6 | IAM Escalation | PassRole allows admin | Restrict PassRole resources |
@@ -4043,17 +3931,19 @@ route_table_ids = [aws_route_table.private.id]
 
 ```bash
 
-## IMDSv1: Vulnerable (single request gets creds)
+## ? IMDSv1: Vulnerable (single request gets creds)
 
-curl <<http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name>>
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name
 
-## IMDSv2: Requires PUT first (SSRF can't do PUT usually)
+## ? IMDSv2: Requires PUT first (SSRF can't do PUT usually)
 
-TOKEN=$(curl -X PUT "<<http://169.254.169.254/latest/api/token">> \
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" \
 -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
 
 curl -H "X-aws-ec2-metadata-token: $TOKEN" \
-      <<http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name>>
+  http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name
+
+```hcl
 
 ## TITAN: Enforce IMDSv2 in Terraform
 
@@ -4087,18 +3977,15 @@ s3 = boto3.client('s3')
 def safe_read_after_write(bucket, key, data):
 
 ## PUT is strongly consistent for new objects
-
 s3.put_object(Bucket=bucket, Key=key, Body=data)
 
 ## Immediate GET always returns latest (since Dec 2020)
-
 response = s3.get_object(Bucket=bucket, Key=key)
 return response['Body'].read()
 
 def safe_overwrite(bucket, key, expected_etag, new_data):
 
 ## Conditional write to prevent race conditions
-
     try:
         s3.put_object(
         Bucket=bucket,
@@ -4108,7 +3995,6 @@ def safe_overwrite(bucket, key, expected_etag, new_data):
 ## Only succeed if ETag matches expected
 
 ## This is like compare-and-swap
-
         )
 except s3.exceptions.PreconditionFailed:
 raise ConcurrentModificationError()
@@ -4179,13 +4065,11 @@ def lambda_handler(event, context):
 ## WARM PATH: This runs every invocation
 
 ## Check remaining time
-
 remaining_ms = context.get_remaining_time_in_millis()
 if remaining_ms < 5000:  # Less than 5 seconds
 return {'statusCode': 503, 'body': 'Timeout risk'}
 
 ## Use pre-initialized connection pool
-
 with engine.connect() as conn:
 result = conn.execute("SELECT * FROM users LIMIT 10")
 users = result.fetchall()
@@ -4214,12 +4098,12 @@ import httpx
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 REGIONS = {
-'primary': '<<https://api.us-east-1.example.com',>>
-'secondary': '<<https://api.eu-west-1.example.com'>>
+'primary': 'https://api.us-east-1.example.com',
+'secondary': 'https://api.eu-west-1.example.com'
 }
 
 class MultiRegionClient:
-def **init**(self):
+def __init__(self):
 self.current_region = 'primary'
 self.failure_count = 0
 self.circuit_open = False
@@ -4228,7 +4112,7 @@ self.circuit_open = False
         stop=stop_after_attempt(3),
 wait=wait_exponential(multiplier=0.5, max=2)
     )
-async def request(self, method, path,**kwargs):
+async def request(self, method, path, **kwargs):
 url = REGIONS[self.current_region] + path
 
         try:
@@ -4242,7 +4126,6 @@ except (httpx.TimeoutException, httpx.HTTPStatusError) as e:
 self.failure_count += 1
 
 ## Circuit breaker: Switch regions after 3 consecutive failures
-
 if self.failure_count >= 3:
         self._failover()
 
@@ -4270,7 +4153,7 @@ print(f"Failover: {old_region} ? {self.current_region}")
 ## TITAN: EBS Performance Calculator
 
 class EBSPerformanceCalculator:
-def **init**(self, volume_type, size_gb, provisioned_iops=None):
+def __init__(self, volume_type, size_gb, provisioned_iops=None):
 self.volume_type = volume_type
 self.size_gb = size_gb
 self.provisioned_iops = provisioned_iops
@@ -4281,8 +4164,7 @@ return min(3000 + (self.provisioned_iops or 0), 16000)
 elif self.volume_type == 'gp2':
 
 ## GP2: 3 IOPS per GB, minimum 100
-
-return min(max(self.size_gb *3, 100), 16000)
+return min(max(self.size_gb * 3, 100), 16000)
 elif self.volume_type in ('io1', 'io2'):
 return self.provisioned_iops or 100
 
@@ -4292,14 +4174,12 @@ return 125  # Baseline, can provision up to 1000
 elif self.volume_type == 'gp2':
 
 ## GP2 throughput depends on volume size
-
 if self.size_gb >= 334:
 return 250
-return 128 + (self.size_gb / 334)* 122
+return 128 + (self.size_gb / 334) * 122
 elif self.volume_type in ('io1', 'io2'):
 
 ## 64KB per IOP for IO volumes
-
 return min(self.provisioned_iops * 64 / 1024, 1000)
 
 def estimate_read_latency_for_size(self, read_size_kb):
@@ -4327,7 +4207,7 @@ return iops_per_read / available_iops  # Seconds per read
 
 ```terraform
 
-## VIBE: All traffic through NAT Gateway
+## ? VIBE: All traffic through NAT Gateway
 
 resource "aws_lambda_function" "processor" {
 vpc_config {
@@ -4336,26 +4216,25 @@ security_group_ids = [aws_security_group.lambda.id]
   }
 
 ## Lambda?S3 goes through NAT Gateway = $$$
-
 }
 
 ```terraform
 
-## TITAN: VPC Endpoints for AWS services (no NAT needed)
+## ? TITAN: VPC Endpoints for AWS services (no NAT needed)
 
 resource "aws_vpc_endpoint" "s3" {
 vpc_id = aws_vpc.main.id
 service_name = "com.amazonaws.us-east-1.s3"
 vpc_endpoint_type = "Gateway"
 route_table_ids = [aws_route_table.private.id]
-    }
+}
 
 resource "aws_vpc_endpoint" "dynamodb" {
 vpc_id = aws_vpc.main.id
 service_name = "com.amazonaws.us-east-1.dynamodb"
 vpc_endpoint_type = "Gateway"
 route_table_ids = [aws_route_table.private.id]
-    }
+}
 
 ## Interface endpoints for other services
 
@@ -4370,7 +4249,7 @@ private_dns_enabled = true
 
 ```python
 
-## TITAN: Monitor NAT Gateway costs
+## ? TITAN: Monitor NAT Gateway costs
 
 import boto3
 from datetime import datetime, timedelta
@@ -4396,18 +4275,20 @@ GroupBy=[{'Type': 'DIMENSION', 'Key': 'USAGE_TYPE'}]
 
 return response['ResultsByTime']
 
+```text
+
 ## MULTI-REGION FAILOVER
 
-## The Scar 2
+## The Scar
 
-> "Messages failing silently. DLQ has 50,000 messages.
-> No alerting. No visibility into failures.
-> Discovered 3 months later. Data lost.
-> Customers never got their notifications."
+> "Primary region us-east-1 goes down.
+> Failover to us-west-2 triggered manually.
+> 45 minutes of downtime. CEO asking questions.
+> Need automatic health-based failover."
 
-```python
+```terraform
 
-## TITAN: Route 53 health-based failover
+## ? TITAN: Route 53 health-based failover
 
 resource "aws_route53_health_check" "primary" {
 fqdn = "api-primary.example.com"
@@ -4460,7 +4341,9 @@ evaluate_target_health = true
   }
 }
 
-## TITAN: Application-level failover
+```python
+
+## ? TITAN: Application-level failover
 
 import boto3
 from functools import wraps
@@ -4477,7 +4360,6 @@ for region in regions:
         try:
 
 ## Use region-specific endpoint
-
 kwargs['region'] = region
 return func(*args, **kwargs)
 except Exception as e:
@@ -4499,14 +4381,16 @@ return table.get_item(Key=key)
 
 ## S3 PERFORMANCE TUNING
 
-## The Scar 2 2
+## The Scar
 
 > "S3 GET requests hitting 503 SlowDown.
 > Thousands of objects with same prefix.
 > S3 partitions by prefix - all requests hitting same partition.
 > Need prefix randomization or S3 Express One Zone."
 
-## VIBE: Sequential prefixes = hot partition
+```python
+
+## ? VIBE: Sequential prefixes = hot partition
 
 ## All objects in same partition
 
@@ -4516,7 +4400,7 @@ s3.put_object(Bucket='bucket', Key='logs/2024/01/01/file003.json')
 
 ```python
 
-## TITAN: Hash-based prefix for distribution
+## ? TITAN: Hash-based prefix for distribution
 
 import hashlib
 
@@ -4541,51 +4425,55 @@ s3.put_object(
 
 ```python
 
-## TITAN: S3 Transfer Acceleration for global uploads
+## ? TITAN: S3 Transfer Acceleration for global uploads
 
 s3_accelerated = boto3.client(
-        's3',
-        config=boto3.session.Config(
+    's3',
+    config=boto3.session.Config(
 s3={'use_accelerate_endpoint': True}
-        )
     )
+)
 
 ## Upload via CloudFront edge locations
 
-    s3_accelerated.upload_file(
-        'large_file.zip',
-        'my-bucket',
-        'uploads/large_file.zip'
-    )
+s3_accelerated.upload_file(
+    'large_file.zip',
+    'my-bucket',
+    'uploads/large_file.zip'
+)
 
-## TITAN: Multipart upload for large files
+## ? TITAN: Multipart upload for large files
 
 from boto3.s3.transfer import TransferConfig
 
 config = TransferConfig(
-multipart_threshold=8 *1024* 1024,  # 8 MB
-        max_concurrency=10,
-multipart_chunksize=8 *1024* 1024,
-        use_threads=True
-    )
+multipart_threshold=8 * 1024 * 1024,  # 8 MB
+    max_concurrency=10,
+multipart_chunksize=8 * 1024 * 1024,
+    use_threads=True
+)
 
-    s3.upload_file(
-        'large_file.zip',
-        'my-bucket',
-        'uploads/large_file.zip',
-        Config=config
-    )
+s3.upload_file(
+    'large_file.zip',
+    'my-bucket',
+    'uploads/large_file.zip',
+    Config=config
+)
+
+```text
 
 ## API GATEWAY THROTTLING
 
-## The Scar 3
+## The Scar
 
 > "API Gateway returning 429 Too Many Requests.
 > But we're within our rate limit!
 > AWS account-level throttling: 10,000 RPS default.
 > Multiple APIs sharing same limit. One noisy neighbor killed all."
 
-## VIBE: Not handling throttling
+```python
+
+## ? VIBE: Not handling throttling
 
 response = api_client.invoke(...)
 
@@ -4593,7 +4481,7 @@ response = api_client.invoke(...)
 
 ```python
 
-## TITAN: Retry with exponential backoff
+## ? TITAN: Retry with exponential backoff
 
 import time
 from botocore.config import Config
@@ -4608,7 +4496,7 @@ config = Config(
 
 client = boto3.client('lambda', config=config)
 
-## TITAN: Usage plans for throttling isolation
+## ? TITAN: Usage plans for throttling isolation
 
 ## Separate APIs get separate rate limits
 
@@ -4639,7 +4527,7 @@ burst_limit = 200
 
 ```yaml
 
-## TITAN: Request service limit increase
+## ? TITAN: Request service limit increase
 
 ## File service limit increase request for
 
@@ -4665,32 +4553,34 @@ aws service-quotas request-service-quota-increase \
 
 ## CLOUDWATCH COSTS EXPLOSION
 
-## The Scar 4
+## The Scar
 
 > "CloudWatch bill: $8,000/month.
 > We only have 10 microservices.
 > Root cause: 1-second custom metrics, high-cardinality dimensions.
 > Each unique dimension combination = separate metric stream."
 
-## VIBE: High-cardinality dimensions
+```python
 
-    cloudwatch.put_metric_data(
-        Namespace='MyApp',
-        MetricData=[{
+## ? VIBE: High-cardinality dimensions
+
+cloudwatch.put_metric_data(
+    Namespace='MyApp',
+    MetricData=[{
 'MetricName': 'RequestLatency',
 'Dimensions': [
 {'Name': 'UserId', 'Value': user_id},  # Millions of users!
 {'Name': 'RequestId', 'Value': request_id}  # Unique per request!
         ],
 'Value': latency_ms
-        }]
-    )
+    }]
+)
 
 ## Creates millions of unique metric streams = $$$$$
 
 ```python
 
-## TITAN: Low-cardinality dimensions only
+## ? TITAN: Low-cardinality dimensions only
 
 cloudwatch.put_metric_data(
     Namespace='MyApp',
@@ -4706,9 +4596,9 @@ cloudwatch.put_metric_data(
     }]
 )
 
-## 3 *10* 50 = 1,500 metric streams (manageable)
+## 3 * 10 * 50 = 1,500 metric streams (manageable)
 
-## TITAN: Use EMF for detailed logs ? metrics
+## ? TITAN: Use EMF for detailed logs ? metrics
 
 import json
 import time
@@ -4717,7 +4607,7 @@ def emit_emf_metric(metric_name, value, dimensions):
 """Embedded Metric Format - parse metrics from logs."""
 emf = {
 "_aws": {
-"Timestamp": int(time.time() *1000),
+"Timestamp": int(time.time() * 1000),
 "CloudWatchMetrics": [{
 "Namespace": "MyApp",
 "Dimensions": [list(dimensions.keys())],
@@ -4725,9 +4615,11 @@ emf = {
         }]
         },
 metric_name: value,
-       **dimensions
+        **dimensions
     }
 print(json.dumps(emf)) # CloudWatch Logs parses this automatically
+
+```text
 
 ## END OF VOLUME 3.5: TITAN GEMINI RESEARCH - CLOUD PRODUCTION FAILURES
 
@@ -4737,7 +4629,7 @@ print(json.dumps(emf)) # CloudWatch Logs parses this automatically
 
 ## AWS COST EXPLOSION FORENSICS
 
-### The Scar 3 2
+### The Scar
 
 > "AWS bill: $50k. Expected: $15k.
 > No idea what changed. Cost Explorer says 'EC2'.
@@ -4746,7 +4638,7 @@ print(json.dumps(emf)) # CloudWatch Logs parses this automatically
 
 ```python
 
-## VIBE: No cost monitoring
+## ? VIBE: No cost monitoring
 
 import boto3
 
@@ -4758,12 +4650,11 @@ ec2.run_instances(
     MaxCount=10
 
 ## No tags, no idea who owns this
-
 )
 
 ```python
 
-## TITAN: Cost-aware infrastructure with FinOps
+## ? TITAN: Cost-aware infrastructure with FinOps
 
 import boto3
 from datetime import datetime, timedelta
@@ -4771,7 +4662,7 @@ from datetime import datetime, timedelta
 class AWSCostMonitor:
 """FinOps-ready cost monitoring and optimization."""
 
-def **init**(self):
+def __init__(self):
 self.ce = boto3.client('ce')
 self.ec2 = boto3.client('ec2')
 self.cloudwatch = boto3.client('cloudwatch')
@@ -4783,7 +4674,6 @@ end = datetime.utcnow().date()
 start = end - timedelta(days=days)
 
 ## By service
-
 service_costs = self.ce.get_cost_and_usage(
         TimePeriod={
 'Start': str(start),
@@ -4797,7 +4687,6 @@ service_costs = self.ce.get_cost_and_usage(
         )
 
 ## By team tag
-
 team_costs = self.ce.get_cost_and_usage(
         TimePeriod={
 'Start': str(start),
@@ -4822,7 +4711,6 @@ def get_cost_anomalies(self, threshold_percent: float = 20) -> list:
 today = datetime.utcnow().date()
 
 ## Get last 14 days
-
 response = self.ce.get_cost_and_usage(
         TimePeriod={
 'Start': str(today - timedelta(days=14)),
@@ -4838,7 +4726,6 @@ response = self.ce.get_cost_and_usage(
 anomalies = []
 
 ## Calculate average and detect spikes
-
 for service, daily_costs in self._group_by_service(response).items():
 if len(daily_costs) < 7:
         continue
@@ -4867,7 +4754,6 @@ idle_resources = {
         }
 
 ## Find low-utilization EC2 instances
-
 instances = self.ec2.describe_instances(
 Filters=[{'Name': 'instance-state-name', 'Values': ['running']}]
         )
@@ -4877,7 +4763,6 @@ for instance in reservation['Instances']:
 instance_id = instance['InstanceId']
 
 ## Check CPU utilization
-
 cpu_stats = self.cloudwatch.get_metric_statistics(
         Namespace='AWS/EC2',
         MetricName='CPUUtilization',
@@ -4901,7 +4786,6 @@ if avg_cpu < 5:  # Less than 5% average CPU
         })
 
 ## Find unattached EBS volumes
-
 volumes = self.ec2.describe_volumes(
 Filters=[{'Name': 'status', 'Values': ['available']}]
         )
@@ -4916,7 +4800,6 @@ for vol in volumes['Volumes']:
         })
 
 ## Find unassociated Elastic IPs
-
 eips = self.ec2.describe_addresses()
 for eip in eips['Addresses']:
 if 'InstanceId' not in eip and 'NetworkInterfaceId' not in eip:
@@ -4929,7 +4812,7 @@ if 'InstanceId' not in eip and 'NetworkInterfaceId' not in eip:
 
 return idle_resources
 
-## TITAN: Mandatory tagging policy
+## ? TITAN: Mandatory tagging policy
 
 REQUIRED_TAGS = ['Team', 'Environment', 'Project', 'CostCenter']
 
@@ -4940,14 +4823,12 @@ resource_type = event['detail']['eventName']
 resource_id = extract_resource_id(event)
 
 ## Get current tags
-
 tags = get_resource_tags(resource_id)
 missing_tags = [t for t in REQUIRED_TAGS if t not in tags]
 
 if missing_tags:
 
 ## Notify owner
-
         sns.publish(
         TopicArn=ALERT_TOPIC,
 Subject=f'Missing Tags: {resource_type}',
@@ -4960,34 +4841,35 @@ Please add tags within 24 hours or the resource will be terminated.
         )
 
 ## Tag as non-compliant for tracking
-
 add_tag(resource_id, 'Compliance', 'NonCompliant-MissingTags')
 
 ```text
 
 ## SPOT INSTANCE STRATEGIES
 
-## The Scar 5
+## The Scar
 
 > "Stateless API on Spot instances. 70% savings!
 > Spot price spike. All instances terminated simultaneously.
 > No capacity. Zero replicas. Complete outage.
 > Saved money, lost customers."
 
-## VIBE: Single spot instance type
+```yaml
 
-    Resources:
-      SpotFleet:
+## ? VIBE: Single spot instance type
+
+Resources:
+  SpotFleet:
 Type: AWS::EC2::SpotFleet
-        Properties:
-        SpotFleetRequestConfigData:
+    Properties:
+      SpotFleetRequestConfigData:
         LaunchSpecifications:
-
 - InstanceType: r5.xlarge  # Single type = single failure mode
-
 SpotPrice: "0.10"
 
-## TITAN: Diversified Spot with fallback
+```python
+
+## ? TITAN: Diversified Spot with fallback
 
 import boto3
 from dataclasses import dataclass
@@ -4997,7 +4879,6 @@ class SpotStrategy:
 """Production Spot instance strategy."""
 
 ## Multiple instance types with similar specs
-
 INSTANCE_POOL = [
 {'type': 'r5.xlarge', 'vcpu': 4, 'memory': 32},
 {'type': 'r5a.xlarge', 'vcpu': 4, 'memory': 32},
@@ -5008,7 +4889,6 @@ INSTANCE_POOL = [
     ]
 
 ## Spread across AZs
-
 AVAILABILITY_ZONES = ['us-east-1a', 'us-east-1b', 'us-east-1c']
 
 def create_diversified_spot_fleet():
@@ -5017,7 +4897,6 @@ def create_diversified_spot_fleet():
 ec2 = boto3.client('ec2')
 
 ## Build launch specifications for all combinations
-
 launch_specs = []
 
 for instance_type in SpotStrategy.INSTANCE_POOL:
@@ -5038,7 +4917,6 @@ for az in SpotStrategy.AVAILABILITY_ZONES:
         })
 
 ## Create fleet with capacity-optimized allocation
-
 response = ec2.request_spot_fleet(
         SpotFleetRequestConfig={
 'IamFleetRole': FLEET_ROLE_ARN,
@@ -5049,23 +4927,20 @@ response = ec2.request_spot_fleet(
 'LaunchSpecifications': launch_specs,
 
 ## Mix with On-Demand for reliability
-
 'OnDemandTargetCapacity': 2,  # Always 2 on-demand
 'OnDemandAllocationStrategy': 'lowestPrice',
 
 ## Replace unhealthy instances
-
 'ReplaceUnhealthyInstances': True,
 
 ## Interruption handling
-
 'InstanceInterruptionBehavior': 'terminate',  # or 'stop' for stateful
         }
     )
 
 return response['SpotFleetRequestId']
 
-## TITAN: Graceful Spot interruption handling
+## ? TITAN: Graceful Spot interruption handling
 
 def handle_spot_interruption():
     """
@@ -5076,7 +4951,7 @@ Poll metadata service and gracefully drain.
 import requests
 import time
 
-METADATA_URL = '<<<http://169.254.169.254/latest/meta-data/spot/termination-time'>>>
+METADATA_URL = 'http://169.254.169.254/latest/meta-data/spot/termination-time'
 
 while True:
         try:
@@ -5087,19 +4962,15 @@ termination_time = response.text
 print(f"Spot interruption notice! Termination at: {termination_time}")
 
 ## 1. Stop accepting new requests
-
         deregister_from_load_balancer()
 
 ## 2. Complete in-flight requests (connection draining)
-
         wait_for_requests_to_complete(timeout=60)
 
 ## 3. Checkpoint any state
-
         save_checkpoint_to_s3()
 
 ## 4. Notify orchestrator
-
         notify_scaling_system('instance_draining')
 
         break
@@ -5125,7 +4996,7 @@ interruption_thread.start()
 
 ## LAMBDA COLD START DISASTERS
 
-### The Scar 4 2
+### The Scar
 
 > "API Gateway + Lambda. First request: 8 seconds.
 > Users hitting timeout. Retrying. More cold starts.
@@ -5134,14 +5005,16 @@ interruption_thread.start()
 
 ```python
 
-## VIBE: Default Lambda settings
+## ? VIBE: Default Lambda settings
 
 def handler(event, context):
 import boto3  # Import on every invoke
 import pandas as pd  # 500MB dependency
 return process(event)
 
-## TITAN: Optimized Lambda for minimal cold starts
+```python
+
+## ? TITAN: Optimized Lambda for minimal cold starts
 
 import json
 import os
@@ -5164,38 +5037,34 @@ _dynamodb_client = None
 _s3_client = None
 
 def get_dynamodb():
-global_dynamodb_client
-if_dynamodb_client is None:
+global _dynamodb_client
+if _dynamodb_client is None:
 _dynamodb_client = boto3.resource('dynamodb')
-return_dynamodb_client
+return _dynamodb_client
 
 def get_s3():
-global_s3_client
-if_s3_client is None:
+global _s3_client
+if _s3_client is None:
 _s3_client = boto3.client('s3')
-return_s3_client
+return _s3_client
 
-    @logger.inject_lambda_context
-    @tracer.capture_lambda_handler
-    @metrics.log_metrics
+@logger.inject_lambda_context
+@tracer.capture_lambda_handler
+@metrics.log_metrics
 def handler(event: dict, context: LambdaContext) -> dict:
-        """
+    """
 Cold start optimizations:
-
 1. Move imports to global scope
 2. Use lazy initialization for heavy clients
 3. Pre-warm connections in init phase
 4. Minimize package size (use Lambda layers)
 5. Increase memory = more CPU = faster init
-
-        """
+    """
 
 ## Use pre-initialized clients
-
 table = get_dynamodb().Table(os.environ['TABLE_NAME'])
 
 ## Process event
-
     try:
 result = table.get_item(Key={'id': event['id']})
 return {
@@ -5211,7 +5080,7 @@ return {
 
 ```yaml
 
-## TITAN: Provisioned concurrency for consistent latency
+## ? TITAN: Provisioned concurrency for consistent latency
 
 ## serverless.yml
 
@@ -5222,38 +5091,28 @@ memorySize: 1024  # More memory = faster CPU
 timeout: 10
 
 ## Provisioned concurrency eliminates cold starts
-
 provisionedConcurrency: 5
 
 ## OR: Scheduled warming (cheaper than provisioned)
-
     events:
-
 - schedule:
-
 rate: rate(5 minutes)
         input:
 warmer: true
 concurrency: 3
 
 ## VPC configuration optimized for speed
-
     vpc:
       securityGroupIds:
-
 - !Ref LambdaSecurityGroup
-
       subnetIds:
-
 - !Ref PrivateSubnet1
 - !Ref PrivateSubnet2
 
 ## Use ARM for 34% better price/performance
-
 architecture: arm64
 
 ## SnapStart for Java (ms cold starts instead of seconds)
-
     snapStart:
 applyOn: PublishedVersions
 
@@ -5263,12 +5122,11 @@ layers:
   dependencies:
 path: layers/dependencies
     compatibleRuntimes:
-
 - python3.11
 
 ```python
 
-## TITAN: Lambda warmer implementation
+## ? TITAN: Lambda warmer implementation
 
 import json
 import concurrent.futures
@@ -5276,14 +5134,12 @@ import concurrent.futures
 def handler(event, context):
 
 ## Check if this is a warming invocation
-
 if event.get('warmer'):
 concurrency = event.get('concurrency', 1)
 
 if concurrency > 1:
 
 ## Invoke self to warm multiple instances
-
 import boto3
 lambda_client = boto3.client('lambda')
 
@@ -5300,48 +5156,42 @@ Payload=json.dumps({'warmer': True, 'concurrency': 1})
 return {'statusCode': 200, 'body': 'Warmed'}
 
 ## Normal request processing
-
 return process_request(event)
 
 ```text
 
 ## STEP FUNCTIONS ORCHESTRATION
 
-## The Scar 6
+## The Scar
 
 > "Complex order workflow in single Lambda.
 > Lambda timeout at 15 minutes.
 > Order half-processed. No rollback.
 > Manual cleanup required. Data inconsistent."
 
-## TITAN: Step Functions state machine for complex workflows
+```yaml
+
+## ? TITAN: Step Functions state machine for complex workflows
 
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
-    Resources:
-      OrderProcessingStateMachine:
+Resources:
+  OrderProcessingStateMachine:
 Type: AWS::Serverless::StateMachine
-        Properties:
+    Properties:
 DefinitionUri: statemachine/order.asl.json
-        Policies:
-
+      Policies:
 - LambdaInvokePolicy:
-
 FunctionName: !Ref ValidateOrderFunction
-
 - LambdaInvokePolicy:
-
 FunctionName: !Ref ProcessPaymentFunction
-
 - LambdaInvokePolicy:
-
 FunctionName: !Ref ReserveInventoryFunction
-
 - LambdaInvokePolicy:
-
 FunctionName: !Ref SendConfirmationFunction
 
+```json
 // order.asl.json - Amazon States Language
 {
 "Comment": "Order processing with compensation on failure",
@@ -5446,23 +5296,27 @@ FunctionName: !Ref SendConfirmationFunction
   }
 }
 
+```text
+
 ## SQS DEAD LETTER QUEUE HANDLING
 
-## The Scar 7
+## The Scar
 
 > "Messages failing silently. DLQ has 50,000 messages.
 > No alerting. No visibility into failures.
 > Discovered 3 months later. Data lost.
 > Customers never got their notifications."
 
-## TITAN: Comprehensive DLQ monitoring and reprocessing
+```python
+
+## ? TITAN: Comprehensive DLQ monitoring and reprocessing
 
 import boto3
 import json
 from datetime import datetime
 
 class DLQProcessor:
-def **init**(self,
+def __init__(self,
 main_queue_url: str,
 dlq_url: str,
 max_receive_count: int = 3):
@@ -5476,8 +5330,7 @@ def setup_dlq_alarm(self, sns_topic_arn: str):
 cloudwatch = boto3.client('cloudwatch')
 
 ## Extract queue name from URL
-
-queue_name = self.dlq_url.split['/'](-1)
+queue_name = self.dlq_url.split('/')[-1]
 
         cloudwatch.put_metric_alarm(
         AlarmName=f'{queue_name}-depth-alarm',
@@ -5529,20 +5382,18 @@ body = json.loads(msg['Body'])
 attrs = msg.get('Attributes', {})
 
 ## Analyze failure reason
-
 receive_count = int(attrs.get('ApproximateReceiveCount', 0))
 first_received = attrs.get('ApproximateFirstReceiveTimestamp')
 
         messages.append({
 'message_id': msg['MessageId'],
-'body_preview': str[body](:200),
+'body_preview': str(body)[:200],
 'receive_count': receive_count,
 'first_received': first_received,
 'age_hours': self._calculate_age_hours(first_received)
         })
 
 ## Put message back (don't delete during analysis)
-
         self.sqs.change_message_visibility(
         QueueUrl=self.dlq_url,
         ReceiptHandle=msg['ReceiptHandle'],
@@ -5573,7 +5424,6 @@ for msg in messages:
         try:
 
 ## Send to main queue with delay
-
         self.sqs.send_message(
         QueueUrl=self.main_queue_url,
         MessageBody=msg['Body'],
@@ -5591,7 +5441,6 @@ for msg in messages:
         )
 
 ## Delete from DLQ
-
         self.sqs.delete_message(
         QueueUrl=self.dlq_url,
         ReceiptHandle=msg['ReceiptHandle']
@@ -5619,10 +5468,9 @@ return {
 
 ## AWS LAMBDA AT SCALE
 
-### Cold Start Optimization 2 2
+### Cold Start Optimization
 
 ```typescript
-
 // ? TITAN: Production Lambda with cold start mitigation
 import { Context, Handler } from 'aws-lambda';
 
@@ -5684,7 +5532,6 @@ return user.Item;
 }
 
 ```text
-
 ---
 
 ### Provisioned Concurrency Configuration
@@ -5704,14 +5551,10 @@ timeout: 10
 NODE_OPTIONS: '--enable-source-maps'
 
 ## VPC configuration for RDS access
-
   vpc:
     securityGroupIds:
-
 - !Ref LambdaSecurityGroup
-
     subnetIds:
-
 - !Ref PrivateSubnet1
 - !Ref PrivateSubnet2
 
@@ -5719,38 +5562,30 @@ functions:
   api:
 handler: src/handler.handler
     events:
-
 - http:
-
 path: /{proxy+}
 method: ANY
 
 ## Provisioned concurrency for consistent latency
-
 provisionedConcurrency: 5
 
 ## Reserved concurrency to prevent runaway scaling
-
 reservedConcurrency: 100
 
 ## X-Ray tracing
-
 tracing: Active
 
 ## Environment-specific settings
-
     warmup:
 enabled: true
 concurrency: 5
 prewarm: true
 
 plugins:
-
 - serverless-plugin-warmup
 - serverless-prune-plugin
 
 ```text
-
 ---
 
 ## KUBERNETES PRODUCTION PATTERNS
@@ -5782,11 +5617,8 @@ app: api-server
     spec:
 
 ## Spread across availability zones
-
       topologySpreadConstraints:
-
 - maxSkew: 1
-
 topologyKey: topology.kubernetes.io/zone
 whenUnsatisfiable: DoNotSchedule
         labelSelector:
@@ -5794,32 +5626,23 @@ whenUnsatisfiable: DoNotSchedule
 app: api-server
 
 ## Don't schedule on same node
-
       affinity:
         podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
-
 - labelSelector:
-
         matchExpressions:
-
 - key: app
-
 operator: In
 values: [api-server]
 topologyKey: kubernetes.io/hostname
 
       containers:
-
 - name: api
-
 image: api-server:v1.2.3
         ports:
-
 - containerPort: 8080
 
 ## Resource limits prevent noisy neighbors
-
         resources:
         requests:
 cpu: "250m"
@@ -5829,7 +5652,6 @@ cpu: "1000m"
 memory: "1Gi"
 
 ## Health checks for zero-downtime deploys
-
         readinessProbe:
         httpGet:
 path: /health/ready
@@ -5847,7 +5669,6 @@ periodSeconds: 10
 failureThreshold: 3
 
 ## Graceful shutdown
-
         lifecycle:
         preStop:
         exec:
@@ -5883,17 +5704,13 @@ name: api-server
 minReplicas: 3
 maxReplicas: 20
   metrics:
-
 - type: Resource
-
       resource:
 name: cpu
         target:
 type: Utilization
 averageUtilization: 70
-
 - type: Resource
-
       resource:
 name: memory
         target:
@@ -5903,22 +5720,17 @@ averageUtilization: 80
     scaleDown:
 stabilizationWindowSeconds: 300  # 5 min cooldown
       policies:
-
 - type: Percent
-
 value: 10
 periodSeconds: 60
     scaleUp:
 stabilizationWindowSeconds: 0
       policies:
-
 - type: Percent
-
 value: 100
 periodSeconds: 15
 
 ```text
-
 ---
 
 ## TERRAFORM PRODUCTION MODULES
@@ -6014,7 +5826,6 @@ value = aws_subnet.private[*].id
 }
 
 ```text
-
 ---
 
 ## END OF CLOUD VOLUME 4
@@ -6028,7 +5839,6 @@ value = aws_subnet.private[*].id
 ## S3 File Operations
 
 ```typescript
-
 import { S3Client, PutObjectCommand, GetObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
@@ -6082,13 +5892,11 @@ return getSignedUrl(s3, command, { expiresIn });
 }
 
 ```text
-
 ---
 
 ## Lambda Function Pattern
 
 ```typescript
-
 import { APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda';
 
 // Response helper
@@ -6141,13 +5949,11 @@ return response(500, { error: 'Internal server error' });
 };
 
 ```text
-
 ---
 
 ## SQS Queue Processing
 
 ```typescript
-
 import { SQSClient, SendMessageCommand, ReceiveMessageCommand, DeleteMessageCommand } from '@aws-sdk/client-sqs';
 
 const sqs = new SQSClient({ region: process.env.AWS_REGION });
@@ -6193,33 +5999,33 @@ itemIdentifier: r.messageId,
 };
 
 ```text
-
 ---
 
 ## REAL VERCEL PATTERNS 2024
 
-## Edge Functions 2
+## Edge Functions
 
+```typescript
 // middleware.ts
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
 // Geo-based routing
-| const country = request.geo?.country | 'US'; |
+| const country = request.geo?.country |  | 'US'; |
 
 if (country === 'CN' && !request.nextUrl.pathname.startsWith('/cn')) {
 return NextResponse.redirect(new URL('/cn', request.url));
   }
 
 // A/B testing
-| const variant = request.cookies.get('ab-variant')?.value |
+| const variant = request.cookies.get('ab-variant')?.value |  |
 (Math.random() > 0.5 ? 'control' : 'variant');
 
 const response = NextResponse.next();
 
 if (!request.cookies.has('ab-variant')) {
-response.cookies.set('ab-variant', variant, { maxAge: 60 *60*24* 30 });
+response.cookies.set('ab-variant', variant, { maxAge: 60 * 60 * 24 * 30 });
   }
 
 response.headers.set('x-ab-variant', variant);
@@ -6231,10 +6037,12 @@ export const config = {
 | matcher: ['/((?!api | _next/static | _next/image | favicon.ico).*)'], |
 };
 
+```text
+---
+
 ## Serverless API Routes
 
 ```typescript
-
 // app/api/users/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -6273,563 +6081,8 @@ throw error;
 }
 
 ```text
-
 ---
 
 ### END OF CLOUD PATTERNS
 
 ```text
-
-## Security 2 2
-
-- Security groups: stateful
-
-- NACLs: stateless, subnet-level
-
-- Flow logs: traffic analysis
-
-- WAF: application firewall
-
-- Shield: DDoS protection
-
-## Cost Optimization 2 2
-
-## ? VIBE Terraform: Default Route to NAT 2
-
-resource "aws_route" "private_nat_gateway" {
-route_table_id = aws_route_table.private.id
-destination_cidr_block = "0.0.0.0/0"
-nat_gateway_id = aws_nat_gateway.main.id
-}
-
-## ? TITAN Terraform: Gateway VPC Endpoint (FREE) 2
-
-resource "aws_vpc_endpoint" "s3" {
-vpc_id = aws_vpc.main.id
-service_name = "com.amazonaws.us-east-1.s3"
-vpc_endpoint_type = "Gateway"
-route_table_ids = [aws_route_table.private.id]
-}
-
-```text
-
-## ? IMDSv1: Vulnerable (single request gets creds) 2
-
-curl <http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name>
-
-## ? IMDSv2: Requires PUT first (SSRF can't do PUT usually) 2
-
-TOKEN=$(curl -X PUT "<http://169.254.169.254/latest/api/token"> \
--H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-
-curl -H "X-aws-ec2-metadata-token: $TOKEN" \
-  <http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name>
-
-```hcl
-
-## ? VIBE: All traffic through NAT Gateway 2
-
-resource "aws_lambda_function" "processor" {
-vpc_config {
-subnet_ids = [aws_subnet.private.id]  # Private subnet
-security_group_ids = [aws_security_group.lambda.id]
-  }
-
-## ? TITAN: VPC Endpoints for AWS services (no NAT needed) 2
-
-resource "aws_vpc_endpoint" "s3" {
-vpc_id = aws_vpc.main.id
-service_name = "com.amazonaws.us-east-1.s3"
-vpc_endpoint_type = "Gateway"
-route_table_ids = [aws_route_table.private.id]
-}
-
-resource "aws_vpc_endpoint" "dynamodb" {
-vpc_id = aws_vpc.main.id
-service_name = "com.amazonaws.us-east-1.dynamodb"
-vpc_endpoint_type = "Gateway"
-route_table_ids = [aws_route_table.private.id]
-}
-
-## ? TITAN: Monitor NAT Gateway costs 2
-
-import boto3
-from datetime import datetime, timedelta
-
-def get_nat_gateway_costs():
-ce = boto3.client('ce')
-
-response = ce.get_cost_and_usage(
-        TimePeriod={
-'Start': (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d'),
-'End': datetime.now().strftime('%Y-%m-%d')
-        },
-        Granularity='DAILY',
-        Metrics=['UnblendedCost'],
-        Filter={
-'Dimensions': {
-'Key': 'USAGE_TYPE',
-'Values': ['NatGateway-Hours', 'NatGateway-Bytes']
-        }
-        },
-GroupBy=[{'Type': 'DIMENSION', 'Key': 'USAGE_TYPE'}]
-    )
-
-return response['ResultsByTime']
-
-```text
-
-## ? TITAN: Route 53 health-based failover 2
-
-resource "aws_route53_health_check" "primary" {
-fqdn = "api-primary.example.com"
-port = 443
-type = "HTTPS"
-resource_path = "/health"
-failure_threshold = 3
-request_interval = 10
-
-tags = {
-Name = "primary-health-check"
-  }
-}
-
-resource "aws_route53_record" "api" {
-zone_id = aws_route53_zone.main.zone_id
-name = "api.example.com"
-type = "A"
-
-set_identifier = "primary"
-
-failover_routing_policy {
-type = "PRIMARY"
-  }
-
-health_check_id = aws_route53_health_check.primary.id
-
-alias {
-name = aws_lb.primary.dns_name
-zone_id = aws_lb.primary.zone_id
-evaluate_target_health = true
-  }
-}
-
-resource "aws_route53_record" "api_secondary" {
-zone_id = aws_route53_zone.main.zone_id
-name = "api.example.com"
-type = "A"
-
-set_identifier = "secondary"
-
-failover_routing_policy {
-type = "SECONDARY"
-  }
-
-alias {
-name = aws_lb.secondary.dns_name
-zone_id = aws_lb.secondary.zone_id
-evaluate_target_health = true
-  }
-}
-
-```python
-
-## ? TITAN: Application-level failover 2
-
-import boto3
-from functools import wraps
-import time
-
-def multi_region_fallback(regions=['us-east-1', 'us-west-2']):
-"""Try primary region, fall back to secondary on failure."""
-def decorator(func):
-        @wraps(func)
-def wrapper(*args, **kwargs):
-last_error = None
-
-for region in regions:
-        try:
-
-## ? VIBE: Sequential prefixes = hot partition 2
-
-## ? TITAN: Hash-based prefix for distribution 2
-
-import hashlib
-
-def get_distributed_key(original_key):
-"""Add hash prefix for even S3 partition distribution."""
-hash_prefix = hashlib.md5(original_key.encode()).hexdigest()[:4]
-return f"{hash_prefix}/{original_key}"
-
-## ? TITAN: S3 Transfer Acceleration for global uploads 2
-
-s3_accelerated = boto3.client(
-    's3',
-    config=boto3.session.Config(
-s3={'use_accelerate_endpoint': True}
-    )
-)
-
-## ? TITAN: Multipart upload for large files 2
-
-from boto3.s3.transfer import TransferConfig
-
-config = TransferConfig(
-multipart_threshold=8 *1024* 1024,  # 8 MB
-    max_concurrency=10,
-multipart_chunksize=8 *1024* 1024,
-    use_threads=True
-)
-
-s3.upload_file(
-    'large_file.zip',
-    'my-bucket',
-    'uploads/large_file.zip',
-    Config=config
-)
-
-```text
-
-## ? VIBE: Not handling throttling 2
-
-response = api_client.invoke(...)
-
-## ? TITAN: Retry with exponential backoff 2
-
-import time
-from botocore.config import Config
-from botocore.exceptions import ClientError
-
-config = Config(
-    retries={
-'max_attempts': 5,
-'mode': 'adaptive'  # Detects throttling patterns
-    }
-)
-
-client = boto3.client('lambda', config=config)
-
-## ? TITAN: Usage plans for throttling isolation 2
-
-## ? TITAN: Request service limit increase 2
-
-## ? VIBE: High-cardinality dimensions 2
-
-cloudwatch.put_metric_data(
-    Namespace='MyApp',
-    MetricData=[{
-'MetricName': 'RequestLatency',
-'Dimensions': [
-{'Name': 'UserId', 'Value': user_id},  # Millions of users!
-{'Name': 'RequestId', 'Value': request_id}  # Unique per request!
-        ],
-'Value': latency_ms
-    }]
-)
-
-## ? TITAN: Low-cardinality dimensions only 2
-
-cloudwatch.put_metric_data(
-    Namespace='MyApp',
-    MetricData=[{
-'MetricName': 'RequestLatency',
-'Dimensions': [
-{'Name': 'Environment', 'Value': 'prod'},  # 3 values
-{'Name': 'Service', 'Value': 'api'},  # 10 values
-{'Name': 'Endpoint', 'Value': '/users'}    # 50 values
-        ],
-'Value': latency_ms,
-'StorageResolution': 60  # Standard resolution (not 1-second)
-    }]
-)
-
-## 3 *10* 50 = 1,500 metric streams (manageable) 2
-
-## ? TITAN: Use EMF for detailed logs ? metrics 2
-
-import json
-import time
-
-def emit_emf_metric(metric_name, value, dimensions):
-"""Embedded Metric Format - parse metrics from logs."""
-emf = {
-"_aws": {
-"Timestamp": int(time.time() * 1000),
-"CloudWatchMetrics": [{
-"Namespace": "MyApp",
-"Dimensions": [list(dimensions.keys())],
-"Metrics": [{"Name": metric_name, "Unit": "Milliseconds"}]
-        }]
-        },
-metric_name: value,
-        **dimensions
-    }
-print(json.dumps(emf)) # CloudWatch Logs parses this automatically
-
-```text
-
-## ? VIBE: No cost monitoring 2
-
-import boto3
-
-ec2 = boto3.client('ec2')
-ec2.run_instances(
-    ImageId='ami-xxx',
-    InstanceType='r5.4xlarge',
-    MinCount=10,
-    MaxCount=10
-
-## ? TITAN: Cost-aware infrastructure with FinOps 2
-
-import boto3
-from datetime import datetime, timedelta
-
-class AWSCostMonitor:
-"""FinOps-ready cost monitoring and optimization."""
-
-def **init**(self):
-self.ce = boto3.client('ce')
-self.ec2 = boto3.client('ec2')
-self.cloudwatch = boto3.client('cloudwatch')
-
-def get_cost_breakdown(self, days: int = 7) -> dict:
-"""Get detailed cost breakdown by service and tag."""
-
-end = datetime.utcnow().date()
-start = end - timedelta(days=days)
-
-## ? TITAN: Mandatory tagging policy 2
-
-REQUIRED_TAGS = ['Team', 'Environment', 'Project', 'CostCenter']
-
-def enforce_tagging(event, context):
-"""Lambda to enforce tagging on new resources."""
-
-resource_type = event['detail']['eventName']
-resource_id = extract_resource_id(event)
-
-## ? VIBE: Single spot instance type 2
-
-Resources:
-  SpotFleet:
-Type: AWS::EC2::SpotFleet
-    Properties:
-      SpotFleetRequestConfigData:
-        LaunchSpecifications:
-
-- InstanceType: r5.xlarge  # Single type = single failure mode
-
-SpotPrice: "0.10"
-
-```python
-
-## ? TITAN: Diversified Spot with fallback 2
-
-import boto3
-from dataclasses import dataclass
-
-@dataclass
-class SpotStrategy:
-"""Production Spot instance strategy."""
-
-## ? TITAN: Graceful Spot interruption handling 2
-
-def handle_spot_interruption():
-    """
-EC2 sends 2-minute warning before Spot termination.
-Poll metadata service and gracefully drain.
-    """
-
-import requests
-import time
-
-METADATA_URL = '<http://169.254.169.254/latest/meta-data/spot/termination-time'>
-
-while True:
-        try:
-response = requests.get(METADATA_URL, timeout=1)
-
-if response.status_code == 200:
-termination_time = response.text
-print(f"Spot interruption notice! Termination at: {termination_time}")
-
-## ? VIBE: Default Lambda settings 2
-
-def handler(event, context):
-import boto3  # Import on every invoke
-import pandas as pd  # 500MB dependency
-return process(event)
-
-```python
-
-## ? TITAN: Optimized Lambda for minimal cold starts 2
-
-import json
-import os
-
-## ? TITAN: Provisioned concurrency for consistent latency 2
-
-## ? TITAN: Lambda warmer implementation 2
-
-import json
-import concurrent.futures
-
-def handler(event, context):
-
-## ? TITAN: Step Functions state machine for complex workflows 2
-
-AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::Serverless-2016-10-31
-
-Resources:
-  OrderProcessingStateMachine:
-Type: AWS::Serverless::StateMachine
-    Properties:
-DefinitionUri: statemachine/order.asl.json
-      Policies:
-
-- LambdaInvokePolicy:
-
-FunctionName: !Ref ValidateOrderFunction
-
-- LambdaInvokePolicy:
-
-FunctionName: !Ref ProcessPaymentFunction
-
-- LambdaInvokePolicy:
-
-FunctionName: !Ref ReserveInventoryFunction
-
-- LambdaInvokePolicy:
-
-FunctionName: !Ref SendConfirmationFunction
-
-```json
-
-// order.asl.json - Amazon States Language
-{
-"Comment": "Order processing with compensation on failure",
-"StartAt": "ValidateOrder",
-"States": {
-"ValidateOrder": {
-"Type": "Task",
-"Resource": "${ValidateOrderFunctionArn}",
-"ResultPath": "$.validation",
-"Catch": [{
-"ErrorEquals": ["ValidationError"],
-"ResultPath": "$.error",
-"Next": "OrderFailed"
-      }],
-"Next": "ProcessPaymentAndReserveInventory"
-    },
-
-"ProcessPaymentAndReserveInventory": {
-"Type": "Parallel",
-"Branches": [
-        {
-"StartAt": "ReserveInventory",
-"States": {
-"ReserveInventory": {
-"Type": "Task",
-"Resource": "${ReserveInventoryFunctionArn}",
-"ResultPath": "$.inventory",
-"End": true
-        }
-        }
-        },
-        {
-"StartAt": "ProcessPayment",
-"States": {
-"ProcessPayment": {
-"Type": "Task",
-"Resource": "${ProcessPaymentFunctionArn}",
-"ResultPath": "$.payment",
-"Retry": [{
-"ErrorEquals": ["PaymentRetryable"],
-"IntervalSeconds": 2,
-"MaxAttempts": 3,
-"BackoffRate": 2
-        }],
-"End": true
-        }
-        }
-        }
-      ],
-"Catch": [{
-"ErrorEquals": ["States.ALL"],
-"ResultPath": "$.error",
-"Next": "CompensateOrder"
-      }],
-"Next": "SendConfirmation"
-    },
-
-"CompensateOrder": {
-"Type": "Parallel",
-"Branches": [
-        {
-"StartAt": "ReleaseInventory",
-"States": {
-"ReleaseInventory": {
-"Type": "Task",
-"Resource": "${ReleaseInventoryFunctionArn}",
-"End": true
-        }
-        }
-        },
-        {
-"StartAt": "RefundPayment",
-"States": {
-"RefundPayment": {
-"Type": "Task",
-"Resource": "${RefundPaymentFunctionArn}",
-"Retry": [{
-"ErrorEquals": ["States.ALL"],
-"IntervalSeconds": 5,
-"MaxAttempts": 5,
-"BackoffRate": 2
-        }],
-"End": true
-        }
-        }
-        }
-      ],
-"Next": "OrderFailed"
-    },
-
-"SendConfirmation": {
-"Type": "Task",
-"Resource": "${SendConfirmationFunctionArn}",
-"End": true
-    },
-
-"OrderFailed": {
-"Type": "Fail",
-"Error": "OrderProcessingFailed",
-"Cause": "Order could not be processed"
-    }
-  }
-}
-
-```text
-
-## ? TITAN: Comprehensive DLQ monitoring and reprocessing 2
-
-import boto3
-import json
-from datetime import datetime
-
-class DLQProcessor:
-def **init**(self,
-main_queue_url: str,
-dlq_url: str,
-max_receive_count: int = 3):
-self.sqs = boto3.client('sqs')
-self.main_queue_url = main_queue_url
-self.dlq_url = dlq_url
-self.max_receive_count = max_receive_count
-
-def setup_dlq_alarm(self, sns_topic_arn: str):
-"""Create CloudWatch alarm for DLQ depth."""
-cloudwatch = boto3.client('cloudwatch')
-
-```

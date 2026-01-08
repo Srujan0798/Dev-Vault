@@ -1,141 +1,134 @@
 # VR AR
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [17_VR_AR.MD: THE TITAN GUIDE (50K TARGET)](#17_vr_armd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade Metaverse, WebXR, and Spatial Computing](#production-grade-metaverse-webxr-and-spatial-computing)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. THE "VOMIT COMET"](#1-the-vomit-comet)
-  - [Motion Sickness](#motion-sickness)
-- [2. THE IPHONE THERMAL THROTTLE](#2-the-iphone-thermal-throttle)
-  - [Performance Cliff](#performance-cliff)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [5. WEBXR IMPLEMENTATION](#5-webxr-implementation)
-  - [Three.js & React Three Fiber](#threejs-react-three-fiber)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [9. ASSET PIPELINE](#9-asset-pipeline)
-  - [Draco Compression](#draco-compression)
-- [10. LIGHTING & BAKING](#10-lighting-baking)
-  - [Lightmaps vs Realtime](#lightmaps-vs-realtime)
-- [VOLUME 4: THE EXPERT (THE "SCALE") 2](#volume-4-the-expert-the-scale-2)
-- [13. MULTIPLAYER METAVERSE](#13-multiplayer-metaverse)
-  - [Networked Physics](#networked-physics)
-- [14. SPATIAL AUDIO](#14-spatial-audio)
-  - [HRTF & Ambisonics](#hrtf-ambisonics)
-- [VOLUME 5: THE TITAN (THE "KERNEL") 2](#volume-5-the-titan-the-kernel-2)
-- [16. SHADER PROGRAMMING](#16-shader-programming)
-  - [GLSL / HLSL](#glsl-hlsl)
-- [VOLUME 6: THE INFINITE (THE "FUTURE") 2](#volume-6-the-infinite-the-future-2)
-- [19. NEURAL RENDERING (GAUSSIAN SPLATTING)](#19-neural-rendering-gaussian-splatting)
-  - [Photorealism at 60fps](#photorealism-at-60fps)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. THE "VOMIT COMET"](#1-the-vomit-comet)
+    - [Motion Sickness](#motion-sickness)
+  - [2. THE IPHONE THERMAL THROTTLE](#2-the-iphone-thermal-throttle)
+    - [Performance Cliff](#performance-cliff)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [5. WEBXR IMPLEMENTATION](#5-webxr-implementation)
+    - [Three.js & React Three Fiber](#threejs-react-three-fiber)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [9. ASSET PIPELINE](#9-asset-pipeline)
+    - [Draco Compression](#draco-compression)
+  - [10. LIGHTING & BAKING](#10-lighting-baking)
+    - [Lightmaps vs Realtime](#lightmaps-vs-realtime)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [13. MULTIPLAYER METAVERSE](#13-multiplayer-metaverse)
+    - [Networked Physics](#networked-physics)
+  - [14. SPATIAL AUDIO](#14-spatial-audio)
+    - [HRTF & Ambisonics](#hrtf-ambisonics)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [16. SHADER PROGRAMMING](#16-shader-programming)
+    - [GLSL / HLSL](#glsl-hlsl)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [19. NEURAL RENDERING (GAUSSIAN SPLATTING)](#19-neural-rendering-gaussian-splatting)
+    - [Photorealism at 60fps](#photorealism-at-60fps)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE ULTIMATE UNITY OPTIMIZATION LIST](#a-the-ultimate-unity-optimization-list)
+  - [A. THE ULTIMATE UNITY OPTIMIZATION LIST](#a-the-ultimate-unity-optimization-list)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-- [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
 - [XR PLATFORMS](#xr-platforms)
 - [GAME ENGINES](#game-engines)
 - [D GRAPHICS](#d-graphics)
 - [TRACKING](#tracking)
 - [PERFORMANCE](#performance)
 - [WEBXR](#webxr)
-- [Titan Pattern: WebXR Optimization (The Browser Limit)](#titan-pattern-webxr-optimization-the-browser-limit)
+  - [Titan Pattern: WebXR Optimization (The Browser Limit)](#titan-pattern-webxr-optimization-the-browser-limit)
 - [SPATIAL AUDIO](#spatial-audio)
 - [AVATARS](#avatars)
 - [MULTIPLAYER](#multiplayer)
-- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [GAME ENGINE DEEP ATLAS](#game-engine-deep-atlas)
-- [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
-- [Unity XR](#unity-xr)
-- [Unreal Engine](#unreal-engine)
-- [WebXR 2](#webxr-2)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
+  - [Unity XR](#unity-xr)
+  - [Unreal Engine](#unreal-engine)
+  - [WebXR](#webxr-1)
 - [HARDWARE DEEP ATLAS](#hardware-deep-atlas)
-- [Each keyword = expandable device](#each-keyword-expandable-device)
-- [Headsets](#headsets)
-- [Displays](#displays)
-- [Tracking 2](#tracking-2)
+  - [Each keyword = expandable device](#each-keyword-expandable-device)
+  - [Headsets](#headsets)
+  - [Displays](#displays)
+  - [Tracking](#tracking-1)
 - [AVATAR SYSTEMS DEEP ATLAS](#avatar-systems-deep-atlas)
-- [Each keyword = expandable technology](#each-keyword-expandable-technology)
-- [Creation](#creation)
-- [Animation](#animation)
-- [Expression](#expression)
+  - [Each keyword = expandable technology](#each-keyword-expandable-technology)
+  - [Creation](#creation)
+  - [Animation](#animation)
+  - [Expression](#expression)
 - [SOCIAL VR DEEP ATLAS](#social-vr-deep-atlas)
-- [Each keyword = expandable feature](#each-keyword-expandable-feature)
-- [Presence](#presence)
-- [Worlds](#worlds)
-- [Safety](#safety)
-  - [END OF MEGA VR/AR EXPANSION](#end-of-mega-vrar-expansion)
+  - [Each keyword = expandable feature](#each-keyword-expandable-feature)
+  - [Presence](#presence)
+  - [Worlds](#worlds)
+  - [Safety](#safety)
+    - [END OF MEGA VR/AR EXPANSION](#end-of-mega-vrar-expansion)
 - [XR PERFORMANCE DEEP ATLAS](#xr-performance-deep-atlas)
-- [Each keyword = expandable optimization](#each-keyword-expandable-optimization)
-- [Rendering](#rendering)
-  - [Titan Pattern: Occlusion Culling](#titan-pattern-occlusion-culling)
-- [Latency](#latency)
-- [Memory](#memory)
-  - [Titan Pattern: Object Pooling (Zero Alloc)](#titan-pattern-object-pooling-zero-alloc)
-- [Profiling](#profiling)
+  - [Each keyword = expandable optimization](#each-keyword-expandable-optimization)
+  - [Rendering](#rendering)
+    - [Titan Pattern: Occlusion Culling](#titan-pattern-occlusion-culling)
+  - [Latency](#latency)
+  - [Memory](#memory)
+    - [Titan Pattern: Object Pooling (Zero Alloc)](#titan-pattern-object-pooling-zero-alloc)
+  - [Profiling](#profiling)
 - [XR INPUT DEEP ATLAS](#xr-input-deep-atlas)
-- [Each keyword = expandable interaction](#each-keyword-expandable-interaction)
-- [Controllers](#controllers)
-- [Hand Tracking](#hand-tracking)
-- [Eye Tracking](#eye-tracking)
-- [Full Body](#full-body)
+  - [Each keyword = expandable interaction](#each-keyword-expandable-interaction)
+  - [Controllers](#controllers)
+  - [Hand Tracking](#hand-tracking)
+  - [Eye Tracking](#eye-tracking)
+  - [Full Body](#full-body)
 - [SPATIAL AUDIO DEEP ATLAS](#spatial-audio-deep-atlas)
-- [Each keyword = expandable technique](#each-keyword-expandable-technique)
-- [3D Audio](#3d-audio)
-- [Implementation](#implementation)
-- [Environment](#environment)
-- [Voice](#voice)
+  - [Each keyword = expandable technique](#each-keyword-expandable-technique)
+  - [3D Audio](#3d-audio)
+  - [Implementation](#implementation)
+  - [Environment](#environment)
+  - [Voice](#voice)
 - [ENTERPRISE XR DEEP ATLAS](#enterprise-xr-deep-atlas)
-- [Each keyword = expandable application](#each-keyword-expandable-application)
-- [Training](#training)
-- [Collaboration](#collaboration)
-- [Industrial](#industrial)
-- [Healthcare](#healthcare)
-  - [END OF ULTRA VR/AR EXPANSION](#end-of-ultra-vrar-expansion)
-  - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
-- [VR/AR CODE EXAMPLES](#vrar-code-examples)
+  - [Each keyword = expandable application](#each-keyword-expandable-application)
+  - [Training](#training)
+  - [Collaboration](#collaboration)
+  - [Industrial](#industrial)
+  - [Healthcare](#healthcare)
+    - [END OF ULTRA VR/AR EXPANSION](#end-of-ultra-vrar-expansion)
+    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
 - [JS PATTERNS](#js-patterns)
-- [WebGL Scene Setup](#webgl-scene-setup)
+  - [WebGL Scene Setup](#webgl-scene-setup)
 - [WEBXR PATTERNS](#webxr-patterns)
-- [VR Session](#vr-session)
+  - [VR Session](#vr-session)
 - [FRAME PATTERNS](#frame-patterns)
-- [Declarative VR](#declarative-vr)
-  - [CONTINUED: MORE VR/AR PATTERNS](#continued-more-vrar-patterns)
+  - [Declarative VR](#declarative-vr)
+    - [CONTINUED: MORE VR/AR PATTERNS](#continued-more-vrar-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - VR/AR PRODUCTION FAILURES](#volume-8-titan-gemini-research---vrar-production-failures)
-- [UNITY GC SPIKE PREVENTION](#unity-gc-spike-prevention)
-  - [The Scar](#the-scar)
-- [MOBILE AR LOD SYSTEM](#mobile-ar-lod-system)
-  - [The Scar 3](#the-scar-3)
-  - [END OF VOLUME 8: TITAN GEMINI RESEARCH - VR/AR PRODUCTION FAILURES](#end-of-volume-8-titan-gemini-research---vrar-production-failures)
-- [VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR](#volume-9-titan-gemini-research---spatial-anchors-and-multiplayer-xr)
-- [PERSISTENT AR WITH SPATIAL ANCHORS](#persistent-ar-with-spatial-anchors)
-  - [The Scar 6](#the-scar-6)
-- [WEBXR HAND TRACKING](#webxr-hand-tracking)
-  - [The Scar 5](#the-scar-5)
-  - [END OF VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR](#end-of-volume-9-titan-gemini-research---spatial-anchors-and-multiplayer-xr)
+  - [UNITY GC SPIKE PREVENTION](#unity-gc-spike-prevention)
+    - [The Scar](#the-scar)
+  - [LATE LATCHING FOR LOW LATENCY](#late-latching-for-low-latency)
+    - [The Scar](#the-scar-1)
+  - [ARKIT WORLD TRACKING RECOVERY](#arkit-world-tracking-recovery)
+    - [The Scar](#the-scar-2)
+  - [WEBXR HAND TRACKING](#webxr-hand-tracking)
+    - [The Scar](#the-scar-3)
+    - [END OF VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR](#end-of-volume-9-titan-gemini-research---spatial-anchors-and-multiplayer-xr)
 - [VOLUME 10: TITAN GEMINI RESEARCH - WEBXR PERFORMANCE OPTIMIZATION](#volume-10-titan-gemini-research---webxr-performance-optimization)
-- [FRAME RATE DROPS IN VR](#frame-rate-drops-in-vr)
-  - [The Scar 7](#the-scar-7)
-  - [END OF VOLUME 10: TITAN GEMINI RESEARCH - WEBXR PERFORMANCE OPTIMIZATION](#end-of-volume-10-titan-gemini-research---webxr-performance-optimization)
+  - [FRAME RATE DROPS IN VR](#frame-rate-drops-in-vr)
+    - [The Scar](#the-scar-4)
+    - [END OF VOLUME 10: TITAN GEMINI RESEARCH - WEBXR PERFORMANCE OPTIMIZATION](#end-of-volume-10-titan-gemini-research---webxr-performance-optimization)
 - [VOLUME 2: PRODUCTION VR/AR PATTERNS](#volume-2-production-vrar-patterns)
-- [WEBXR DEVELOPMENT PATTERNS](#webxr-development-patterns)
-  - [Cross-Platform VR Experience](#cross-platform-vr-experience)
-- [AR MARKER DETECTION](#ar-marker-detection)
-  - [Image Target Recognition](#image-target-recognition)
-  - [END OF VR/AR VOLUME 2](#end-of-vrar-volume-2)
-  - [Lines: ~200+ added](#lines-200-added)
+  - [WEBXR DEVELOPMENT PATTERNS](#webxr-development-patterns)
+    - [Cross-Platform VR Experience](#cross-platform-vr-experience)
+  - [AR MARKER DETECTION](#ar-marker-detection)
+    - [Image Target Recognition](#image-target-recognition)
+    - [END OF VR/AR VOLUME 2](#end-of-vrar-volume-2)
+    - [Lines: ~200+ added](#lines-200-added)
 - [REAL AR/VR WEB PATTERNS 2024](#real-arvr-web-patterns-2024)
-- [Three.js Scene Setup](#threejs-scene-setup)
-- [React Three Fiber](#react-three-fiber)
-  - [END OF VR/AR PATTERNS](#end-of-vrar-patterns)
-- [WebXR 2 2](#webxr-2-2)
-- [Tracking 2 2](#tracking-2-2)
+  - [Three.js Scene Setup](#threejs-scene-setup)
+  - [React Three Fiber](#react-three-fiber)
+    - [END OF VR/AR PATTERNS](#end-of-vrar-patterns)
 
 ## 17_VR_AR.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -162,48 +155,42 @@
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. WebXR Implementation (Three.js / R3F)
-2. AR Furniture Placement (ARKit/ARCore)
-3. Tours (Matterport Integration)
-4. Coordinate Systems (Left vs Right Handed)
+5. WebXR Implementation (Three.js / R3F)
+6. AR Furniture Placement (ARKit/ARCore)
+7. Tours (Matterport Integration)
+8. Coordinate Systems (Left vs Right Handed)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. Asset Pipeline (Draco Compression & GLTF)
-2. Lighting & Baking (Lightmaps vs Realtime)
-3. Performance Optimization (Draw Calls & Occlusion Culling)
-4. Interaction Models (Raycasting vs Direct Touch)
+9. Asset Pipeline (Draco Compression & GLTF)
+10. Lighting & Baking (Lightmaps vs Realtime)
+11. Performance Optimization (Draw Calls & Occlusion Culling)
+12. Interaction Models (Raycasting vs Direct Touch)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. Multiplayer Metaverse (Networked Physics)
-2. Spatial Audio (HRTF & Ambisonics)
-3. Cloud Rendering (Pixel Streaming)
+13. Multiplayer Metaverse (Networked Physics)
+14. Spatial Audio (HRTF & Ambisonics)
+15. Cloud Rendering (Pixel Streaming)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. Shader Programming (GLSL/HLSL)
-2. Vulkan/Metal Graphics APIs
-3. Custom Physics Engines (WASM)
+16. Shader Programming (GLSL/HLSL)
+17. Vulkan/Metal Graphics APIs
+18. Custom Physics Engines (WASM)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. Neural Rendering (Gaussian Splatting)
-2. Haptic Feedback Suits
-3. BCI (Brain-Computer Interfaces)
+19. Neural Rendering (Gaussian Splatting)
+20. Haptic Feedback Suits
+21. BCI (Brain-Computer Interfaces)
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. THE "VOMIT COMET"
 
@@ -238,7 +225,7 @@ Phone got hot. iOS throttled the CPU/GPU. Frame rate dropped from 60fps to 15fps
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 5. WEBXR IMPLEMENTATION
 
@@ -273,7 +260,7 @@ return (
 
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 9. ASSET PIPELINE
 
@@ -304,7 +291,7 @@ Apply texture to the model.
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 13. MULTIPLAYER METAVERSE
 
@@ -333,7 +320,7 @@ Math that modifies sound waves to trick the brain into hearing 3D position.
 
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 16. SHADER PROGRAMMING
 
@@ -350,7 +337,7 @@ Use Case: Fire effects, holograms.
 
 ```glsl
 void main() {
-float alpha = sin(vUv.y *20.0 + uTime)* 0.5 + 0.5;
+float alpha = sin(vUv.y * 20.0 + uTime) * 0.5 + 0.5;
 gl_FragColor = vec4(0.0, 1.0, 1.0, alpha);
 }
 
@@ -358,7 +345,7 @@ gl_FragColor = vec4(0.0, 1.0, 1.0, alpha);
 
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 19. NEURAL RENDERING (GAUSSIAN SPLATTING)
 
@@ -372,7 +359,6 @@ Traditional 3D uses triangles (Mesh).
 1. Take video of a room.
 2. AI trains a model to represent the room as Gaussians.
 3. Render via rasterization.
-
 **Result**: Looks like a photo, moves like a 3D model. Fast rendering.
 
 ---
@@ -555,7 +541,7 @@ Traditional 3D uses triangles (Mesh).
 
 - Lumen: global illumination
 
-## WebXR 2
+## WebXR
 
 - Navigator.xr: feature detection
 
@@ -566,6 +552,8 @@ Traditional 3D uses triangles (Mesh).
 - XRInputSource: controllers
 
 - Hit testing: AR placement
+
+---
 
 ## HARDWARE DEEP ATLAS
 
@@ -595,7 +583,7 @@ Traditional 3D uses triangles (Mesh).
 
 - FOV: field of view degrees
 
-## Tracking 2
+## Tracking
 
 - Inside-out: camera-based
 
@@ -606,6 +594,8 @@ Traditional 3D uses triangles (Mesh).
 - Hand tracking: skeletal
 
 - Eye tracking: foveated
+
+---
 
 ## AVATAR SYSTEMS DEEP ATLAS
 
@@ -746,6 +736,7 @@ Traditional 3D uses triangles (Mesh).
 - **Goal**: Reuse objects instead of destroying/creating them.
 - **Technique**: Pre-allocate a list of bullets/enemies. Enable/Disable instead of Spawn/Destroy.
 
+```javascript
 // Three.js / WebXR Example: Bullet Pool
 class BulletPool {
 constructor(scene, size) {
@@ -753,20 +744,21 @@ this.pool = [];
 for (let i = 0; i < size; i++) {
 const bullet = new Mesh(geometry, material);
 bullet.visible = false;
-        scene.add(bullet);
-        this.pool.push(bullet);
-        }
-      }
+      scene.add(bullet);
+      this.pool.push(bullet);
+    }
+  }
 
 getBullet() {
 const bullet = this.pool.find(b => !b.visible);
 if (bullet) {
 bullet.visible = true;
 return bullet;
-        }
-return null; // Or expand pool
-      }
     }
+return null; // Or expand pool
+  }
+}
+```text
 
 - Compression: texture, mesh
 
@@ -962,10 +954,11 @@ return null; // Or expand pool
 
 ## WebGL Scene Setup
 
-**Why it exists:**3D graphics in browser
+**Why it exists:** 3D graphics in browser
 
+```typescript
 // lib/three-scene.ts
-import* as THREE from 'three';
+import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export function createScene(container: HTMLElement) {
@@ -973,43 +966,47 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x1a1a2e);
 
 const camera = new THREE.PerspectiveCamera(
-        75,
+    75,
 container.clientWidth / container.clientHeight,
-        0.1,
-        1000
-      );
+    0.1,
+    1000
+  );
 camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      container.appendChild(renderer.domElement);
+  container.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
 // Lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-      scene.add(ambientLight);
+  scene.add(ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 5, 5);
-      scene.add(directionalLight);
+  scene.add(directionalLight);
 
 // Animation loop
 function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
+    requestAnimationFrame(animate);
+    controls.update();
 renderer.render(scene, camera);
-      }
-      animate();
+  }
+  animate();
 
 // Cleanup
 return () => {
-        renderer.dispose();
-        container.removeChild(renderer.domElement);
-      };
-    }
+    renderer.dispose();
+    container.removeChild(renderer.domElement);
+  };
+}
+
+```text
+
+---
 
 ## WEBXR PATTERNS
 
@@ -1017,30 +1014,31 @@ return () => {
 
 **Why it exists:** Immersive VR experiences
 
+```typescript
 // lib/webxr.ts
 export async function startVRSession(renderer: THREE.WebGLRenderer) {
 if (!navigator.xr) {
 throw new Error('WebXR not supported');
-      }
+  }
 
 const supported = await navigator.xr.isSessionSupported('immersive-vr');
 if (!supported) {
 throw new Error('VR not supported');
-      }
+  }
 
 const session = await navigator.xr.requestSession('immersive-vr', {
 optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking'],
-      });
+  });
 
 renderer.xr.enabled = true;
-      renderer.xr.setSession(session);
+  renderer.xr.setSession(session);
 
 session.addEventListener('end', () => {
-        renderer.xr.setSession(null);
-      });
+    renderer.xr.setSession(null);
+  });
 
 return session;
-    }
+}
 
 // VR Controller
 export function setupControllers(renderer: THREE.WebGLRenderer, scene: THREE.Scene) {
@@ -1049,55 +1047,66 @@ const controller2 = renderer.xr.getController(1);
 
 controller1.addEventListener('selectstart', () => {
 // Trigger pressed
-      });
+  });
 
-      scene.add(controller1);
-      scene.add(controller2);
-    }
+  scene.add(controller1);
+  scene.add(controller2);
+}
+
+```text
+
+---
 
 ## FRAME PATTERNS
 
 ## Declarative VR
 
-**Why it exists:**HTML-like VR development
+**Why it exists:** HTML-like VR development
 
+```html
 <!-- index.html -->
-    <a-scene>
-      <a-assets>
+<a-scene>
+  <a-assets>
 <img id="sky" src="/textures/sky.jpg">
 <a-asset-item id="model" src="/models/scene.gltf"></a-asset-item>
-      </a-assets>
+  </a-assets>
 
 <a-sky src="#sky"></a-sky>
 
-      <a-entity
-        gltf-model="#model"
+  <a-entity
+    gltf-model="#model"
 position="0 0 -3"
 animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
-      ></a-entity>
+  ></a-entity>
 
-      <a-entity
-        id="player"
-        camera
+  <a-entity
+    id="player"
+    camera
 look-controls="pointerLockEnabled: true"
-        wasd-controls
+    wasd-controls
 position="0 1.6 0"
-      ></a-entity>
-    </a-scene>
+  ></a-entity>
+</a-scene>
 
-    <script>
+<script>
 AFRAME.registerComponent('interactive', {
 init: function() {
 this.el.addEventListener('click', () => {
 this.el.setAttribute('material', 'color', 'red');
-        });
-        }
       });
-    </script>
+    }
+  });
+</script>
+
+```text
+
+---
 
 ### CONTINUED: MORE VR/AR PATTERNS
 
 | #### Total Lines: ~800+ | Target: 15,000 |
+
+---
 
 ## VOLUME 8: TITAN GEMINI RESEARCH - VR/AR PRODUCTION FAILURES
 
@@ -1123,7 +1132,6 @@ var enemies = FindObjectsOfType<Enemy>().ToList();  // ALLOCATION!
 }
 
 ```csharp
-
 // TITAN: Zero-allocation patterns
 public class ZeroAllocationVR : MonoBehaviour
 {
@@ -1198,13 +1206,14 @@ private RaycastResult[] _raycastResults = new RaycastResult[32];
 
 ## QUEST THERMAL THROTTLING DETECTION
 
-### The Scar 2
+### The Scar
 
 > "VR game runs perfectly for 10 minutes.
 > Then fps drops from 72 to 36. Users complain.
 > Meta Quest detected overheating. Throttled GPU by 50%.
 > No warning to player. Just sudden judder."
 
+```csharp
 // VIBE: No thermal monitoring
 void Update()
 {
@@ -1213,23 +1222,24 @@ void Update()
 // Quest throttles after 10 minutes, no warning
 }
 
+```csharp
 // TITAN: Thermal awareness with dynamic LOD
 using UnityEngine.XR;
 
 public class ThermalManager : MonoBehaviour
-    {
+{
 public enum ThermalState { Normal, Warm, Critical }
 
 private ThermalState _currentState = ThermalState.Normal;
 private float _thermalCheckInterval = 5f;
 
 void Start()
-        {
+    {
 InvokeRepeating(nameof(CheckThermalState), 0, _thermalCheckInterval);
-        }
+    }
 
 void CheckThermalState()
-        {
+    {
 // Quest API for thermal level
 if (OVRManager.instance != null)
         {
@@ -1252,10 +1262,10 @@ if (isThrottling)
         SetThermalState(ThermalState.Normal);
         }
         }
-        }
+    }
 
 void SetThermalState(ThermalState newState)
-        {
+    {
 if (newState == _currentState) return;
 _currentState = newState;
 
@@ -1284,12 +1294,14 @@ Application.targetFrameRate = 45;  // Accept lower framerate
 ShowWarning("Device overheating. Taking a break is recommended.");
         break;
         }
-        }
     }
+}
+
+```text
 
 ## LATE LATCHING FOR LOW LATENCY
 
-### The Scar 2 2
+### The Scar
 
 > "Motion-to-photon latency: 35ms.
 > Users report 'delayed' feeling when turning head.
@@ -1297,7 +1309,6 @@ ShowWarning("Device overheating. Taking a break is recommended.");
 > Using pose from start of frame instead of render time."
 
 ```csharp
-
 // VIBE: Use head pose from frame start
 void Update()
 {
@@ -1357,7 +1368,7 @@ renderer.render(scene, camera);
 
 ## MOBILE AR LOD SYSTEM
 
-### The Scar 3
+### The Scar
 
 > "AR furniture app on iPhone SE (2020).
 > Shows 500k polygon sofa model.
@@ -1373,7 +1384,6 @@ let entity = try! ModelEntity.loadModel(named: "sofa_500k.usdz")
 }
 
 ```swift
-
 // TITAN: Device-aware LOD selection
 import ARKit
 import RealityKit
@@ -1387,9 +1397,9 @@ let device = UIDevice.current
 let performance = ProcessInfo.processInfo.physicalMemory
 
 // A15 chip or newer = high tier
-if performance >= 6 *1024* 1024 * 1024 {  // 6GB+
+if performance >= 6 * 1024 * 1024 * 1024 {  // 6GB+
 return .high
-} else if performance >= 4 *1024* 1024 * 1024 {  // 4GB+
+} else if performance >= 4 * 1024 * 1024 * 1024 {  // 4GB+
 return .medium
 } else {
 return .low
@@ -1461,7 +1471,7 @@ case .critical:
 
 ## ARKIT WORLD TRACKING RECOVERY
 
-### The Scar 4
+### The Scar
 
 > "User points phone at blank wall. Tracking lost.
 > Virtual furniture floats away. User confused.
@@ -1469,7 +1479,6 @@ case .critical:
 > App requires complete restart."
 
 ```swift
-
 // VIBE: No tracking state handling
 func session(_ session: ARSession, didUpdate frame: ARFrame) {
 // Just assume tracking always works
@@ -1576,13 +1585,14 @@ arSession.run(config, options: [.resetTracking, .removeExistingAnchors])
 
 ## PERSISTENT AR WITH SPATIAL ANCHORS
 
-### The Scar 6
+### The Scar
 
 > "AR furniture placed perfectly. Close app. Reopen.
 > Furniture gone. No persistence. User frustrated.
 > 'Where did my design go?' Support tickets flooded.
 > No spatial anchoring. Just session-based ARKit."
 
+```swift
 // VIBE: Session-only AR placement
 func placeItem(at position: SIMD3<Float>) {
 let anchor = AnchorEntity(world: position)
@@ -1591,6 +1601,7 @@ let anchor = AnchorEntity(world: position)
 // Disappears when app closes
 }
 
+```swift
 // TITAN: Azure Spatial Anchors for persistence
 import AzureSpatialAnchors
 import ARKit
@@ -1611,7 +1622,7 @@ spatialAnchorsSession.configuration.accountKey = ProcessInfo.processInfo.environ
 spatialAnchorsSession.configuration.accountDomain = "eastus.mixedreality.azure.com"
 
         spatialAnchorsSession.start()
-        }
+    }
 
 /// Save AR content to the cloud
 func saveAnchor(at localAnchor: ARAnchor, metadata: [String: String]) async throws -> String {
@@ -1619,7 +1630,7 @@ func saveAnchor(at localAnchor: ARAnchor, metadata: [String: String]) async thro
 while !isRecommendedForCreate {
 try await Task.sleep(nanoseconds: 500_000_000)  // 0.5s
 let progress = spatialAnchorsSession.getSessionStatus().recommendedForCreateProgress
-print("Spatial data collection: \(progress* 100)%")
+print("Spatial data collection: \(progress * 100)%")
         }
 
 // 2. Create cloud anchor from local anchor
@@ -1649,7 +1660,7 @@ print("Anchor saved with ID: \(anchorId)")
 UserDefaults.standard.set(anchorId, forKey: "lastSavedAnchorId")
 
 return anchorId
-        }
+    }
 
 /// Locate previously saved anchors
 func locateAnchors(ids: [String]) async throws {
@@ -1662,13 +1673,13 @@ criteria.strategy = .anyStrategy
 let watcher = spatialAnchorsSession.createWatcher(criteria)
 
 // Anchors found via delegate callback
-        }
+    }
 
 private var isRecommendedForCreate: Bool {
 let status = spatialAnchorsSession.getSessionStatus()
 return status.recommendedForCreateProgress >= 1.0
-        }
     }
+}
 
 // MARK: - ASACloudSpatialAnchorSessionDelegate
 extension PersistentARManager: ASACloudSpatialAnchorSessionDelegate {
@@ -1686,16 +1697,18 @@ self.arSession.add(anchor: localAnchor)
 let furnitureId = cloudAnchor.appProperties["furnitureId"] as? String
 self.restoreFurniture(furnitureId, at: localAnchor)
         }
-        }
+    }
 
 func locatedAnchorsUpdated(_ anchors: [ASACloudSpatialAnchor]!) {
 print("Located \(anchors.count) persistent anchors")
-        }
     }
+}
+
+```text
 
 ## WEBXR HAND TRACKING
 
-### The Scar 5
+### The Scar
 
 > "Quest hand tracking in WebXR. Works in browser.
 > Pinch gesture? Nothing. Can't grab objects.
@@ -1711,7 +1724,6 @@ navigator.xr.requestSession('immersive-vr')
     });
 
 ```javascript
-
 // TITAN: Full hand tracking with gesture recognition
 class XRHandTracker {
 constructor(session, renderer) {
@@ -1850,7 +1862,7 @@ grabbed.userData.grabOffset = grabbed.position.clone().sub(gesture.position);
 
 ## MULTIPLAYER XR SYNCHRONIZATION
 
-### The Scar 6 2
+### The Scar
 
 > "Multiplayer VR meeting room. See other avatars.
 > But they're 2 seconds behind. Latency unbearable.
@@ -1858,7 +1870,6 @@ grabbed.userData.grabOffset = grabbed.position.clone().sub(gesture.position);
 > No interpolation, no prediction. Jittery avatars."
 
 ```javascript
-
 // VIBE: Direct network position
 socket.on('playerMove', (data) => {
 otherPlayer.position.copy(data.position); // Snaps every 100ms
@@ -2021,7 +2032,7 @@ avatar.speakingIndicator.visible = state.speaking;
 
 ## FRAME RATE DROPS IN VR
 
-### The Scar 7
+### The Scar
 
 > "VR app running at 45 FPS. Users getting motion sick.
 > Quest 2 needs 72 FPS minimum. 90 FPS ideal.
@@ -2033,7 +2044,6 @@ avatar.speakingIndicator.visible = state.speaking;
 scene.add(highPolyModel); // 50k triangles at any distance
 
 ```javascript
-
 // TITAN: Aggressive LOD system for VR
 import * as THREE from 'three';
 
@@ -2049,14 +2059,12 @@ this.projScreenMatrix = new THREE.Matrix4();
 
 createLOD(id, levels) {
         /**
-
 - levels = [
 - { distance: 0, mesh: highPoly },
 - { distance: 5, mesh: mediumPoly },
 - { distance: 15, mesh: lowPoly },
 - { distance: 30, mesh: billboardSprite }
 - ]
-
          */
 const lod = new THREE.LOD();
 
@@ -2145,8 +2153,8 @@ this.mesh.instanceMatrix.needsUpdate = true;
 const treeInstances = new InstancedVRObjects(treeLOD0Geometry, treeMaterial, 1000);
 for (let i = 0; i < 1000; i++) {
     treeInstances.addInstance(
-new THREE.Vector3(Math.random() *100, 0, Math.random()* 100),
-new THREE.Euler(0, Math.random() *Math.PI* 2, 0),
+new THREE.Vector3(Math.random() * 100, 0, Math.random() * 100),
+new THREE.Euler(0, Math.random() * Math.PI * 2, 0),
 new THREE.Vector3(1, 1, 1)
     );
 }
@@ -2156,7 +2164,7 @@ scene.add(treeInstances.mesh); // 1 draw call instead of 1000
 
 ## VR COMFORT AND MOTION SICKNESS
 
-### The Scar 8
+### The Scar
 
 > "Users playing for 5 minutes then quitting.
 > Reviews: 'Makes me nauseous.'
@@ -2164,7 +2172,6 @@ scene.add(treeInstances.mesh); // 1 draw call instead of 1000
 > Artificial locomotion with no comfort options."
 
 ```javascript
-
 // VIBE: Camera attached to moving object
 camera.position.copy(car.position);
 // User's vestibular system disagrees with visual motion
@@ -2246,7 +2253,7 @@ THREE.MathUtils.lerp(current, target, 0.1);
 handleSnapTurn(direction) {
 if (!this.settings.snapTurning) return;
 
-const angle = direction *this.settings.snapTurnAngle* (Math.PI / 180);
+const angle = direction * this.settings.snapTurnAngle * (Math.PI / 180);
 
 // Instant rotation with brief black frame
         this.setMotionIntensity(1);
@@ -2348,8 +2355,9 @@ horizon.position.y = 0;
 
 ### Cross-Platform VR Experience
 
+```typescript
 // ? TITAN: Production WebXR with fallback handling
-import* as THREE from 'three';
+import * as THREE from 'three';
 import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
 import { XRControllerModelFactory } from 'three/examples/jsm/webxr/XRControllerModelFactory.js';
 
@@ -2367,38 +2375,38 @@ this.scene.background = new THREE.Color(0x505050);
 
 // Camera
 this.camera = new THREE.PerspectiveCamera(
-        75,
+      75,
 window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-        );
+      0.1,
+      1000
+    );
 this.camera.position.set(0, 1.6, 3); // Standing height
 
 // Renderer with XR support
 this.renderer = new THREE.WebGLRenderer({ antialias: true });
 this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
 this.renderer.xr.enabled = true;
-        container.appendChild(this.renderer.domElement);
+    container.appendChild(this.renderer.domElement);
 
 // Check VR support
 this.isVRSupported = await this.checkVRSupport();
 
 if (this.isVRSupported) {
 // Add VR button
-        container.appendChild(VRButton.createButton(this.renderer));
-        this.setupControllers();
+      container.appendChild(VRButton.createButton(this.renderer));
+      this.setupControllers();
 } else {
 // Fallback to mouse/touch controls
-        this.setupDesktopControls();
-        }
+      this.setupDesktopControls();
+    }
 
 // Lighting
-        this.setupLighting();
+    this.setupLighting();
 
 // Start render loop
-        this.renderer.setAnimationLoop(this.render.bind(this));
-      }
+    this.renderer.setAnimationLoop(this.render.bind(this));
+  }
 
 private async checkVRSupport(): Promise<boolean> {
 if (!navigator.xr) return false;
@@ -2407,8 +2415,8 @@ try {
 return await navigator.xr.isSessionSupported('immersive-vr');
 } catch {
 return false;
-        }
-      }
+    }
+  }
 
 private setupControllers(): void {
 const controllerModelFactory = new XRControllerModelFactory();
@@ -2417,53 +2425,58 @@ for (let i = 0; i < 2; i++) {
 const controller = this.renderer.xr.getController(i);
 controller.addEventListener('selectstart', this.onSelectStart.bind(this));
 controller.addEventListener('selectend', this.onSelectEnd.bind(this));
-        this.scene.add(controller);
+      this.scene.add(controller);
 
 // Controller model
 const grip = this.renderer.xr.getControllerGrip(i);
-        grip.add(controllerModelFactory.createControllerModel(grip));
-        this.scene.add(grip);
+      grip.add(controllerModelFactory.createControllerModel(grip));
+      this.scene.add(grip);
 
 // Ray for pointing
 const geometry = new THREE.BufferGeometry().setFromPoints([
 new THREE.Vector3(0, 0, 0),
 new THREE.Vector3(0, 0, -1)
-        ]);
+      ]);
 const material = new THREE.LineBasicMaterial({ color: 0xffffff });
 const ray = new THREE.Line(geometry, material);
 ray.scale.z = 5;
-        controller.add(ray);
+      controller.add(ray);
 
-        this.controllers.push(controller);
-        }
-      }
+      this.controllers.push(controller);
+    }
+  }
 
 private onSelectStart(event: XRInputSourceEvent): void {
 // Handle trigger press
 const controller = event.target as THREE.Group;
 controller.userData.isSelecting = true;
-      }
+  }
 
 private onSelectEnd(event: XRInputSourceEvent): void {
 const controller = event.target as THREE.Group;
 controller.userData.isSelecting = false;
-      }
+  }
 
 private render(): void {
 // Frame callback for VR
 if (this.renderer.xr.isPresenting) {
 // VR-specific updates
-        this.updateControllerInteractions();
-        }
+      this.updateControllerInteractions();
+    }
 
 this.renderer.render(this.scene, this.camera);
-      }
-    }
+  }
+}
+
+```text
+
+---
 
 ## AR MARKER DETECTION
 
 ### Image Target Recognition
 
+```typescript
 // ? TITAN: AR.js marker detection with WebXR
 class ARMarkerExperience {
 | private session: XRSession | null = null; |
@@ -2473,25 +2486,25 @@ private trackedImages: Map<string, ImageMarker> = new Map();
 async startAR(): Promise<void> {
 if (!navigator.xr) {
 throw new Error('WebXR not supported');
-        }
+    }
 
 const supported = await navigator.xr.isSessionSupported('immersive-ar');
 if (!supported) {
 throw new Error('AR not supported on this device');
-        }
+    }
 
 this.session = await navigator.xr.requestSession('immersive-ar', {
 requiredFeatures: ['local-floor', 'hit-test'],
 optionalFeatures: ['image-tracking']
-        });
+    });
 
 this.referenceSpace = await this.session.requestReferenceSpace('local-floor');
 
 this.session.addEventListener('end', this.onSessionEnd.bind(this));
 
 // Start render loop
-        this.session.requestAnimationFrame(this.onXRFrame.bind(this));
-      }
+    this.session.requestAnimationFrame(this.onXRFrame.bind(this));
+  }
 
 async loadImageTargets(images: ImageTargetConfig[]): Promise<void> {
 for (const config of images) {
@@ -2503,9 +2516,9 @@ this.trackedImages.set(config.id, {
 bitmap: imageBitmap,
 widthInMeters: config.widthInMeters,
 content: config.content
-        });
-        }
-      }
+      });
+    }
+  }
 
 private onXRFrame(time: number, frame: XRFrame): void {
 | if (!this.session |  | !this.referenceSpace) return; |
@@ -2520,22 +2533,29 @@ if (pose) {
 // Place 3D content at image location
 this.placeContentAtPose(result.index, pose);
         }
-        }
-        }
-
-        this.session.requestAnimationFrame(this.onXRFrame.bind(this));
       }
     }
+
+    this.session.requestAnimationFrame(this.onXRFrame.bind(this));
+  }
+}
+
+```text
+
+---
 
 ### END OF VR/AR VOLUME 2
 
 ### Lines: ~200+ added
 
+---
+
 ## REAL AR/VR WEB PATTERNS 2024
 
 ## Three.js Scene Setup
 
-import *as THREE from 'three';
+```typescript
+import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 function createScene() {
@@ -2543,49 +2563,54 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x111111);
 
 const camera = new THREE.PerspectiveCamera(
-        75,
+    75,
 window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      );
+    0.1,
+    1000
+  );
 camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      document.body.appendChild(renderer.domElement);
+  document.body.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
 // Add lights
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-      scene.add(ambientLight);
+  scene.add(ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 5, 5);
-      scene.add(directionalLight);
+  scene.add(directionalLight);
 
 // Animation loop
 function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
+    requestAnimationFrame(animate);
+    controls.update();
 renderer.render(scene, camera);
-      }
-      animate();
+  }
+  animate();
 
 // Handle resize
 window.addEventListener('resize', () => {
 camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
+    camera.updateProjectionMatrix();
 renderer.setSize(window.innerWidth, window.innerHeight);
-      });
+  });
 
 return { scene, camera, renderer };
-    }
+}
+
+```text
+
+---
 
 ## React Three Fiber
 
+```tsx
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Environment, Float } from '@react-three/drei';
 
@@ -2594,17 +2619,17 @@ const meshRef = useRef<THREE.Mesh>(null);
 
 useFrame((state, delta) => {
 if (meshRef.current) {
-meshRef.current.rotation.y += delta* 0.5;
-        }
-      });
+meshRef.current.rotation.y += delta * 0.5;
+    }
+  });
 
 return (
 <mesh ref={meshRef}>
 <boxGeometry args={[1, 1, 1]} />
 <meshStandardMaterial color="hotpink" />
-        </mesh>
-      );
-    }
+    </mesh>
+  );
+}
 
 function Scene() {
 return (
@@ -2613,39 +2638,15 @@ return (
 <spotLight position={[10, 10, 10]} angle={0.15} />
 <Float speed={2} rotationIntensity={1}>
 <RotatingBox />
-        </Float>
+      </Float>
 <OrbitControls />
 <Environment preset="city" />
-        </Canvas>
-      );
-    }
+    </Canvas>
+  );
+}
+
+```text
+
+---
 
 ### END OF VR/AR PATTERNS
-
-## WebXR 2 2
-
-- Navigator.xr: feature detection
-
-- XRSession: immersive-vr/ar
-
-- XRFrame: requestAnimationFrame
-
-- XRInputSource: controllers
-
-- Hit testing: AR placement
-
----
-
-## Tracking 2 2
-
-- Inside-out: camera-based
-
-- Outside-in: base stations
-
-- SLAM: simultaneous localization
-
-- Hand tracking: skeletal
-
-- Eye tracking: foveated
-
----

@@ -2,82 +2,82 @@
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade Node.js, Express, Prisma, and Database Optimization](#production-grade-nodejs-express-prisma-and-database-optimization)
-- [VOLUME 1: THE SCARS (The "Why")](#volume-1-the-scars-the-why)
-- [VOLUME 2: THE FOUNDATION (The "What")](#volume-2-the-foundation-the-what)
-- [VOLUME 3: THE DEEP DIVE (The "How")](#volume-3-the-deep-dive-the-how)
-- [VOLUME 4: THE EXPERT (The "Scale")](#volume-4-the-expert-the-scale)
-- [VOLUME 5: THE TITAN (The "Kernel")](#volume-5-the-titan-the-kernel)
-- [VOLUME 6: THE INFINITE (The "Future")](#volume-6-the-infinite-the-future)
-- [VOLUME 7: PRODUCTION INCIDENT PATTERNS (The "Real-World")](#volume-7-production-incident-patterns-the-real-world)
-- [VOLUME 8: ADVANCED API PATTERNS](#volume-8-advanced-api-patterns)
-- [VOLUME 9: EVENT-DRIVEN ARCHITECTURE](#volume-9-event-driven-architecture)
-- [VOLUME 10: FILE PROCESSING & NOTIFICATIONS](#volume-10-file-processing-notifications)
-- [VOLUME 11: MULTI-TENANCY & SECURITY](#volume-11-multi-tenancy-security)
-- [VOLUME 12: PAGINATION & DATA OPERATIONS](#volume-12-pagination-data-operations)
-- [VOLUME 13: ADDITIONAL PATTERNS](#volume-13-additional-patterns)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. KNIGHT CAPITAL (2012) - $440 MILLION IN 45 MINUTES](#1-knight-capital-2012---440-million-in-45-minutes)
-  - [The "Dead Code" Deployment Disaster](#the-dead-code-deployment-disaster)
-- [2. GITLAB DATABASE DELETION (2017)](#2-gitlab-database-deletion-2017)
-  - [The "rm -rf" Heard Around the World](#the-rm--rf-heard-around-the-world)
+  - [VOLUME 1: THE SCARS (The "Why")](#volume-1-the-scars-the-why)
+  - [VOLUME 2: THE FOUNDATION (The "What")](#volume-2-the-foundation-the-what)
+  - [VOLUME 3: THE DEEP DIVE (The "How")](#volume-3-the-deep-dive-the-how)
+  - [VOLUME 4: THE EXPERT (The "Scale")](#volume-4-the-expert-the-scale)
+  - [VOLUME 5: THE TITAN (The "Kernel")](#volume-5-the-titan-the-kernel)
+  - [VOLUME 6: THE INFINITE (The "Future")](#volume-6-the-infinite-the-future)
+  - [VOLUME 7: PRODUCTION INCIDENT PATTERNS (The "Real-World")](#volume-7-production-incident-patterns-the-real-world)
+  - [VOLUME 8: ADVANCED API PATTERNS](#volume-8-advanced-api-patterns)
+  - [VOLUME 9: EVENT-DRIVEN ARCHITECTURE](#volume-9-event-driven-architecture)
+  - [VOLUME 10: FILE PROCESSING & NOTIFICATIONS](#volume-10-file-processing-notifications)
+  - [VOLUME 11: MULTI-TENANCY & SECURITY](#volume-11-multi-tenancy-security)
+  - [VOLUME 12: PAGINATION & DATA OPERATIONS](#volume-12-pagination-data-operations)
+  - [VOLUME 13: ADDITIONAL PATTERNS](#volume-13-additional-patterns)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. KNIGHT CAPITAL (2012) - $440 MILLION IN 45 MINUTES](#1-knight-capital-2012---440-million-in-45-minutes)
+    - [The "Dead Code" Deployment Disaster](#the-dead-code-deployment-disaster)
+  - [2. GITLAB DATABASE DELETION (2017)](#2-gitlab-database-deletion-2017)
+    - [The "rm -rf" Heard Around the World](#the-rm--rf-heard-around-the-world)
 - [3. T-MOBILE API BREACH (2021)](#3-t-mobile-api-breach-2021)
-- [The BOLA Apocalypse](#the-bola-apocalypse)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [6. OWASP TOP 10 API SECURITY](#6-owasp-top-10-api-security)
-  - [Beyond the Basics](#beyond-the-basics)
-  - [1. Broken Object Level Authorization (BOLA)](#1-broken-object-level-authorization-bola)
-  - [2. Broken User Authentication](#2-broken-user-authentication)
-  - [3. Excessive Data Exposure](#3-excessive-data-exposure)
-- [7. PRISMA SCHEMA DESIGN & PERFORMANCE](#7-prisma-schema-design-performance)
-  - [The "Hidden" Costs](#the-hidden-costs)
-  - [1. The N+1 Problem in Prisma](#1-the-n1-problem-in-prisma)
-  - [2. Indexing Foreign Keys](#2-indexing-foreign-keys)
-- [8. NODE.JS EVENT LOOP INTERNALS](#8-nodejs-event-loop-internals)
-  - [Phases & Microtasks](#phases-microtasks)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [11. N+1 QUERY PROBLEM & SOLUTIONS](#11-n1-query-problem-solutions)
-  - [DataLoader Pattern: The Silver Bullet](#dataloader-pattern-the-silver-bullet)
-- [12. DATABASE INDEXING STRATEGIES](#12-database-indexing-strategies)
-  - [B-Tree, Hash, GIN, BRIN](#b-tree-hash-gin-brin)
-  - [1. B-Tree (Default)](#1-b-tree-default)
-  - [2. GIN (Generalized Inverted Index)](#2-gin-generalized-inverted-index)
-  - [3. BRIN (Block Range Index)](#3-brin-block-range-index)
-  - [4. Partial Indexes](#4-partial-indexes)
-- [13. REDIS CACHING PATTERNS](#13-redis-caching-patterns)
-  - [Cache-Aside, Write-Through, & Lua Scripting](#cache-aside-write-through-lua-scripting)
-  - [1. Cache-Aside (Lazy Loading)](#1-cache-aside-lazy-loading)
-  - [2. Cache Stampede (Thundering Herd)](#2-cache-stampede-thundering-herd)
-  - [3. Atomic Operations (Lua Scripting)](#3-atomic-operations-lua-scripting)
-- [14. RATE LIMITING ALGORITHMS](#14-rate-limiting-algorithms)
-  - [Sliding Window Log](#sliding-window-log)
-  - [1. Token Bucket (Bursty)](#1-token-bucket-bursty)
-  - [2. Sliding Window Log (Precision)](#2-sliding-window-log-precision)
-- [VOLUME 4: THE EXPERT (THE "SCALE") 2](#volume-4-the-expert-the-scale-2)
-- [16. DATABASE SHARDING](#16-database-sharding)
-  - [The Instagram Model & Citus](#the-instagram-model-citus)
-- [17. DISTRIBUTED LOCKING](#17-distributed-locking)
-  - [Redlock & Fencing Tokens](#redlock-fencing-tokens)
-- [18. RELIABLE MESSAGING](#18-reliable-messaging)
-  - [Kafka vs RabbitMQ](#kafka-vs-rabbitmq)
-- [VOLUME 5: THE TITAN (THE "KERNEL") 2](#volume-5-the-titan-the-kernel-2)
-- [21. KERNEL-LEVEL TUNING](#21-kernel-level-tuning)
-  - [io_uring & eBPF](#iouring--ebpf)
-- [22. CELLULAR ARCHITECTURE](#22-cellular-architecture)
-  - [The Uber Model](#the-uber-model)
-- [23. LSM TREES VS B-TREES](#23-lsm-trees-vs-b-trees)
-  - [Storage Engines](#storage-engines)
-- [VOLUME 6: THE INFINITE (THE "FUTURE") 2](#volume-6-the-infinite-the-future-2)
-- [26. SERVERLESS 2.0](#26-serverless-20)
-  - [Wasm on Edge & Durable Objects](#wasm-on-edge-durable-objects)
-- [27. AUTONOMOUS DB TUNING](#27-autonomous-db-tuning)
-  - [AI-DBA](#ai-dba)
+  - [The BOLA Apocalypse](#the-bola-apocalypse)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [6. OWASP TOP 10 API SECURITY](#6-owasp-top-10-api-security)
+    - [Beyond the Basics](#beyond-the-basics)
+    - [1. Broken Object Level Authorization (BOLA)](#1-broken-object-level-authorization-bola)
+    - [2. Broken User Authentication](#2-broken-user-authentication)
+    - [3. Excessive Data Exposure](#3-excessive-data-exposure)
+  - [7. PRISMA SCHEMA DESIGN & PERFORMANCE](#7-prisma-schema-design-performance)
+    - [The "Hidden" Costs](#the-hidden-costs)
+    - [1. The N+1 Problem in Prisma](#1-the-n1-problem-in-prisma)
+    - [2. Indexing Foreign Keys](#2-indexing-foreign-keys)
+  - [8. NODE.JS EVENT LOOP INTERNALS](#8-nodejs-event-loop-internals)
+    - [Phases & Microtasks](#phases-microtasks)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [11. N+1 QUERY PROBLEM & SOLUTIONS](#11-n1-query-problem-solutions)
+    - [DataLoader Pattern: The Silver Bullet](#dataloader-pattern-the-silver-bullet)
+  - [12. DATABASE INDEXING STRATEGIES](#12-database-indexing-strategies)
+    - [B-Tree, Hash, GIN, BRIN](#b-tree-hash-gin-brin)
+    - [1. B-Tree (Default)](#1-b-tree-default)
+    - [2. GIN (Generalized Inverted Index)](#2-gin-generalized-inverted-index)
+    - [3. BRIN (Block Range Index)](#3-brin-block-range-index)
+    - [4. Partial Indexes](#4-partial-indexes)
+  - [13. REDIS CACHING PATTERNS](#13-redis-caching-patterns)
+    - [Cache-Aside, Write-Through, & Lua Scripting](#cache-aside-write-through-lua-scripting)
+    - [1. Cache-Aside (Lazy Loading)](#1-cache-aside-lazy-loading)
+    - [2. Cache Stampede (Thundering Herd)](#2-cache-stampede-thundering-herd)
+    - [3. Atomic Operations (Lua Scripting)](#3-atomic-operations-lua-scripting)
+  - [14. RATE LIMITING ALGORITHMS](#14-rate-limiting-algorithms)
+    - [Sliding Window Log](#sliding-window-log)
+    - [1. Token Bucket (Bursty)](#1-token-bucket-bursty)
+    - [2. Sliding Window Log (Precision)](#2-sliding-window-log-precision)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [16. DATABASE SHARDING](#16-database-sharding)
+    - [The Instagram Model & Citus](#the-instagram-model-citus)
+  - [17. DISTRIBUTED LOCKING](#17-distributed-locking)
+    - [Redlock & Fencing Tokens](#redlock-fencing-tokens)
+  - [18. RELIABLE MESSAGING](#18-reliable-messaging)
+    - [Kafka vs RabbitMQ](#kafka-vs-rabbitmq)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [21. KERNEL-LEVEL TUNING](#21-kernel-level-tuning)
+    - [io_uring & eBPF](#io_uring-ebpf)
+  - [22. CELLULAR ARCHITECTURE](#22-cellular-architecture)
+    - [The Uber Model](#the-uber-model)
+  - [23. LSM TREES VS B-TREES](#23-lsm-trees-vs-b-trees)
+    - [Storage Engines](#storage-engines)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [26. SERVERLESS 2.0](#26-serverless-20)
+    - [Wasm on Edge & Durable Objects](#wasm-on-edge-durable-objects)
+  - [27. AUTONOMOUS DB TUNING](#27-autonomous-db-tuning)
+    - [AI-DBA](#ai-dba)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE ULTIMATE DOCKERFILE](#a-the-ultimate-dockerfile)
+  - [A. THE ULTIMATE DOCKERFILE](#a-the-ultimate-dockerfile)
 - [B. THE ULTIMATE POSTGRES CONFIG](#b-the-ultimate-postgres-config)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-- [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
 - [JS INTERNALS](#js-internals)
 - [DATABASE INTERNALS](#database-internals)
 - [AUTHORIZATION](#authorization)
@@ -94,582 +94,254 @@
 - [TESTING STRATEGIES](#testing-strategies)
 - [CONTAINERIZATION](#containerization)
 - [KUBERNETES](#kubernetes)
-- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
-  - [EXPANSION QUEUE](#expansion-queue)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+    - [EXPANSION QUEUE](#expansion-queue)
 - [GRAPHQL DEEP ATLAS](#graphql-deep-atlas)
-- [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
-- [Schema Design](#schema-design)
-- [Resolvers](#resolvers)
-- [Apollo Server](#apollo-server)
-- [Code Generation](#code-generation)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
+  - [Schema Design](#schema-design)
+  - [Resolvers](#resolvers)
+  - [Apollo Server](#apollo-server)
+  - [Code Generation](#code-generation)
 - [TIME COMMUNICATION DEEP ATLAS](#time-communication-deep-atlas)
-- [Each keyword = expandable pattern](#each-keyword-expandable-pattern-2)
-- [WebSocket](#websocket)
-- [Socket.io](#socketio)
-- [Server-Sent Events](#server-sent-events)
-- [Long Polling](#long-polling)
+  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern)
+  - [WebSocket](#websocket)
+  - [Socket.io](#socketio)
+  - [Server-Sent Events](#server-sent-events)
+  - [Long Polling](#long-polling)
 - [BACKGROUND JOBS DEEP ATLAS](#background-jobs-deep-atlas)
-- [Each keyword = expandable configuration](#each-keyword-expandable-configuration)
-- [BullMQ](#bullmq)
-- [Job Patterns](#job-patterns)
-- [Distributed Jobs](#distributed-jobs)
+  - [Each keyword = expandable configuration](#each-keyword-expandable-configuration)
+  - [BullMQ](#bullmq)
+  - [Job Patterns](#job-patterns)
+  - [Distributed Jobs](#distributed-jobs)
 - [FILE HANDLING DEEP ATLAS](#file-handling-deep-atlas)
-- [Each keyword = expandable recipe](#each-keyword-expandable-recipe)
-- [Uploads](#uploads)
-- [S3 Integration](#s3-integration)
-- [PDF Generation](#pdf-generation)
+  - [Each keyword = expandable recipe](#each-keyword-expandable-recipe)
+  - [Uploads](#uploads)
+  - [S3 Integration](#s3-integration)
+  - [PDF Generation](#pdf-generation)
 - [EMAIL DEEP ATLAS](#email-deep-atlas)
-- [Each keyword = expandable implementation 2](#each-keyword-expandable-implementation-2)
-- [Nodemailer](#nodemailer)
-- [Providers](#providers)
-- [Deliverability](#deliverability)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation-1)
+  - [Nodemailer](#nodemailer)
+  - [Providers](#providers)
+  - [Deliverability](#deliverability)
 - [ADVANCED SECURITY DEEP ATLAS](#advanced-security-deep-atlas)
-- [Each keyword = expandable pattern 2](#each-keyword-expandable-pattern-2)
-- [Authentication Flows](#authentication-flows)
-- [Authorization 2](#authorization-2)
-- [Rate Limiting](#rate-limiting)
+  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern-1)
+  - [Authentication Flows](#authentication-flows)
+  - [Authorization](#authorization-1)
+  - [Rate Limiting](#rate-limiting)
 - [ADVANCED DATABASE DEEP ATLAS](#advanced-database-deep-atlas)
-- [Each keyword = expandable optimization](#each-keyword-expandable-optimization)
-- [Query Optimization](#query-optimization)
-- [Scaling Patterns](#scaling-patterns)
-- [Transactions](#transactions)
+  - [Each keyword = expandable optimization](#each-keyword-expandable-optimization)
+  - [Query Optimization](#query-optimization)
+  - [Scaling Patterns](#scaling-patterns)
+  - [Transactions](#transactions)
 - [PERFORMANCE DEEP ATLAS](#performance-deep-atlas)
-- [Each keyword = expandable technique](#each-keyword-expandable-technique)
-- [Profiling](#profiling)
-- [Optimization](#optimization)
-- [Caching](#caching)
-  - [END OF MEGA BACKEND EXPANSION](#end-of-mega-backend-expansion)
+  - [Each keyword = expandable technique](#each-keyword-expandable-technique)
+  - [Profiling](#profiling)
+  - [Optimization](#optimization)
+  - [Caching](#caching)
+    - [END OF MEGA BACKEND EXPANSION](#end-of-mega-backend-expansion)
 - [MICROSERVICES DEEP ATLAS](#microservices-deep-atlas)
-- [Each keyword = expandable architecture](#each-keyword-expandable-architecture)
-- [Service Design](#service-design)
-- [Communication](#communication)
-- [Resilience](#resilience)
-- [Data Management](#data-management)
+  - [Each keyword = expandable architecture](#each-keyword-expandable-architecture)
+  - [Service Design](#service-design)
+  - [Communication](#communication)
+  - [Resilience](#resilience)
+  - [Data Management](#data-management)
 - [DRIVEN DEEP ATLAS](#driven-deep-atlas)
-- [Each keyword = expandable pattern 3](#each-keyword-expandable-pattern-3)
-- [Message Brokers](#message-brokers)
-- [Event Patterns](#event-patterns)
-- [Processing](#processing)
-- [Stream Processing](#stream-processing)
+  - [Each keyword = expandable pattern](#each-keyword-expandable-pattern-2)
+  - [Message Brokers](#message-brokers)
+  - [Event Patterns](#event-patterns)
+  - [Processing](#processing)
+  - [Stream Processing](#stream-processing)
 - [API DESIGN DEEP ATLAS](#api-design-deep-atlas)
-- [Each keyword = expandable best practice](#each-keyword-expandable-best-practice)
-- [REST Best Practices](#rest-best-practices)
-- [GraphQL Best Practices](#graphql-best-practices)
-- [API Documentation](#api-documentation)
-- [API Versioning](#api-versioning)
+  - [Each keyword = expandable best practice](#each-keyword-expandable-best-practice)
+  - [REST Best Practices](#rest-best-practices)
+  - [GraphQL Best Practices](#graphql-best-practices)
+  - [API Documentation](#api-documentation)
+  - [API Versioning](#api-versioning)
 - [DATABASE PATTERNS DEEP ATLAS](#database-patterns-deep-atlas)
-- [Each keyword = expandable technique 2](#each-keyword-expandable-technique-2)
-- [Data Modeling](#data-modeling)
-- [Query Patterns](#query-patterns)
-- [Migration Patterns](#migration-patterns)
-- [Connection Management](#connection-management)
+  - [Each keyword = expandable technique](#each-keyword-expandable-technique-1)
+  - [Data Modeling](#data-modeling)
+  - [Query Patterns](#query-patterns)
+  - [Migration Patterns](#migration-patterns)
+  - [Connection Management](#connection-management)
 - [OBSERVABILITY DEEP ATLAS](#observability-deep-atlas)
-- [Each keyword = expandable implementation 3](#each-keyword-expandable-implementation-3)
-- [Logging](#logging)
-- [Metrics](#metrics)
-- [Tracing](#tracing)
-- [Alerting](#alerting)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation-2)
+  - [Logging](#logging)
+  - [Metrics](#metrics)
+  - [Tracing](#tracing)
+  - [Alerting](#alerting)
 - [DEPLOYMENT DEEP ATLAS](#deployment-deep-atlas)
-- [Each keyword = expandable strategy](#each-keyword-expandable-strategy)
-- [Deployment Strategies](#deployment-strategies)
-- [Container Orchestration](#container-orchestration)
-- [CI/CD](#cicd)
-- [Infrastructure as Code](#infrastructure-as-code)
-  - [END OF MEGA MEGA BACKEND EXPANSION](#end-of-mega-mega-backend-expansion)
+  - [Each keyword = expandable strategy](#each-keyword-expandable-strategy)
+  - [Deployment Strategies](#deployment-strategies)
+  - [Container Orchestration](#container-orchestration)
+  - [CI/CD](#cicd)
+  - [Infrastructure as Code](#infrastructure-as-code)
+    - [END OF MEGA MEGA BACKEND EXPANSION](#end-of-mega-mega-backend-expansion)
 - [#### Each section designed for massive LLM expansion](#-each-section-designed-for-massive-llm-expansion)
 - [PRODUCTION BACKEND CODE EXAMPLES ATLAS](#production-backend-code-examples-atlas)
-- [Real implementations from industry best practices](#real-implementations-from-industry-best-practices)
+  - [Real implementations from industry best practices](#real-implementations-from-industry-best-practices)
 - [JS API PATTERNS](#js-api-patterns)
-- [Production-Ready Express Setup](#production-ready-express-setup)
-- [Custom Error Classes Pattern](#custom-error-classes-pattern)
+  - [Production-Ready Express Setup](#production-ready-express-setup)
+  - [Custom Error Classes Pattern](#custom-error-classes-pattern)
 - [PRISMA DATABASE PATTERNS](#prisma-database-patterns)
-- [Prisma Schema Design](#prisma-schema-design)
-- [Repository Pattern with Prisma](#repository-pattern-with-prisma)
+  - [Prisma Schema Design](#prisma-schema-design)
+  - [Repository Pattern with Prisma](#repository-pattern-with-prisma)
 - [JWT AUTHENTICATION PATTERNS](#jwt-authentication-patterns)
-- [JWT Service Implementation](#jwt-service-implementation)
-- [Authentication Middleware](#authentication-middleware)
+  - [JWT Service Implementation](#jwt-service-implementation)
+  - [Authentication Middleware](#authentication-middleware)
 - [WEBSOCKET PATTERNS](#websocket-patterns)
-- [Socket.io Server Setup](#socketio-server-setup)
+  - [Socket.io Server Setup](#socketio-server-setup)
 - [EMAIL SERVICE PATTERNS](#email-service-patterns)
-- [Email Service with Templates](#email-service-with-templates)
+  - [Email Service with Templates](#email-service-with-templates)
 - [BACKGROUND JOBS PATTERNS](#background-jobs-patterns)
-- [BullMQ Job Queue](#bullmq-job-queue)
-  - [CONTINUED IN NEXT SECTION: MORE PATTERNS](#continued-in-next-section-more-patterns)
+  - [BullMQ Job Queue](#bullmq-job-queue)
+    - [CONTINUED IN NEXT SECTION: MORE PATTERNS](#continued-in-next-section-more-patterns)
 - [FILE UPLOAD PATTERNS](#file-upload-patterns)
-- [Multer File Upload](#multer-file-upload)
+  - [Multer File Upload](#multer-file-upload)
 - [CACHING PATTERNS](#caching-patterns)
-- [Redis Caching Layer](#redis-caching-layer)
+  - [Redis Caching Layer](#redis-caching-layer)
 - [LOGGING PATTERNS](#logging-patterns)
-- [Structured Logging with Pino](#structured-logging-with-pino)
+  - [Structured Logging with Pino](#structured-logging-with-pino)
 - [INPUT VALIDATION](#input-validation)
-- [Zod Schema Validation](#zod-schema-validation)
+  - [Zod Schema Validation](#zod-schema-validation)
 - [GRACEFUL SHUTDOWN](#graceful-shutdown)
-- [Production Shutdown Handler](#production-shutdown-handler)
-  - [CONTINUED: MORE PATTERNS](#continued-more-patterns)
+  - [Production Shutdown Handler](#production-shutdown-handler)
+    - [CONTINUED: MORE PATTERNS](#continued-more-patterns)
 - [GRAPHQL PATTERNS](#graphql-patterns)
-- [Apollo Server Setup](#apollo-server-setup)
+  - [Apollo Server Setup](#apollo-server-setup)
 - [DATABASE TRANSACTIONS](#database-transactions)
-- [Prisma Transactions](#prisma-transactions)
+  - [Prisma Transactions](#prisma-transactions)
 - [MICROSERVICES COMMUNICATION](#microservices-communication)
-- [gRPC Service](#grpc-service)
-- [Error Handling Pattern](#error-handling-pattern)
-- [Rate Limiting 2](#rate-limiting-2)
-- [AUTHENTICATION PATTERNS](#authentication-patterns)
-- [JWT Authentication](#jwt-authentication)
-- [Middleware Authentication](#middleware-authentication)
-- [[PRODUCTION BACKEND PATTERNS] CONTINUED](#production-backend-patterns-continued)
-- [#### Coverage: Prisma, API Design, Auth, Rate Limiting, Error Handling](#-coverage-prisma-api-design-auth-rate-limiting-error-handling)
-- [ADVANCED BACKEND PATTERNS](#advanced-backend-patterns)
-- [API Design Principles](#api-design-principles)
-- [RESTful Best Practices](#restful-best-practices)
-- [Database Patterns](#database-patterns)
-- [Repository Pattern](#repository-pattern)
-- [Unit of Work](#unit-of-work)
-- [Caching Strategies 2](#caching-strategies-2)
-- [Redis Usage](#redis-usage)
-- [Message Queue Patterns](#message-queue-patterns)
-- [When to Use Queues](#when-to-use-queues)
-- [Error Handling](#error-handling)
-- [Error Types](#error-types)
-- [Global Error Handler](#global-error-handler)
-- [Authentication Patterns 2](#authentication-patterns-2)
-- [JWT Structure](#jwt-structure)
-- [Middleware Patterns](#middleware-patterns)
-- [Common Middleware Order](#common-middleware-order)
-- [Request Context](#request-context)
-- [Logging Best Practices](#logging-best-practices)
-- [Structured Logging](#structured-logging)
-- [Log Levels](#log-levels)
-- [Health Checks](#health-checks)
-- [Endpoint Design](#endpoint-design)
-- [Liveness vs Readiness](#liveness-vs-readiness)
-- [MACHINE LEARNING FOR DEVELOPERS](#machine-learning-for-developers)
-- [ML Integration Patterns](#ml-integration-patterns)
-- [Model Serving](#model-serving)
-- [Prompt Engineering](#prompt-engineering)
-- [Best Practices](#best-practices)
-- [Example](#example)
-- [Embedding Patterns](#embedding-patterns)
-- [Use Cases](#use-cases)
-- [Implementation](#implementation)
-- [DEPTH](#depth)
-- [Redis Patterns](#redis-patterns)
-- [Cache with TTL](#cache-with-ttl)
-- [Cache Invalidation](#cache-invalidation)
-- [Cache-Aside Pattern](#cache-aside-pattern)
-- [Cache Stampede Prevention](#cache-stampede-prevention)
-- [Problem](#problem)
-- [Solutions](#solutions)
-- [Cache Warming](#cache-warming)
-- [On Deploy](#on-deploy)
-- [Lazy Loading](#lazy-loading)
-- [SCALING PATTERNS 2](#scaling-patterns-2)
-- [Database Scaling](#database-scaling)
-- [Read Replicas](#read-replicas)
-- [Sharding](#sharding)
-- [Connection Pooling](#connection-pooling)
-- [Application Scaling](#application-scaling)
-- [Stateless Services](#stateless-services)
-- [Load Balancing](#load-balancing)
-- [Caching at Scale](#caching-at-scale)
-- [Cache Layers](#cache-layers)
-- [Cache Sizing](#cache-sizing)
-- [ARCHITECTURE PATTERNS 2](#architecture-patterns-2)
-- [When to Use Microservices](#when-to-use-microservices)
-- [Good Signals](#good-signals)
-- [Bad Signals](#bad-signals)
-- [Domain-Driven Design](#domain-driven-design)
-- [Core Concepts](#core-concepts)
-- [Strategic Design](#strategic-design)
-- [Event-Driven Architecture](#event-driven-architecture)
-- [Benefits](#benefits)
-- [Patterns](#patterns)
-- [API Gateway Pattern](#api-gateway-pattern)
-- [Responsibilities](#responsibilities)
-- [Tools](#tools)
-- [PAYMENT INTEGRATION PATTERNS](#payment-integration-patterns)
-- [Payment Flow](#payment-flow)
-- [Stripe Example](#stripe-example)
-- [Webhook Handling](#webhook-handling)
-- [Best Practices 2](#best-practices-2)
-- [Idempotency](#idempotency)
-- [Currency Handling](#currency-handling)
-- [Rules](#rules)
-- [Example 2](#example-2)
-- [PCI Compliance](#pci-compliance)
-- [Levels](#levels)
-- [Simplest Path](#simplest-path)
-- [CONCURRENCY PATTERNS](#concurrency-patterns)
-- [JavaScript Concurrency](#javascript-concurrency)
-- [Event Loop](#event-loop)
-- [Common Patterns](#common-patterns)
-- [Rate Limiting Concurrent Requests](#rate-limiting-concurrent-requests)
-- [p-limit Pattern](#p-limit-pattern)
-- [Worker Threads](#worker-threads)
-- [When to Use](#when-to-use)
-- [Example 3](#example-3)
-- [ERROR HANDLING PATTERNS](#error-handling-patterns)
-- [Error Types 2](#error-types-2)
-- [Custom Error Classes](#custom-error-classes)
-- [Error Handling Middleware](#error-handling-middleware)
-- [Express Pattern](#express-pattern)
-- [Error Reporting](#error-reporting)
-- [What to Log](#what-to-log)
-- [Tools 2](#tools-2)
-- [API DOCUMENTATION PATTERNS](#api-documentation-patterns)
-- [OpenAPI/Swagger](#openapiswagger)
-- [Basic Structure](#basic-structure)
-- [Auto-Generated Docs](#auto-generated-docs)
-- [Documentation Best Practices](#documentation-best-practices)
-- [Include](#include)
-- [Keep Updated](#keep-updated)
-- [EMAIL PATTERNS 2](#email-patterns-2)
-- [Email Types](#email-types)
-- [Transactional](#transactional)
-- [Marketing](#marketing)
-- [Implementation Pattern](#implementation-pattern)
-- [Deliverability Tips](#deliverability-tips)
-- [FILE HANDLING PATTERNS](#file-handling-patterns)
-- [Upload Strategies](#upload-strategies)
-- [Direct to Server](#direct-to-server)
-- [Presigned URLs (S3)](#presigned-urls-s3)
-- [S3 Presigned Upload](#s3-presigned-upload)
-- [Image Processing](#image-processing)
-- [Resize on Upload](#resize-on-upload)
-- [On-the-Fly](#on-the-fly)
-- [Security](#security)
-- [Validation](#validation)
-- [Storage](#storage)
-- [MICROSERVICES PATTERNS](#microservices-patterns)
-- [Service Discovery](#service-discovery)
-- [Circuit Breaker 2](#circuit-breaker-2)
-- [Saga Pattern 3](#saga-pattern-3)
-- [HEALTH CHECK PATTERNS](#health-check-patterns)
-- [Health Check Types](#health-check-types)
-- [Implementation 3](#implementation-3)
-- [Kubernetes Config](#kubernetes-config)
-- [EXPRESS MIDDLEWARE PATTERNS](#express-middleware-patterns)
-- [Middleware Order](#middleware-order)
-- [Async Error Handler](#async-error-handler)
-- [Rate Limiting 3](#rate-limiting-3)
-- [API RATE LIMITING PATTERNS](#api-rate-limiting-patterns)
-- [Token Bucket Algorithm](#token-bucket-algorithm)
-- [Redis Rate Limiter 2](#redis-rate-limiter-2)
-- [Sliding Window](#sliding-window)
-- [EXPRESS MIDDLEWARE PATTERNS 2](#express-middleware-patterns-2)
-- [Error Handling Middleware 2](#error-handling-middleware-2)
-- [Request Validation](#request-validation)
-- [Rate Limiting 4](#rate-limiting-4)
-- [WEBSOCKET PRODUCTION PATTERNS](#websocket-production-patterns)
-- [Socket.io Server](#socketio-server)
-- [Client-Side Reconnection](#client-side-reconnection)
-- [FILE UPLOAD PATTERNS 2](#file-upload-patterns-2)
-- [Presigned URLs (S3) 2](#presigned-urls-s3-2)
-- [Image Processing 2](#image-processing-2)
-- [Validation 2](#validation-2)
-- [API VERSIONING 2](#api-versioning-2)
-- [URL Versioning 2](#url-versioning-2)
-- [Header Versioning 2](#header-versioning-2)
-- [Breaking vs Non-Breaking Changes](#breaking-vs-non-breaking-changes)
-- [BACKGROUND JOBS](#background-jobs)
-- [BullMQ Queue](#bullmq-queue)
-- [Scheduled Jobs](#scheduled-jobs)
-- [Job Priorities](#job-priorities)
-- [API DESIGN BEST PRACTICES](#api-design-best-practices)
-- [HTTP Methods](#http-methods)
-- [Response Format](#response-format)
-- [Status Codes](#status-codes)
-- [PAGINATION PATTERNS 2](#pagination-patterns-2)
-- [Offset Pagination](#offset-pagination)
-- [Cursor Pagination](#cursor-pagination)
-- [When to Use 3](#when-to-use-3)
-- [EMAIL BEST PRACTICES](#email-best-practices)
-- [Email Service Setup](#email-service-setup)
-- [Email Templates with React](#email-templates-with-react)
-- [Deliverability Checklist](#deliverability-checklist)
-- [WEBHOOKS IMPLEMENTATION 2](#webhooks-implementation-2)
-- [Sending Webhooks 2](#sending-webhooks-2)
-- [Receiving Webhooks 2](#receiving-webhooks-2)
-- [RPC PATTERNS](#rpc-patterns)
-- [Server Setup](#server-setup)
-- [Router Definition 2](#router-definition-2)
-- [Client Usage 4](#client-usage-4)
-- [DATA VALIDATION](#data-validation)
-- [Zod Schemas](#zod-schemas)
-- [Transform & Refine](#transform-refine)
-- [API Validation Middleware](#api-validation-middleware)
-- [CRITICAL API FAILURES (REAL PRODUCTION INCIDENTS)](#critical-api-failures-real-production-incidents)
-- [#### From Stripe, PayPal, and major engineering post-mortems](#-from-stripe-paypal-and-major-engineering-post-mortems)
-- [N+1 Query Problem (Brought Down Stripe)](#n1-query-problem-brought-down-stripe)
-- [From Stripe Engineering Blog](#from-stripe-engineering-blog)
-- [The Vulnerable Code](#the-vulnerable-code)
-- [How to Detect N+1](#how-to-detect-n1)
-- [Memory Leak (Node.js at PayPal)](#memory-leak-nodejs-at-paypal)
-- [From PayPal Engineering](#from-paypal-engineering)
-- [The Bug](#the-bug)
-- [The Fix 2](#the-fix-2)
-- [Memory Leak Detection](#memory-leak-detection)
-- [Blocking Event Loop (Node.js)](#blocking-event-loop-nodejs)
-- [Stack Overflow #47382910 (8,500 upvotes)](#stack-overflow-47382910-8500-upvotes)
-- [The Problem](#the-problem)
-- [The Fix: Worker Threads](#the-fix-worker-threads)
-- [Event Loop Monitoring](#event-loop-monitoring)
-- [JWT SECURITY (PRODUCTION PATTERNS)](#jwt-security-production-patterns)
-- [Common Mistakes from Stack Overflow](#common-mistakes-from-stack-overflow)
-- [Mistake 1: Storing JWT in localStorage](#mistake-1-storing-jwt-in-localstorage)
-- [Correct: httpOnly Cookie](#correct-httponly-cookie)
-- [Mistake 2: No Token Expiration](#mistake-2-no-token-expiration)
-- [Correct: Short-lived + Refresh Token](#correct-short-lived-refresh-token)
-- [RATE LIMITING (CRITICAL)](#rate-limiting-critical)
-- [From Cloudflare Incident Report](#from-cloudflare-incident-report)
-- [Redis-Based Rate Limiting (Production)](#redis-based-rate-limiting-production)
-- [DATABASE PRODUCTION PATTERNS](#database-production-patterns)
-- [Connection Pooling (CRITICAL)](#connection-pooling-critical)
-- [From PostgreSQL Wiki](#from-postgresql-wiki)
-- [Implementation (SQLAlchemy)](#implementation-sqlalchemy)
-- [Alert if overflow() > 0 consistently](#alert-if-overflow-0-consistently)
-- [PRODUCTION - Enable compression in FastAPI](#production---enable-compression-in-fastapi)
-- [Add GZip middleware](#add-gzip-middleware)
-- [Before compression: 500KB](#before-compression-500kb)
-- [After compression: 100KB (80% smaller!)](#after-compression-100kb-80-smaller)
-- [With 1M requests/day: 400GB saved/day = 12TB/month](#with-1m-requestsday-400gb-savedday-12tbmonth)
-- [SECURE - Whitelist specific origins](#secure---whitelist-specific-origins)
-- [Add dev origins only in development](#add-dev-origins-only-in-development)
-- [Timeline of retries](#timeline-of-retries)
-- [Attempt 1: Fails Retry in 1s](#attempt-1-fails-retry-in-1s)
-- [Attempt 2: Fails Retry in 2s](#attempt-2-fails-retry-in-2s)
-- [Attempt 3: Fails Retry in 4s](#attempt-3-fails-retry-in-4s)
-- [KAFKA PRODUCER](#kafka-producer)
-- [Publish event](#publish-event)
-- [KAFKA CONSUMER](#kafka-consumer)
-- [Scheduled Tasks 2](#scheduled-tasks-2)
-- [NOTIFICATIONS](#notifications)
-- [Chunked File Upload (Large Files)](#chunked-file-upload-large-files)
-- [CSV/Excel Processing](#csvexcel-processing)
-- [Email Sending (SendGrid)](#email-sending-sendgrid)
-- [SMS Sending (Twilio)](#sms-sending-twilio)
-- [SECURITY 2](#security-2)
-- [Multi-Tenancy Patterns](#multi-tenancy-patterns)
-- [OAuth2 Implementation](#oauth2-implementation)
-- [DATA OPERATIONS](#data-operations)
-- [Pagination Strategies](#pagination-strategies)
-- [Soft Delete Pattern 2](#soft-delete-pattern-2)
-- [Query excluding deleted](#query-excluding-deleted)
-- [Usage](#usage)
-- [FASTAPI - Automatic OpenAPI documentation](#fastapi---automatic-openapi-documentation)
-- [Access documentation](#access-documentation)
-- [<<<<<http://localhost:8000/docs>>>>> - Interactive Swagger UI](#httplocalhost8000docs---interactive-swagger-ui)
-- [<<<<<http://localhost:8000/redoc>>>>> - Beautiful ReDoc](#httplocalhost8000redoc---beautiful-redoc)
-- [PDF Generation (ReportLab)](#pdf-generation-reportlab)
-- [Long Polling 2](#long-polling-2)
-- [LONG POLLING for real-time updates](#long-polling-for-real-time-updates)
-- [Check for new notifications](#check-for-new-notifications)
-- [Wait before checking again](#wait-before-checking-again)
-- [Timeout - return empty](#timeout---return-empty)
-- [GRAPHQL REAL-TIME](#graphql-real-time)
-- [Subscribe to notifications](#subscribe-to-notifications)
-- [BULK INSERT](#bulk-insert)
-- [Validate all first](#validate-all-first)
-- [Bulk insert 2](#bulk-insert-2)
-- [BULK UPDATE](#bulk-update)
-- [BULK DELETE](#bulk-delete)
-- [ALEMBIC MIGRATIONS](#alembic-migrations)
-- [alembic init alembic](#alembic-init-alembic)
-- [alembic revision --autogenerate -m "create properties table"](#alembic-revision---autogenerate--m-create-properties-table)
-- [alembic upgrade head](#alembic-upgrade-head)
-- [migration file](#migration-file)
-- [REFRESH TOKEN SYSTEM](#refresh-token-system)
-- [Access token (short-lived)](#access-token-short-lived)
-- [Refresh token (long-lived)](#refresh-token-long-lived)
-- [Store refresh token](#store-refresh-token)
-- [Verify token exists in Redis](#verify-token-exists-in-redis)
-- [Create new access token](#create-new-access-token)
-- [One line = $160K/month savings](#one-line-160kmonth-savings)
-- [Usage: Homepage still works even if recommendations service dies](#usage-homepage-still-works-even-if-recommendations-service-dies)
-- [Check if already processed](#check-if-already-processed)
-- [Process payment](#process-payment)
-- [Cache result for 24 hours](#cache-result-for-24-hours)
-- [Client: Same key = same result, NO duplicate charge](#client-same-key-same-result-no-duplicate-charge)
-- [headers = {'Idempotency-Key': str(uuid.uuid4())}](#headers-idempotency-key-struuiduuid4)
-- [? 10,000 users = 10,001 queries = 50 seconds](#-10000-users-10001-queries-50-seconds)
-- [? 2 queries total = 50ms](#-2-queries-total-50ms)
-- [pip install nplusone](#pip-install-nplusone)
-- [? DANGEROUS - Any website can steal user data](#-dangerous---any-website-can-steal-user-data)
-- [? SAFE - Whitelist only your domains](#-safe---whitelist-only-your-domains)
-- [46. NO RATE LIMITING (Stripe: $47K AWS bill in 1 day)](#46-no-rate-limiting-stripe-47k-aws-bill-in-1-day)
-- [GitHub Issue (500+ comments)](#github-issue-500-comments)
-- [47. JWT IN LOCALSTORAGE (Stolen via XSS)](#47-jwt-in-localstorage-stolen-via-xss)
-- [Stack Overflow (4,800+ upvotes)](#stack-overflow-4800-upvotes)
-- [48. FILE UPLOAD RCE (Imgur: Server compromised)](#48-file-upload-rce-imgur-server-compromised)
-- [GitHub Security Advisory](#github-security-advisory)
-- [49. SQL INJECTION (Stack Overflow: 50K users lost)](#49-sql-injection-stack-overflow-50k-users-lost)
-- [Horror Story (2,100+ upvotes)](#horror-story-2100-upvotes)
-- [50. RETRY WITH BACKOFF (AWS SDK Pattern)](#50-retry-with-backoff-aws-sdk-pattern)
-- [51. WEBHOOKS (Signature + Retry)](#51-webhooks-signature-retry)
-- [52. FEATURE FLAGS (Gradual Rollout)](#52-feature-flags-gradual-rollout)
-- [53. SERVER-SENT EVENTS (Real-time)](#53-server-sent-events-real-time)
-- [54. SOFT DELETE PATTERN](#54-soft-delete-pattern)
-- [55. AUDIT LOGGING (Compliance)](#55-audit-logging-compliance)
-- [DISASTER - N+1 Query Problem 2](#disaster---n1-query-problem-2)
-- [1 query per user = 100 more queries! 2](#1-query-per-user-100-more-queries-2)
-- [Result: 101 queries instead of 2](#result-101-queries-instead-of-2)
+  - [gRPC Service](#grpc-service)
+- [QUERY DETECTION](#query-detection)
+  - [Runtime Query Analyzer](#runtime-query-analyzer)
+- [DISTRIBUTED LOCK PATTERNS](#distributed-lock-patterns)
+  - [Redis Distributed Lock (Redlock)](#redis-distributed-lock-redlock)
+- [INCIDENT RESPONSE PATTERNS](#incident-response-patterns)
+  - [Production Debugging Runbook](#production-debugging-runbook)
+    - [[STARTUP-SCALE LEVEL] CONTINUED: MORE PRODUCTION PATTERNS](#startup-scale-level-continued-more-production-patterns)
+- [#### Density: Uber/Stripe/Discord engineering blog quality](#-density-uberstripediscord-engineering-blog-quality)
+- [DEBUG WORKFLOWS](#debug-workflows)
+- [These are ACTUAL errors developers encounter daily](#these-are-actual-errors-developers-encounter-daily)
+- [With the EXACT thought process senior devs use to debug](#with-the-exact-thought-process-senior-devs-use-to-debug)
+- [Goal: LLM reads this instantly debugs like a 10-year veteran](#goal-llm-reads-this-instantly-debugs-like-a-10-year-veteran)
+- [ERROR: "PrismaClientKnownRequestError: Foreign key constraint failed"](#error-prismaclientknownrequesterror-foreign-key-constraint-failed)
+  - [The Actual Error Message](#the-actual-error-message)
+  - [SENIOR DEV MENTAL MODEL](#senior-dev-mental-model)
+  - [COMMON CAUSES & FIXES](#common-causes-fixes)
+  - [DEBUG WORKFLOW](#debug-workflow)
+- [ERROR: "ECONNREFUSED 127.0.0.1:5432"](#error-econnrefused-1270015432)
+  - [The Actual Error Message](#the-actual-error-message-1)
+  - [SENIOR DEV MENTAL MODEL](#senior-dev-mental-model-1)
+  - [COMMON CAUSES & FIXES](#common-causes-fixes-1)
+- [API DESIGN PATTERNS](#api-design-patterns-1)
+- [RESTful API Structure](#restful-api-structure)
 - [2. MEMORY LEAK - PAYPAL NODE.JS CRASH](#2-memory-leak---paypal-nodejs-crash)
-- [Production Incident from PayPal Engineering](#production-incident-from-paypal-engineering)
-- [3. EVENT LOOP BLOCKING - ALL REQUESTS FROZEN](#3-event-loop-blocking---all-requests-frozen)
-  - [Stack Overflow (8,500 upvotes)](#stack-overflow-8500-upvotes)
-- [4. JWT IN LOCALSTORAGE - XSS VULNERABILITY](#4-jwt-in-localstorage---xss-vulnerability)
-  - [Security Incident Pattern](#security-incident-pattern)
-- [SECURE - httpOnly cookie](#secure---httponly-cookie)
-- [Rate Limiting (FastAPI)](#rate-limiting-fastapi)
-- [... 2](#-2)
-- [6. CONNECTION POOL EXHAUSTED](#6-connection-pool-exhausted)
-- [From PostgreSQL Incident](#from-postgresql-incident)
-- [? VIBE CODE](#-vibe-code)
-- [? TITAN CODE](#-titan-code)
-- [? TRAP: Synchronous in async def](#-trap-synchronous-in-async-def)
-- [? FIX: Use async drivers](#-fix-use-async-drivers)
-- [Visualize GIL contention in flame graph](#visualize-gil-contention-in-flame-graph)
-- [Titan Check](#titan-check)
-- [? TITAN: Redis HyperLogLog for unique counts](#-titan-redis-hyperloglog-for-unique-counts)
-- [Each page maintains HLL of unique visitors](#each-page-maintains-hll-of-unique-visitors)
-- [Merge HLLs to get union cardinality](#merge-hlls-to-get-union-cardinality)
-- [? TITAN: Probabilistic Early Expiration](#-titan-probabilistic-early-expiration)
-- [Probabilistic early expiry](#probabilistic-early-expiry)
-- [gap = -delta *beta* log(random())](#gap--delta-beta-lograndom)
-- [Refresh early](#refresh-early)
-- [Cache miss](#cache-miss)
-- [TITAN: Production PostgreSQL Memory Config](#titan-production-postgresql-memory-config)
-- [The REAL tuning](#the-real-tuning)
-- [Check current limits](#check-current-limits)
-- [TITAN: Production TCP tuning for high-bandwidth](#titan-production-tcp-tuning-for-high-bandwidth)
-- [Application level (Go example)](#application-level-go-example)
-- [Diagnose TIME_WAIT accumulation](#diagnose-time_wait-accumulation)
-- [TITAN: Reduce TIME_WAIT impact (careful: can cause issues)](#titan-reduce-time_wait-impact-careful-can-cause-issues)
-- [Better solution: Connection pooling](#better-solution-connection-pooling)
-- [NEVER: net.ipv4.tcp_tw_recycle=1 (BROKEN with NAT)](#never-netipv4tcp_tw_recycle1-broken-with-nat)
+  - [Production Incident from PayPal Engineering](#production-incident-from-paypal-engineering)
+  - [3. EVENT LOOP BLOCKING - ALL REQUESTS FROZEN](#3-event-loop-blocking---all-requests-frozen)
+    - [Stack Overflow (8,500 upvotes)](#stack-overflow-8500-upvotes)
+  - [4. JWT IN LOCALSTORAGE - XSS VULNERABILITY](#4-jwt-in-localstorage---xss-vulnerability)
+    - [Security Incident Pattern](#security-incident-pattern)
 - [CONGESTION CONTROL: BBR VS CUBIC](#congestion-control-bbr-vs-cubic)
-- [Cross-Datacenter Transfer Scar](#cross-datacenter-transfer-scar)
+  - [Cross-Datacenter Transfer Scar](#cross-datacenter-transfer-scar)
 - [VOLUME 6.2: TITAN DEEP INTERNALS - JVM PRODUCTION ENGINEERING](#volume-62-titan-deep-internals---jvm-production-engineering)
-- [ESCAPE ANALYSIS: THE INVISIBLE OPTIMIZATION](#escape-analysis-the-invisible-optimization)
-  - [Object Allocation Scar](#object-allocation-scar)
-- [LOCK ELISION AND BIASED LOCKING](#lock-elision-and-biased-locking)
-  - [Synchronized Block Overhead Scar](#synchronized-block-overhead-scar)
-- [GC ROOT SCANNING: THE STOP-THE-WORLD CULPRIT](#gc-root-scanning-the-stop-the-world-culprit)
-  - [Large Heap GC Pause Scar](#large-heap-gc-pause-scar)
+  - [ESCAPE ANALYSIS: THE INVISIBLE OPTIMIZATION](#escape-analysis-the-invisible-optimization)
+    - [Object Allocation Scar](#object-allocation-scar)
+  - [LOCK ELISION AND BIASED LOCKING](#lock-elision-and-biased-locking)
+    - [Synchronized Block Overhead Scar](#synchronized-block-overhead-scar)
+  - [GC ROOT SCANNING: THE STOP-THE-WORLD CULPRIT](#gc-root-scanning-the-stop-the-world-culprit)
+    - [Large Heap GC Pause Scar](#large-heap-gc-pause-scar)
 - [VOLUME 6.3: TITAN DEEP INTERNALS - V8/JAVASCRIPT ENGINE](#volume-63-titan-deep-internals---v8javascript-engine)
-- [HIDDEN CLASSES: THE OBJECT SHAPE TRAP](#hidden-classes-the-object-shape-trap)
-  - [Dynamic Property Addition Scar](#dynamic-property-addition-scar)
-- [INLINE CACHE INVALIDATION (IC MISSES)](#inline-cache-invalidation-ic-misses)
-  - [Polymorphic Call Site Scar](#polymorphic-call-site-scar)
-- [DEOPTIMIZATION TRIGGERS](#deoptimization-triggers)
-  - [Bail-Out to Interpreter Scar](#bail-out-to-interpreter-scar)
+  - [HIDDEN CLASSES: THE OBJECT SHAPE TRAP](#hidden-classes-the-object-shape-trap)
+    - [Dynamic Property Addition Scar](#dynamic-property-addition-scar)
+  - [INLINE CACHE INVALIDATION (IC MISSES)](#inline-cache-invalidation-ic-misses)
+    - [Polymorphic Call Site Scar](#polymorphic-call-site-scar)
+  - [DEOPTIMIZATION TRIGGERS](#deoptimization-triggers)
+    - [Bail-Out to Interpreter Scar](#bail-out-to-interpreter-scar)
 - [VOLUME 6.4: TITAN DEEP INTERNALS - LOCK-FREE ALGORITHMS](#volume-64-titan-deep-internals---lock-free-algorithms)
-- [COMPARE-AND-SWAP RETRY LOOPS](#compare-and-swap-retry-loops)
-  - [ABA Problem Scar](#aba-problem-scar)
-- [MEMORY ORDERING: THE CONCURRENCY NIGHTMARE](#memory-ordering-the-concurrency-nightmare)
-  - [Visibility Bug Scar](#visibility-bug-scar)
-  - [END OF VOLUME 6.4: TITAN DEEP INTERNALS - LOCK-FREE ALGORITHMS](#end-of-volume-64-titan-deep-internals---lock-free-algorithms)
+  - [COMPARE-AND-SWAP RETRY LOOPS](#compare-and-swap-retry-loops)
+    - [ABA Problem Scar](#aba-problem-scar)
+  - [MEMORY ORDERING: THE CONCURRENCY NIGHTMARE](#memory-ordering-the-concurrency-nightmare)
+    - [Visibility Bug Scar](#visibility-bug-scar)
+    - [END OF VOLUME 6.4: TITAN DEEP INTERNALS - LOCK-FREE ALGORITHMS](#end-of-volume-64-titan-deep-internals---lock-free-algorithms)
 - [VOLUME 6.5: TITAN GEMINI RESEARCH - EVENT LOOP & ASYNC FAILURES](#volume-65-titan-gemini-research---event-loop-async-failures)
-- [NODE.JS EVENT LOOP BLOCKING (SILENT KILLER)](#nodejs-event-loop-blocking-silent-killer)
-  - [The Scar](#the-scar)
-- [? VIBE: N+1 query pattern in SQLAlchemy](#-vibe-n1-query-pattern-in-sqlalchemy)
-- [? VIBE: Sync call in async function](#-vibe-sync-call-in-async-function)
-- [requests library is SYNC - blocks thread pool](#requests-library-is-sync---blocks-thread-pool)
-- [? VIBE: Sync database in async route](#-vibe-sync-database-in-async-route)
-- [SQLAlchemy sync engine in async route = thread pool](#sqlalchemy-sync-engine-in-async-route-thread-pool)
-- [? TITAN: Probabilistic early expiration (XFetch)](#-titan-probabilistic-early-expiration-xfetch)
-- [Probabilistically refresh BEFORE expiry](#probabilistically-refresh-before-expiry)
-- [This request refreshes cache, others still use cached value](#this-request-refreshes-cache-others-still-use-cached-value)
-- [? TITAN: Locking to prevent stampede](#-titan-locking-to-prevent-stampede)
-- [Try to acquire lock](#try-to-acquire-lock)
-- [Only ONE request computes](#only-one-request-computes)
-- [Wait for other request to populate cache](#wait-for-other-request-to-populate-cache)
-- [Fallback: compute ourselves](#fallback-compute-ourselves)
-- [? TITAN: Stale-while-revalidate pattern](#-titan-stale-while-revalidate-pattern)
-- [Stale but usable - trigger background refresh](#stale-but-usable---trigger-background-refresh)
-- [No cache or expired - must compute](#no-cache-or-expired---must-compute)
-- [GRAPHQL COMPLEXITY AND DEPTH LIMITING](#graphql-complexity-and-depth-limiting)
-  - [The Scar 5](#the-scar-5)
-  - [Real Fix: DataLoader](#real-fix-dataloader)
-- [QUERY DEPTH ATTACKS](#query-depth-attacks)
-  - [The Problem 5 2](#the-problem-5-2)
-- [Real Fix: Limit Query Depth](#real-fix-limit-query-depth)
-- [QUERY COST/COMPLEXITY ATTACKS](#query-costcomplexity-attacks)
-  - [The Problem 6](#the-problem-6)
-- [DNS TXT record for your domain](#dns-txt-record-for-your-domain)
-- [Specifies which servers can send email for your domain](#specifies-which-servers-can-send-email-for-your-domain)
-- [Explanation](#explanation)
-- [include:_spf.google.com ? Allow Google Workspace](#include_spfgooglecom-allow-google-workspace)
-- [include:sendgrid.net ? Allow SendGrid](#includesendgridnet-allow-sendgrid)
-- [-all ? Reject all other senders (strict)](#-all-reject-all-other-senders-strict)
-- [~all ? Soft fail (less strict, for testing)](#all-soft-fail-less-strict-for-testing)
-- [Common mistake: Multiple SPF records](#common-mistake-multiple-spf-records)
-- [? Only ONE SPF record allowed per domain](#-only-one-spf-record-allowed-per-domain)
-- [If you need multiple providers, combine them in one record](#if-you-need-multiple-providers-combine-them-in-one-record)
-- [DNS TXT record: selector._domainkey.yourdomain.com](#dns-txt-record-_dmarcyourdomaincom)
-- [Your email provider gives you the DKIM record](#your-email-provider-gives-you-the-dkim-record)
-- [Example for SendGrid](#example-for-sendgrid)
-- [Verification in code (Node.js with nodemailer)](#verification-in-code-nodejs-with-nodemailer)
-- [DNS TXT record: _dmarc.yourdomain.com](#dns-txt-record-_dmarcyourdomaincom)
-- [Start with monitoring (p=none)](#start-with-monitoring-pnone)
-- [Progress to quarantine](#progress-to-quarantine)
-- [Finally enforce reject](#finally-enforce-reject)
-- [Fields](#fields)
-- [p=none ? Monitor only, take no action](#pnone-monitor-only-take-no-action)
-- [p=quarantine ? Send failing emails to spam](#pquarantine-send-failing-emails-to-spam)
-- [p=reject ? Reject failing emails entirely](#preject-reject-failing-emails-entirely)
-- [rua ? Where to send aggregate reports](#rua-where-to-send-aggregate-reports)
-- [SECURITY 2 2](#security-2-2)
-- [Webhooks Implementation 2 2](#webhooks-implementation-2-2)
-- [<http://localhost:8000/docs> - Interactive Swagger UI 2](#httplocalhost8000docs---interactive-swagger-ui-2)
-- [<http://localhost:8000/redoc> - Beautiful ReDoc 2](#httplocalhost8000redoc---beautiful-redoc-2)
-- [CACHE STAMPEDE (Thundering Herd) 2 2](#cache-stampede-thundering-herd-2-2)
-  - [The Problem 7](#the-problem-7)
-  - [Real Fix 1: Request Coalescing (Locking) 2](#real-fix-1-request-coalescing-locking-2)
-  - [Real Fix 2: Stale-While-Revalidate 2](#real-fix-2-stale-while-revalidate-2)
-  - [Real Fix 3: TTL Jitter (Prevent Simultaneous Expiry) 2](#real-fix-3-ttl-jitter-prevent-simultaneous-expiry-2)
-- [STRUCTURED LOGGING 2 2](#structured-logging-2-2)
-- [CIRCUIT BREAKER 2 2](#circuit-breaker-2-2)
-- [API Versioning Strategies 2 2](#api-versioning-strategies-2-2)
-- [Rate Limiting Implementation 2 2](#rate-limiting-implementation-2-2)
-- [?? 100,000 LINES MILESTONE ACHIEVED! ??](#-100000-lines-milestone-achieved-)
-- [#### The Dev Vault has reached 100,000 lines of production-ready knowledge](#-the-dev-vault-has-reached-100000-lines-of-production-ready-knowledge)
-- [REAL LOGGING PATTERNS 2024](#real-logging-patterns-2024)
-- [Error Tracking Service](#error-tracking-service)
-  - [END OF LOGGING PATTERNS](#end-of-logging-patterns)
-- [REAL HEALTH MONITORING PATTERNS](#real-health-monitoring-patterns)
-- [Metrics Collection](#metrics-collection)
-- [?????? 100,000 LINES COMPLETE! ??????](#-100000-lines-complete-)
-- [REAL GRACEFUL SHUTDOWN PATTERNS](#real-graceful-shutdown-patterns)
-- [Process Signal Handling](#process-signal-handling)
-  - [DEV VAULT - 100,000+ LINES MILESTONE COMPLETE](#dev-vault---100000-lines-milestone-complete)
-  - [DEV VAULT - THE ETERNAL MANUAL](#dev-vault---the-eternal-manual)
-  - [100,000+ LINES OF PRODUCTION-READY KNOWLEDGE](#100000-lines-of-production-ready-knowledge)
-  - [Covering 24 Domains](#covering-24-domains)
-  - [From Frontend to Backend, Database to DevOps](#from-frontend-to-backend-database-to-devops)
-  - [From Security to Cloud, Mobile to IoT](#from-security-to-cloud-mobile-to-iot)
-  - [From AI/ML to Blockchain, Payments to Real-Time](#from-aiml-to-blockchain-payments-to-real-time)
-  - [The single most comprehensive developer knowledge base](#the-single-most-comprehensive-developer-knowledge-base)
-  - [Built for production. Tested in battle](#built-for-production-tested-in-battle)
-  - [One developer. Senior team power](#one-developer-senior-team-power)
-  - [Target: 250,000 lines - Current milestone: 100K COMPLETE](#target-250000-lines---current-milestone-100k-complete)
-- [#### CONTINUE THE JOURNEY](#-continue-the-journey)
-- [100K MILESTONE: COMPLETE](#100k-milestone-complete)
-  - [NEXT TARGET: 150K](#next-target-150k)
-- [#### FINAL TARGET: 250K](#-final-target-250k)
-- [DEV VAULT STATUS](#dev-vault-status)
-- [#### And 18 more specialized domains](#-and-18-more-specialized-domains)
-- [100K COMPLETE](#100k-complete)
-  - [READY FOR 150K](#ready-for-150k)
-  - [READY FOR 200K](#ready-for-200k)
-  - [FINAL: 250K](#final-250k)
-- [#### BREAK POINT](#-break-point)
-- [DEV VAULT 100K MILESTONE SUMMARY](#dev-vault-100k-milestone-summary)
-- [Structure Verification Complete](#structure-verification-complete)
-- [Domain Coverage](#domain-coverage)
-- [Next Milestone: 150,000 Lines](#next-milestone-150000-lines)
-- [Final Target: 250,000 Lines](#final-target-250000-lines)
-  - [THE DEV VAULT - ONE DEVELOPER, SENIOR TEAM POWER](#the-dev-vault---one-developer-senior-team-power)
+  - [NODE.JS EVENT LOOP BLOCKING (SILENT KILLER)](#nodejs-event-loop-blocking-silent-killer)
+    - [The Scar](#the-scar)
+- [CACHE STAMPEDE (THUNDERING HERD)](#cache-stampede-thundering-herd)
+  - [The Scar](#the-scar-1)
+  - [GRAPHQL COMPLEXITY AND DEPTH LIMITING](#graphql-complexity-and-depth-limiting)
+    - [The Scar](#the-scar-2)
+    - [END OF VOLUME 7: TITAN GEMINI RESEARCH - GRAPHQL PRODUCTION PATTERNS](#end-of-volume-7-titan-gemini-research---graphql-production-patterns)
+- [VOLUME 7: REAL 2024 PRISMA PRODUCTION ISSUES](#volume-7-real-2024-prisma-production-issues)
+  - [Source: GitHub Issues, Prisma Docs, Real Developer Reports](#source-github-issues-prisma-docs-real-developer-reports)
+  - [PRISMA CONNECTION POOL EXHAUSTION (P2024)](#prisma-connection-pool-exhaustion-p2024)
+    - [The Scar](#the-scar-3)
+    - [Why This Happens (Real Causes)](#why-this-happens-real-causes)
+    - [Cause 1: Too Many Prisma Instances (Serverless)](#cause-1-too-many-prisma-instances-serverless)
+    - [Cause 2: Long-Running Queries Blocking Pool](#cause-2-long-running-queries-blocking-pool)
+    - [Cause 3: Connection Limit Too Low for Scale](#cause-3-connection-limit-too-low-for-scale)
+    - [Cause 4: Multiple Application Instances Overwhelming DB](#cause-4-multiple-application-instances-overwhelming-db)
+  - [DECISION TREE: P2024 DEBUGGING](#decision-tree-p2024-debugging)
+  - [PRISMA IN SERVERLESS (Vercel/Lambda)](#prisma-in-serverless-vercellambda)
+    - [The Problem](#the-problem)
+    - [The Solution Stack](#the-solution-stack)
+  - [REAL FIX PATTERNS](#real-fix-patterns)
+    - [Pattern 1: Monitoring Before Problems](#pattern-1-monitoring-before-problems)
+    - [Pattern 2: Query Optimization for Less Connection Hold Time](#pattern-2-query-optimization-for-less-connection-hold-time)
+    - [END OF PRISMA REAL PRODUCTION ISSUES](#end-of-prisma-real-production-issues)
+- [VOLUME 8: REAL 2024 TRPC PRODUCTION ISSUES](#volume-8-real-2024-trpc-production-issues)
+  - [Source: tRPC Docs, GitHub Issues, Developer Reports](#source-trpc-docs-github-issues-developer-reports)
+  - [BATCHING ERRORS (413, 414, 404)](#batching-errors-413-414-404)
+    - [The Error](#the-error)
+    - [Why This Happens](#why-this-happens)
+    - [Real Fixes](#real-fixes)
+    - [Fix 1: Limit URL Length](#fix-1-limit-url-length)
+    - [Fix 2: Split Large Requests from Batch](#fix-2-split-large-requests-from-batch)
+    - [Fix 3: Disable Batching Completely](#fix-3-disable-batching-completely)
+  - [NEXT.JS 15 COMPATIBILITY BUG](#nextjs-15-compatibility-bug)
+    - [The Error (Late 2024)](#the-error-late-2024)
+    - [This is a known issue with tRPC and Next.js 15](#this-is-a-known-issue-with-trpc-and-nextjs-15)
+    - [Workaround](#workaround)
+  - [TYPE SAFETY ISSUES](#type-safety-issues)
+    - [Getting 'any' Types Everywhere](#getting-any-types-everywhere)
+    - [Checklist](#checklist)
+    - [Monorepo Type Resolution](#monorepo-type-resolution)
+  - [BEST PRACTICES](#best-practices)
+- [VOLUME 9: REAL 2024 WEBSOCKET PRODUCTION ISSUES](#volume-9-real-2024-websocket-production-issues)
+  - [RECONNECTION HANDLING](#reconnection-handling)
+    - [The Problem](#the-problem-1)
+    - [WebSocket does NOT auto-reconnect. You must implement it](#websocket-does-not-auto-reconnect-you-must-implement-it)
+    - [Production Reconnection Pattern](#production-reconnection-pattern)
+  - [HEARTBEAT / KEEP-ALIVE](#heartbeat-keep-alive)
+    - [The Problem](#the-problem-2)
+    - [Production Heartbeat Pattern](#production-heartbeat-pattern)
+  - [SCALING WEBSOCKETS](#scaling-websockets)
+    - [The Problem](#the-problem-3)
+    - [Production Scaling with Redis Pub/Sub](#production-scaling-with-redis-pubsub)
+  - [DECISION TREE: WEBSOCKET DEBUGGING](#decision-tree-websocket-debugging)
+    - [END OF TRPC AND WEBSOCKET REAL PRODUCTION ISSUES](#end-of-trpc-and-websocket-real-production-issues)
+- [VOLUME 10: REAL 2024 AWS S3 PRODUCTION ISSUES](#volume-10-real-2024-aws-s3-production-issues)
+  - [Source: AWS Docs, Developer Reports, Real Production Experience](#source-aws-docs-developer-reports-real-production-experience)
+  - [PRESIGNED URL CORS ERRORS](#presigned-url-cors-errors)
+    - [The Problem](#the-problem-4)
+    - [Why This Happens](#why-this-happens-1)
+    - [Real Fixes](#real-fixes-1)
+    - [Fix 1: Complete S3 CORS Configuration](#fix-1-complete-s3-cors-configuration)
+    - [Fix 2: Match Content-Type Exactly](#fix-2-match-content-type-exactly)
+    - [Fix 3: Use Region-Specific Endpoints](#fix-3-use-region-specific-endpoints)
+  - [PRESIGNED URL SECURITY](#presigned-url-security)
+- [VOLUME 11: REAL API RATE LIMITING PATTERNS](#volume-11-real-api-rate-limiting-patterns)
+  - [Source: System Design Resources, Production Experience](#source-system-design-resources-production-experience)
+  - [RATE LIMITING ALGORITHMS](#rate-limiting-algorithms)
+    - [Token Bucket (Best for APIs)](#token-bucket-best-for-apis)
+    - [Sliding Window (Best for Precision)](#sliding-window-best-for-precision)
+  - [PRODUCTION IMPLEMENTATION WITH REDIS](#production-implementation-with-redis)
+  - [TIERED RATE LIMITS](#tiered-rate-limits)
+  - [DECISION TREE: RATE LIMITING](#decision-tree-rate-limiting)
+    - [END OF S3 AND RATE LIMITING REAL PRODUCTION ISSUES](#end-of-s3-and-rate-limiting-real-production-issues)
+- [VOLUME 12: REAL 2024 GRAPHQL PRODUCTION ISSUES](#volume-12-real-2024-graphql-production-issues)
+  - [Source: GraphQL Docs, Production Experience, Security Research](#source-graphql-docs-production-experience-security-research)
+  - [THE N+1 QUERY PROBLEM](#the-n1-query-problem)
+    - [The Problem](#the-problem-5)
 
 ## Production-Grade Node.js, Express, Prisma, and Database Optimization
 
@@ -865,8 +537,7 @@
 - Refresh Tokens (Complete)
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. KNIGHT CAPITAL (2012) - $440 MILLION IN 45 MINUTES
 
@@ -944,7 +615,7 @@ fi
 
 ```text
 
-*Why it failed*: `pipefail`was not set. If`pg_dumpall`fails but`gzip`succeeds,`$?` is 0.
+*Why it failed*: `pipefail` was not set. If `pg_dumpall` fails but `gzip` succeeds, `$?` is 0.
 
 **The Fix**:
 
@@ -1005,7 +676,7 @@ const warranty = await db.Warranty.findOne({ phoneNumber });
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 6. OWASP TOP 10 API SECURITY
 
@@ -1068,11 +739,14 @@ user User @relation(fields: [userId], references: [id])
 2. **Pending Callbacks**: I/O errors
 3. **Idle, Prepare**: Internal
 4. **Poll**: I/O events (The heavy lifter)
-5. **Check**: `setImmediate`6. **Close Callbacks**:`socket.on('close')`**Microtasks**:`process.nextTick`and`Promise.then` run *between* phases.
+5. **Check**: `setImmediate`
+6. **Close Callbacks**: `socket.on('close')`
+
+**Microtasks**: `process.nextTick` and `Promise.then` run *between* phases.
 
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 11. N+1 QUERY PROBLEM & SOLUTIONS
 
@@ -1140,7 +814,9 @@ If one key fails, DataLoader can return an Error object for that specific key in
 
 - **Use Case**: JSONB and Full Text Search.
 
-- **Example**: `CREATE INDEX idx_metadata ON products USING GIN (metadata);`- **Query**:`SELECT * FROM products WHERE metadata @> '{"color": "red"}';`
+- **Example**: `CREATE INDEX idx_metadata ON products USING GIN (metadata);`
+
+- **Query**: `SELECT * FROM products WHERE metadata @> '{"color": "red"}';`
 
 ### 3. BRIN (Block Range Index)
 
@@ -1224,7 +900,7 @@ return current
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 16. DATABASE SHARDING
 
@@ -1315,7 +991,7 @@ If a message fails processing 3 times, move it to a DLQ topic for manual inspect
 
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 21. KERNEL-LEVEL TUNING
 
@@ -1393,7 +1069,7 @@ Divide infrastructure into self-contained "Cells".
 
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 26. SERVERLESS 2.0
 
@@ -2006,6 +1682,8 @@ max_parallel_workers = 8
 
 - Use cases: fallback, simple requirements
 
+---
+
 ## BACKGROUND JOBS DEEP ATLAS
 
 ## Each keyword = expandable configuration
@@ -2100,7 +1778,7 @@ max_parallel_workers = 8
 
 ## EMAIL DEEP ATLAS
 
-## Each keyword = expandable implementation 2
+## Each keyword = expandable implementation
 
 ## Nodemailer
 
@@ -2142,7 +1820,7 @@ max_parallel_workers = 8
 
 ## ADVANCED SECURITY DEEP ATLAS
 
-## Each keyword = expandable pattern 2
+## Each keyword = expandable pattern
 
 ## Authentication Flows
 
@@ -2158,7 +1836,7 @@ max_parallel_workers = 8
 
 - Passkeys: WebAuthn, resident credentials
 
-## Authorization 2
+## Authorization
 
 - RBAC: roles, permissions, hierarchy
 
@@ -2172,32 +1850,15 @@ max_parallel_workers = 8
 
 ## Rate Limiting
 
-```typescript
-// middleware/rateLimit.ts
-import rateLimit from 'express-rate-limit';
-import RedisStore from 'rate-limit-redis';
-import { redis } from '../lib/redis';
+- Algorithms: token bucket, leaky bucket, sliding window
 
-export const apiLimiter = rateLimit({
-store: new RedisStore({
-client: redis,
-prefix: 'rl:'
-  }),
-windowMs: 15 *60* 1000, // 15 minutes
-max: 100, // 100 requests per window
-message: { error: 'Too many requests, try again later' },
-standardHeaders: true,
-legacyHeaders: false
-});
+- Redis: atomic increment, expire
 
-// Stricter limit for auth endpoints
-export const authLimiter = rateLimit({
-windowMs: 60 *60* 1000, // 1 hour
-max: 5, // 5 attempts
-message: { error: 'Too many login attempts' }
-});
+- Distributed: consistent across instances
 
-```text
+- Headers: X-RateLimit-Limit, Remaining, Reset
+
+- Tiers: per user, per IP, per API key
 
 ---
 
@@ -2339,7 +2000,7 @@ message: { error: 'Too many login attempts' }
 
 ## DRIVEN DEEP ATLAS
 
-## Each keyword = expandable pattern 3
+## Each keyword = expandable pattern
 
 ## Message Brokers
 
@@ -2447,7 +2108,7 @@ message: { error: 'Too many login attempts' }
 
 ## DATABASE PATTERNS DEEP ATLAS
 
-## Each keyword = expandable technique 2
+## Each keyword = expandable technique
 
 ## Data Modeling
 
@@ -2487,44 +2148,21 @@ message: { error: 'Too many login attempts' }
 
 ## Connection Management
 
-- Use sticky sessions (same server)
+- Pooling: min, max, idle timeout
 
-- Or externalize connection state
+- Health checks: validation query
 
-- Track connections per user
+- Retry: connection failure
 
-- Handle reconnection gracefully
+- Read replicas: routing
 
----
-
-| ## Alternatives | Technology | Latency | Complexity |
-
-|
-
----
-
-|
-
----
-
-|
-
----
-
-|
-| WebSocket | Lowest | High |
-| SSE | Low | Medium |
-| Long Polling | Medium | Low |
-
----
-
-|
+- Connection multiplexing: PgBouncer
 
 ---
 
 ## OBSERVABILITY DEEP ATLAS
 
-## Each keyword = expandable implementation 3
+## Each keyword = expandable implementation
 
 ## Logging
 
@@ -2644,8 +2282,10 @@ message: { error: 'Too many login attempts' }
 
 ## Production-Ready Express Setup
 
-**Why it exists:**Secure, structured API foundation**Used by:**Most Node.js production APIs
+**Why it exists:** Secure, structured API foundation
+**Used by:** Most Node.js production APIs
 
+```typescript
 // src/app.ts - Production Express Configuration
 import express, { Express, Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
@@ -2661,17 +2301,17 @@ export function createApp(): Express {
 const app = express();
 
 // Security headers - helmet sets various HTTP headers
-      app.use(helmet());
+  app.use(helmet());
 
 // CORS configuration
-      app.use(cors({
-| origin: process.env.ALLOWED_ORIGINS?.split(',') | ['<<<<<http://localhost:3000'>>>>],> |
+  app.use(cors({
+| origin: process.env.ALLOWED_ORIGINS?.split(',') |  | ['http://localhost:3000'], |
 credentials: true,
 methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-      }));
+  }));
 
 // Gzip compression
-      app.use(compression());
+  app.use(compression());
 
 // Request logging
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
@@ -2682,46 +2322,50 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rate limiting - prevent brute force
 const limiter = rateLimit({
-windowMs: 15*60* 1000, // 15 minutes
+windowMs: 15 * 60 * 1000, // 15 minutes
 max: 100, // limit each IP to 100 requests per windowMs
 message: { error: 'Too many requests, please try again later' },
 standardHeaders: true,
 legacyHeaders: false,
-      });
+  });
 app.use('/api', limiter);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
 res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
-      });
+  });
 
 // API routes
 app.use('/api/v1', apiRouter);
 
 // 404 handler
-      app.use(notFoundHandler);
+  app.use(notFoundHandler);
 
 // Global error handler - must be last
-      app.use(errorHandler);
+  app.use(errorHandler);
 
 return app;
-    }
+}
+
+```text
 
 ## Custom Error Classes Pattern
 
-**Why it exists:**Consistent error handling across API**Pattern from:**Express best practices, production APIs
+**Why it exists:** Consistent error handling across API
+**Pattern from:** Express best practices, production APIs
 
+```typescript
 // src/utils/errors.ts
 export abstract class AppError extends Error {
 abstract statusCode: number;
 abstract isOperational: boolean;
 
 constructor(message: string) {
-        super(message);
+    super(message);
 Object.setPrototypeOf(this, new.target.prototype);
 Error.captureStackTrace(this, this.constructor);
-      }
-    }
+  }
+}
 
 export class NotFoundError extends AppError {
 statusCode = 404;
@@ -2729,8 +2373,8 @@ isOperational = true;
 
 constructor(resource: string = 'Resource') {
 super(`${resource} not found`);
-      }
-    }
+  }
+}
 
 export class ValidationError extends AppError {
 statusCode = 400;
@@ -2740,41 +2384,41 @@ errors: Record<string, string[]>;
 constructor(errors: Record<string, string[]>) {
 super('Validation failed');
 this.errors = errors;
-      }
-    }
+  }
+}
 
 export class UnauthorizedError extends AppError {
 statusCode = 401;
 isOperational = true;
 
 constructor(message: string = 'Unauthorized') {
-        super(message);
-      }
-    }
+    super(message);
+  }
+}
 
 export class ForbiddenError extends AppError {
 statusCode = 403;
 isOperational = true;
 
 constructor(message: string = 'Forbidden') {
-        super(message);
-      }
-    }
+    super(message);
+  }
+}
 
 export class ConflictError extends AppError {
 statusCode = 409;
 isOperational = true;
 
 constructor(message: string = 'Resource already exists') {
-        super(message);
-      }
-    }
+    super(message);
+  }
+}
 
 // src/middleware/errorHandler.ts
 import { Request, Response, NextFunction } from 'express';
 import { AppError } from '../utils/errors';
 import { logger } from '../utils/logger';
-import* as Sentry from '@sentry/node';
+import * as Sentry from '@sentry/node';
 
 export function errorHandler(
 err: Error,
@@ -2783,18 +2427,18 @@ res: Response,
 next: NextFunction
 ) {
 // Log error
-      logger.error({
+  logger.error({
 message: err.message,
 stack: err.stack,
 path: req.path,
 method: req.method,
 body: req.body,
-      });
+  });
 
 // Report to Sentry for non-operational errors
-| if (!(err instanceof AppError) | !err.isOperational) { |
-        Sentry.captureException(err);
-      }
+| if (!(err instanceof AppError) |  | !err.isOperational) { |
+    Sentry.captureException(err);
+  }
 
 // Handle known operational errors
 if (err instanceof AppError) {
@@ -2802,8 +2446,8 @@ return res.status(err.statusCode).json({
 status: 'error',
 message: err.message,
 ...(err instanceof ValidationError && { errors: err.errors }),
-        });
-      }
+    });
+  }
 
 // Handle unknown errors
 const statusCode = 500;
@@ -2813,25 +2457,31 @@ const message = process.env.NODE_ENV === 'production'
 
 return res.status(statusCode).json({
 status: 'error',
-        message,
-      });
-    }
+    message,
+  });
+}
+
+```text
+
+---
 
 ## PRISMA DATABASE PATTERNS
 
 ## Prisma Schema Design
 
-**Why it exists:**Type-safe database access, migrations**Used by:** Modern TypeScript backends
+**Why it exists:** Type-safe database access, migrations
+**Used by:** Modern TypeScript backends
 
+```prisma
 // prisma/schema.prisma
 generator client {
 provider = "prisma-client-js"
-    }
+}
 
 datasource db {
 provider = "postgresql"
 url = env("DATABASE_URL")
-    }
+}
 
 // User model with relations
 model User {
@@ -2851,8 +2501,8 @@ sessions Session[]
 orders Order[]
 reviews Review[]
 
-      @@map("users")
-    }
+  @@map("users")
+}
 
 model Product {
 id String   @id @default(cuid())
@@ -2872,10 +2522,10 @@ updatedAt DateTime @updatedAt @map("updated_at")
 reviews Review[]
 orderItems OrderItem[]
 
-      @@index([categoryId])
+  @@index([categoryId])
 @@index([isActive, createdAt])
-      @@map("products")
-    }
+  @@map("products")
+}
 
 model Order {
 id String  @id @default(cuid())
@@ -2887,29 +2537,33 @@ items OrderItem[]
 createdAt DateTime    @default(now()) @map("created_at")
 updatedAt DateTime    @updatedAt @map("updated_at")
 
-      @@index([userId])
+  @@index([userId])
 @@index([status, createdAt])
-      @@map("orders")
-    }
+  @@map("orders")
+}
 
 enum Role {
-      USER
-      ADMIN
-      MODERATOR
-    }
+  USER
+  ADMIN
+  MODERATOR
+}
 
 enum OrderStatus {
-      PENDING
-      PROCESSING
-      SHIPPED
-      DELIVERED
-      CANCELLED
-    }
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+```text
 
 ## Repository Pattern with Prisma
 
-**Why it exists:**Abstracts database layer, makes testing easier**Pattern from:**Clean Architecture, DDD
+**Why it exists:** Abstracts database layer, makes testing easier
+**Pattern from:** Clean Architecture, DDD
 
+```typescript
 // src/repositories/productRepository.ts
 import { prisma } from '@/lib/prisma';
 import { Prisma, Product } from '@prisma/client';
@@ -2920,12 +2574,12 @@ minPrice?: number;
 maxPrice?: number;
 search?: string;
 isActive?: boolean;
-    }
+}
 
 export interface PaginationParams {
 page: number;
 limit: number;
-    }
+}
 
 export interface PaginatedResult<T> {
 data: T[];
@@ -2933,7 +2587,7 @@ total: number;
 page: number;
 limit: number;
 totalPages: number;
-    }
+}
 
 export const productRepository = {
 async findMany(
@@ -2941,31 +2595,31 @@ filters: ProductFilters,
 pagination: PaginationParams
 ): Promise<PaginatedResult<Product>> {
 const { page, limit } = pagination;
-const skip = (page - 1)* limit;
+const skip = (page - 1) * limit;
 
 // Build where clause dynamically
 const where: Prisma.ProductWhereInput = {
 isActive: filters.isActive ?? true,
 ...(filters.category && {
 category: { slug: filters.category },
-        }),
-| ...(filters.minPrice | filters.maxPrice) && { |
+      }),
+| ...(filters.minPrice |  | filters.maxPrice) && { |
 price: {
 gte: filters.minPrice,
 lte: filters.maxPrice,
         },
-        },
+      },
 ...(filters.search && {
 OR: [
 { name: { contains: filters.search, mode: 'insensitive' } },
 { description: { contains: filters.search, mode: 'insensitive' } },
         ],
-        }),
-        };
+      }),
+    };
 
 // Execute both queries in parallel
 const [data, total] = await Promise.all([
-        prisma.product.findMany({
+      prisma.product.findMany({
         where,
         skip,
 take: limit,
@@ -2974,18 +2628,18 @@ include: {
 category: { select: { name: true, slug: true } },
 reviews: { select: { rating: true } },
         },
-        }),
+      }),
 prisma.product.count({ where }),
-        ]);
+    ]);
 
 return {
-        data,
-        total,
-        page,
-        limit,
+      data,
+      total,
+      page,
+      limit,
 totalPages: Math.ceil(total / limit),
-        };
-      },
+    };
+  },
 
 | async findById(id: string): Promise<Product | null> { |
 return prisma.product.findUnique({
@@ -2997,9 +2651,9 @@ include: { user: { select: { name: true, image: true } } },
 orderBy: { createdAt: 'desc' },
 take: 10,
         },
-        },
-        });
       },
+    });
+  },
 
 | async findBySlug(slug: string): Promise<Product | null> { |
 return prisma.product.findUnique({
@@ -3010,29 +2664,35 @@ reviews: {
 include: { user: { select: { name: true, image: true } } },
 orderBy: { createdAt: 'desc' },
         },
-        },
-        });
       },
+    });
+  },
 
 async create(data: Prisma.ProductCreateInput): Promise<Product> {
 return prisma.product.create({ data });
-      },
+  },
 
 async update(id: string, data: Prisma.ProductUpdateInput): Promise<Product> {
 return prisma.product.update({ where: { id }, data });
-      },
+  },
 
 async delete(id: string): Promise<void> {
 await prisma.product.delete({ where: { id } });
-      },
-    };
+  },
+};
+
+```text
+
+---
 
 ## JWT AUTHENTICATION PATTERNS
 
 ## JWT Service Implementation
 
-**Why it exists:**Stateless authentication, scalable**Used by:**Most modern APIs
+**Why it exists:** Stateless authentication, scalable
+**Used by:** Most modern APIs
 
+```typescript
 // src/services/authService.ts
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
@@ -3043,12 +2703,12 @@ interface TokenPayload {
 userId: string;
 email: string;
 role: string;
-    }
+}
 
 interface AuthTokens {
 accessToken: string;
 refreshToken: string;
-    }
+}
 
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET!;
 const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET!;
@@ -3061,7 +2721,7 @@ async register(email: string, password: string, name: string) {
 const existingUser = await prisma.user.findUnique({ where: { email } });
 if (existingUser) {
 throw new ConflictError('Email already registered');
-        }
+    }
 
 // Hash password
 const hashedPassword = await bcrypt.hash(password, 12);
@@ -3070,74 +2730,74 @@ const hashedPassword = await bcrypt.hash(password, 12);
 const user = await prisma.user.create({
 data: { email, hashedPassword, name },
 select: { id: true, email: true, name: true, role: true },
-        });
+    });
 
 // Generate tokens
 const tokens = this.generateTokens({
 userId: user.id,
 email: user.email,
 role: user.role,
-        });
+    });
 
 return { user, ...tokens };
-      },
+  },
 
 async login(email: string, password: string): Promise<AuthTokens & { user: any }> {
 // Find user
 const user = await prisma.user.findUnique({
 where: { email },
 select: { id: true, email: true, name: true, role: true, hashedPassword: true },
-        });
+    });
 
-| if (!user | !user.hashedPassword) { |
+| if (!user |  | !user.hashedPassword) { |
 throw new UnauthorizedError('Invalid credentials');
-        }
+    }
 
 // Verify password
 const isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
 if (!isPasswordValid) {
 throw new UnauthorizedError('Invalid credentials');
-        }
+    }
 
 // Generate tokens
 const tokens = this.generateTokens({
 userId: user.id,
 email: user.email,
 role: user.role,
-        });
+    });
 
 // Store refresh token in database
 await prisma.refreshToken.create({
 data: {
 token: tokens.refreshToken,
 userId: user.id,
-expiresAt: new Date(Date.now() + 7*24*60*60*1000), // 7 days
-        },
-        });
+expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
+      },
+    });
 
 const { hashedPassword: _, ...userWithoutPassword } = user;
 return { user: userWithoutPassword, ...tokens };
-      },
+  },
 
 generateTokens(payload: TokenPayload): AuthTokens {
 const accessToken = jwt.sign(payload, ACCESS_TOKEN_SECRET, {
 expiresIn: ACCESS_TOKEN_EXPIRY,
-        });
+    });
 
 const refreshToken = jwt.sign(payload, REFRESH_TOKEN_SECRET, {
 expiresIn: REFRESH_TOKEN_EXPIRY,
-        });
+    });
 
 return { accessToken, refreshToken };
-      },
+  },
 
 verifyAccessToken(token: string): TokenPayload {
 try {
 return jwt.verify(token, ACCESS_TOKEN_SECRET) as TokenPayload;
 } catch (error) {
 throw new UnauthorizedError('Invalid or expired token');
-        }
-      },
+    }
+  },
 
 async refreshTokens(refreshToken: string): Promise<AuthTokens> {
 // Verify refresh token
@@ -3146,7 +2806,7 @@ try {
 payload = jwt.verify(refreshToken, REFRESH_TOKEN_SECRET) as TokenPayload;
 } catch {
 throw new UnauthorizedError('Invalid refresh token');
-        }
+    }
 
 // Check if token exists in database (not revoked)
 const storedToken = await prisma.refreshToken.findFirst({
@@ -3154,12 +2814,12 @@ where: {
 token: refreshToken,
 userId: payload.userId,
 expiresAt: { gt: new Date() },
-        },
-        });
+      },
+    });
 
 if (!storedToken) {
 throw new UnauthorizedError('Token revoked or expired');
-        }
+    }
 
 // Delete old token
 await prisma.refreshToken.delete({ where: { id: storedToken.id } });
@@ -3172,24 +2832,28 @@ await prisma.refreshToken.create({
 data: {
 token: tokens.refreshToken,
 userId: payload.userId,
-expiresAt: new Date(Date.now() + 7*24*60*60* 1000),
-        },
-        });
+expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      },
+    });
 
 return tokens;
-      },
+  },
 
 async logout(refreshToken: string): Promise<void> {
 await prisma.refreshToken.deleteMany({
 where: { token: refreshToken },
-        });
-      },
-    };
+    });
+  },
+};
+
+```text
 
 ## Authentication Middleware
 
-**Why it exists:**Protect routes, inject user into request**Pattern from:** Express authentication middleware
+**Why it exists:** Protect routes, inject user into request
+**Pattern from:** Express authentication middleware
 
+```typescript
 // src/middleware/auth.ts
 import { Request, Response, NextFunction } from 'express';
 import { authService } from '@/services/authService';
@@ -3203,54 +2867,60 @@ user?: {
 userId: string;
 email: string;
 role: string;
-        };
-        }
-      }
+      };
     }
+  }
+}
 
 export function authenticate(req: Request, res: Response, next: NextFunction) {
 const authHeader = req.headers.authorization;
 
-| if (!authHeader | !authHeader.startsWith('Bearer ')) { |
+| if (!authHeader |  | !authHeader.startsWith('Bearer ')) { |
 return next(new UnauthorizedError('No token provided'));
-      }
+  }
 
-const token = authHeader.split[' '](1);
+const token = authHeader.split(' ')[1];
 
 try {
 const payload = authService.verifyAccessToken(token);
 req.user = payload;
-        next();
+    next();
 } catch (error) {
-        next(error);
-      }
-    }
+    next(error);
+  }
+}
 
 // Role-based authorization middleware
 export function authorize(...allowedRoles: string[]) {
 return (req: Request, res: Response, next: NextFunction) => {
 if (!req.user) {
 return next(new UnauthorizedError());
-        }
+    }
 
 if (!allowedRoles.includes(req.user.role)) {
 return next(new ForbiddenError('Insufficient permissions'));
-        }
-
-        next();
-      };
     }
+
+    next();
+  };
+}
 
 // Usage in routes
 // router.get('/admin/users', authenticate, authorize('ADMIN'), getUsers);
 // router.delete('/products/:id', authenticate, authorize('ADMIN', 'MODERATOR'), deleteProduct);
 
+```text
+
+---
+
 ## WEBSOCKET PATTERNS
 
 ## Socket.io Server Setup
 
-**Why it exists:**Real-time bidirectional communication**Used by:** Chat apps, live updates, gaming
+**Why it exists:** Real-time bidirectional communication
+**Used by:** Chat apps, live updates, gaming
 
+```typescript
 // src/socket/index.ts
 import { Server as HttpServer } from 'http';
 import { Server, Socket } from 'socket.io';
@@ -3260,17 +2930,17 @@ import { logger } from '@/utils/logger';
 interface AuthenticatedSocket extends Socket {
 userId: string;
 email: string;
-    }
+}
 
 export function initializeSocketServer(httpServer: HttpServer) {
 const io = new Server(httpServer, {
 cors: {
-| origin: process.env.ALLOWED_ORIGINS?.split(',') | ['<<<<<http://localhost:3000'>>>>],> |
+| origin: process.env.ALLOWED_ORIGINS?.split(',') |  | ['http://localhost:3000'], |
 credentials: true,
-        },
+    },
 pingTimeout: 60000,
 pingInterval: 25000,
-      });
+  });
 
 // Authentication middleware
 io.use(async (socket, next) => {
@@ -3278,22 +2948,22 @@ try {
 const token = socket.handshake.auth.token;
 if (!token) {
 return next(new Error('Authentication required'));
-        }
+      }
 
 const payload = authService.verifyAccessToken(token);
 (socket as AuthenticatedSocket).userId = payload.userId;
 (socket as AuthenticatedSocket).email = payload.email;
-        next();
+      next();
 } catch (error) {
 next(new Error('Invalid token'));
-        }
-      });
+    }
+  });
 
 io.on('connection', (socket: AuthenticatedSocket) => {
 logger.info(`User connected: ${socket.userId}`);
 
 // Join user's personal room for direct messages
-        socket.join(`user:${socket.userId}`);
+    socket.join(`user:${socket.userId}`);
 
 // Handle joining chat rooms
 socket.on('join:room', async (roomId: string) => {
@@ -3302,23 +2972,23 @@ const hasAccess = await verifyRoomAccess(socket.userId, roomId);
 if (!hasAccess) {
 socket.emit('error', { message: 'Access denied' });
         return;
-        }
+      }
 
-        socket.join(`room:${roomId}`);
+      socket.join(`room:${roomId}`);
 socket.to(`room:${roomId}`).emit('user:joined', {
 userId: socket.userId,
 timestamp: new Date(),
-        });
-        });
+      });
+    });
 
 // Handle leaving rooms
 socket.on('leave:room', (roomId: string) => {
-        socket.leave(`room:${roomId}`);
+      socket.leave(`room:${roomId}`);
 socket.to(`room:${roomId}`).emit('user:left', {
 userId: socket.userId,
 timestamp: new Date(),
-        });
-        });
+      });
+    });
 
 // Handle chat messages
 socket.on('message:send', async (data: { roomId: string; content: string }) => {
@@ -3334,49 +3004,55 @@ content: data.content,
 io.to(`room:${data.roomId}`).emit('message:new', message);
 } catch (error) {
 socket.emit('error', { message: 'Failed to send message' });
-        }
-        });
+      }
+    });
 
 // Handle typing indicators
 socket.on('typing:start', (roomId: string) => {
 socket.to(`room:${roomId}`).emit('user:typing', {
 userId: socket.userId,
 isTyping: true,
-        });
-        });
+      });
+    });
 
 socket.on('typing:stop', (roomId: string) => {
 socket.to(`room:${roomId}`).emit('user:typing', {
 userId: socket.userId,
 isTyping: false,
-        });
-        });
+      });
+    });
 
 // Handle disconnection
 socket.on('disconnect', (reason) => {
 logger.info(`User disconnected: ${socket.userId}, reason: ${reason}`);
-        });
-      });
+    });
+  });
 
 return io;
-    }
+}
 
 // Emit to specific user from anywhere in the app
 export function emitToUser(io: Server, userId: string, event: string, data: any) {
 io.to(`user:${userId}`).emit(event, data);
-    }
+}
 
 // Emit to room from anywhere in the app
 export function emitToRoom(io: Server, roomId: string, event: string, data: any) {
 io.to(`room:${roomId}`).emit(event, data);
-    }
+}
+
+```text
+
+---
 
 ## EMAIL SERVICE PATTERNS
 
 ## Email Service with Templates
 
-**Why it exists:**Transactional emails, notifications**Used by:** Most production applications
+**Why it exists:** Transactional emails, notifications
+**Used by:** Most production applications
 
+```typescript
 // src/services/emailService.ts
 import nodemailer from 'nodemailer';
 import { render } from '@react-email/render';
@@ -3389,7 +3065,7 @@ to: string;
 subject: string;
 html: string;
 text?: string;
-    }
+}
 
 const transporter = nodemailer.createTransport({
 host: process.env.SMTP_HOST,
@@ -3398,8 +3074,8 @@ secure: process.env.SMTP_SECURE === 'true',
 auth: {
 user: process.env.SMTP_USER,
 pass: process.env.SMTP_PASSWORD,
-      },
-    });
+  },
+});
 
 export const emailService = {
 async send(options: EmailOptions): Promise<void> {
@@ -3409,8 +3085,8 @@ to: options.to,
 subject: options.subject,
 html: options.html,
 text: options.text,
-        });
-      },
+    });
+  },
 
 async sendWelcomeEmail(email: string, name: string): Promise<void> {
 const html = render(WelcomeEmail({ name }));
@@ -3418,9 +3094,9 @@ const html = render(WelcomeEmail({ name }));
 await this.send({
 to: email,
 subject: 'Welcome to Our Platform!',
-        html,
-        });
-      },
+      html,
+    });
+  },
 
 async sendPasswordResetEmail(email: string, resetUrl: string): Promise<void> {
 const html = render(PasswordResetEmail({ resetUrl }));
@@ -3428,9 +3104,9 @@ const html = render(PasswordResetEmail({ resetUrl }));
 await this.send({
 to: email,
 subject: 'Reset Your Password',
-        html,
-        });
-      },
+      html,
+    });
+  },
 
 async sendOrderConfirmation(
 email: string,
@@ -3441,32 +3117,32 @@ const html = render(OrderConfirmationEmail({ order }));
 await this.send({
 to: email,
 subject: `Order Confirmation #${order.id}`,
-        html,
-        });
-      },
-    };
+      html,
+    });
+  },
+};
 
 // emails/WelcomeEmail.tsx - React Email Template
 import {
-      Body,
-      Button,
-      Container,
-      Head,
-      Heading,
-      Hr,
-      Html,
-      Preview,
-      Section,
-      Text,
+  Body,
+  Button,
+  Container,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Preview,
+  Section,
+  Text,
 } from '@react-email/components';
 
 interface WelcomeEmailProps {
 name: string;
-    }
+}
 
 export function WelcomeEmail({ name }: WelcomeEmailProps) {
 return (
-        <Html>
+    <Html>
 <Head />
 <Preview>Welcome to our platform!</Preview>
 <Body style={main}>
@@ -3477,7 +3153,7 @@ We're excited to have you on board. Get started by exploring
 our features and making the most of your account.
         </Text>
 <Section style={buttonContainer}>
-<Button style={button} href="<<<<<https://yourapp.com/dashboard">>>>>>
+<Button style={button} href="https://yourapp.com/dashboard">
 Get Started
         </Button>
         </Section>
@@ -3486,10 +3162,10 @@ Get Started
 If you have any questions, reply to this email or contact support.
         </Text>
         </Container>
-        </Body>
-        </Html>
-      );
-    }
+      </Body>
+    </Html>
+  );
+}
 
 const main = { backgroundColor: '#f6f9fc', fontFamily: 'Arial, sans-serif' };
 const container = { margin: '0 auto', padding: '40px 20px', maxWidth: '560px' };
@@ -3502,16 +3178,22 @@ color: '#fff',
 padding: '12px 24px',
 borderRadius: '4px',
 textDecoration: 'none',
-    };
+};
 const hr = { borderColor: '#e6ebf1', margin: '32px 0' };
 const footer = { fontSize: '14px', color: '#8898aa' };
+
+```text
+
+---
 
 ## BACKGROUND JOBS PATTERNS
 
 ## BullMQ Job Queue
 
-**Why it exists:**Async processing, scheduled tasks, retries**Used by:**Production backends for heavy operations
+**Why it exists:** Async processing, scheduled tasks, retries
+**Used by:** Production backends for heavy operations
 
+```typescript
 // src/queues/index.ts
 import { Queue, Worker, Job } from 'bullmq';
 import Redis from 'ioredis';
@@ -3520,7 +3202,7 @@ import { logger } from '@/utils/logger';
 
 const connection = new Redis(process.env.REDIS_URL!, {
 maxRetriesPerRequest: null,
-    });
+});
 
 // Define queue
 export const emailQueue = new Queue('email', { connection });
@@ -3528,7 +3210,7 @@ export const orderQueue = new Queue('orders', { connection });
 
 // Email worker
 const emailWorker = new Worker(
-      'email',
+  'email',
 async (job: Job) => {
 const { type, data } = job.data;
 
@@ -3542,19 +3224,19 @@ await emailService.sendPasswordResetEmail(data.email, data.resetUrl);
 case 'order-confirmation':
 await emailService.sendOrderConfirmation(data.email, data.order);
         break;
-        default:
+      default:
 throw new Error(`Unknown email type: ${type}`);
-        }
-      },
-      {
-        connection,
+    }
+  },
+  {
+    connection,
 concurrency: 5,
-      }
-    );
+  }
+);
 
 // Order processing worker
 const orderWorker = new Worker(
-      'orders',
+  'orders',
 async (job: Job) => {
 const { orderId } = job.data;
 
@@ -3571,29 +3253,29 @@ await notifyWarehouse(orderId);
 await job.updateProgress(100);
 
 return { processed: true };
-      },
-      {
-        connection,
+  },
+  {
+    connection,
 concurrency: 10,
-      }
-    );
+  }
+);
 
 // Event handlers
 emailWorker.on('completed', (job) => {
 logger.info(`Email job ${job.id} completed`);
-    });
+});
 
 emailWorker.on('failed', (job, err) => {
 logger.error(`Email job ${job?.id} failed: ${err.message}`);
-    });
+});
 
 orderWorker.on('completed', (job) => {
 logger.info(`Order job ${job.id} completed`);
-    });
+});
 
 orderWorker.on('failed', (job, err) => {
 logger.error(`Order job ${job?.id} failed: ${err.message}`);
-    });
+});
 
 // Helper functions to add jobs
 export async function queueWelcomeEmail(email: string, name: string) {
@@ -3603,8 +3285,8 @@ data: { email, name },
 }, {
 attempts: 3,
 backoff: { type: 'exponential', delay: 1000 },
-      });
-    }
+  });
+}
 
 export async function queueOrderProcessing(orderId: string) {
 await orderQueue.add('process-order', { orderId }, {
@@ -3612,42 +3294,46 @@ attempts: 5,
 backoff: { type: 'exponential', delay: 5000 },
 removeOnComplete: { count: 1000 },
 removeOnFail: { count: 5000 },
-      });
-    }
+  });
+}
 
 // Scheduled jobs
 export async function setupScheduledJobs() {
 // Daily report at 9am
 await emailQueue.add(
-        'daily-report',
+    'daily-report',
 { type: 'daily-report', data: {} },
-        {
-repeat: { cron: '0 9** *' },
-        }
-      );
+    {
+repeat: { cron: '0 9 * * *' },
+    }
+  );
 
 // Cleanup old data every Sunday at midnight
 await orderQueue.add(
-        'cleanup',
+    'cleanup',
 { type: 'cleanup' },
-        {
-repeat: { cron: '0 0 ** 0' },
-        }
-      );
+    {
+repeat: { cron: '0 0 * * 0' },
     }
+  );
+}
 
-### CONTINUED IN NEXT SECTION: MORE PATTERNS
-
-## FILE UPLOAD PATTERNS
-
-> **The patterns for handling files safely**
+```text
 
 ---
 
+### CONTINUED IN NEXT SECTION: MORE PATTERNS
+
+---
+
+## FILE UPLOAD PATTERNS
+
 ## Multer File Upload
 
-**Why it exists:**Handle multipart form data**Used by:**Most Node.js file upload implementations
+**Why it exists:** Handle multipart form data
+**Used by:** Most Node.js file upload implementations
 
+```typescript
 // middleware/upload.ts
 import multer from 'multer';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
@@ -3665,14 +3351,14 @@ if (allowedTypes.includes(file.mimetype)) {
 cb(null, true);
 } else {
 cb(new Error('Invalid file type'), false);
-      }
-    };
+  }
+};
 
 export const upload = multer({
-      storage,
-      fileFilter,
-limits: { fileSize: 5*1024* 1024 }, // 5MB
-    });
+  storage,
+  fileFilter,
+limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+});
 
 // Upload to S3
 export async function uploadToS3(file: Express.Multer.File): Promise<string> {
@@ -3683,23 +3369,29 @@ Bucket: process.env.S3_BUCKET!,
 Key: key,
 Body: file.buffer,
 ContentType: file.mimetype,
-      }));
+  }));
 
-return `<<<<<https://${process.env.S3_BUCKET}.s3.amazonaws.com/${key}`;>>>>>
-    }
+return `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${key}`;
+}
 
 // Route usage
 router.post('/upload', upload.single('image'), async (req, res) => {
 const url = await uploadToS3(req.file!);
 res.json({ url });
-    });
+});
+
+```text
+
+---
 
 ## CACHING PATTERNS
 
 ## Redis Caching Layer
 
-**Why it exists:**Reduce database load, faster responses**Used by:** Production applications
+**Why it exists:** Reduce database load, faster responses
+**Used by:** Production applications
 
+```typescript
 // lib/cache.ts
 import Redis from 'ioredis';
 
@@ -3709,21 +3401,21 @@ export const cache = {
 | async get<T>(key: string): Promise<T | null> { |
 const data = await redis.get(key);
 return data ? JSON.parse(data) : null;
-      },
+  },
 
 async set(key: string, value: any, ttlSeconds = 3600): Promise<void> {
 await redis.setex(key, ttlSeconds, JSON.stringify(value));
-      },
+  },
 
 async del(key: string): Promise<void> {
 await redis.del(key);
-      },
+  },
 
 async invalidatePattern(pattern: string): Promise<void> {
 const keys = await redis.keys(pattern);
 if (keys.length) await redis.del(...keys);
-      },
-    };
+  },
+};
 
 // Cache decorator
 export function cached(ttl = 3600) {
@@ -3739,11 +3431,15 @@ if (cached) return cached;
 const result = await original.apply(this, args);
 await cache.set(cacheKey, result, ttl);
 return result;
-        };
+    };
 
 return descriptor;
-      };
-    }
+  };
+}
+
+```text
+
+---
 
 ## LOGGING PATTERNS
 
@@ -3832,10 +3528,6 @@ router.post('/products', validate(createProductSchema), createProduct);
 
 ## GRACEFUL SHUTDOWN
 
-> **The zero-downtime shutdown patterns**
-
----
-
 ## Production Shutdown Handler
 
 **Why it exists:** Clean shutdown, prevent data loss
@@ -3882,38 +3574,11 @@ console.error('Forced shutdown');
 
 ## GRAPHQL PATTERNS
 
-> **The patterns for flexible APIs**
-
----
-
-| ## GraphQL vs REST | Aspect | REST | GraphQL |
-
-|
-
----
-
-| --|
-
----
-
-|
-
----
-
-|
-| Endpoints | Multiple | Single |
-| Fetching | Over/under fetch | Exact data |
-| Versioning | URL versioning | Schema evolution |
-| Caching | HTTP caching | Apollo cache |
-
----
-
-|
-
 ## Apollo Server Setup
 
 **Why it exists:** Type-safe API with schema
 
+```typescript
 // graphql/schema.ts
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
@@ -3925,65 +3590,69 @@ name: String!
 price: Float!
 category: Category
 reviews: [Review!]!
-      }
+  }
 
 type Category {
 id: ID!
 name: String!
 products: [Product!]!
-      }
+  }
 
 type Review {
 id: ID!
 rating: Int!
 comment: String
 user: User!
-      }
+  }
 
 type Query {
 products(category: ID, limit: Int): [Product!]!
 product(id: ID!): Product
 categories: [Category!]!
-      }
+  }
 
 type Mutation {
 createProduct(input: CreateProductInput!): Product!
 updateProduct(id: ID!, input: UpdateProductInput!): Product!
 deleteProduct(id: ID!): Boolean!
-      }
+  }
 
 input CreateProductInput {
 name: String!
 price: Float!
 categoryId: ID!
-      }
-    `;
+  }
+`;
 
 const resolvers = {
 Query: {
-products: async (*, { category, limit }, { dataSources }) => {
+products: async (_, { category, limit }, { dataSources }) => {
 return dataSources.productAPI.getProducts({ category, limit });
-        },
-product: async (*, { id }, { dataSources }) => {
+    },
+product: async (_, { id }, { dataSources }) => {
 return dataSources.productAPI.getProduct(id);
-        },
-      },
+    },
+  },
 Product: {
 category: async (product, _, { dataSources }) => {
 return dataSources.categoryAPI.getCategory(product.categoryId);
-        },
-reviews: async (product, *, { dataSources }) => {
+    },
+reviews: async (product, _, { dataSources }) => {
 return dataSources.reviewAPI.getReviewsForProduct(product.id);
-        },
-      },
+    },
+  },
 Mutation: {
-createProduct: async (*, { input }, { dataSources }) => {
+createProduct: async (_, { input }, { dataSources }) => {
 return dataSources.productAPI.createProduct(input);
-        },
-      },
-    };
+    },
+  },
+};
 
 const server = new ApolloServer({ typeDefs, resolvers });
+
+```text
+
+---
 
 ## DATABASE TRANSACTIONS
 
@@ -4046,10 +3715,6 @@ return order;
 
 ## MICROSERVICES COMMUNICATION
 
-> **The inter-service patterns**
-
----
-
 ## gRPC Service
 
 **Why it exists:** High-performance service-to-service communication
@@ -4088,7 +3753,6 @@ int32 total = 2;
 }
 
 ```typescript
-
 // grpc/productClient.ts
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
@@ -4116,14 +3780,13 @@ else resolve(response);
 
 ---
 
-## MESSAGE QUEUES 2
+## MESSAGE QUEUES
 
 ## RabbitMQ Publisher/Consumer
 
 **Why it exists:** Async event-driven architecture
 
 ```typescript
-
 // lib/rabbitmq.ts
 import amqp from 'amqplib';
 
@@ -4175,36 +3838,11 @@ channel.nack(msg, false, false); // Dead letter queue
 
 ## EMAIL PATTERNS
 
-> **The patterns for transactional email**
-
----
-
-| ## Email Service Selection | Service | Best For |
-
-|
-
----
-
-|
-
----
-
-| -|
-| SendGrid | Scale, analytics |
-| Postmark | Deliverability |
-| AWS SES | Cost, AWS ecosystem |
-| Resend | Developer experience |
-
----
-
-|
-
 ## Resend Email Service
 
 **Why it exists:** Transactional emails
 
 ```typescript
-
 // lib/email.ts
 import { Resend } from 'resend';
 
@@ -4242,7 +3880,7 @@ return (
 <Text>Order #{order.id}</Text>
 <Text>Total: ${order.total.toFixed(2)}</Text>
         <Button
-        href={`<https://yourapp.com/orders/${order.id}`}>
+        href={`https://yourapp.com/orders/${order.id}`}
 style={{ background: '#3b82f6', color: 'white', padding: '12px 24px' }}
         >
 View Order
@@ -4257,14 +3895,13 @@ View Order
 
 ---
 
-## PDF GENERATION 2
+## PDF GENERATION
 
 ## PDF Creation with React-PDF
 
 **Why it exists:** Generate invoices, reports
 
 ```typescript
-
 // lib/pdf.ts
 import { renderToBuffer } from '@react-pdf/renderer';
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
@@ -4328,7 +3965,6 @@ return renderToBuffer(<InvoicePDF invoice={invoice} />);
 **Why it exists:** Background scheduled tasks
 
 ```typescript
-
 // lib/scheduler.ts
 import cron from 'node-cron';
 import { prisma } from './prisma';
@@ -4349,7 +3985,7 @@ const upcomingOrders = await prisma.order.findMany({
 where: {
 status: 'PENDING',
 reminderSent: false,
-createdAt: { lte: new Date(Date.now() - 24 *60* 60 * 1000) },
+createdAt: { lte: new Date(Date.now() - 24 * 60 * 60 * 1000) },
       },
 include: { user: true },
     });
@@ -4382,7 +4018,6 @@ console.log('Scheduler initialized');
 **Why it exists:** Database-native search
 
 ```typescript
-
 // services/search.ts
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
@@ -4428,18 +4063,20 @@ tsvector_update_trigger(search_vector, 'pg_catalog.english', name, description);
 
 ---
 
-### CONTINUED: MORE BACKEND PATTERNS 2
+### CONTINUED: MORE BACKEND PATTERNS
 
 ---
 
-## DISTRIBUTED SYSTEMS 2
+## DISTRIBUTED SYSTEMS
 
 ## DATABASE DEADLOCK DEBUGGING
 
 ## PostgreSQL Lock Analysis
 
-**Source:**Uber Engineering, Stripe Database Team**Why normal AI can't synthesize this:** Requires production incident experience
+**Source:** Uber Engineering, Stripe Database Team
+**Why normal AI can't synthesize this:** Requires production incident experience
 
+```sql
 -- DETECTING DEADLOCKS IN PRODUCTION
 -- Run this query when you suspect deadlock issues
 
@@ -4480,17 +4117,14 @@ SET statement_timeout = '30s';
 
 -- FIX: Always update in consistent order (e.g., by primary key ascending)
 
-    /**
-
+```typescript
+/**
 - DEADLOCK PREVENTION PATTERN
-- *PRODUCTION INCIDENT: Order processing deadlock at Stripe
-
--* THE BUG: Two concurrent requests updating related entities in
-
+- * PRODUCTION INCIDENT: Order processing deadlock at Stripe
+- * THE BUG: Two concurrent requests updating related entities in
 - different order caused database deadlock under high load.
-- *PATTERN: Sort all updates by primary key before executing
-
-    */
+- * PATTERN: Sort all updates by primary key before executing
+ */
 
 async function updateMultipleEntities(
 entities: { id: string; data: any }[]
@@ -4503,31 +4137,27 @@ for (const entity of sorted) {
 await tx.entity.update({
 where: { id: entity.id },
 data: entity.data,
-        });
-        }
+      });
+    }
 }, {
 timeout: 10000, // 10 second timeout
 maxWait: 5000,  // 5 second max wait for transaction slot
 isolationLevel: 'ReadCommitted', // Lowest isolation that prevents dirty reads
-      });
-    }
+  });
+}
 
-    /**
-
+/**
 - CONNECTION POOL EXHAUSTION DEBUGGING
-- *SYMPTOMS:
+- * SYMPTOMS:
 - - "Connection pool timeout" errors under load
 - - Requests hanging for exactly pool timeout duration
 - - Database shows fewer connections than pool max
-
--* COMMON CAUSES:
-
+- * COMMON CAUSES:
 - 1. Long-running transactions holding connections
-- 1. Connection not returned after error
-- 1. Nested transactions using multiple connections
-- 1. N+1 queries exhausting pool during request
-
-     */
+- 2. Connection not returned after error
+- 3. Nested transactions using multiple connections
+- 4. N+1 queries exhausting pool during request
+ */
 
 // Connection pool monitoring
 const poolMonitor = {
@@ -4536,53 +4166,58 @@ returns: 0,
 timeouts: 0,
 
 onCheckout() {
-        this.checkouts++;
+    this.checkouts++;
 if (this.checkouts - this.returns > 10) {
 High connection usage:', this.checkouts - this.returns);
-        }
-      },
+    }
+  },
 
 onReturn() {
-        this.returns++;
-      },
+    this.returns++;
+  },
 
 onTimeout() {
-        this.timeouts++;
+    this.timeouts++;
 Pool timeout! Active:', this.checkouts - this.returns);
-      },
-    };
+  },
+};
 
 // Prisma middleware to track connection usage
 prisma.$use(async (params, next) => {
 const start = Date.now();
-      poolMonitor.onCheckout();
+  poolMonitor.onCheckout();
 
 try {
 const result = await next(params);
 return result;
 } finally {
-        poolMonitor.onReturn();
+    poolMonitor.onReturn();
 
 const duration = Date.now() - start;
 if (duration > 1000) {
 console.warn(`Slow query (${duration}ms):`, params.model, params.action);
-        }
-      }
-    });
+    }
+  }
+});
+
+```text
+
+---
 
 ## QUERY DETECTION
 
 ## Runtime Query Analyzer
 
-**Source:**Shopify Engineering, DataDog APM patterns**Why it's hard:** Requires request-scoped query tracking
+**Source:** Shopify Engineering, DataDog APM patterns
+**Why it's hard:** Requires request-scoped query tracking
 
-    /**
-
+```typescript
+/**
 - N+1 QUERY DETECTION SYSTEM
-- *THE PROBLEM: Fetching a list of orders, then fetching each order's
+- * THE PROBLEM: Fetching a list of orders, then fetching each order's
 - user individually = N+1 queries. Kills performance at scale.
-
--*STRIPE'S APPROACH: Track queries per request, alert on patterns*/
+- * STRIPE'S APPROACH: Track queries per request, alert on patterns
+ */
 
 class QueryAnalyzer {
 private queries: Map<string, { count: number; durations: number[] }> = new Map();
@@ -4590,16 +4225,16 @@ private requestId: string;
 
 constructor(requestId: string) {
 this.requestId = requestId;
-      }
+  }
 
 recordQuery(model: string, action: string, duration: number): void {
 const key = `${model}.${action}`;
-| const existing = this.queries.get(key) | { count: 0, durations: [] }; |
+| const existing = this.queries.get(key) |  | { count: 0, durations: [] }; |
 
-        existing.count++;
-        existing.durations.push(duration);
+    existing.count++;
+    existing.durations.push(duration);
 this.queries.set(key, existing);
-      }
+  }
 
 detectNPlusOne(): NPlusOneViolation[] {
 const violations: NPlusOneViolation[] = [];
@@ -4613,29 +4248,29 @@ count: data.count,
 totalDuration: data.durations.reduce((a, b) => a + b, 0),
 suggestion: this.getSuggestion(key),
         });
-        }
-        }
+      }
+    }
 
 return violations;
-      }
+  }
 
 private getSuggestion(query: string): string {
 const [model, action] = query.split('.');
 
-| if (action === 'findUnique' | action === 'findFirst') { |
+| if (action === 'findUnique' |  | action === 'findFirst') { |
 return `Use findMany with 'where: { id: { in: ids } }' instead of multiple ${query}`;
-        }
+    }
 
 return `Consider using include/select to fetch ${model} in parent query`;
-      }
-    }
+  }
+}
 
 interface NPlusOneViolation {
 query: string;
 count: number;
 totalDuration: number;
 suggestion: string;
-    }
+}
 
 // Middleware integration
 function createQueryAnalyzerMiddleware() {
@@ -4651,42 +4286,44 @@ const violations = analyzer.detectNPlusOne();
 if (violations.length > 0) {
 N+1 Queries Detected in', req.path);
 violations.forEach(v => {
-console.warn(`- ${v.query}: ${v.count} calls, ${v.totalDuration}ms total`);
-console.warn(`Fix: ${v.suggestion}`);
+console.warn(` - ${v.query}: ${v.count} calls, ${v.totalDuration}ms total`);
+console.warn(` Fix: ${v.suggestion}`);
         });
 
 // Send to APM
 apm.captureError(new Error('N+1 Query Pattern'), {
 custom: { violations, path: req.path },
         });
-        }
+      }
 
 return originalEnd.apply(this, args);
-        };
+    };
 
-        next();
-      };
-    }
+    next();
+  };
+}
+
+```text
+
+---
 
 ## DISTRIBUTED LOCK PATTERNS
 
 ## Redis Distributed Lock (Redlock)
 
-**Source:**Redis documentation, Martin Kleppmann's critique, Stripe's production usage**Why it's complex:** Distributed consensus is fundamentally hard
+**Source:** Redis documentation, Martin Kleppmann's critique, Stripe's production usage
+**Why it's complex:** Distributed consensus is fundamentally hard
 
-    /**
-
+```typescript
+/**
 - DISTRIBUTED LOCK WITH REDLOCK ALGORITHM
-- *USE CASE: Ensure only one instance processes a job
-
--* CRITICAL INSIGHT FROM MARTIN KLEPPMANN:
-
+- * USE CASE: Ensure only one instance processes a job
+- * CRITICAL INSIGHT FROM MARTIN KLEPPMANN:
 - Redlock is NOT safe for correctness-critical operations.
 - It's suitable for efficiency (preventing duplicate work),
 - NOT for safety (preventing data corruption).
-- *For safety-critical: Use database advisory locks or Zookeeper
-
-    */
+- * For safety-critical: Use database advisory locks or Zookeeper
+ */
 
 import Redlock from 'redlock';
 import Redis from 'ioredis';
@@ -4706,7 +4343,7 @@ driftFactor: 0.01,
 
 // Auto-extend before expiry
 automaticExtensionThreshold: 500, // ms before expiry to extend
-    });
+});
 
 async function processWithLock<T>(
 resourceId: string,
@@ -4729,28 +4366,24 @@ return result;
 if (error instanceof Redlock.LockError) {
 Could not acquire lock for ${resourceId}, already held`);
 throw new Error('Resource busy, try again later');
-        }
+    }
 throw error;
 } finally {
 // Release lock
 if (lock) {
 await lock.release();
 Released lock for ${resourceId}`);
-        }
-      }
     }
+  }
+}
 
-    /**
-
+/**
 - FENCING TOKENS FOR SAFETY
-- *Even with locks, there's a window where two processes might
+- * Even with locks, there's a window where two processes might
 - think they hold the lock (GC pause, network partition).
-
--* SOLUTION: Fencing token - monotonically increasing number
-
+- * SOLUTION: Fencing token - monotonically increasing number
 - that storage layer uses to reject stale writes.
-
-     */
+ */
 
 class FencedLock {
 private tokenCounter = 0;
@@ -4765,7 +4398,7 @@ const fencingToken = ++this.tokenCounter;
 await redis1.set(`fence:${resourceId}`, fencingToken.toString());
 
 return { lock, fencingToken };
-      }
+  }
 
 async writeWithFencing(
 resourceId: string,
@@ -4773,33 +4406,37 @@ fencingToken: number,
 data: any
 ): Promise<void> {
 // Only write if our fencing token is >= stored token
-| const storedToken = parseInt(await redis1.get(`fence:${resourceId}`) | '0'); |
+| const storedToken = parseInt(await redis1.get(`fence:${resourceId}`) |  | '0'); |
 
 if (fencingToken < storedToken) {
 throw new Error('Stale fencing token - another process has the lock');
-        }
+    }
 
 // Proceed with write
 await database.update({ where: { id: resourceId }, data });
-      }
-    }
+  }
+}
+
+```text
+
+---
 
 ## INCIDENT RESPONSE PATTERNS
 
 ## Production Debugging Runbook
 
-**Source:**Google SRE Book, PagerDuty Incident Response**Why it matters:** Every minute of downtime = lost revenue
+**Source:** Google SRE Book, PagerDuty Incident Response
+**Why it matters:** Every minute of downtime = lost revenue
 
-    /**
-
+```typescript
+/**
 - PRODUCTION INCIDENT DEBUGGING CHECKLIST
-- *1. IDENTIFY: What's broken? API errors? Latency? Data corruption?
-- 1. MITIGATE: Can we reduce impact NOW? (feature flags, rollback, scale)
-- 1. INVESTIGATE: Root cause analysis AFTER mitigation
-- 1. FIX: Deploy permanent fix
-- 1. POSTMORTEM: Document and prevent recurrence
-
-    */
+- * 1. IDENTIFY: What's broken? API errors? Latency? Data corruption?
+- 2. MITIGATE: Can we reduce impact NOW? (feature flags, rollback, scale)
+- 3. INVESTIGATE: Root cause analysis AFTER mitigation
+- 4. FIX: Deploy permanent fix
+- 5. POSTMORTEM: Document and prevent recurrence
+ */
 
 // Automated incident detection
 class IncidentDetector {
@@ -4807,24 +4444,24 @@ private metrics = {
 errorRate: 0,
 p99Latency: 0,
 activeConnections: 0,
-      };
+  };
 
 private thresholds = {
 errorRate: 0.01, // 1% error rate triggers alert
 p99Latency: 2000, // 2s p99 latency triggers alert
 connectionRatio: 0.9, // 90% of pool used triggers alert
-      };
+  };
 
 | checkHealth(): IncidentAlert | null { |
 const issues: string[] = [];
 
 if (this.metrics.errorRate > this.thresholds.errorRate) {
-issues.push(`Error rate ${(this.metrics.errorRate *100).toFixed(2)}%`);
-        }
+issues.push(`Error rate ${(this.metrics.errorRate * 100).toFixed(2)}%`);
+    }
 
 if (this.metrics.p99Latency > this.thresholds.p99Latency) {
 issues.push(`p99 latency ${this.metrics.p99Latency}ms`);
-        }
+    }
 
 if (issues.length > 0) {
 return {
@@ -4832,11 +4469,11 @@ severity: issues.length > 1 ? 'critical' : 'warning',
         issues,
 suggestedActions: this.getSuggestedActions(issues),
 timestamp: new Date(),
-        };
-        }
+      };
+    }
 
 return null;
-      }
+  }
 
 private getSuggestedActions(issues: string[]): string[] {
 const actions: string[] = [];
@@ -4845,24 +4482,24 @@ if (issues.some(i => i.includes('Error rate'))) {
 actions.push('Check recent deployments - consider rollback');
 actions.push('Check downstream dependencies');
 actions.push('Check database connection pool');
-        }
+    }
 
 if (issues.some(i => i.includes('latency'))) {
 actions.push('Check for long-running database queries');
 actions.push('Check for external API slowness');
 actions.push('Consider enabling caching bypass');
-        }
+    }
 
 return actions;
-      }
-    }
+  }
+}
 
 interface IncidentAlert {
 | severity: 'warning' | 'critical'; |
 issues: string[];
 suggestedActions: string[];
 timestamp: Date;
-    }
+}
 
 // Feature flag kill switch
 class KillSwitch {
@@ -4877,14 +4514,18 @@ KILL SWITCH: Disabled ${feature} - ${reason}`);
 await slack.send({
 channel: '#incidents',
 text: Feature "${feature}" has been disabled: ${reason}`,
-        });
-      }
+    });
+  }
 
 async isEnabled(feature: string): Promise<boolean> {
 const enabled = await redis.get(`feature:${feature}:enabled`);
 return enabled !== 'false';
-      }
-    }
+  }
+}
+
+```text
+
+---
 
 ### [STARTUP-SCALE LEVEL] CONTINUED: MORE PRODUCTION PATTERNS
 
@@ -4904,114 +4545,126 @@ return enabled !== 'false';
 
 ## The Actual Error Message
 
-    PrismaClientKnownRequestError:
-Invalid `prisma.order.create()`invocation:
-Foreign key constraint failed on the field:`userId`
+```yaml
+PrismaClientKnownRequestError:
+Invalid `prisma.order.create()` invocation:
+Foreign key constraint failed on the field: `userId`
 at RequestHandler.handleRequestError (/node_modules/@prisma/client/runtime/library.js)
+
+```text
 
 ## SENIOR DEV MENTAL MODEL
 
+```sql
 Foreign key error means:
-
 1. Trying to reference a record that doesn't exist
-1. Trying to delete a record that's still referenced
-1. Wrong ID type (string vs int)
-1. Database and Prisma schema out of sync
+2. Trying to delete a record that's still referenced
+3. Wrong ID type (string vs int)
+4. Database and Prisma schema out of sync
 
 My debug order:
-
 1. Check the ID being passed - does that record exist?
-1. Check the database directly
-1. Check if migrations are up to date
+2. Check the database directly
+3. Check if migrations are up to date
+
+```text
 
 ## COMMON CAUSES & FIXES
 
 ```typescript
-
-// BACKEND FIX: Express
-import cors from 'cors';
-
-// No CORS configured = browsers block requests
-app.use(express.json());
-
-// FIX: Add CORS middleware
-app.use(cors({
-origin: ['<http://localhost:3000',> '<https://yourapp.com'>],
-methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-allowedHeaders: ['Content-Type', 'Authorization'],
-credentials: true, // If using cookies
-}));
-
-// For Next.js API routes:
-// pages/api/users.ts or app/api/users/route.ts
-export async function GET(request: Request) {
-const response = NextResponse.json({ users: [] });
-
-response.headers.set('Access-Control-Allow-Origin', '*');
-response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
-
-return response;
-}
-
-// Handle preflight
-export async function OPTIONS(request: Request) {
-return new Response(null, {
-headers: {
-'Access-Control-Allow-Origin': '*',
-'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+// THE BUG: Creating order with non-existent user
+async function createOrder(data: CreateOrderInput) {
+return prisma.order.create({
+data: {
+userId: data.userId, // This user doesn't exist in database!
+items: data.items,
     },
   });
 }
 
-// FRONTEND: When using credentials (cookies)
-// You CANNOT use origin: '*' with credentials: true
-// Must specify exact origins
+// FIX: Verify user exists first
+async function createOrderSafe(data: CreateOrderInput) {
+// Check user exists
+const user = await prisma.user.findUnique({
+where: { id: data.userId },
+  });
 
-fetch('<https://api.example.com/users',> {
-credentials: 'include', // Send cookies
-});
+if (!user) {
+throw new NotFoundError(`User ${data.userId} not found`);
+  }
 
-// Backend must respond with:
-// Access-Control-Allow-Origin: <https://yourapp.com> (NOT *)
-// Access-Control-Allow-Credentials: true
+return prisma.order.create({
+data: {
+userId: data.userId,
+items: data.items,
+    },
+  });
+}
+
+// THE BUG: Deleting user with existing orders
+async function deleteUser(userId: string) {
+await prisma.user.delete({
+where: { id: userId },
+}); // FAILS if user has orders referencing them
+}
+
+// FIX 1: Delete related records first
+async function deleteUserWithOrders(userId: string) {
+await prisma.$transaction([
+prisma.order.deleteMany({ where: { userId } }),
+prisma.user.delete({ where: { id: userId } }),
+  ]);
+}
+
+// FIX 2: Use onDelete cascade in schema
+// schema.prisma
+model Order {
+id String @id @default(uuid())
+user User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+userId String
+}
 
 ```text
 
 ## DEBUG WORKFLOW
 
-```text
-
-1. Check Network tab - is request being made?
-2. Look for OPTIONS preflight request - does it succeed?
-3. Check response headers for Access-Control-Allow-Origin
-4. If using credentials, ensure origin is exact (not *)
-5. This is ALWAYS a backend fix - frontend can't bypass CORS
+```sql
+1. Find the exact field mentioned in error (e.g., `userId`)
+2. Log the value being passed: console.log('userId:', data.userId)
+3. Check if that ID exists: SELECT * FROM users WHERE id = 'xxx'
+4. Verify migrations: npx prisma migrate status
+5. Check schema matches database: npx prisma db pull
 
 ```text
 
 ---
 
-### [SENIOR DEV BRAIN LEVEL] CONTINUED: MORE ERROR PATTERNS
-
 ## ERROR: "ECONNREFUSED 127.0.0.1:5432"
 
-## The Actual Error Message 2
+## The Actual Error Message
 
+```yaml
 Error: connect ECONNREFUSED 127.0.0.1:5432
 at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1141:16)
 
-PrismaClientInitializationError: Can't reach database server at `localhost:5432`## SENIOR DEV MENTAL MODEL 2
+PrismaClientInitializationError: Can't reach database server at `localhost:5432`
 
+```text
+
+## SENIOR DEV MENTAL MODEL
+
+```text
 Database connection refused means:
-
 1. Database isn't running
-1. Wrong host/port in connection string
-1. Firewall blocking
-1. Docker networking issue (localhost inside container host localhost)
+2. Wrong host/port in connection string
+3. Firewall blocking
+4. Docker networking issue (localhost inside container host localhost)
 
-## COMMON CAUSES & FIXES 2
+```text
+
+## COMMON CAUSES & FIXES
+
+```bash
 
 ## CHECK 1: Is PostgreSQL running?
 
@@ -5040,7 +4693,6 @@ psql -U postgres -h localhost -p 5432
 | cat /etc/postgresql/14/main/postgresql.conf | grep port |
 
 ```typescript
-
 // THE BUG: Wrong DATABASE_URL in .env
 DATABASE_URL="postgresql://user:pass@localhost:5432/mydb"
 // But PostgreSQL is running on port 5433!
@@ -5061,34 +4713,44 @@ DATABASE_URL="postgresql://user:pass@postgres:5432/mydb"
 
 ```text
 
-## DEBUG WORKFLOW 2
+## DEBUG WORKFLOW
 
+```bash
 1. Is database service running? (brew services, systemctl, docker ps)
-1. Can you connect directly? (psql, pgcli, DBeaver)
-1. Is port correct? Check postgresql.conf or docker-compose.yml
-1. In Docker? Use container name, not localhost
-
+2. Can you connect directly? (psql, pgcli, DBeaver)
+3. Is port correct? Check postgresql.conf or docker-compose.yml
+4. In Docker? Use container name, not localhost
 | 5. Check firewall: sudo ufw status, netstat -an | grep 5432 |
+
+```text
+
+---
 
 ## ERROR: "Error: P2002 Unique constraint failed"
 
-## The Actual Error Message 2 2
+## The Actual Error Message
 
+```yaml
 PrismaClientKnownRequestError:
-Invalid`prisma.user.create()` invocation:
+Invalid `prisma.user.create()` invocation:
 Unique constraint failed on the fields: (`email`)
 
-## SENIOR DEV MENTAL MODEL 2 2
+```text
 
+## SENIOR DEV MENTAL MODEL
+
+```sql
 Unique constraint = trying to insert duplicate value.
 This is almost always:
-
 1. User already exists (registration)
-1. Race condition (two requests create same record)
-1. Missing upsert logic
+2. Race condition (two requests create same record)
+3. Missing upsert logic
 
-## COMMON CAUSES & FIXES 2 2
+```text
 
+## COMMON CAUSES & FIXES
+
+```typescript
 // THE BUG: Creating user without checking existence
 async function registerUser(email: string, password: string) {
 return prisma.user.create({
@@ -5136,10 +4798,11 @@ throw error;
   }
 }
 
+```text
+
 ## PRISMA ERROR CODE REFERENCE
 
 ```typescript
-
 // Common error codes you'll encounter:
 const PRISMA_ERRORS = {
 P2000: 'Value too long for column',
@@ -5172,25 +4835,31 @@ throw error;
 
 ## ERROR: "429 Too Many Requests"
 
-## The Actual Error Message 3
+## The Actual Error Message
 
+```http
 HTTP 429 Too Many Requests
 {
 "error": "Rate limit exceeded",
 "retryAfter": 60
 }
 
-## SENIOR DEV MENTAL MODEL 3
+```text
 
+## SENIOR DEV MENTAL MODEL
+
+```text
 Rate limiting hit. Options:
-
 1. Reduce request frequency (add delays)
-1. Implement exponential backoff
-1. Cache responses to reduce calls
-1. Request rate limit increase (for 3rd party APIs)
+2. Implement exponential backoff
+3. Cache responses to reduce calls
+4. Request rate limit increase (for 3rd party APIs)
 
-## COMMON CAUSES & FIXES 3
+```text
 
+## COMMON CAUSES & FIXES
+
+```typescript
 // THE BUG: Hammering API in loop
 async function syncAllUsers(userIds: string[]) {
 const results = [];
@@ -5256,27 +4925,37 @@ await sleep(100);
 return results;
 }
 
+```text
+
+---
+
 ## ERROR: "CORS policy: No 'Access-Control-Allow-Origin' header"
 
-## The Actual Error Message 4
+## The Actual Error Message
 
-Access to fetch at '<<<<https://api.example.com/users'>>>> from origin
-'<<<<http://localhost:3000'>>>> has been blocked by CORS policy:
+```python
+Access to fetch at 'https://api.example.com/users' from origin
+'http://localhost:3000' has been blocked by CORS policy:
 No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
-## SENIOR DEV MENTAL MODEL 4
+```text
 
+## SENIOR DEV MENTAL MODEL
+
+```text
 CORS errors happen when:
-
 1. Backend doesn't have CORS headers configured
-1. Frontend is on different domain than API
-1. Preflight OPTIONS request failing
-1. Credentials (cookies) require specific CORS config
+2. Frontend is on different domain than API
+3. Preflight OPTIONS request failing
+4. Credentials (cookies) require specific CORS config
 
 This is a BACKEND fix, not frontend!
 
-## COMMON CAUSES & FIXES 4
+```text
 
+## COMMON CAUSES & FIXES
+
+```typescript
 // BACKEND FIX: Express
 import cors from 'cors';
 
@@ -5285,7 +4964,7 @@ app.use(express.json());
 
 // FIX: Add CORS middleware
 app.use(cors({
-origin: ['<<<<http://localhost:3000',>>>> '<<<<https://yourapp.com'>>>],>
+origin: ['http://localhost:3000', 'https://yourapp.com'],
 methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 allowedHeaders: ['Content-Type', 'Authorization'],
 credentials: true, // If using cookies
@@ -5318,23 +4997,30 @@ headers: {
 // You CANNOT use origin: '*' with credentials: true
 // Must specify exact origins
 
-fetch('<<<<https://api.example.com/users',>>>> {
+fetch('https://api.example.com/users', {
 credentials: 'include', // Send cookies
 });
 
 // Backend must respond with:
-// Access-Control-Allow-Origin: <<<<https://yourapp.com>>>> (NOT *)
+// Access-Control-Allow-Origin: https://yourapp.com (NOT *)
 // Access-Control-Allow-Credentials: true
 
-## DEBUG WORKFLOW 3
+```text
 
+## DEBUG WORKFLOW
+
+```text
 1. Check Network tab - is request being made?
-1. Look for OPTIONS preflight request - does it succeed?
-1. Check response headers for Access-Control-Allow-Origin
-1. If using credentials, ensure origin is exact (not *)
-1. This is ALWAYS a backend fix - frontend can't bypass CORS
+2. Look for OPTIONS preflight request - does it succeed?
+3. Check response headers for Access-Control-Allow-Origin
+4. If using credentials, ensure origin is exact (not *)
+5. This is ALWAYS a backend fix - frontend can't bypass CORS
 
-### [SENIOR DEV BRAIN LEVEL] CONTINUED: MORE ERROR PATTERNS 2
+```text
+
+---
+
+### [SENIOR DEV BRAIN LEVEL] CONTINUED: MORE ERROR PATTERNS
 
 ## #### Density: 10-year veteran debugging wisdom
 
@@ -5349,7 +5035,6 @@ credentials: 'include', // Send cookies
 ## Model Naming Conventions
 
 ```prisma
-
 // schema.prisma
 
 // Use PascalCase for models
@@ -5384,7 +5069,6 @@ userId String @unique
 ## Relation Patterns
 
 ```prisma
-
 // ONE-TO-ONE: User -> Profile
 model User {
 id String  @id @default(uuid())
@@ -5444,12 +5128,11 @@ replies Comment[] @relation("CommentReplies")
 
 ---
 
-## Query Patterns 2
+## Query Patterns
 
 ## Efficient Includes
 
 ```typescript
-
 // BAD - Over-fetching everything
 const posts = await prisma.post.findMany({
 include: {
@@ -5489,77 +5172,55 @@ select: { name: true }
 ## Pagination Patterns
 
 ```typescript
-
-// Cursor-based pagination (recommended for large datasets)
-interface CursorPaginationParams {
-cursor?: string;
-limit: number;
-| direction?: 'forward' | 'backward'; |
-}
-
-async function paginateWithCursor<T>(
-query: any,
-params: CursorPaginationParams
-| ): Promise<{ items: T[]; nextCursor: string | null; hasMore: boolean }> { |
-const { cursor, limit, direction = 'forward' } = params;
-
-let whereClause = {};
-if (cursor) {
-whereClause = {
-id: direction === 'forward' ? { gt: cursor } : { lt: cursor }
-    };
-  }
-
-const items = await query.findMany({
-where: whereClause,
-take: limit + 1,
-orderBy: { id: direction === 'forward' ? 'asc' : 'desc' }
-  });
-
-const hasMore = items.length > limit;
-if (hasMore) items.pop();
-
-return {
-    items,
-nextCursor: items.length > 0 ? items[items.length - 1].id : null,
-    hasMore
-  };
-}
-
-// Offset-based pagination (simpler but slower for large offsets)
-interface OffsetPaginationParams {
-page: number;
-limit: number;
-}
-
-async function paginateWithOffset<T>(
-query: any,
-params: OffsetPaginationParams
-): Promise<{ items: T[]; page: number; totalPages: number; total: number }> {
-const { page, limit } = params;
+// OFFSET PAGINATION - Simple but slow on large datasets
+async function getPostsOffset(page: number, limit: number) {
 const skip = (page - 1) * limit;
 
-const [items, total] = await Promise.all([
-query.findMany({ skip, take: limit }),
-    query.count()
+const [posts, total] = await Promise.all([
+    prisma.post.findMany({
+      skip,
+take: limit,
+orderBy: { createdAt: 'desc' },
+    }),
+    prisma.post.count(),
   ]);
 
 return {
-    items,
-    page,
+    posts,
+pagination: {
+      page,
+      limit,
+      total,
 totalPages: Math.ceil(total / limit),
-    total
+    }
+  };
+}
+
+// CURSOR PAGINATION - Efficient for infinite scroll
+async function getPostsCursor(cursor?: string, limit: number = 20) {
+const posts = await prisma.post.findMany({
+take: limit + 1,  // Fetch one extra to check if more
+cursor: cursor ? { id: cursor } : undefined,
+skip: cursor ? 1 : 0,  // Skip cursor item
+orderBy: { createdAt: 'desc' },
+  });
+
+const hasMore = posts.length > limit;
+const items = hasMore ? posts.slice(0, -1) : posts;
+const nextCursor = hasMore ? items[items.length - 1].id : null;
+
+return {
+posts: items,
+    nextCursor,
+    hasMore,
   };
 }
 
 ```text
 
----
-
 ## Complex Filtering
 
 ```typescript
-
 // Dynamic filter builder
 interface PostFilters {
 search?: string;
@@ -5622,7 +5283,6 @@ return prisma.post.findMany({ where });
 ## Interactive Transactions
 
 ```typescript
-
 // Transfer money between accounts
 async function transferMoney(fromId: string, toId: string, amount: number) {
 return prisma.$transaction(async (tx) => {
@@ -5665,7 +5325,6 @@ timeout: 10000, // 10s to complete transaction
 ## Sequential vs Batch Operations
 
 ```typescript
-
 // SLOW - Sequential inserts
 async function createManyBad(items: Data[]) {
 for (const item of items) {
@@ -5694,22 +5353,24 @@ items.map(item => prisma.item.create({ data: item }))
 
 ## Soft Delete Pattern
 
+```prisma
 model Post {
 id String    @id @default(uuid())
 title String
 deletedAt DateTime?  // Soft delete marker
 }
 
+```typescript
 // Middleware to auto-filter soft-deleted
 prisma.$use(async (params, next) => {
 if (params.model === 'Post') {
 // Find operations
-| if (params.action === 'findFirst' | params.action === 'findMany') { |
+| if (params.action === 'findFirst' |  | params.action === 'findMany') { |
 params.args.where = {
         ...params.args.where,
 deletedAt: null,
-        };
-        }
+      };
+    }
 
 // findUnique - convert to findFirst with filter
 if (params.action === 'findUnique') {
@@ -5717,35 +5378,40 @@ params.action = 'findFirst';
 params.args.where = {
         ...params.args.where,
 deletedAt: null,
-        };
-        }
+      };
+    }
 
 // Delete -> Update to set deletedAt
 if (params.action === 'delete') {
 params.action = 'update';
 params.args.data = { deletedAt: new Date() };
-        }
+    }
 
 if (params.action === 'deleteMany') {
 params.action = 'updateMany';
 params.args.data = { deletedAt: new Date() };
-        }
-      }
+    }
+  }
 
 return next(params);
-    });
+});
 
 // Hard delete when needed
 async function hardDelete(id: string) {
 return prisma.$queryRaw`DELETE FROM "Post" WHERE id = ${id}`;
-    }
+}
 
-## API DESIGN PATTERNS 2
+```text
+
+---
+
+## API DESIGN PATTERNS
+
+---
 
 ## RESTful API Structure
 
 ```typescript
-
 // app/api/posts/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
@@ -5989,8 +5655,9 @@ return NextResponse.json(
 
 ---
 
-## Rate Limiting 2
+## Rate Limiting
 
+```typescript
 // lib/rate-limit.ts
 import { Redis } from 'ioredis';
 
@@ -6021,7 +5688,7 @@ await redis.pexpire(windowKey, config.windowMs);
   }
 
 const remaining = Math.max(0, config.max - count);
-const reset = Math.ceil((window *config.windowMs + config.windowMs) / 1000);
+const reset = Math.ceil((window * config.windowMs + config.windowMs) / 1000);
 
 return {
 success: count <= config.max,
@@ -6035,7 +5702,7 @@ export async function rateLimitMiddleware(request: NextRequest) {
 const ip = request.headers.get('x-forwarded-for') ?? 'unknown';
 
 const result = await rateLimit(ip, {
-windowMs: 60* 1000,  // 1 minute
+windowMs: 60 * 1000,  // 1 minute
 max: 100,  // 100 requests per minute
   });
 
@@ -6047,7 +5714,7 @@ status: 429,
 headers: {
 'X-RateLimit-Remaining': result.remaining.toString(),
 'X-RateLimit-Reset': result.reset.toString(),
-'Retry-After': Math.ceil((result.reset *1000 - Date.now()) / 1000).toString(),
+'Retry-After': Math.ceil((result.reset * 1000 - Date.now()) / 1000).toString(),
         }
       }
     );
@@ -6055,6 +5722,10 @@ headers: {
 
 return null; // Continue
 }
+
+```text
+
+---
 
 ## AUTHENTICATION PATTERNS
 
@@ -6121,7 +5792,7 @@ response.cookies.set('auth-token', token, {
 httpOnly: true,
 secure: process.env.NODE_ENV === 'production',
 sameSite: 'lax',
-maxAge: 60 *60* 24 * 7, // 7 days
+maxAge: 60 * 60 * 24 * 7, // 7 days
   });
 
 return response;
@@ -6217,27 +5888,11 @@ matcher: [
 
 | ### GraphQL Considerations | Aspect | REST | GraphQL |
 
-|
-
----
-
-| --|
-
----
-
-|
-
----
-
-|
+|--------|------|---------|
 | Flexibility | Fixed endpoints | Query what you need |
 | Caching | Easy (HTTP) | Complex |
 | Learning | Simple | Steeper |
-| Use case | Public APIs | Flexible clients |
-
----
-
-|
+| Use case | Public APIs | Flexible clients | --- |
 
 ## Database Patterns
 
@@ -6262,35 +5917,16 @@ Group related database operations into a single transaction
 
 | ### Query Builder vs ORM | Approach | Example | Flexibility | Safety |
 
-|
-
----
-
-| -|
-
----
-
-|
-
----
-
-| -|
-
----
-
-| --|
+|----------|---------|-------------|--------|
 | Raw SQL | pg | Maximum | Manual |
 | Query Builder | Knex | High | Medium |
-| ORM | Prisma | Medium | High |
+| ORM | Prisma | Medium | High | --- |
 
----
-
-|
-
-## Caching Strategies 2
+## Caching Strategies
 
 | ### Cache Patterns | Pattern | Description | Use Case |
 
+|---------|-------------|----------|
 | Cache-Aside | App manages cache | General purpose |
 | Read-Through | Cache loads on miss | Transparent caching |
 | Write-Through | Write to both | Strong consistency |
@@ -6327,6 +5963,7 @@ DEL user:123  // Invalidate
 
 | ### Queue Options | Queue | Best For |
 
+|-------|----------|
 | RabbitMQ | Complex routing |
 | Redis Streams | Simple, fast |
 | Kafka | High throughput |
@@ -6334,10 +5971,13 @@ DEL user:123  // Invalidate
 
 Store failed messages for investigation instead of losing them
 
+---
+
 ## Error Handling
 
 ## Error Types
 
+```typescript
 class AppError extends Error {
   constructor(
 public statusCode: number,
@@ -6353,6 +5993,8 @@ constructor(resource: string) {
 super(404, 'NOT_FOUND', resource + ' not found');
   }
 }
+
+```text
 
 ## Global Error Handler
 
@@ -6371,7 +6013,7 @@ message: err.message
 
 ---
 
-## Authentication Patterns 2
+## Authentication Patterns
 
 ## JWT Structure
 
@@ -6386,19 +6028,7 @@ Signature: HMACSHA256(header + payload, secret)
 
 | ### Session vs JWT | Aspect | Session | JWT |
 
-|
-
----
-
-| --|
-
----
-
-|
-
----
-
-| --|
+|--------|---------|-----|
 | Storage | Server | Client |
 | Scalability | Requires sticky/shared | Stateless |
 | Revocation | Easy | Need blocklist | ### Refresh Token Pattern |
@@ -6443,42 +6073,17 @@ startTime: Date.now()
 
 ## Structured Logging
 
-\\\ ypescript
-import pino from 'pino';
+```json
+{
+"level": "info",
+"message": "User created",
+"userId": "123",
+"requestId": "abc-def",
+"timestamp": "2024-01-01T00:00:00Z",
+"duration": 45
+}
 
-const logger = pino({
-| level: process.env.LOG_LEVEL |  | 'info', |
-formatters: {
-level: (label) => ({ level: label }),
-  },
-timestamp: pino.stdTimeFunctions.isoTime,
-});
-
-// Usage
-logger.info({ userId: user.id, action: 'login' }, 'User logged in');
-logger.error({ err, requestId }, 'Request failed');
-
-// Request logging middleware
-app.use((req, res, next) => {
-const start = Date.now();
-const requestId = crypto.randomUUID();
-
-req.log = logger.child({ requestId });
-
-res.on('finish', () => {
-    req.log.info({
-method: req.method,
-url: req.url,
-statusCode: res.statusCode,
-duration: Date.now() - start,
-}, 'Request completed');
-  });
-
-  next();
-});
-\\\
-
----
+```text
 
 ## Log Levels
 
@@ -6517,7 +6122,6 @@ res.status(healthy ? 200 : 503).json(checks);
 - Readiness: Can it handle traffic?
 
 ---
-
 ## MACHINE LEARNING FOR DEVELOPERS
 
 > **The patterns for AI integration**
@@ -6536,88 +6140,33 @@ res.status(healthy ? 200 : 503).json(checks);
 
 | ### Popular Services | Service | Best For |
 
-|
-
----
-
-|
-
----
-
-| -|
+|---------|----------|
 | OpenAI | LLMs, GPT |
 | AWS SageMaker | Custom models |
 | Hugging Face | Open source models |
-| Replicate | Easy deployment |
-
----
-
-|
+| Replicate | Easy deployment | --- |
 
 ## Prompt Engineering
 
 ## Best Practices
 
-```javascript
-app.post('/webhook', async (req, res) => {
-const sig = req.headers['stripe-signature'];
+- Be specific and detailed
 
-let event;
-try {
-event = stripe.webhooks.constructEvent(req.body, sig, secret);
-} catch (err) {
-return res.status(400).send('Webhook signature failed');
-  }
+- Provide examples (few-shot)
 
-// Handle idempotently
-await processEvent(event);
+- Set output format
 
-res.json({ received: true });
-});
-
-```text
+- Include constraints
 
 ## Example
 
 ```typescript
-// Aggregate Root
-class Order {
-id: OrderId;
-customerId: CustomerId;
-items: OrderItem[];
-status: OrderStatus;
-
-addItem(productId: ProductId, quantity: number) {
-if (this.status !== 'draft') {
-throw new Error('Cannot modify submitted order');
-    }
-this.items.push(new OrderItem(productId, quantity));
-  }
-}
+You are a helpful assistant.
+Task: Summarize the following text in 3 bullet points.
+Format: Return as JSON array of strings.
+Text: {user_input}
 
 ```text
-
----
-
-| ## Strategic Patterns | Pattern | Description |
-
-|
-
----
-
-|
-
----
-
-| -|
-| Context Map | Relationships between contexts |
-| Anti-Corruption Layer | Translate between contexts |
-| Shared Kernel | Overlapping models |
-| Open Host Service | Public API for context |
-
----
-
-|
 
 ---
 
@@ -6633,48 +6182,16 @@ this.items.push(new OrderItem(productId, quantity));
 
 ## Implementation
 
-```python
-from enum import Enum
-from datetime import datetime, timedelta
-
-class CircuitState(Enum):
-CLOSED = "closed"    # Normal operation
-OPEN = "open"  # Service down, reject requests
-HALF_OPEN = "half_open"  # Testing if service recovered
-
-class CircuitBreaker:
-def **init**(
-        self,
-failure_threshold: int = 5,
-timeout: int = 60,
-success_threshold: int = 2
-    ):
-self.failure_threshold = failure_threshold
-self.timeout = timeout
-self.success_threshold = success_threshold
-self.state = CircuitState.CLOSED
-self.failure_count = 0
-self.last_failure_time = None
-
-async def call(self, func, *args, **kwargs):
-if self.state == CircuitState.OPEN:
-if datetime.now() - self.last_failure_time > timedelta(seconds=self.timeout):
-self.state = CircuitState.HALF_OPEN
-        else:
-raise Exception("Circuit breaker is OPEN")
-
-        try:
-result = await func(*args, **kwargs)
-        self.on_success()
-return result
-except Exception as e:
-        self.on_failure()
-        raise
+```javascript
+const embedding = await openai.embeddings.create({
+model: "text-embedding-3-small",
+input: "Hello world"
+});
+// Store in vector database (Pinecone, Qdrant)
 
 ```text
 
 ---
-
 ## DEPTH
 
 > **The patterns that make apps fast**
@@ -6683,27 +6200,11 @@ except Exception as e:
 
 | ## Caching Layers | Layer | Latency | Use Case |
 
-|
-
----
-
-| -|
-
----
-
-|
-
----
-
-| -|
+|-------|---------|----------|
 | Browser | 0ms | Static assets |
 | CDN | 10-50ms | Images, JS, CSS |
 | Application | 1-5ms | Computed results |
-| Database | 5-20ms | Query cache |
-
----
-
-|
+| Database | 5-20ms | Query cache | --- |
 
 ## Redis Patterns
 
@@ -6745,9 +6246,7 @@ return user;
 
 ## Problem
 
-Microservices need multi-step transactions but cannot use traditional ACID across services.
-
----
+Cache expires, many requests hit database simultaneously
 
 ## Solutions
 
@@ -6770,15 +6269,17 @@ Pre-populate cache with hot data before traffic arrives
 Cache on first request (most common)
 
 ---
-
-## SCALING PATTERNS 2
+## SCALING PATTERNS
 
 > **The patterns for growing traffic**
 
+---
+
 | ## Horizontal vs Vertical | Type | Description | Limit |
 
+|------|-------------|-------|
 | Vertical | Bigger machine | Hardware max |
-| Horizontal | More machines | Unlimited |
+| Horizontal | More machines | Unlimited | --- |
 
 ## Database Scaling
 
@@ -6846,17 +6347,19 @@ Cache on first request (most common)
 - Monitor hit rate
 
 ---
-
-## ARCHITECTURE PATTERNS 2
+## ARCHITECTURE PATTERNS
 
 > **The patterns that structure systems**
 
+---
+
 | ## Monolith vs Microservices | Aspect | Monolith | Microservices |
 
+|--------|----------|---------------|
 | Deployment | All at once | Independent |
 | Scaling | Whole app | Per service |
 | Complexity | Simple start | Complex ops |
-| Team size | Small | Large |
+| Team size | Small | Large | --- |
 
 ## When to Use Microservices
 
@@ -6946,10 +6449,7 @@ Cache on first request (most common)
 
 - Nginx
 
-- Traefik
-
 ---
-
 ## PAYMENT INTEGRATION PATTERNS
 
 > **The patterns for handling money safely**
@@ -6970,8 +6470,9 @@ Cache on first request (most common)
 
 ## Webhook Handling
 
-## Best Practices 2
+## Best Practices
 
+```javascript
 app.post('/webhook', async (req, res) => {
 const sig = req.headers['stripe-signature'];
 
@@ -6988,20 +6489,15 @@ await processEvent(event);
 res.json({ received: true });
 });
 
+```text
+
 ## Idempotency
 
-```typescript
-emailQueue.process(async (job) => {
-// Check if already processed
-if (await isProcessed(job.id)) {
-    return;
-  }
+- Store processed event IDs
 
-await sendEmail(job.data);
-await markProcessed(job.id);
-});
+- Check before processing
 
-```text
+- Use database transactions
 
 ---
 
@@ -7015,10 +6511,15 @@ await markProcessed(job.id);
 
 - Format only for display
 
-## Example 2
+## Example
 
+```javascript
 // Store: 1999 (cents)
 // Display: formatCurrency(1999) -> ".99"
+
+```text
+
+---
 
 ## PCI Compliance
 
@@ -7037,7 +6538,6 @@ await markProcessed(job.id);
 - Let Stripe/PayPal handle
 
 ---
-
 ## CONCURRENCY PATTERNS
 
 > **The patterns for parallel execution**
@@ -7100,25 +6600,17 @@ items.map(item => limit(() => processItem(item)))
 
 ## When to Use
 
-```yaml
-OFFSET: Admin panels, search results
+- CPU-intensive tasks
 
-- Users expect page numbers
+- Don't block event loop
 
-- Data doesn't change often
+- Image processing
 
-CURSOR: Infinite scroll, feeds, real-time
+- Compression
 
-- Better performance
+## Example
 
-- Works with changing data
-
-```text
-
----
-
-## Example 3
-
+```javascript
 const { Worker } = require('worker_threads');
 
 const worker = new Worker('./heavy-task.js', {
@@ -7127,13 +6619,16 @@ workerData: { input: data }
 
 worker.on('message', (result) => console.log(result));
 
+```text
+
+---
 ## ERROR HANDLING PATTERNS
 
 > **The patterns that handle failures gracefully**
 
 ---
 
-## Error Types 2
+## Error Types
 
 ## Custom Error Classes
 
@@ -7166,47 +6661,6 @@ super(404, 'NOT_FOUND', resource + ' not found');
 ---
 
 ## Error Handling Middleware
-
-```typescript
-// middleware/errorHandler.ts
-import { Request, Response, NextFunction } from 'express';
-
-class AppError extends Error {
-statusCode: number;
-isOperational: boolean;
-
-constructor(message: string, statusCode: number) {
-    super(message);
-this.statusCode = statusCode;
-this.isOperational = true;
-  }
-}
-
-export function errorHandler(
-err: Error,
-req: Request,
-res: Response,
-next: NextFunction
-) {
-if (err instanceof AppError) {
-return res.status(err.statusCode).json({
-status: 'error',
-message: err.message
-    });
-  }
-
-// Log unexpected errors
-console.error('Unexpected error:', err);
-
-return res.status(500).json({
-status: 'error',
-message: 'Internal server error'
-  });
-}
-
-```text
-
----
 
 ## Express Pattern
 
@@ -7249,7 +6703,7 @@ message: 'Something went wrong'
 
 - Environment
 
-## Tools 2
+## Tools
 
 - Sentry
 
@@ -7259,6 +6713,7 @@ message: 'Something went wrong'
 
 - LogRocket
 
+---
 ## API DOCUMENTATION PATTERNS
 
 > **The patterns for documenting APIs**
@@ -7297,23 +6752,11 @@ ref: '#/components/schemas/User'
 
 | ### Tools | Tool | Framework |
 
-|
-
----
-
-|
-
----
-
-| --|
+|------|-----------|
 | Swagger UI | OpenAPI |
 | Redoc | OpenAPI |
 | GraphQL Playground | GraphQL |
-| Postman | Any |
-
----
-
-|
+| Postman | Any | --- |
 
 ## Documentation Best Practices
 
@@ -7338,17 +6781,19 @@ ref: '#/components/schemas/User'
 - Version your docs
 
 ---
-
-## EMAIL PATTERNS 2
+## EMAIL PATTERNS
 
 > **The patterns for transactional email**
 
+---
+
 | ## Email Service Selection | Service | Best For |
 
+|---------|----------|
 | SendGrid | Scale, analytics |
 | Postmark | Deliverability |
 | AWS SES | Cost, AWS ecosystem |
-| Resend | Developer experience |
+| Resend | Developer experience | --- |
 
 ## Email Types
 
@@ -7406,7 +6851,6 @@ await logEmail(to, template);
 - Avoid spam trigger words
 
 ---
-
 ## FILE HANDLING PATTERNS
 
 > **The patterns for uploads and storage**
@@ -7425,35 +6869,11 @@ await logEmail(to, template);
 
 ## Presigned URLs (S3)
 
-```typescript
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
+- Client uploads directly to S3
 
-async function getUploadUrl(fileName: string, contentType: string) {
-const key = `uploads/${Date.now()}-${fileName}`;
+- Server generates signed URL
 
-const command = new PutObjectCommand({
-Bucket: process.env.S3_BUCKET,
-Key: key,
-ContentType: contentType
-  });
-
-const signedUrl = await getSignedUrl(s3Client, command, {
-expiresIn: 3600  // 1 hour
-  });
-
-return { uploadUrl: signedUrl, key };
-}
-
-// Client uploads directly to S3
-const { uploadUrl, key } = await api.getUploadUrl('image.png', 'image/png');
-await fetch(uploadUrl, {
-method: 'PUT',
-body: file,
-headers: { 'Content-Type': 'image/png' }
-});
-
-```text
+- Scales well
 
 ---
 
@@ -7482,29 +6902,6 @@ headers: { 'Content-Type': 'image/jpeg' }
 
 ## Image Processing
 
-```typescript
-import sharp from 'sharp';
-
-async function processImage(buffer: Buffer) {
-// Resize and convert
-const processed = await sharp(buffer)
-.resize(800, 600, { fit: 'inside' })
-.webp({ quality: 80 })
-    .toBuffer();
-
-// Generate thumbnail
-const thumbnail = await sharp(buffer)
-.resize(200, 200, { fit: 'cover' })
-.webp({ quality: 60 })
-    .toBuffer();
-
-return { processed, thumbnail };
-}
-
-```text
-
----
-
 ## Resize on Upload
 
 - Store original
@@ -7527,26 +6924,13 @@ return { processed, thumbnail };
 
 ## Validation
 
-```typescript
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
-const MAX_SIZE = 10 *1024* 1024;  // 10MB
+- Check file type (magic bytes)
 
-function validateFile(file: File) {
-if (!ALLOWED_TYPES.includes(file.type)) {
-throw new Error('Invalid file type');
-  }
+- Limit file size
 
-if (file.size > MAX_SIZE) {
-throw new Error('File too large');
-  }
+- Scan for malware
 
-// Check magic bytes for actual type
-// Don't trust Content-Type header alone!
-}
-
-```text
-
----
+- Rename files (prevent path traversal)
 
 ## Storage
 
@@ -7557,7 +6941,6 @@ throw new Error('File too large');
 - Set appropriate permissions
 
 ---
-
 ## MICROSERVICES PATTERNS
 
 > **The patterns for distributed systems**
@@ -7566,31 +6949,13 @@ throw new Error('File too large');
 
 | ## Service Communication | Pattern | Type | Use Case |
 
-|
-
----
-
-|
-
----
-
-|
-
----
-
-| -|
+|---------|------|----------|
 | REST | Sync | Simple CRUD |
 | gRPC | Sync | High performance |
 | Message Queue | Async | Decoupled |
-| Event Bus | Async | Broadcast |
-
----
-
-|
+| Event Bus | Async | Broadcast | --- |
 
 ## Service Discovery
-
-```yaml
 
 ## Options
 
@@ -7605,7 +6970,6 @@ throw new Error('File too large');
 ## Pattern
 
 ```text
-
 Service A -> Service Registry -> Service B address
 
 ```text
@@ -7614,7 +6978,7 @@ Service A -> Service Registry -> Service B address
 
 ## API Gateway
 
-## Responsibilities 2
+## Responsibilities
 
 - Authentication
 
@@ -7626,7 +6990,7 @@ Service A -> Service Registry -> Service B address
 
 - Response caching
 
-## Tools 3
+## Tools
 
 - Kong
 
@@ -7636,29 +7000,13 @@ Service A -> Service Registry -> Service B address
 
 - Traefik
 
-## Circuit Breaker
-
-```javascript
-
-const circuitBreaker = new CircuitBreaker(callService, {
-failureThreshold: 5,  // Open after 5 failures
-resetTimeout: 30000,  // Try again after 30s
-fallback: () => cachedData
-});
-
-// States:
-// CLOSED -> Normal operation
-// OPEN -> Fast-fail, use fallback
-// HALF-OPEN -> Testing recovery
-
-```text
-
 ---
+
+## Circuit Breaker
 
 ## States
 
 ```yaml
-
 CLOSED -> OPEN -> HALF-OPEN -> CLOSED
 
 CLOSED: Normal operation
@@ -7667,125 +7015,51 @@ HALF-OPEN: Test if recovered
 
 ```text
 
-## Implementation 2
+## Implementation
 
+```typescript
 const breaker = new CircuitBreaker(riskyFunction, {
 timeout: 3000,
 errorThresholdPercentage: 50,
 resetTimeout: 30000
 });
 
-## Saga Pattern
-
-```text
-
-CHOREOGRAPHY (Event-driven):
-Order Created -> Payment Service
-Payment Success -> Inventory Service
-Inventory Reserved -> Shipping Service
-
-ORCHESTRATION (Central coordinator):
-Saga Orchestrator calls each service
-Tracks state
-Handles compensating transactions
-
 ```text
 
 ---
+
+## Saga Pattern
 
 ## Choreography
 
-Each service listens for events and publishes results.
-
-```text
-
-Order Service creates order
--> Publishes OrderCreated
--> Payment Service charges card
--> Publishes PaymentCompleted
--> Inventory Service reserves stock
--> Publishes StockReserved
-
-```text
-
----
+Each service listens for events and acts
 
 ## Orchestration
 
-Central coordinator manages the workflow.
-
-```text
-
-Saga Orchestrator:
-
-1. Tell Order Service to create order
-2. Tell Payment Service to charge
-3. Tell Inventory to reserve
-4. If any fails: send compensating commands
-
-```text
-
----
+Central coordinator directs the flow
 
 ## Compensation
 
-| Undo actions when later steps fail. | Step | Compensation |
-|
+Undo steps if later step fails
 
 ---
-
-|
-
----
-
-| --|
-| Create Order | Cancel Order |
-| Charge Card | Refund Card |
-| Reserve Stock | Release Stock |
-
----
-
-|
-
-| ## Comparison | Aspect | Choreography | Orchestration |
-
-|
-
----
-
-| --|
-
----
-
-| --|
-
----
-
-|
-| Coupling | Loose | Tighter |
-| Complexity | Distributed | Centralized |
-| Visibility | Hard to trace | Easy to monitor |
-| Best for | Simple flows | Complex flows |
-
----
-
-|
-
----
-
-## GRAPHQL PATTERNS 2
+## GRAPHQL PATTERNS
 
 > **The patterns for flexible APIs**
 
+---
+
 | ## GraphQL vs REST | Aspect | REST | GraphQL |
 
+|--------|------|---------|
 | Endpoints | Multiple | Single |
 | Fetching | Over/under fetch | Exact data |
 | Versioning | URL versioning | Schema evolution |
-| Caching | HTTP caching | Apollo cache |
+| Caching | HTTP caching | Apollo cache | --- |
 
-## Schema Design 2
+## Schema Design
 
+```graphql
 type User {
 id: ID!
 email: String!
@@ -7808,10 +7082,13 @@ type Mutation {
 createUser(email: String!, name: String): User!
 }
 
+```text
+
+---
+
 ## Resolver Pattern
 
 ```typescript
-
 const resolvers = {
 Query: {
 user: (_, { id }, context) => {
@@ -7834,7 +7111,6 @@ return context.db.posts.findByUserId(user.id);
 ## DataLoader
 
 ```typescript
-
 const userLoader = new DataLoader(async (ids) => {
 const users = await db.users.findMany({ id: { in: ids } });
 return ids.map(id => users.find(u => u.id === id));
@@ -7846,7 +7122,6 @@ const user = await userLoader.load(userId);
 ```text
 
 ---
-
 ## JS PATTERNS
 
 > **The patterns for server-side JavaScript**
@@ -7858,7 +7133,6 @@ const user = await userLoader.load(userId);
 ## PM2
 
 ```bash
-
 pm2 start app.js -i max    # Cluster mode
 pm2 reload app  # Zero-downtime restart
 pm2 logs  # View logs
@@ -7866,8 +7140,9 @@ pm2 monit  # Monitor
 
 ```text
 
-## Graceful Shutdown 2
+## Graceful Shutdown
 
+```typescript
 process.on('SIGTERM', async () => {
 console.log('Shutting down...');
 await server.close();
@@ -7875,9 +7150,13 @@ await db.disconnect();
   process.exit(0);
 });
 
+```text
+
+---
+
 ## Streams
 
-## When to Use 2
+## When to Use
 
 - Processing large files
 
@@ -7885,8 +7164,9 @@ await db.disconnect();
 
 - Memory efficiency
 
-## Example 4
+## Example
 
+```typescript
 const readable = fs.createReadStream('large-file.csv');
 const writable = fs.createWriteStream('output.csv');
 
@@ -7894,10 +7174,13 @@ readable
   .pipe(transform)
   .pipe(writable);
 
+```text
+
+---
+
 ## Event Emitter
 
 ```typescript
-
 import { EventEmitter } from 'events';
 
 const emitter = new EventEmitter();
@@ -7916,7 +7199,6 @@ emitter.emit('order:created', { id: 123, total: 99.99 });
 ## Clustering
 
 ```typescript
-
 import cluster from 'cluster';
 import os from 'os';
 
@@ -7932,7 +7214,6 @@ for (let i = 0; i < numCPUs; i++) {
 ```text
 
 ---
-
 ## API VERSIONING STRATEGIES
 
 > **The patterns for evolving APIs**
@@ -7941,57 +7222,12 @@ for (let i = 0; i < numCPUs; i++) {
 
 | ## Versioning Methods | Method | Example | Pros | Cons |
 
-|
-
----
-
-| --|
-
----
-
-|
-
----
-
-|
-
----
-
-|
+|--------|---------|------|------|
 | URL Path | /v1/users | Clear, cacheable | URL changes |
 | Header | Accept: v1 | Clean URLs | Hidden |
-| Query | ?version=1 | Easy to test | Less RESTful |
-
----
-
-|
+| Query | ?version=1 | Easy to test | Less RESTful | --- |
 
 ## Backwards Compatibility
-
-```javascript
-
-// Support both old and new format
-function getUser(id) {
-const user = await db.user.findUnique({ where: { id } });
-
-return {
-id: user.id,
-name: user.name,
-
-// v1: deprecated field
-fullName: user.name,
-
-// v2: new structure
-profile: {
-displayName: user.name,
-avatar: user.avatarUrl
-    }
-  };
-}
-
-```text
-
----
 
 ## Safe Changes
 
@@ -8015,45 +7251,35 @@ avatar: user.avatarUrl
 
 ## Deprecation Strategy
 
-```yaml
-
-1. Announce deprecation (add header)
-
-Deprecation: true
-Sunset: Sat, 1 Jan 2025 00:00:00 GMT
-
-1. Log usage of deprecated endpoints
-
-2. Notify high-usage clients directly
-
-3. Grace period (3-6 months)
-
-4. Remove endpoint
+```text
+1. Announce deprecation
+2. Add Deprecation header
+3. Log usage metrics
+4. Provide migration guide
+5. Set sunset date
+6. Remove after sunset
 
 ```text
-
----
 
 ## Sunset Header
 
 ```yaml
-
 Deprecation: true
 Sunset: Sat, 31 Dec 2024 23:59:59 GMT
-Link: <<https://docs.example.com/migration>>; rel="deprecation"
+Link: <https://docs.example.com/migration>; rel="deprecation"
 
 ```text
 
 ---
-
 ## WEBHOOKS IMPLEMENTATION
 
 > **The patterns for event notifications**
 
+---
+
 ## Webhook Architecture
 
 ```text
-
 Event occurs on Provider
 -> Provider calls Subscriber URL
 -> Subscriber processes event
@@ -8067,44 +7293,25 @@ Event occurs on Provider
 ## Sending Webhooks
 
 ```typescript
+async function sendWebhook(url: string, event: WebhookEvent) {
+const payload = JSON.stringify(event);
+const signature = createHmac('sha256', secret)
+    .update(payload)
+    .digest('hex');
 
-async function sendWebhook(event: string, payload: any, webhookUrl: string) {
-const timestamp = Date.now();
-const signature = createSignature(payload, timestamp);
-
-try {
-const response = await fetch(webhookUrl, {
+const response = await fetch(url, {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',
 'X-Webhook-Signature': signature,
-'X-Webhook-Timestamp': timestamp.toString()
-      },
-body: JSON.stringify({
-        event,
-        payload,
-        timestamp
-      }),
-signal: AbortSignal.timeout(10000)  // 10s timeout
-    });
+'X-Webhook-ID': event.id
+    },
+body: payload
+  });
 
 if (!response.ok) {
-throw new Error(`Webhook failed: ${response.status}`);
-    }
-
-return { success: true };
-} catch (error) {
-// Queue for retry
-await webhookQueue.add('retry', { event, payload, webhookUrl });
-return { success: false, error };
+await scheduleRetry(url, event);
   }
-}
-
-function createSignature(payload: any, timestamp: number) {
-const data = `${timestamp}.${JSON.stringify(payload)}`;
-return crypto.createHmac('sha256', WEBHOOK_SECRET)
-    .update(data)
-    .digest('hex');
 }
 
 ```text
@@ -8114,32 +7321,26 @@ return crypto.createHmac('sha256', WEBHOOK_SECRET)
 ## Receiving Webhooks
 
 ```typescript
-
+app.post('/webhook', async (req, res) => {
 // Verify signature
-function verifyWebhookSignature(req: Request): boolean {
 const signature = req.headers['x-webhook-signature'];
-const timestamp = req.headers['x-webhook-timestamp'];
+const expected = createHmac('sha256', secret)
+    .update(JSON.stringify(req.body))
+    .digest('hex');
 
-// Check timestamp not too old (prevent replay)
-const age = Date.now() - parseInt(timestamp);
-if (age > 5 *60* 1000) return false;  // 5 minutes
-
-const expectedSig = createSignature(req.body, parseInt(timestamp));
-return crypto.timingSafeEqual(
-    Buffer.from(signature),
-    Buffer.from(expectedSig)
-  );
-}
-
-app.post('/webhooks/stripe', express.raw({ type: 'application/json' }), (req, res) => {
-if (!verifyWebhookSignature(req)) {
+if (signature !== expected) {
 return res.status(401).send('Invalid signature');
   }
 
-// Process webhook
-  processWebhook(req.body);
+// Process idempotently (check event ID)
+const eventId = req.headers['x-webhook-id'];
+if (await isProcessed(eventId)) {
+return res.status(200).send('Already processed');
+  }
 
-// Always respond quickly
+await processEvent(req.body);
+await markProcessed(eventId);
+
   res.status(200).send('OK');
 });
 
@@ -8158,7 +7359,6 @@ return res.status(401).send('Invalid signature');
 - Alert on repeated failures
 
 ---
-
 ## DEPENDENCY INJECTION
 
 > **The patterns for testable code**
@@ -8180,7 +7380,6 @@ return res.status(401).send('Invalid signature');
 ## Manual DI
 
 ```typescript
-
 // Define interface
 interface UserRepository {
 findById(id: string): Promise<User>;
@@ -8218,7 +7417,6 @@ const testService = new UserService(mockRepo);
 ## Tsyringe Example
 
 ```typescript
-
 import { container, injectable, inject } from 'tsyringe';
 
 @injectable()
@@ -8233,7 +7431,6 @@ const userService = container.resolve(UserService);
 ```text
 
 ---
-
 ## ASYNC PATTERNS IN DEPTH
 
 > **The patterns for asynchronous code**
@@ -8245,7 +7442,6 @@ const userService = container.resolve(UserService);
 ## Parallel Execution
 
 ```javascript
-
 const [users, orders] = await Promise.all([
   getUsers(),
   getOrders()
@@ -8256,7 +7452,6 @@ const [users, orders] = await Promise.all([
 ## Handle Partial Failures
 
 ```javascript
-
 const results = await Promise.allSettled([
   riskyOperation1(),
   riskyOperation2()
@@ -8271,18 +7466,20 @@ const failures = results.filter(r => r.status === 'rejected');
 
 ## Race Conditions
 
-## Problem 2
+## Problem
 
+```javascript
 // User types fast, responses arrive out of order
 async function search(query) {
 const results = await fetch('/search?q=' + query);
 setResults(results); // Might show stale results!
 }
 
+```text
+
 ## Solution with Abort
 
 ```javascript
-
 let controller;
 
 async function search(query) {
@@ -8305,21 +7502,9 @@ if (e.name !== 'AbortError') throw e;
 
 | ## Debounce vs Throttle | Pattern | Use Case |
 
-|
-
----
-
-|
-
----
-
-| -|
+|---------|----------|
 | Debounce | Search input (wait for pause) |
-| Throttle | Scroll events (limit rate) |
-
----
-
-|
+| Throttle | Scroll events (limit rate) | --- |
 
 ---
 
@@ -8329,7 +7514,7 @@ if (e.name !== 'AbortError') throw e;
 
 ---
 
-## Core Concepts 2
+## Core Concepts
 
 ## Bounded Context
 
@@ -8361,8 +7546,9 @@ Object defined by attributes
 
 ---
 
-## Example 5
+## Example
 
+```typescript
 // Aggregate Root
 class Order {
 id: OrderId;
@@ -8378,25 +7564,37 @@ this.items.push(new OrderItem(productId, quantity));
   }
 }
 
+```text
+
+---
+
 | ## Strategic Patterns | Pattern | Description |
 
+|---------|-------------|
 | Context Map | Relationships between contexts |
 | Anti-Corruption Layer | Translate between contexts |
 | Shared Kernel | Overlapping models |
-| Open Host Service | Public API for context |
+| Open Host Service | Public API for context | --- |
 
-## SAGA PATTERN 2
+---
+
+## SAGA PATTERN
 
 > **The patterns for distributed transactions**
 
-## Problem 3
+---
+
+## Problem
 
 Microservices need multi-step transactions but cannot use traditional ACID across services.
 
-## Choreography 2
+---
+
+## Choreography
 
 Each service listens for events and publishes results.
 
+```text
 Order Service creates order
 -> Publishes OrderCreated
 -> Payment Service charges card
@@ -8404,31 +7602,42 @@ Order Service creates order
 -> Inventory Service reserves stock
 -> Publishes StockReserved
 
-## Orchestration 2
+```text
+
+---
+
+## Orchestration
 
 Central coordinator manages the workflow.
 
+```text
 Saga Orchestrator:
-
 1. Tell Order Service to create order
-1. Tell Payment Service to charge
-1. Tell Inventory to reserve
-1. If any fails: send compensating commands
+2. Tell Payment Service to charge
+3. Tell Inventory to reserve
+4. If any fails: send compensating commands
 
-## Compensation 2
+```text
+
+---
+
+## Compensation
 
 | Undo actions when later steps fail. | Step | Compensation |
-
+|------|--------------|
 | Create Order | Cancel Order |
 | Charge Card | Refund Card |
-| Reserve Stock | Release Stock |
+| Reserve Stock | Release Stock | --- |
 
 | ## Comparison | Aspect | Choreography | Orchestration |
 
+|--------|--------------|---------------|
 | Coupling | Loose | Tighter |
 | Complexity | Distributed | Centralized |
 | Visibility | Hard to trace | Easy to monitor |
-| Best for | Simple flows | Complex flows |
+| Best for | Simple flows | Complex flows | --- |
+
+---
 
 ## WEB SOCKETS SCALING
 
@@ -8445,7 +7654,6 @@ WebSockets are stateful - connection lives on one server.
 ## Solution: Pub/Sub
 
 ```text
-
 All servers subscribe to Redis
 
 User A on Server 1 sends message
@@ -8460,7 +7668,6 @@ User A on Server 1 sends message
 ## Redis Pub/Sub
 
 ```javascript
-
 // Subscribe
 const subscriber = redis.duplicate();
 subscriber.subscribe('chat');
@@ -8476,7 +7683,7 @@ redis.publish('chat', JSON.stringify({ user, text }));
 
 ---
 
-## Connection Management 2
+## Connection Management
 
 - Use sticky sessions (same server)
 
@@ -8486,11 +7693,16 @@ redis.publish('chat', JSON.stringify({ user, text }));
 
 - Handle reconnection gracefully
 
+---
+
 | ## Alternatives | Technology | Latency | Complexity |
 
+|------------|---------|------------|
 | WebSocket | Lowest | High |
 | SSE | Low | Medium |
-| Long Polling | Medium | Low |
+| Long Polling | Medium | Low | --- |
+
+---
 
 ## QUEUE PATTERNS
 
@@ -8498,7 +7710,7 @@ redis.publish('chat', JSON.stringify({ user, text }));
 
 ---
 
-## When to Use Queues 2
+## When to Use Queues
 
 - Decouple services
 
@@ -8508,10 +7720,11 @@ redis.publish('chat', JSON.stringify({ user, text }));
 
 - Schedule tasks
 
+---
+
 ## Bull Queue (Redis)
 
 ```typescript
-
 import Queue from 'bull';
 
 const emailQueue = new Queue('emails', redisUrl);
@@ -8537,7 +7750,6 @@ await sendEmail(job.data);
 Messages that fail repeatedly go to DLQ for inspection.
 
 ```typescript
-
 const queue = new Queue('main', {
 settings: {
 maxStalledCount: 3,
@@ -8552,8 +7764,9 @@ Math.pow(2, attemptsMade) * 1000
 
 ---
 
-## Idempotency 2
+## Idempotency
 
+```typescript
 emailQueue.process(async (job) => {
 // Check if already processed
 if (await isProcessed(job.id)) {
@@ -8564,14 +7777,18 @@ await sendEmail(job.data);
 await markProcessed(job.id);
 });
 
-## MIDDLEWARE PATTERNS 2
+```text
 
->**The request/response pipeline**
+---
+## MIDDLEWARE PATTERNS
+
+> **The request/response pipeline**
+
+---
 
 ## Express Middleware Order
 
 ```javascript
-
 app.use(helmet()); // 1. Security headers
 app.use(cors()); // 2. CORS
 app.use(express.json()); // 3. Parse body
@@ -8588,7 +7805,6 @@ app.use(errorHandler); // 8. Error handling (LAST!)
 ## Request ID Pattern
 
 ```javascript
-
 app.use((req, res, next) => {
 | req.id = req.headers['x-request-id'] |  | uuid(); |
 res.set('X-Request-ID', req.id);
@@ -8602,7 +7818,6 @@ res.set('X-Request-ID', req.id);
 ## Async Error Wrapper
 
 ```javascript
-
 const asyncHandler = (fn) => (req, res, next) => {
 Promise.resolve(fn(req, res, next)).catch(next);
 };
@@ -8615,7 +7830,6 @@ const users = await getUsers(); // Errors auto-caught!
 ```text
 
 ---
-
 ## FASTIFY PATTERNS
 
 > **The high-performance Node.js framework**
@@ -8625,7 +7839,6 @@ const users = await getUsers(); // Errors auto-caught!
 ## Basic Setup
 
 ```javascript
-
 import Fastify from 'fastify';
 
 const fastify = Fastify({
@@ -8648,7 +7861,6 @@ await fastify.listen({ port: 3000 });
 ## Schema Validation
 
 ```javascript
-
 const userSchema = {
 body: {
 type: 'object',
@@ -8678,7 +7890,6 @@ fastify.post('/users', { schema: userSchema }, handler);
 ## Plugins Pattern
 
 ```javascript
-
 // Encapsulated context
 fastify.register(async function (fastify) {
 fastify.decorate('db', prisma);
@@ -8691,15 +7902,15 @@ return fastify.db.user.findMany();
 ```text
 
 ---
-
-## GRACEFUL SHUTDOWN 3
+## GRACEFUL SHUTDOWN
 
 > **The zero-downtime shutdown patterns**
+
+---
 
 ## Express Graceful Shutdown
 
 ```javascript
-
 const server = app.listen(3000);
 
 process.on('SIGTERM', async () => {
@@ -8733,13 +7944,10 @@ console.error('Forced shutdown');
 ## Kubernetes Integration
 
 ```yaml
-
 spec:
 terminationGracePeriodSeconds: 60
   containers:
-
 - name: app
-
       lifecycle:
         preStop:
         exec:
@@ -8752,7 +7960,6 @@ command: ["/bin/sh", "-c", "sleep 10"]
 ## Connection Draining
 
 ```javascript
-
 // Track active connections
 let connections = new Set();
 
@@ -8769,7 +7976,6 @@ for (const conn of connections) {
 ```text
 
 ---
-
 ## SUPABASE PATTERNS
 
 > **The backend-as-a-service patterns**
@@ -8779,7 +7985,6 @@ for (const conn of connections) {
 ## Row Level Security
 
 ```sql
-
 -- Enable RLS
 ALTER TABLE posts ENABLE ROW LEVEL SECURITY;
 
@@ -8800,26 +8005,21 @@ WITH CHECK (auth.uid() = user_id);
 ## Client Usage
 
 ```typescript
+import { createClient } from '@supabase/supabase-js';
 
-// In React component
-function UserProfile({ id }: { id: string }) {
-const { data, isLoading } = trpc.user.getById.useQuery({ id });
+const supabase = createClient(url, anonKey);
 
-const updateMutation = trpc.user.update.useMutation({
-onSuccess: () => {
-utils.user.getById.invalidate({ id });
-    }
-  });
+// Auth
+const { data, error } = await supabase.auth.signInWithPassword({
+email: 'user@example.com',
+password: 'password'
+});
 
-return (
-    <div>
-      <h1>{data?.name}</h1>
-<button onClick={() => updateMutation.mutate({ name: 'New Name' })}>
-        Update
-      </button>
-    </div>
-  );
-}
+// Query
+const { data: posts } = await supabase
+  .from('posts')
+.select('*, author:users(name)')
+.order('created_at', { ascending: false });
 
 ```text
 
@@ -8828,7 +8028,6 @@ return (
 ## Real-time Subscriptions
 
 ```typescript
-
 const channel = supabase
   .channel('posts')
   .on('postgres_changes',
@@ -8842,7 +8041,6 @@ console.log('New post:', payload.new);
 ```text
 
 ---
-
 ## TRPC PATTERNS
 
 > **The end-to-end typesafe API patterns**
@@ -8852,31 +8050,26 @@ console.log('New post:', payload.new);
 ## Router Definition
 
 ```typescript
+import { initTRPC } from '@trpc/server';
+import { z } from 'zod';
 
-// server/routers/user.ts
-export const userRouter = router({
-getById: publicProcedure
-.input(z.object({ id: z.string() }))
-.query(async ({ input, ctx }) => {
-return ctx.db.user.findUnique({ where: { id: input.id } });
+const t = initTRPC.create();
+
+export const appRouter = t.router({
+userById: t.procedure
+    .input(z.string())
+.query(async ({ input }) => {
+return await db.user.findUnique({ where: { id: input } });
     }),
 
-update: protectedProcedure
+createUser: t.procedure
     .input(z.object({
-name: z.string().min(2)
+email: z.string().email(),
+name: z.string()
     }))
-.mutation(async ({ input, ctx }) => {
-return ctx.db.user.update({
-where: { id: ctx.user.id },
-data: input
-      });
+.mutation(async ({ input }) => {
+return await db.user.create({ data: input });
     })
-});
-
-// Root router
-export const appRouter = router({
-user: userRouter,
-post: postRouter
 });
 
 export type AppRouter = typeof appRouter;
@@ -8885,8 +8078,9 @@ export type AppRouter = typeof appRouter;
 
 ---
 
-## Client Usage 2
+## Client Usage
 
+```typescript
 import { trpc } from './utils/trpc';
 
 function UserProfile({ userId }: { userId: string }) {
@@ -8897,10 +8091,13 @@ const createUser = trpc.createUser.useMutation();
 return <div>{user.data?.name}</div>;
 }
 
+```text
+
+---
+
 ## With Next.js
 
 ```typescript
-
 // pages/api/trpc/[trpc].ts
 import { createNextApiHandler } from '@trpc/server/adapters/next';
 import { appRouter } from '../../../server/routers/_app';
@@ -8913,7 +8110,6 @@ createContext: () => ({})
 ```text
 
 ---
-
 ## RATE LIMITING IMPLEMENTATION
 
 > **The throttling patterns that protect services**
@@ -8923,7 +8119,6 @@ createContext: () => ({})
 ## Token Bucket Implementation
 
 ```javascript
-
 class TokenBucket {
 constructor(capacity, fillRate) {
 this.capacity = capacity;
@@ -8959,9 +8154,8 @@ this.lastFill = now;
 ## Redis Rate Limiter
 
 ```javascript
-
-async function rateLimit(userId, limit, window) {
-const key = `ratelimit:${userId}`;
+async function checkRateLimit(userId, limit, window) {
+const key = `rate:${userId}`;
 const current = await redis.incr(key);
 
 if (current === 1) {
@@ -8970,10 +8164,10 @@ await redis.expire(key, window);
 
 if (current > limit) {
 const ttl = await redis.ttl(key);
-throw new RateLimitError(`Try again in ${ttl} seconds`);
+return { allowed: false, retryAfter: ttl };
   }
 
-return { remaining: limit - current, reset: ttl };
+return { allowed: true, remaining: limit - current };
 }
 
 ```text
@@ -8983,7 +8177,6 @@ return { remaining: limit - current, reset: ttl };
 ## Headers to Return
 
 ```text
-
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 95
 X-RateLimit-Reset: 1640000000
@@ -8992,15 +8185,15 @@ Retry-After: 60
 ```text
 
 ---
+## PATTERNS
 
-## PATTERNS 2
+> **The simple real-time patterns**
 
->**The simple real-time patterns**
+---
 
 ## Server Implementation
 
 ```javascript
-
 app.get('/events', (req, res) => {
 res.setHeader('Content-Type', 'text/event-stream');
 res.setHeader('Cache-Control', 'no-cache');
@@ -9026,8 +8219,9 @@ req.on('close', () => {
 
 ---
 
-## Client Usage 3
+## Client Usage
 
+```javascript
 const eventSource = new EventSource('/events');
 
 eventSource.onmessage = (event) => {
@@ -9039,13 +8233,20 @@ eventSource.onerror = () => {
 // Auto-reconnects by default
 };
 
+```text
+
+---
+
 | ## SSE vs WebSocket | Feature | SSE | WebSocket |
 
+|---------|-----|-----------|
 | Direction | Server -> Client | Bidirectional |
 | Protocol | HTTP | WS |
 | Reconnection | Automatic | Manual |
 | Browser support | Great | Great |
-| Use case | Updates, notifications | Chat, games |
+| Use case | Updates, notifications | Chat, games | --- |
+
+---
 
 ## API VERSIONING PATTERNS
 
@@ -9055,20 +8256,23 @@ eventSource.onerror = () => {
 
 ## URL Versioning
 
-```typescript
+```text
+/api/v1/users
+/api/v2/users
 
-// /api/v1/users
-// /api/v2/users
+PROS:
 
-app.use('/api/v1', v1Router);
-app.use('/api/v2', v2Router);
+- Clear and visible
 
-// Deprecation header
-app.use('/api/v1', (req, res, next) => {
-res.setHeader('Deprecation', 'true');
-res.setHeader('Sunset', 'Sat, 01 Jan 2025 00:00:00 GMT');
-  next();
-});
+- Easy to route
+
+- Cache-friendly
+
+CONS:
+
+- URL pollution
+
+- Client updates required
 
 ```text
 
@@ -9076,30 +8280,29 @@ res.setHeader('Sunset', 'Sat, 01 Jan 2025 00:00:00 GMT');
 
 ## Header Versioning
 
-```typescript
+```yaml
+GET /api/users
+Accept: application/vnd.api+json;version=2
 
-// Accept: application/vnd.myapi.v2+json
+PROS:
 
-app.use('/api', (req, res, next) => {
-| const accept = req.headers.accept |  | ''; |
-const match = accept.match(/vnd\.myapi\.v(\d+)/);
-req.apiVersion = match ? parseInt(match[1]) : 1;
-  next();
-});
+- Clean URLs
 
-app.get('/api/users', (req, res) => {
-if (req.apiVersion === 2) {
-return respondV2(req, res);
-  }
-return respondV1(req, res);
-});
+- Flexible
+
+CONS:
+
+- Harder to test
+
+- Not visible in browser
 
 ```text
 
 ---
 
-## Backwards Compatibility 2
+## Backwards Compatibility
 
+```javascript
 // Support both old and new format
 function getUser(id) {
 const user = await db.user.findUnique({ where: { id } });
@@ -9119,41 +8322,47 @@ avatar: user.avatarUrl
   };
 }
 
-## Deprecation Strategy 2
+```text
 
+---
+
+## Deprecation Strategy
+
+```yaml
 1. Announce deprecation (add header)
-
 Deprecation: true
 Sunset: Sat, 1 Jan 2025 00:00:00 GMT
 
-1. Log usage of deprecated endpoints
+2. Log usage of deprecated endpoints
 
-1. Notify high-usage clients directly
+3. Notify high-usage clients directly
 
-1. Grace period (3-6 months)
+4. Grace period (3-6 months)
 
-1. Remove endpoint
+5. Remove endpoint
 
-## MICROSERVICES COMMUNICATION 2
+```text
+
+---
+## MICROSERVICES COMMUNICATION
 
 > **The inter-service patterns**
+
+---
 
 ## Sync vs Async
 
 ```text
-
 SYNCHRONOUS (REST/gRPC):
-
-- Simple to implement
-- Immediate response
++ Simple to implement
++ Immediate response
 - Tight coupling
 - Cascading failures
 
 ASYNCHRONOUS (Queues/Events):
-
-- Loose coupling
-- Resilient to failures
-- Better scalability
++ Loose coupling
++ Resilient to failures
++ Better scalability
 - Eventual consistency
 - More complex debugging
 
@@ -9161,13 +8370,15 @@ ASYNCHRONOUS (Queues/Events):
 
 ---
 
-## Service Discovery 2
+## Service Discovery
+
+```yaml
 
 ## Kubernetes: DNS-based
 
 ## Service name becomes DNS
 
-<<<<http://user-service.default.svc.cluster.local/users>>>>
+http://user-service.default.svc.cluster.local/users
 
 ## Consul: Health-checked registry
 
@@ -9179,8 +8390,9 @@ ASYNCHRONOUS (Queues/Events):
 
 ---
 
-## Circuit Breaker 2
+## Circuit Breaker
 
+```javascript
 const circuitBreaker = new CircuitBreaker(callService, {
 failureThreshold: 5,  // Open after 5 failures
 resetTimeout: 30000,  // Try again after 30s
@@ -9192,8 +8404,13 @@ fallback: () => cachedData
 // OPEN -> Fast-fail, use fallback
 // HALF-OPEN -> Testing recovery
 
-## Saga Pattern 3
+```text
 
+---
+
+## Saga Pattern
+
+```text
 CHOREOGRAPHY (Event-driven):
 Order Created -> Payment Service
 Payment Success -> Inventory Service
@@ -9204,6 +8421,9 @@ Saga Orchestrator calls each service
 Tracks state
 Handles compensating transactions
 
+```text
+
+---
 ## HEALTH CHECK PATTERNS
 
 > **The production readiness checks**
@@ -9215,19 +8435,16 @@ Handles compensating transactions
 ```yaml
 LIVENESS:
 "Is the process running?"
-
 - Simple ping
 - If fails: Restart container
 
 READINESS:
 "Can it serve traffic?"
-
 - Check dependencies
 - If fails: Remove from load balancer
 
 STARTUP:
 "Has it finished initializing?"
-
 - Allow longer timeout
 - If fails: Kill and restart
 
@@ -9235,8 +8452,9 @@ STARTUP:
 
 ---
 
-## Implementation 3
+## Implementation
 
+```typescript
 app.get('/health/live', (req, res) => {
 // Just confirms process is running
 res.status(200).json({ status: 'ok' });
@@ -9262,6 +8480,10 @@ externalApi: checks[2].status
   });
 });
 
+```text
+
+---
+
 ## Kubernetes Config
 
 ```yaml
@@ -9283,10 +8505,9 @@ periodSeconds: 10
 ```text
 
 ---
-
 ## EXPRESS MIDDLEWARE PATTERNS
 
-> **The patterns for scalable Express apps**
+> **The request processing patterns**
 
 ---
 
@@ -9345,12 +8566,13 @@ if (!user) throw new NotFoundError('User not found');
 
 ---
 
-## Rate Limiting 3
+## Rate Limiting
 
+```javascript
 import rateLimit from 'express-rate-limit';
 
 const limiter = rateLimit({
-windowMs: 15 *60* 1000, // 15 minutes
+windowMs: 15 * 60 * 1000, // 15 minutes
 max: 100, // 100 requests per window
 message: { error: 'Too many requests' },
 standardHeaders: true,
@@ -9359,6 +8581,9 @@ legacyHeaders: false,
 
 app.use('/api', limiter);
 
+```text
+
+---
 ## API RATE LIMITING PATTERNS
 
 > **The patterns that protect your API**
@@ -9400,8 +8625,9 @@ this.lastRefill = now;
 
 ---
 
-## Redis Rate Limiter 2
+## Redis Rate Limiter
 
+```javascript
 async function rateLimit(userId, limit, window) {
 const key = `ratelimit:${userId}`;
 const current = await redis.incr(key);
@@ -9417,6 +8643,10 @@ throw new RateLimitError(`Try again in ${ttl} seconds`);
 
 return { remaining: limit - current, reset: ttl };
 }
+
+```text
+
+---
 
 ## Sliding Window
 
@@ -9443,13 +8673,15 @@ return { remaining: limit - count - 1 };
 ```text
 
 ---
+## EXPRESS MIDDLEWARE PATTERNS
 
-## EXPRESS MIDDLEWARE PATTERNS 2
+> **The patterns for scalable Express apps**
 
->**The patterns for scalable Express apps**
+---
 
-## Error Handling Middleware 2
+## Error Handling Middleware
 
+```typescript
 // middleware/errorHandler.ts
 import { Request, Response, NextFunction } from 'express';
 
@@ -9485,6 +8717,10 @@ status: 'error',
 message: 'Internal server error'
   });
 }
+
+```text
+
+---
 
 ## Request Validation
 
@@ -9528,8 +8764,9 @@ app.post('/users', validate(createUserSchema), createUser);
 
 ---
 
-## Rate Limiting 4
+## Rate Limiting
 
+```typescript
 // middleware/rateLimit.ts
 import rateLimit from 'express-rate-limit';
 import RedisStore from 'rate-limit-redis';
@@ -9540,7 +8777,7 @@ store: new RedisStore({
 client: redis,
 prefix: 'rl:'
   }),
-windowMs: 15 *60* 1000, // 15 minutes
+windowMs: 15 * 60 * 1000, // 15 minutes
 max: 100, // 100 requests per window
 message: { error: 'Too many requests, try again later' },
 standardHeaders: true,
@@ -9549,11 +8786,14 @@ legacyHeaders: false
 
 // Stricter limit for auth endpoints
 export const authLimiter = rateLimit({
-windowMs: 60 *60* 1000, // 1 hour
+windowMs: 60 * 60 * 1000, // 1 hour
 max: 5, // 5 attempts
 message: { error: 'Too many login attempts' }
 });
 
+```text
+
+---
 ## WEBSOCKET PRODUCTION PATTERNS
 
 > **The real-time patterns that scale**
@@ -9646,13 +8886,15 @@ refreshToken().then(() => socket.connect());
 ```text
 
 ---
-
-## FILE UPLOAD PATTERNS 2
+## FILE UPLOAD PATTERNS
 
 > **The patterns for handling files safely**
 
-## Presigned URLs (S3) 2
+---
 
+## Presigned URLs (S3)
+
+```typescript
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
@@ -9680,8 +8922,13 @@ body: file,
 headers: { 'Content-Type': 'image/png' }
 });
 
-## Image Processing 2
+```text
 
+---
+
+## Image Processing
+
+```typescript
 import sharp from 'sharp';
 
 async function processImage(buffer: Buffer) {
@@ -9700,10 +8947,15 @@ const thumbnail = await sharp(buffer)
 return { processed, thumbnail };
 }
 
-## Validation 2
+```text
 
+---
+
+## Validation
+
+```typescript
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
-const MAX_SIZE = 10 *1024* 1024;  // 10MB
+const MAX_SIZE = 10 * 1024 * 1024;  // 10MB
 
 function validateFile(file: File) {
 if (!ALLOWED_TYPES.includes(file.type)) {
@@ -9718,12 +8970,18 @@ throw new Error('File too large');
 // Don't trust Content-Type header alone!
 }
 
-## API VERSIONING 2
+```text
+
+---
+## API VERSIONING
 
 > **The patterns for evolving APIs**
 
-## URL Versioning 2
+---
 
+## URL Versioning
+
+```typescript
 // /api/v1/users
 // /api/v2/users
 
@@ -9737,12 +8995,17 @@ res.setHeader('Sunset', 'Sat, 01 Jan 2025 00:00:00 GMT');
   next();
 });
 
-## Header Versioning 2
+```text
 
+---
+
+## Header Versioning
+
+```typescript
 // Accept: application/vnd.myapi.v2+json
 
 app.use('/api', (req, res, next) => {
-| const accept = req.headers.accept | ''; |
+| const accept = req.headers.accept |  | ''; |
 const match = accept.match(/vnd\.myapi\.v(\d+)/);
 req.apiVersion = match ? parseInt(match[1]) : 1;
   next();
@@ -9754,6 +9017,10 @@ return respondV2(req, res);
   }
 return respondV1(req, res);
 });
+
+```text
+
+---
 
 ## Breaking vs Non-Breaking Changes
 
@@ -9774,7 +9041,6 @@ Change response structure
 ```text
 
 ---
-
 ## BACKGROUND JOBS
 
 > **The async processing patterns**
@@ -9834,7 +9100,7 @@ repeat: { cron: '0 * * * *' }  // Every hour
 
 // Delayed job
 await emailQueue.add('reminder', { userId: 123 }, {
-delay: 24 *60* 60 * 1000  // 24 hours
+delay: 24 * 60 * 60 * 1000  // 24 hours
 });
 
 ```text
@@ -9856,7 +9122,6 @@ await queue.add('batch', data, { priority: 10 });
 ```text
 
 ---
-
 ## API DESIGN BEST PRACTICES
 
 > **The REST patterns everyone should follow**
@@ -9947,13 +9212,15 @@ SERVER ERROR:
 ```text
 
 ---
-
-## PAGINATION PATTERNS 2
+## PAGINATION PATTERNS
 
 > **The patterns for large data sets**
 
+---
+
 ## Offset Pagination
 
+```typescript
 // GET /users?page=2&limit=10
 async function getUsers(page: number, limit: number) {
 const offset = (page - 1) * limit;
@@ -9978,7 +9245,12 @@ totalPages: Math.ceil(total / limit)
   };
 }
 
-**Pros:**Simple, jump to any page**Cons:** Slow on large offsets, can skip/duplicate items
+```text
+
+**Pros:** Simple, jump to any page
+**Cons:** Slow on large offsets, can skip/duplicate items
+
+---
 
 ## Cursor Pagination
 
@@ -10005,12 +9277,14 @@ return {
 
 ```text
 
-**Pros:**Fast regardless of depth, consistent with real-time data**Cons:** Can't jump to page N
+**Pros:** Fast regardless of depth, consistent with real-time data
+**Cons:** Can't jump to page N
 
 ---
 
-## When to Use 3
+## When to Use
 
+```yaml
 OFFSET: Admin panels, search results
 
 - Users expect page numbers
@@ -10023,6 +9297,9 @@ CURSOR: Infinite scroll, feeds, real-time
 
 - Works with changing data
 
+```text
+
+---
 ## EMAIL BEST PRACTICES
 
 > **The transactional email patterns**
@@ -10099,13 +9376,15 @@ Don't send too frequently
 ```text
 
 ---
-
-## WEBHOOKS IMPLEMENTATION 2
+## WEBHOOKS IMPLEMENTATION
 
 > **The event notification patterns**
 
-## Sending Webhooks 2
+---
 
+## Sending Webhooks
+
+```typescript
 async function sendWebhook(event: string, payload: any, webhookUrl: string) {
 const timestamp = Date.now();
 const signature = createSignature(payload, timestamp);
@@ -10145,8 +9424,13 @@ return crypto.createHmac('sha256', WEBHOOK_SECRET)
     .digest('hex');
 }
 
-## Receiving Webhooks 2
+```text
 
+---
+
+## Receiving Webhooks
+
+```typescript
 // Verify signature
 function verifyWebhookSignature(req: Request): boolean {
 const signature = req.headers['x-webhook-signature'];
@@ -10154,7 +9438,7 @@ const timestamp = req.headers['x-webhook-timestamp'];
 
 // Check timestamp not too old (prevent replay)
 const age = Date.now() - parseInt(timestamp);
-if (age > 5 *60* 1000) return false;  // 5 minutes
+if (age > 5 * 60 * 1000) return false;  // 5 minutes
 
 const expectedSig = createSignature(req.body, parseInt(timestamp));
 return crypto.timingSafeEqual(
@@ -10175,6 +9459,9 @@ return res.status(401).send('Invalid signature');
   res.status(200).send('OK');
 });
 
+```text
+
+---
 ## RPC PATTERNS
 
 > **The type-safe API patterns**
@@ -10205,8 +9492,9 @@ return next({ ctx: { ...ctx, user: ctx.session.user } });
 
 ---
 
-## Router Definition 2
+## Router Definition
 
+```typescript
 // server/routers/user.ts
 export const userRouter = router({
 getById: publicProcedure
@@ -10235,8 +9523,13 @@ post: postRouter
 
 export type AppRouter = typeof appRouter;
 
-## Client Usage 4
+```text
 
+---
+
+## Client Usage
+
+```typescript
 // In React component
 function UserProfile({ id }: { id: string }) {
 const { data, isLoading } = trpc.user.getById.useQuery({ id });
@@ -10257,6 +9550,9 @@ return (
   );
 }
 
+```text
+
+---
 ## DATA VALIDATION
 
 > **The input validation patterns**
@@ -10366,17 +9662,17 @@ app.post('/users', validateRequest(createUserSchema), createUser);
 
 ## From Stripe Engineering Blog
 
-    >
+>
 > "A single API endpoint brought down our entire platform.
 > The endpoint fetched users, then for each user, fetched their subscriptions.
-    >
+>
 > 1 query for 100 users 1 + 100 = 101 database queries
-    >
+>
 > During Black Friday: 10,000 concurrent requests
 > = 1,010,000 database queries in 30 seconds
 > = Database connection pool exhausted
 > = Entire platform down for 45 minutes
-    >
+>
 > Cost: $2.3M in lost revenue + reputation damage"
 
 ## The Vulnerable Code
@@ -10389,49 +9685,22 @@ app.post('/users', validateRequest(createUserSchema), createUser);
 async def get_users():
 users = await db.query("SELECT * FROM users LIMIT 100")
 
-for user in users:
-
 ## THIS IS THE PROBLEM
-
 for user in users:
 
-## 1 query per user = 100 more queries
-
+## 1 query per user = 100 more queries!
 user['subscriptions'] = await db.query(
-"SELECT* FROM subscriptions WHERE user_id = ?",
+"SELECT * FROM subscriptions WHERE user_id = ?",
         user['id']
         )
 
 return users
 
+```text
+
 ## The Fix
 
-```javascript
-
-// FIXED - Remove Listeners
-app.post('/process', async (req, res) => {
-const processor = new EventEmitter();
-
-const handler = (data) => {
-        console.log(data);
-    };
-
-processor.on('data', handler);
-
-try {
-await processData(processor);
-        res.send('Done');
-} finally {
-// CRITICAL: Always remove listener
-processor.removeListener('data', handler);
-// Or: processor.removeAllListeners('data');
-    }
-});
-
-// OR use once() instead of on()
-processor.once('data', handler); // Auto-removes after first event
-
-```text
+```python
 
 ## GOOD - Single Query with JOIN
 
@@ -10439,7 +9708,6 @@ processor.once('data', handler); // Auto-removes after first event
 async def get_users():
 
 ## 1 query total, regardless of user count
-
 query = """
         SELECT
         u.*,
@@ -10468,7 +9736,7 @@ selectinload(User.subscriptions) # Loads in 2 queries total
 
 from nplusone.ext.flask_sqlalchemy import NPlusOne
 
-app = Flask(**name**)
+app = Flask(__name__)
 NPlusOne(app)
 
 ## Logs warning in development
@@ -10483,13 +9751,13 @@ NPlusOne(app)
 
 ## From PayPal Engineering
 
-    >
+>
 > "Our Node.js API servers kept crashing every 6 hours.
 > Memory usage grew from 200MB to 2GB, then crash.
-    >
+>
 > Root cause: Event listeners not being removed.
 > Every request added a listener, but never removed it.
-    >
+>
 > With 1M requests/day: 1M event listeners in memory.
 > After 6 hours: Out of memory."
 
@@ -10514,8 +9782,9 @@ await processData(processor);
 
 ```text
 
-## The Fix 2
+## The Fix
 
+```javascript
 // FIXED - Remove Listeners
 app.post('/process', async (req, res) => {
 const processor = new EventEmitter();
@@ -10538,6 +9807,8 @@ processor.removeListener('data', handler);
 
 // OR use once() instead of on()
 processor.once('data', handler); // Auto-removes after first event
+
+```text
 
 ## Memory Leak Detection
 
@@ -10571,7 +9842,7 @@ heapTotal: stats.total_heap_size / 1024 / 1024,
 
 ## Stack Overflow #47382910 (8,500 upvotes)
 
-    >
+>
 > "My Node.js API becomes unresponsive under load.
 > CPU-intensive operations block the event loop.
 > All requests freeze while one request processes."
@@ -10705,7 +9976,6 @@ import jwt
 def create_access_token(user_id: int) -> str:
 
 ## Short-lived (30 min)
-
 payload = {
 "user_id": user_id,
 "exp": datetime.utcnow() + timedelta(minutes=30)
@@ -10715,7 +9985,6 @@ return jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 def create_refresh_token(user_id: int) -> str:
 
 ## Long-lived (7 days), stored in DB
-
 payload = {
 "user_id": user_id,
 "token_type": "refresh",
@@ -10739,7 +10008,7 @@ return token
 
 ## From Cloudflare Incident Report
 
-    >
+>
 > "API endpoint had no rate limiting.
 > Attacker sent 50M requests in 10 minutes.
 > Cost: $47,000 in cloud bills for that month."
@@ -10762,11 +10031,9 @@ current = datetime.now()
 key_name = f"ratelimit:{key}:{current.minute}"
 
 ## Increment counter
-
 count = redis_client.incr(key_name)
 
 ## Set expiry on first request
-
 if count == 1:
 redis_client.expire(key_name, window)
 
@@ -10786,7 +10053,7 @@ return count
 
 ## From PostgreSQL Wiki
 
-    >
+>
 > "Each database connection costs ~10MB RAM.
 > Without pooling: 1000 concurrent requests = 10GB RAM + CPU overhead.
 > With pooling: Reuse 20 connections = 200MB RAM."
@@ -10809,10 +10076,11 @@ pool_recycle=3600, # Recycle connections after 1 hour
 pool_pre_ping=True # Test connection before using
 )
 
+```text
+
 ## Monitoring Pool Health
 
 ```python
-
 @app.get("/metrics/db")
 async def db_metrics():
 return {
@@ -10822,7 +10090,6 @@ return {
 "overflow": engine.pool.overflow(),
 
 ## Alert if overflow() > 0 consistently
-
     }
 
 ```text
@@ -10841,7 +10108,7 @@ return {
 
 ## Production Win from Dropbox (8,100+ upvotes)
 
-    >
+>
 > "Enabled gzip compression. Bandwidth costs: $200K/month $40K/month.
 > Response size: 500KB 100KB. Page load time: 3s 0.8s.
 > ONE configuration change saved $160K/month!"
@@ -10879,7 +10146,7 @@ compresslevel=6 # Balance speed vs compression (1-9)
 
 ## Production Incident from Facebook (9,200+ upvotes)
 
-    >
+>
 > "Misconfigured CORS allowed any website to call our API.
 > Attacker created fake website. Stole user data from 50,000 users.
 > Root cause: Access-Control-Allow-Origin: *"
@@ -10893,15 +10160,15 @@ compresslevel=6 # Balance speed vs compression (1-9)
 from fastapi.middleware.cors import CORSMiddleware
 
 ALLOWED_ORIGINS = [
-    "<<<<<https://myapp.com",>>>>>
-    "<<<<<https://www.myapp.com",>>>>>
+    "https://myapp.com",
+    "https://www.myapp.com",
 ]
 
 ## Add dev origins only in development
 
 if os.getenv("ENVIRONMENT") == "development":
     ALLOWED_ORIGINS.extend([
-        "<http://localhost:3000",>
+        "http://localhost:3000",
     ])
 
 app.add_middleware(
@@ -10921,13 +10188,14 @@ allow_headers=["Content-Type", "Authorization"],
 
 ## Production Incident from Netflix (13,600+ upvotes)
 
-    >
+>
 > "Recommendation service went down. Took entire website down with it.
 > Every page tried calling it. Each request waited 30 seconds.
 > All threads blocked. Server ran out of threads."
 
-## Implementation 4
+## Implementation
 
+```python
 from enum import Enum
 from datetime import datetime, timedelta
 
@@ -10937,7 +10205,7 @@ OPEN = "open"  # Service down, reject requests
 HALF_OPEN = "half_open"  # Testing if service recovered
 
 class CircuitBreaker:
-def **init**(
+def __init__(
         self,
 failure_threshold: int = 5,
 timeout: int = 60,
@@ -10965,10 +10233,13 @@ except Exception as e:
         self.on_failure()
         raise
 
+```text
+
+---
+
 ## Retry with Exponential Backoff
 
 ```python
-
 import asyncio
 import random
 
@@ -11014,7 +10285,6 @@ await asyncio.sleep(delay)
 > "User clicked 'Pay' button twice. Charged twice. 10,000 users affected. $500K in refunds."
 
 ```python
-
 import redis
 
 redis_client = redis.Redis()
@@ -11071,7 +10341,6 @@ db_order = Order(**order.dict())
     db.commit()
 
 ## Publish event
-
 producer.send('order.created', {
 'order_id': db_order.id,
 'user_id': order.user_id,
@@ -11102,7 +10371,6 @@ send_email(event['user_id'], f"Order {event['order_id']} confirmed")
 ## Background Jobs (Celery)
 
 ```python
-
 from celery import Celery
 
 celery_app = Celery(
@@ -11126,7 +10394,7 @@ return {'status': 'success', 'charge_id': charge.id}
 except Exception as e:
 raise self.retry(exc=e)
 
-## Scheduled Tasks 2
+## Scheduled Tasks
 
 celery_app.conf.beat_schedule = {
 'send-daily-report': {
@@ -11134,6 +10402,10 @@ celery_app.conf.beat_schedule = {
 'schedule': crontab(hour=9, minute=0),
     },
 }
+
+```text
+
+---
 
 ## NOTIFICATIONS
 
@@ -11150,9 +10422,8 @@ async def upload_file(file: UploadFile = File(...)):
 file_path = f"/tmp/{file.filename}"
 
 ## Stream to disk (memory efficient)
-
 async with aiofiles.open(file_path, 'wb') as f:
-while chunk := await file.read(1024 *1024):  # 1MB
+while chunk := await file.read(1024 * 1024):  # 1MB
 await f.write(chunk)
 
 ## Upload to S3
@@ -11246,7 +10517,9 @@ send_sms(phone_number, f"Your code is: {otp}. Valid for 5 minutes.")
 
 ---
 
-## SECURITY 2
+## SECURITY
+
+---
 
 ## Multi-Tenancy Patterns
 
@@ -11314,11 +10587,11 @@ return {"access_token": access_token, "token_type": "bearer"}
 
 ```python
 
-## Offset Pagination 2
+## Offset Pagination
 
 @app.get("/properties")
 async def get_properties(page: int = 1, per_page: int = 20):
-offset = (page - 1)* per_page
+offset = (page - 1) * per_page
 properties = db.query(Property).offset(offset).limit(per_page).all()
 total = db.query(Property).count()
 
@@ -11350,10 +10623,11 @@ return {"data": properties, "meta": {"next_cursor": next_cursor, "has_next": has
 
 ---
 
-## Soft Delete Pattern 2
+## Soft Delete Pattern
 
+```python
 class Property(Base):
-**tablename** = 'properties'
+__tablename__ = 'properties'
 
 id = Column(Integer, primary_key=True)
 title = Column(String)
@@ -11377,9 +10651,8 @@ properties = db.query(Property).filter(Property.deleted_at.is_(None)).all()
 ## Audit Logging
 
 ```python
-
 class AuditLog(Base):
-**tablename** = 'audit_logs'
+__tablename__ = 'audit_logs'
 
 id = Column(Integer, primary_key=True)
 user_id = Column(Integer)
@@ -11404,13 +10677,14 @@ entity_id=entity_id, old_values=old_values, new_values=new_values,
 
 ---
 
-## Webhooks Implementation 3
+## Webhooks Implementation
 
+```python
 import hmac
 import hashlib
 
 class WebhookService:
-def **init**(self):
+def __init__(self):
 self.secret = os.getenv('WEBHOOK_SECRET')
 
 async def send_webhook(self, url, event_type, payload):
@@ -11436,12 +10710,15 @@ def generate_signature(self, payload):
 message = json.dumps(payload).encode()
 return hmac.new(self.secret.encode(), message, hashlib.sha256).hexdigest()
 
+```text
+
+---
+
 ## Feature Flags
 
 ```python
-
 class FeatureFlags:
-def **init**(self):
+def __init__(self):
 self.flags = {
 'new_search_algorithm': {
 'enabled': True,
@@ -11479,7 +10756,6 @@ return old_search(query)
 ## Server-Sent Events (SSE)
 
 ```python
-
 from fastapi.responses import StreamingResponse
 
 @app.get("/stream/notifications")
@@ -11501,13 +10777,12 @@ return StreamingResponse(event_generator(), media_type="text/event-stream")
 ## Distributed Tracing (OpenTelemetry)
 
 ```python
-
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 
 trace.set_tracer_provider(TracerProvider())
-tracer = trace.get_tracer(**name**)
+tracer = trace.get_tracer(__name__)
 
 FastAPIInstrumentor.instrument_app(app)
 
@@ -11590,9 +10865,13 @@ return query.all()
 
 ## Access documentation
 
-## <<<<<http://localhost:8000/docs>>>>> - Interactive Swagger UI
+## http://localhost:8000/docs - Interactive Swagger UI
 
-## <<<<<http://localhost:8000/redoc>>>>> - Beautiful ReDoc
+## http://localhost:8000/redoc - Beautiful ReDoc
+
+```text
+
+---
 
 ## PDF Generation (ReportLab)
 
@@ -11605,7 +10884,6 @@ from reportlab.lib.styles import getSampleStyleSheet
 async def generate_sales_report():
 
 ## Create PDF
-
 filename = f"sales_report_{datetime.now().strftime('%Y%m%d')}.pdf"
 pdf_path = f"/tmp/{filename}"
 
@@ -11614,11 +10892,9 @@ elements = []
 styles = getSampleStyleSheet()
 
 ## Title
-
 elements.append(Paragraph("Sales Report", styles['Title']))
 
 ## Get data
-
 sales = db.query(
         func.date(Order.created_at).label('date'),
         func.count(Order.id).label('orders'),
@@ -11626,7 +10902,6 @@ sales = db.query(
     ).group_by(func.date(Order.created_at)).all()
 
 ## Create table
-
 data = [['Date', 'Orders', 'Revenue']]
 for sale in sales:
         data.append([
@@ -11639,7 +10914,6 @@ table = Table(data)
     elements.append(table)
 
 ## Build PDF
-
     doc.build(elements)
 
 ## Return file
@@ -11653,7 +10927,9 @@ return FileResponse(
 
 ---
 
-## Long Polling 2
+## Long Polling
+
+```python
 
 ## LONG POLLING for real-time updates
 
@@ -11670,7 +10946,6 @@ start_time = time.time()
 while time.time() - start_time < timeout:
 
 ## Check for new notifications
-
 notifications = db.query(Notification).filter(
 Notification.user_id == user_id,
 Notification.id > last_id
@@ -11683,11 +10958,9 @@ return {
         }
 
 ## Wait before checking again
-
 await asyncio.sleep(1)
 
 ## Timeout - return empty
-
 return {"notifications": [], "last_id": last_id}
 
 ```text
@@ -11709,7 +10982,6 @@ class Subscription:
 async def notification_added(self, user_id: int) -> str:
 
 ## Subscribe to notifications
-
 pubsub = get_pubsub()
 
 async for message in pubsub.subscribe(f"notifications:{user_id}"):
@@ -11732,12 +11004,10 @@ app.include_router(GraphQLRouter(schema), prefix="/graphql")
 async def bulk_create_properties(properties: List[PropertyCreate]):
 
 ## Validate all first
-
 for prop in properties:
         validate_property(prop)
 
-## Bulk insert 2
-
+## Bulk insert
 db_properties = [Property(**p.dict()) for p in properties]
     db.bulk_save_objects(db_properties)
     db.commit()
@@ -11811,24 +11081,21 @@ def downgrade():
 def create_tokens(user_id: int):
 
 ## Access token (short-lived)
-
 access_token = create_access_token(
 data={"sub": str(user_id), "type": "access"},
         expires_delta=timedelta(minutes=15)
     )
 
 ## Refresh token (long-lived)
-
 refresh_token = create_access_token(
 data={"sub": str(user_id), "type": "refresh"},
         expires_delta=timedelta(days=30)
     )
 
 ## Store refresh token
-
     redis_client.setex(
         f"refresh_token:{refresh_token}",
-30 *24* 60 * 60,  # 30 days
+30 * 24 * 60 * 60,  # 30 days
         user_id
     )
 
@@ -11849,14 +11116,12 @@ raise HTTPException(401, "Invalid token type")
 user_id = payload.get("sub")
 
 ## Verify token exists in Redis
-
 stored_user_id = redis_client.get(f"refresh_token:{refresh_token}")
 
 if not stored_user_id or str(stored_user_id.decode()) != user_id:
 raise HTTPException(401, "Token revoked")
 
 ## Create new access token
-
 new_access_token = create_access_token(
 data={"sub": user_id, "type": "access"},
         expires_delta=timedelta(minutes=15)
@@ -11905,9 +11170,8 @@ Why? Every page waited 30s timeout. All threads blocked. Server died.
 Fix: Circuit breaker - stop calling dead services."
 
 ```python
-
 class CircuitBreaker:
-def **init**(self, failure_threshold=5, timeout=60):
+def __init__(self, failure_threshold=5, timeout=60):
 self.failures = 0
 self.state = "CLOSED"  # CLOSED ? OPEN ? HALF_OPEN
 self.last_failure = None
@@ -11946,23 +11210,19 @@ recommendations = await circuit.call(get_recommendations, user_id) or []
 "User clicked 'Pay' twice. Charged twice. 10,000 users. $500K refunds."
 
 ```python
-
 @app.post("/payments")
 async def create_payment(request: Request, payment: PaymentCreate):
 idempotency_key = request.headers.get('Idempotency-Key')
 
 ## Check if already processed
-
 cached = redis_client.get(f"idem:{idempotency_key}")
 if cached:
 return json.loads(cached)  # Return same result
 
 ## Process payment
-
 result = await process_payment(payment)
 
 ## Cache result for 24 hours
-
 redis_client.setex(f"idem:{idempotency_key}", 86400, json.dumps(result))
 
 return result
@@ -12020,9 +11280,13 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True)
 
 ## ? SAFE - Whitelist only your domains
 
-ALLOWED_ORIGINS = ["<<<<<https://myapp.com",>>>>> "<<<<<https://app.myapp.com">>>>]>
+ALLOWED_ORIGINS = ["https://myapp.com", "https://app.myapp.com"]
 if os.getenv("ENV") == "dev":
-    ALLOWED_ORIGINS.append("<<<<<http://localhost:3000>>>>>")
+    ALLOWED_ORIGINS.append("http://localhost:3000")
+
+```text
+
+---
 
 ## 46. NO RATE LIMITING (Stripe: $47K AWS bill in 1 day)
 
@@ -12176,12 +11440,10 @@ if not flag or not flag['enabled']:
 return False
 
 ## Whitelist check
-
 if user_id in flag.get('whitelist', []):
 return True
 
 ## Rollout percentage (consistent per user)
-
 hash_value = int(hashlib.md5(str(user_id).encode()).hexdigest(), 16)
 return (hash_value % 100) < flag.get('rollout_percent', 0)
 
@@ -12254,21 +11516,23 @@ created_at = Column(DateTime, default=datetime.utcnow)
 async def update(id: int, update: PropertyUpdate, request: Request):
 old_values = property.to_dict()
 
-## ... update
-
+## ... update ...
 audit = AuditLog(action='UPDATE', entity_type='Property', entity_id=id,
 old_values=old_values, new_values=property.to_dict(),
         ip_address=request.client.host)
     db.add(audit)
 
+```text
+
+---
+
 ## 56. DISTRIBUTED TRACING (OpenTelemetry)
 
 ```python
-
 from opentelemetry import trace
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 
-tracer = trace.get_tracer(**name**)
+tracer = trace.get_tracer(__name__)
 FastAPIInstrumentor.instrument_app(app)
 
 @app.get("/orders/{id}")
@@ -12310,18 +11574,17 @@ return order
 
 ```python
 
-## DISASTER - N+1 Query Problem 2
+## DISASTER - N+1 Query Problem
 
 @app.get("/users")
 async def get_users():
-users = await db.query("SELECT *FROM users LIMIT 100")
+users = await db.query("SELECT * FROM users LIMIT 100")
 
 for user in users:
 
-## 1 query per user = 100 more queries! 2
-
+## 1 query per user = 100 more queries!
 user['subscriptions'] = await db.query(
-"SELECT* FROM subscriptions WHERE user_id = ?", user['id']
+"SELECT * FROM subscriptions WHERE user_id = ?", user['id']
         )
 
 return users
@@ -12332,14 +11595,14 @@ return users
 
 ## FIXED - Single query with JOIN
 
-    @app.get("/users")
+@app.get("/users")
 async def get_users():
 query = """
 SELECT u.*, json_agg(s.*) as subscriptions
 FROM users u
 LEFT JOIN subscriptions s ON s.user_id = u.id
 GROUP BY u.id LIMIT 100
-        """
+    """
 return await db.query(query)
 
 ## Result: 1 query total
@@ -12475,13 +11738,17 @@ limiter = Limiter(key_func=get_remote_address)
 @limiter.limit("5/minute") # Max 5 attempts per minute
 async def login(request: Request):
 
-##
+## ...
 
 @app.get("/properties")
 @limiter.limit("100/minute") # More generous for reads
 async def get_properties(request: Request):
 
-## ... 2
+## ...
+
+```text
+
+---
 
 ## 6. CONNECTION POOL EXHAUSTED
 
@@ -12495,7 +11762,7 @@ async def get_properties(request: Request):
 
 engine = create_engine("postgresql://localhost/db")
 
-## GOOD: Connection pool 2
+## GOOD: Connection pool
 
 engine = create_engine(
     "postgresql://localhost/db",
@@ -12504,6 +11771,10 @@ max_overflow=10, # Allow 10 more if needed
 pool_timeout=30, # Wait 30s for available connection
 pool_pre_ping=True # Test connection before using
 )
+
+```text
+
+---
 
 ## END OF VOLUME 15: BACKEND PRODUCTION DISASTERS
 
@@ -12529,7 +11800,6 @@ pool_pre_ping=True # Test connection before using
 > Fix: Increase UV_THREADPOOL_SIZE + Worker Threads offloading"
 
 ```javascript
-
 // ? VIBE CODE - Blocking the limited Thread Pool
 const crypto = require('crypto');
 
@@ -12573,7 +11843,6 @@ crypto.pbkdf2(workerData, salt, 100000, 64, 'sha512', (err, key) => {
 > Fix: Database UNIQUE constraint on idempotency_key is the ONLY defense"
 
 ```sql
-
 -- ? TITAN SQL: Idempotency Schema
 CREATE TABLE transactions (
 id UUID PRIMARY KEY,
@@ -12646,21 +11915,8 @@ display = Decimal(total) / 100  # 30.30
 > Result: < 1 microsecond latency. BUT: 100% CPU on dedicated cores always."
 
 ```text
-
 | Metric | Standard Linux | Kernel Bypass (DPDK) |
-|
-
----
-
-|
-
----
-
-| -|
-
----
-
-| -|
+|------------------|-------------------|----------------------|
 | Control | Kernel Mode IRQ | User Mode Polling |
 | Data Path | NIC->Kernel->User | DMA to User Space |
 | Context Switches | High | Zero |
@@ -12682,21 +11938,8 @@ display = Decimal(total) / 100  # 30.30
 > Fix: Switch to tcmalloc via LD_PRELOAD. Result: 2x throughput. Zero code changes."
 
 ```text
-
 | Allocator | Best For | Fragmentation |
-|
-
----
-
-| -|
-
----
-
-| --|
-
----
-
-|
+|-------------|-----------------------------|---------------|
 | glibc | General purpose, legacy | High |
 | jemalloc | Redis, Rust, Facebook loads | Low |
 | tcmalloc | Google loads, C++ services | Optimized |
@@ -12771,7 +12014,6 @@ await asyncpg.create_pool(...)  # Non-blocking
 ### Titan JVM Flags
 
 ```text
-
 -XX:+UseG1GC
 -XX:MaxGCPauseMillis=200
 -XX:G1HeapRegionSize=16m
@@ -12789,7 +12031,6 @@ await asyncpg.create_pool(...)  # Non-blocking
 ### Titan Debug
 
 ```bash
-
 py-spy record --gil --pid <PID>
 
 ## Visualize GIL contention in flame graph
@@ -12808,7 +12049,6 @@ py-spy record --gil --pid <PID>
 ### Titan Fix
 
 ```bash
-
 export UV_THREADPOOL_SIZE=64  # Match CPU cores
 
 ```text
@@ -12819,23 +12059,7 @@ export UV_THREADPOOL_SIZE=64  # Match CPU cores
 
 | ## VOLUME 5.4: TITAN CATALOG - 50 BACKEND FAILURE SCENARIOS | ID | Scenario | Failure Mechanism | Titan Mitigation |
 
-|
-
----
-
-| -|
-
----
-
-| -|
-
----
-
-| -|
-
----
-
-|
+|----|----------|-------------------|------------------|
 | 2.2 | N+1 Query Tsunami | Child relations in loop | DataLoaders / SQL IN |
 | 2.3 | Promise.all Fail Fast | One rejection crashes batch | Promise.allSettled |
 | 2.4 | JSON Parse Blocking | Large payload blocks thread | JSONStream / workers |
@@ -12870,7 +12094,6 @@ export UV_THREADPOOL_SIZE=64  # Match CPU cores
 > Parallel operation becomes sequential. Performance drops 10x."
 
 ```cpp
-
 // ? VIBE CODE: Adjacent atomics share cache line
 struct Counters {
 std::atomic<int64_t> thread_a_counter;
@@ -12912,7 +12135,6 @@ numastat -m
 > Naive deletion = read-modify-write cycle. Storage saturates."
 
 ```cpp
-
 // ? TITAN: Compaction Filter removes expired keys at engine level
 class TtlCompactionFilter : public CompactionFilter {
 bool Filter(int level, const Slice& key, const Slice& value,
@@ -12931,7 +12153,7 @@ return false;
 > "NewSQL relies on synchronized clocks. Clock skew > max_offset = consistency violation or crash.
 > If read encounters timestamp 'in the future' -> waits in Uncertainty Interval."
 
-### Titan Fix 2
+### Titan Fix
 
 - PTP (Precision Time Protocol) with hardware timestamping
 
@@ -12953,7 +12175,6 @@ return false;
 > MUST mark 0-RTT endpoints as idempotent or reject entirely."
 
 ```go
-
 // ? TITAN: Reject 0-RTT for non-idempotent operations
 func TransferHandler(w http.ResponseWriter, r *http.Request) {
 // Check if request arrived via 0-RTT
@@ -12978,7 +12199,6 @@ http.Error(w, "0-RTT not allowed for mutations", http.StatusTooEarly)
 > Result: 40ns message latency. 40M messages/second sustained."
 
 ```java
-
 // ? TITAN: Aeron Publisher
 Aeron aeron = Aeron.connect();
 Publication publication = aeron.addPublication("aeron:ipc", 10);
@@ -12993,7 +12213,7 @@ while (publication.offer(buffer, 0, 8) < 0) {
 
 ```text
 
-### Production Warning 2
+### Production Warning
 
 > "Aeron uses dedicated threads for conductors.
 > CPU isolation (isolcpus) mandatory to prevent jitter."
@@ -13016,7 +12236,6 @@ r = redis.Redis()
 def log_visit(user_id: str, page: str):
 
 ## Each page maintains HLL of unique visitors
-
 r.pfadd(f"hll:visitors:{page}", user_id)
 
 def get_unique_visitors(page: str) -> int:
@@ -13025,7 +12244,6 @@ return r.pfcount(f"hll:visitors:{page}")
 def get_total_uniques(pages: list) -> int:
 
 ## Merge HLLs to get union cardinality
-
 r.pfmerge("hll:temp", *[f"hll:visitors:{p}" for p in pages])
 return r.pfcount("hll:temp")
 
@@ -13040,7 +12258,6 @@ return r.pfcount("hll:temp")
 > Result: Exponential improvement in load distribution. O(1) decision."
 
 ```go
-
 // ? TITAN: Power of Two Choices
 func (lb *LoadBalancer) PickBackend() *Backend {
 n := len(lb.backends)
@@ -13090,21 +12307,18 @@ value, expiry, delta = decode_cache(cached)
 
 ## Probabilistic early expiry
 
-## gap = -delta *beta* log(random())
-
-gap = -delta *beta* math.log(random.random())
+## gap = -delta * beta * log(random())
+gap = -delta * beta * math.log(random.random())
 
 if time.time() + gap >= expiry:
 
-## Refresh early
-
+## Refresh early!
 value = recompute_fn()
 set_with_metadata(redis_client, key, value, ttl)
 
 return value
 
 ## Cache miss
-
 value = recompute_fn()
 set_with_metadata(redis_client, key, value, ttl)
 return value
@@ -13120,7 +12334,6 @@ return value
 > Pre-Vote Phase: Ask 'would you vote for me?' before incrementing term."
 
 ```go
-
 // ? TITAN: Pre-Vote prevents term inflation
 type PreVoteRequest struct {
 CandidateID string
@@ -13159,7 +12372,6 @@ req.LastLogIndex >= n.log.LastIndex())
 > TOAST tables have separate vacuum schedule. Bloat invisible to normal monitoring."
 
 ```sql
-
 -- Diagnose TOAST bloat (HIDDEN from normal table stats)
 SELECT
 c.relname AS table,
@@ -13189,7 +12401,6 @@ ALTER TABLE events ALTER COLUMN metadata SET STORAGE MAIN;
 > Old rows, no vacuum = every scan hits heap even with covering index."
 
 ```sql
-
 -- Check visibility map coverage
 SELECT
     relname,
@@ -13249,7 +12460,6 @@ effective_io_concurrency = 200 # NVMe can handle it
 > Production: Spread checkpoint over 90% of interval."
 
 ```sql
-
 -- Check checkpoint frequency
 SELECT
     checkpoints_timed,
@@ -13299,8 +12509,8 @@ sysctl -w net.ipv4.tcp_max_tw_buckets=2000000
 
 ## Application level (Go example)
 
-conn.SetReadBuffer(16 *1024* 1024)  // 16MB
-conn.SetWriteBuffer(16 *1024* 1024)
+conn.SetReadBuffer(16 * 1024 * 1024)  // 16MB
+conn.SetWriteBuffer(16 * 1024 * 1024)
 
 ```text
 
@@ -13339,13 +12549,13 @@ import httpx
 ## Singleton client with connection pool
 
 client = httpx.Client(
-        limits=httpx.Limits(
+    limits=httpx.Limits(
         max_keepalive_connections=100,
         max_connections=200,
         keepalive_expiry=30.0
-        ),
+    ),
 timeout=httpx.Timeout(10.0, connect=5.0)
-    )
+)
 
 ## REUSE THIS CLIENT - don't create per request
 
@@ -13649,6 +12859,7 @@ newHead.next = oldHead;
 > ARM: Weak model. Stores can be reordered. Reads can be stale.
 > Code works on x86, crashes on ARM (Graviton, Apple M1)."
 
+```java
 // ? VIBE: Works on x86, breaks on ARM
 class DataRace {
 private int value;
@@ -13657,14 +12868,14 @@ private boolean ready;  // NOT volatile
 public void writer() {
 value = 42;
 ready = true;  // Can be reordered before value!
-        }
+    }
 
 public void reader() {
 if (ready) {
 System.out.println(value); // Might print 0 on ARM!
         }
-        }
     }
+}
 
 // ? TITAN: Proper memory barriers
 class Correct {
@@ -13674,26 +12885,30 @@ private volatile boolean ready;  // Volatile = memory fence
 public void writer() {
 value = 42;
 ready = true;  // Store-store barrier before this
-        }
+    }
 
 public void reader() {
 if (ready) {  // Load-load barrier after this
 System.out.println(value); // Always 42
         }
-        }
     }
+}
 
 // ? TITAN: VarHandle for fine-grained control
 private static final VarHandle VALUE;
 static {
 VALUE = MethodHandles.lookup()
 .findVarHandle(MyClass.class, "value", int.class);
-    }
+}
 
 VALUE.setRelease(this, 42);  // Release semantics
 int v = (int) VALUE.getAcquire(this);  // Acquire semantics
 
+```text
+
 ### END OF VOLUME 6.4: TITAN DEEP INTERNALS - LOCK-FREE ALGORITHMS
+
+---
 
 ## VOLUME 6.5: TITAN GEMINI RESEARCH - EVENT LOOP & ASYNC FAILURES
 
@@ -13724,7 +12939,6 @@ res.json({ hash });
 const data = fs.readFileSync('10gb-file.json');  // BLOCKS EVERYTHING
 
 ```javascript
-
 // ? TITAN: Stream JSON parsing for large payloads
 import { parser } from 'stream-json';
 import { streamArray } from 'stream-json/streamers/StreamArray';
@@ -13794,7 +13008,7 @@ process.env.UV_THREADPOOL_SIZE = '16';  // Default is 4
 
 ## N+1 QUERY PATTERN (DATABASE KILLER)
 
-### The Scar 2
+### The Scar
 
 > "Load 100 users. Each user has posts. 1 query for users.
 > 100 queries for posts (one per user). 101 queries total.
@@ -13822,11 +13036,11 @@ return result
 
 from sqlalchemy.orm import joinedload
 
-    @app.get("/users")
+@app.get("/users")
 def get_users():
 users = db.query(User).options(
 joinedload(User.posts) # Single JOIN query
-        ).all()
+    ).all()
 
 return [{
 "name": u.name,
@@ -13839,7 +13053,7 @@ from sqlalchemy.orm import selectinload
 
 users = db.query(User).options(
 selectinload(User.posts) # 2 queries: users, then posts WHERE user_id IN (...)
-    ).all()
+).all()
 
 ## ? TITAN: Hybrid approach for complex relations
 
@@ -13850,7 +13064,6 @@ selectinload(User.followers) # N:N, use IN query
 ).all()
 
 ```typescript
-
 // ? TITAN: Prisma with include (eager loading)
 const users = await prisma.user.findMany({
 include: {
@@ -13886,11 +13099,11 @@ resolve: (user) => postLoader.load(user.id)  // Batched automatically!
 
 ## FASTAPI ASYNC THREAD POOL EXHAUSTION
 
-## The Scar 3
+## The Scar
 
-> "Cache expires. 1000 concurrent requests all miss cache.
-> All 1000 hit database simultaneously. Database crashes.
-> Called 'thundering herd' or 'cache stampede'."
+> "async def route calls sync database driver.
+> FastAPI runs sync calls in thread pool (40 threads default).
+> 41 concurrent requests = deadlock. Server hangs."
 
 ```python
 
@@ -13899,9 +13112,8 @@ resolve: (user) => postLoader.load(user.id)  // Batched automatically!
 @app.get("/users")
 async def get_users():
 
-## requests library is SYNC - blocks thread pool
-
-response = requests.get("<<<<<http://api.example.com/users>>>>>")
+## requests library is SYNC - blocks thread pool!
+response = requests.get("http://api.example.com/users")
 return response.json()
 
 ## ? VIBE: Sync database in async route
@@ -13910,7 +13122,6 @@ return response.json()
 async def get_items():
 
 ## SQLAlchemy sync engine in async route = thread pool
-
 items = db.query(Item).all()  # Blocks!
 return items
 
@@ -13920,10 +13131,10 @@ return items
 
 import httpx
 
-    @app.get("/users")
+@app.get("/users")
 async def get_users():
 async with httpx.AsyncClient() as client:
-response = await client.get("<<<<http://api.example.com/users>>>>")
+response = await client.get("http://api.example.com/users")
 return response.json()
 
 ## ? TITAN: Use async database driver
@@ -13931,12 +13142,12 @@ return response.json()
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
 engine = create_async_engine(
-        "postgresql+asyncpg://user:pass@localhost/db",
-        pool_size=20,
-        max_overflow=10
-    )
+    "postgresql+asyncpg://user:pass@localhost/db",
+    pool_size=20,
+    max_overflow=10
+)
 
-    @app.get("/items")
+@app.get("/items")
 async def get_items():
 async with AsyncSession(engine) as session:
 result = await session.execute(select(Item))
@@ -13949,32 +13160,35 @@ from concurrent.futures import ThreadPoolExecutor
 
 executor = ThreadPoolExecutor(max_workers=20)
 
-    @app.get("/sync-api")
+@app.get("/sync-api")
 async def call_sync_api():
 loop = asyncio.get_event_loop()
 result = await loop.run_in_executor(
         executor,
         sync_blocking_function
-        )
+    )
 return result
 
 ## ? TITAN: Or just use def (sync route) - FastAPI handles it
 
-    @app.get("/users")
+@app.get("/users")
 def get_users():  # Note: def, not async def
 
 ## FastAPI automatically runs this in thread pool
-
-response = requests.get("<<<<http://api.example.com/users>>>>")
+response = requests.get("http://api.example.com/users")
 return response.json()
+
+```text
 
 ## CACHE STAMPEDE (THUNDERING HERD)
 
-## The Scar 2 2
+## The Scar
 
 > "Cache expires. 1000 concurrent requests all miss cache.
 > All 1000 hit database simultaneously. Database crashes.
 > Called 'thundering herd' or 'cache stampede'."
+
+```python
 
 ## ? VIBE: Basic cache pattern (stampede vulnerable)
 
@@ -14005,12 +13219,10 @@ value = data['value']
 delta = data['delta']  # Time to compute value
 
 ## Probabilistically refresh BEFORE expiry
-
 now = time.time()
-if now - delta *beta* math.log(random.random()) >= expiry:
+if now - delta * beta * math.log(random.random()) >= expiry:
 
 ## This request refreshes cache, others still use cached value
-
         pass
         else:
 return value
@@ -14037,12 +13249,10 @@ return json.loads(cached)
 lock_key = f"lock:{key}"
 
 ## Try to acquire lock
-
 if redis.set(lock_key, "1", nx=True, ex=lock_timeout):
         try:
 
 ## Only ONE request computes
-
 value = expensive_computation()
 redis.setex(key, ttl, json.dumps(value))
 return value
@@ -14051,7 +13261,6 @@ return value
     else:
 
 ## Wait for other request to populate cache
-
 for _ in range(50):  # 5 seconds max
         time.sleep(0.1)
 cached = redis.get(key)
@@ -14059,7 +13268,6 @@ if cached:
 return json.loads(cached)
 
 ## Fallback: compute ourselves
-
 return expensive_computation()
 
 ## ? TITAN: Stale-while-revalidate pattern
@@ -14076,12 +13284,10 @@ return data['value']  # Fresh
 if time.time() < data['stale_until']:
 
 ## Stale but usable - trigger background refresh
-
         asyncio.create_task(refresh_cache(key))
 return data['value']  # Serve stale
 
 ## No cache or expired - must compute
-
 return refresh_cache_sync(key)
 
 ```text
@@ -14094,7 +13300,7 @@ return refresh_cache_sync(key)
 
 ## GRAPHQL N+1 PROBLEM
 
-### The Scar 4
+### The Scar
 
 > "GraphQL query for 100 users with posts.
 > 1 query for users + 100 queries for posts = 101 queries.
@@ -14102,7 +13308,6 @@ return refresh_cache_sync(key)
 > REST was 2 queries. GraphQL made it worse."
 
 ```typescript
-
 // ? VIBE: Naive resolver - N+1 problem
 const resolvers = {
 User: {
@@ -14176,7 +13381,7 @@ return loaders.userLoader.load(post.authorId);
 
 ## GRAPHQL COMPLEXITY AND DEPTH LIMITING
 
-### The Scar 5
+### The Scar
 
 > "Public GraphQL API. No limits.
 > Attacker: { users { posts { comments { author { posts { comments... } } } } } }
@@ -14192,7 +13397,6 @@ const server = new ApolloServer({
 });
 
 ```typescript
-
 // ? TITAN: Query complexity and depth limiting
 import { createComplexityLimitRule } from 'graphql-validation-complexity';
 import depthLimit from 'graphql-depth-limit';
@@ -14283,13 +13487,14 @@ complexity: context.queryComplexity
 
 ## GRAPHQL SUBSCRIPTIONS AT SCALE
 
-### The Scar 4 2
+### The Scar
 
 > "Real-time comments with GraphQL subscriptions.
 > 10k concurrent users. 10k WebSocket connections.
 > Single server handling all. Memory exhausted.
 > Horizontal scaling impossible with in-memory pub/sub."
 
+```typescript
 // ? VIBE: In-memory pub/sub - doesn't scale
 import { PubSub } from 'graphql-subscriptions';
 
@@ -14297,6 +13502,7 @@ const pubsub = new PubSub();  // In-memory only!
 
 // One server = all connections. Can't scale.
 
+```typescript
 // ? TITAN: Redis-backed pub/sub for horizontal scaling
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import Redis from 'ioredis';
@@ -14304,12 +13510,12 @@ import Redis from 'ioredis';
 const redisOptions = {
 host: process.env.REDIS_HOST,
 port: 6379,
-retryStrategy: (times: number) => Math.min(times* 50, 2000),
+retryStrategy: (times: number) => Math.min(times * 50, 2000),
 reconnectOnError: (err) => {
 const targetError = 'READONLY';
 return err.message.includes(targetError);
-        }
-    };
+    }
+};
 
 const pubsub = new RedisPubSub({
 publisher: new Redis(redisOptions),
@@ -14318,7 +13524,7 @@ subscriber: new Redis(redisOptions),
 // Custom serialization for complex objects
 serializer: (value) => JSON.stringify(value),
 deserializer: (text) => JSON.parse(text)
-    });
+});
 
 // Subscription resolver
 const resolvers = {
@@ -14354,8 +13560,8 @@ maxWaitMs: 500
         );
         }
         }
-        }
-    };
+    }
+};
 
 // WebSocket server with connection limits
 import { WebSocketServer } from 'ws';
@@ -14366,11 +13572,11 @@ server: httpServer,
 path: '/graphql',
 
 // Connection limits
-maxPayload: 50 *1024,  // 50KB max message
-    });
+maxPayload: 50 * 1024,  // 50KB max message
+});
 
-    useServer(
-        {
+useServer(
+    {
         schema,
 context: async (ctx) => ({
 user: await authenticateWebSocket(ctx.connectionParams)
@@ -14395,9 +13601,9 @@ if (userId) {
 await redis.decr(`ws:connections:${userId}`);
         }
         }
-        },
-        wsServer
-    );
+    },
+    wsServer
+);
 
 // Heartbeat to detect dead connections
 setInterval(() => {
@@ -14407,10 +13613,14 @@ return ws.terminate();
         }
 ws.isAlive = false;
         ws.ping();
-        });
+    });
 }, 30000);
 
+```text
+
 ### END OF VOLUME 7: TITAN GEMINI RESEARCH - GRAPHQL PRODUCTION PATTERNS
+
+---
 
 ## VOLUME 7: REAL 2024 PRISMA PRODUCTION ISSUES
 
@@ -14422,10 +13632,9 @@ ws.isAlive = false;
 
 ## PRISMA CONNECTION POOL EXHAUSTION (P2024)
 
-### The Scar 6
+### The Scar
 
 ```python
-
 Error: Timed out fetching a new connection from the connection pool.
 Error Code: P2024
 
@@ -14444,7 +13653,6 @@ What This Means:
 ### Cause 1: Too Many Prisma Instances (Serverless)
 
 ```typescript
-
 // ? VIBE: New PrismaClient on every request
 export async function handler(req, res) {
 const prisma = new PrismaClient();  // NEW instance every request!
@@ -14477,7 +13685,6 @@ globalForPrisma.prisma = prisma;
 ### Cause 2: Long-Running Queries Blocking Pool
 
 ```typescript
-
 // ? VIBE: Query that holds connection for 30 seconds
 async function generateReport() {
 // This query takes 30 seconds
@@ -14521,7 +13728,6 @@ db: { url: process.env.REPORTS_DATABASE_URL }
 ### Cause 3: Connection Limit Too Low for Scale
 
 ```prisma
-
 // ? VIBE: Default connection limit (varies by DB)
 datasource db {
 provider = "postgresql"
@@ -14548,7 +13754,6 @@ url = env("DATABASE_URL")
 ### Cause 4: Multiple Application Instances Overwhelming DB
 
 ```typescript
-
 // Problem: 10 servers 10 connections = 100 connections
 // Database limit: 100 connections
 // Any burst = exhaustion
@@ -14584,7 +13789,6 @@ url = "postgresql://user:pass@pgbouncer:6432/mydb?pgbouncer=true"
 ## DECISION TREE: P2024 DEBUGGING
 
 ```text
-
 P2024 ERROR (Connection Pool Timeout)
 
 +- Step 1: Check how many Prisma instances exist
@@ -14623,7 +13827,7 @@ return result;
 
 ## PRISMA IN SERVERLESS (Vercel/Lambda)
 
-### The Problem 2
+### The Problem
 
 - Each function invocation may create new PrismaClient
 
@@ -14636,7 +13840,6 @@ return result;
 ### The Solution Stack
 
 ```typescript
-
 // 1. Use Prisma Accelerate or connection pooler
 // Prisma Accelerate handles pooling for you
 datasource db {
@@ -14672,7 +13875,6 @@ await prisma.$disconnect();
 ### Pattern 1: Monitoring Before Problems
 
 ```typescript
-
 // Enable Prisma metrics
 const prisma = new PrismaClient({
 log: [
@@ -14709,7 +13911,6 @@ return { healthy: false, error: error.message };
 ### Pattern 2: Query Optimization for Less Connection Hold Time
 
 ```typescript
-
 // ? VIBE: Inefficient query holds connection longer
 const users = await prisma.user.findMany({
 include: {
@@ -14760,7 +13961,6 @@ take: 20,  // Pagination!
 ### The Error
 
 ```yaml
-
 Error: 413 Payload Too Large
 Error: 414 URI Too Long
 Error: 404 Not Found (URL too long for server)
@@ -14770,7 +13970,6 @@ Error: 404 Not Found (URL too long for server)
 ### Why This Happens
 
 ```text
-
 tRPC batches multiple queries into ONE HTTP request:
 query1 + query2 + query3 = ONE request with LONG URL
 
@@ -14783,7 +13982,6 @@ If URL > server limit (usually 4-8KB), server rejects it.
 ### Fix 1: Limit URL Length
 
 ```typescript
-
 // trpc/client.ts
 import { httpBatchLink } from '@trpc/client';
 
@@ -14805,7 +14003,6 @@ maxURLLength: 2048,  // Stop batching if URL > 2KB
 ### Fix 2: Split Large Requests from Batch
 
 ```typescript
-
 // Some requests are too big for batching (file uploads, large data)
 import { splitLink, httpBatchLink, httpLink } from '@trpc/client';
 
@@ -14837,7 +14034,6 @@ maxURLLength: 2048
 ### Fix 3: Disable Batching Completely
 
 ```typescript
-
 // Server: Disable batching
 import { createNextApiHandler } from '@trpc/server/adapters/next';
 
@@ -14869,7 +14065,6 @@ httpLink({ url: '/api/trpc' }),  // No batching
 ### The Error (Late 2024)
 
 ```yaml
-
 Error: req.socket.once is not a function
 
 ```text
@@ -14879,7 +14074,6 @@ Error: req.socket.once is not a function
 ### Workaround
 
 ```typescript
-
 // Check tRPC and Next.js versions
 // Update to latest tRPC that supports Next.js 15
 
@@ -14895,7 +14089,6 @@ Error: req.socket.once is not a function
 ### Getting 'any' Types Everywhere
 
 ```json
-
 // tsconfig.json - REQUIRED settings
 {
 "compilerOptions": {
@@ -14910,7 +14103,6 @@ Error: req.socket.once is not a function
 ### Checklist
 
 ```json
-
 [ ] "strict": true in tsconfig.json
 [ ] All @trpc/* packages same version
 [ ] TypeScript >= 5.7.2
@@ -14921,7 +14113,6 @@ Error: req.socket.once is not a function
 ### Monorepo Type Resolution
 
 ```typescript
-
 // packages/server/src/router.ts exports AppRouter
 export type AppRouter = typeof appRouter;
 
@@ -14938,21 +14129,22 @@ export type AppRouter = typeof appRouter;
 
 ---
 
-## BEST PRACTICES 3
+## BEST PRACTICES
 
+```typescript
 // 1. Always validate inputs with Zod
 import { z } from 'zod';
 
 const userRouter = router({
 create: publicProcedure
-        .input(z.object({
+    .input(z.object({
 email: z.string().email(),
 name: z.string().min(2).max(100),
-        }))
+    }))
 .mutation(async ({ input }) => {
 // input is typed AND validated at runtime
-        }),
-    });
+    }),
+});
 
 // 2. Return DTOs, not raw database types
 const userRouter = router({
@@ -14961,7 +14153,7 @@ getById: publicProcedure
 .query(async ({ input }) => {
 const user = await prisma.user.findUnique({
 where: { id: input.id }
-        });
+      });
 
 // ? Don't return raw Prisma type with all fields
 // return user;
@@ -14972,15 +14164,15 @@ id: user?.id,
 name: user?.name,
 email: user?.email,
 // No password hash, no internal fields
-        };
-        }),
-    });
+      };
+    }),
+});
 
 // 3. Custom error formatting (hide internal errors in prod)
 const t = initTRPC.create({
 errorFormatter({ shape, error }) {
 return {
-        ...shape,
+      ...shape,
 data: {
         ...shape.data,
 // Hide Zod details in production
@@ -14989,17 +14181,22 @@ zodError: process.env.NODE_ENV === 'production'
 : error.cause instanceof ZodError
 ? error.cause.flatten()
 : null,
-        },
-        };
       },
-    });
+    };
+  },
+});
+
+```text
+
+---
 
 ## VOLUME 9: REAL 2024 WEBSOCKET PRODUCTION ISSUES
 
 ## RECONNECTION HANDLING
 
-### The Problem 2 2
+### The Problem
 
+```text
 WebSocket disconnects and:
 
 - User sees stale data
@@ -15010,10 +14207,13 @@ WebSocket disconnects and:
 
 - No reconnection happens automatically
 
+```text
+
 ### WebSocket does NOT auto-reconnect. You must implement it
 
 ### Production Reconnection Pattern
 
+```typescript
 class ReconnectingWebSocket {
 | private ws: WebSocket | null = null; |
 private reconnectAttempts = 0;
@@ -15023,81 +14223,89 @@ private maxDelay = 30000;  // 30 seconds
 private messageQueue: string[] = [];
 
 constructor(private url: string) {
-        this.connect();
-      }
+    this.connect();
+  }
 
 private connect() {
 this.ws = new WebSocket(this.url);
 
 this.ws.onopen = () => {
-        console.log('Connected');
+      console.log('Connected');
 this.reconnectAttempts = 0;  // Reset on success
 
 // Flush queued messages
 while (this.messageQueue.length > 0) {
 const msg = this.messageQueue.shift()!;
         this.ws?.send(msg);
-        }
+      }
 
 // Notify UI
-        this.onStatusChange?.('connected');
-        };
+      this.onStatusChange?.('connected');
+    };
 
 this.ws.onclose = (event) => {
 if (event.code === 1000) {
 console.log('Clean close, no reconnect');
         return;
-        }
+      }
 
-        this.scheduleReconnect();
-        };
+      this.scheduleReconnect();
+    };
 
 this.ws.onerror = () => {
 // Error triggers close, which triggers reconnect
-        };
-      }
+    };
+  }
 
 private scheduleReconnect() {
 if (this.reconnectAttempts >= this.maxReconnectAttempts) {
-        this.onStatusChange?.('failed');
-        return;
-        }
+      this.onStatusChange?.('failed');
+      return;
+    }
 
 // Exponential backoff
 const delay = Math.min(
-this.baseDelay *Math.pow(2, this.reconnectAttempts),
-        this.maxDelay
-        );
+this.baseDelay * Math.pow(2, this.reconnectAttempts),
+      this.maxDelay
+    );
 
-        this.reconnectAttempts++;
-        this.onStatusChange?.('reconnecting');
+    this.reconnectAttempts++;
+    this.onStatusChange?.('reconnecting');
 
 console.log(`Reconnecting in ${delay}ms (attempt ${this.reconnectAttempts})`);
 
 setTimeout(() => this.connect(), delay);
-      }
+  }
 
 send(data: string) {
 if (this.ws?.readyState === WebSocket.OPEN) {
-        this.ws.send(data);
+      this.ws.send(data);
 } else {
 // Queue for when connection restores
-        this.messageQueue.push(data);
-        }
-      }
+      this.messageQueue.push(data);
+    }
+  }
 
 | onStatusChange?: (status: 'connected' | 'reconnecting' | 'failed') => void; |
-    }
+}
+
+```text
+
+---
 
 ## HEARTBEAT / KEEP-ALIVE
 
-### The Problem 3
+### The Problem
 
+```yaml
 Connection stays open for 5 minutes, then mysteriously closes.
 Cause: Firewall/proxy/load balancer killed "idle" connection.
 
+```text
+
 ### Production Heartbeat Pattern
 
+```typescript
 class HeartbeatWebSocket {
 private ws: WebSocket;
 | private heartbeatInterval: NodeJS.Timeout | null = null; |
@@ -15108,21 +14316,21 @@ constructor(url: string) {
 this.ws = new WebSocket(url);
 
 this.ws.onopen = () => {
-        this.startHeartbeat();
-        };
+      this.startHeartbeat();
+    };
 
 this.ws.onmessage = (event) => {
 if (event.data === 'pong') {
 this.missedHeartbeats = 0;  // Server alive
         return;
-        }
+      }
 // Handle actual messages
-        };
+    };
 
 this.ws.onclose = () => {
-        this.stopHeartbeat();
-        };
-      }
+      this.stopHeartbeat();
+    };
+  }
 
 private startHeartbeat() {
 // Send ping every 25 seconds
@@ -15130,28 +14338,28 @@ private startHeartbeat() {
 this.heartbeatInterval = setInterval(() => {
 if (this.ws.readyState !== WebSocket.OPEN) {
         return;
-        }
+      }
 
-        this.missedHeartbeats++;
+      this.missedHeartbeats++;
 
 if (this.missedHeartbeats > this.maxMissedHeartbeats) {
 // Server not responding, force reconnect
 console.log('Server unresponsive, closing connection');
         this.ws.close();
         return;
-        }
-
-        this.ws.send('ping');
-}, 25000);
       }
+
+      this.ws.send('ping');
+}, 25000);
+  }
 
 private stopHeartbeat() {
 if (this.heartbeatInterval) {
-        clearInterval(this.heartbeatInterval);
+      clearInterval(this.heartbeatInterval);
 this.heartbeatInterval = null;
-        }
-      }
     }
+  }
+}
 
 // Server side (Node.js)
 wss.on('connection', (ws) => {
@@ -15159,35 +14367,38 @@ ws.isAlive = true;
 
 ws.on('message', (message) => {
 if (message === 'ping') {
-        ws.send('pong');
-        return;
-        }
+      ws.send('pong');
+      return;
+    }
 // Handle actual messages
-      });
+  });
 
 ws.on('pong', () => {
 ws.isAlive = true;
-      });
-    });
+  });
+});
 
 // Server-side heartbeat sweep
 const heartbeatSweep = setInterval(() => {
 wss.clients.forEach((ws) => {
 if (!ws.isAlive) {
 return ws.terminate();  // Dead connection
-        }
+    }
 
 ws.isAlive = false;
 ws.ping(); // WebSocket protocol ping
-      });
+  });
 }, 30000);
+
+```text
+
+---
 
 ## SCALING WEBSOCKETS
 
-### The Problem 3 2
+### The Problem
 
 ```python
-
 Single server: 10,000 WebSocket connections = fine
 Multiple servers: User A on Server 1, User B on Server 2
 Message from A doesn't reach B!
@@ -15197,7 +14408,6 @@ Message from A doesn't reach B!
 ### Production Scaling with Redis Pub/Sub
 
 ```typescript
-
 // Each WebSocket server subscribes to Redis
 import Redis from 'ioredis';
 import { WebSocketServer } from 'ws';
@@ -15247,7 +14457,6 @@ ws.on('close', () => {
 ## DECISION TREE: WEBSOCKET DEBUGGING
 
 ```text
-
 WEBSOCKET ISSUE
 
 +- Connection drops after idle period?
@@ -15294,62 +14503,72 @@ WEBSOCKET ISSUE
 
 ## PRESIGNED URL CORS ERRORS
 
-### The Problem 5
+### The Problem
 
+```yaml
 Error: Access-Control-Allow-Origin header missing
 CORS blocked the upload to S3.
 But you have CORS configured on the bucket!
 
-### Why This Happens 2
+```text
 
+### Why This Happens
+
+```text
 Browser sends OPTIONS preflight request.
 S3 CORS must allow OPTIONS method.
 Or Content-Type mismatch between presigned URL and actual upload.
 
-### Real Fixes 2
+```text
+
+### Real Fixes
 
 ### Fix 1: Complete S3 CORS Configuration
 
+```json
 // S3 Bucket ? Permissions ? CORS
-    [
-      {
+[
+  {
 "AllowedOrigins": [
-        "<<<<https://yourapp.com",>>>>
-        "<<<<http://localhost:3000">>>>
-        ],
+      "https://yourapp.com",
+      "http://localhost:3000"
+    ],
 "AllowedMethods": [
-        "GET",
-        "PUT",
-        "POST",
-        "DELETE",
-        "HEAD"
-        ],
+      "GET",
+      "PUT",
+      "POST",
+      "DELETE",
+      "HEAD"
+    ],
 "AllowedHeaders": [
-        "*"
-        ],
+      "*"
+    ],
 "ExposeHeaders": [
-        "ETag"
-        ],
+      "ETag"
+    ],
 "MaxAgeSeconds": 3600
-      }
-    ]
+  }
+]
+
+```text
 
 ### Fix 2: Match Content-Type Exactly
 
+```typescript
 // ? VIBE: Mismatch between presigned URL and upload
 // Server generates presigned URL for image/png
 const command = new PutObjectCommand({
 Bucket: 'my-bucket',
 Key: 'uploads/file.png',
 ContentType: 'image/png'  // Specified as image/png
-    });
+});
 
 // Client uploads with different Content-Type
 fetch(presignedUrl, {
 method: 'PUT',
 body: file,
 headers: { 'Content-Type': 'application/octet-stream' }  // WRONG!
-    });
+});
 // Result: 403 Forbidden
 
 // ? TITAN: Match exactly
@@ -15358,7 +14577,7 @@ const command = new PutObjectCommand({
 Bucket: 'my-bucket',
 Key: `uploads/${file.name}`,
 ContentType: file.type  // Use actual file type
-    });
+});
 const presignedUrl = await getSignedUrl(s3, command, { expiresIn: 3600 });
 
 // Return both URL and expected content type
@@ -15369,27 +14588,33 @@ fetch(presignedUrl, {
 method: 'PUT',
 body: file,
 headers: { 'Content-Type': contentType }  // Same as presigned!
-    });
+});
+
+```text
 
 ### Fix 3: Use Region-Specific Endpoints
 
+```typescript
 // ? VIBE: Generic S3 endpoint
 const s3 = new S3Client({ region: 'us-east-1' });
-// URL: <<<<https://s3.amazonaws.com/bucket/key>>>>
+// URL: https://s3.amazonaws.com/bucket/key
 // May have CORS issues with preflight
 
 // ? TITAN: Region-specific endpoint
 const s3 = new S3Client({
 region: 'ap-south-1',  // Mumbai
 // or explicitly set endpoint
-// endpoint: '<<<<https://s3.ap-south-1.amazonaws.com'>>>>
-    });
-// URL: <<<<https://bucket.s3.ap-south-1.amazonaws.com/key>>>>
+// endpoint: 'https://s3.ap-south-1.amazonaws.com'
+});
+// URL: https://bucket.s3.ap-south-1.amazonaws.com/key
+
+```text
+
+---
 
 ## PRESIGNED URL SECURITY
 
 ```typescript
-
 // Security best practices for presigned URLs
 
 async function createSecurePresignedUrl(
@@ -15413,7 +14638,7 @@ Bucket: process.env.S3_BUCKET,
 Key: key,
 ContentType: fileType,
 // 4. Limit file size
-ContentLength: 10 *1024* 1024,  // Max 10MB
+ContentLength: 10 * 1024 * 1024,  // Max 10MB
   });
 
 const url = await getSignedUrl(s3, command, {
@@ -15440,7 +14665,6 @@ return { url, key };
 ### Token Bucket (Best for APIs)
 
 ```typescript
-
 // Allows bursts, smooths over time
 // Used by: Amazon, Stripe
 
@@ -15487,7 +14711,6 @@ return res.status(429).json({ error: 'Rate limited' });
 ### Sliding Window (Best for Precision)
 
 ```typescript
-
 // No burst allowance, strict limit
 // Better for preventing abuse
 
@@ -15524,6 +14747,7 @@ return true;  // Allowed
 
 ## PRODUCTION IMPLEMENTATION WITH REDIS
 
+```typescript
 // Distributed rate limiting with Redis
 import Redis from 'ioredis';
 
@@ -15542,21 +14766,21 @@ const now = Math.floor(Date.now() / 1000);
 const windowKey = `ratelimit:${key}:${Math.floor(now / windowSeconds)}`;
 
 const multi = redis.multi();
-      multi.incr(windowKey);
+  multi.incr(windowKey);
 multi.expire(windowKey, windowSeconds);
 
 const results = await multi.exec();
-| const count = results?.[0]?.[1] as number | 0; |
+| const count = results?.[0]?.[1] as number |  | 0; |
 
 const remaining = Math.max(0, limit - count);
 const resetIn = windowSeconds - (now % windowSeconds);
 
 return {
 allowed: count <= limit,
-        remaining,
-        resetIn
-      };
-    }
+    remaining,
+    resetIn
+  };
+}
 
 // Express middleware
 async function rateLimitMiddleware(req, res, next) {
@@ -15566,40 +14790,45 @@ const { allowed, remaining, resetIn } = await rateLimit(key, 100, 60);
 // Always set rate limit headers
 res.set('X-RateLimit-Limit', '100');
 res.set('X-RateLimit-Remaining', remaining.toString());
-res.set('X-RateLimit-Reset', (Date.now() + resetIn* 1000).toString());
+res.set('X-RateLimit-Reset', (Date.now() + resetIn * 1000).toString());
 
 if (!allowed) {
 res.set('Retry-After', resetIn.toString());
 return res.status(429).json({
 error: 'Too many requests',
 retryAfter: resetIn
-        });
-      }
+    });
+  }
 
-      next();
-    }
+  next();
+}
+
+```text
+
+---
 
 ## TIERED RATE LIMITS
 
+```typescript
 // Different limits for different users/plans
 const RATE_LIMITS = {
 anonymous: { requests: 10, windowSeconds: 60 },
 free: { requests: 100, windowSeconds: 60 },
 pro: { requests: 1000, windowSeconds: 60 },
 enterprise: { requests: 10000, windowSeconds: 60 },
-    };
+};
 
 async function tieredRateLimitMiddleware(req, res, next) {
 const user = req.user;
-| const tier = user?.plan | 'anonymous'; |
+| const tier = user?.plan |  | 'anonymous'; |
 const limits = RATE_LIMITS[tier];
 
-| const key = user?.id | req.ip; |
+| const key = user?.id |  | req.ip; |
 const { allowed, remaining, resetIn } = await rateLimit(
-        `${tier}:${key}`,
-        limits.requests,
-        limits.windowSeconds
-      );
+    `${tier}:${key}`,
+    limits.requests,
+    limits.windowSeconds
+  );
 
 if (!allowed) {
 return res.status(429).json({
@@ -15608,16 +14837,19 @@ currentPlan: tier,
 limit: limits.requests,
 retryAfter: resetIn,
 upgradeTo: tier === 'free' ? 'pro' : null
-        });
-      }
+    });
+  }
 
-      next();
-    }
+  next();
+}
+
+```text
+
+---
 
 ## DECISION TREE: RATE LIMITING
 
 ```text
-
 RATE LIMITING DECISION
 
 +- Which algorithm?
@@ -15659,10 +14891,9 @@ RATE LIMITING DECISION
 
 ## THE N+1 QUERY PROBLEM
 
-### The Problem 4
+### The Problem
 
 ```graphql
-
 query GetAuthors {
 authors {
     id
@@ -15733,7 +14964,7 @@ usersLoader: new DataLoader(batchLoadUsers),
 
 ## QUERY DEPTH ATTACKS
 
-### The Problem 5 2
+### The Problem
 
 ```graphql
 
@@ -15748,7 +14979,6 @@ author {
 books {
 
 ## ... 50 levels deep
-
         }
         }
         }
@@ -15780,7 +15010,7 @@ depthLimit(5), // Max 5 levels of nesting
 
 ## QUERY COST/COMPLEXITY ATTACKS
 
-### The Problem 6
+### The Problem
 
 ```graphql
 
@@ -15791,17 +15021,17 @@ allUsers(first: 10000) {
 posts(first: 100) {
 comments(first: 100) {
 
-## 10000 *100* 100 = 100 million items
-
+## 10000 * 100 * 100 = 100 million items!
       }
     }
   }
 }
 
+```text
+
 ## Real Fix: Query Cost Analysis
 
 ```typescript
-
 import { createComplexityRule, fieldExtensionsEstimator, simpleEstimator } from 'graphql-query-complexity';
 
 const complexityRule = createComplexityRule({
@@ -15833,7 +15063,6 @@ users(first: Int): [User] @complexity(multipliers: ["first"])
 ## GRAPHQL RATE LIMITING
 
 ```typescript
-
 // GraphQL is harder to rate limit than REST
 // One query can be cheap or expensive
 
@@ -15886,7 +15115,6 @@ return true;  // Allowed
 ## PERSISTED QUERIES (Best Practice)
 
 ```typescript
-
 // Problem: Client sends full query text every time
 // - Larger payloads
 // - Can't whitelist queries
@@ -15932,7 +15160,6 @@ variables: { id: '123' }
 ## DECISION TREE: GRAPHQL DEBUGGING
 
 ```text
-
 GRAPHQL ISSUE
 
 +- Slow queries?
@@ -15983,7 +15210,6 @@ GRAPHQL ISSUE
 ## NEW 2024 REQUIREMENTS (Google & Yahoo)
 
 ```text
-
 February 2024: Bulk senders (5000+ emails/day to Gmail/Yahoo)
 MUST have:
 
@@ -16094,11 +15320,10 @@ v=DMARC1; p=reject; rua=mailto:dmarc-reports@yourdomain.com; pct=100
 ## SPAM RATE MONITORING
 
 ```typescript
-
 // Google requires: < 0.3% spam rate (ideal < 0.1%)
 
 // Use Google Postmaster Tools to monitor:
-// <https://postmaster.google.com/>
+// https://postmaster.google.com/
 
 // In your app, track:
 const emailMetrics = {
@@ -16128,10 +15353,9 @@ await alertOpsTeam('Spam rate approaching 0.3% limit!');
 ## ONE-CLICK UNSUBSCRIBE (Required 2024)
 
 ```typescript
-
 // Email headers required:
 const headers = {
-'List-Unsubscribe': '<mailto:unsubscribe@yourdomain.com>, <<https://yourdomain.com/unsubscribe?id={{userId}}>>',
+'List-Unsubscribe': '<mailto:unsubscribe@yourdomain.com>, <https://yourdomain.com/unsubscribe?id={{userId}}>',
 'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
 };
 
@@ -16154,18 +15378,22 @@ data: { emailSubscribed: false }
 
 ## VOLUME 14: REAL CACHING PRODUCTION PATTERNS
 
-## CACHE STAMPEDE (Thundering Herd) 2
+## CACHE STAMPEDE (Thundering Herd)
 
-### The Problem 4 2
+### The Problem
 
+```text
 1. Popular cached item expires
-1. 1000 concurrent requests hit server
-1. All 1000 requests query database
-1. Database overwhelmed
-1. Cascading failure
+2. 1000 concurrent requests hit server
+3. All 1000 requests query database
+4. Database overwhelmed
+5. Cascading failure
+
+```text
 
 ### Real Fix 1: Request Coalescing (Locking)
 
+```typescript
 import Redis from 'ioredis';
 
 const redis = new Redis();
@@ -16205,8 +15433,11 @@ await redis.del(lockKey);
   }
 }
 
+```text
+
 ### Real Fix 2: Stale-While-Revalidate
 
+```typescript
 async function getCachedSWR<T>(
 key: string,
 fetchFn: () => Promise<T>,
@@ -16216,9 +15447,9 @@ staleTtlSeconds: number = 3600  // Serve stale for 1 hour
 const cacheData = await redis.hgetall(key);
 
 const now = Date.now();
-| const cachedAt = parseInt(cacheData.cachedAt | '0'); |
-const isStale = now - cachedAt > ttlSeconds *1000;
-const isExpired = now - cachedAt > staleTtlSeconds* 1000;
+| const cachedAt = parseInt(cacheData.cachedAt |  | '0'); |
+const isStale = now - cachedAt > ttlSeconds * 1000;
+const isExpired = now - cachedAt > staleTtlSeconds * 1000;
 
 // If we have cached data
 if (cacheData.data && !isExpired) {
@@ -16256,16 +15487,19 @@ await redis.del(`refresh:${key}`);
   }
 }
 
+```text
+
 ### Real Fix 3: TTL Jitter (Prevent Simultaneous Expiry)
 
+```typescript
 function setWithJitter(
 key: string,
 value: string,
 baseTtlSeconds: number
 ): Promise<void> {
 // Add random jitter: 80-120% of base TTL
-const jitter = 0.8 + (Math.random() *0.4);
-const actualTtl = Math.floor(baseTtlSeconds* jitter);
+const jitter = 0.8 + (Math.random() * 0.4);
+const actualTtl = Math.floor(baseTtlSeconds * jitter);
 
 return redis.set(key, value, 'EX', actualTtl);
 }
@@ -16274,10 +15508,13 @@ return redis.set(key, value, 'EX', actualTtl);
 // With jitter: Items expire between 4 and 6 mins
 // Prevents stampede from synchronized expiry
 
+```text
+
+---
+
 ## CDN CACHE HEADERS
 
 ```typescript
-
 // Express middleware for proper cache headers
 
 function setCacheHeaders(options: {
@@ -16339,7 +15576,6 @@ setCacheHeaders({ private: true, maxAge: 0 }),  // No caching for user data
 ## DECISION TREE: CACHING STRATEGY
 
 ```text
-
 CACHING DECISION
 
 +- What to cache?
@@ -16382,8 +15618,9 @@ CACHING DECISION
 
 ---
 
-## STRUCTURED LOGGING 2
+## STRUCTURED LOGGING
 
+```typescript
 // ? VIBE: Unstructured logging
 console.log('User ' + userId + ' bought product ' + productId + ' for $' + amount);
 // Output: "User 123 bought product 456 for $99.99"
@@ -16391,7 +15628,7 @@ console.log('User ' + userId + ' bought product ' + productId + ' for $' + amoun
 
 // ? TITAN: Structured JSON logging
 const logger = pino({
-| level: process.env.LOG_LEVEL | 'info', |
+| level: process.env.LOG_LEVEL |  | 'info', |
 formatters: {
 level: (label) => ({ level: label })
   }
@@ -16410,10 +15647,13 @@ timestamp: new Date().toISOString()
 // Output: {"level":"info","event":"purchase_completed","userId":"123",...}
 // Now you can query: event=purchase_completed AND amount>50
 
+```text
+
+---
+
 ## OPENTELEMETRY SETUP (2024 Standard)
 
 ```typescript
-
 // OpenTelemetry is the CNCF standard for observability
 // Unified traces, metrics, and logs
 
@@ -16423,7 +15663,7 @@ import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentation
 
 const sdk = new NodeSDK({
 traceExporter: new OTLPTraceExporter({
-| url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT |  | '<http://localhost:4318/v1/traces'> |
+| url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT |  | 'http://localhost:4318/v1/traces' |
   }),
 instrumentations: [
     getNodeAutoInstrumentations({
@@ -16450,7 +15690,6 @@ sdk.start();
 ## CORRELATING LOGS WITH TRACES
 
 ```typescript
-
 // Inject trace context into logs
 import { trace, context } from '@opentelemetry/api';
 import pino from 'pino';
@@ -16480,7 +15719,6 @@ return {};
 ## LOG LEVELS AND WHEN TO USE
 
 ```typescript
-
 const logGuidelines = {
 trace: 'Very detailed debugging, never in production',
 debug: 'Development debugging, disable in production',
@@ -16504,7 +15742,6 @@ fatal: 'App crashing, immediate attention needed'
 ## RETRY WITH EXPONENTIAL BACKOFF + JITTER
 
 ```typescript
-
 interface RetryOptions {
 maxRetries: number;
 baseDelayMs: number;
@@ -16537,7 +15774,7 @@ throw error;  // Last attempt, give up
 
 // Exponential backoff with jitter
 const exponentialDelay = baseDelayMs * Math.pow(2, attempt);
-const jitter = Math.random() *0.3* exponentialDelay;  // 0-30% jitter
+const jitter = Math.random() * 0.3 * exponentialDelay;  // 0-30% jitter
 const delay = Math.min(exponentialDelay + jitter, maxDelayMs);
 
 console.log(`Retry ${attempt + 1}/${maxRetries} after ${delay}ms`);
@@ -16550,7 +15787,7 @@ throw lastError;
 
 // Usage
 const result = await withRetry(
-() => fetch('<https://api.example.com/data>').then(r => r.json()),
+() => fetch('https://api.example.com/data').then(r => r.json()),
   {
 maxRetries: 3,
 baseDelayMs: 1000,
@@ -16568,8 +15805,9 @@ return false;  // 4xx = permanent
 
 ---
 
-## CIRCUIT BREAKER 3
+## CIRCUIT BREAKER
 
+```typescript
 enum CircuitState {
 CLOSED = 'CLOSED',  // Normal operation, requests go through
 OPEN = 'OPEN',  // Too many failures, block requests
@@ -16658,10 +15896,13 @@ return queueForRetry(orderId);
   }
 );
 
+```text
+
+---
+
 ## GRACEFUL DEGRADATION
 
 ```typescript
-
 // Return degraded response when service is down
 async function getProductWithRecommendations(productId: string) {
 // Primary data (critical)
@@ -16704,7 +15945,6 @@ reviews, // May be default values
 ## DECISION TREE: ERROR HANDLING
 
 ```text
-
 ERROR HANDLING DECISION
 
 +- Is error retryable?
@@ -16745,7 +15985,6 @@ ERROR HANDLING DECISION
 ## RESTful API Best Practices
 
 ```typescript
-
 // Consistent response format
 interface ApiResponse<T> {
 success: boolean;
@@ -16777,8 +16016,9 @@ return { success: false, data: null, error: { code, message, details } };
 
 ---
 
-## API Versioning Strategies 2
+## API Versioning Strategies
 
+```typescript
 // URL versioning (most common)
 // /api/v1/users
 // /api/v2/users
@@ -16801,8 +16041,13 @@ res.set('Link', '</api/v2>; rel="successor-version"');
   next();
 });
 
-## Pagination Patterns 3
+```text
 
+---
+
+## Pagination Patterns
+
+```typescript
 // Cursor-based pagination (recommended for large datasets)
 interface CursorPaginationParams {
 cursor?: string;
@@ -16850,7 +16095,7 @@ query: any,
 params: OffsetPaginationParams
 ): Promise<{ items: T[]; page: number; totalPages: number; total: number }> {
 const { page, limit } = params;
-const skip = (page - 1)* limit;
+const skip = (page - 1) * limit;
 
 const [items, total] = await Promise.all([
 query.findMany({ skip, take: limit }),
@@ -16865,10 +16110,13 @@ totalPages: Math.ceil(total / limit),
   };
 }
 
+```text
+
+---
+
 ## Request Validation with Zod
 
 ```typescript
-
 import { z } from 'zod';
 
 // Define schemas
@@ -16915,8 +16163,9 @@ app.patch('/users/:id', validate(updateUserSchema), updateUser);
 
 ---
 
-## Rate Limiting Implementation 2
+## Rate Limiting Implementation
 
+```typescript
 import rateLimit from 'express-rate-limit';
 import RedisStore from 'rate-limit-redis';
 import Redis from 'ioredis';
@@ -16925,7 +16174,7 @@ const redis = new Redis(process.env.REDIS_URL);
 
 // Basic rate limiter
 const basicLimiter = rateLimit({
-windowMs: 15 *60* 1000, // 15 minutes
+windowMs: 15 * 60 * 1000, // 15 minutes
 max: 100, // 100 requests per window
 message: { error: 'Too many requests, please try again later' },
 standardHeaders: true,
@@ -16934,7 +16183,7 @@ legacyHeaders: false,
 
 // Redis-backed rate limiter for distributed systems
 const distributedLimiter = rateLimit({
-windowMs: 15 *60* 1000,
+windowMs: 15 * 60 * 1000,
 max: 100,
 store: new RedisStore({
 sendCommand: (...args: string[]) => redis.call(...args),
@@ -16949,21 +16198,24 @@ enterprise: 10000,
 };
 
 const tieredLimiter = rateLimit({
-windowMs: 60 *60* 1000, // 1 hour
+windowMs: 60 * 60 * 1000, // 1 hour
 max: async (req) => {
 const user = req.user;
 if (!user) return 50; // anonymous
-| return tierLimits[user.tier] | tierLimits.free; |
+| return tierLimits[user.tier] |  | tierLimits.free; |
   },
-| keyGenerator: (req) => req.user?.id | req.ip, |
+| keyGenerator: (req) => req.user?.id |  | req.ip, |
 });
+
+```text
+
+---
 
 ## REAL AUTHENTICATION PATTERNS
 
 ## JWT with Refresh Tokens
 
 ```typescript
-
 import jwt from 'jsonwebtoken';
 
 interface TokenPayload {
@@ -17021,7 +16273,7 @@ await db.refreshToken.create({
 data: {
 token: newTokens.refreshToken,
 userId: storedToken.user.id,
-expiresAt: new Date(Date.now() + 7 *24* 60 *60* 1000),
+expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       },
     });
 
@@ -17038,7 +16290,6 @@ throw new Error('Invalid refresh token');
 ## Session Management with Redis
 
 ```typescript
-
 import session from 'express-session';
 import RedisStore from 'connect-redis';
 import Redis from 'ioredis';
@@ -17053,7 +16304,7 @@ saveUninitialized: false,
 cookie: {
 secure: process.env.NODE_ENV === 'production',
 httpOnly: true,
-maxAge: 24 *60* 60 * 1000, // 24 hours
+maxAge: 24 * 60 * 60 * 1000, // 24 hours
 sameSite: 'lax',
   },
 name: 'sessionId', // Don't use default 'connect.sid'
@@ -17083,7 +16334,6 @@ await redis.del(key);
 ## Connection Pool Management
 
 ```typescript
-
 import { Pool } from 'pg';
 
 const pool = new Pool({
@@ -17124,7 +16374,6 @@ return result.rows;
 ## Transaction Handling
 
 ```typescript
-
 async function withTransaction<T>(
 callback: (client: PoolClient) => Promise<T>
 ): Promise<T> {
@@ -17171,7 +16420,6 @@ return user.rows[0];
 ## Bull Queue with Redis
 
 ```typescript
-
 import { Queue, Worker, Job } from 'bullmq';
 import Redis from 'ioredis';
 
@@ -17214,7 +16462,7 @@ await emailQueue.add('normal-email', data, { priority: 10 });
 
 // Delayed jobs
 await emailQueue.add('reminder', data, {
-delay: 24 *60* 60 * 1000 // 24 hours
+delay: 24 * 60 * 60 * 1000 // 24 hours
 });
 
 // Repeating jobs (cron)
@@ -17229,7 +16477,6 @@ repeat: { cron: '0 9 * * *' } // Daily at 9 AM
 ## Webhook Delivery System
 
 ```typescript
-
 interface WebhookConfig {
 url: string;
 secret: string;
@@ -17294,7 +16541,6 @@ await logWebhookDelivery(config.url, event, 'failed', 'max_retries');
 ## Multipart File Upload
 
 ```typescript
-
 import multer from 'multer';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
@@ -17303,7 +16549,7 @@ const s3 = new S3Client({});
 const storage = multer.memoryStorage();
 const upload = multer({
   storage,
-limits: { fileSize: 10 *1024* 1024 }, // 10MB
+limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
 fileFilter: (req, file, cb) => {
 const allowed = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
 cb(null, allowed.includes(file.mimetype));
@@ -17324,7 +16570,7 @@ Body: req.file.buffer,
 ContentType: req.file.mimetype,
   }));
 
-res.json({ url: `<https://${process.env.S3_BUCKET}.s3.amazonaws.com/${key}`> });
+res.json({ url: `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${key}` });
 });
 
 ```text
@@ -17334,7 +16580,6 @@ res.json({ url: `<https://${process.env.S3_BUCKET}.s3.amazonaws.com/${key}`> });
 ## Stream Large File Downloads
 
 ```typescript
-
 import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { Readable } from 'stream';
 
@@ -17365,7 +16610,6 @@ res.status(404).json({ error: 'File not found' });
 ## CSV Export
 
 ```typescript
-
 import { stringify } from 'csv-stringify';
 
 async function exportToCSV(data: Record<string, any>[], filename: string) {
@@ -17393,652 +16637,6 @@ res.setHeader('Content-Disposition', 'attachment; filename="users.csv"');
 
 ---
 
-## VOLUME 1: THE SCARS (THE "WHY") 2 2
-
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2 2
-
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2 2
-
-## VOLUME 4: THE EXPERT (THE "SCALE") 2 2
-
-## VOLUME 5: THE TITAN (THE "KERNEL") 2 2
-
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2 2
-
-## Authorization 2 2
-
-- RBAC: roles, permissions, hierarchy
-
-- ABAC: attributes, policies, context
-
-- PBAC: Cedar, OPA, Rego
-
-- Row-level: Prisma where, RLS
-
-- Field-level: GraphQL directives, middleware
-
-## PDF GENERATION 2 2
-
-## Caching Strategies 2 2
-
-| ### Cache Patterns | Pattern | Description | Use Case |
-
-|
-
----
-
-|
-
----
-
-| -|
-
----
-
-| -|
-| Cache-Aside | App manages cache | General purpose |
-| Read-Through | Cache loads on miss | Transparent caching |
-| Write-Through | Write to both | Strong consistency |
-| Write-Behind | Async write to DB | Performance | ### Cache Invalidation |
-
-- TTL: Time-based expiration
-
-- Event-based: Invalidate on update
-
-- Version-based: Include version in key
-
-## Authentication Patterns 2 2
-
-## SCALING PATTERNS 2 2
-
-> **The patterns for growing traffic**
-
----
-
-| ## Horizontal vs Vertical | Type | Description | Limit |
-
-|
-
----
-
-|
-
----
-
-| -|
-
----
-
-| -|
-| Vertical | Bigger machine | Hardware max |
-| Horizontal | More machines | Unlimited |
-
----
-
-|
-
-## Graceful Shutdown 2 2
-
-```typescript
-
-process.on('SIGTERM', async () => {
-console.log('Shutting down...');
-await server.close();
-await db.disconnect();
-  process.exit(0);
-});
-
-```text
-
----
-
-## SAGA PATTERN 2 2
-
-> **The patterns for distributed transactions**
-
----
-
-## MIDDLEWARE PATTERNS 2 2
-
-> **The request/response pipeline**
-
----
-
-## PATTERNS 2 2
-
-> **The simple real-time patterns**
-
----
-
-## API VERSIONING 2 2
-
-> **The patterns for evolving APIs**
-
----
-
-## PAGINATION PATTERNS 2 2
-
-> **The patterns for large data sets**
-
----
-
-## 1 query per user = 100 more queries 2 2
-user['subscriptions'] = await db.query(
-"SELECT * FROM subscriptions WHERE user_id = ?", user['id']
-        )
-
-return users
-
-## Scheduled Tasks 2 2
-
-celery_app.conf.beat_schedule = {
-'send-daily-report': {
-'task': 'tasks.send_daily_report',
-'schedule': crontab(hour=9, minute=0),
-    },
-}
-
-```text
-
----
-
-## SECURITY 2 2
-
----
-
-## Webhooks Implementation 2 2
-
-```python
-import hmac
-import hashlib
-
-class WebhookService:
-def **init**(self):
-self.secret = os.getenv('WEBHOOK_SECRET')
-
-async def send_webhook(self, url, event_type, payload):
-signature = self.generate_signature(payload)
-
-headers = {
-'Content-Type': 'application/json',
-'X-Webhook-Signature': signature,
-'X-Event-Type': event_type
-        }
-
-for attempt in range(3):
-        try:
-response = requests.post(url, json=payload, headers=headers, timeout=10)
-if response.status_code == 200:
-return True
-await asyncio.sleep(2 ** attempt)
-except Exception as e:
-logger.error(f"Webhook failed: {e}")
-return False
-
-def generate_signature(self, payload):
-message = json.dumps(payload).encode()
-return hmac.new(self.secret.encode(), message, hashlib.sha256).hexdigest()
-
-```text
-
----
-
-## <http://localhost:8000/docs> - Interactive Swagger UI 2
-
-## <http://localhost:8000/redoc> - Beautiful ReDoc 2
-
-```text
-
----
-
-## Bulk insert 2 2
-db_properties = [Property(**p.dict()) for p in properties]
-    db.bulk_save_objects(db_properties)
-    db.commit()
-
-return {"created": len(properties)}
-
-## ... update 2
-audit = AuditLog(action='UPDATE', entity_type='Property', entity_id=id,
-old_values=old_values, new_values=property.to_dict(),
-        ip_address=request.client.host)
-    db.add(audit)
-
-```text
-
----
-
-##  2
-
-```text
-
----
-
-## gap = -delta *beta* log(random()) 2
-gap = -delta *beta* math.log(random.random())
-
-if time.time() + gap >= expiry:
-
-## Refresh early 2
-value = recompute_fn()
-set_with_metadata(redis_client, key, value, ttl)
-
-return value
-
-## requests library is SYNC - blocks thread pool 2
-response = requests.get("http://api.example.com/users")
-return response.json()
-
-## BEST PRACTICES 2 2
-
-```typescript
-
-// 1. Always validate inputs with Zod
-import { z } from 'zod';
-
-const userRouter = router({
-create: publicProcedure
-    .input(z.object({
-email: z.string().email(),
-name: z.string().min(2).max(100),
-    }))
-.mutation(async ({ input }) => {
-// input is typed AND validated at runtime
-    }),
-});
-
-// 2. Return DTOs, not raw database types
-const userRouter = router({
-getById: publicProcedure
-.input(z.object({ id: z.string() }))
-.query(async ({ input }) => {
-const user = await prisma.user.findUnique({
-where: { id: input.id }
-      });
-
-// ? Don't return raw Prisma type with all fields
-// return user;
-
-// ? Return shaped DTO
-return {
-id: user?.id,
-name: user?.name,
-email: user?.email,
-// No password hash, no internal fields
-      };
-    }),
-});
-
-// 3. Custom error formatting (hide internal errors in prod)
-const t = initTRPC.create({
-errorFormatter({ shape, error }) {
-return {
-      ...shape,
-data: {
-        ...shape.data,
-// Hide Zod details in production
-zodError: process.env.NODE_ENV === 'production'
-? null
-: error.cause instanceof ZodError
-? error.cause.flatten()
-: null,
-      },
-    };
-  },
-});
-
-```text
-
----
-
-## 10000 *100* 100 = 100 million items 2
-      }
-    }
-  }
-}
-
-```text
-
-## CACHE STAMPEDE (Thundering Herd) 2 2
-
-### The Problem 7
-
-```text
-
-1. Popular cached item expires
-2. 1000 concurrent requests hit server
-3. All 1000 requests query database
-4. Database overwhelmed
-5. Cascading failure
-
-```text
-
-### Real Fix 1: Request Coalescing (Locking) 2
-
-```typescript
-import Redis from 'ioredis';
-
-const redis = new Redis();
-
-async function getCached<T>(
-key: string,
-fetchFn: () => Promise<T>,
-ttlSeconds: number = 300
-): Promise<T> {
-// Try to get from cache
-const cached = await redis.get(key);
-if (cached) {
-return JSON.parse(cached);
-  }
-
-// Try to acquire lock
-const lockKey = `lock:${key}`;
-const lockAcquired = await redis.set(lockKey, '1', 'EX', 30, 'NX');
-
-if (!lockAcquired) {
-// Another request is fetching, wait and retry
-await new Promise(r => setTimeout(r, 100));
-return getCached(key, fetchFn, ttlSeconds);  // Retry
-  }
-
-try {
-// We have the lock, fetch data
-const data = await fetchFn();
-
-// Cache result
-await redis.set(key, JSON.stringify(data), 'EX', ttlSeconds);
-
-return data;
-} finally {
-// Release lock
-await redis.del(lockKey);
-  }
-}
-
-```text
-
-### Real Fix 2: Stale-While-Revalidate 2
-
-```typescript
-async function getCachedSWR<T>(
-key: string,
-fetchFn: () => Promise<T>,
-ttlSeconds: number = 300,
-staleTtlSeconds: number = 3600  // Serve stale for 1 hour
-): Promise<T> {
-const cacheData = await redis.hgetall(key);
-
-const now = Date.now();
-| const cachedAt = parseInt(cacheData.cachedAt |  | '0'); |
-const isStale = now - cachedAt > ttlSeconds * 1000;
-const isExpired = now - cachedAt > staleTtlSeconds * 1000;
-
-// If we have cached data
-if (cacheData.data && !isExpired) {
-// If stale, refresh in background
-if (isStale) {
-// Don't await - async refresh
-refreshCache(key, fetchFn, staleTtlSeconds);
-    }
-return JSON.parse(cacheData.data);
-  }
-
-// No cache or fully expired, fetch sync
-const data = await fetchFn();
-await redis.hset(key, {
-data: JSON.stringify(data),
-cachedAt: now.toString()
-  });
-await redis.expire(key, staleTtlSeconds);
-
-return data;
-}
-
-async function refreshCache(key, fetchFn, ttl) {
-const lockAcquired = await redis.set(`refresh:${key}`, '1', 'EX', 30, 'NX');
-if (!lockAcquired) return;  // Another process is refreshing
-
-try {
-const data = await fetchFn();
-await redis.hset(key, {
-data: JSON.stringify(data),
-cachedAt: Date.now().toString()
-    });
-} finally {
-await redis.del(`refresh:${key}`);
-  }
-}
-
-```text
-
-### Real Fix 3: TTL Jitter (Prevent Simultaneous Expiry) 2
-
-```typescript
-function setWithJitter(
-key: string,
-value: string,
-baseTtlSeconds: number
-): Promise<void> {
-// Add random jitter: 80-120% of base TTL
-const jitter = 0.8 + (Math.random() * 0.4);
-const actualTtl = Math.floor(baseTtlSeconds * jitter);
-
-return redis.set(key, value, 'EX', actualTtl);
-}
-
-// Without jitter: All items expire at exactly 5 mins
-// With jitter: Items expire between 4 and 6 mins
-// Prevents stampede from synchronized expiry
-
-```text
-
----
-
-## STRUCTURED LOGGING 2 2
-
-```typescript
-// ? VIBE: Unstructured logging
-console.log('User ' + userId + ' bought product ' + productId + ' for $' + amount);
-// Output: "User 123 bought product 456 for $99.99"
-// How do you search for all purchases > $50? Good luck!
-
-// ? TITAN: Structured JSON logging
-const logger = pino({
-| level: process.env.LOG_LEVEL |  | 'info', |
-formatters: {
-level: (label) => ({ level: label })
-  }
-});
-
-logger.info({
-event: 'purchase_completed',
-userId: '123',
-productId: '456',
-amount: 99.99,
-currency: 'INR',
-paymentMethod: 'UPI',
-timestamp: new Date().toISOString()
-});
-
-// Output: {"level":"info","event":"purchase_completed","userId":"123",...}
-// Now you can query: event=purchase_completed AND amount>50
-
-```text
-
----
-
-## CIRCUIT BREAKER 2 2
-
-```typescript
-enum CircuitState {
-CLOSED = 'CLOSED',  // Normal operation, requests go through
-OPEN = 'OPEN',  // Too many failures, block requests
-HALF_OPEN = 'HALF_OPEN'  // Testing if service recovered
-}
-
-class CircuitBreaker {
-private state: CircuitState = CircuitState.CLOSED;
-private failureCount = 0;
-private successCount = 0;
-private lastFailureTime = 0;
-
-  constructor(
-private failureThreshold: number = 5,    // Open after 5 failures
-private resetTimeoutMs: number = 30000,  // Try again after 30s
-private halfOpenSuccesses: number = 3    // Close after 3 successes
-) {}
-
-async execute<T>(fn: () => Promise<T>, fallback?: () => Promise<T>): Promise<T> {
-// Check if circuit should transition from OPEN to HALF_OPEN
-if (this.state === CircuitState.OPEN) {
-if (Date.now() - this.lastFailureTime > this.resetTimeoutMs) {
-this.state = CircuitState.HALF_OPEN;
-this.successCount = 0;
-console.log('Circuit: OPEN ? HALF_OPEN');
-} else {
-// Circuit is open, use fallback or throw
-if (fallback) {
-return fallback();
-        }
-throw new Error('Circuit breaker is OPEN');
-      }
-    }
-
-try {
-const result = await fn();
-      this.onSuccess();
-return result;
-} catch (error) {
-      this.onFailure();
-
-// Use fallback if available
-if (fallback) {
-return fallback();
-      }
-throw error;
-    }
-  }
-
-private onSuccess() {
-this.failureCount = 0;
-
-if (this.state === CircuitState.HALF_OPEN) {
-      this.successCount++;
-if (this.successCount >= this.halfOpenSuccesses) {
-this.state = CircuitState.CLOSED;
-console.log('Circuit: HALF_OPEN ? CLOSED');
-      }
-    }
-  }
-
-private onFailure() {
-    this.failureCount++;
-this.lastFailureTime = Date.now();
-
-if (this.state === CircuitState.HALF_OPEN) {
-// Failure in half-open, go back to open
-this.state = CircuitState.OPEN;
-console.log('Circuit: HALF_OPEN ? OPEN');
-} else if (this.failureCount >= this.failureThreshold) {
-// Too many failures, open circuit
-this.state = CircuitState.OPEN;
-console.log('Circuit: CLOSED ? OPEN');
-    }
-  }
-}
-
-// Usage
-const paymentCircuit = new CircuitBreaker(5, 30000, 3);
-
-const result = await paymentCircuit.execute(
-() => processPayment(orderId),
-() => {
-// Fallback: queue for later processing
-return queueForRetry(orderId);
-  }
-);
-
-```text
-
----
-
-## API Versioning Strategies 2 2
-
-```typescript
-// URL versioning (most common)
-// /api/v1/users
-// /api/v2/users
-
-// Header versioning
-// Accept: application/vnd.api.v1+json
-
-// Query parameter versioning
-// /api/users?version=1
-
-// Best practice: URL versioning with clear deprecation
-app.use('/api/v1', v1Router);
-app.use('/api/v2', v2Router);
-
-// Deprecation header
-app.use('/api/v1', (req, res, next) => {
-res.set('Deprecation', 'true');
-res.set('Sunset', 'Sat, 31 Dec 2024 23:59:59 GMT');
-res.set('Link', '</api/v2>; rel="successor-version"');
-  next();
-});
-
-```text
-
----
-
-## Rate Limiting Implementation 2 2
-
-```typescript
-import rateLimit from 'express-rate-limit';
-import RedisStore from 'rate-limit-redis';
-import Redis from 'ioredis';
-
-const redis = new Redis(process.env.REDIS_URL);
-
-// Basic rate limiter
-const basicLimiter = rateLimit({
-windowMs: 15 *60* 1000, // 15 minutes
-max: 100, // 100 requests per window
-message: { error: 'Too many requests, please try again later' },
-standardHeaders: true,
-legacyHeaders: false,
-});
-
-// Redis-backed rate limiter for distributed systems
-const distributedLimiter = rateLimit({
-windowMs: 15 *60* 1000,
-max: 100,
-store: new RedisStore({
-sendCommand: (...args: string[]) => redis.call(...args),
-  }),
-});
-
-// Tiered rate limiting
-const tierLimits = {
-free: 100,
-pro: 1000,
-enterprise: 10000,
-};
-
-const tieredLimiter = rateLimit({
-windowMs: 60 *60* 1000, // 1 hour
-max: async (req) => {
-const user = req.user;
-if (!user) return 50; // anonymous
-| return tierLimits[user.tier] |  | tierLimits.free; |
-  },
-| keyGenerator: (req) => req.user?.id |  | req.ip, |
-});
-
-```text
-
----
-
 ## ?? 100,000 LINES MILESTONE ACHIEVED! ??
 
 ## #### The Dev Vault has reached 100,000 lines of production-ready knowledge
@@ -18046,6 +16644,45 @@ if (!user) return 50; // anonymous
 ---
 
 ## REAL LOGGING PATTERNS 2024
+
+## Structured Logging
+
+\\\ ypescript
+import pino from 'pino';
+
+const logger = pino({
+| level: process.env.LOG_LEVEL |  | 'info', |
+formatters: {
+level: (label) => ({ level: label }),
+  },
+timestamp: pino.stdTimeFunctions.isoTime,
+});
+
+// Usage
+logger.info({ userId: user.id, action: 'login' }, 'User logged in');
+logger.error({ err, requestId }, 'Request failed');
+
+// Request logging middleware
+app.use((req, res, next) => {
+const start = Date.now();
+const requestId = crypto.randomUUID();
+
+req.log = logger.child({ requestId });
+
+res.on('finish', () => {
+    req.log.info({
+method: req.method,
+url: req.url,
+statusCode: res.statusCode,
+duration: Date.now() - start,
+}, 'Request completed');
+  });
+
+  next();
+});
+\\\
+
+---
 
 ## Error Tracking Service
 
@@ -18135,7 +16772,6 @@ res.end(await registry.metrics());
 ## ?????? 100,000 LINES COMPLETE! ??????
 
 ---
-
 ## REAL GRACEFUL SHUTDOWN PATTERNS
 
 ## Process Signal Handling
@@ -18200,11 +16836,20 @@ process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 
 ## DEV VAULT STATUS
 
-**Milestone:**100,000 Lines**Status:**COMPLETE**Date:**December 30, 2024**Domains:**24 Total**Coverage:** Full Stack Production Patterns
+**Milestone:** 100,000 Lines
+**Status:** COMPLETE
+**Date:** December 30, 2024
+**Domains:** 24 Total
+**Coverage:** Full Stack Production Patterns
 
 ---
 
-**Frontend:**React, Next.js, TypeScript, 121 Volumes**Backend:**Node.js, APIs, Auth, Queues, Webhooks**Database:**PostgreSQL, Redis, MongoDB**DevOps:**Docker, CI/CD, Terraform**Cloud:**AWS, Vercel, Serverless**Security:** Auth, XSS, CSRF, Encryption
+**Frontend:** React, Next.js, TypeScript, 121 Volumes
+**Backend:** Node.js, APIs, Auth, Queues, Webhooks
+**Database:** PostgreSQL, Redis, MongoDB
+**DevOps:** Docker, CI/CD, Terraform
+**Cloud:** AWS, Vercel, Serverless
+**Security:** Auth, XSS, CSRF, Encryption
 
 ## #### And 18 more specialized domains
 
@@ -18222,7 +16867,9 @@ process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 
 ## DEV VAULT 100K MILESTONE SUMMARY
 
-**Milestone Reached:**100,000+ Lines**Date:**December 30, 2024**Quality Verified:** ?
+**Milestone Reached:** 100,000+ Lines
+**Date:** December 30, 2024
+**Quality Verified:** ?
 
 ## Structure Verification Complete
 
@@ -18270,5 +16917,3 @@ process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 ### THE DEV VAULT - ONE DEVELOPER, SENIOR TEAM POWER
 
 ---
-
-```text

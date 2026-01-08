@@ -1,45 +1,43 @@
 # ANCIENT WISDOM
-
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [22_ANCIENT_WISDOM.MD: THE TITAN GUIDE (50K TARGET)](#22_ancient_wisdommd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade Vastu, Feng Shui, and Sacred Geometry](#production-grade-vastu-feng-shui-and-sacred-geometry)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
-- [VOLUME 1: THE SCARS (THE "WHY") 2](#volume-1-the-scars-the-why-2)
-- [1. THE "WRONG DOOR" DISASTER](#1-the-wrong-door-disaster)
-  - [The Deal Breaker](#the-deal-breaker)
-- [4. THE "NUMBER 4" BUILDING](#4-the-number-4-building)
-  - [Tetraphobia](#tetraphobia)
-- [VOLUME 2: THE FOUNDATION (THE "WHAT") 2](#volume-2-the-foundation-the-what-2)
-- [5. VASTU FUNDAMENTALS](#5-vastu-fundamentals)
-  - [Directions & Elements](#directions-elements)
-- [VOLUME 3: THE DEEP DIVE (THE "HOW") 2](#volume-3-the-deep-dive-the-how-2)
-- [9. VASTU AI SCANNER](#9-vastu-ai-scanner)
-  - [Python Implementation](#python-implementation)
-- [10. COMPASS CALIBRATION](#10-compass-calibration)
-  - [True North vs Magnetic North](#true-north-vs-magnetic-north)
-- [VOLUME 4: THE EXPERT (THE "SCALE") 2](#volume-4-the-expert-the-scale-2)
-- [15. REMEDIATION ENGINE](#15-remediation-engine)
-  - [AI Suggestions](#ai-suggestions)
-- [VOLUME 5: THE TITAN (THE "KERNEL") 2](#volume-5-the-titan-the-kernel-2)
-- [16. MAGNETIC FIELD MAPPING](#16-magnetic-field-mapping)
-  - [Interference Detection](#interference-detection)
-- [17. SOLAR ORIENTATION ALGORITHMS](#17-solar-orientation-algorithms)
-  - [Sun Path Analysis](#sun-path-analysis)
-- [VOLUME 6: THE INFINITE (THE "FUTURE") 2](#volume-6-the-infinite-the-future-2)
-- [19. AR ENERGY VISUALIZATION](#19-ar-energy-visualization)
-  - [Seeing Prana](#seeing-prana)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+- [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
+  - [1. THE "WRONG DOOR" DISASTER](#1-the-wrong-door-disaster)
+    - [The Deal Breaker](#the-deal-breaker)
+  - [4. THE "NUMBER 4" BUILDING](#4-the-number-4-building)
+    - [Tetraphobia](#tetraphobia)
+- [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
+  - [5. VASTU FUNDAMENTALS](#5-vastu-fundamentals)
+    - [Directions & Elements](#directions-elements)
+- [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
+  - [9. VASTU AI SCANNER](#9-vastu-ai-scanner)
+    - [Python Implementation](#python-implementation)
+  - [10. COMPASS CALIBRATION](#10-compass-calibration)
+    - [True North vs Magnetic North](#true-north-vs-magnetic-north)
+- [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
+  - [15. REMEDIATION ENGINE](#15-remediation-engine)
+    - [AI Suggestions](#ai-suggestions)
+- [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
+  - [16. MAGNETIC FIELD MAPPING](#16-magnetic-field-mapping)
+    - [Interference Detection](#interference-detection)
+  - [17. SOLAR ORIENTATION ALGORITHMS](#17-solar-orientation-algorithms)
+    - [Sun Path Analysis](#sun-path-analysis)
+- [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
+  - [19. AR ENERGY VISUALIZATION](#19-ar-energy-visualization)
+    - [Seeing Prana](#seeing-prana)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE VASTU CHECKLIST](#a-the-vastu-checklist)
-- [B. THE FENG SHUI BAGUA MAP](#b-the-feng-shui-bagua-map)
+  - [A. THE VASTU CHECKLIST](#a-the-vastu-checklist)
+  - [B. THE FENG SHUI BAGUA MAP](#b-the-feng-shui-bagua-map)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-- [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
 - [VASTU SHASTRA](#vastu-shastra)
 - [FENG SHUI](#feng-shui)
 - [NUMEROLOGY](#numerology)
@@ -47,55 +45,52 @@
 - [SPATIAL ANALYSIS](#spatial-analysis)
 - [TECHNICAL IMPLEMENTATION](#technical-implementation)
 - [SCORING SYSTEMS](#scoring-systems)
-- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [VASTU SHASTRA DEEP ATLAS](#vastu-shastra-deep-atlas)
-- [Each keyword = expandable principle](#each-keyword-expandable-principle)
-- [Directions](#directions)
-- [Elements](#elements)
-- [Room Placement](#room-placement)
-- [Remedies](#remedies)
+  - [Each keyword = expandable principle](#each-keyword-expandable-principle)
+  - [Directions](#directions)
+  - [Elements](#elements)
+  - [Room Placement](#room-placement)
+  - [Remedies](#remedies)
 - [FENG SHUI DEEP ATLAS](#feng-shui-deep-atlas)
-- [Each keyword = expandable technique](#each-keyword-expandable-technique)
-- [Bagua](#bagua)
-- [Chi Flow](#chi-flow)
-- [Cures](#cures)
+  - [Each keyword = expandable technique](#each-keyword-expandable-technique)
+  - [Bagua](#bagua)
+  - [Chi Flow](#chi-flow)
+  - [Cures](#cures)
 - [GEOMANCY DEEP ATLAS](#geomancy-deep-atlas)
-- [Each keyword = expandable analysis](#each-keyword-expandable-analysis)
-- [Site Assessment](#site-assessment)
-- [Detection](#detection)
-- [Harmonization](#harmonization)
+  - [Each keyword = expandable analysis](#each-keyword-expandable-analysis)
+  - [Site Assessment](#site-assessment)
+  - [Detection](#detection)
+  - [Harmonization](#harmonization)
 - [SACRED GEOMETRY DEEP ATLAS](#sacred-geometry-deep-atlas)
-- [Each keyword = expandable form](#each-keyword-expandable-form)
-- [Shapes](#shapes)
-- [Architecture](#architecture)
-- [Application](#application)
-  - [END OF MEGA ANCIENT WISDOM EXPANSION](#end-of-mega-ancient-wisdom-expansion)
+  - [Each keyword = expandable form](#each-keyword-expandable-form)
+  - [Shapes](#shapes)
+  - [Architecture](#architecture)
+  - [Application](#application)
+    - [END OF MEGA ANCIENT WISDOM EXPANSION](#end-of-mega-ancient-wisdom-expansion)
 - [ANCIENT WISDOM CODE EXAMPLES](#ancient-wisdom-code-examples)
 - [ASTROLOGY CALCULATIONS](#astrology-calculations)
-- [Planetary Positions](#planetary-positions)
+  - [Planetary Positions](#planetary-positions)
 - [MEDITATION TIMER](#meditation-timer)
-- [Session Manager](#session-manager)
-- [NUMEROLOGY 2](#numerology-2)
-- [Life Path Calculator](#life-path-calculator)
-  - [CONTINUED: MORE WISDOM PATTERNS](#continued-more-wisdom-patterns)
+  - [Session Manager](#session-manager)
+- [NUMEROLOGY](#numerology-1)
+  - [Life Path Calculator](#life-path-calculator)
+    - [CONTINUED: MORE WISDOM PATTERNS](#continued-more-wisdom-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - ANCIENT WISDOM PRODUCTION](#volume-8-titan-gemini-research---ancient-wisdom-production)
-- [VASTU AI SCANNER PRODUCTION](#vastu-ai-scanner-production)
-  - [The Scar](#the-scar)
+  - [VASTU AI SCANNER PRODUCTION](#vastu-ai-scanner-production)
+    - [The Scar](#the-scar)
 - [TITAN: Multi-source direction calibration](#titan-multi-source-direction-calibration)
-- [1. Get magnetic declination from NOAA](#1-get-magnetic-declination-from-noaa)
-- [2. Calculate true heading](#2-calculate-true-heading)
-- [3. Calculate confidence based on sensor quality](#3-calculate-confidence-based-on-sensor-quality)
-- [Reduce confidence near poles (magnetic field vertical)](#reduce-confidence-near-poles-magnetic-field-vertical)
-- [8 primary zones + center (determined by position, not heading)](#8-primary-zones-center-determined-by-position-not-heading)
 - [Floor plan analysis with OpenCV](#floor-plan-analysis-with-opencv)
-- [1. Load and preprocess image](#1-load-and-preprocess-image)
-- [2. Detect rooms using contours](#2-detect-rooms-using-contours)
-- [3. Find center (Brahmasthan)](#3-find-center-brahmasthan)
-- [4. Divide into 9 zones](#4-divide-into-9-zones)
-- [5. Classify each room](#5-classify-each-room)
-- [6. Check Vastu compliance](#6-check-vastu-compliance)
-- [Check compliance rules](#check-compliance-rules)
-- [7. Check Brahmasthan](#7-check-brahmasthan)
+  - [BIORHYTHM AND MUHURTA ENGINE](#biorhythm-and-muhurta-engine)
+    - [The Scar](#the-scar-1)
+    - [END OF VOLUME 8: TITAN GEMINI RESEARCH - ANCIENT WISDOM PRODUCTION](#end-of-volume-8-titan-gemini-research---ancient-wisdom-production)
+- [VOLUME 2: PRODUCTION WISDOM PATTERNS](#volume-2-production-wisdom-patterns)
+  - [AYURVEDIC ANALYSIS ALGORITHMS](#ayurvedic-analysis-algorithms)
+    - [Dosha (Constitution) Calculator](#dosha-constitution-calculator)
+  - [VASTU (ARCHITECTURE) ANALYSIS](#vastu-architecture-analysis)
+    - [Directional Energy Calculator](#directional-energy-calculator)
+    - [END OF ANCIENT WISDOM VOLUME 2](#end-of-ancient-wisdom-volume-2)
+    - [Lines: ~150 added](#lines-150-added)
 
 ## 22_ANCIENT_WISDOM.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -114,7 +109,6 @@
 ## **VOLUME 1: THE SCARS (The "Why")**
 
 *Real-world horror stories and billion-dollar failures.*
-
 1. The "Wrong Door" Disaster (Mumbai) - 80% Unsold
 2. The "1-Degree" Lawsuit (Compass Fail)
 3. The "Bad Muhurat" Launch (Timing Fail)
@@ -123,48 +117,42 @@
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. Vastu Fundamentals (Directions & Elements)
-2. Feng Shui Basics (Bagua Map & Qi Flow)
-3. Sacred Geometry (Golden Ratio & Fibonacci)
-4. Numerology (Address Analysis)
+5. Vastu Fundamentals (Directions & Elements)
+6. Feng Shui Basics (Bagua Map & Qi Flow)
+7. Sacred Geometry (Golden Ratio & Fibonacci)
+8. Numerology (Address Analysis)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. Vastu AI Scanner (OpenCV & Floor Plan Analysis)
-2. Compass Calibration (Sensor Fusion & True North)
-3. Astrological Timing Engine (Panchang & Ephemeris)
-4. Energy Mapping (Heatmaps)
+9. Vastu AI Scanner (OpenCV & Floor Plan Analysis)
+10. Compass Calibration (Sensor Fusion & True North)
+11. Astrological Timing Engine (Panchang & Ephemeris)
+12. Energy Mapping (Heatmaps)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. 10,000+ Principles Database (Rule Engine)
-2. Scoring Algorithms (Weighted Analysis)
-3. Remediation Engine (AI Suggestions)
+13. 10,000+ Principles Database (Rule Engine)
+14. Scoring Algorithms (Weighted Analysis)
+15. Remediation Engine (AI Suggestions)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. Magnetic Field Mapping (Interference Detection)
-2. Solar Orientation Algorithms (Sun Path)
-3. Energy Vortex Simulation (Fluid Dynamics)
+16. Magnetic Field Mapping (Interference Detection)
+17. Solar Orientation Algorithms (Sun Path)
+18. Energy Vortex Simulation (Fluid Dynamics)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. AR Energy Visualization (Seeing Prana)
-2. Bio-Geometry Integration
-3. Conscious Architecture (Sentient Buildings)
+19. AR Energy Visualization (Seeing Prana)
+20. Bio-Geometry Integration
+21. Conscious Architecture (Sentient Buildings)
 
 ---
-
-## VOLUME 1: THE SCARS (THE "WHY") 2
+## VOLUME 1: THE SCARS (THE "WHY")
 
 ## 1. THE "WRONG DOOR" DISASTER
 
@@ -197,14 +185,13 @@ Locals refused to buy on those floors.
 
 ---
 
-## VOLUME 2: THE FOUNDATION (THE "WHAT") 2
+## VOLUME 2: THE FOUNDATION (THE "WHAT")
 
 ## 5. VASTU FUNDAMENTALS
 
 ### Directions & Elements
 
 **The 5 Elements (Pancha Bhoota)**:
-
 1. **Water (North-East)**: Source of flow/wealth. Ideally an underground tank or puja room.
 2. **Fire (South-East)**: Source of energy. Ideally the Kitchen.
 3. **Earth (South-West)**: Stability. Ideally the Master Bedroom (Heaviest part of house).
@@ -213,21 +200,20 @@ Locals refused to buy on those floors.
 
 ---
 
-## VOLUME 3: THE DEEP DIVE (THE "HOW") 2
+## VOLUME 3: THE DEEP DIVE (THE "HOW")
 
 ## 9. VASTU AI SCANNER
 
 ### Python Implementation
 
 **Concept**:
-
 1. **Input**: Image of a Floor Plan.
 2. **Process**:
 - Use **OpenCV** to detect walls and doors.
 - Identify the "Brahmasthan" (Center Point).
 - Divide into 9 zones (N, NE, E, SE, S, SW, W, NW, Center).
 - Classify rooms (Kitchen, Toilet, Bedroom) using OCR or Icon Recognition.
-1. **Rule Check**:
+3. **Rule Check**:
 - "Is Toilet in NE?" -> Critical Defect.
 - "Is Kitchen in SE?" -> Perfect.
 
@@ -247,7 +233,7 @@ Get the user's Lat/Lon. Query NOAA for current Magnetic Declination.
 
 ---
 
-## VOLUME 4: THE EXPERT (THE "SCALE") 2
+## VOLUME 4: THE EXPERT (THE "SCALE")
 
 ## 15. REMEDIATION ENGINE
 
@@ -268,7 +254,7 @@ You can't move the toilet in an apartment. You need a "Cure".
 
 ---
 
-## VOLUME 5: THE TITAN (THE "KERNEL") 2
+## VOLUME 5: THE TITAN (THE "KERNEL")
 
 ## 16. MAGNETIC FIELD MAPPING
 
@@ -299,7 +285,7 @@ Simulate how much sunlight enters the North-East windows vs South-West windows.
 
 ---
 
-## VOLUME 6: THE INFINITE (THE "FUTURE") 2
+## VOLUME 6: THE INFINITE (THE "FUTURE")
 
 ## 19. AR ENERGY VISUALIZATION
 
@@ -314,7 +300,6 @@ Use AR glasses (Vision Pro) to overlay Vastu zones on the real world.
 - **South-East**: Flickering Red flame (Fire).
 
 - **Defects**: Dark clouds over a Toilet in the wrong zone.
-
 **Benefit**: Instant client education.
 
 ---
@@ -677,7 +662,6 @@ return { name: nakshatras[nakshatraIndex], pada };
 }
 
 ```text
-
 ---
 
 ## MEDITATION TIMER
@@ -686,6 +670,7 @@ return { name: nakshatras[nakshatraIndex], pada };
 
 **Why it exists:** Guided meditation timing
 
+```typescript
 // hooks/useMeditationTimer.ts
 import { useState, useEffect, useCallback, useRef } from 'react';
 
@@ -693,7 +678,7 @@ interface MeditationSession {
 duration: number; // seconds
 intervals?: number[]; // bell intervals
 ambientSound?: string;
-    }
+}
 
 export function useMeditationTimer(session: MeditationSession) {
 const [timeRemaining, setTimeRemaining] = useState(session.duration);
@@ -716,30 +701,33 @@ return prev - 1;
         });
 }, 1000);
 } else if (timeRemaining === 0) {
-        bellRef.current?.play();
-        setIsActive(false);
-        }
+      bellRef.current?.play();
+      setIsActive(false);
+    }
 
 return () => { if (interval) clearInterval(interval); };
 }, [isActive, isPaused, timeRemaining]);
 
 const start = useCallback(() => {
-        setIsActive(true);
-        audioRef.current?.play();
+    setIsActive(true);
+    audioRef.current?.play();
 }, []);
 
 const pause = useCallback(() => setIsPaused(true), []);
 const resume = useCallback(() => setIsPaused(false), []);
 const reset = useCallback(() => {
-        setTimeRemaining(session.duration);
-        setIsActive(false);
-        setIsPaused(false);
+    setTimeRemaining(session.duration);
+    setIsActive(false);
+    setIsPaused(false);
 }, [session.duration]);
 
 return { timeRemaining, isActive, isPaused, start, pause, resume, reset };
-    }
+}
 
-## NUMEROLOGY 2
+```text
+---
+
+## NUMEROLOGY
 
 ## Life Path Calculator
 
@@ -778,7 +766,6 @@ const meanings: Record<number, string> = {
 }
 
 ```text
-
 ---
 
 ### CONTINUED: MORE WISDOM PATTERNS
@@ -828,7 +815,7 @@ source: str  # 'magnetometer', 'gps', 'sun_position', 'combined'
 class VastuCompassEngine:
 """Production-grade compass for Vastu analysis."""
 
-def **init**(self, noaa_api_key: str):
+def __init__(self, noaa_api_key: str):
 self.noaa_api_key = noaa_api_key
 
 async def get_true_north(
@@ -845,15 +832,12 @@ True Heading = Magnetic Heading + Declination (East positive)
         """
 
 ## 1. Get magnetic declination from NOAA
-
 declination = await self.get_declination(latitude, longitude)
 
 ## 2. Calculate true heading
-
 true_heading = (magnetic_heading + declination) % 360
 
 ## 3. Calculate confidence based on sensor quality
-
 confidence = self.calculate_confidence(sensor_accuracy, latitude)
 
 return CalibratedDirection(
@@ -871,7 +855,7 @@ from datetime import date
 today = date.today()
 
 response = await httpx.AsyncClient().get(
-        "<<<<<<https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination",>>>>>>
+        "https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination",
         params={
 "lat1": lat,
 "lon1": lon,
@@ -897,7 +881,6 @@ base_confidence = {
 }.get(sensor_accuracy, 0.20)
 
 ## Reduce confidence near poles (magnetic field vertical)
-
 if abs(latitude) > 70:
 base_confidence *= 0.7
 
@@ -907,7 +890,6 @@ def get_vastu_zone(self, true_heading: float) -> str:
 """Convert heading to Vastu zone."""
 
 ## 8 primary zones + center (determined by position, not heading)
-
 zones = {
 (337.5, 360): "North",
 (0, 22.5): "North",
@@ -935,7 +917,7 @@ from typing import List, Dict
 class VastuFloorPlanAnalyzer:
 """Analyze floor plans for Vastu compliance."""
 
-def **init**(self):
+def __init__(self):
 self.room_detector = self.load_room_detector()
 
 def analyze_floor_plan(
@@ -946,28 +928,22 @@ north_direction: float
 """Analyze floor plan for Vastu compliance."""
 
 ## 1. Load and preprocess image
-
 img = cv2.imread(image_path)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 ## 2. Detect rooms using contours
-
 rooms = self.detect_rooms(gray)
 
 ## 3. Find center (Brahmasthan)
-
 center = self.find_brahmasthan(img)
 
 ## 4. Divide into 9 zones
-
 zones = self.divide_into_zones(img.shape, center, north_direction)
 
 ## 5. Classify each room
-
 room_classifications = self.classify_rooms(rooms, img)
 
 ## 6. Check Vastu compliance
-
 violations = []
 recommendations = []
 
@@ -975,7 +951,6 @@ for room in room_classifications:
 zone = self.get_room_zone(room['centroid'], zones)
 
 ## Check compliance rules
-
 if room['type'] == 'toilet' and zone == 'North-East':
         violations.append({
 'severity': 'CRITICAL',
@@ -996,7 +971,6 @@ if room['type'] == 'kitchen' and zone != 'South-East':
         })
 
 ## 7. Check Brahmasthan
-
 if self.is_brahmasthan_blocked(center, rooms):
         violations.append({
 'severity': 'HIGH',
@@ -1032,13 +1006,14 @@ return max(0, score)
 
 ## MULTICULTURAL COMPATIBILITY ENGINE
 
-## The Scar 2
+## The Scar
 
 > "Property app for global market.
 > Listed floor 4, 14, 24 in Hong Kong. Zero interest.
 > Listed building at address 666 in US. Religious buyers avoided.
 > No cultural awareness = lost sales."
 
+```typescript
 // VIBE: Ignore cultural preferences
 function displayPropertyDetails(property: Property) {
 return {
@@ -1047,6 +1022,7 @@ address: property.address // Shows "666" to Christian buyers
     };
 }
 
+```typescript
 // TITAN: Cultural awareness engine
 interface CulturalPreferences {
 locale: string;
@@ -1057,7 +1033,7 @@ preferredDirections?: string[];
 checkFengShui?: boolean;
 checkVastu?: boolean;
 religiousConsiderations?: string[];
-    }
+}
 
 const CULTURAL_PROFILES: Record<string, CulturalPreferences> = {
 'zh-CN': {
@@ -1066,39 +1042,39 @@ avoidNumbers: [4, 14, 24, 34, 44],  // Tetraphobia
 preferredNumbers: [8, 18, 28, 88, 168],  // 8 = prosperity
 checkFengShui: true,
 preferredDirections: ['South', 'South-East']  // Yang, wealth
-        },
+    },
 'zh-HK': {
 locale: 'zh-HK',
 avoidNumbers: [4, 14, 24, 34, 44, 13],
 preferredNumbers: [8, 18, 28, 88],
 checkFengShui: true
-        },
+    },
 'ja-JP': {
 locale: 'ja-JP',
 avoidNumbers: [4, 9, 42, 49],  // 4=death, 9=suffering
 preferredNumbers: [7, 8],
 checkFengShui: true
-        },
+    },
 'hi-IN': {
 locale: 'hi-IN',
 avoidNumbers: [4, 8, 13],
 preferredDirections: ['North', 'East', 'North-East'],
 avoidDirections: ['South-West'],
 checkVastu: true
-        },
+    },
 'en-US': {
 locale: 'en-US',
 avoidNumbers: [13, 666],
 religiousConsiderations: ['666_avoidance']
-        }
-    };
+    }
+};
 
 class CulturalCompatibilityEngine {
 private preferences: CulturalPreferences;
 
 constructor(locale: string) {
 | this.preferences = CULTURAL_PROFILES[locale] |  | CULTURAL_PROFILES['en-US']; |
-        }
+    }
 
 analyzeProperty(property: {
 floor: number;
@@ -1156,7 +1132,7 @@ score: Math.min(100, Math.max(0, score)),
         displayFloor,
 recommendation: this.getRecommendation(score)
         };
-        }
+    }
 
 private formatFloorForCulture(floor: number): string {
 // In many Asian buildings, floors 4, 14, etc. are labeled 3A, 13A
@@ -1165,7 +1141,7 @@ if (this.preferences.avoidNumbers?.includes(floor)) {
 return `${floor - 1}A`;
         }
 return floor.toString();
-        }
+    }
 
 private calculateNumerology(address: string): number {
 // Reduce to single digit
@@ -1177,7 +1153,7 @@ sum = sum.toString().split('').reduce((a, b) => a + parseInt(b), 0);
         }
 
 return sum;
-        }
+    }
 
 | private getRecommendation(score: number): 'EXCELLENT' | 'GOOD' | 'NEUTRAL' | 'POOR' | 'AVOID' { |
 if (score >= 90) return 'EXCELLENT';
@@ -1185,8 +1161,8 @@ if (score >= 70) return 'GOOD';
 if (score >= 50) return 'NEUTRAL';
 if (score >= 30) return 'POOR';
 return 'AVOID';
-        }
     }
+}
 
 // Usage
 const engine = new CulturalCompatibilityEngine('zh-HK');
@@ -1196,18 +1172,21 @@ unit: '8A',
 address: '888 Fortune Street',
 facingDirection: 'South',
 totalInAddress: 168
-    });
+});
 // Result: { score: 115, positives: ['Floor 18', '888 address'], recommendation: 'EXCELLENT' }
+
+```text
 
 ## BIORHYTHM AND MUHURTA ENGINE
 
-### The Scar 2 2
+### The Scar
 
 > "Investment app launched on Rahu Kalam.
 > Indian users noticed. 'Inauspicious time.'
 > Negative press. App associated with bad luck.
 > Simple API check would have avoided this."
 
+```typescript
 // TITAN: Panchang (Hindu calendar) integration
 interface Panchang {
 tithi: string;  // Lunar day
@@ -1218,12 +1197,12 @@ rahuKalam: { start: Date; end: Date };
 gulikaKalam: { start: Date; end: Date };
 yamagandaKalam: { start: Date; end: Date };
 auspiciousPeriods: Array<{ start: Date; end: Date; activity: string }>;
-    }
+}
 
 class MuhurtaEngine {
 private readonly RAHU_KALAM_ORDER = [
 7, 1, 6, 4, 5, 3, 2  // Sun=7, Mon=1, Tue=6, etc. (hours after sunrise)
-        ];
+    ];
 
 async getPanchang(
 date: Date,
@@ -1240,7 +1219,7 @@ const hourDuration = dayDuration / 8;  // 8 muhurtas in daytime
 const dayOfWeek = date.getDay();
 const rahuHour = this.RAHU_KALAM_ORDER[dayOfWeek];
 
-const rahuStart = new Date(sunTimes.sunrise.getTime() + (rahuHour - 1) *hourDuration);
+const rahuStart = new Date(sunTimes.sunrise.getTime() + (rahuHour - 1) * hourDuration);
 const rahuEnd = new Date(rahuStart.getTime() + hourDuration);
 
 // Get astronomical data for tithi, nakshatra, etc.
@@ -1256,9 +1235,9 @@ gulikaKalam: this.calculateGulikaKalam(sunTimes, dayOfWeek, hourDuration),
 yamagandaKalam: this.calculateYamagandaKalam(sunTimes, dayOfWeek, hourDuration),
 auspiciousPeriods: this.findAuspiciousPeriods(astroData, sunTimes)
         };
-        }
+    }
 
-        isAuspiciousTime(
+    isAuspiciousTime(
 date: Date,
 panchang: Panchang,
 | activity: 'business' | 'travel' | 'marriage' | 'housewarming' |
@@ -1292,8 +1271,8 @@ return {
 isAuspicious: reasons.length > 0 && !reasons.some(r => r.includes('inauspicious')),
         reasons
         };
-        }
     }
+}
 
 // API endpoint for checking launch timing
 app.post('/api/check-muhurta', async (req, res) => {
@@ -1305,7 +1284,7 @@ new Date(plannedTime),
         location.latitude,
         location.longitude,
         location.timezone
-        );
+    );
 
 const result = engine.isAuspiciousTime(new Date(plannedTime), panchang, activity);
 
@@ -1318,12 +1297,16 @@ new Date(plannedTime),
         );
 
 result.suggestedAlternative = nextAuspicious;
-        }
+    }
 
 return res.json(result);
-    });
+});
+
+```text
 
 ### END OF VOLUME 8: TITAN GEMINI RESEARCH - ANCIENT WISDOM PRODUCTION
+
+---
 
 ## VOLUME 2: PRODUCTION WISDOM PATTERNS
 
@@ -1331,12 +1314,13 @@ return res.json(result);
 
 ### Dosha (Constitution) Calculator
 
+```typescript
 // Production Ayurvedic dosha analysis
 interface DoshaAssessment {
 vata: number;   // Air + Space
 pitta: number;  // Fire + Water
 kapha: number;  // Water + Earth
-    }
+}
 
 interface UserResponses {
 | bodyFrame: 'thin' | 'medium' | 'large'; |
@@ -1347,7 +1331,7 @@ interface UserResponses {
 | stress: 'anxiety' | 'anger' | 'withdrawal'; |
 | activity: 'hyperactive' | 'competitive' | 'steady'; |
 | climate: 'dry-cold' | 'hot-humid' | 'cold-damp'; |
-    }
+}
 
 class DoshaCalculator {
 private weights = {
@@ -1359,7 +1343,7 @@ sleep: { light: [3, 0, 0], moderate: [0, 3, 0], deep: [0, 0, 3] },
 stress: { anxiety: [3, 0, 0], anger: [0, 3, 0], withdrawal: [0, 0, 3] },
 activity: { hyperactive: [3, 0, 0], competitive: [0, 3, 0], steady: [0, 0, 3] },
 climate: { 'dry-cold': [3, 0, 0], 'hot-humid': [0, 3, 0], 'cold-damp': [0, 0, 3] }
-      };
+  };
 
 calculate(responses: UserResponses): DoshaAssessment {
 let vata = 0, pitta = 0, kapha = 0;
@@ -1370,16 +1354,16 @@ const weights = this.weights[key as keyof typeof this.weights];
 vata += v;
 pitta += p;
 kapha += k;
-        }
+    }
 
 const total = vata + pitta + kapha;
 
 return {
-vata: Math.round((vata / total)* 100),
-pitta: Math.round((pitta / total) *100),
-kapha: Math.round((kapha / total)* 100)
-        };
-      }
+vata: Math.round((vata / total) * 100),
+pitta: Math.round((pitta / total) * 100),
+kapha: Math.round((kapha / total) * 100)
+    };
+  }
 
 getDominantDosha(assessment: DoshaAssessment): string {
 const max = Math.max(assessment.vata, assessment.pitta, assessment.kapha);
@@ -1387,7 +1371,7 @@ const max = Math.max(assessment.vata, assessment.pitta, assessment.kapha);
 if (assessment.vata === max) return 'Vata';
 if (assessment.pitta === max) return 'Pitta';
 return 'Kapha';
-      }
+  }
 
 getRecommendations(assessment: DoshaAssessment): string[] {
 const dominant = this.getDominantDosha(assessment);
@@ -1398,36 +1382,40 @@ const recommendations: Record<string, string[]> = {
 'Maintain regular routines',
 'Practice calming exercises like yoga',
 'Avoid cold, dry environments'
-        ],
+      ],
 'Pitta': [
 'Choose cooling foods and drinks',
 'Avoid excessive heat and sun',
 'Practice moderation in activities',
 'Include sweet, bitter, astringent tastes'
-        ],
+      ],
 'Kapha': [
 'Choose light, warming foods',
 'Engage in regular exercise',
 'Avoid excessive sleep',
 'Include pungent, bitter, astringent tastes'
-        ]
-        };
+      ]
+    };
 
 | return recommendations[dominant] |  | []; |
-      }
-    }
+  }
+}
+
+```text
+---
 
 ## VASTU (ARCHITECTURE) ANALYSIS
 
 ### Directional Energy Calculator
 
+```typescript
 // Vastu Shastra directional analysis
 interface VastuAnalysis {
 direction: string;
 element: string;
 | energy: 'positive' | 'neutral' | 'negative'; |
 recommendation: string;
-    }
+}
 
 class VastuAnalyzer {
 private directionalEnergy: Record<string, { element: string; deity: string; quality: string }> = {
@@ -1439,7 +1427,7 @@ private directionalEnergy: Record<string, { element: string; deity: string; qual
 'southeast': { element: 'fire', deity: 'Agni', quality: 'energy' },
 'southwest': { element: 'earth', deity: 'Nairuti', quality: 'grounding' },
 'northwest': { element: 'air', deity: 'Vayu', quality: 'movement' }
-      };
+  };
 
 analyzeRoom(roomType: string, direction: string): VastuAnalysis {
 const directionData = this.directionalEnergy[direction.toLowerCase()];
@@ -1447,12 +1435,12 @@ const directionData = this.directionalEnergy[direction.toLowerCase()];
 const compatibility = this.checkCompatibility(roomType, direction);
 
 return {
-        direction,
+      direction,
 | element: directionData?.element |  | 'unknown', |
 energy: compatibility.energy,
 recommendation: compatibility.recommendation
-        };
-      }
+    };
+  }
 
 | private checkCompatibility(roomType: string, direction: string): { energy: 'positive' | 'neutral' | 'negative'; recommendation: string } { |
 const optimalDirections: Record<string, string[]> = {
@@ -1461,20 +1449,21 @@ const optimalDirections: Record<string, string[]> = {
 'living': ['north', 'east', 'northeast'],
 'bathroom': ['north', 'northwest'],
 'office': ['north', 'east', 'northeast']
-        };
+    };
 
 | const optimal = optimalDirections[roomType.toLowerCase()] |  | []; |
 
 if (optimal.includes(direction.toLowerCase())) {
 return { energy: 'positive', recommendation: 'Optimal placement' };
-        }
+    }
 
 return { energy: 'neutral', recommendation: 'Consider energy balancing' };
-      }
-    }
+  }
+}
+
+```text
+---
 
 ### END OF ANCIENT WISDOM VOLUME 2
 
 ### Lines: ~150 added
-
-```

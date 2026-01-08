@@ -1,54 +1,12 @@
 # 🧠 BRAIN ACTIVATION SYSTEM
 
-## Table of Contents
+> **VACCINE + INJECTION Approach**
+>
+> - VACCINE: Catch issues BEFORE deployment
+> - INJECTION: Debug and fix AFTER errors appear
+> Both are essential. Both are here.
 
-- [Table of Contents](#table-of-contents)
-- [🩺 SECTION A: VACCINE (PREVENTIVE CHECKS)](#-section-a-vaccine-preventive-checks)
-- [Use these BEFORE deployment to catch issues early](#use-these-before-deployment-to-catch-issues-early)
-- [🔍 PRE-DEPLOYMENT MASTER CHECKLIST](#-pre-deployment-master-checklist)
-- [Before EVERY Deployment, Run Through This](#before-every-deployment-run-through-this)
-- [🔗 CROSS-CUTTING CONCERN CHECKLISTS](#-cross-cutting-concern-checklists)
-- [When You CHANGE Authentication](#when-you-change-authentication)
-- [When You CHANGE Database Schema](#when-you-change-database-schema)
-- [When You ADD a New API Route](#when-you-add-a-new-api-route)
-- [When You ADD a New Page](#when-you-add-a-new-page)
-- [When You CHANGE Environment Variables](#when-you-change-environment-variables)
-- [🧪 PRE-COMMIT QUICK CHECK](#-pre-commit-quick-check)
-- [Before EVERY Commit](#before-every-commit)
-- [📋 NEXT.JS + PRISMA SPECIFIC VACCINE](#-nextjs-prisma-specific-vaccine)
-- [Before Deploying Next.js App](#before-deploying-nextjs-app)
-- [💉 SECTION B: INJECTION (DEBUG & FIX)](#-section-b-injection-debug-fix)
-- [Use these AFTER errors appear to diagnose and fix](#use-these-after-errors-appear-to-diagnose-and-fix)
-- [🌳 DECISION TREE: APP NOT LOADING](#-decision-tree-app-not-loading)
-- [🌳 DECISION TREE: API NOT WORKING](#-decision-tree-api-not-working)
-- [🌳 DECISION TREE: DATABASE ERROR](#-decision-tree-database-error)
-- [🌳 DECISION TREE: BUILD FAILING](#-decision-tree-build-failing)
-- [📊 ROOT CAUSE MAPPING: SYMPTOM → CAUSE → FIX](#-root-cause-mapping-symptom-cause-fix)
-- [Component Not Rendering](#component-not-rendering)
-- [API Returning Wrong Data](#api-returning-wrong-data)
-- [Authentication Issues](#authentication-issues)
-- [✅ SECTION C: VERIFICATION PROTOCOLS](#-section-c-verification-protocols)
-- [After EVERY fix, verify it actually works](#after-every-fix-verify-it-actually-works)
-- [🔄 POST-FIX VERIFICATION CHECKLIST](#-post-fix-verification-checklist)
-- [After Fixing ANY Bug](#after-fixing-any-bug)
-- [🎯 "IT WORKS" CRITERIA BY FEATURE TYPE](#-it-works-criteria-by-feature-type)
-- [For a Form](#for-a-form)
-- [For an API Endpoint](#for-an-api-endpoint)
-- [For Authentication](#for-authentication)
-- [For a List/Table](#for-a-listtable)
-- [🗺️ SECTION D: DEPENDENCY MAPS](#-section-d-dependency-maps)
-- [How everything connects in Next.js + Prisma stack](#how-everything-connects-in-nextjs-prisma-stack)
-- [📦 FULL STACK FLOW](#-full-stack-flow)
-- [🔗 FILE DEPENDENCY MAP](#-file-dependency-map)
-- [🔄 DATA FLOW PATTERNS](#-data-flow-patterns)
-- [Reading Data (GET)](#reading-data-get)
-- [Creating Data (POST)](#creating-data-post)
-- [Updating Data (PUT/PATCH)](#updating-data-putpatch)
-- [Deleting Data (DELETE)](#deleting-data-delete)
-- [⚠️ COMMON BREAK POINTS](#-common-break-points)
-  - [CONTINUED: MORE BRAIN ACTIVATION PATTERNS](#continued-more-brain-activation-patterns)
-  - [This is your VACCINE 🩺 + INJECTION 💉 system](#this-is-your-vaccine-injection-system)
-  - [Both preventive AND reactive approaches](#both-preventive-and-reactive-approaches)
+---
 
 ## 🩺 SECTION A: VACCINE (PREVENTIVE CHECKS)
 
@@ -110,7 +68,6 @@
   â–¡ Cross-browser tested (if needed)
 
 ```text
-
 ---
 
 ## 🔗 CROSS-CUTTING CONCERN CHECKLISTS
@@ -182,7 +139,6 @@ Changed env? Also update:
 â–¡ Team notification
 
 ```text
-
 ---
 
 ## 🧪 PRE-COMMIT QUICK CHECK
@@ -204,7 +160,6 @@ Changed env? Also update:
 5. git diff --staged     # Review changes one more time
 
 ```text
-
 ---
 
 ## 📋 NEXT.JS + PRISMA SPECIFIC VACCINE
@@ -235,7 +190,6 @@ Changed env? Also update:
   â–¡ Edge functions configured (if using)
 
 ```text
-
 ---
 
 ## 💉 SECTION B: INJECTION (DEBUG & FIX)
@@ -283,7 +237,6 @@ App not loading / White screen / Infinite loading?
 │               → Check middleware blocking
 
 ```text
-
 ---
 
 ## 🌳 DECISION TREE: API NOT WORKING
@@ -330,7 +283,6 @@ API returning error / not responding?
 │           → Handle OPTIONS preflight
 
 ```text
-
 ---
 
 ## 🌳 DECISION TREE: DATABASE ERROR
@@ -372,7 +324,6 @@ Database error / Query failing?
 │           → Handle null case in code
 
 ```text
-
 ---
 
 ## 🌳 DECISION TREE: BUILD FAILING
@@ -429,7 +380,6 @@ Build failing / TypeScript errors / ESLint errors?
         └── Increase Node memory or optimize build
 
 ```text
-
 ---
 
 ## 📊 ROOT CAUSE MAPPING: SYMPTOM → CAUSE → FIX
@@ -437,7 +387,7 @@ Build failing / TypeScript errors / ESLint errors?
 ## Component Not Rendering
 
 | Symptom | Possible Causes | How to Test | Fix |
-| --------- | ----------------- | ------------- | -----  |
+|---------|-----------------|-------------|-----|
 | Component blank | Data is undefined | console.log(data) | Initialize state properly |
 | Component blank | Error thrown in render | Check console | Add error boundary |
 | Component blank | Conditional hiding it | Check condition | Fix condition logic |
@@ -446,7 +396,7 @@ Build failing / TypeScript errors / ESLint errors?
 ## API Returning Wrong Data
 
 | Symptom | Possible Causes | How to Test | Fix |
-| --------- | ----------------- | ------------- | -----  |
+|---------|-----------------|-------------|-----|
 | Empty response | No data in DB | Check DB directly | Add seed data |
 | Wrong shape | Query is wrong | console.log query result | Fix Prisma query |
 | Old data | Caching issue | Clear cache, hard refresh | Disable/configure cache |
@@ -455,11 +405,13 @@ Build failing / TypeScript errors / ESLint errors?
 ## Authentication Issues
 
 | Symptom | Possible Causes | How to Test | Fix |
-| --------- | ----------------- | ------------- | -----  |
+|---------|-----------------|-------------|-----|
 | Login fails | Wrong credentials logic | Log password check | Fix comparison |
 | Session lost | Cookie not persisting | Check Application tab | Fix cookie settings |
 | Protected page accessible | Middleware bypassed | Check middleware matcher | Fix middleware config |
 | Token expired | Short expiration | Check token exp claim | Increase expiration |
+
+---
 
 ## ✅ SECTION C: VERIFICATION PROTOCOLS
 
@@ -495,7 +447,6 @@ Build failing / TypeScript errors / ESLint errors?
   â–¡ Mobile works?
 
 ```text
-
 ---
 
 ## 🎯 "IT WORKS" CRITERIA BY FEATURE TYPE
@@ -550,7 +501,6 @@ Build failing / TypeScript errors / ESLint errors?
 ✓ Delete removes item (if applicable)
 
 ```text
-
 ---
 
 ## 🗺️ SECTION D: DEPENDENCY MAPS
@@ -611,7 +561,6 @@ USER ACTION
 └─────────────────────────────────────────────────────────────┘
 
 ```text
-
 ---
 
 ## 🔗 FILE DEPENDENCY MAP
@@ -655,7 +604,6 @@ tsconfig.json              →  Path aliases
                               Type checking strictness
 
 ```text
-
 ---
 
 ## 🔄 DATA FLOW PATTERNS
@@ -695,7 +643,6 @@ Delete button → fetch('/api/.../[id]', { method: 'DELETE' })
 → SQL DELETE → Success response → Remove from UI
 
 ```text
-
 ---
 
 ## ⚠️ COMMON BREAK POINTS
@@ -727,7 +674,6 @@ WHERE THINGS TYPICALLY BREAK:
     └── Secrets not set in deployment
 
 ```text
-
 ---
 
 ### CONTINUED: MORE BRAIN ACTIVATION PATTERNS

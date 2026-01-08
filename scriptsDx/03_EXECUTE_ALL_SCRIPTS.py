@@ -93,6 +93,7 @@ EXECUTABLE_SCRIPTS = {
         'fix_frontend_corruption.py',
         'issue_database.py',
         'matrix_test.py',
+        'merge_dev_vault.py',  # Added - was orphaned
         'progress_tracker.py',
         'smart_verify.py',
         'system_verification.py',

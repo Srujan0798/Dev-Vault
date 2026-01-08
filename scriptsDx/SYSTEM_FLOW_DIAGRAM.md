@@ -213,21 +213,18 @@ Rest-iN-U/
     │   │
     │   └── Analyzes reports & fixes issues
     │
-    ├── fixers/  ◄─── FIXERS (14 scripts)
-    │   ├── universal_lint_fixer.py
+    ├── fixers/  ◄─── FIXERS (11 scripts)
     │   ├── advanced_table_fixer.py
     │   ├── ultra_table_fixer.py
     │   ├── visual_corruption_fixer.py
     │   ├── critical_fixer.py
     │   ├── polish_fixer.py
     │   ├── toc_sync.py
-    │   ├── aggressive_gap_killer.py
-    │   ├── auto_toc.py
     │   ├── disclaimer_injector.py
     │   ├── fix_code_block_closers.py
     │   ├── hierarchy_enforcer.py (NEW)
     │   ├── fix_encoding_for_github.py (NEW)
-    │   └── remove_code_fences.py (NEW)
+    │   └── complete_ide_fixer.py (NEW)
     │
     ├── validators/  ◄─── VALIDATORS (10 scripts)
     │   ├── advanced_validator.py

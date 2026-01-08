@@ -24,9 +24,6 @@ REPORTS_DIR.mkdir(exist_ok=True)
 # Format: 'script_name.py' or ('script_name.py', 'per_file') for scripts that need individual files
 EXECUTABLE_SCRIPTS = {
     'fixers': [
-        # 'universal_lint_fixer.py',  # DISABLED - Too aggressive with regex
-        # 'aggressive_gap_killer.py', # DISABLED - Potential data loss
-        # 'auto_toc.py',  # DISABLED - Regenerates broken TOC links
         'disclaimer_injector.py',
         'fix_code_block_closers.py',
         'advanced_table_fixer.py',
@@ -37,7 +34,6 @@ EXECUTABLE_SCRIPTS = {
         'toc_sync.py',
         'hierarchy_enforcer.py',  # NEW
         'fix_encoding_for_github.py',  # NEW
-        # 'remove_code_fences.py',  # DISABLED - CRITICAL BUG: Swallows content if fences mismatched
         'complete_ide_fixer.py',  # NEW
     ],
     'validators': [

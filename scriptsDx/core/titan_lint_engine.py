@@ -2,7 +2,9 @@ import os
 import re
 import json
 
-VAULT_DIR = r"c:\Users\Student\Documents\Rest-iN-U\Doxs\Dev Vault (ETERNAL MANUAL)\KNOWLEDGE"
+# Dynamic path to Dev Vault
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+VAULT_DIR = os.path.join(PROJECT_ROOT, "Doxs", "Dev Vault (ETERNAL MANUAL)")
 
 # Error Codes
 MD001 = "MD001 (Header Increment)"

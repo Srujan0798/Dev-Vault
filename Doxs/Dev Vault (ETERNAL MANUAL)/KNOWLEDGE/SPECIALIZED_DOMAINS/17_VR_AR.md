@@ -1,148 +1,134 @@
 # VR AR
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [17_VR_AR.MD: THE TITAN GUIDE (50K TARGET)](#17vrarmd-the-titan-guide-50k-target)
+- [TABLE OF CONTENTS](#table-of-contents)
 - [Production-Grade Metaverse, WebXR, and Spatial Computing](#production-grade-metaverse-webxr-and-spatial-computing)
-- [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
-- [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
-- [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
-- [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
-- [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
-- [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
+  - [**VOLUME 1: THE SCARS (The "Why")**](#volume-1-the-scars-the-why)
+  - [**VOLUME 2: THE FOUNDATION (The "What")**](#volume-2-the-foundation-the-what)
+  - [**VOLUME 3: THE DEEP DIVE (The "How")**](#volume-3-the-deep-dive-the-how)
+  - [**VOLUME 4: THE EXPERT (The "Scale")**](#volume-4-the-expert-the-scale)
+  - [**VOLUME 5: THE TITAN (The "Kernel")**](#volume-5-the-titan-the-kernel)
+  - [**VOLUME 6: THE INFINITE (The "Future")**](#volume-6-the-infinite-the-future)
 - [VOLUME 1: THE SCARS (THE "WHY")](#volume-1-the-scars-the-why-1)
-- [1. THE "VOMIT COMET"](#1-the-vomit-comet)
-  - [Motion Sickness](#motion-sickness)
-- [2. THE IPHONE THERMAL THROTTLE](#2-the-iphone-thermal-throttle)
-  - [Performance Cliff](#performance-cliff)
+  - [1. THE "VOMIT COMET"](#1-the-vomit-comet)
+    - [Motion Sickness](#motion-sickness)
+  - [2. THE IPHONE THERMAL THROTTLE](#2-the-iphone-thermal-throttle)
+    - [Performance Cliff](#performance-cliff)
 - [VOLUME 2: THE FOUNDATION (THE "WHAT")](#volume-2-the-foundation-the-what-1)
-- [5. WEBXR IMPLEMENTATION](#5-webxr-implementation)
-  - [Three.js & React Three Fiber](#threejs--react-three-fiber)
+  - [5. WEBXR IMPLEMENTATION](#5-webxr-implementation)
+    - [Three.js & React Three Fiber](#threejs-react-three-fiber)
 - [VOLUME 3: THE DEEP DIVE (THE "HOW")](#volume-3-the-deep-dive-the-how-1)
-- [9. ASSET PIPELINE](#9-asset-pipeline)
-  - [Draco Compression](#draco-compression)
-- [10. LIGHTING & BAKING](#10-lighting--baking)
-  - [Lightmaps vs Realtime](#lightmaps-vs-realtime)
+  - [9. ASSET PIPELINE](#9-asset-pipeline)
+    - [Draco Compression](#draco-compression)
+  - [10. LIGHTING & BAKING](#10-lighting-baking)
+    - [Lightmaps vs Realtime](#lightmaps-vs-realtime)
 - [VOLUME 4: THE EXPERT (THE "SCALE")](#volume-4-the-expert-the-scale-1)
-- [13. MULTIPLAYER METAVERSE](#13-multiplayer-metaverse)
-  - [Networked Physics](#networked-physics)
-- [14. SPATIAL AUDIO](#14-spatial-audio)
-  - [HRTF & Ambisonics](#hrtf--ambisonics)
+  - [13. MULTIPLAYER METAVERSE](#13-multiplayer-metaverse)
+    - [Networked Physics](#networked-physics)
+  - [14. SPATIAL AUDIO](#14-spatial-audio)
+    - [HRTF & Ambisonics](#hrtf-ambisonics)
 - [VOLUME 5: THE TITAN (THE "KERNEL")](#volume-5-the-titan-the-kernel-1)
-- [16. SHADER PROGRAMMING](#16-shader-programming)
-  - [GLSL / HLSL](#glsl--hlsl)
+  - [16. SHADER PROGRAMMING](#16-shader-programming)
+    - [GLSL / HLSL](#glsl-hlsl)
 - [VOLUME 6: THE INFINITE (THE "FUTURE")](#volume-6-the-infinite-the-future-1)
-- [19. NEURAL RENDERING (GAUSSIAN SPLATTING)](#19-neural-rendering-gaussian-splatting)
-  - [Photorealism at 60fps](#photorealism-at-60fps)
+  - [19. NEURAL RENDERING (GAUSSIAN SPLATTING)](#19-neural-rendering-gaussian-splatting)
+    - [Photorealism at 60fps](#photorealism-at-60fps)
 - [VOLUME 7: THE APPENDIX (TITAN REFERENCE)](#volume-7-the-appendix-titan-reference)
-- [A. THE ULTIMATE UNITY OPTIMIZATION LIST](#a-the-ultimate-unity-optimization-list)
+  - [A. THE ULTIMATE UNITY OPTIMIZATION LIST](#a-the-ultimate-unity-optimization-list)
 - [KEYWORD REFERENCE INDEX](#keyword-reference-index)
-- [Each line = 100x LLM expansion potential](#each-line--100x-llm-expansion-potential)
+  - [Each line = 100x LLM expansion potential](#each-line-100x-llm-expansion-potential)
 - [XR PLATFORMS](#xr-platforms)
 - [GAME ENGINES](#game-engines)
 - [D GRAPHICS](#d-graphics)
 - [TRACKING](#tracking)
 - [PERFORMANCE](#performance)
 - [WEBXR](#webxr)
-- [Titan Pattern: WebXR Optimization (The Browser Limit)](#titan-pattern-webxr-optimization-the-browser-limit)
+  - [Titan Pattern: WebXR Optimization (The Browser Limit)](#titan-pattern-webxr-optimization-the-browser-limit)
 - [SPATIAL AUDIO](#spatial-audio)
 - [AVATARS](#avatars)
 - [MULTIPLAYER](#multiplayer)
-- [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
+  - [END OF KEYWORD REFERENCE](#end-of-keyword-reference)
 - [GAME ENGINE DEEP ATLAS](#game-engine-deep-atlas)
-- [Each keyword = expandable implementation](#each-keyword--expandable-implementation)
-- [Unity XR](#unity-xr)
-- [Unreal Engine](#unreal-engine)
-- [WebXR](#webxr-1)
+  - [Each keyword = expandable implementation](#each-keyword-expandable-implementation)
+  - [Unity XR](#unity-xr)
+  - [Unreal Engine](#unreal-engine)
+  - [WebXR](#webxr-1)
 - [HARDWARE DEEP ATLAS](#hardware-deep-atlas)
-- [Each keyword = expandable device](#each-keyword--expandable-device)
-- [Headsets](#headsets)
-- [Displays](#displays)
-- [Tracking](#tracking-1)
+  - [Each keyword = expandable device](#each-keyword-expandable-device)
+  - [Headsets](#headsets)
+  - [Displays](#displays)
+  - [Tracking](#tracking-1)
 - [AVATAR SYSTEMS DEEP ATLAS](#avatar-systems-deep-atlas)
-- [Each keyword = expandable technology](#each-keyword--expandable-technology)
-- [Creation](#creation)
-- [Animation](#animation)
-- [Expression](#expression)
+  - [Each keyword = expandable technology](#each-keyword-expandable-technology)
+  - [Creation](#creation)
+  - [Animation](#animation)
+  - [Expression](#expression)
 - [SOCIAL VR DEEP ATLAS](#social-vr-deep-atlas)
-- [Each keyword = expandable feature](#each-keyword--expandable-feature)
-- [Presence](#presence)
-- [Worlds](#worlds)
-- [Safety](#safety)
-  - [END OF MEGA VR/AR EXPANSION](#end-of-mega-vrar-expansion)
+  - [Each keyword = expandable feature](#each-keyword-expandable-feature)
+  - [Presence](#presence)
+  - [Worlds](#worlds)
+  - [Safety](#safety)
+    - [END OF MEGA VR/AR EXPANSION](#end-of-mega-vrar-expansion)
 - [XR PERFORMANCE DEEP ATLAS](#xr-performance-deep-atlas)
-- [Each keyword = expandable optimization](#each-keyword--expandable-optimization)
-- [Rendering](#rendering)
-  - [Titan Pattern: Occlusion Culling](#titan-pattern-occlusion-culling)
-- [Latency](#latency)
-- [Memory](#memory)
-  - [Titan Pattern: Object Pooling (Zero Alloc)](#titan-pattern-object-pooling-zero-alloc)
-- [Profiling](#profiling)
+  - [Each keyword = expandable optimization](#each-keyword-expandable-optimization)
+  - [Rendering](#rendering)
+    - [Titan Pattern: Occlusion Culling](#titan-pattern-occlusion-culling)
+  - [Latency](#latency)
+  - [Memory](#memory)
+    - [Titan Pattern: Object Pooling (Zero Alloc)](#titan-pattern-object-pooling-zero-alloc)
+  - [Profiling](#profiling)
 - [XR INPUT DEEP ATLAS](#xr-input-deep-atlas)
-- [Each keyword = expandable interaction](#each-keyword--expandable-interaction)
-- [Controllers](#controllers)
-- [Hand Tracking](#hand-tracking)
-- [Eye Tracking](#eye-tracking)
-- [Full Body](#full-body)
+  - [Each keyword = expandable interaction](#each-keyword-expandable-interaction)
+  - [Controllers](#controllers)
+  - [Hand Tracking](#hand-tracking)
+  - [Eye Tracking](#eye-tracking)
+  - [Full Body](#full-body)
 - [SPATIAL AUDIO DEEP ATLAS](#spatial-audio-deep-atlas)
-- [Each keyword = expandable technique](#each-keyword--expandable-technique)
-- [3D Audio](#3d-audio)
-- [Implementation](#implementation)
-- [Environment](#environment)
-- [Voice](#voice)
+  - [Each keyword = expandable technique](#each-keyword-expandable-technique)
+  - [3D Audio](#3d-audio)
+  - [Implementation](#implementation)
+  - [Environment](#environment)
+  - [Voice](#voice)
 - [ENTERPRISE XR DEEP ATLAS](#enterprise-xr-deep-atlas)
-- [Each keyword = expandable application](#each-keyword--expandable-application)
-- [Training](#training)
-- [Collaboration](#collaboration)
-- [Industrial](#industrial)
-- [Healthcare](#healthcare)
-  - [END OF ULTRA VR/AR EXPANSION](#end-of-ultra-vrar-expansion)
-  - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
-- [VR/AR CODE EXAMPLES](#vrar-code-examples)
+  - [Each keyword = expandable application](#each-keyword-expandable-application)
+  - [Training](#training)
+  - [Collaboration](#collaboration)
+  - [Industrial](#industrial)
+  - [Healthcare](#healthcare)
+    - [END OF ULTRA VR/AR EXPANSION](#end-of-ultra-vrar-expansion)
+    - [Continuing expansion in next iteration](#continuing-expansion-in-next-iteration)
 - [JS PATTERNS](#js-patterns)
-- [WebGL Scene Setup](#webgl-scene-setup)
+  - [WebGL Scene Setup](#webgl-scene-setup)
 - [WEBXR PATTERNS](#webxr-patterns)
-- [VR Session](#vr-session)
+  - [VR Session](#vr-session)
 - [FRAME PATTERNS](#frame-patterns)
-- [Declarative VR](#declarative-vr)
-  - [CONTINUED: MORE VR/AR PATTERNS](#continued-more-vrar-patterns)
+  - [Declarative VR](#declarative-vr)
+    - [CONTINUED: MORE VR/AR PATTERNS](#continued-more-vrar-patterns)
 - [VOLUME 8: TITAN GEMINI RESEARCH - VR/AR PRODUCTION FAILURES](#volume-8-titan-gemini-research---vrar-production-failures)
-- [UNITY GC SPIKE PREVENTION](#unity-gc-spike-prevention)
-  - [The Scar](#the-scar)
-- [QUEST THERMAL THROTTLING DETECTION](#quest-thermal-throttling-detection)
-  - [The Scar](#the-scar-1)
-- [LATE LATCHING FOR LOW LATENCY](#late-latching-for-low-latency)
-  - [The Scar](#the-scar-2)
-- [MOBILE AR LOD SYSTEM](#mobile-ar-lod-system)
-  - [The Scar](#the-scar-3)
-- [ARKIT WORLD TRACKING RECOVERY](#arkit-world-tracking-recovery)
-  - [The Scar](#the-scar-4)
-  - [END OF VOLUME 8: TITAN GEMINI RESEARCH - VR/AR PRODUCTION FAILURES](#end-of-volume-8-titan-gemini-research---vrar-production-failures)
-- [VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR](#volume-9-titan-gemini-research---spatial-anchors-and-multiplayer-xr)
-- [PERSISTENT AR WITH SPATIAL ANCHORS](#persistent-ar-with-spatial-anchors)
-  - [The Scar](#the-scar-5)
-- [WEBXR HAND TRACKING](#webxr-hand-tracking)
-  - [The Scar](#the-scar-6)
-- [MULTIPLAYER XR SYNCHRONIZATION](#multiplayer-xr-synchronization)
-  - [The Scar](#the-scar-7)
-  - [END OF VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR](#end-of-volume-9-titan-gemini-research---spatial-anchors-and-multiplayer-xr)
+  - [UNITY GC SPIKE PREVENTION](#unity-gc-spike-prevention)
+    - [The Scar](#the-scar)
+  - [LATE LATCHING FOR LOW LATENCY](#late-latching-for-low-latency)
+    - [The Scar](#the-scar-1)
+  - [ARKIT WORLD TRACKING RECOVERY](#arkit-world-tracking-recovery)
+    - [The Scar](#the-scar-2)
+  - [WEBXR HAND TRACKING](#webxr-hand-tracking)
+    - [The Scar](#the-scar-3)
+    - [END OF VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR](#end-of-volume-9-titan-gemini-research---spatial-anchors-and-multiplayer-xr)
 - [VOLUME 10: TITAN GEMINI RESEARCH - WEBXR PERFORMANCE OPTIMIZATION](#volume-10-titan-gemini-research---webxr-performance-optimization)
-- [FRAME RATE DROPS IN VR](#frame-rate-drops-in-vr)
-  - [The Scar](#the-scar-8)
-- [VR COMFORT AND MOTION SICKNESS](#vr-comfort-and-motion-sickness)
-  - [The Scar](#the-scar-9)
-  - [END OF VOLUME 10: TITAN GEMINI RESEARCH - WEBXR PERFORMANCE OPTIMIZATION](#end-of-volume-10-titan-gemini-research---webxr-performance-optimization)
+  - [FRAME RATE DROPS IN VR](#frame-rate-drops-in-vr)
+    - [The Scar](#the-scar-4)
+    - [END OF VOLUME 10: TITAN GEMINI RESEARCH - WEBXR PERFORMANCE OPTIMIZATION](#end-of-volume-10-titan-gemini-research---webxr-performance-optimization)
 - [VOLUME 2: PRODUCTION VR/AR PATTERNS](#volume-2-production-vrar-patterns)
-- [WEBXR DEVELOPMENT PATTERNS](#webxr-development-patterns)
-  - [Cross-Platform VR Experience](#cross-platform-vr-experience)
-- [AR MARKER DETECTION](#ar-marker-detection)
-  - [Image Target Recognition](#image-target-recognition)
-  - [END OF VR/AR VOLUME 2](#end-of-vrar-volume-2)
-  - [Lines: ~200+ added](#lines-200-added)
+  - [WEBXR DEVELOPMENT PATTERNS](#webxr-development-patterns)
+    - [Cross-Platform VR Experience](#cross-platform-vr-experience)
+  - [AR MARKER DETECTION](#ar-marker-detection)
+    - [Image Target Recognition](#image-target-recognition)
+    - [END OF VR/AR VOLUME 2](#end-of-vrar-volume-2)
+    - [Lines: ~200+ added](#lines-200-added)
 - [REAL AR/VR WEB PATTERNS 2024](#real-arvr-web-patterns-2024)
-- [Three.js Scene Setup](#threejs-scene-setup)
-- [React Three Fiber](#react-three-fiber)
-  - [END OF VR/AR PATTERNS](#end-of-vrar-patterns)
+  - [Three.js Scene Setup](#threejs-scene-setup)
+  - [React Three Fiber](#react-three-fiber)
+    - [END OF VR/AR PATTERNS](#end-of-vrar-patterns)
 
 ## 17_VR_AR.MD: THE TITAN GUIDE (50K TARGET)
 
@@ -162,51 +148,46 @@
 *Real-world horror stories and billion-dollar failures.*
 
 1. The "Vomit Comet" (Motion Sickness)
-1. The iPhone Thermal Throttle (Performance Cliff)
-1. The "Tiny House" Syndrome (Scale Fail)
-1. The "Uncanny Valley" (Avatar Rejection)
+2. The iPhone Thermal Throttle (Performance Cliff)
+3. The "Tiny House" Syndrome (Scale Fail)
+4. The "Uncanny Valley" (Avatar Rejection)
 
 ## **VOLUME 2: THE FOUNDATION (The "What")**
 
 *Production-grade basics. No "Hello World".*
-
-1. WebXR Implementation (Three.js / R3F)
-1. AR Furniture Placement (ARKit/ARCore)
-1. Tours (Matterport Integration)
-1. Coordinate Systems (Left vs Right Handed)
+5. WebXR Implementation (Three.js / R3F)
+6. AR Furniture Placement (ARKit/ARCore)
+7. Tours (Matterport Integration)
+8. Coordinate Systems (Left vs Right Handed)
 
 ## **VOLUME 3: THE DEEP DIVE (The "How")**
 
 *Advanced engineering and optimization.*
-
-1. Asset Pipeline (Draco Compression & GLTF)
-1. Lighting & Baking (Lightmaps vs Realtime)
-1. Performance Optimization (Draw Calls & Occlusion Culling)
-1. Interaction Models (Raycasting vs Direct Touch)
+9. Asset Pipeline (Draco Compression & GLTF)
+10. Lighting & Baking (Lightmaps vs Realtime)
+11. Performance Optimization (Draw Calls & Occlusion Culling)
+12. Interaction Models (Raycasting vs Direct Touch)
 
 ## **VOLUME 4: THE EXPERT (The "Scale")**
 
 *Distributed systems and high-scale patterns.*
-
-1. Multiplayer Metaverse (Networked Physics)
-1. Spatial Audio (HRTF & Ambisonics)
-1. Cloud Rendering (Pixel Streaming)
+13. Multiplayer Metaverse (Networked Physics)
+14. Spatial Audio (HRTF & Ambisonics)
+15. Cloud Rendering (Pixel Streaming)
 
 ## **VOLUME 5: THE TITAN (The "Kernel")**
 
 *Low-level internals and custom engines.*
-
-1. Shader Programming (GLSL/HLSL)
-1. Vulkan/Metal Graphics APIs
-1. Custom Physics Engines (WASM)
+16. Shader Programming (GLSL/HLSL)
+17. Vulkan/Metal Graphics APIs
+18. Custom Physics Engines (WASM)
 
 ## **VOLUME 6: THE INFINITE (The "Future")**
 
 *Experimental tech and "Meta-Beating" research.*
-
-1. Neural Rendering (Gaussian Splatting)
-1. Haptic Feedback Suits
-1. BCI (Brain-Computer Interfaces)
+19. Neural Rendering (Gaussian Splatting)
+20. Haptic Feedback Suits
+21. BCI (Brain-Computer Interfaces)
 
 ---
 ## VOLUME 1: THE SCARS (THE "WHY")
@@ -224,8 +205,8 @@ Sensory conflict. Nausea. 30% of users quit immediately.
 **The Fix**:
 
 1. **Teleportation**: Instant movement.
-1. **Vignette**: Narrow the field of view during movement (Tunnel vision).
-1. **Snap Turn**: Turn in 45-degree increments.
+2. **Vignette**: Narrow the field of view during movement (Tunnel vision).
+3. **Snap Turn**: Turn in 45-degree increments.
 
 ---
 
@@ -256,24 +237,26 @@ VR/AR in the browser. No app install required.
 
 **Code Snippet (React Three Fiber)**:
 
-    import { XR, Controllers, Hands } from '@react-three/xr'
-    import { Canvas } from '@react-three/fiber'
-    
-    function App() {
-    return (
-        <Canvas>
-          <XR>
-    <Controllers />
-    <Hands />
-            <mesh>
-    <boxGeometry />
-    <meshStandardMaterial color="blue" />
-            </mesh>
-          </XR>
-        </Canvas>
-      )
-    }
-    
+```javascript
+import { XR, Controllers, Hands } from '@react-three/xr'
+import { Canvas } from '@react-three/fiber'
+
+function App() {
+return (
+    <Canvas>
+      <XR>
+<Controllers />
+<Hands />
+        <mesh>
+<boxGeometry />
+<meshStandardMaterial color="blue" />
+        </mesh>
+      </XR>
+    </Canvas>
+  )
+}
+
+```text
 
 ---
 
@@ -352,11 +335,13 @@ Use Case: Fire effects, holograms.
 
 **Example (Hologram)**:
 
-    void main() {
-    float alpha = sin(vUv.y *20.0 + uTime)* 0.5 + 0.5;
-    gl_FragColor = vec4(0.0, 1.0, 1.0, alpha);
-    }
-    
+```glsl
+void main() {
+float alpha = sin(vUv.y * 20.0 + uTime) * 0.5 + 0.5;
+gl_FragColor = vec4(0.0, 1.0, 1.0, alpha);
+}
+
+```text
 
 ---
 
@@ -372,8 +357,8 @@ Traditional 3D uses triangles (Mesh).
 **Process**:
 
 1. Take video of a room.
-1. AI trains a model to represent the room as Gaussians.
-1. Render via rasterization.
+2. AI trains a model to represent the room as Gaussians.
+3. Render via rasterization.
 **Result**: Looks like a photo, moves like a 3D model. Fast rendering.
 
 ---
@@ -383,10 +368,10 @@ Traditional 3D uses triangles (Mesh).
 ## A. THE ULTIMATE UNITY OPTIMIZATION LIST
 
 1. **Static Batching**: Combine static meshes into one draw call.
-1. **GPU Instancing**: Draw 1000 trees with 1 draw call.
-1. **Occlusion Culling**: Don't render what the camera can't see.
-1. **LOD (Level of Detail)**: Use low-poly models when far away.
-1. **Texture Atlasing**: Combine multiple textures into one big image.
+2. **GPU Instancing**: Draw 1000 trees with 1 draw call.
+3. **Occlusion Culling**: Don't render what the camera can't see.
+4. **LOD (Level of Detail)**: Use low-poly models when far away.
+5. **Texture Atlasing**: Combine multiple textures into one big image.
 
 ---
 
@@ -721,8 +706,8 @@ Traditional 3D uses triangles (Mesh).
 - **Problem**: Rendering things the user can't see.
 - **Solution**:
 1. **Frustum Culling**: Don't render behind the camera (Automatic in most engines).
-1. **Occlusion Culling**: Don't render behind walls.
-1. **LOD (Level of Detail)**: Swap high-poly model for low-poly when far away.
+2. **Occlusion Culling**: Don't render behind walls.
+3. **LOD (Level of Detail)**: Swap high-poly model for low-poly when far away.
 
 - Level of detail: LOD
 
@@ -751,27 +736,29 @@ Traditional 3D uses triangles (Mesh).
 - **Goal**: Reuse objects instead of destroying/creating them.
 - **Technique**: Pre-allocate a list of bullets/enemies. Enable/Disable instead of Spawn/Destroy.
 
-    // Three.js / WebXR Example: Bullet Pool
-    class BulletPool {
-    constructor(scene, size) {
-    this.pool = [];
-    for (let i = 0; i < size; i++) {
-    const bullet = new Mesh(geometry, material);
-    bullet.visible = false;
-          scene.add(bullet);
-          this.pool.push(bullet);
-        }
-      }
-    
-    getBullet() {
-    const bullet = this.pool.find(b => !b.visible);
-    if (bullet) {
-    bullet.visible = true;
-    return bullet;
-        }
-    return null; // Or expand pool
-      }
+```javascript
+// Three.js / WebXR Example: Bullet Pool
+class BulletPool {
+constructor(scene, size) {
+this.pool = [];
+for (let i = 0; i < size; i++) {
+const bullet = new Mesh(geometry, material);
+bullet.visible = false;
+      scene.add(bullet);
+      this.pool.push(bullet);
     }
+  }
+
+getBullet() {
+const bullet = this.pool.find(b => !b.visible);
+if (bullet) {
+bullet.visible = true;
+return bullet;
+    }
+return null; // Or expand pool
+  }
+}
+```text
 
 - Compression: texture, mesh
 
@@ -969,53 +956,55 @@ Traditional 3D uses triangles (Mesh).
 
 **Why it exists:** 3D graphics in browser
 
-    // lib/three-scene.ts
-    import * as THREE from 'three';
-    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-    
-    export function createScene(container: HTMLElement) {
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a1a2e);
-    
-    const camera = new THREE.PerspectiveCamera(
-        75,
-    container.clientWidth / container.clientHeight,
-        0.1,
-        1000
-      );
-    camera.position.z = 5;
-    
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      container.appendChild(renderer.domElement);
-    
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-      scene.add(ambientLight);
-    
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
-      scene.add(directionalLight);
-    
-    // Animation loop
-    function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-    renderer.render(scene, camera);
-      }
-      animate();
-    
-    // Cleanup
-    return () => {
-        renderer.dispose();
-        container.removeChild(renderer.domElement);
-      };
-    }
-    
+```typescript
+// lib/three-scene.ts
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+export function createScene(container: HTMLElement) {
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1a2e);
+
+const camera = new THREE.PerspectiveCamera(
+    75,
+container.clientWidth / container.clientHeight,
+    0.1,
+    1000
+  );
+camera.position.z = 5;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(5, 5, 5);
+  scene.add(directionalLight);
+
+// Animation loop
+function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+renderer.render(scene, camera);
+  }
+  animate();
+
+// Cleanup
+return () => {
+    renderer.dispose();
+    container.removeChild(renderer.domElement);
+  };
+}
+
+```text
 
 ---
 
@@ -1025,44 +1014,46 @@ Traditional 3D uses triangles (Mesh).
 
 **Why it exists:** Immersive VR experiences
 
-    // lib/webxr.ts
-    export async function startVRSession(renderer: THREE.WebGLRenderer) {
-    if (!navigator.xr) {
-    throw new Error('WebXR not supported');
-      }
-    
-    const supported = await navigator.xr.isSessionSupported('immersive-vr');
-    if (!supported) {
-    throw new Error('VR not supported');
-      }
-    
-    const session = await navigator.xr.requestSession('immersive-vr', {
-    optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking'],
-      });
-    
-    renderer.xr.enabled = true;
-      renderer.xr.setSession(session);
-    
-    session.addEventListener('end', () => {
-        renderer.xr.setSession(null);
-      });
-    
-    return session;
-    }
-    
-    // VR Controller
-    export function setupControllers(renderer: THREE.WebGLRenderer, scene: THREE.Scene) {
-    const controller1 = renderer.xr.getController(0);
-    const controller2 = renderer.xr.getController(1);
-    
-    controller1.addEventListener('selectstart', () => {
-    // Trigger pressed
-      });
-    
-      scene.add(controller1);
-      scene.add(controller2);
-    }
-    
+```typescript
+// lib/webxr.ts
+export async function startVRSession(renderer: THREE.WebGLRenderer) {
+if (!navigator.xr) {
+throw new Error('WebXR not supported');
+  }
+
+const supported = await navigator.xr.isSessionSupported('immersive-vr');
+if (!supported) {
+throw new Error('VR not supported');
+  }
+
+const session = await navigator.xr.requestSession('immersive-vr', {
+optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking'],
+  });
+
+renderer.xr.enabled = true;
+  renderer.xr.setSession(session);
+
+session.addEventListener('end', () => {
+    renderer.xr.setSession(null);
+  });
+
+return session;
+}
+
+// VR Controller
+export function setupControllers(renderer: THREE.WebGLRenderer, scene: THREE.Scene) {
+const controller1 = renderer.xr.getController(0);
+const controller2 = renderer.xr.getController(1);
+
+controller1.addEventListener('selectstart', () => {
+// Trigger pressed
+  });
+
+  scene.add(controller1);
+  scene.add(controller2);
+}
+
+```text
 
 ---
 
@@ -1072,40 +1063,42 @@ Traditional 3D uses triangles (Mesh).
 
 **Why it exists:** HTML-like VR development
 
-    <!-- index.html -->
-    <a-scene>
-      <a-assets>
-    <img id="sky" src="/textures/sky.jpg">
-    <a-asset-item id="model" src="/models/scene.gltf"></a-asset-item>
-      </a-assets>
-    
-    <a-sky src="#sky"></a-sky>
-    
-      <a-entity
-        gltf-model="#model"
-    position="0 0 -3"
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
-      ></a-entity>
-    
-      <a-entity
-        id="player"
-        camera
-    look-controls="pointerLockEnabled: true"
-        wasd-controls
-    position="0 1.6 0"
-      ></a-entity>
-    </a-scene>
-    
-    <script>
-    AFRAME.registerComponent('interactive', {
-    init: function() {
-    this.el.addEventListener('click', () => {
-    this.el.setAttribute('material', 'color', 'red');
-          });
-        }
+```html
+<!-- index.html -->
+<a-scene>
+  <a-assets>
+<img id="sky" src="/textures/sky.jpg">
+<a-asset-item id="model" src="/models/scene.gltf"></a-asset-item>
+  </a-assets>
+
+<a-sky src="#sky"></a-sky>
+
+  <a-entity
+    gltf-model="#model"
+position="0 0 -3"
+animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+  ></a-entity>
+
+  <a-entity
+    id="player"
+    camera
+look-controls="pointerLockEnabled: true"
+    wasd-controls
+position="0 1.6 0"
+  ></a-entity>
+</a-scene>
+
+<script>
+AFRAME.registerComponent('interactive', {
+init: function() {
+this.el.addEventListener('click', () => {
+this.el.setAttribute('material', 'color', 'red');
       });
-    </script>
-    
+    }
+  });
+</script>
+
+```text
 
 ---
 
@@ -1126,17 +1119,19 @@ Traditional 3D uses triangles (Mesh).
 > Root cause: Garbage Collector ran during that frame.
 > String concatenation in Update() = GC nightmare."
 
-    // VIBE: Allocations every frame = GC spikes
-    void Update()
-    {
-    // Each string operation allocates new memory
-    string status = "Health: " + health + " / " + maxHealth;  // ALLOCATION!
-    statusText.text = status;
-    
-    // Creating new lists every frame
-    var enemies = FindObjectsOfType<Enemy>().ToList();  // ALLOCATION!
-    }
-    
+```csharp
+// VIBE: Allocations every frame = GC spikes
+void Update()
+{
+// Each string operation allocates new memory
+string status = "Health: " + health + " / " + maxHealth;  // ALLOCATION!
+statusText.text = status;
+
+// Creating new lists every frame
+var enemies = FindObjectsOfType<Enemy>().ToList();  // ALLOCATION!
+}
+
+```csharp
 // TITAN: Zero-allocation patterns
 public class ZeroAllocationVR : MonoBehaviour
 {
@@ -1207,16 +1202,18 @@ public float distance;
 // Use NativeArray or ArrayPool instead of List<T> for value types
 private RaycastResult[] _raycastResults = new RaycastResult[32];
 
-    
-    ## QUEST THERMAL THROTTLING DETECTION
-    
-    ### The Scar
-    
-    > "VR game runs perfectly for 10 minutes.
-    > Then fps drops from 72 to 36. Users complain.
-    > Meta Quest detected overheating. Throttled GPU by 50%.
-    > No warning to player. Just sudden judder."
-    
+```text
+
+## QUEST THERMAL THROTTLING DETECTION
+
+### The Scar
+
+> "VR game runs perfectly for 10 minutes.
+> Then fps drops from 72 to 36. Users complain.
+> Meta Quest detected overheating. Throttled GPU by 50%.
+> No warning to player. Just sudden judder."
+
+```csharp
 // VIBE: No thermal monitoring
 void Update()
 {
@@ -1225,80 +1222,82 @@ void Update()
 // Quest throttles after 10 minutes, no warning
 }
 
-    // TITAN: Thermal awareness with dynamic LOD
-    using UnityEngine.XR;
-    
-    public class ThermalManager : MonoBehaviour
+```csharp
+// TITAN: Thermal awareness with dynamic LOD
+using UnityEngine.XR;
+
+public class ThermalManager : MonoBehaviour
+{
+public enum ThermalState { Normal, Warm, Critical }
+
+private ThermalState _currentState = ThermalState.Normal;
+private float _thermalCheckInterval = 5f;
+
+void Start()
     {
-    public enum ThermalState { Normal, Warm, Critical }
-    
-    private ThermalState _currentState = ThermalState.Normal;
-    private float _thermalCheckInterval = 5f;
-    
-    void Start()
+InvokeRepeating(nameof(CheckThermalState), 0, _thermalCheckInterval);
+    }
+
+void CheckThermalState()
+    {
+// Quest API for thermal level
+if (OVRManager.instance != null)
         {
-    InvokeRepeating(nameof(CheckThermalState), 0, _thermalCheckInterval);
+float gpuTemp = OVRManager.gpuUtilLevel;
+float cpuTemp = OVRManager.cpuLevel;
+
+// OVR thermal notifications
+bool isThrottling = OVRManager.instance.isPowerSaveModeEnabled;
+
+if (isThrottling)
+        {
+        SetThermalState(ThermalState.Critical);
         }
-    
-    void CheckThermalState()
+| else if (gpuTemp > 0.8f |  | cpuTemp > 0.8f) |
         {
-    // Quest API for thermal level
-    if (OVRManager.instance != null)
-            {
-    float gpuTemp = OVRManager.gpuUtilLevel;
-    float cpuTemp = OVRManager.cpuLevel;
-    
-    // OVR thermal notifications
-    bool isThrottling = OVRManager.instance.isPowerSaveModeEnabled;
-    
-    if (isThrottling)
-            {
-            SetThermalState(ThermalState.Critical);
-            }
-    | else if (gpuTemp > 0.8f |  | cpuTemp > 0.8f) |
-            {
-            SetThermalState(ThermalState.Warm);
-            }
-            else
-            {
-            SetThermalState(ThermalState.Normal);
-            }
-            }
+        SetThermalState(ThermalState.Warm);
         }
-    
-    void SetThermalState(ThermalState newState)
+        else
         {
-    if (newState == _currentState) return;
-    _currentState = newState;
-    
-    switch (newState)
-            {
-    case ThermalState.Normal:
-    QualitySettings.lodBias = 2.0f;
-    QualitySettings.shadowDistance = 50f;
-    Application.targetFrameRate = 72;
-            break;
-    
-    case ThermalState.Warm:
-    // Reduce quality to prevent throttling
-    QualitySettings.lodBias = 1.0f;
-    QualitySettings.shadowDistance = 20f;
-            DisableParticleEffects();
-    ShowWarning("Device warming up...");
-            break;
-    
-    case ThermalState.Critical:
-    // Emergency mode
-    QualitySettings.lodBias = 0.5f;
-    QualitySettings.shadowDistance = 0f;
-            DisableAllEffects();
-    Application.targetFrameRate = 45;  // Accept lower framerate
-    ShowWarning("Device overheating. Taking a break is recommended.");
-            break;
-            }
+        SetThermalState(ThermalState.Normal);
+        }
         }
     }
-    
+
+void SetThermalState(ThermalState newState)
+    {
+if (newState == _currentState) return;
+_currentState = newState;
+
+switch (newState)
+        {
+case ThermalState.Normal:
+QualitySettings.lodBias = 2.0f;
+QualitySettings.shadowDistance = 50f;
+Application.targetFrameRate = 72;
+        break;
+
+case ThermalState.Warm:
+// Reduce quality to prevent throttling
+QualitySettings.lodBias = 1.0f;
+QualitySettings.shadowDistance = 20f;
+        DisableParticleEffects();
+ShowWarning("Device warming up...");
+        break;
+
+case ThermalState.Critical:
+// Emergency mode
+QualitySettings.lodBias = 0.5f;
+QualitySettings.shadowDistance = 0f;
+        DisableAllEffects();
+Application.targetFrameRate = 45;  // Accept lower framerate
+ShowWarning("Device overheating. Taking a break is recommended.");
+        break;
+        }
+    }
+}
+
+```text
 
 ## LATE LATCHING FOR LOW LATENCY
 
@@ -1309,16 +1308,18 @@ void Update()
 > Last-moment head pose not used.
 > Using pose from start of frame instead of render time."
 
-    // VIBE: Use head pose from frame start
-    void Update()
-    {
-    // Head pose sampled here...
-    Vector3 headPosition = InputTracking.GetLocalPosition(XRNode.Head);
-    
-    // ...but render happens 20ms later
-    // User sees old pose = latency
-    }
-    
+```csharp
+// VIBE: Use head pose from frame start
+void Update()
+{
+// Head pose sampled here...
+Vector3 headPosition = InputTracking.GetLocalPosition(XRNode.Head);
+
+// ...but render happens 20ms later
+// User sees old pose = latency
+}
+
+```csharp
 // TITAN: Late latching with render poses
 using UnityEngine.XR;
 
@@ -1363,16 +1364,18 @@ const view = pose.views[0];
 renderer.render(scene, camera);
 }
 
-    
-    ## MOBILE AR LOD SYSTEM
-    
-    ### The Scar
-    
-    > "AR furniture app on iPhone SE (2020).
-    > Shows 500k polygon sofa model.
-    > 8fps. Screen freezes. App killed by iOS.
-    > High-end models on low-end phones = disaster."
-    
+```text
+
+## MOBILE AR LOD SYSTEM
+
+### The Scar
+
+> "AR furniture app on iPhone SE (2020).
+> Shows 500k polygon sofa model.
+> 8fps. Screen freezes. App killed by iOS.
+> High-end models on low-end phones = disaster."
+
+```swift
 // VIBE: Same model for all devices
 func placeAsset(named assetName: String) {
 let entity = try! ModelEntity.loadModel(named: "sofa_500k.usdz")
@@ -1380,89 +1383,91 @@ let entity = try! ModelEntity.loadModel(named: "sofa_500k.usdz")
 // iPhone SE can't render this
 }
 
-    // TITAN: Device-aware LOD selection
-    import ARKit
-    import RealityKit
-    
-    class AdaptiveLODManager {
-    enum DeviceTier { case low, medium, high }
-    
-    var currentTier: DeviceTier {
-    // Detect device capability
-    let device = UIDevice.current
-    let performance = ProcessInfo.processInfo.physicalMemory
-    
-    // A15 chip or newer = high tier
-    if performance >= 6 *1024* 1024 * 1024 {  // 6GB+
-    return .high
-    } else if performance >= 4 *1024* 1024 * 1024 {  // 4GB+
-    return .medium
-    } else {
-    return .low
-            }
-        }
-    
-    func getModelPath(for baseName: String) -> String {
-    let suffix: String
-    switch currentTier {
-    case .high:
-    suffix = "_high"    // 100k polygons
-    case .medium:
-    suffix = "_medium"  // 30k polygons
-    case .low:
-    suffix = "_low"  // 5k polygons
-            }
-    return "\(baseName)\(suffix).usdz"
-        }
-    
-    func loadModel(named baseName: String) async throws -> ModelEntity {
-    let path = getModelPath(for: baseName)
-    let entity = try await ModelEntity.loadAsync(named: path)
-    
-    // Also adjust material complexity on low-end
-    if currentTier == .low {
-    entity.model?.materials = [SimpleMaterial(color: .gray, isMetallic: false)]
-            }
-    
-    return entity
+```swift
+// TITAN: Device-aware LOD selection
+import ARKit
+import RealityKit
+
+class AdaptiveLODManager {
+enum DeviceTier { case low, medium, high }
+
+var currentTier: DeviceTier {
+// Detect device capability
+let device = UIDevice.current
+let performance = ProcessInfo.processInfo.physicalMemory
+
+// A15 chip or newer = high tier
+if performance >= 6 * 1024 * 1024 * 1024 {  // 6GB+
+return .high
+} else if performance >= 4 * 1024 * 1024 * 1024 {  // 4GB+
+return .medium
+} else {
+return .low
         }
     }
-    
-    // TITAN: Runtime thermal-adaptive LOD switching
-    class ThermalAdaptiveLOD {
-    private var thermalObserver: NSObjectProtocol?
-    
-    func startMonitoring() {
-    thermalObserver = NotificationCenter.default.addObserver(
-    forName: ProcessInfo.thermalStateDidChangeNotification,
-    object: nil,
-    queue: .main
-    ) { [weak self] _ in
-            self?.handleThermalChange()
-            }
+
+func getModelPath(for baseName: String) -> String {
+let suffix: String
+switch currentTier {
+case .high:
+suffix = "_high"    // 100k polygons
+case .medium:
+suffix = "_medium"  // 30k polygons
+case .low:
+suffix = "_low"  // 5k polygons
         }
-    
-    func handleThermalChange() {
-    let thermalState = ProcessInfo.processInfo.thermalState
-    
-    switch thermalState {
-    case .nominal:
-            setQualityLevel(.high)
-    case .fair:
-            setQualityLevel(.medium)
-    case .serious:
-            setQualityLevel(.low)
-            showCoolingWarning()
-    case .critical:
-    // Emergency: disable AR effects
-            pauseARSession()
-            showCriticalWarning()
-    @unknown default:
-            break
-            }
+return "\(baseName)\(suffix).usdz"
+    }
+
+func loadModel(named baseName: String) async throws -> ModelEntity {
+let path = getModelPath(for: baseName)
+let entity = try await ModelEntity.loadAsync(named: path)
+
+// Also adjust material complexity on low-end
+if currentTier == .low {
+entity.model?.materials = [SimpleMaterial(color: .gray, isMetallic: false)]
+        }
+
+return entity
+    }
+}
+
+// TITAN: Runtime thermal-adaptive LOD switching
+class ThermalAdaptiveLOD {
+private var thermalObserver: NSObjectProtocol?
+
+func startMonitoring() {
+thermalObserver = NotificationCenter.default.addObserver(
+forName: ProcessInfo.thermalStateDidChangeNotification,
+object: nil,
+queue: .main
+) { [weak self] _ in
+        self?.handleThermalChange()
         }
     }
-    
+
+func handleThermalChange() {
+let thermalState = ProcessInfo.processInfo.thermalState
+
+switch thermalState {
+case .nominal:
+        setQualityLevel(.high)
+case .fair:
+        setQualityLevel(.medium)
+case .serious:
+        setQualityLevel(.low)
+        showCoolingWarning()
+case .critical:
+// Emergency: disable AR effects
+        pauseARSession()
+        showCriticalWarning()
+@unknown default:
+        break
+        }
+    }
+}
+
+```text
 
 ## ARKIT WORLD TRACKING RECOVERY
 
@@ -1473,12 +1478,14 @@ let entity = try! ModelEntity.loadModel(named: "sofa_500k.usdz")
 > No guidance on how to recover tracking.
 > App requires complete restart."
 
-    // VIBE: No tracking state handling
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-    // Just assume tracking always works
-    placeObjects(at: frame.camera.transform)
-    }
-    
+```swift
+// VIBE: No tracking state handling
+func session(_ session: ARSession, didUpdate frame: ARFrame) {
+// Just assume tracking always works
+placeObjects(at: frame.camera.transform)
+}
+
+```swift
 // TITAN: Robust tracking state management
 class ARSessionManager: NSObject, ARSessionDelegate {
 private var lastKnownTrackingState: ARCamera.TrackingState = .notAvailable
@@ -1568,22 +1575,24 @@ arSession.run(config, options: [.resetTracking, .removeExistingAnchors])
     }
 }
 
-    
-    ### END OF VOLUME 8: TITAN GEMINI RESEARCH - VR/AR PRODUCTION FAILURES
-    
-    ---
-    
-    ## VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR
-    
-    ## PERSISTENT AR WITH SPATIAL ANCHORS
-    
-    ### The Scar
-    
-    > "AR furniture placed perfectly. Close app. Reopen.
-    > Furniture gone. No persistence. User frustrated.
-    > 'Where did my design go?' Support tickets flooded.
-    > No spatial anchoring. Just session-based ARKit."
-    
+```text
+
+### END OF VOLUME 8: TITAN GEMINI RESEARCH - VR/AR PRODUCTION FAILURES
+
+---
+
+## VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR
+
+## PERSISTENT AR WITH SPATIAL ANCHORS
+
+### The Scar
+
+> "AR furniture placed perfectly. Close app. Reopen.
+> Furniture gone. No persistence. User frustrated.
+> 'Where did my design go?' Support tickets flooded.
+> No spatial anchoring. Just session-based ARKit."
+
+```swift
 // VIBE: Session-only AR placement
 func placeItem(at position: SIMD3<Float>) {
 let anchor = AnchorEntity(world: position)
@@ -1592,108 +1601,110 @@ let anchor = AnchorEntity(world: position)
 // Disappears when app closes
 }
 
-    // TITAN: Azure Spatial Anchors for persistence
-    import AzureSpatialAnchors
-    import ARKit
-    
-    class PersistentARManager: NSObject {
-    private var spatialAnchorsSession: ASACloudSpatialAnchorSession!
-    private var currentCloudAnchor: ASACloudSpatialAnchor?
-    private var localAnchors: [String: ARAnchor] = [:]
-    
-    func initializeSession(arSession: ARSession) {
-    spatialAnchorsSession = ASACloudSpatialAnchorSession()
-    spatialAnchorsSession.session = arSession
-    spatialAnchorsSession.delegate = self
-    
-    // Configure Azure credentials
-    spatialAnchorsSession.configuration.accountId = ProcessInfo.processInfo.environment["ASA_ACCOUNT_ID"]!
-    spatialAnchorsSession.configuration.accountKey = ProcessInfo.processInfo.environment["ASA_ACCOUNT_KEY"]!
-    spatialAnchorsSession.configuration.accountDomain = "eastus.mixedreality.azure.com"
-    
-            spatialAnchorsSession.start()
+```swift
+// TITAN: Azure Spatial Anchors for persistence
+import AzureSpatialAnchors
+import ARKit
+
+class PersistentARManager: NSObject {
+private var spatialAnchorsSession: ASACloudSpatialAnchorSession!
+private var currentCloudAnchor: ASACloudSpatialAnchor?
+private var localAnchors: [String: ARAnchor] = [:]
+
+func initializeSession(arSession: ARSession) {
+spatialAnchorsSession = ASACloudSpatialAnchorSession()
+spatialAnchorsSession.session = arSession
+spatialAnchorsSession.delegate = self
+
+// Configure Azure credentials
+spatialAnchorsSession.configuration.accountId = ProcessInfo.processInfo.environment["ASA_ACCOUNT_ID"]!
+spatialAnchorsSession.configuration.accountKey = ProcessInfo.processInfo.environment["ASA_ACCOUNT_KEY"]!
+spatialAnchorsSession.configuration.accountDomain = "eastus.mixedreality.azure.com"
+
+        spatialAnchorsSession.start()
+    }
+
+/// Save AR content to the cloud
+func saveAnchor(at localAnchor: ARAnchor, metadata: [String: String]) async throws -> String {
+// 1. Ensure enough spatial data is collected
+while !isRecommendedForCreate {
+try await Task.sleep(nanoseconds: 500_000_000)  // 0.5s
+let progress = spatialAnchorsSession.getSessionStatus().recommendedForCreateProgress
+print("Spatial data collection: \(progress * 100)%")
         }
-    
-    /// Save AR content to the cloud
-    func saveAnchor(at localAnchor: ARAnchor, metadata: [String: String]) async throws -> String {
-    // 1. Ensure enough spatial data is collected
-    while !isRecommendedForCreate {
-    try await Task.sleep(nanoseconds: 500_000_000)  // 0.5s
-    let progress = spatialAnchorsSession.getSessionStatus().recommendedForCreateProgress
-    print("Spatial data collection: \(progress * 100)%")
-            }
-    
-    // 2. Create cloud anchor from local anchor
-    let cloudAnchor = ASACloudSpatialAnchor()
-    cloudAnchor.localAnchor = localAnchor
-    
-    // 3. Add metadata for later identification
-    for (key, value) in metadata {
-    cloudAnchor.appProperties[key] = value
-            }
-    
-    // 4. Save to Azure
-    try await withCheckedThrowingContinuation { continuation in
-    spatialAnchorsSession.createAnchor(cloudAnchor) { error in
-    if let error = error {
-    continuation.resume(throwing: error)
-    } else {
-            continuation.resume()
-            }
-            }
-            }
-    
-    let anchorId = cloudAnchor.identifier
-    print("Anchor saved with ID: \(anchorId)")
-    
-    // 5. Store ID for later retrieval
-    UserDefaults.standard.set(anchorId, forKey: "lastSavedAnchorId")
-    
-    return anchorId
+
+// 2. Create cloud anchor from local anchor
+let cloudAnchor = ASACloudSpatialAnchor()
+cloudAnchor.localAnchor = localAnchor
+
+// 3. Add metadata for later identification
+for (key, value) in metadata {
+cloudAnchor.appProperties[key] = value
         }
-    
-    /// Locate previously saved anchors
-    func locateAnchors(ids: [String]) async throws {
-    let criteria = ASAAnchorLocateCriteria()
-    criteria.identifiers = ids
-    
-    // Optional: Also use nearby anchors
-    criteria.strategy = .anyStrategy
-    
-    let watcher = spatialAnchorsSession.createWatcher(criteria)
-    
-    // Anchors found via delegate callback
+
+// 4. Save to Azure
+try await withCheckedThrowingContinuation { continuation in
+spatialAnchorsSession.createAnchor(cloudAnchor) { error in
+if let error = error {
+continuation.resume(throwing: error)
+} else {
+        continuation.resume()
         }
-    
-    private var isRecommendedForCreate: Bool {
-    let status = spatialAnchorsSession.getSessionStatus()
-    return status.recommendedForCreateProgress >= 1.0
+        }
+        }
+
+let anchorId = cloudAnchor.identifier
+print("Anchor saved with ID: \(anchorId)")
+
+// 5. Store ID for later retrieval
+UserDefaults.standard.set(anchorId, forKey: "lastSavedAnchorId")
+
+return anchorId
+    }
+
+/// Locate previously saved anchors
+func locateAnchors(ids: [String]) async throws {
+let criteria = ASAAnchorLocateCriteria()
+criteria.identifiers = ids
+
+// Optional: Also use nearby anchors
+criteria.strategy = .anyStrategy
+
+let watcher = spatialAnchorsSession.createWatcher(criteria)
+
+// Anchors found via delegate callback
+    }
+
+private var isRecommendedForCreate: Bool {
+let status = spatialAnchorsSession.getSessionStatus()
+return status.recommendedForCreateProgress >= 1.0
+    }
+}
+
+// MARK: - ASACloudSpatialAnchorSessionDelegate
+extension PersistentARManager: ASACloudSpatialAnchorSessionDelegate {
+func anchorLocated(_ didLocate: ASAAnchorLocatedEvent!) {
+guard let cloudAnchor = didLocate.anchor else { return }
+
+DispatchQueue.main.async {
+// Create local anchor from cloud anchor
+guard let localAnchor = cloudAnchor.localAnchor else { return }
+
+// Add to AR session
+self.arSession.add(anchor: localAnchor)
+
+// Restore furniture model at anchor position
+let furnitureId = cloudAnchor.appProperties["furnitureId"] as? String
+self.restoreFurniture(furnitureId, at: localAnchor)
         }
     }
-    
-    // MARK: - ASACloudSpatialAnchorSessionDelegate
-    extension PersistentARManager: ASACloudSpatialAnchorSessionDelegate {
-    func anchorLocated(_ didLocate: ASAAnchorLocatedEvent!) {
-    guard let cloudAnchor = didLocate.anchor else { return }
-    
-    DispatchQueue.main.async {
-    // Create local anchor from cloud anchor
-    guard let localAnchor = cloudAnchor.localAnchor else { return }
-    
-    // Add to AR session
-    self.arSession.add(anchor: localAnchor)
-    
-    // Restore furniture model at anchor position
-    let furnitureId = cloudAnchor.appProperties["furnitureId"] as? String
-    self.restoreFurniture(furnitureId, at: localAnchor)
-            }
-        }
-    
-    func locatedAnchorsUpdated(_ anchors: [ASACloudSpatialAnchor]!) {
-    print("Located \(anchors.count) persistent anchors")
-        }
+
+func locatedAnchorsUpdated(_ anchors: [ASACloudSpatialAnchor]!) {
+print("Located \(anchors.count) persistent anchors")
     }
-    
+}
+
+```text
 
 ## WEBXR HAND TRACKING
 
@@ -1704,13 +1715,15 @@ let anchor = AnchorEntity(world: position)
 > No joint data processing. Just raw poses.
 > Users wondering why hand interaction doesn't work."
 
-    // VIBE: No hand tracking support
-    navigator.xr.requestSession('immersive-vr')
-    .then(session => {
-    // No hand input at all
-    // Users can only use controllers
-        });
-    
+```javascript
+// VIBE: No hand tracking support
+navigator.xr.requestSession('immersive-vr')
+.then(session => {
+// No hand input at all
+// Users can only use controllers
+    });
+
+```javascript
 // TITAN: Full hand tracking with gesture recognition
 class XRHandTracker {
 constructor(session, renderer) {
@@ -1845,167 +1858,171 @@ grabbed.userData.grabOffset = grabbed.position.clone().sub(gesture.position);
     }
 }
 
-    
-    ## MULTIPLAYER XR SYNCHRONIZATION
-    
-    ### The Scar
-    
-    > "Multiplayer VR meeting room. See other avatars.
-    > But they're 2 seconds behind. Latency unbearable.
-    > Head tracking at 90fps, network at 30fps.
-    > No interpolation, no prediction. Jittery avatars."
-    
+```text
+
+## MULTIPLAYER XR SYNCHRONIZATION
+
+### The Scar
+
+> "Multiplayer VR meeting room. See other avatars.
+> But they're 2 seconds behind. Latency unbearable.
+> Head tracking at 90fps, network at 30fps.
+> No interpolation, no prediction. Jittery avatars."
+
+```javascript
 // VIBE: Direct network position
 socket.on('playerMove', (data) => {
 otherPlayer.position.copy(data.position); // Snaps every 100ms
 // Jittery, laggy movement
 });
 
-    // TITAN: Interpolated multiplayer XR
-    class XRMultiplayerSync {
-    constructor(socket) {
-    this.socket = socket;
-    this.remoteAvatars = new Map();  // playerId => AvatarState
-    this.interpolationDelay = 100;   // 100ms interpolation buffer
-    this.updateRate = 30;  // Network updates per second
+```javascript
+// TITAN: Interpolated multiplayer XR
+class XRMultiplayerSync {
+constructor(socket) {
+this.socket = socket;
+this.remoteAvatars = new Map();  // playerId => AvatarState
+this.interpolationDelay = 100;   // 100ms interpolation buffer
+this.updateRate = 30;  // Network updates per second
+    }
+
+// Send local player state at fixed rate
+sendLocalState(xrFrame, referenceSpace) {
+const headPose = xrFrame.getViewerPose(referenceSpace);
+
+const state = {
+timestamp: performance.now(),
+head: {
+position: headPose.transform.position,
+orientation: headPose.transform.orientation
+        },
+hands: this.getHandStates(xrFrame, referenceSpace),
+// Voice activity indicator
+speaking: this.voiceProcessor.isSpeaking
+        };
+
+this.socket.emit('playerState', state);
+    }
+
+// Receive and buffer remote states
+receiveRemoteState(playerId, state) {
+if (!this.remoteAvatars.has(playerId)) {
+this.remoteAvatars.set(playerId, {
+stateBuffer: [],
+currentState: null,
+avatar: this.createAvatar(playerId)
+        });
         }
-    
-    // Send local player state at fixed rate
-    sendLocalState(xrFrame, referenceSpace) {
-    const headPose = xrFrame.getViewerPose(referenceSpace);
-    
-    const state = {
-    timestamp: performance.now(),
-    head: {
-    position: headPose.transform.position,
-    orientation: headPose.transform.orientation
-            },
-    hands: this.getHandStates(xrFrame, referenceSpace),
-    // Voice activity indicator
-    speaking: this.voiceProcessor.isSpeaking
-            };
-    
-    this.socket.emit('playerState', state);
-        }
-    
-    // Receive and buffer remote states
-    receiveRemoteState(playerId, state) {
-    if (!this.remoteAvatars.has(playerId)) {
-    this.remoteAvatars.set(playerId, {
-    stateBuffer: [],
-    currentState: null,
-    avatar: this.createAvatar(playerId)
-            });
-            }
-    
-    const avatar = this.remoteAvatars.get(playerId);
-    
-    // Add to interpolation buffer
-            avatar.stateBuffer.push({
-            ...state,
-    receivedAt: performance.now()
-            });
-    
-    // Keep buffer size reasonable (1 second of states)
-    while (avatar.stateBuffer.length > this.updateRate) {
-            avatar.stateBuffer.shift();
-            }
-        }
-    
-    // Update avatars with interpolation
-    updateAvatars(localTime) {
-    const renderTime = localTime - this.interpolationDelay;
-    
-    for (const [playerId, avatar] of this.remoteAvatars) {
-    const interpolatedState = this.interpolateState(
-            avatar.stateBuffer,
-            renderTime
-            );
-    
-    if (interpolatedState) {
-    this.applyStateToAvatar(avatar.avatar, interpolatedState);
-            }
-            }
-        }
-    
-    interpolateState(buffer, targetTime) {
-    | if (buffer.length < 2) return buffer[0] |  | null; |
-    
-    // Find two states to interpolate between
-    let before = null, after = null;
-    
-    for (let i = 0; i < buffer.length - 1; i++) {
-    if (buffer[i].timestamp <= targetTime &&
-    buffer[i + 1].timestamp >= targetTime) {
-    before = buffer[i];
-    after = buffer[i + 1];
-            break;
-            }
-            }
-    
-    | if (!before |  | !after) { |
-    // Extrapolate if no bracketing states
-    return this.extrapolate(buffer[buffer.length - 1], targetTime);
-            }
-    
-    // Calculate interpolation factor
-    const t = (targetTime - before.timestamp) /
-    (after.timestamp - before.timestamp);
-    
-    return {
-    head: {
-    position: new THREE.Vector3().lerpVectors(
-            before.head.position,
-            after.head.position,
-            t
-            ),
-    orientation: new THREE.Quaternion().slerpQuaternions(
-            before.head.orientation,
-            after.head.orientation,
-            t
-            )
-            },
-    hands: {
-    left: this.interpolateHand(before.hands.left, after.hands.left, t),
-    right: this.interpolateHand(before.hands.right, after.hands.right, t)
-            },
-    speaking: after.speaking
-            };
-        }
-    
-    // Dead reckoning for latency compensation
-    extrapolate(lastState, targetTime) {
-    if (!lastState.velocity) return lastState;
-    
-    const deltaTime = (targetTime - lastState.timestamp) / 1000;
-    const maxExtrapolation = 0.2;  // Max 200ms prediction
-    const clampedDelta = Math.min(deltaTime, maxExtrapolation);
-    
-    return {
-            ...lastState,
-    head: {
-    position: lastState.head.position.clone().addScaledVector(
-            lastState.velocity,
-            clampedDelta
-            ),
-    orientation: lastState.head.orientation
-            }
-            };
-        }
-    
-    applyStateToAvatar(avatar, state) {
-    // Head
-            avatar.head.position.copy(state.head.position);
-            avatar.head.quaternion.copy(state.head.orientation);
-    
-    // Inverse kinematics for body
-    this.updateAvatarIK(avatar, state);
-    
-    // Speaking indicator
-    avatar.speakingIndicator.visible = state.speaking;
+
+const avatar = this.remoteAvatars.get(playerId);
+
+// Add to interpolation buffer
+        avatar.stateBuffer.push({
+        ...state,
+receivedAt: performance.now()
+        });
+
+// Keep buffer size reasonable (1 second of states)
+while (avatar.stateBuffer.length > this.updateRate) {
+        avatar.stateBuffer.shift();
         }
     }
-    
+
+// Update avatars with interpolation
+updateAvatars(localTime) {
+const renderTime = localTime - this.interpolationDelay;
+
+for (const [playerId, avatar] of this.remoteAvatars) {
+const interpolatedState = this.interpolateState(
+        avatar.stateBuffer,
+        renderTime
+        );
+
+if (interpolatedState) {
+this.applyStateToAvatar(avatar.avatar, interpolatedState);
+        }
+        }
+    }
+
+interpolateState(buffer, targetTime) {
+| if (buffer.length < 2) return buffer[0] |  | null; |
+
+// Find two states to interpolate between
+let before = null, after = null;
+
+for (let i = 0; i < buffer.length - 1; i++) {
+if (buffer[i].timestamp <= targetTime &&
+buffer[i + 1].timestamp >= targetTime) {
+before = buffer[i];
+after = buffer[i + 1];
+        break;
+        }
+        }
+
+| if (!before |  | !after) { |
+// Extrapolate if no bracketing states
+return this.extrapolate(buffer[buffer.length - 1], targetTime);
+        }
+
+// Calculate interpolation factor
+const t = (targetTime - before.timestamp) /
+(after.timestamp - before.timestamp);
+
+return {
+head: {
+position: new THREE.Vector3().lerpVectors(
+        before.head.position,
+        after.head.position,
+        t
+        ),
+orientation: new THREE.Quaternion().slerpQuaternions(
+        before.head.orientation,
+        after.head.orientation,
+        t
+        )
+        },
+hands: {
+left: this.interpolateHand(before.hands.left, after.hands.left, t),
+right: this.interpolateHand(before.hands.right, after.hands.right, t)
+        },
+speaking: after.speaking
+        };
+    }
+
+// Dead reckoning for latency compensation
+extrapolate(lastState, targetTime) {
+if (!lastState.velocity) return lastState;
+
+const deltaTime = (targetTime - lastState.timestamp) / 1000;
+const maxExtrapolation = 0.2;  // Max 200ms prediction
+const clampedDelta = Math.min(deltaTime, maxExtrapolation);
+
+return {
+        ...lastState,
+head: {
+position: lastState.head.position.clone().addScaledVector(
+        lastState.velocity,
+        clampedDelta
+        ),
+orientation: lastState.head.orientation
+        }
+        };
+    }
+
+applyStateToAvatar(avatar, state) {
+// Head
+        avatar.head.position.copy(state.head.position);
+        avatar.head.quaternion.copy(state.head.orientation);
+
+// Inverse kinematics for body
+this.updateAvatarIK(avatar, state);
+
+// Speaking indicator
+avatar.speakingIndicator.visible = state.speaking;
+    }
+}
+
+```text
 
 ### END OF VOLUME 9: TITAN GEMINI RESEARCH - SPATIAL ANCHORS AND MULTIPLAYER XR
 
@@ -2022,9 +2039,11 @@ otherPlayer.position.copy(data.position); // Snaps every 100ms
 > Checked: rendering 50k triangles per frame.
 > LOD system not working. Distant objects fully detailed."
 
-    // VIBE: No LOD, render everything at full detail
-    scene.add(highPolyModel); // 50k triangles at any distance
-    
+```javascript
+// VIBE: No LOD, render everything at full detail
+scene.add(highPolyModel); // 50k triangles at any distance
+
+```javascript
 // TITAN: Aggressive LOD system for VR
 import * as THREE from 'three';
 
@@ -2040,7 +2059,6 @@ this.projScreenMatrix = new THREE.Matrix4();
 
 createLOD(id, levels) {
         /**
-
 - levels = [
 - { distance: 0, mesh: highPoly },
 - { distance: 5, mesh: mediumPoly },
@@ -2135,193 +2153,197 @@ this.mesh.instanceMatrix.needsUpdate = true;
 const treeInstances = new InstancedVRObjects(treeLOD0Geometry, treeMaterial, 1000);
 for (let i = 0; i < 1000; i++) {
     treeInstances.addInstance(
-new THREE.Vector3(Math.random() *100, 0, Math.random()* 100),
-new THREE.Euler(0, Math.random() *Math.PI* 2, 0),
+new THREE.Vector3(Math.random() * 100, 0, Math.random() * 100),
+new THREE.Euler(0, Math.random() * Math.PI * 2, 0),
 new THREE.Vector3(1, 1, 1)
     );
 }
 scene.add(treeInstances.mesh); // 1 draw call instead of 1000
 
-    
-    ## VR COMFORT AND MOTION SICKNESS
-    
-    ### The Scar
-    
-    > "Users playing for 5 minutes then quitting.
-    > Reviews: 'Makes me nauseous.'
-    > Camera attached to moving vehicle.
-    > Artificial locomotion with no comfort options."
-    
+```text
+
+## VR COMFORT AND MOTION SICKNESS
+
+### The Scar
+
+> "Users playing for 5 minutes then quitting.
+> Reviews: 'Makes me nauseous.'
+> Camera attached to moving vehicle.
+> Artificial locomotion with no comfort options."
+
+```javascript
 // VIBE: Camera attached to moving object
 camera.position.copy(car.position);
 // User's vestibular system disagrees with visual motion
 
-    // TITAN: Comprehensive VR comfort system
-    class VRComfortManager {
-    constructor(camera, renderer) {
-    this.camera = camera;
-    this.renderer = renderer;
-    
-    // Comfort settings
-    this.settings = {
-    tunnelVision: true,
-    snapTurning: true,
-    snapTurnAngle: 30,  // degrees
-    teleportLocomotion: true,
-    smoothLocomotionSpeed: 2,  // m/s
-    vignetteFade: true
-            };
-    
-            this.setupVignette();
-        }
-    
-    setupVignette() {
-    // Create vignette overlay for motion
-    this.vignetteGeometry = new THREE.PlaneGeometry(2, 2);
-    this.vignetteMaterial = new THREE.ShaderMaterial({
-    transparent: true,
-    depthTest: false,
-    depthWrite: false,
-    uniforms: {
-    intensity: { value: 0 },
-    innerRadius: { value: 0.6 },
-    outerRadius: { value: 1.0 }
-            },
-    vertexShader: `
-    varying vec2 vUv;
-    void main() {
-    vUv = uv;
-    gl_Position = vec4(position, 1.0);
-            }
-            `,
-    fragmentShader: `
-    uniform float intensity;
-    uniform float innerRadius;
-    uniform float outerRadius;
-    varying vec2 vUv;
-    
-    void main() {
-    vec2 center = vUv - 0.5;
-    float dist = length(center) * 2.0;
-    float vignette = smoothstep(innerRadius, outerRadius, dist);
-    gl_FragColor = vec4(0.0, 0.0, 0.0, vignette * intensity);
-            }
-            `
-            });
-    
-    this.vignetteMesh = new THREE.Mesh(
-            this.vignetteGeometry,
-            this.vignetteMaterial
-            );
-    this.vignetteMesh.renderOrder = 999;
-    this.vignetteMesh.frustumCulled = false;
-        }
-    
-    // Show vignette during artificial movement
-    setMotionIntensity(intensity) {
-    if (!this.settings.tunnelVision) return;
-    
-    // Smooth transition
-    const current = this.vignetteMaterial.uniforms.intensity.value;
-    const target = Math.min(1, intensity);
-    this.vignetteMaterial.uniforms.intensity.value =
-    THREE.MathUtils.lerp(current, target, 0.1);
-        }
-    
-    // Snap turning (less nauseating than smooth)
-    handleSnapTurn(direction) {
-    if (!this.settings.snapTurning) return;
-    
-    const angle = direction *this.settings.snapTurnAngle* (Math.PI / 180);
-    
-    // Instant rotation with brief black frame
-            this.setMotionIntensity(1);
-    this.camera.rotation.y += angle;
-    
-    setTimeout(() => {
-            this.setMotionIntensity(0);
-    }, 50);
-        }
-    
-    // Teleport locomotion (most comfortable)
-    async teleportTo(targetPosition, fadeTime = 200) {
-    if (!this.settings.teleportLocomotion) return;
-    
-    // Fade to black
-    await this.fadeOut(fadeTime);
-    
-    // Move player
-            this.camera.position.copy(targetPosition);
-    
-    // Fade back in
-    await this.fadeIn(fadeTime);
-        }
-    
-    fadeOut(duration) {
-    return new Promise(resolve => {
-    const startTime = performance.now();
-    const animate = () => {
-    const elapsed = performance.now() - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    this.vignetteMaterial.uniforms.intensity.value = progress;
-    this.vignetteMaterial.uniforms.innerRadius.value = 0.6 - (progress * 0.6);
-    
-    if (progress < 1) {
-            requestAnimationFrame(animate);
-    } else {
-            resolve();
-            }
-            };
-            animate();
-            });
-        }
-    
-    fadeIn(duration) {
-    return new Promise(resolve => {
-    const startTime = performance.now();
-    const animate = () => {
-    const elapsed = performance.now() - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    this.vignetteMaterial.uniforms.intensity.value = 1 - progress;
-    this.vignetteMaterial.uniforms.innerRadius.value = progress * 0.6;
-    
-    if (progress < 1) {
-            requestAnimationFrame(animate);
-    } else {
-            resolve();
-            }
-            };
-            animate();
-            });
-        }
-    
-    // Fixed reference points reduce sickness
-    addStationaryReference(scene) {
-    // Nose mesh (always visible peripheral reference)
-    const noseGeometry = new THREE.ConeGeometry(0.015, 0.03, 8);
-    const noseMaterial = new THREE.MeshBasicMaterial({
-    color: 0xf5d0c5,
-    depthTest: false
-            });
-    const nose = new THREE.Mesh(noseGeometry, noseMaterial);
-    nose.position.set(0, -0.05, -0.1);
-    nose.rotation.x = Math.PI / 2;
-    nose.renderOrder = 1;
-            this.camera.add(nose);
-    
-    // Horizon line
-    const horizonGeometry = new THREE.RingGeometry(50, 50.1, 64);
-    const horizonMaterial = new THREE.MeshBasicMaterial({
-    color: 0x444444,
-    side: THREE.DoubleSide
-            });
-    const horizon = new THREE.Mesh(horizonGeometry, horizonMaterial);
-    horizon.rotation.x = Math.PI / 2;
-    horizon.position.y = 0;
-            scene.add(horizon);
-        }
+```javascript
+// TITAN: Comprehensive VR comfort system
+class VRComfortManager {
+constructor(camera, renderer) {
+this.camera = camera;
+this.renderer = renderer;
+
+// Comfort settings
+this.settings = {
+tunnelVision: true,
+snapTurning: true,
+snapTurnAngle: 30,  // degrees
+teleportLocomotion: true,
+smoothLocomotionSpeed: 2,  // m/s
+vignetteFade: true
+        };
+
+        this.setupVignette();
     }
-    
+
+setupVignette() {
+// Create vignette overlay for motion
+this.vignetteGeometry = new THREE.PlaneGeometry(2, 2);
+this.vignetteMaterial = new THREE.ShaderMaterial({
+transparent: true,
+depthTest: false,
+depthWrite: false,
+uniforms: {
+intensity: { value: 0 },
+innerRadius: { value: 0.6 },
+outerRadius: { value: 1.0 }
+        },
+vertexShader: `
+varying vec2 vUv;
+void main() {
+vUv = uv;
+gl_Position = vec4(position, 1.0);
+        }
+        `,
+fragmentShader: `
+uniform float intensity;
+uniform float innerRadius;
+uniform float outerRadius;
+varying vec2 vUv;
+
+void main() {
+vec2 center = vUv - 0.5;
+float dist = length(center) * 2.0;
+float vignette = smoothstep(innerRadius, outerRadius, dist);
+gl_FragColor = vec4(0.0, 0.0, 0.0, vignette * intensity);
+        }
+        `
+        });
+
+this.vignetteMesh = new THREE.Mesh(
+        this.vignetteGeometry,
+        this.vignetteMaterial
+        );
+this.vignetteMesh.renderOrder = 999;
+this.vignetteMesh.frustumCulled = false;
+    }
+
+// Show vignette during artificial movement
+setMotionIntensity(intensity) {
+if (!this.settings.tunnelVision) return;
+
+// Smooth transition
+const current = this.vignetteMaterial.uniforms.intensity.value;
+const target = Math.min(1, intensity);
+this.vignetteMaterial.uniforms.intensity.value =
+THREE.MathUtils.lerp(current, target, 0.1);
+    }
+
+// Snap turning (less nauseating than smooth)
+handleSnapTurn(direction) {
+if (!this.settings.snapTurning) return;
+
+const angle = direction * this.settings.snapTurnAngle * (Math.PI / 180);
+
+// Instant rotation with brief black frame
+        this.setMotionIntensity(1);
+this.camera.rotation.y += angle;
+
+setTimeout(() => {
+        this.setMotionIntensity(0);
+}, 50);
+    }
+
+// Teleport locomotion (most comfortable)
+async teleportTo(targetPosition, fadeTime = 200) {
+if (!this.settings.teleportLocomotion) return;
+
+// Fade to black
+await this.fadeOut(fadeTime);
+
+// Move player
+        this.camera.position.copy(targetPosition);
+
+// Fade back in
+await this.fadeIn(fadeTime);
+    }
+
+fadeOut(duration) {
+return new Promise(resolve => {
+const startTime = performance.now();
+const animate = () => {
+const elapsed = performance.now() - startTime;
+const progress = Math.min(elapsed / duration, 1);
+this.vignetteMaterial.uniforms.intensity.value = progress;
+this.vignetteMaterial.uniforms.innerRadius.value = 0.6 - (progress * 0.6);
+
+if (progress < 1) {
+        requestAnimationFrame(animate);
+} else {
+        resolve();
+        }
+        };
+        animate();
+        });
+    }
+
+fadeIn(duration) {
+return new Promise(resolve => {
+const startTime = performance.now();
+const animate = () => {
+const elapsed = performance.now() - startTime;
+const progress = Math.min(elapsed / duration, 1);
+this.vignetteMaterial.uniforms.intensity.value = 1 - progress;
+this.vignetteMaterial.uniforms.innerRadius.value = progress * 0.6;
+
+if (progress < 1) {
+        requestAnimationFrame(animate);
+} else {
+        resolve();
+        }
+        };
+        animate();
+        });
+    }
+
+// Fixed reference points reduce sickness
+addStationaryReference(scene) {
+// Nose mesh (always visible peripheral reference)
+const noseGeometry = new THREE.ConeGeometry(0.015, 0.03, 8);
+const noseMaterial = new THREE.MeshBasicMaterial({
+color: 0xf5d0c5,
+depthTest: false
+        });
+const nose = new THREE.Mesh(noseGeometry, noseMaterial);
+nose.position.set(0, -0.05, -0.1);
+nose.rotation.x = Math.PI / 2;
+nose.renderOrder = 1;
+        this.camera.add(nose);
+
+// Horizon line
+const horizonGeometry = new THREE.RingGeometry(50, 50.1, 64);
+const horizonMaterial = new THREE.MeshBasicMaterial({
+color: 0x444444,
+side: THREE.DoubleSide
+        });
+const horizon = new THREE.Mesh(horizonGeometry, horizonMaterial);
+horizon.rotation.x = Math.PI / 2;
+horizon.position.y = 0;
+        scene.add(horizon);
+    }
+}
+
+```text
 
 ### END OF VOLUME 10: TITAN GEMINI RESEARCH - WEBXR PERFORMANCE OPTIMIZATION
 
@@ -2333,118 +2355,120 @@ camera.position.copy(car.position);
 
 ### Cross-Platform VR Experience
 
-    // ? TITAN: Production WebXR with fallback handling
-    import * as THREE from 'three';
-    import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
-    import { XRControllerModelFactory } from 'three/examples/jsm/webxr/XRControllerModelFactory.js';
-    
-    class ProductionVRExperience {
-    private renderer: THREE.WebGLRenderer;
-    private scene: THREE.Scene;
-    private camera: THREE.PerspectiveCamera;
-    private controllers: THREE.Group[] = [];
-    private isVRSupported = false;
-    
-    async initialize(container: HTMLElement): Promise<void> {
-    // Scene setup
-    this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x505050);
-    
-    // Camera
-    this.camera = new THREE.PerspectiveCamera(
-          75,
-    window.innerWidth / window.innerHeight,
-          0.1,
-          1000
-        );
-    this.camera.position.set(0, 1.6, 3); // Standing height
-    
-    // Renderer with XR support
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.renderer.xr.enabled = true;
-        container.appendChild(this.renderer.domElement);
-    
-    // Check VR support
-    this.isVRSupported = await this.checkVRSupport();
-    
-    if (this.isVRSupported) {
-    // Add VR button
-          container.appendChild(VRButton.createButton(this.renderer));
-          this.setupControllers();
-    } else {
-    // Fallback to mouse/touch controls
-          this.setupDesktopControls();
-        }
-    
-    // Lighting
-        this.setupLighting();
-    
-    // Start render loop
-        this.renderer.setAnimationLoop(this.render.bind(this));
-      }
-    
-    private async checkVRSupport(): Promise<boolean> {
-    if (!navigator.xr) return false;
-    
-    try {
-    return await navigator.xr.isSessionSupported('immersive-vr');
-    } catch {
-    return false;
-        }
-      }
-    
-    private setupControllers(): void {
-    const controllerModelFactory = new XRControllerModelFactory();
-    
-    for (let i = 0; i < 2; i++) {
-    const controller = this.renderer.xr.getController(i);
-    controller.addEventListener('selectstart', this.onSelectStart.bind(this));
-    controller.addEventListener('selectend', this.onSelectEnd.bind(this));
-          this.scene.add(controller);
-    
-    // Controller model
-    const grip = this.renderer.xr.getControllerGrip(i);
-          grip.add(controllerModelFactory.createControllerModel(grip));
-          this.scene.add(grip);
-    
-    // Ray for pointing
-    const geometry = new THREE.BufferGeometry().setFromPoints([
-    new THREE.Vector3(0, 0, 0),
-    new THREE.Vector3(0, 0, -1)
-          ]);
-    const material = new THREE.LineBasicMaterial({ color: 0xffffff });
-    const ray = new THREE.Line(geometry, material);
-    ray.scale.z = 5;
-          controller.add(ray);
-    
-          this.controllers.push(controller);
-        }
-      }
-    
-    private onSelectStart(event: XRInputSourceEvent): void {
-    // Handle trigger press
-    const controller = event.target as THREE.Group;
-    controller.userData.isSelecting = true;
-      }
-    
-    private onSelectEnd(event: XRInputSourceEvent): void {
-    const controller = event.target as THREE.Group;
-    controller.userData.isSelecting = false;
-      }
-    
-    private render(): void {
-    // Frame callback for VR
-    if (this.renderer.xr.isPresenting) {
-    // VR-specific updates
-          this.updateControllerInteractions();
-        }
-    
-    this.renderer.render(this.scene, this.camera);
-      }
+```typescript
+// ? TITAN: Production WebXR with fallback handling
+import * as THREE from 'three';
+import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
+import { XRControllerModelFactory } from 'three/examples/jsm/webxr/XRControllerModelFactory.js';
+
+class ProductionVRExperience {
+private renderer: THREE.WebGLRenderer;
+private scene: THREE.Scene;
+private camera: THREE.PerspectiveCamera;
+private controllers: THREE.Group[] = [];
+private isVRSupported = false;
+
+async initialize(container: HTMLElement): Promise<void> {
+// Scene setup
+this.scene = new THREE.Scene();
+this.scene.background = new THREE.Color(0x505050);
+
+// Camera
+this.camera = new THREE.PerspectiveCamera(
+      75,
+window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+this.camera.position.set(0, 1.6, 3); // Standing height
+
+// Renderer with XR support
+this.renderer = new THREE.WebGLRenderer({ antialias: true });
+this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+this.renderer.xr.enabled = true;
+    container.appendChild(this.renderer.domElement);
+
+// Check VR support
+this.isVRSupported = await this.checkVRSupport();
+
+if (this.isVRSupported) {
+// Add VR button
+      container.appendChild(VRButton.createButton(this.renderer));
+      this.setupControllers();
+} else {
+// Fallback to mouse/touch controls
+      this.setupDesktopControls();
     }
-    
+
+// Lighting
+    this.setupLighting();
+
+// Start render loop
+    this.renderer.setAnimationLoop(this.render.bind(this));
+  }
+
+private async checkVRSupport(): Promise<boolean> {
+if (!navigator.xr) return false;
+
+try {
+return await navigator.xr.isSessionSupported('immersive-vr');
+} catch {
+return false;
+    }
+  }
+
+private setupControllers(): void {
+const controllerModelFactory = new XRControllerModelFactory();
+
+for (let i = 0; i < 2; i++) {
+const controller = this.renderer.xr.getController(i);
+controller.addEventListener('selectstart', this.onSelectStart.bind(this));
+controller.addEventListener('selectend', this.onSelectEnd.bind(this));
+      this.scene.add(controller);
+
+// Controller model
+const grip = this.renderer.xr.getControllerGrip(i);
+      grip.add(controllerModelFactory.createControllerModel(grip));
+      this.scene.add(grip);
+
+// Ray for pointing
+const geometry = new THREE.BufferGeometry().setFromPoints([
+new THREE.Vector3(0, 0, 0),
+new THREE.Vector3(0, 0, -1)
+      ]);
+const material = new THREE.LineBasicMaterial({ color: 0xffffff });
+const ray = new THREE.Line(geometry, material);
+ray.scale.z = 5;
+      controller.add(ray);
+
+      this.controllers.push(controller);
+    }
+  }
+
+private onSelectStart(event: XRInputSourceEvent): void {
+// Handle trigger press
+const controller = event.target as THREE.Group;
+controller.userData.isSelecting = true;
+  }
+
+private onSelectEnd(event: XRInputSourceEvent): void {
+const controller = event.target as THREE.Group;
+controller.userData.isSelecting = false;
+  }
+
+private render(): void {
+// Frame callback for VR
+if (this.renderer.xr.isPresenting) {
+// VR-specific updates
+      this.updateControllerInteractions();
+    }
+
+this.renderer.render(this.scene, this.camera);
+  }
+}
+
+```text
 
 ---
 
@@ -2452,69 +2476,71 @@ camera.position.copy(car.position);
 
 ### Image Target Recognition
 
-    // ? TITAN: AR.js marker detection with WebXR
-    class ARMarkerExperience {
-    | private session: XRSession | null = null; |
-    | private referenceSpace: XRReferenceSpace | null = null; |
-    private trackedImages: Map<string, ImageMarker> = new Map();
-    
-    async startAR(): Promise<void> {
-    if (!navigator.xr) {
-    throw new Error('WebXR not supported');
+```typescript
+// ? TITAN: AR.js marker detection with WebXR
+class ARMarkerExperience {
+| private session: XRSession | null = null; |
+| private referenceSpace: XRReferenceSpace | null = null; |
+private trackedImages: Map<string, ImageMarker> = new Map();
+
+async startAR(): Promise<void> {
+if (!navigator.xr) {
+throw new Error('WebXR not supported');
+    }
+
+const supported = await navigator.xr.isSessionSupported('immersive-ar');
+if (!supported) {
+throw new Error('AR not supported on this device');
+    }
+
+this.session = await navigator.xr.requestSession('immersive-ar', {
+requiredFeatures: ['local-floor', 'hit-test'],
+optionalFeatures: ['image-tracking']
+    });
+
+this.referenceSpace = await this.session.requestReferenceSpace('local-floor');
+
+this.session.addEventListener('end', this.onSessionEnd.bind(this));
+
+// Start render loop
+    this.session.requestAnimationFrame(this.onXRFrame.bind(this));
+  }
+
+async loadImageTargets(images: ImageTargetConfig[]): Promise<void> {
+for (const config of images) {
+const response = await fetch(config.imageUrl);
+const blob = await response.blob();
+const imageBitmap = await createImageBitmap(blob);
+
+this.trackedImages.set(config.id, {
+bitmap: imageBitmap,
+widthInMeters: config.widthInMeters,
+content: config.content
+      });
+    }
+  }
+
+private onXRFrame(time: number, frame: XRFrame): void {
+| if (!this.session |  | !this.referenceSpace) return; |
+
+// Check for detected images
+| const results = frame.getImageTrackingResults?.() |  | []; |
+
+for (const result of results) {
+if (result.trackingState === 'tracked') {
+const pose = frame.getPose(result.imageSpace, this.referenceSpace);
+if (pose) {
+// Place 3D content at image location
+this.placeContentAtPose(result.index, pose);
         }
-    
-    const supported = await navigator.xr.isSessionSupported('immersive-ar');
-    if (!supported) {
-    throw new Error('AR not supported on this device');
-        }
-    
-    this.session = await navigator.xr.requestSession('immersive-ar', {
-    requiredFeatures: ['local-floor', 'hit-test'],
-    optionalFeatures: ['image-tracking']
-        });
-    
-    this.referenceSpace = await this.session.requestReferenceSpace('local-floor');
-    
-    this.session.addEventListener('end', this.onSessionEnd.bind(this));
-    
-    // Start render loop
-        this.session.requestAnimationFrame(this.onXRFrame.bind(this));
-      }
-    
-    async loadImageTargets(images: ImageTargetConfig[]): Promise<void> {
-    for (const config of images) {
-    const response = await fetch(config.imageUrl);
-    const blob = await response.blob();
-    const imageBitmap = await createImageBitmap(blob);
-    
-    this.trackedImages.set(config.id, {
-    bitmap: imageBitmap,
-    widthInMeters: config.widthInMeters,
-    content: config.content
-          });
-        }
-      }
-    
-    private onXRFrame(time: number, frame: XRFrame): void {
-    | if (!this.session |  | !this.referenceSpace) return; |
-    
-    // Check for detected images
-    | const results = frame.getImageTrackingResults?.() |  | []; |
-    
-    for (const result of results) {
-    if (result.trackingState === 'tracked') {
-    const pose = frame.getPose(result.imageSpace, this.referenceSpace);
-    if (pose) {
-    // Place 3D content at image location
-    this.placeContentAtPose(result.index, pose);
-            }
-          }
-        }
-    
-        this.session.requestAnimationFrame(this.onXRFrame.bind(this));
       }
     }
-    
+
+    this.session.requestAnimationFrame(this.onXRFrame.bind(this));
+  }
+}
+
+```text
 
 ---
 
@@ -2528,94 +2554,98 @@ camera.position.copy(car.position);
 
 ## Three.js Scene Setup
 
-    import * as THREE from 'three';
-    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-    
-    function createScene() {
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x111111);
-    
-    const camera = new THREE.PerspectiveCamera(
-        75,
-    window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      );
-    camera.position.z = 5;
-    
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      document.body.appendChild(renderer.domElement);
-    
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    
-    // Add lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-      scene.add(ambientLight);
-    
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
-      scene.add(directionalLight);
-    
-    // Animation loop
-    function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-    renderer.render(scene, camera);
-      }
-      animate();
-    
-    // Handle resize
-    window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    
-    return { scene, camera, renderer };
-    }
-    
+```typescript
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+function createScene() {
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x111111);
+
+const camera = new THREE.PerspectiveCamera(
+    75,
+window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+camera.position.z = 5;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+// Add lights
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(5, 5, 5);
+  scene.add(directionalLight);
+
+// Animation loop
+function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+renderer.render(scene, camera);
+  }
+  animate();
+
+// Handle resize
+window.addEventListener('resize', () => {
+camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+return { scene, camera, renderer };
+}
+
+```text
 
 ---
 
 ## React Three Fiber
 
-    import { Canvas, useFrame } from '@react-three/fiber';
-    import { OrbitControls, Environment, Float } from '@react-three/drei';
-    
-    function RotatingBox() {
-    const meshRef = useRef<THREE.Mesh>(null);
-    
-    useFrame((state, delta) => {
-    if (meshRef.current) {
-    meshRef.current.rotation.y += delta * 0.5;
-        }
-      });
-    
-    return (
-    <mesh ref={meshRef}>
-    <boxGeometry args={[1, 1, 1]} />
-    <meshStandardMaterial color="hotpink" />
-        </mesh>
-      );
+```tsx
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Environment, Float } from '@react-three/drei';
+
+function RotatingBox() {
+const meshRef = useRef<THREE.Mesh>(null);
+
+useFrame((state, delta) => {
+if (meshRef.current) {
+meshRef.current.rotation.y += delta * 0.5;
     }
-    
-    function Scene() {
-    return (
-    <Canvas camera={{ position: [0, 0, 5] }}>
-    <ambientLight intensity={0.5} />
-    <spotLight position={[10, 10, 10]} angle={0.15} />
-    <Float speed={2} rotationIntensity={1}>
-    <RotatingBox />
-          </Float>
-    <OrbitControls />
-    <Environment preset="city" />
-        </Canvas>
-      );
-    }
-    
+  });
+
+return (
+<mesh ref={meshRef}>
+<boxGeometry args={[1, 1, 1]} />
+<meshStandardMaterial color="hotpink" />
+    </mesh>
+  );
+}
+
+function Scene() {
+return (
+<Canvas camera={{ position: [0, 0, 5] }}>
+<ambientLight intensity={0.5} />
+<spotLight position={[10, 10, 10]} angle={0.15} />
+<Float speed={2} rotationIntensity={1}>
+<RotatingBox />
+      </Float>
+<OrbitControls />
+<Environment preset="city" />
+    </Canvas>
+  );
+}
+
+```text
 
 ---
 

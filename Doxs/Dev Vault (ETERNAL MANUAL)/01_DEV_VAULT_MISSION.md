@@ -1,43 +1,5 @@
 # DEV VAULT - THE ETERNAL MANUAL
 
-## Table of Contents
-
-- [CORE MISSION & 1 MILLION LINES TARGET](#core-mission--1-million-lines-target)
-- [THE BRUTAL TRUTH - WHAT WE'RE REALLY BUILDING](#the-brutal-truth---what-were-really-building)
-- [This Is NOT Another Tutorial Site](#this-is-not-another-tutorial-site)
-- [THE GAP WE'RE CLOSING](#the-gap-were-closing)
-- [The Problem](#the-problem)
-- [The Solution](#the-solution)
-- [THE 1 MILLION LINES TARGET](#the-1-million-lines-target)
-- [Why 1 Million?](#why-1-million)
-- [The Progression](#the-progression)
-- [UPDATED DOMAIN TARGETS (1M LINES)](#updated-domain-targets-1m-lines)
-- [Tier 1: Foundation Domains (150K each)](#tier-1-foundation-domains-150k-each)
-- [Tier 2: Critical Domains (80K each)](#tier-2-critical-domains-80k-each)
-- [Tier 3: Important Domains (40K each)](#tier-3-important-domains-40k-each)
-- [Tier 4: Specialized Domains (20K each)](#tier-4-specialized-domains-20k-each)
-- [Support & Meta (10K total)](#support--meta-10k-total)
-- [TOTAL: 1,000,000 LINES TARGET](#total-1000000-lines-target)
-- [THE CORE PRINCIPLES (FROM YOUR CONCERNS)](#the-core-principles-from-your-concerns)
-- [1. REAL DATA ONLY - NO AI GENERATION](#1-real-data-only---no-ai-generation)
-- [2. DEPTH PROGRESSION (30% → 100%)](#2-depth-progression-30--100)
-- [3. DUAL APPROACH: VACCINE + INJECTION](#3-dual-approach-vaccine--injection)
-- [4. THE BRAIN ACTIVATION SYSTEM](#4-the-brain-activation-system)
-- [5. TECH STACK FOCUS](#5-tech-stack-focus)
-- [6. UNIVERSAL ADAPTATION](#6-universal-adaptation)
-- [NEXT STEPS - IMMEDIATE ACTIONS](#next-steps---immediate-actions)
-- [1. Update All Target Files](#1-update-all-target-files)
-- [2. Refocus Content Strategy](#2-refocus-content-strategy)
-- [3. Start Deep Expansion](#3-start-deep-expansion)
-- [YOUR CONCERNS - ADDRESSED](#your-concerns---addressed)
-- ["Don't give me data AI can generate"](#dont-give-me-data-ai-can-generate)
-- ["Go beyond even Opus 4.5 / Gemini 3.1"](#go-beyond-even-opus-45--gemini-31)
-- ["I'm keeping my life in this"](#im-keeping-my-life-in-this)
-- ["Vaccine + Injection both"](#vaccine--injection-both)
-- ["Universal + Adaptable"](#universal--adaptable)
-- ["1 Million lines"](#1-million-lines)
-
-
 ## CORE MISSION & 1 MILLION LINES TARGET
 
 **Created**: January 5, 2026
@@ -58,8 +20,9 @@
 - Generic best practices
 - Stuff that Cursor/Copilot/v0 already knows
 
-**What THIS is:**-**REAL production incidents** from Stripe, Netflix, Uber engineering blogs
+**What THIS is:**
 
+- **REAL production incidents** from Stripe, Netflix, Uber engineering blogs
 - **ACTUAL debugging thought processes** from senior developers
 - **DECISION TREES** that show "See error X → Check Y → If Z → Do W"
 - **ROOT CAUSE PATTERNS** that only come from years of production experience
@@ -79,21 +42,25 @@
 - Implementation plans
 - Rules and prompts
 
-**But you STILL can't match a senior dev team because:**1.**AI has data, not BRAIN** - It can't recall, integrate, link knowledge in real-time
+**But you STILL can't match a senior dev team because:**
 
-1. **AI has patterns, not EXPERIENCE** - It hasn't debugged 10,000 production bugs
-1. **AI has code, not CONTEXT** - It doesn't know WHY this error happens in THIS stack
-1. **AI has solutions, not DECISION TREES** - It doesn't know the thought process
-1. **AI has examples, not REAL INCIDENTS** - It hasn't lived through the pain
+1. **AI has data, not BRAIN** - It can't recall, integrate, link knowledge in real-time
+2. **AI has patterns, not EXPERIENCE** - It hasn't debugged 10,000 production bugs
+3. **AI has code, not CONTEXT** - It doesn't know WHY this error happens in THIS stack
+4. **AI has solutions, not DECISION TREES** - It doesn't know the thought process
+5. **AI has examples, not REAL INCIDENTS** - It hasn't lived through the pain
 
 ## The Solution
 
-**Create a manual that contains:**- The**ACTUAL BRAIN PATTERNS** of senior developers
+**Create a manual that contains:**
 
+- The **ACTUAL BRAIN PATTERNS** of senior developers
 - The **REAL INCIDENTS** from production systems
 - The **DECISION TREES** for debugging complex issues
 - The **NETWORKING KNOWLEDGE** from dev teams discussing for 5 minutes and solving lifetime bugs
-- The **PATTERN RECOGNITION**that comes from experience, not data**So that:**
+- The **PATTERN RECOGNITION** that comes from experience, not data
+
+**So that:**
 
 - ONE DEVELOPER + THIS MANUAL + AI AGENT = SENIOR DEV TEAM POWER
 - The gap between "agentic coder" and "senior developer" **VANISHES**
@@ -140,7 +107,9 @@
 |--------|--------|---------|-----|----------|
 | **Frontend** | 150,000 | 22,817 | -127,183 | CRITICAL |
 | **Backend** | 150,000 | 12,155 | -137,845 | CRITICAL |
-| **Database**| 150,000 | 6,412 | -143,588 | CRITICAL |**Subtotal**: 450,000 lines
+| **Database** | 150,000 | 6,412 | -143,588 | CRITICAL |
+
+**Subtotal**: 450,000 lines
 
 **Why 150K each?**
 
@@ -158,7 +127,9 @@
 | **Security** | 80,000 | 6,092 | -73,908 | HIGH |
 | **Testing** | 80,000 | 5,811 | -74,189 | HIGH |
 | **System Design** | 80,000 | 5,842 | -74,158 | HIGH |
-| **Cloud**| 80,000 | 4,349 | -75,651 | HIGH |**Subtotal**: 400,000 lines
+| **Cloud** | 80,000 | 4,349 | -75,651 | HIGH |
+
+**Subtotal**: 400,000 lines
 
 ---
 
@@ -169,7 +140,9 @@
 | **Mobile** | 40,000 | 5,529 | -34,471 | MEDIUM |
 | **ML/AI** | 40,000 | 3,309 | -36,691 | MEDIUM |
 | **Blockchain** | 40,000 | 3,607 | -36,393 | MEDIUM |
-| **Payments**| 40,000 | 2,676 | -37,324 | MEDIUM |**Subtotal**: 160,000 lines
+| **Payments** | 40,000 | 2,676 | -37,324 | MEDIUM |
+
+**Subtotal**: 160,000 lines
 
 ---
 
@@ -186,7 +159,9 @@
 | **Investment** | 20,000 | 1,071 | -18,929 | LOW |
 | **Legal Docs** | 20,000 | 1,142 | -18,858 | LOW |
 | **Localization** | 20,000 | 1,217 | -18,783 | LOW |
-| **Ancient Wisdom**| 20,000 | 1,083 | -18,917 | LOW |**Subtotal**: 200,000 lines
+| **Ancient Wisdom** | 20,000 | 1,083 | -18,917 | LOW |
+
+**Subtotal**: 200,000 lines
 
 ---
 
@@ -195,7 +170,9 @@
 | File | Target | Current | Gap |
 |------|--------|---------|-----|
 | **Master Index** | 5,000 | 46 | -4,954 |
-| **Adaptation Guide**| 5,000 | 225 | -4,775 |**Subtotal**: 10,000 lines
+| **Adaptation Guide** | 5,000 | 225 | -4,775 |
+
+**Subtotal**: 10,000 lines
 
 ---
 
@@ -208,7 +185,7 @@
 | Tier 3 (40K) | 4 | 160,000 | 15,121 | 9.5% |
 | Tier 4 (20K) | 10 | 200,000 | 13,843 | 6.9% |
 | Support | 2 | 10,000 | 271 | 2.7% |
-| **TOTAL**|**24**|**1,220,000**|**100,011**|**8.2%** |
+| **TOTAL** | **24** | **1,220,000** | **100,011** | **8.2%** |
 
 > Adjusted to exactly 1M: Reduce tier targets proportionally
 
@@ -306,53 +283,55 @@
 
 **Decision Trees:**
 
-    See error: "PrismaClientKnownRequestError: Foreign key constraint failed"
-    ↓
-    Senior dev thinks: "FK violation - either parent missing or child orphaned"
-    ↓
-    Checks:
-
-    1. Does parent record exist?
-    1. Is FK field nullable?
-    1. Is there a cascade delete?
-    1. Is transaction rolled back?
-    ↓
-    Tests each hypothesis
-    ↓
-    Finds root cause
-    ↓
-    Fixes with pattern
+```
+See error: "PrismaClientKnownRequestError: Foreign key constraint failed"
+↓
+Senior dev thinks: "FK violation - either parent missing or child orphaned"
+↓
+Checks:
+1. Does parent record exist?
+2. Is FK field nullable?
+3. Is there a cascade delete?
+4. Is transaction rolled back?
+↓
+Tests each hypothesis
+↓
+Finds root cause
+↓
+Fixes with pattern
+```
 
 **Root Cause Mapping:**
 
-    Symptom: API returns 500 after auth change
-    ↓
-    Possible Causes:
-
-    1. Middleware order changed
-    1. JWT secret not in env
-    1. Cookie settings wrong
-    1. CORS blocking credentials
-    ↓
-    Tests:
-
-    1. Check middleware order in logs
-    1. Verify env vars loaded
-    1. Inspect Set-Cookie headers
-    1. Check CORS config
-    ↓
-    Fixes: [Specific to cause found]
+```
+Symptom: API returns 500 after auth change
+↓
+Possible Causes:
+1. Middleware order changed
+2. JWT secret not in env
+3. Cookie settings wrong
+4. CORS blocking credentials
+↓
+Tests:
+1. Check middleware order in logs
+2. Verify env vars loaded
+3. Inspect Set-Cookie headers
+4. Check CORS config
+↓
+Fixes: [Specific to cause found]
+```
 
 **Cross-Cutting Checklists:**
 
-    Changed authentication?
-    → Also update:
-
-    - API routes (middleware order)
-    - Frontend (token storage)
-    - Tests (mock auth)
-    - Docs (auth flow)
-    - Deployment (env vars)
+```
+Changed authentication?
+→ Also update:
+  - API routes (middleware order)
+  - Frontend (token storage)
+  - Tests (mock auth)
+  - Docs (auth flow)
+  - Deployment (env vars)
+```
 
 ---
 
@@ -388,20 +367,21 @@
 
 ## 6. UNIVERSAL ADAPTATION
 
-**The manual must be:**-**Universal**: Works for any project
+**The manual must be:**
 
+- **Universal**: Works for any project
 - **Adaptable**: Can be customized per project
 - **Self-evolving**: Grows with the project
 
 **Adaptation Process:**
 
 1. Start with universal Dev Vault (1M lines)
-1. AI agent reads project requirements
-1. Creates project-specific Dev Vault
-1. Adds domains relevant to project
-1. Removes irrelevant domains
-1. Adapts patterns to project stack
-1. Integrates into project ecosystem
+2. AI agent reads project requirements
+3. Creates project-specific Dev Vault
+4. Adds domains relevant to project
+5. Removes irrelevant domains
+6. Adapts patterns to project stack
+7. Integrates into project ecosystem
 
 **Example:**
 

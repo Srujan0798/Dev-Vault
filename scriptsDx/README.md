@@ -53,28 +53,28 @@ scriptsDx/
 │   ├── toc_fixer.py
 │   └── validate_links.py
 │
-├── corruption_detection/            ← Corruption checkers (5 scripts)
+├── corruption_detection/            ← Corruption checkers (3 scripts)
 │   ├── check_dev_vault_corruption.py
-│   ├── check_dev_vault.py
 │   ├── jules_check_corruption.py
-│   ├── jules_fix_corruption.py
-│   └── verify_encoding.py
+│   └── jules_fix_corruption.py
 │
-├── fixers/                          ← Fixers (14 scripts)
+├── fixers/                          ← Fixers (11 scripts)
 │   ├── advanced_table_fixer.py
-│   ├── aggressive_gap_killer.py
-│   ├── auto_toc.py
+│   ├── complete_ide_fixer.py           ← NEW: IDE-level fixer
 │   ├── critical_fixer.py
 │   ├── disclaimer_injector.py
 │   ├── fix_code_block_closers.py
 │   ├── fix_encoding_for_github.py      ← NEW: GitHub encoding fixer
 │   ├── hierarchy_enforcer.py           ← NEW: Heading hierarchy fixer
 │   ├── polish_fixer.py
-│   ├── remove_code_fences.py           ← NEW: Code fence remover
 │   ├── toc_sync.py
 │   ├── ultra_table_fixer.py
-│   ├── universal_lint_fixer.py
 │   └── visual_corruption_fixer.py
+│
+├── jules/                           ← Jules Verification System (3 scripts)
+│   ├── check_corruption.py             ← Deep encoding check
+│   ├── fix_corruption.py               ← Fix mojibake with ftfy
+│   └── generate_manifest.py            ← Generate file checksums
 │
 ├── sentinel/                        ← Sentinel system (6 scripts)
 │   ├── check_dev_vault.py
